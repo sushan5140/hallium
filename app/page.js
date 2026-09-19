@@ -4835,7 +4835,7 @@ export default function Hallim() {
           </button>
           {aiFeatureError && (
             <div className="why-panel">
-              {/Grok_API|not configured/i.test(aiFeatureError)
+              {/GROQ_API_KEY|Grok_API|not configured/i.test(aiFeatureError)
                 ? "Adaptive routing is unavailable right now. Your lessons, review and progress are unaffected."
                 : aiFeatureError}
             </div>
