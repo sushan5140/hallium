@@ -36,7 +36,7 @@ function parseJsonObject(raw) {
 }
 
 export async function GET() {
-  const apiKey = process.env.Grok_API;
+  const apiKey = process.env.AI_API || process.env.GROQ_API_KEY || process.env.Grok_API;
   if (!apiKey) return Response.json({ ok: false, provider: "groq", configured: false }, { status: 503 });
   try {
     const model = await getGroqModel(apiKey);
@@ -53,9 +53,9 @@ export async function GET() {
 
 export async function POST(request) {
   try {
-    const apiKey = process.env.Grok_API;
+    const apiKey = process.env.AI_API || process.env.GROQ_API_KEY || process.env.Grok_API;
     if (!apiKey) {
-      return Response.json({ error: "Grok_API is not configured on the server." }, { status: 503 });
+      return Response.json({ error: "AI_API is not configured on the server." }, { status: 503 });
     }
 
     const learner = await request.json();
