@@ -176,7 +176,7 @@ function validateStructuredResult(action, result, payload) {
 }
 
 export async function GET() {
-  const apiKey = process.env.Grok_API;
+  const apiKey = process.env.GROQ_API_KEY || process.env.Grok_API;
   if (!apiKey) return Response.json({ ok: false, provider: "groq", configured: false }, { status: 503 });
   try {
     const model = await getGroqModel(apiKey);
@@ -193,8 +193,8 @@ export async function GET() {
 
 export async function POST(request) {
   try {
-    const apiKey = process.env.Grok_API;
-    if (!apiKey) return Response.json({ error: "Grok_API is not configured." }, { status: 503 });
+    const apiKey = process.env.GROQ_API_KEY || process.env.Grok_API;
+    if (!apiKey) return Response.json({ error: "GROQ_API_KEY is not configured." }, { status: 503 });
 
     const body = await request.json();
     const action = body?.action;
