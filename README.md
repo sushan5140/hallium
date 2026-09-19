@@ -38,7 +38,7 @@ Set these environment variables separately in Vercel Preview and Production:
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
-- `Grok_API`
+- `GROQ_API_KEY` (GroqCloud, not xAI Grok — the AI endpoint calls `api.groq.com`; the legacy `Grok_API` name is supported temporarily for existing deployments)
 
 Reuse the existing Supabase project so Google sign-in and learning progress
 are not lost. Do not commit server API secrets or `.env` files.
