@@ -2398,3 +2398,20 @@ button.toast{border:0;text-align:left}
   .mobile-nav{left:5px;right:5px;padding:4px}
   .mobile-nav button{font-size:8.5px}
 }
+
+
+/* Local-only Hangul Lab entry points. The complete lab lives on /hangul. */
+.primary-nav .hangul-nav-tab{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;white-space:nowrap}
+.primary-nav .hangul-nav-tab:hover{background:#fff;color:var(--indigo-deep)}
+.study-cards>.hangul-hub-card{min-height:175px;padding:18px;border:1px solid #d9d5ff;border-radius:22px;background:linear-gradient(135deg,#f1f0ff,#fff);display:flex;flex-direction:column;align-items:flex-start;text-align:left;box-shadow:var(--shadow-low);color:var(--ink);text-decoration:none;transition:transform .2s var(--ease-out),border-color .2s,box-shadow .2s}
+.study-cards>.hangul-hub-card:hover{transform:translateY(-3px);border-color:#8f85f3;box-shadow:0 13px 27px rgba(81,71,232,.11)}
+.study-cards>.hangul-hub-card:focus-visible,.home-rail a.hangul-rail-link:focus-visible{outline:3px solid var(--papaya);outline-offset:3px}
+.study-cards>.hangul-hub-card .study-glyph.hangul{background:#dfdcff;color:#342aa8;font-family:"Noto Sans KR",system-ui,sans-serif}
+.study-cards>.hangul-hub-card>span:nth-child(2){display:flex;flex-direction:column;gap:4px;margin-top:13px}
+.study-cards>.hangul-hub-card>span:nth-child(2) strong{font-size:15px;letter-spacing:-.3px}
+.study-cards>.hangul-hub-card>span:nth-child(2) small{font-size:11px;line-height:1.5;color:var(--muted)}
+.study-cards>.hangul-hub-card em{font-size:11px;margin-top:auto;padding-top:12px;font-style:normal;font-weight:850;color:var(--indigo)}
+.home-rail a.hangul-rail-link{text-decoration:none;background:#eeedff;border-color:#d7d2fa;color:var(--indigo-deep);margin-top:12px}
+.home-rail a.hangul-rail-link:hover{background:#e5e2ff;border-color:#afa8f3}
+@media(max-width:620px){.study-cards>.hangul-hub-card{min-height:112px;display:grid;grid-template-columns:46px 1fr;gap:0 12px}.study-cards>.hangul-hub-card>span:nth-child(2){margin-top:3px}.study-cards>.hangul-hub-card em{grid-column:2;margin-top:8px;padding-top:0}}
+@media(prefers-reduced-motion:reduce){.study-cards>.hangul-hub-card{transition:none}.study-cards>.hangul-hub-card:hover{transform:none}}
