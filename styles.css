@@ -43,3 +43,81 @@
 @media (max-width:720px){.category-heading{align-items:start;flex-direction:column}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-card{min-height:206px}.category-glyph{font-size:27px}.category-total{font-size:10px}.terminology-note{font-size:11px}}
 @media (max-width:470px){.category-grid{grid-template-columns:minmax(0,1fr)}.category-card{min-height:155px}.category-description{font-size:11px}.category-glyph{font-size:32px}.category-heading h3{font-size:25px}.category-total{width:100%}}
 @media (prefers-reduced-motion:reduce){.category-card{transition:none}.category-card:hover{transform:none}}
+
+/* Preview 03 · guided handwriting and free writing workspace */
+[hidden]{display:none!important}
+.writing-intro{background:linear-gradient(123deg,#f0efff 0%,#f7f7fc 64%,#e9f6ed 100%);border-radius:24px;padding:34px;margin:20px 0 20px;display:flex;justify-content:space-between;align-items:center;gap:18px;border:1px solid #e3e1f3}
+.writing-intro h1{margin:15px 0 16px}
+.writing-intro p{max-width:570px;font-size:14px}
+.writing-intro-glyph{background:#e1ddff;color:var(--indigo);transform:rotate(7deg);font-size:76px;min-width:118px;width:118px;height:118px;display:grid;place-items:center;box-shadow:0 13px 28px #5147e817;border-radius:29px 29px 14px 29px}
+.write-intro-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.write-intro-chips span{background:#fff;border:1px solid #e6e4f0;border-radius:100px;padding:7px 12px;font-size:11px;font-weight:850;color:#5755ac}
+.writing-lesson{background:#fff;border:1px solid var(--line);border-radius:21px;padding:22px;margin-bottom:17px}
+.writing-lesson-top{display:flex;align-items:center;gap:12px}
+.writing-lesson-top>div{flex:1}
+.writing-lesson-top strong{display:block;font-size:15px;font-weight:900;letter-spacing:-.3px}
+.writing-lesson-top p{color:var(--muted);font-size:11px;margin:3px 0 0}
+.writing-progress-label{white-space:nowrap;background:var(--jade-soft);padding:9px 11px;border-radius:9px;color:var(--jade);font-size:10px;font-weight:900}
+.writing-selectors{display:grid;grid-template-columns:1fr 1.1fr 1.3fr;gap:12px;margin-top:22px}
+.writing-selectors label{display:flex;flex-direction:column;gap:7px;font-size:10px;font-weight:900;color:#888b9a;letter-spacing:.75px}
+.writing-selectors select{width:100%;min-width:0;border:1px solid var(--line);border-radius:11px;background:#f8f9f6;color:var(--ink);padding:12px 10px;letter-spacing:0;font-weight:800;font-size:12px;cursor:pointer}
+.writing-selectors select:hover{border-color:#b7b3e8}
+.writing-lesson-actions{display:flex;gap:9px;justify-content:space-between;margin-top:15px;flex-wrap:wrap}
+.writing-lesson-actions .outline-button{flex:1}
+.writing-board{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(230px,.88fr);gap:17px;align-items:start}
+.writing-work{background:#fff;border:1px solid var(--line);border-radius:22px;padding:21px;min-width:0}
+.writing-work-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:17px}
+.writing-step{color:var(--indigo);font-size:10px;letter-spacing:1px;font-weight:900}
+.writing-work-top h2{font-size:19px;letter-spacing:-.8px;margin:5px 0 0}
+.writing-sheet-count{background:#f1f1fa;color:#756ebe;border-radius:9px;padding:8px 10px;font-size:9px;letter-spacing:.5px;white-space:nowrap;font-weight:900}
+.writing-modes{display:flex;gap:6px;padding:5px;background:#f2f3ee;border-radius:12px;margin-bottom:14px}
+.writing-modes button{border:0;padding:10px 12px;flex:1;font-size:11px;font-weight:850;border-radius:9px;background:transparent;color:#777b89}
+.writing-modes .is-active{background:#fff;color:var(--deep);box-shadow:0 3px 12px #18182712}
+.writing-canvas-wrap{height:auto;aspect-ratio:1.28;min-height:255px;max-height:500px;position:relative;overflow:hidden;border:1px solid #dcdfe1;border-radius:17px;background-color:#fffefb;background-image:linear-gradient(90deg,#eaeee8 1px,transparent 1px),linear-gradient(0deg,#eaeee8 1px,transparent 1px);background-size:25% 25%}
+.writing-canvas-wrap:before,.writing-canvas-wrap:after{content:"";position:absolute;z-index:0;pointer-events:none}
+.writing-canvas-wrap:before{border-left:1px dashed #dbdbdc;left:50%;top:0;height:100%}
+.writing-canvas-wrap:after{border-top:1px dashed #dbdbdc;top:50%;left:0;width:100%}
+.writing-guide{position:absolute;inset:0;display:grid;place-items:center;font:900 130px/1.1 'Noto Sans KR',sans-serif;color:#d3cef5;white-space:nowrap;pointer-events:none;z-index:1;opacity:0;transition:opacity .16s;user-select:none;padding:20px;text-align:center;letter-spacing:-.06em}
+.show-writing-guide .writing-guide{opacity:.55}
+#writing-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;touch-action:none;cursor:crosshair}
+.writing-canvas-caption{position:absolute;bottom:11px;left:14px;right:14px;display:flex;justify-content:space-between;gap:8px;pointer-events:none;font-size:9px;font-weight:900;color:#a8a6b4;letter-spacing:1px;z-index:1}
+.writing-tools{display:flex;gap:7px;justify-content:space-between;margin:13px 0 15px}
+.writing-tools button{flex:1;padding:10px 7px;white-space:normal}
+.writing-save-row{display:flex;gap:8px}
+.writing-save-row>*{flex:1;min-width:0;white-space:normal}
+.writing-save-row .primary-button{gap:8px}
+.writing-honesty{font-size:11px;line-height:1.6;color:#747886;margin:12px 0 0}
+.writing-reference{background:#eeedff;border:1px solid #dbd9f7;border-radius:22px;padding:22px;min-width:0}
+.writing-reference>.writing-step{display:flex;align-items:center;justify-content:space-between}
+.writing-reference>.writing-step span{color:var(--papaya);font-size:18px}
+.writing-reference-char{font:900 clamp(56px,6vw,95px)/1.2 'Noto Sans KR',sans-serif;text-align:center;overflow-wrap:anywhere;word-break:keep-all;color:var(--deep);min-height:130px;margin:20px 0 3px;display:grid;place-items:center;white-space:normal;letter-spacing:-.06em}
+.writing-reference-rom{text-align:center;font-size:20px;font-weight:900;letter-spacing:-.7px;color:var(--ink)}
+.writing-reference-meaning{margin:8px auto 17px;max-width:290px;color:#6f7086;font-size:12px;text-align:center;line-height:1.6}
+.writing-listen{display:block;width:100%;border:0;background:var(--indigo);color:white;border-radius:11px;padding:13px 10px;font-size:12px;font-weight:900}
+.writing-listen:hover{background:var(--deep)}
+.writing-reference-divider{height:1px;background:#d5d3ef;margin:22px 0}
+.writing-guide-title{font-size:12px;font-weight:900;letter-spacing:-.25px}
+.writing-reference ol{padding-left:20px;font-size:11px;line-height:1.8;color:#60617b;margin:10px 0 15px}
+.writing-reference li{padding-left:2px;margin:5px 0}
+.writing-done{padding:12px;background:#fff;border-radius:11px;color:var(--jade);font-size:10px;font-weight:800;line-height:1.5}
+.writing-word-examples{margin-top:34px}
+.writing-word-examples h2{font-size:clamp(24px,2.5vw,32px);font-weight:900;letter-spacing:-1.2px;margin:6px 0}
+.writing-word-examples>div>p{font-size:12px;color:var(--muted);margin:0 0 17px}
+.writing-example-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.writing-example-grid button{border:1px solid var(--line);border-radius:17px;background:#fff;text-align:left;padding:16px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}
+.writing-example-grid button:hover{border-color:var(--indigo);box-shadow:0 9px 20px #5147e814;transform:translateY(-2px)}
+.writing-example-grid strong{font:850 clamp(22px,2.2vw,30px)/1.4 'Noto Sans KR',sans-serif;letter-spacing:-.06em;color:var(--deep);overflow-wrap:anywhere}
+.writing-example-grid span{font-size:11px;color:var(--muted)}
+.writing-example-grid small{font-size:10px;color:var(--indigo);font-weight:900;margin-top:8px}
+.writing-mini{margin-top:17px;background:#f0eeff;border:1px solid #e0dcf6;border-radius:18px;padding:17px}
+.writing-mini>span{font-size:10px;color:var(--deep);letter-spacing:1px;font-weight:900}
+.writing-mini strong{display:block;font-size:36px;letter-spacing:-1px;margin:8px 0;color:var(--ink)}
+.writing-mini small{font-size:12px;letter-spacing:0;color:#8881bb}
+.writing-mini p{font-size:11px;color:#696587;line-height:1.5}
+.writing-mini button{font-size:11px;border:0;padding:0;background:transparent;color:var(--indigo);font-weight:900}
+.dialog-write{display:block;width:100%;margin-top:9px}
+@media(max-width:1350px){.desktop-nav .nav-link{padding:10px 11px;font-size:12px}}
+@media(max-width:1150px){.writing-board{grid-template-columns:minmax(0,1fr)}.writing-reference{display:grid;grid-template-columns:1fr 1fr;gap:4px 22px;align-items:center}.writing-reference>.writing-step,.writing-reference-divider,.writing-reference .writing-guide-title,.writing-reference ol,.writing-done{grid-column:1/-1}.writing-reference-char{min-height:98px;margin:0}.writing-reference-meaning{margin:4px auto 12px}.writing-reference ol{columns:2}}
+@media(max-width:760px){.writing-intro{padding:22px;margin-top:16px}.writing-intro-glyph{height:83px;min-width:83px;width:83px;font-size:54px}.writing-selectors{grid-template-columns:1fr 1fr}.writing-selectors label:last-child{grid-column:1/-1}.writing-board{grid-template-columns:1fr}.writing-reference{display:block}.writing-reference ol{columns:1}.writing-canvas-wrap{aspect-ratio:1.2;min-height:270px}.writing-work{padding:15px}.writing-example-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.writing-example-grid button:last-child{grid-column:1/-1}.writing-mini{display:none}.mobile-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}.mobile-nav button{min-width:0;padding-left:3px;padding-right:3px;font-size:10px}}
+@media(max-width:460px){.writing-intro-glyph{display:none}.writing-lesson{padding:16px}.writing-lesson-top{flex-wrap:wrap}.writing-progress-label{margin-left:42px}.writing-work-top{flex-wrap:wrap}.writing-sheet-count{font-size:9px}.writing-selectors{grid-template-columns:1fr}.writing-selectors label:last-child{grid-column:auto}.writing-save-row{flex-direction:column}.writing-tools button{font-size:10px}.writing-canvas-wrap{min-height:245px}.writing-lesson-actions{gap:5px}.writing-lesson-actions button{font-size:10px;padding:10px 5px}}
+@media(prefers-reduced-motion:reduce){.writing-guide{transition:none}.writing-example-grid button:hover{transform:none}}
