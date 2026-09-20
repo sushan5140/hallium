@@ -57,6 +57,23 @@
           <section class="category-section" aria-labelledby="category-title">
             <div class="category-heading"><div><div class="eyebrow muted-eyebrow">A FRIENDLIER WAY TO LEARN</div><h3 id="category-title">Six little letter families<span class="period">.</span></h3><p>Start with the core shapes, then meet stronger consonants and vowels that combine sounds.</p></div><span class="category-total">19 CONSONANTS <b>+</b> 21 VOWELS</span></div>
             <div id="group-cards" class="category-grid" role="group" aria-label="Explore Hangul letter groups"></div>
+            <div id="family-preview" class="family-preview" hidden aria-label="Interactive letter family preview">
+              <div class="family-preview-head">
+                <div class="family-preview-title"><span id="family-preview-kicker">FAMILY 01 · MINI LESSON</span><h4 id="family-preview-title">Start with the sounds.</h4><p id="family-preview-note">Choose any letter to hear it and discover how it works.</p></div>
+                <button type="button" id="family-preview-close" class="family-preview-close" aria-label="Close family preview">×</button>
+              </div>
+              <div class="family-preview-workspace">
+                <div class="family-preview-main">
+                  <div class="family-playline"><span>HEAR THE FAMILY</span><span id="family-preview-count">10 SOUNDS</span></div>
+                  <div id="family-preview-letters" class="family-preview-letters" role="group" aria-label="Play a letter or see its details"></div>
+                  <div class="family-preview-spotlight" id="family-preview-spotlight" aria-live="polite">
+                    <div class="family-preview-letter" id="family-preview-letter" lang="ko">ㄱ</div>
+                    <div class="family-preview-explainer"><div id="family-preview-roman" class="family-preview-roman">g / k</div><p id="family-preview-guide">Hear the letter inside a real Korean syllable.</p><div id="family-preview-example" class="family-preview-example">가 · go</div><div class="family-preview-listen-row"><button type="button" id="family-preview-speak" class="family-preview-speak">♫ Play sound</button><button type="button" id="family-preview-details" class="family-preview-details">Open letter guide ↗</button></div></div>
+                  </div>
+                </div>
+                <aside class="family-preview-aside"><span class="family-aside-label">YOUR FAMILY PROGRESS ✦</span><div class="family-aside-counter"><strong id="family-preview-known">0</strong><span id="family-preview-total">/ 10</span></div><div class="family-aside-track"><span id="family-preview-fill"></span></div><p id="family-preview-progress-note">Choose a letter to start learning.</p><div class="family-aside-divider"></div><div class="family-aside-label">UP NEXT</div><p id="family-preview-path">Listen → Learn → Write → Remember</p><div class="family-preview-actions"><button type="button" id="family-preview-learn">Explore all letters ↗</button><button type="button" id="family-preview-write">✎ Write this family</button><button type="button" id="family-preview-quiz">✳ Quiz this family</button><button type="button" id="family-preview-cards">▣ Flashcards</button></div></aside>
+              </div>
+            </div>
             <p class="terminology-note"><strong>About “long vowels”:</strong> Some beginner guides use that name for the extra-stroke <strong>ㅑ · ㅕ · ㅛ · ㅠ</strong>. They are <strong>Y-vowels</strong> (ya, yeo, yo, yu), not longer-duration versions of ㅏ · ㅓ · ㅗ · ㅜ. The extra stroke changes the sound, not how long you hold it.</p>
           </section>
           <div class="toolbar"><label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search Hangul letters</span><input id="search-letters" type="search" autocomplete="off" placeholder="Search a sound, letter or example..." /></label><div class="segmented" id="family-tabs" role="group" aria-label="Filter letters"></div></div>
