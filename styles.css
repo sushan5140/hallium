@@ -192,3 +192,33 @@
 @media(max-width:760px){.family-preview-head{padding:20px 17px 14px}.family-preview-workspace{grid-template-columns:1fr}.family-preview-main{padding:18px 16px}.family-preview-aside{border-left:0;border-top:1px solid var(--line);padding:16px}.family-preview-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.family-preview-letters{grid-template-columns:repeat(5,minmax(0,1fr))}.category-card{min-height:182px}.category-bottom{align-items:center}}
 @media(max-width:470px){.family-preview-letters{grid-template-columns:repeat(4,minmax(0,1fr))}.family-sound-chip{min-height:76px}.family-sound-chip strong{font-size:26px}.family-preview-spotlight{gap:10px;padding:12px}.family-preview-letter{width:65px;height:85px;font-size:47px}.family-preview-roman{font-size:18px}.family-preview-listen-row button{font-size:10px;padding:8px}.category-card{min-height:170px}.category-action{font-size:11px!important}}
 @media(prefers-reduced-motion:reduce){.family-preview,.category-card:before,.category-glyph,.family-sound-chip,.family-aside-track span{animation:none;transition:none}.family-sound-chip:hover{transform:none}}
+
+/* Preview 04.1 · calmer, tighter handoff from a family mini-lesson to the library. */
+.category-section{margin-bottom:12px}
+.family-preview{margin:12px 0 12px}
+.family-preview-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(100deg,color-mix(in srgb,var(--family-accent) 7%,white),#fff);border-top:1px solid color-mix(in srgb,var(--family-accent) 15%,var(--line));padding:12px 20px}
+.family-footer-copy{display:flex;align-items:center;gap:11px;min-width:0}
+.family-footer-icon{display:grid;place-items:center;width:33px;height:33px;flex:none;border-radius:11px;background:color-mix(in srgb,var(--family-accent) 14%,#fff);color:var(--family-accent);font-size:17px}
+.family-footer-copy strong,.family-footer-copy span{display:block}
+.family-footer-copy strong{font-size:12px;font-weight:900;letter-spacing:-.18px}
+.family-footer-copy div>span{color:var(--muted);font-size:10px;line-height:1.5;margin-top:2px}
+#family-preview-continue{border:1px solid var(--family-accent);background:var(--family-accent);color:#fff;flex:none;padding:10px 12px;border-radius:10px;font-size:11px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:13px;transition:transform .18s var(--ease),filter .18s}
+#family-preview-continue:hover{transform:translateY(-2px);filter:brightness(.9)}
+#family-preview-continue span{font-size:17px;line-height:1}
+.terminology-note{margin:11px 0 9px;padding:0;background:#fffdf3;border:1px solid #ebe5cd;border-radius:12px;color:#72643c;box-shadow:none;line-height:1.5}
+.terminology-note summary{display:flex;align-items:center;gap:9px;padding:10px 13px;cursor:pointer;list-style:none;user-select:none;font-size:11px;line-height:1.45;font-weight:650}
+.terminology-note summary::-webkit-details-marker{display:none}
+.terminology-note summary::marker{content:""}
+.terminology-spark{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:8px;background:#fff3c8;color:#947115;font-size:13px}
+.terminology-note summary>span:nth-child(2){flex:1}
+.terminology-note summary strong{font-weight:900;color:#74602d}
+.terminology-note summary:hover{color:#514421}
+.terminology-chevron{font-size:19px;color:#9e8f6b;line-height:1;transition:transform .18s var(--ease)}
+.terminology-note[open] .terminology-chevron{transform:rotate(180deg)}
+.terminology-note p{border-top:1px solid #f0e9ce;margin:0;padding:11px 15px 12px 46px;font-size:11px;line-height:1.7}
+#view-learn>.toolbar{margin-top:0}
+#view-learn>.grid-heading{margin-top:17px;margin-bottom:12px}
+#view-learn>.group-explanation{margin-bottom:13px}
+#letter-grid{scroll-margin-top:104px}
+@media(max-width:760px){.family-preview-footer{align-items:stretch;flex-direction:column;padding:13px 15px;gap:10px}#family-preview-continue{width:100%}.terminology-note summary{padding:10px 11px}.terminology-note p{padding:10px 13px}.category-section{margin-bottom:10px}}
+@media(prefers-reduced-motion:reduce){#family-preview-continue,.terminology-chevron{transition:none}#family-preview-continue:hover{transform:none}}
