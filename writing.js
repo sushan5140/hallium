@@ -72,6 +72,7 @@
   function exportPng(){if(!points())return;const out=document.createElement('canvas');out.width=1400;out.height=1000;const g=out.getContext('2d');const originalW=width,originalH=height;drawBackground(g,1400,1000,guideOn);for(const line of strokes)paintLine(g,line,1400,1000);g.fillStyle='#17191f';g.fillRect(0,943,1400,57);g.fillStyle='#fff';g.font='700 21px sans-serif';g.textAlign='left';g.fillText('HALLIUM  /  HANGUL WRITING STUDIO',35,976);g.textAlign='right';g.fillText(target.text+'  ·  '+target.rom,1365,976);const anchor=document.createElement('a');anchor.download='hallium-writing-'+kind+'-'+Array.from(target.text).filter(c=>/[가-힣ㄱ-ㅎㅏ-ㅣ]/.test(c)).join('').slice(0,14)+'.png';anchor.href=out.toDataURL('image/png');anchor.click()}
   function selectLetter(h){if(!lab.byLetter[h])return;family='all';$('writing-family').value='all';setKind('letters',h);lab.switchView('write')}
   function selectWord(h){setKind('words',h);lab.switchView('write')}
+  function selectFamily(g){if(!lab.studyGroups[g])return;family=g;$('writing-family').value=g;setKind('letters',lab.studyGroups[g].letters[0]);lab.switchView('write')}
   function clearSavedSheets(){saved={};try{localStorage.removeItem(KEY)}catch{}strokes=[];if(target)choose(Number($('writing-target').value)||0)}
   function setup(){
     $('writing-kind').addEventListener('change',e=>setKind(e.target.value));
@@ -98,6 +99,6 @@
     window.addEventListener('hashchange',()=>{if(location.hash==='#write')resize()});
     setKind('letters');setMode('trace');updateButtons();resize();
   }
-  window.HalliumWriting={selectLetter,selectWord,clearSavedSheets,resize};
+  window.HalliumWriting={selectLetter,selectWord,selectFamily,clearSavedSheets,resize};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();
