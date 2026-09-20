@@ -47,9 +47,26 @@ jobs:
       - name: Verify static preview source
         run: |
           node --check app.js
+          node --check writing.js
           test -f index.html && test -f styles.css
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Check(HTMLParser):
+              def __init__(self): super().__init__(); self.ids=set(); self.scripts=[]
+              def handle_starttag(self,tag,attrs):
+                  a=dict(attrs)
+                  if 'id' in a: self.ids.add(a['id'])
+                  if tag=='script' and 'src' in a: self.scripts.append(a['src'])
+          h=Check(); h.feed(Path('index.html').read_text())
+          needed=['writing-kind','writing-family','writing-target','writing-canvas','writing-guide','writing-save','writing-undo','writing-clear','writing-export','writing-trace','writing-free','writing-listen','writing-feedback','view-write']
+          missing=set(needed)-h.ids
+          assert not missing, f'Missing handwriting controls: {missing}'
+          assert './writing.js' in h.scripts
+          print('Hangul handwriting markup verified')
+          PY
           mkdir -p public
-          cp index.html styles.css app.js public/
+          cp index.html styles.css app.js writing.js public/
           touch public/.nojekyll
       - name: Configure Pages
         uses: actions/configure-pages@v5
