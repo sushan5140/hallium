@@ -2415,3 +2415,20 @@ button.toast{border:0;text-align:left}
 .home-rail a.hangul-rail-link:hover{background:#e5e2ff;border-color:#afa8f3}
 @media(max-width:620px){.study-cards>.hangul-hub-card{min-height:112px;display:grid;grid-template-columns:46px 1fr;gap:0 12px}.study-cards>.hangul-hub-card>span:nth-child(2){margin-top:3px}.study-cards>.hangul-hub-card em{grid-column:2;margin-top:8px;padding-top:0}}
 @media(prefers-reduced-motion:reduce){.study-cards>.hangul-hub-card{transition:none}.study-cards>.hangul-hub-card:hover{transform:none}}
+
+/* Live Study Partners entry points */
+.primary-nav .sp-main-nav-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;white-space:nowrap;font-size:11px;padding-inline:12px}
+.primary-nav .sp-main-nav-link:hover{background:#fff;color:var(--indigo-deep)}
+.home-rail a.sp-rail-link{text-decoration:none;background:#eff7f3;border-color:#d0e5da;color:#347968;margin-top:0}
+.home-rail a.sp-rail-link:hover{background:#e1f0e9;border-color:#9bccbb}
+.study-cards>.sp-hub-card{min-height:175px;padding:18px;border:1px solid #d6e5de;border-radius:22px;background:linear-gradient(135deg,#eff8f2,#fff);display:flex;flex-direction:column;align-items:flex-start;text-align:left;box-shadow:var(--shadow-low);color:var(--ink);text-decoration:none;transition:transform .2s var(--ease-out),border-color .2s,box-shadow .2s}
+.study-cards>.sp-hub-card:hover{transform:translateY(-3px);border-color:#8cbfa8;box-shadow:0 12px 25px #517a6919}
+.study-cards>.sp-hub-card:focus-visible,.home-rail a.sp-rail-link:focus-visible{outline:3px solid var(--papaya);outline-offset:3px}
+.study-cards>.sp-hub-card .study-glyph.sp{background:#dcf1e8;color:#267b6d;font-size:25px}
+.study-cards>.sp-hub-card>span:nth-child(2){display:flex;flex-direction:column;gap:4px;margin-top:13px}
+.study-cards>.sp-hub-card>span:nth-child(2) strong{font-size:15px;letter-spacing:-.3px}
+.study-cards>.sp-hub-card>span:nth-child(2)>small{font-size:11px;line-height:1.5;color:var(--muted)}
+.study-cards>.sp-hub-card em{font-size:11px;margin-top:auto;padding-top:12px;font-style:normal;font-weight:850;color:#267b6d}
+@media(max-width:1300px){.primary-nav .sp-main-nav-link{display:none}}
+@media(max-width:620px){.study-cards>.sp-hub-card{min-height:112px;display:grid;grid-template-columns:46px 1fr;gap:0 12px}.study-cards>.sp-hub-card>span:nth-child(2){margin-top:3px}.study-cards>.sp-hub-card em{grid-column:2;margin-top:8px;padding-top:0}}
+@media(prefers-reduced-motion:reduce){.study-cards>.sp-hub-card{transition:none}.study-cards>.sp-hub-card:hover{transform:none}}

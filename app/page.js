@@ -1422,6 +1422,7 @@ function StaticHallimGate({ authHref, authError = "" }) {
           <a href="/demo">Demo</a>
           <a href="/creator-kit">Creator kit</a>
           <a href="/hangul">Hangul Lab</a>
+          <a href="/study-partners">Study Partners</a>
           <a className="staticGoogleCta" href={authHref("/")}>
             <GoogleMark />
             <span>Sign in with Google</span>
@@ -1469,6 +1470,7 @@ function StaticHallimGate({ authHref, authError = "" }) {
         </div>
         <div className="staticGateStudyGrid">
           <a href="/hangul"><span>00</span><b>Hangul Lab</b><small>Letters · writing · pronunciation →</small></a>
+          <a href="/auth/google?next=%2Fstudy-partners"><span>05</span><b>Study Partners</b><small>Complementary learning · mutual notes →</small></a>
           <a href={authHref("/?view=vocab")}><span>01</span><b>Vocabulary</b><small>Written Hangul + pronunciation →</small></a>
           <a href={authHref("/?view=grammar")}><span>02</span><b>Grammar</b><small>Level-specific patterns →</small></a>
           <a href={authHref("/?view=test")}><span>03</span><b>Study Test</b><small>Evidence before adaptation →</small></a>
@@ -2891,6 +2893,9 @@ export default function Hallim() {
           <a className="field-guide-button rail-destination hangul-rail-link" href="/hangul">
             <span>ㅎ Hangul Lab ↗</span><small>40 letters · sound · writing studio</small>
           </a>
+          <a className="field-guide-button rail-destination sp-rail-link" href="/study-partners">
+            <span>✦ Study Partners ↗</span><small>Mutual strengths · shared notes · practice</small>
+          </a>
           <button className="field-guide-button rail-destination" onClick={() => navigate("vocab")}>
             <span>Word map →</span><small>Vocabulary by meaning</small>
           </button>
@@ -3024,6 +3029,11 @@ export default function Hallim() {
             <button onClick={() => navigate(reviewLessonCount || dueMistakes.length ? "review" : "companion")}>{reviewLabel} →</button>
           </div>
           <div className="study-cards">
+            <a className="sp-hub-card" href="/study-partners" aria-label="Open Hallium Study Partners">
+              <span className="study-glyph sp">✦</span>
+              <span><strong>Study Partners</strong><small>Complementary matching · shared notes · mutual practice</small></span>
+              <em>Learn with another person ↗</em>
+            </a>
             <a className="hangul-hub-card" href="/hangul" aria-label="Open the separate Hallium Hangul Lab learning section">
               <span className="study-glyph hangul">ㅎ</span>
               <span><strong>Hangul Lab</strong><small>40 letters · syllables · pronunciation · handwriting</small></span>
@@ -4897,6 +4907,7 @@ export default function Hallim() {
             onClick={() => navigate("companion")}
           >Lessons</button>
           <a className="nav-tab hangul-nav-tab" href="/hangul">Hangul Lab</a>
+          <a className="nav-tab sp-main-nav-link" href="/study-partners">Study Partners</a>
           <button
             className={"nav-tab" + (topView === "words" ? " is-active" : "")}
             aria-current={topView === "words" ? "page" : undefined}
