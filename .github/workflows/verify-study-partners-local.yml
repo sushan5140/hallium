@@ -46,7 +46,8 @@ jobs:
           curl --fail --silent http://127.0.0.1:3000/hangul-lab/app.js > /tmp/hallium-hangul-js.txt
           curl --fail --silent http://127.0.0.1:3000/hangul-lab/writing.js > /tmp/hallium-writing-js.txt
           grep -q 'Study Partners' /tmp/partners.html
-          grep -q 'LOCAL DEMO' /tmp/partners.html
+          # Interactive client state intentionally renders after hydration; SSR shows a loading handoff.
+          grep -q 'Preparing your local Study Partners' /tmp/partners.html
           grep -q 'Study Partners' /tmp/hallium-home.html
           grep -q 'Back to Hallium' /tmp/hallium-hangul.html
           api_status=$(curl -s -o /tmp/partners-api.txt -w '%{http_code}' -X POST http://127.0.0.1:3000/api/study-partners/practice -H 'Content-Type: application/json' -d '{"words":[],"grammar":[]}')
