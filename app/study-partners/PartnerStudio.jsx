@@ -32,7 +32,10 @@ export default function PartnerStudio(){
   ]);
   const failure=[p.error,all.error,c.error,n.error].find(Boolean);if(failure){setError("Study Partners could not load: "+failure.message);return}
   setProfile(p.data);setDraftProfile(prev=>p.data?{nickname:p.data.nickname,level:p.data.level,availability:p.data.availability,strength:p.data.strength,growth_area:p.data.growth_area,discoverable:p.data.discoverable}:prev);
-  setPeople(all.data||[]);setConnections(c.data||[]);setNotes(n.data||[]);
+  const partners=(c.data||[]).filter(x=>x.status==="accepted").map(x=>x.user_low===uid?x.user_high:x.user_low);
+  let visible=all.data||[];
+  if(partners.length){const extra=await sb.from(T.profiles).select("*").in("user_id",partners);if(extra.error){setError(extra.error.message);return}const map=new Map([...visible,...(extra.data||[])].map(p=>[p.user_id,p]));visible=[...map.values()]}
+  setPeople(visible);setConnections(c.data||[]);setNotes(n.data||[]);
   if(roomId){
    const active=(c.data||[]).some(x=>x.id===roomId&&x.status==="accepted");
    if(!active){setRoom(null);setShares([]);setReceived([]);setJoint([]);setMessages([]);setSessions([]);setAnswers([]);return}
