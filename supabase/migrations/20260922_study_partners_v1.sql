@@ -115,7 +115,7 @@ grant execute on function public.hallium_partner_is_active(uuid) to authenticate
 
 create or replace function public.hallium_partner_can_view(p_user uuid)
 returns boolean language sql stable security definer set search_path = ''
-as $
+as $$
  select (p_user=(select auth.uid()))
  or (
    not exists (select 1 from public.hallium_partner_blocks b where (b.blocker=p_user and b.blocked=(select auth.uid())) or (b.blocker=(select auth.uid()) and b.blocked=p_user))
@@ -123,7 +123,7 @@ as $
      or exists(select 1 from public.hallium_partner_connections c where c.status='accepted'
        and ((c.user_low=p_user and c.user_high=(select auth.uid())) or (c.user_high=p_user and c.user_low=(select auth.uid())))))
  );
-$;
+$$;
 revoke all on function public.hallium_partner_can_view(uuid) from public;
 grant execute on function public.hallium_partner_can_view(uuid) to authenticated;
 
