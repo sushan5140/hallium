@@ -58,3 +58,20 @@ jobs:
             echo "PASS: $check"
           done
           echo "PASS: full Hallium + Hangul + Study Partners on localhost; optional AI route absent in production mode."
+      - name: Run real Chromium browser interaction flow
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-package-lock playwright
+          npx playwright install chromium
+          npm run start -- --hostname 127.0.0.1 --port 3000 > /tmp/partners-chromium.log 2>&1 &
+          local_pid=$!
+          trap 'kill "$local_pid" 2>/dev/null || true' EXIT
+          ok=0
+          for i in $(seq 1 55); do
+            if curl --fail --silent http://127.0.0.1:3000/study-partners > /dev/null; then ok=1; break; fi
+            sleep 2
+          done
+          if [ "$ok" -ne 1 ]; then cat /tmp/partners-chromium.log; exit 1; fi
+          node tests/study-partners-browser.cjs
+
