@@ -1,0 +1,54 @@
+name: Verify Hallium Study Partners localhost
+
+on:
+  push:
+    branches: [feature/study-partners]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hallium-study-partners-local
+  cancel-in-progress: true
+
+jobs:
+  verify-local-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install exact Hallium dependencies
+        run: npm ci
+      - name: Verify deterministic partner matching and consent-gated exercises
+        run: node --test tests/study-partners-core.test.mjs
+      - name: Compile full Next.js Hallium without production configuration changes
+        run: npm run build
+      - name: Smoke-test Hallium, Hangul, Study Partners and disabled production AI route on localhost
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3000 > /tmp/study-partners-preview.log 2>&1 &
+          local_pid=$!
+          trap 'kill "$local_pid" 2>/dev/null || true' EXIT
+          ok=0
+          for i in $(seq 1 55); do
+            if curl --fail --silent http://127.0.0.1:3000/study-partners > /tmp/partners.html; then ok=1; break; fi
+            sleep 2
+          done
+          if [ "$ok" -ne 1 ]; then cat /tmp/study-partners-preview.log; exit 1; fi
+          curl --fail --silent http://127.0.0.1:3000/ > /tmp/hallium-home.html
+          curl --fail --silent http://127.0.0.1:3000/hangul > /tmp/hallium-hangul.html
+          curl --fail --silent http://127.0.0.1:3000/hangul-lab/app.js > /tmp/hallium-hangul-js.txt
+          curl --fail --silent http://127.0.0.1:3000/hangul-lab/writing.js > /tmp/hallium-writing-js.txt
+          grep -q 'Study Partners' /tmp/partners.html
+          grep -q 'LOCAL DEMO' /tmp/partners.html
+          grep -q 'Study Partners' /tmp/hallium-home.html
+          grep -q 'Back to Hallium' /tmp/hallium-hangul.html
+          api_status=$(curl -s -o /tmp/partners-api.txt -w '%{http_code}' -X POST http://127.0.0.1:3000/api/study-partners/practice -H 'Content-Type: application/json' -d '{"words":[],"grammar":[]}')
+          test "$api_status" = "404"
+          echo "PASS: full Hallium + Hangul + Study Partners on localhost; optional AI route absent in production mode."
