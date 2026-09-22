@@ -43,3 +43,8 @@ The original one-card V1/V2 routes stay unchanged. The 12-card Starter route use
 ## Reference-informed Starter card layout · 22 September
 
 KyouStudy screenshots supplied by the user informed the interaction hierarchy (large contextual scene, word and reading audio together, visible meaning, explanation, one natural example and pairing, quick save, bottom two-way self-check). The artwork and UI are Hallium originals and do not reuse KyouStudy's proprietary screenshot photographs or its branding. The default **Learn** mode shows contextual information immediately rather than requiring a flip/MCQ; separate Recall, Listen and Use modes retain a reveal challenge for self-testing. Mobile moves the main card immediately beneath the small header, and keeps the I know this / Learn this buttons visible at the bottom. Corrected 책 is a *printed storybook*, not a blank notebook (공책/노트). GitHub Pages only; no production account writes.
+
+
+## Public preview Terms & Conditions and Privacy Policy · 22 September 2026
+
+GitHub Pages now publishes `/hallium/terms/` and `/hallium/privacy/`, linked from the Hangul Lab homepage and both locked book cards and the full Starter Unit 1 deck. Policy pages describe the **static GitHub Pages preview only**, including its localStorage keys for practice and writing, browser text-to-speech, Google Fonts and GitHub Pages network requests, deletion, experimental educational limitations, and its distinctness from the signed-in Vercel/Supabase Hallium app. The policy links are in all four entry pages and checked before the Pages publish step. Review and separately tailor the account application's notices before deploying account-based, social or AI features; these preview terms are not a blanket notice for the production app.

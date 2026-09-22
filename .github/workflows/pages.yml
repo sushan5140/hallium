@@ -101,13 +101,25 @@ jobs:
           script_order=['./data.js','./art-people.js','./art-objects.js','./art-places.js','./art-book.js','./app.js']
           assert starter.scripts==script_order, 'Wrong Starter dependency order '+str(starter.scripts)
           assert 'href="./flashcards-level1/"' in Path('index.html').read_text()
-          print('Preserved V1/V2, separate full starter batch, semantic art, and navigation verified')
+          for path in ['index.html','flashcards/index.html','flashcards-v2/index.html','flashcards-level1/index.html']:
+              content=Path(path).read_text()
+              prefix='./' if path=='index.html' else '../'
+              for legal in ['privacy/','terms/']:
+                  assert 'href="'+prefix+legal+'"' in content, 'Missing footer policy link in '+path
+          for legal in ['privacy','terms']:
+              doc=Path(legal+'/index.html').read_text()
+              assert '<title>' in doc and '22 September 2026' in doc
+              assert 'href="../policy.css"' in doc
+              assert 'href="../'+('terms/' if legal=='privacy' else 'privacy/')+'"' in doc
+          print('Public preview privacy and terms are present and linked throughout')
           PY
           mkdir -p public
           cp index.html styles.css app.js writing.js public/
           cp -R flashcards public/
           cp -R flashcards-v2 public/
           cp -R flashcards-level1 public/
+          cp -R privacy terms public/
+          cp policy.css public/
           touch public/.nojekyll
       - name: Verify flashcard interactions in Chromium
         shell: bash
@@ -121,6 +133,7 @@ jobs:
           node .github/scripts/verify-flashcard.cjs
           FLASHCARD_PATH=flashcards-v2 node .github/scripts/verify-flashcard.cjs
           node .github/scripts/verify-flashcard-level1.cjs
+          for page in privacy terms; do curl -fsS "http://127.0.0.1:4173/$page/" | grep -q "22 September 2026"; done
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site

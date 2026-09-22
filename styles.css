@@ -222,3 +222,7 @@
 #letter-grid{scroll-margin-top:104px}
 @media(max-width:760px){.family-preview-footer{align-items:stretch;flex-direction:column;padding:13px 15px;gap:10px}#family-preview-continue{width:100%}.terminology-note summary{padding:10px 11px}.terminology-note p{padding:10px 13px}.category-section{margin-bottom:10px}}
 @media(prefers-reduced-motion:reduce){#family-preview-continue,.terminology-chevron{transition:none}#family-preview-continue:hover{transform:none}}
+
+/* Clear, permanent policy links on the public Pages Hangul Lab. */
+.preview-policy-links{display:flex;align-items:center;flex-wrap:wrap;gap:9px 18px;margin:28px auto 80px;max-width:1380px;padding:20px clamp(18px,4vw,46px);background:#fffc;border:1px solid #e6e2ec;border-radius:17px;color:#797488;font-family:inherit;font-size:12px;line-height:1.6}
+.preview-policy-links>span{font-size:10px;font-weight:850;letter-spacing:1px;color:#6154b8}.preview-policy-links nav{display:flex;gap:13px;flex-wrap:wrap;margin-left:auto}.preview-policy-links nav a{color:#6254b8;font-size:11px;font-weight:800;text-decoration:none}.preview-policy-links nav a:hover{text-decoration:underline}.preview-policy-links small{flex-basis:100%;font-size:10px;color:#8a8798}.preview-policy-links a:focus-visible{outline:3px solid #e9ad78;outline-offset:3px}@media(max-width:550px){.preview-policy-links{margin:16px 12px 80px}.preview-policy-links nav{margin-left:0}}
