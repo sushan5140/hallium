@@ -89,6 +89,16 @@ jobs:
           cp index.html styles.css app.js writing.js public/
           cp -R flashcards public/
           touch public/.nojekyll
+      - name: Verify flashcard interactions in Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-package-lock playwright
+          npx playwright install chromium
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/hallium-flashcards-http.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          node .github/scripts/verify-flashcard.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
