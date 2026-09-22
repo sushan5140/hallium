@@ -658,3 +658,8 @@
 .shell[data-mode=visual] .front-challenge p{padding-right:0}
 @media(max-width:520px){.hero-save{width:43px;height:43px;right:12px;bottom:12px;font-size:25px}}
 @media(prefers-reduced-motion:reduce){.hero-save{transition:none!important}.hero-save:hover{transform:none!important}}
+
+.reference-pair{padding:12px 13px;border-radius:12px;background:#f7f5ff;border:1px solid #eae5fc;display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.reference-pair>span{font-size:9px;letter-spacing:.7px;font-weight:850;color:#776e8a}
+.reference-pair>b{font:800 16px var(--hangul);color:#4d408f}
+@media(max-width:520px){.reference-pair{padding:10px 12px}.reference-pair>b{font-size:15px}}
