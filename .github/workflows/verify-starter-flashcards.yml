@@ -1,0 +1,48 @@
+name: Verify integrated Starter flashcards
+
+on:
+  push:
+    branches: [feature/starter-flashcards-vercel, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Verify static flashcard assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in public/flashcards-level1/*.js; do node --check "$f"; done
+          test -f public/flashcards-level1/index.html
+          test -f public/flashcards-level1/styles.css
+          grep -q 'href="/flashcards"' app/page.js
+          grep -q '/flashcards-level1/index.html' app/flashcards/page.js
+          grep -q 'book-illustration-v2' public/flashcards-level1/art-book.js
+      - name: Compile Hallium Next.js
+        run: npm run build
+      - name: Exercise flashcard route in Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-package-lock playwright
+          npx playwright install chromium
+          npm run start -- --hostname 127.0.0.1 --port 3000 >/tmp/hallium-flashcards-vercel.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 45); do
+            if curl --fail --silent http://127.0.0.1:3000/flashcards >/dev/null; then break; fi
+            sleep 2
+          done
+          node .github/scripts/verify-flashcards-vercel.cjs

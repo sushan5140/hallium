@@ -2432,3 +2432,20 @@ button.toast{border:0;text-align:left}
 @media(max-width:1300px){.primary-nav .sp-main-nav-link{display:none}}
 @media(max-width:620px){.study-cards>.sp-hub-card{min-height:112px;display:grid;grid-template-columns:46px 1fr;gap:0 12px}.study-cards>.sp-hub-card>span:nth-child(2){margin-top:3px}.study-cards>.sp-hub-card em{grid-column:2;margin-top:8px;padding-top:0}}
 @media(prefers-reduced-motion:reduce){.study-cards>.sp-hub-card{transition:none}.study-cards>.sp-hub-card:hover{transform:none}}
+
+/* Hallium Starter Unit 1 flashcard entry points — external studio keeps its own styles. */
+.primary-nav .flashcards-main-nav-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;white-space:nowrap;font-size:11px;padding-inline:12px}
+.primary-nav .flashcards-main-nav-link:hover{background:#fff;color:var(--indigo-deep)}
+.home-rail a.flashcards-rail-link{text-decoration:none;background:#f9f3ff;border-color:#e5d4f0;color:#7657a6;margin-top:0}
+.home-rail a.flashcards-rail-link:hover{background:#f3eaff;border-color:#cbb8e5}
+.study-cards>.flashcards-hub-card{min-height:175px;padding:18px;border:1px solid #e5d7eb;border-radius:22px;background:linear-gradient(135deg,#f8f0ff,#fffefa);display:flex;flex-direction:column;align-items:flex-start;text-align:left;box-shadow:var(--shadow-low);color:var(--ink);text-decoration:none;transition:transform .2s var(--ease-out),border-color .2s,box-shadow .2s}
+.study-cards>.flashcards-hub-card:hover{transform:translateY(-3px);border-color:#b7a2de;box-shadow:0 12px 27px #8566ab19}
+.study-cards>.flashcards-hub-card:focus-visible,.home-rail a.flashcards-rail-link:focus-visible{outline:3px solid var(--papaya);outline-offset:3px}
+.study-cards>.flashcards-hub-card .study-glyph.flashcards{background:#e9def8;color:#6649a5;font:900 23px "Noto Sans KR",system-ui,sans-serif}
+.study-cards>.flashcards-hub-card>span:nth-child(2){display:flex;flex-direction:column;gap:4px;margin-top:13px}
+.study-cards>.flashcards-hub-card>span:nth-child(2) strong{font-size:15px;letter-spacing:-.3px}
+.study-cards>.flashcards-hub-card>span:nth-child(2)>small{font-size:11px;line-height:1.5;color:var(--muted)}
+.study-cards>.flashcards-hub-card em{font-size:11px;margin-top:auto;padding-top:12px;font-style:normal;font-weight:850;color:#7657a6}
+@media(max-width:1350px){.primary-nav .flashcards-main-nav-link{display:none}}
+@media(max-width:620px){.study-cards>.flashcards-hub-card{min-height:112px;display:grid;grid-template-columns:46px 1fr;gap:0 12px}.study-cards>.flashcards-hub-card>span:nth-child(2){margin-top:3px}.study-cards>.flashcards-hub-card em{grid-column:2;margin-top:8px;padding-top:0}}
+@media(prefers-reduced-motion:reduce){.study-cards>.flashcards-hub-card{transition:none}.study-cards>.flashcards-hub-card:hover{transform:none}}

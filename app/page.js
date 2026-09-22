@@ -1422,6 +1422,7 @@ function StaticHallimGate({ authHref, authError = "" }) {
           <a href="/demo">Demo</a>
           <a href="/creator-kit">Creator kit</a>
           <a href="/hangul">Hangul Lab</a>
+          <a href="/flashcards">Flashcards</a>
           <a href="/study-partners">Study Partners</a>
           <a className="staticGoogleCta" href={authHref("/")}>
             <GoogleMark />
@@ -2893,6 +2894,9 @@ export default function Hallim() {
           <a className="field-guide-button rail-destination hangul-rail-link" href="/hangul">
             <span>ㅎ Hangul Lab ↗</span><small>40 letters · sound · writing studio</small>
           </a>
+          <a className="field-guide-button rail-destination flashcards-rail-link" href="/flashcards">
+            <span>▤ Flashcards ↗</span><small>12 illustrated words · listen · recall</small>
+          </a>
           <a className="field-guide-button rail-destination sp-rail-link" href="/study-partners">
             <span>✦ Study Partners ↗</span><small>Mutual strengths · shared notes · practice</small>
           </a>
@@ -3029,6 +3033,11 @@ export default function Hallim() {
             <button onClick={() => navigate(reviewLessonCount || dueMistakes.length ? "review" : "companion")}>{reviewLabel} →</button>
           </div>
           <div className="study-cards">
+            <a className="flashcards-hub-card" href="/flashcards" aria-label="Open Hallium Starter Unit 1 illustrated flashcards">
+              <span className="study-glyph flashcards">책</span>
+              <span><strong>Starter Flashcards</strong><small>12 illustrated Korean words · audio · recall · review</small></span>
+              <em>Explore the first collection ↗</em>
+            </a>
             <a className="sp-hub-card" href="/study-partners" aria-label="Open Hallium Study Partners">
               <span className="study-glyph sp">✦</span>
               <span><strong>Study Partners</strong><small>Complementary matching · shared notes · mutual practice</small></span>
@@ -4907,6 +4916,7 @@ export default function Hallim() {
             onClick={() => navigate("companion")}
           >Lessons</button>
           <a className="nav-tab hangul-nav-tab" href="/hangul">Hangul Lab</a>
+          <a className="nav-tab flashcards-main-nav-link" href="/flashcards">Flashcards</a>
           <a className="nav-tab sp-main-nav-link" href="/study-partners">Study Partners</a>
           <button
             className={"nav-tab" + (topView === "words" ? " is-active" : "")}
