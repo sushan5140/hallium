@@ -132,6 +132,9 @@ function renderSaved(){
  else saved.forEach(w=>list.appendChild(button(w.ko+" ↗","saved-word",()=>go(w.id,"All"))));
  const c=cardState(),w=getWord();
  $("save").setAttribute("aria-pressed",String(c.saved));
+ $("hero-save").setAttribute("aria-pressed",String(c.saved));
+ $("hero-save").textContent=c.saved?"♥":"♡";
+ $("hero-save").setAttribute("aria-label",c.saved?"Remove "+w.ko+" from saved words":"Save "+w.ko+" to my words");
  setText("save",c.saved?"♥ Saved to my collection":"♡ Save to my collection");
  $("notebook-button").disabled=c.saved;
  $("notebook-button").textContent=c.saved?w.ko+" is saved ✓":"Save "+w.ko+" ↗";
@@ -321,6 +324,7 @@ $("reference-know").addEventListener("click",()=>record("know"));
 $("reference-learn").addEventListener("click",()=>record("learn"));
 $("reference-continue").addEventListener("click",()=>move(1));
 $("save").addEventListener("click",()=>save());
+$("hero-save").addEventListener("click",()=>save());
 $("notebook-button").addEventListener("click",()=>save(true));
 $("reset").addEventListener("click",reset);
 $("previous").addEventListener("click",()=>move(-1));
