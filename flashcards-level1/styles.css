@@ -647,3 +647,14 @@
  .shell[data-mode=visual] .mode-button small{font-size:7px}
  .shell[data-mode=visual] .illustration{aspect-ratio:1.33/1}
 }
+
+/* Bookmark and pronunciation controls mirror the reference's interaction placement. */
+.hero-save{position:absolute;right:15px;bottom:15px;z-index:8;display:grid;place-items:center;width:48px;height:48px;border:1px solid #e1dee7;border-radius:50%;background:#fff;color:#36323e;font-size:27px;line-height:1;box-shadow:0 8px 24px #28243830;transition:transform .23s var(--spring),background .23s,color .23s}
+.hero-save:hover{transform:scale(1.08)}
+.hero-save[aria-pressed=true]{background:#f1ecff;color:#725fc1;border-color:#cdc3ef}
+.shell[data-mode=visual] .inline-play{display:grid;place-items:center;border-radius:50%;background:#f3f1f7;width:34px;height:34px;color:#28242e;font-size:0;padding:0;margin-left:auto}
+.shell[data-mode=visual] .inline-play::before{content:"▶";font-size:13px}
+.shell[data-mode=visual] .inline-play:hover{background:#e6e2f2}
+.shell[data-mode=visual] .front-challenge p{padding-right:0}
+@media(max-width:520px){.hero-save{width:43px;height:43px;right:12px;bottom:12px;font-size:25px}}
+@media(prefers-reduced-motion:reduce){.hero-save{transition:none!important}.hero-save:hover{transform:none!important}}
