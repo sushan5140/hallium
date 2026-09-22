@@ -49,7 +49,9 @@ jobs:
           node --check app.js
           node --check writing.js
           node --check flashcards/app.js
+          node --check flashcards-v2/app.js
           test -f flashcards/index.html && test -f flashcards/styles.css
+          test -f flashcards-v2/index.html && test -f flashcards-v2/styles.css
           test -f index.html && test -f styles.css
           python3 - <<'PY'
           from html.parser import HTMLParser
@@ -82,12 +84,21 @@ jobs:
           needed={'reveal','know','learn','save','reset','front-audio','back-audio','inline-audio','sentence-audio','notebook-button','status-chip','review-state','card','front','back'}
           assert not (needed-h.ids), 'Missing flashcard controls: '+str(needed-h.ids)
           assert './app.js' in h.scripts
+          v2=Assets();v2.feed(Path('flashcards-v2/index.html').read_text())
+          assert not (needed-v2.ids), 'Missing V2 controls: '+str(needed-v2.ids)
+          assert 'book-illustration-v2' in Path('flashcards-v2/index.html').read_text()
+          assert 'v2-left-page' in Path('flashcards-v2/index.html').read_text()
+          assert 'v2-right-page' in Path('flashcards-v2/index.html').read_text()
           assert 'href="./flashcards/"' in Path('index.html').read_text()
-          print('One-card flashcard controls and Hangul Lab navigation verified')
+          assert 'href="./flashcards-v2/"' in Path('index.html').read_text()
+          assert 'book:v1' in Path('flashcards/app.js').read_text()
+          assert 'book:v2' in Path('flashcards-v2/app.js').read_text()
+          print('Preserved V1, separate V2, book silhouette and navigation verified')
           PY
           mkdir -p public
           cp index.html styles.css app.js writing.js public/
           cp -R flashcards public/
+          cp -R flashcards-v2 public/
           touch public/.nojekyll
       - name: Verify flashcard interactions in Chromium
         shell: bash
@@ -99,6 +110,7 @@ jobs:
           pid=$!
           trap 'kill "$pid" 2>/dev/null || true' EXIT
           node .github/scripts/verify-flashcard.cjs
+          FLASHCARD_PATH=flashcards-v2 node .github/scripts/verify-flashcard.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site

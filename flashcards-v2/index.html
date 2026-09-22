@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="Preview one fully interactive Hallium Level 1 Korean vocabulary flashcard: 책, book.">
+  <title>책 · Flashcard Studio — Hallium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+<a href="#flashcard" class="skip">Skip to flashcard</a>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Hallium Hangul Lab home"><span class="symbol" aria-hidden="true">ㅎ</span><span><strong>hallium<span class="brand-dot">.</span></strong><small>FLASHCARD STUDIO <b>BOOK V2</b></small></span></a>
+    <nav class="topnav" aria-label="Preview navigation"><a class="navitem" href="../">Hangul Lab <span>↗</span></a><a class="navitem active" href="./" aria-current="page">Flashcards <span>✦</span></a></nav>
+    <div class="top-right"><span class="saved-light"></span> Saves on this device <span class="avatar" aria-hidden="true">책</span></div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="side-top"><span class="eyebrow">YOUR STUDY SPACE</span><div class="course"><span class="course-icon">가</span><span><strong>Starter Korean</strong><small>Unit 01 · First conversations</small></span><span class="chevron">↗</span></div></div>
+      <span class="eyebrow section-tag">EXPLORE</span>
+      <nav class="sidenav" aria-label="Flashcard sections">
+        <a href="#flashcard" class="side-link current"><span class="sideicon lilac">▤</span> Learning card <span class="index">01</span></a>
+        <a href="#progress" class="side-link"><span class="sideicon mint">◉</span> Recall journal <span class="index">02</span></a>
+        <a href="#notebook" class="side-link"><span class="sideicon peach">♡</span> My collection <span class="index">03</span></a>
+      </nav>
+      <div class="side-separator"></div>
+      <span class="eyebrow section-tag">THIS PREVIEW</span>
+      <div class="deck-list"><span class="deck-line"><span class="mini-disc">책</span><span><strong>Everyday objects</strong><small>1 of 1 sample card</small></span><i>✓</i></span><div class="deck-meter"><span></span></div><small class="meter-label">One complete interaction before we expand Level 1.</small></div>
+      <div class="side-footer"><span>✳</span><div><strong>Words become worlds.</strong><small>Learn one small thing really well.</small></div></div>
+    </aside>
+    <main id="flashcard" class="main" tabindex="-1">
+      <div class="page-heading"><div class="eyebrow">LEVEL 01 / OBJECTS / BOOK ILLUSTRATION V2 <span class="eyebrow-line"></span></div><div class="title-row"><div><h1>A familiar shape,<br>a new <em>word.</em></h1><p>See the idea first: a real open book. Connect the picture to 책, then listen, reveal and remember it.</p></div><div class="lesson-bubble"><span>01 <i>/ 01</i></span><small>ONE WORD, FOUR WAYS<br>TO KNOW IT</small></div></div></div>
+      <div class="preview-progress" aria-label="Your four steps for this sample card"><span class="preview-progress-caption">ONE WORD · FOUR LITTLE WINS</span><span class="preview-progress-track" role="progressbar" aria-label="Flashcard activity steps complete" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" id="activity-progress"><span class="preview-progress-fill" id="progress-fill"></span></span><span class="preview-progress-number" id="progress-number">0 / 4</span></div>
+      <div class="study-bar"><div class="study-bar-left"><span class="pill"><span class="pill-dot"></span> DISCOVER MODE</span><span class="bar-lesson">책 <b>·</b> Everyday objects</span></div><div class="study-bar-right"><span id="status-chip" class="status-chip">Not practised yet</span><button id="reset" type="button" class="ghost-small" title="Clear only this sample flashcard's recall history and saved state">↻ Reset sample</button></div></div>
+
+      <div class="layout">
+        <section class="stage" aria-label="Interactive Korean flashcard">
+          <div class="stage-head"><span>✦ <strong>THE LEARNING CARD</strong></span><span id="mode-caption">01 · Observe</span></div>
+          <div class="flip-scene" id="flip-scene">
+            <div class="card-fx" id="card-fx" aria-hidden="true"></div>
+            <div class="flip-card" id="card">
+              <article class="face face-front" id="front">
+                <div class="card-upper"><span class="card-tag">01 / OBJECTS</span><button class="audio-button" id="front-audio" type="button" aria-label="Hear 책" title="Hear the Korean pronunciation">♫ <span>Listen</span></button></div>
+                <div class="illustration" aria-label="Open book with two printed pages, a visible spine and purple hardcover"><span class="ambient-orb ambient-one" aria-hidden="true"></span><span class="ambient-orb ambient-two" aria-hidden="true"></span><span class="floating-word floating-word-one" aria-hidden="true">책을 읽다 <small>read a book</small></span><span class="floating-word floating-word-two" aria-hidden="true">OPEN THE STORY ✦</span>
+<svg class="book-illustration-v2" viewBox="0 0 570 330" role="img" aria-label="A clearly recognisable open book: two cream pages with printed lines, a deep purple hard cover, central binding and gold bookmark" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="cover-v2" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#a497f1"/><stop offset=".6" stop-color="#7365d1"/><stop offset="1" stop-color="#51458c"/></linearGradient>
+<linearGradient id="paper-left" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#fffffc"/><stop offset=".75" stop-color="#fff9eb"/><stop offset="1" stop-color="#ead9c0"/></linearGradient>
+<linearGradient id="paper-right" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#f7ead5"/><stop offset=".33" stop-color="#fffffc"/><stop offset="1" stop-color="#f2e3ce"/></linearGradient>
+<filter id="floor-v2" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="11"/></filter>
+<filter id="page-v2" x="-20%" y="-20%" width="150%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#3d315e" flood-opacity=".12"/></filter>
+</defs>
+<ellipse cx="286" cy="281" rx="205" ry="20" fill="#554878" opacity=".2" filter="url(#floor-v2)"/>
+<!-- A single coherent, recognisable open book silhouette, not a stack of ambiguous angular boxes. -->
+<g class="v2-book-cover">
+<path d="M71 102 Q165 71 266 116 Q282 125 286 140 Q305 121 326 115 Q425 72 499 102 L505 250 Q397 232 286 281 Q178 235 66 251 Z" fill="url(#cover-v2)" stroke="#4c4185" stroke-width="5" stroke-linejoin="round"/>
+<path d="M70 248 Q183 227 285 276 Q394 227 504 247" fill="none" stroke="#483d80" stroke-width="8" stroke-linecap="round"/>
+<path d="M76 242 Q184 225 285 269 Q399 223 498 241" fill="none" stroke="#baaef8" stroke-width="2.4"/>
+</g>
+<!-- Visible edges show actual page thickness. -->
+<g class="v2-page-block">
+<path d="M88 97 Q184 78 278 120 L282 267 Q188 220 88 245 Z" fill="#e3d4ba" stroke="#b6a489" stroke-width="2"/>
+<path d="M290 120 Q393 78 489 97 L491 245 Q392 219 290 267 Z" fill="#e2d0b8" stroke="#b6a489" stroke-width="2"/>
+<path d="M89 229 Q191 211 281 256 M89 235 Q191 218 281 263 M290 256 Q395 214 489 229 M290 263 Q396 220 489 235" stroke="#b7a388" stroke-width="1.6" fill="none"/>
+</g>
+<!-- Cream left sheet with book-like printed text, a heading, and real contours. -->
+<g class="v2-left-page" filter="url(#page-v2)">
+<path d="M96 86 Q189 62 275 109 Q281 114 283 124 L283 257 Q186 211 95 233 Z" fill="url(#paper-left)" stroke="#d7c5a8" stroke-width="2.5"/>
+<path d="M105 93 Q201 74 269 116" fill="none" stroke="#fffffc" stroke-width="5" opacity=".85"/>
+<path d="M106 221 Q199 207 269 242" fill="none" stroke="#ddccb2" stroke-width="2"/>
+<path d="M126 114 Q155 111 181 116" stroke="#8a75cb" stroke-width="6" stroke-linecap="round" fill="none"/>
+<g stroke="#a7a0aa" stroke-width="3.6" stroke-linecap="round" fill="none" opacity=".8">
+<path d="M123 135 Q184 124 253 153"/><path d="M123 151 Q182 141 257 168"/><path d="M123 167 Q184 156 259 184"/><path d="M123 184 Q180 173 258 200"/><path d="M123 200 Q172 192 228 212"/>
+</g></g>
+<!-- Mirrored right sheet clearly separated by the spine. -->
+<g class="v2-right-page" filter="url(#page-v2)">
+<path d="M288 124 Q291 114 299 108 Q393 62 480 86 L482 232 Q388 212 288 257 Z" fill="url(#paper-right)" stroke="#d7c5a8" stroke-width="2.5"/>
+<path d="M298 118 Q391 73 470 92" fill="none" stroke="#fff" stroke-width="5" opacity=".84"/>
+<path d="M301 242 Q390 208 471 221" fill="none" stroke="#ddccb2" stroke-width="2"/>
+<path d="M333 123 L392 119" stroke="#81aa9b" stroke-width="6" stroke-linecap="round" fill="none"/>
+<g stroke="#a7a0aa" stroke-width="3.6" stroke-linecap="round" fill="none" opacity=".8">
+<path d="M317 150 Q383 123 452 132"/><path d="M315 167 Q384 139 453 148"/><path d="M313 184 Q386 154 453 164"/><path d="M314 200 Q384 171 451 180"/><path d="M317 217 Q361 197 425 198"/>
+</g></g>
+<path class="v2-binding" d="M276 112 Q283 120 286 137 Q289 116 297 109 Q292 145 291 254 L286 271 L281 257 Q282 145 276 112 Z" fill="#bea98c" stroke="#a18b71" stroke-width="1.5"/>
+<path d="M284 138 Q287 197 285 261 M291 139 Q288 196 291 253" stroke="#fff3df" stroke-width="1.7" fill="none"/>
+<g class="v2-bookmark"><path d="M435 86 Q443 82 454 86 L454 153 L444 144 L433 155 Z" fill="#f0ad7e" stroke="#cf8966" stroke-width="2"/><path d="M441 86 L439 139" stroke="#fff1cc" stroke-width="2"/></g>
+<path d="M103 53 L108 67 L122 72 L108 77 L103 91 L98 77 L84 72 L98 67 Z" fill="#e5aaa7"/>
+<path d="M487 40 L493 54 L507 59 L493 64 L487 78 L481 64 L467 59 L481 54 Z" fill="#aaa0e7"/>
+<circle cx="73" cy="190" r="4" fill="#8fcab3"/><circle cx="510" cy="209" r="5" fill="#ebb18a"/>
+</svg>
+                  <div class="illustration-sticker sticker-left" aria-hidden="true">한글<br>is fun!</div><div class="illustration-sticker sticker-right" aria-hidden="true">✳</div>
+                </div>
+                <div class="word-front"><span>LOOK AT THE PICTURE. SAY THE WORD.</span><h2 lang="ko">책</h2><p><span class="hangul-pronounce" lang="ko">[책]</span> chaek <span aria-hidden="true">·</span> <button id="inline-audio" type="button" class="inline-play" aria-label="Play Korean pronunciation">▶ Hear it</button></p></div>
+                <button class="reveal" id="reveal" type="button"><span>Reveal the meaning</span><span>↗</span></button>
+                <span class="front-hint">Look at the open book, say 책, then reveal.</span>
+              </article>
+              <article class="face face-back" id="back" aria-hidden="true" inert>
+                <div class="card-upper"><span class="card-tag">THE MEANING, UNLOCKED</span><button id="back-audio" type="button" class="audio-button" aria-label="Hear 책">♫ <span>Listen</span></button></div>
+                <div class="back-hero"><span class="word-type">NOUN · EVERYDAY OBJECTS</span><h2 lang="ko">책</h2><span class="pronunciation">chaek <span aria-hidden="true">/</span> 책</span><h3>Book<span class="period">.</span></h3><p>A book you read, study from, or carry to class.</p></div>
+                <div class="sentence"><div><span class="eyebrow">IN A REAL SENTENCE</span><button id="sentence-audio" type="button" aria-label="Listen to 이것은 책이에요">▶ Listen to sentence</button></div><strong lang="ko">이것은 책이에요.</strong><p>This is a book.</p></div>
+                <div class="pronounce-tip"><span class="tip-icon">ㅎ</span><span><strong>A tiny pronunciation secret</strong><small>Stop cleanly at the final ㄱ (k). Don't add an extra “uh” after the word.</small></span></div>
+                <div class="back-actions"><button id="learn" class="learn" type="button"><span>♡</span> Learn this</button><button id="know" class="know" type="button">I know this <span>✓</span></button></div>
+                <div class="card-finish" id="card-finish" hidden><span id="finish-icon">✦</span><strong id="finish-title">One word closer.</strong><small id="finish-detail">Nice work learning your first card.</small><button id="practice-again" type="button">Practise again ↻</button></div>
+                <button id="turn-back" class="flip-back" type="button">↶ Turn to the front</button>
+              </article>
+            </div>
+          </div>
+          <div class="under-card"><span>✦ Your answer is a <strong>self-check</strong>, not an exam score. <small class="motion-hint">Move your cursor over the card to explore it.</small></span><button id="save" type="button" class="save-button" aria-pressed="false">♡ Save to my collection</button></div>
+        </section>
+        <aside class="info-rail" aria-label="Flashcard information">
+          <section class="rail-card learning-plan"><div class="rail-kicker">✳ THE IDEA</div><h3>One word, four little wins.</h3><p>We're testing a card that can grow from first sight to actual recall.</p><div class="win"><span class="win-icon w1">◉</span><span><strong>01 · Discover</strong><small>Meet the word visually.</small></span><span class="win-done">✓</span></div><div class="win"><span class="win-icon w2">♫</span><span><strong>02 · Listen</strong><small>Hear natural Korean audio.</small></span><span id="audio-mark" class="win-state">Try it</span></div><div class="win"><span class="win-icon w3">↗</span><span><strong>03 · Reveal</strong><small>Check your understanding.</small></span><span id="reveal-mark" class="win-state">Try it</span></div><div class="win"><span class="win-icon w4">♡</span><span><strong>04 · Remember</strong><small>Choose your next review.</small></span><span id="recall-mark" class="win-state">Try it</span></div></section>
+          <section id="progress" class="rail-card journal"><div class="rail-kicker">YOUR RECALL JOURNAL</div><h3>A gentle beginning<span class="period">.</span></h3><p>These are honest self-reports — not a percentage of “mastery.”</p><div class="journal-grid"><div><strong id="known-count">0</strong><span>Know this</span></div><div><strong id="learn-count">0</strong><span>Learn this</span></div></div><div class="journal-status"><span class="journal-dot"></span><span id="review-state">Your first recall choice is waiting.</span></div><small class="journal-note">Saved in this browser only. No Hallium account progress is changed in this preview.</small></section>
+          <section id="notebook" class="rail-card notebook"><div class="rail-kicker">PERSONAL COLLECTION</div><div class="notebook-heading"><span class="notebook-illustration">책</span><div><h3>My first words</h3><p id="collection-description">Save 책 to keep it close.</p></div></div><button id="notebook-button" type="button">Add this card <span>↗</span></button></section>
+        </aside>
+      </div>
+      <footer class="footer"><span>HALLIUM · BOOK ILLUSTRATION V2</span><span>Compare V2 with the preserved V1 before expanding Level 1.</span><a href="../flashcards/">Compare locked V1 ↗</a><a href="../">Hangul Lab ↗</a></footer>
+      <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

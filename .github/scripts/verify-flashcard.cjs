@@ -4,10 +4,20 @@ const { chromium } = require("playwright");
 (async () => {
   const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
   const errors = [];
+  const preview = process.env.FLASHCARD_PATH === "flashcards-v2" ? "flashcards-v2" : "flashcards";
   const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
   page.on("pageerror", error => errors.push(error.message));
   try {
-    await page.goto("http://127.0.0.1:4173/flashcards/", { waitUntil: "domcontentloaded" });
+    await page.goto("http://127.0.0.1:4173/"+preview+"/", { waitUntil: "domcontentloaded" });
+    if (preview === "flashcards-v2") {
+      assert.equal(await page.locator("svg.book-illustration-v2").count(),1);
+      assert.equal(await page.locator(".v2-left-page").count(),1);
+      assert.equal(await page.locator(".v2-right-page").count(),1);
+      assert.equal(await page.locator(".v2-binding").count(),1);
+      const label=await page.locator("svg.book-illustration-v2").getAttribute("aria-label");
+      assert.match(label,/open book/);
+      console.log("PASS: identifiable open-book silhouette, two page spreads, spine");
+    }
     await page.locator("#card").waitFor();
     const initial = await page.locator("#progress-number").innerText();
     assert.equal(initial, "1 / 4");
@@ -54,7 +64,7 @@ const { chromium } = require("playwright");
     console.log("PASS: 390px mobile layout without horizontal scroll or clipped controls");
     const reduced=await browser.newPage({reducedMotion:"reduce"});
     reduced.on("pageerror",error=>errors.push(error.message));
-    await reduced.goto("http://127.0.0.1:4173/flashcards/",{waitUntil:"domcontentloaded"});
+    await reduced.goto("http://127.0.0.1:4173/"+preview+"/",{waitUntil:"domcontentloaded"});
     const duration=await reduced.locator(".illustration svg").evaluate(el=>getComputedStyle(el).animationDuration);
     assert.equal(duration,"0s");
     await reduced.locator("#reveal").click();
