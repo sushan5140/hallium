@@ -618,3 +618,32 @@
  .reference-actions button,.reference-sentence button,.shell[data-mode=visual] .art-sprite svg.starter-art,.shell[data-mode=visual] .art-sprite svg.book-illustration-v2{transition:none!important;animation:none!important}
  .reference-actions button:hover,.reference-sentence button:hover{transform:none}
 }
+
+/* Screenshot-aligned mobile hierarchy: card image starts near the top, not after
+   a marketing hero. Navigation and the full deck remain available below. */
+@media(max-width:750px){
+ .shell[data-mode=visual] .sidebar{display:none}
+ .shell[data-mode=visual] .page-heading{display:none}
+ .shell[data-mode=visual] .deck-intro{display:none}
+ .shell[data-mode=visual] .main{padding-top:15px}
+ .shell[data-mode=visual] .mode-strip{margin:0 0 12px}
+ .shell[data-mode=visual] .mode-button{padding:7px 5px}
+ .shell[data-mode=visual] .mode-button>span{width:23px;height:23px;font-size:15px}
+ .shell[data-mode=visual] .preview-progress{margin-bottom:9px}
+ .shell[data-mode=visual] .preview-progress-caption{display:none}
+ .shell[data-mode=visual] .study-bar{margin-bottom:8px}
+ .shell[data-mode=visual] .study-bar-right{display:none}
+ .shell[data-mode=visual] .bar-lesson{font-size:10px}
+ .shell[data-mode=visual] .reference-count{font-size:10px}
+ .shell[data-mode=visual] .stage-head{display:none}
+}
+@media(max-width:520px){
+ .shell[data-mode=visual] .topbar{height:60px}
+ .shell[data-mode=visual] .brand small{font-size:7px}
+ .shell[data-mode=visual] .brand strong{font-size:19px}
+ .shell[data-mode=visual] .main{padding-top:12px}
+ .shell[data-mode=visual] .reference-count{margin-left:0}
+ .shell[data-mode=visual] .mode-button strong{font-size:10px}
+ .shell[data-mode=visual] .mode-button small{font-size:7px}
+ .shell[data-mode=visual] .illustration{aspect-ratio:1.33/1}
+}
