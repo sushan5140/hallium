@@ -90,7 +90,7 @@ function changeMode(mode){
  if(!MODES.includes(mode))return;
  state.mode=mode;
  flip(false,false);render();persist();
- const messages={visual:"See the picture and connect it to the Korean word.",recall:"Try to remember the meaning before revealing it.",listening:"Listen without reading the word first.",sentence:"Say or type the missing Korean word before revealing it."};
+ const messages={visual:"See the scene, word, meaning, and explanation together — just like a learning card.",recall:"Try to remember the meaning before revealing it.",listening:"Listen without reading the word first.",sentence:"Say or type the missing Korean word before revealing it."};
  toast(messages[mode]);
 }
 function progressCount(){return WORDS.filter(w=>(state.cards[w.id]||{}).status!=="new"&&(state.cards[w.id]||{}).status).length}
@@ -169,12 +169,16 @@ function renderMode(){
  $("sentence-answer").hidden=!sentenceMode;
  if(sentenceMode)setText("front-sentence",w.sentencePrompt);
  $("sentence-answer").value="";
+ $("reference-detail").hidden=state.mode!=="visual";
+ $("reference-actions").hidden=state.mode!=="visual";
+ $("reference-finish").hidden=true;
+ if(state.mode==="visual")cardState().revealed=true;
  frontWord.textContent=state.mode==="listening"?"♫":sentenceMode?"_____":w.ko;
  frontWord.lang=state.mode==="listening"?"":"ko";
  frontRoman.hidden=state.mode==="listening"||sentenceMode;
  if(!frontRoman.hidden)frontRoman.textContent=w.latin;
  const captions={
-  visual:["LOOK AT THE PICTURE. SAY THE WORD.","Look at the picture, say the Korean word, then reveal.","01 · See it"],
+  visual:["LOOK AT THE SCENE. LEARN THE WORD.","See the image, hear the Korean, read the explanation, then self-check.","01 · Learn"],
   recall:["REMEMBER WITHOUT THE IMAGE.","What does this Korean word mean? Think first.","02 · Recall"],
   listening:["HEAR IT BEFORE YOU SEE IT.","Press Listen, then try to identify the Korean word.","03 · Listen"],
   sentence:["USE THE WORD IN CONTEXT.","Complete the Korean sentence before you reveal.","04 · Use it"]
@@ -186,6 +190,16 @@ function render(){
  setText("front-tag",w.group.toUpperCase()+" · "+String(WORDS.indexOf(w)+1).padStart(2,"0")+" / 12");
  setText("bubble-number",String(WORDS.indexOf(w)+1).padStart(2,"0")+" / 12");
  setText("bar-lesson",w.ko+" · "+w.group);
+ setText("reference-count","Card "+String(WORDS.indexOf(w)+1)+" of 12");
+ setText("reference-meaning",w.meaning);
+ setText("reference-type",w.type);
+ const explanations={hello:"A polite hello when you meet someone.",name:"What someone is called; the word for a person’s name.",student:"A person learning in a school or class.",friend:"Someone you know and have a friendly relationship with.",book:"A printed book with pages you read, not a blank notebook.",bag:"A bag for carrying books and everyday belongings.",water:"The clear liquid we drink.",coffee:"A drink made from roasted coffee beans.",school:"The place where students attend classes.",home:"The house or place where you live.",library:"A place with collections of books you can read or borrow.",cafe:"A coffee shop where people buy drinks and meet."};
+ setText("reference-description",explanations[w.id]||w.description);
+ setText("reference-example",w.example);
+ setText("reference-translation",w.translation);
+ setText("reference-tip",w.tip);
+ setText("reference-contrast",w.contrast);
+ $("front-sentence-audio").setAttribute("aria-label","Hear "+w.example);
  setText("back-type",w.type);
  setText("back-word",w.ko);setText("back-romanization",w.latin);
  setText("back-meaning",w.meaning);
@@ -207,11 +221,12 @@ function render(){
   const el=$(part+"-mark");el.textContent=done?"✓ Done":"Try it";el.classList.toggle("completed",done);
  });
  $("know").disabled=answeredThisTurn;$("learn").disabled=answeredThisTurn;
+ $("reference-know").disabled=answeredThisTurn;$("reference-learn").disabled=answeredThisTurn;
  document.title=w.ko+" · Starter Flashcards — Hallium";
 }
 function flip(next,focus=true){
  ++focusToken;if(focusTimer)clearTimeout(focusTimer);
- if(!next){answeredThisTurn=false;card.classList.remove("has-choice","choice-know","choice-learn");$("card-finish").hidden=true}
+ if(!next){answeredThisTurn=false;card.classList.remove("has-choice","choice-know","choice-learn");$("card-finish").hidden=true;$("reference-finish").hidden=true}
  revealed=next;
  if(next){cardState().revealed=true}
  card.classList.toggle("flipped",next);scene.classList.toggle("is-revealed",next);
@@ -239,7 +254,7 @@ function voice(){
  return v.find(x=>/^ko-KR$/i.test(x.lang)&&/google|microsoft|korean/i.test(x.name))||v.find(x=>/^ko/i.test(x.lang))||null;
 }
 function animateAudio(on){
- ["front-audio","inline-audio","back-audio","sentence-audio"].forEach(id=>$(id).classList.toggle("is-speaking",on));
+ ["front-audio","inline-audio","back-audio","sentence-audio","front-sentence-audio"].forEach(id=>$(id).classList.toggle("is-speaking",on));
  if(audioTimer)clearTimeout(audioTimer);
  if(on)audioTimer=setTimeout(()=>animateAudio(false),5000);
 }
@@ -260,13 +275,18 @@ function renderAudioMark(){
  $("activity-progress").setAttribute("aria-valuenow",String(steps));$("progress-fill").style.width=steps*25+"%";setText("progress-number",steps+" / 4");
 }
 function record(kind){
- if(!revealed||answeredThisTurn)return;
+ if((!revealed&&state.mode!=="visual")||answeredThisTurn)return;
  answeredThisTurn=true;
  const c=cardState(),w=getWord();
  if(kind==="know")c.known+=1;else c.learning+=1;
  c.status=kind;c.lastAt=new Date().toISOString();
  c.dueAt=new Date(Date.now()+(kind==="know"?3:1)*86400000).toISOString();
  $("know").disabled=true;$("learn").disabled=true;
+ $("reference-know").disabled=true;$("reference-learn").disabled=true;
+ if(state.mode==="visual"){
+   $("reference-finish").hidden=false;
+   $("reference-finish-label").textContent=kind==="know"?"✓ Self-recalled "+w.ko+" · scheduled for a later check.":"♡ Added "+w.ko+" to tomorrow’s review.";
+ }
  const panel=$("card-finish");panel.hidden=false;card.classList.add("has-choice",kind==="know"?"choice-know":"choice-learn");
  setText("finish-icon",kind==="know"?"✦":"♡");
  setText("finish-title",kind==="know"?"That felt familiar!":"Now it has a place to grow.");
@@ -297,6 +317,9 @@ $("practice-again").addEventListener("click",()=>{flip(false);toast("Try to reca
 $("continue-next").addEventListener("click",()=>move(1));
 $("know").addEventListener("click",()=>record("know"));
 $("learn").addEventListener("click",()=>record("learn"));
+$("reference-know").addEventListener("click",()=>record("know"));
+$("reference-learn").addEventListener("click",()=>record("learn"));
+$("reference-continue").addEventListener("click",()=>move(1));
 $("save").addEventListener("click",()=>save());
 $("notebook-button").addEventListener("click",()=>save(true));
 $("reset").addEventListener("click",reset);
@@ -304,6 +327,7 @@ $("previous").addEventListener("click",()=>move(-1));
 $("next").addEventListener("click",()=>move(1));
 ["front-audio","back-audio","inline-audio"].forEach(id=>$(id).addEventListener("click",()=>play(getWord().ko)));
 $("sentence-audio").addEventListener("click",()=>play(getWord().example,true));
+$("front-sentence-audio").addEventListener("click",()=>play(getWord().example,true));
 document.addEventListener("keydown",e=>{
  const target=e.target;
  if(target&&target.closest("input,textarea,select,button,a,[contenteditable=true]"))return;
