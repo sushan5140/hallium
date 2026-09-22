@@ -50,8 +50,10 @@ jobs:
           node --check writing.js
           node --check flashcards/app.js
           node --check flashcards-v2/app.js
+          for file in flashcards-level1/*.js; do node --check "$file"; done
           test -f flashcards/index.html && test -f flashcards/styles.css
           test -f flashcards-v2/index.html && test -f flashcards-v2/styles.css
+          test -f flashcards-level1/index.html && test -f flashcards-level1/styles.css
           test -f index.html && test -f styles.css
           python3 - <<'PY'
           from html.parser import HTMLParser
@@ -93,12 +95,19 @@ jobs:
           assert 'href="./flashcards-v2/"' in Path('index.html').read_text()
           assert 'book:v1' in Path('flashcards/app.js').read_text()
           assert 'book:v2' in Path('flashcards-v2/app.js').read_text()
-          print('Preserved V1, separate V2, book silhouette and navigation verified')
+          starter=Assets(); starter.feed(Path('flashcards-level1/index.html').read_text())
+          starter_needed={'group-filter','deck-list','deck-grid','mode-tabs','front-word','art-sprite','front-sentence','sentence-answer','reveal','learn','know','save','reset','front-audio','back-audio','sentence-audio','review-list','saved-list','previous','next'}
+          assert not (starter_needed-starter.ids), 'Missing Starter batch controls: '+str(starter_needed-starter.ids)
+          script_order=['./data.js','./art-people.js','./art-objects.js','./art-places.js','./art-book.js','./app.js']
+          assert starter.scripts==script_order, 'Wrong Starter dependency order '+str(starter.scripts)
+          assert 'href="./flashcards-level1/"' in Path('index.html').read_text()
+          print('Preserved V1/V2, separate full starter batch, semantic art, and navigation verified')
           PY
           mkdir -p public
           cp index.html styles.css app.js writing.js public/
           cp -R flashcards public/
           cp -R flashcards-v2 public/
+          cp -R flashcards-level1 public/
           touch public/.nojekyll
       - name: Verify flashcard interactions in Chromium
         shell: bash
@@ -111,6 +120,7 @@ jobs:
           trap 'kill "$pid" 2>/dev/null || true' EXIT
           node .github/scripts/verify-flashcard.cjs
           FLASHCARD_PATH=flashcards-v2 node .github/scripts/verify-flashcard.cjs
+          node .github/scripts/verify-flashcard-level1.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site

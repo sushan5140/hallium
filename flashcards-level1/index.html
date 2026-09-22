@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f7f2">
+<meta name="description" content="Hallium's first 12 Starter Korean illustrated flashcards. Learn the words through pictures, recall, listening and sentences.">
+<title>Starter Unit 01 · 12 Korean Flashcards — Hallium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./data.js"></script>
+<script defer src="./art-people.js"></script>
+<script defer src="./art-objects.js"></script>
+<script defer src="./art-places.js"></script>
+<script defer src="./art-book.js"></script>
+<script defer src="./app.js"></script>
+</head>
+<body>
+<a href="#flashcard" class="skip">Skip to flashcard</a>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Hallium Hangul Lab home"><span class="symbol" aria-hidden="true">ㅎ</span><span><strong>hallium<span class="brand-dot">.</span></strong><small>FLASHCARD STUDIO <b>STARTER · 12 WORDS</b></small></span></a>
+    <nav class="topnav" aria-label="Preview navigation"><a class="navitem" href="../">Hangul Lab ↗</a><a class="navitem" href="../flashcards-v2/">Book V2 ↗</a><a class="navitem active" href="./" aria-current="page">Starter Deck ✦</a></nav>
+    <div class="top-right"><span class="saved-light"></span> Preview saves locally <span class="avatar" aria-hidden="true">가</span></div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="side-top"><span class="eyebrow">YOUR STUDY SPACE</span><div class="course"><span class="course-icon">가</span><span><strong>Starter Korean</strong><small>Unit 01 · First conversations</small></span><span class="chevron">↗</span></div></div>
+      <span class="eyebrow section-tag">THE FIRST BATCH</span>
+      <div class="group-filter" id="group-filter" role="group" aria-label="Choose vocabulary category"></div>
+      <div class="side-separator"></div>
+      <div class="deck-overview"><span class="eyebrow">12 WORDS · 4 GROUPS</span><span id="deck-reviewed-label">0 / 12 self-checked</span><div class="deck-meter"><span id="deck-meter-fill"></span></div></div>
+      <nav class="sidebar-deck" id="deck-list" aria-label="Choose a vocabulary flashcard"></nav>
+      <div class="side-footer"><span>✳</span><div><strong>See it. Say it. Remember.</strong><small>No multiple-choice guessing here.</small></div></div>
+    </aside>
+    <main class="main" id="flashcard" tabindex="-1">
+      <div class="page-heading">
+        <div class="eyebrow">LEVEL 01 / STARTER UNIT 01 / THE FIRST BATCH <span class="eyebrow-line"></span></div>
+        <div class="title-row"><div><h1>Little words,<br>big <em>connections.</em></h1><p>Twelve everyday Korean words, each with its own illustration. Look first, then reveal what it means. Move between pictures, recall, listening, and sentences.</p></div><div class="lesson-bubble"><span id="bubble-number">01 <i>/ 12</i></span><small>ONE DECK<br>FOUR WAYS TO LEARN</small></div></div>
+      </div>
+      <div class="deck-intro"><span class="pill"><span class="pill-dot"></span> FIRST BATCH · LIVE PREVIEW</span><span>Same Starter Unit 1 vocabulary as Hallium. Your real Hallium progress is untouched.</span></div>
+      <div class="mode-strip" role="group" aria-label="Choose practice style" id="mode-tabs">
+        <button type="button" class="mode-button selected" data-mode="visual" aria-pressed="true"><span>◉</span><strong>See it</strong><small>Image + word</small></button>
+        <button type="button" class="mode-button" data-mode="recall" aria-pressed="false"><span>◫</span><strong>Recall</strong><small>Remember meaning</small></button>
+        <button type="button" class="mode-button" data-mode="listening" aria-pressed="false"><span>♫</span><strong>Listen</strong><small>Hear before seeing</small></button>
+        <button type="button" class="mode-button" data-mode="sentence" aria-pressed="false"><span>✎</span><strong>Use it</strong><small>Complete a sentence</small></button>
+      </div>
+      <div class="preview-progress" aria-label="Four activity steps for the selected card"><span class="preview-progress-caption">ONE WORD · FOUR LITTLE WINS</span><span class="preview-progress-track" role="progressbar" aria-label="Flashcard activity steps complete" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" id="activity-progress"><span class="preview-progress-fill" id="progress-fill"></span></span><span class="preview-progress-number" id="progress-number">1 / 4</span></div>
+      <div class="study-bar"><div class="study-bar-left"><span class="bar-lesson" id="bar-lesson">안녕하세요 · Greetings</span></div><div class="study-bar-right"><span class="status-chip" id="status-chip">Not practised yet</span><button id="reset" type="button" class="ghost-small" title="Clear only this separate Starter deck's local progress">↻ Reset deck</button></div></div>
+      <div class="layout">
+        <section class="stage" aria-label="Interactive Korean vocabulary flashcard">
+          <div class="stage-head"><span>✦ <strong>THE LEARNING CARD</strong></span><span id="mode-caption">01 · Observe</span></div>
+          <div class="flip-scene" id="flip-scene">
+            <div class="card-fx" id="card-fx" aria-hidden="true"></div>
+            <div class="flip-card" id="card">
+              <article class="face face-front" id="front">
+                <div class="card-upper"><span class="card-tag" id="front-tag">GREETING · 01 / 12</span><button class="audio-button" id="front-audio" type="button" aria-label="Hear Korean word">♫ <span>Listen</span></button></div>
+                <div class="illustration" id="artwork" aria-label="Illustration of the word"><span class="ambient-orb ambient-one" aria-hidden="true"></span><span class="ambient-orb ambient-two" aria-hidden="true"></span><span class="art-sprite" id="art-sprite"></span><div class="illustration-sticker sticker-right" aria-hidden="true">✳</div></div>
+                <div class="front-challenge" id="front-challenge"><span id="front-label">LOOK AT THE PICTURE. SAY THE WORD.</span><h2 lang="ko" id="front-word">안녕하세요</h2><p><span class="hangul-pronounce" id="front-romanization">annyeonghaseyo</span><button id="inline-audio" type="button" class="inline-play" aria-label="Play Korean pronunciation">▶ Hear it</button></p><div id="front-sentence" class="front-sentence" hidden></div><input id="sentence-answer" class="sentence-answer" type="text" lang="ko" placeholder="Optional: type the missing Korean word" maxlength="30" autocomplete="off" spellcheck="false" hidden></div>
+                <button class="reveal" id="reveal" type="button"><span>Reveal the meaning</span><span>↗</span></button>
+                <span class="front-hint" id="front-hint">Look first, say the Korean word, and flip when ready.</span>
+              </article>
+              <article class="face face-back" id="back" aria-hidden="true" inert>
+                <div class="card-upper"><span class="card-tag">THE MEANING, UNLOCKED</span><button id="back-audio" type="button" class="audio-button" aria-label="Hear Korean word">♫ <span>Listen</span></button></div>
+                <div class="back-hero"><span class="word-type" id="back-type">POLITE GREETING</span><h2 lang="ko" id="back-word">안녕하세요</h2><span class="pronunciation" id="back-romanization">annyeonghaseyo</span><h3 id="back-meaning">Hello<span class="period">.</span></h3><p id="back-explanation">A polite way to greet someone.</p></div>
+                <div class="sentence"><div><span class="eyebrow">IN A REAL SENTENCE</span><button id="sentence-audio" type="button" aria-label="Listen to Korean example sentence">▶ Listen to sentence</button></div><strong lang="ko" id="back-sentence">안녕하세요. 저는 민지예요.</strong><p id="back-translation">Hello. I'm Minji.</p></div>
+                <div class="pronounce-tip"><span class="tip-icon">ㅎ</span><span><strong>Pronunciation tip</strong><small id="back-tip">Keep your Korean flowing.</small></span></div>
+                <div class="contrast-tip"><strong>Small distinction, big difference</strong><p id="back-contrast"></p></div>
+                <div class="back-actions"><button id="learn" class="learn" type="button"><span>♡</span> Learn this</button><button id="know" class="know" type="button">I know this <span>✓</span></button></div>
+                <div class="card-finish" id="card-finish" hidden><span id="finish-icon">✦</span><strong id="finish-title">One word closer.</strong><small id="finish-detail">Your answer is a self-check, not a mastery score.</small><div class="finish-buttons"><button id="practice-again" type="button">Practise again ↻</button><button id="continue-next" type="button">Next word →</button></div></div>
+                <button id="turn-back" class="flip-back" type="button">↶ Turn to the front</button>
+              </article>
+            </div>
+          </div>
+          <div class="under-card"><span>✦ Your answer is a <strong>self-check</strong>, not an exam score. <small class="motion-hint">Move your cursor over the card to explore it.</small></span><button id="save" type="button" class="save-button" aria-pressed="false">♡ Save to my collection</button></div>
+          <div class="card-navigation"><button id="previous" type="button" class="nav-deck">← Previous</button><span id="position-label" role="status">01 / 12 · Greetings</span><button id="next" type="button" class="nav-deck primary">Next word →</button></div>
+        </section>
+        <aside class="info-rail" aria-label="Learning progress and saved words">
+          <section class="rail-card learning-plan"><div class="rail-kicker">✳ ONE WORD, FOUR LITTLE WINS</div><h3>More than a flip.</h3><p id="learning-description">Meet the picture, hear the Korean, reveal the meaning and choose what to review.</p>
+            <div class="win"><span class="win-icon w1">◉</span><span><strong>01 · Discover</strong><small>A clear image and Korean word.</small></span><span class="win-done">✓</span></div>
+            <div class="win"><span class="win-icon w2">♫</span><span><strong>02 · Listen</strong><small>Hear the Korean sound.</small></span><span id="audio-mark" class="win-state">Try it</span></div>
+            <div class="win"><span class="win-icon w3">↗</span><span><strong>03 · Reveal</strong><small>Check your understanding.</small></span><span id="reveal-mark" class="win-state">Try it</span></div>
+            <div class="win"><span class="win-icon w4">♡</span><span><strong>04 · Remember</strong><small>Choose the next review.</small></span><span id="recall-mark" class="win-state">Try it</span></div>
+          </section>
+          <section class="rail-card journal" id="progress"><div class="rail-kicker">YOUR STARTER DECK JOURNAL</div><h3>Every little word counts<span class="period">.</span></h3><p>Self-reported review status across the whole batch — never a fake mastery percentage.</p><div class="journal-grid"><div><strong id="known-count">0</strong><span>Words recalled</span></div><div><strong id="learn-count">0</strong><span>Words to review</span></div></div><div class="journal-status"><span class="journal-dot"></span><span id="review-state">Your first recall choice is waiting.</span></div><div id="review-list" class="review-list" aria-label="Words ready for review"></div><small class="journal-note">This GitHub Pages preview saves only in this browser. Your Hallium account and V1/V2 pilots remain unchanged.</small></section>
+          <section class="rail-card notebook" id="notebook"><div class="rail-kicker">PERSONAL COLLECTION</div><div class="notebook-heading"><span class="notebook-illustration" id="notebook-icon">안</span><div><h3>My first words</h3><p id="collection-description">Save a card to keep it close.</p></div></div><button id="notebook-button" type="button">Add this card <span>↗</span></button><div class="saved-list" id="saved-list" aria-label="Your saved words"></div></section>
+        </aside>
+      </div>
+      <section class="deck-grid-section" aria-label="All vocabulary cards"><div class="deck-grid-head"><span class="eyebrow">ALL TWELVE / SELECT A CARD</span><h2>Find the word you're curious about.</h2><p>Four everyday groups. Select any card to jump to it, or use Next to study in sequence.</p></div><div class="deck-grid" id="deck-grid"></div></section>
+      <footer class="footer"><span>HALLIUM · STARTER UNIT 01 · FIRST BATCH</span><span>12 meaning-checked scenes · 4 learning modes · browser-only progress</span><a href="../flashcards-v2/">Locked Book V2 ↗</a><a href="../flashcards/">Locked V1 ↗</a></footer>
+      <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
