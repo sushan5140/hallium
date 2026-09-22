@@ -202,6 +202,8 @@ function render(){
  setText("reference-translation",w.translation);
  setText("reference-tip",w.tip);
  setText("reference-contrast",w.contrast);
+ const pairings={hello:"안녕하세요!",name:"이름이 뭐예요?",student:"학생이에요",friend:"친구와 함께",book:"책을 읽어요",bag:"가방을 들어요",water:"물을 마셔요",coffee:"커피 한 잔",school:"학교에 가요",home:"집에 있어요",library:"도서관에서 공부해요",cafe:"카페에서 만나요"};
+ setText("reference-pair",pairings[w.id]||w.ko);
  $("front-sentence-audio").setAttribute("aria-label","Hear "+w.example);
  setText("back-type",w.type);
  setText("back-word",w.ko);setText("back-romanization",w.latin);
