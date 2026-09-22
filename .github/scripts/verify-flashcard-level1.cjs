@@ -41,7 +41,7 @@ const {chromium}=require("playwright");
   assert.equal(await page.locator("#back").getAttribute("aria-hidden"),"true");
   assert.equal(await page.locator("#reveal").isVisible(),false);
   assert.equal(await page.locator("#reference-meaning").innerText(),"Book");
-  assert.match(await page.locator("#reference-contrast").innerText(),/공책/);
+  assert.match(await page.locator("#reference-contrast").textContent(),/공책/);
   assert.match(await page.locator("#reference-description").innerText(),/printed book/);
   assert.equal(await page.locator("#reference-actions").isVisible(),true);
   await page.locator("#reference-know").click();
