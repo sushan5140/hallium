@@ -36,16 +36,18 @@
     </aside>
     <main id="flashcard" class="main" tabindex="-1">
       <div class="page-heading"><div class="eyebrow">LEVEL 01 / OBJECTS / ONE-CARD EXPERIMENT <span class="eyebrow-line"></span></div><div class="title-row"><div><h1>A little word,<br>a whole new <em>world.</em></h1><p>Meet it, hear it, remember it. No rushing through a deck — today we're making one word feel unforgettable.</p></div><div class="lesson-bubble"><span>01 <i>/ 01</i></span><small>ONE WORD, FOUR WAYS<br>TO KNOW IT</small></div></div></div>
+      <div class="preview-progress" aria-label="Your four steps for this sample card"><span class="preview-progress-caption">ONE WORD · FOUR LITTLE WINS</span><span class="preview-progress-track" role="progressbar" aria-label="Flashcard activity steps complete" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" id="activity-progress"><span class="preview-progress-fill" id="progress-fill"></span></span><span class="preview-progress-number" id="progress-number">0 / 4</span></div>
       <div class="study-bar"><div class="study-bar-left"><span class="pill"><span class="pill-dot"></span> DISCOVER MODE</span><span class="bar-lesson">책 <b>·</b> Everyday objects</span></div><div class="study-bar-right"><span id="status-chip" class="status-chip">Not practised yet</span><button id="reset" type="button" class="ghost-small" title="Clear only this sample flashcard's recall history and saved state">↻ Reset sample</button></div></div>
 
       <div class="layout">
         <section class="stage" aria-label="Interactive Korean flashcard">
           <div class="stage-head"><span>✦ <strong>THE LEARNING CARD</strong></span><span id="mode-caption">01 · Observe</span></div>
-          <div class="flip-scene">
+          <div class="flip-scene" id="flip-scene">
+            <div class="card-fx" id="card-fx" aria-hidden="true"></div>
             <div class="flip-card" id="card">
               <article class="face face-front" id="front">
                 <div class="card-upper"><span class="card-tag">01 / OBJECTS</span><button class="audio-button" id="front-audio" type="button" aria-label="Hear 책" title="Hear the Korean pronunciation">♫ <span>Listen</span></button></div>
-                <div class="illustration" aria-label="Illustration of a purple book with a coral book beneath it">
+                <div class="illustration" aria-label="Illustration of a purple book with a coral book beneath it"><span class="ambient-orb ambient-one" aria-hidden="true"></span><span class="ambient-orb ambient-two" aria-hidden="true"></span><span class="floating-word floating-word-one" aria-hidden="true">읽다 <small>to read</small></span><span class="floating-word floating-word-two" aria-hidden="true">01 / 12</span>
                   <svg viewBox="0 0 570 330" role="img" aria-label="Two colourful illustrated books with a bookmark" xmlns="http://www.w3.org/2000/svg">
                     <defs><linearGradient id="cover" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#887af0"/><stop offset="1" stop-color="#6358c9"/></linearGradient><linearGradient id="cover2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb293"/><stop offset="1" stop-color="#ed917b"/></linearGradient><filter id="shade" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
                     <ellipse cx="290" cy="279" rx="199" ry="22" fill="#444177" opacity=".09" filter="url(#shade)"/>
@@ -55,7 +57,7 @@
                   </svg>
                   <div class="illustration-sticker sticker-left" aria-hidden="true">한글<br>is fun!</div><div class="illustration-sticker sticker-right" aria-hidden="true">✳</div>
                 </div>
-                <div class="word-front"><span>MEET YOUR NEW WORD</span><h2 lang="ko">책</h2><p>chaek <span aria-hidden="true">·</span> <button id="inline-audio" type="button" class="inline-play" aria-label="Play Korean pronunciation">▶ Hear it</button></p></div>
+                <div class="word-front"><span>MEET YOUR NEW WORD</span><h2 lang="ko">책</h2><p><span class="hangul-pronounce" lang="ko">[책]</span> chaek <span aria-hidden="true">·</span> <button id="inline-audio" type="button" class="inline-play" aria-label="Play Korean pronunciation">▶ Hear it</button></p></div>
                 <button class="reveal" id="reveal" type="button"><span>Reveal the meaning</span><span>↗</span></button>
                 <span class="front-hint">Look, say it aloud, then reveal when you're ready.</span>
               </article>
@@ -65,11 +67,12 @@
                 <div class="sentence"><div><span class="eyebrow">IN A REAL SENTENCE</span><button id="sentence-audio" type="button" aria-label="Listen to 이것은 책이에요">▶ Listen to sentence</button></div><strong lang="ko">이것은 책이에요.</strong><p>This is a book.</p></div>
                 <div class="pronounce-tip"><span class="tip-icon">ㅎ</span><span><strong>A tiny pronunciation secret</strong><small>Stop cleanly at the final ㄱ (k). Don't add an extra “uh” after the word.</small></span></div>
                 <div class="back-actions"><button id="learn" class="learn" type="button"><span>♡</span> Learn this</button><button id="know" class="know" type="button">I know this <span>✓</span></button></div>
+                <div class="card-finish" id="card-finish" hidden><span id="finish-icon">✦</span><strong id="finish-title">One word closer.</strong><small id="finish-detail">Nice work learning your first card.</small><button id="practice-again" type="button">Practise again ↻</button></div>
                 <button id="turn-back" class="flip-back" type="button">↶ Turn to the front</button>
               </article>
             </div>
           </div>
-          <div class="under-card"><span>✦ Your answer is a <strong>self-check</strong>, not an exam score.</span><button id="save" type="button" class="save-button" aria-pressed="false">♡ Save to my collection</button></div>
+          <div class="under-card"><span>✦ Your answer is a <strong>self-check</strong>, not an exam score. <small class="motion-hint">Move your cursor over the card to explore it.</small></span><button id="save" type="button" class="save-button" aria-pressed="false">♡ Save to my collection</button></div>
         </section>
         <aside class="info-rail" aria-label="Flashcard information">
           <section class="rail-card learning-plan"><div class="rail-kicker">✳ THE IDEA</div><h3>One word, four little wins.</h3><p>We're testing a card that can grow from first sight to actual recall.</p><div class="win"><span class="win-icon w1">◉</span><span><strong>01 · Discover</strong><small>Meet the word visually.</small></span><span class="win-done">✓</span></div><div class="win"><span class="win-icon w2">♫</span><span><strong>02 · Listen</strong><small>Hear natural Korean audio.</small></span><span id="audio-mark" class="win-state">Try it</span></div><div class="win"><span class="win-icon w3">↗</span><span><strong>03 · Reveal</strong><small>Check your understanding.</small></span><span id="reveal-mark" class="win-state">Try it</span></div><div class="win"><span class="win-icon w4">♡</span><span><strong>04 · Remember</strong><small>Choose your next review.</small></span><span id="recall-mark" class="win-state">Try it</span></div></section>
