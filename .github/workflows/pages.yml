@@ -48,6 +48,8 @@ jobs:
         run: |
           node --check app.js
           node --check writing.js
+          node --check flashcards/app.js
+          test -f flashcards/index.html && test -f flashcards/styles.css
           test -f index.html && test -f styles.css
           python3 - <<'PY'
           from html.parser import HTMLParser
@@ -65,8 +67,27 @@ jobs:
           assert './writing.js' in h.scripts
           print('Hangul handwriting markup verified')
           PY
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Assets(HTMLParser):
+              def __init__(self): super().__init__();self.ids=set();self.scripts=[]
+              def handle_starttag(self,tag,attrs):
+                  a=dict(attrs)
+                  if 'id' in a:
+                      assert a['id'] not in self.ids, f'Duplicate element id: {a["id"]}'
+                      self.ids.add(a['id'])
+                  if tag=='script' and 'src' in a:self.scripts.append(a['src'])
+          h=Assets();h.feed(Path('flashcards/index.html').read_text())
+          needed={'reveal','know','learn','save','reset','front-audio','back-audio','inline-audio','sentence-audio','notebook-button','status-chip','review-state','card','front','back'}
+          assert not (needed-h.ids), 'Missing flashcard controls: '+str(needed-h.ids)
+          assert './app.js' in h.scripts
+          assert 'href="./flashcards/"' in Path('index.html').read_text()
+          print('One-card flashcard controls and Hangul Lab navigation verified')
+          PY
           mkdir -p public
           cp index.html styles.css app.js writing.js public/
+          cp -R flashcards public/
           touch public/.nojekyll
       - name: Configure Pages
         uses: actions/configure-pages@v5

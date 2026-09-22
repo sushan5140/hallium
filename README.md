@@ -19,3 +19,7 @@ Progress for explored/recognized/written letters and scores is stored locally in
 The `hangul-lab-preview` branch publishes the root static files `index.html`, `styles.css`, `app.js`, `writing.js` through `.github/workflows/pages.yml` and verifies both scripts before deploying.
 
 No npm, server, API key, login or database is needed for this preview. When this version is approved, selectively integrate the design/learning flows into the independent Hallium Vercel project on `main`; do not copy prototype-local storage over user data.
+
+## Level 1 Flashcard Studio · single-card pilot
+
+The existing GitHub Pages deployment now publishes `flashcards/` at https://sushan5140.github.io/hallium/flashcards/ without touching production Vercel or the original Hangul Lab. Pilot card: **책 — book** from Starter Unit 1 / Everyday objects, including an illustrated reveal card, Korean voice via the browser's Korean speech voice, example sentence, pronunciation note, honest recall self-check, one-card local review schedule, and saved collection. `flashcards/` is static: no Google sign-in, Supabase access, remote tracking, AI billing, or changes to actual learner records. Test the single card before expanding the original Starter vocabulary set. All pilot history is stored under `hallium:flashcard-pilot:book:v1` on this device only; the reset button clears only that key.

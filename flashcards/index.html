@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="Preview one fully interactive Hallium Level 1 Korean vocabulary flashcard: 책, book.">
+  <title>책 · Flashcard Studio — Hallium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+<a href="#flashcard" class="skip">Skip to flashcard</a>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Hallium Hangul Lab home"><span class="symbol" aria-hidden="true">ㅎ</span><span><strong>hallium<span class="brand-dot">.</span></strong><small>FLASHCARD STUDIO <b>PREVIEW 01</b></small></span></a>
+    <nav class="topnav" aria-label="Preview navigation"><a class="navitem" href="../">Hangul Lab <span>↗</span></a><a class="navitem active" href="./" aria-current="page">Flashcards <span>✦</span></a></nav>
+    <div class="top-right"><span class="saved-light"></span> Saves on this device <span class="avatar" aria-hidden="true">책</span></div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="side-top"><span class="eyebrow">YOUR STUDY SPACE</span><div class="course"><span class="course-icon">가</span><span><strong>Starter Korean</strong><small>Unit 01 · First conversations</small></span><span class="chevron">↗</span></div></div>
+      <span class="eyebrow section-tag">EXPLORE</span>
+      <nav class="sidenav" aria-label="Flashcard sections">
+        <a href="#flashcard" class="side-link current"><span class="sideicon lilac">▤</span> Learning card <span class="index">01</span></a>
+        <a href="#progress" class="side-link"><span class="sideicon mint">◉</span> Recall journal <span class="index">02</span></a>
+        <a href="#notebook" class="side-link"><span class="sideicon peach">♡</span> My collection <span class="index">03</span></a>
+      </nav>
+      <div class="side-separator"></div>
+      <span class="eyebrow section-tag">THIS PREVIEW</span>
+      <div class="deck-list"><span class="deck-line"><span class="mini-disc">책</span><span><strong>Everyday objects</strong><small>1 of 1 sample card</small></span><i>✓</i></span><div class="deck-meter"><span></span></div><small class="meter-label">One complete interaction before we expand Level 1.</small></div>
+      <div class="side-footer"><span>✳</span><div><strong>Words become worlds.</strong><small>Learn one small thing really well.</small></div></div>
+    </aside>
+    <main id="flashcard" class="main" tabindex="-1">
+      <div class="page-heading"><div class="eyebrow">LEVEL 01 / OBJECTS / ONE-CARD EXPERIMENT <span class="eyebrow-line"></span></div><div class="title-row"><div><h1>A little word,<br>a whole new <em>world.</em></h1><p>Meet it, hear it, remember it. No rushing through a deck — today we're making one word feel unforgettable.</p></div><div class="lesson-bubble"><span>01 <i>/ 01</i></span><small>ONE WORD, FOUR WAYS<br>TO KNOW IT</small></div></div></div>
+      <div class="study-bar"><div class="study-bar-left"><span class="pill"><span class="pill-dot"></span> DISCOVER MODE</span><span class="bar-lesson">책 <b>·</b> Everyday objects</span></div><div class="study-bar-right"><span id="status-chip" class="status-chip">Not practised yet</span><button id="reset" type="button" class="ghost-small" title="Clear only this sample flashcard's recall history and saved state">↻ Reset sample</button></div></div>
+
+      <div class="layout">
+        <section class="stage" aria-label="Interactive Korean flashcard">
+          <div class="stage-head"><span>✦ <strong>THE LEARNING CARD</strong></span><span id="mode-caption">01 · Observe</span></div>
+          <div class="flip-scene">
+            <div class="flip-card" id="card">
+              <article class="face face-front" id="front">
+                <div class="card-upper"><span class="card-tag">01 / OBJECTS</span><button class="audio-button" id="front-audio" type="button" aria-label="Hear 책" title="Hear the Korean pronunciation">♫ <span>Listen</span></button></div>
+                <div class="illustration" aria-label="Illustration of a purple book with a coral book beneath it">
+                  <svg viewBox="0 0 570 330" role="img" aria-label="Two colourful illustrated books with a bookmark" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="cover" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#887af0"/><stop offset="1" stop-color="#6358c9"/></linearGradient><linearGradient id="cover2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb293"/><stop offset="1" stop-color="#ed917b"/></linearGradient><filter id="shade" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+                    <ellipse cx="290" cy="279" rx="199" ry="22" fill="#444177" opacity=".09" filter="url(#shade)"/>
+                    <path d="M116 204 362 167 480 204 234 246Z" fill="#dc806d"/><path d="M118 208 232 252 481 212 481 232 232 274 117 231Z" fill="#ce776c"/><path d="M232 252 481 212 481 231 232 273Z" fill="#f9f4ea"/><path d="M122 208 232 250 475 211" fill="none" stroke="#fae8de" stroke-width="4"/><path d="M245 258 473 220M245 264 465 227" stroke="#dac9b4" stroke-width="1.2" opacity=".75"/>
+                    <g transform="rotate(-9 295 160)"><path d="M112 113 Q112 102 124 100 L380 88 Q395 88 404 97 L473 158 Q483 167 469 173 L208 208 Q194 209 181 196 Z" fill="#6252b5" opacity=".19"/><path d="M116 105 Q116 93 128 92 L375 79 Q389 79 398 88 L470 149 Q481 160 466 166 L207 201 Q195 204 182 190Z" fill="url(#cover)"/><path d="M195 203 467 168 467 184 196 224 116 131 116 105Z" fill="#564bb2"/><path d="M197 202 468 165 468 177 197 213Z" fill="#fff7e9"/><path d="M201 211 462 176" stroke="#d4c5ac" stroke-width="1.5"/><path d="M202 218 458 183" stroke="#d4c5ac" stroke-width="1.5"/><path d="M117 105 194 201" stroke="#a59af6" stroke-width="7" opacity=".57"/><path d="M148 101 211 169" stroke="#dbd5ff" stroke-width="1.5" opacity=".7"/><path d="M237 128 353 116" stroke="#eae5ff" stroke-width="3" stroke-linecap="round" opacity=".8"/><path d="M248 142 329 134" stroke="#eae5ff" stroke-width="3" stroke-linecap="round" opacity=".58"/><text x="291" y="168" fill="#fff" font-size="29" font-weight="900" font-family="sans-serif" transform="rotate(-7 291 168)">책</text><path d="M365 87 386 83 389 139 378 131 365 143Z" fill="#ffd592"/><path d="M365 88 386 83" stroke="#e5ae6f" stroke-width="2"/></g>
+                    <path d="M100 84 104 95 116 99 104 103 100 115 96 103 84 99 96 95Z" fill="#e6a4a1"/><path d="M472 80 476 89 485 93 476 97 472 106 468 97 459 93 468 89Z" fill="#b7b0f3"/><circle cx="81" cy="181" r="4" fill="#edb17b"/><circle cx="505" cy="216" r="5" fill="#9bcac2"/><path d="M500 134 509 128M501 146 513 145M493 124 497 114" stroke="#8e83da" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                  <div class="illustration-sticker sticker-left" aria-hidden="true">한글<br>is fun!</div><div class="illustration-sticker sticker-right" aria-hidden="true">✳</div>
+                </div>
+                <div class="word-front"><span>MEET YOUR NEW WORD</span><h2 lang="ko">책</h2><p>chaek <span aria-hidden="true">·</span> <button id="inline-audio" type="button" class="inline-play" aria-label="Play Korean pronunciation">▶ Hear it</button></p></div>
+                <button class="reveal" id="reveal" type="button"><span>Reveal the meaning</span><span>↗</span></button>
+                <span class="front-hint">Look, say it aloud, then reveal when you're ready.</span>
+              </article>
+              <article class="face face-back" id="back" aria-hidden="true" inert>
+                <div class="card-upper"><span class="card-tag">THE MEANING, UNLOCKED</span><button id="back-audio" type="button" class="audio-button" aria-label="Hear 책">♫ <span>Listen</span></button></div>
+                <div class="back-hero"><span class="word-type">NOUN · EVERYDAY OBJECTS</span><h2 lang="ko">책</h2><span class="pronunciation">chaek <span aria-hidden="true">/</span> 책</span><h3>Book<span class="period">.</span></h3><p>A book you read, study from, or carry to class.</p></div>
+                <div class="sentence"><div><span class="eyebrow">IN A REAL SENTENCE</span><button id="sentence-audio" type="button" aria-label="Listen to 이것은 책이에요">▶ Listen to sentence</button></div><strong lang="ko">이것은 책이에요.</strong><p>This is a book.</p></div>
+                <div class="pronounce-tip"><span class="tip-icon">ㅎ</span><span><strong>A tiny pronunciation secret</strong><small>Stop cleanly at the final ㄱ (k). Don't add an extra “uh” after the word.</small></span></div>
+                <div class="back-actions"><button id="learn" class="learn" type="button"><span>♡</span> Learn this</button><button id="know" class="know" type="button">I know this <span>✓</span></button></div>
+                <button id="turn-back" class="flip-back" type="button">↶ Turn to the front</button>
+              </article>
+            </div>
+          </div>
+          <div class="under-card"><span>✦ Your answer is a <strong>self-check</strong>, not an exam score.</span><button id="save" type="button" class="save-button" aria-pressed="false">♡ Save to my collection</button></div>
+        </section>
+        <aside class="info-rail" aria-label="Flashcard information">
+          <section class="rail-card learning-plan"><div class="rail-kicker">✳ THE IDEA</div><h3>One word, four little wins.</h3><p>We're testing a card that can grow from first sight to actual recall.</p><div class="win"><span class="win-icon w1">◉</span><span><strong>01 · Discover</strong><small>Meet the word visually.</small></span><span class="win-done">✓</span></div><div class="win"><span class="win-icon w2">♫</span><span><strong>02 · Listen</strong><small>Hear natural Korean audio.</small></span><span id="audio-mark" class="win-state">Try it</span></div><div class="win"><span class="win-icon w3">↗</span><span><strong>03 · Reveal</strong><small>Check your understanding.</small></span><span id="reveal-mark" class="win-state">Try it</span></div><div class="win"><span class="win-icon w4">♡</span><span><strong>04 · Remember</strong><small>Choose your next review.</small></span><span id="recall-mark" class="win-state">Try it</span></div></section>
+          <section id="progress" class="rail-card journal"><div class="rail-kicker">YOUR RECALL JOURNAL</div><h3>A gentle beginning<span class="period">.</span></h3><p>These are honest self-reports — not a percentage of “mastery.”</p><div class="journal-grid"><div><strong id="known-count">0</strong><span>Know this</span></div><div><strong id="learn-count">0</strong><span>Learn this</span></div></div><div class="journal-status"><span class="journal-dot"></span><span id="review-state">Your first recall choice is waiting.</span></div><small class="journal-note">Saved in this browser only. No Hallium account progress is changed in this preview.</small></section>
+          <section id="notebook" class="rail-card notebook"><div class="rail-kicker">PERSONAL COLLECTION</div><div class="notebook-heading"><span class="notebook-illustration">책</span><div><h3>My first words</h3><p id="collection-description">Save 책 to keep it close.</p></div></div><button id="notebook-button" type="button">Add this card <span>↗</span></button></section>
+        </aside>
+      </div>
+      <footer class="footer"><span>HALLIUM · LEVEL 01 FLASHCARD PILOT</span><span>One card first. Full Starter collection after you approve it.</span><a href="../">Back to Hangul Lab ↗</a></footer>
+      <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
