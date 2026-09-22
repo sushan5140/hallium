@@ -8,7 +8,6 @@ const GROUPS = window.HALLIUM_STARTER_GROUPS || ["All","Greetings","Identity","O
 const KEY = "hallium:starter-level1:flashcards:v1";
 const MODES = ["visual","recall","listening","sentence"];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 const $ = id => document.getElementById(id);
 if (WORDS.length !== 12 || WORDS.some(w => !ART[w.art])) {
   $("bar-lesson").textContent = "The starter deck is unavailable. Please refresh.";
@@ -40,7 +39,7 @@ function read(){
     };
   }catch{return empty()}
 }
-let state=read(),revealed=false,answeredThisTurn=false,toastTimer=null,effectTimer=null,audioTimer=null,focusTimer=null,focusToken=0;
+let state=read(),revealed=false,answeredThisTurn=false,toastTimer=null,audioTimer=null,focusTimer=null,focusToken=0;
 const fromQuery=new URLSearchParams(location.search).get("word");
 if(validWord(fromQuery)){state.selected=fromQuery;state.group="All"}
 const front=$("front"),back=$("back"),scene=$("flip-scene"),card=$("card");
@@ -163,6 +162,7 @@ function renderMode(){
  });
  const shell=document.querySelector(".shell");shell.dataset.mode=state.mode;
  const w=getWord();const frontWord=$("front-word"),sprite=$("art-sprite"),frontRoman=$("front-romanization");
+ sprite.dataset.scene=w.art;
  sprite.innerHTML=state.mode==="visual"||state.mode==="sentence"?ART[w.art]:'<span class="mode-illustration">'+(state.mode==="listening"?"♫":"?")+'</span>';
  const sentenceMode=state.mode==="sentence";
  $("front-sentence").hidden=!sentenceMode;
@@ -211,9 +211,9 @@ function render(){
 }
 function flip(next,focus=true){
  ++focusToken;if(focusTimer)clearTimeout(focusTimer);
- if(!next){answeredThisTurn=false;card.classList.remove("has-choice");$("card-finish").hidden=true}
+ if(!next){answeredThisTurn=false;card.classList.remove("has-choice","choice-know","choice-learn");$("card-finish").hidden=true}
  revealed=next;
- if(next){cardState().revealed=true;burst("reveal",8)}
+ if(next){cardState().revealed=true}
  card.classList.toggle("flipped",next);scene.classList.toggle("is-revealed",next);
  front.inert=next;back.inert=!next;
  front.setAttribute("aria-hidden",String(next));back.setAttribute("aria-hidden",String(!next));
@@ -230,22 +230,8 @@ function flip(next,focus=true){
  if(focus){
   const token=focusToken;
   const action=()=>{if(token===focusToken)(next?$("back-audio"):$("reveal")).focus({preventScroll:true})};
-  if(reducedMotion.matches)requestAnimationFrame(action);else focusTimer=setTimeout(action,760);
+  if(reducedMotion.matches)requestAnimationFrame(action);else focusTimer=setTimeout(action,570);
  }
-}
-function burst(kind,n){
- if(reducedMotion.matches)return;
- const layer=$("card-fx");layer.replaceChildren();
- if(effectTimer)clearTimeout(effectTimer);
- for(let i=0;i<n;i++){
-  const el=document.createElement("span");el.className="fx-particle fx-"+kind;
-  el.textContent=kind==="know"?"✦":kind==="learn"?"♡":"✳";
-  const a=2*Math.PI*i/n-Math.PI/2,d=kind==="reveal"?55+i%3*15:90+i%4*20;
-  el.style.setProperty("--dx",Math.cos(a)*d+"px");el.style.setProperty("--dy",Math.sin(a)*d+"px");
-  el.style.setProperty("--spin",(i%2?-120:150)+"deg");el.style.setProperty("--delay",i%3*30+"ms");
-  layer.append(el);
- }
- effectTimer=setTimeout(()=>layer.replaceChildren(),1400);
 }
 function voice(){
  if(!("speechSynthesis" in window))return null;
@@ -281,11 +267,11 @@ function record(kind){
  c.status=kind;c.lastAt=new Date().toISOString();
  c.dueAt=new Date(Date.now()+(kind==="know"?3:1)*86400000).toISOString();
  $("know").disabled=true;$("learn").disabled=true;
- const panel=$("card-finish");panel.hidden=false;card.classList.add("has-choice");
+ const panel=$("card-finish");panel.hidden=false;card.classList.add("has-choice",kind==="know"?"choice-know":"choice-learn");
  setText("finish-icon",kind==="know"?"✦":"♡");
  setText("finish-title",kind==="know"?"That felt familiar!":"Now it has a place to grow.");
  setText("finish-detail",kind==="know"?"You self-reported remembering "+w.ko+". Check again in about three days.":w.ko+" is in tomorrow's review. Try again whenever you like.");
- burst(kind,16);persist();renderReview();renderDeckLists();renderSaved();
+ persist();renderReview();renderDeckLists();renderSaved();
  const chip=$("status-chip");chip.className="status-chip "+kind;chip.textContent=kind==="know"?"✓ Recalled (self-check)":"♡ In review";
  $("recall-mark").textContent="✓ Done";$("recall-mark").classList.add("completed");
  const steps=1+Number(c.listened)+Number(c.revealed)+1;
@@ -294,14 +280,14 @@ function record(kind){
 }
 function save(force=false){
  const c=cardState(),w=getWord();c.saved=force||!c.saved;persist();renderSaved();renderDeckLists();
- if(c.saved){$("notebook").classList.remove("just-saved");void $("notebook").offsetWidth;$("notebook").classList.add("just-saved");burst("learn",7)}
+ if(c.saved){$("notebook").classList.remove("just-saved");void $("notebook").offsetWidth;$("notebook").classList.add("just-saved")}
  toast(c.saved?w.ko+" is saved to this preview's personal collection.":w.ko+" removed from the preview collection.");
 }
 function reset(){
  if(!confirm("Clear ONLY this 12-word GitHub Pages deck? Locked Book V1/V2 and your live Hallium account will not change."))return;
  try{localStorage.removeItem(KEY)}catch{}
  state=empty();revealed=false;answeredThisTurn=false;
- $("card-fx").replaceChildren();flip(false,false);render();toast("Starter deck reset. The locked Book V1/V2 and live Hallium remain unchanged.");
+ flip(false,false);render();toast("Starter deck reset. The locked Book V1/V2 and live Hallium remain unchanged.");
 }
 $("group-filter").addEventListener("keydown",()=>{});
 $("mode-tabs").querySelectorAll("button[data-mode]").forEach(b=>b.addEventListener("click",()=>changeMode(b.dataset.mode)));
@@ -326,21 +312,6 @@ document.addEventListener("keydown",e=>{
  if(e.key==="Escape"&&revealed){e.preventDefault();flip(false)}
  if((e.key===" "||e.key==="Enter")&&!revealed){e.preventDefault();flip(true)}
 });
-if(finePointer.matches&&!reducedMotion.matches){
- let frame=null;
- scene.addEventListener("pointermove",e=>{
-  if(frame!==null)cancelAnimationFrame(frame);
-  frame=requestAnimationFrame(()=>{
-   const r=scene.getBoundingClientRect(),x=Math.max(-1,Math.min(1,(e.clientX-r.left)/r.width*2-1)),y=Math.max(-1,Math.min(1,(e.clientY-r.top)/r.height*2-1));
-   scene.style.setProperty("--tilt-x",(-y*1.7).toFixed(2)+"deg");
-   scene.style.setProperty("--tilt-y",(x*2.1).toFixed(2)+"deg");frame=null;
-  });
- });
- scene.addEventListener("pointerleave",()=>{
-  if(frame!==null)cancelAnimationFrame(frame);
-  scene.style.setProperty("--tilt-x","0deg");scene.style.setProperty("--tilt-y","0deg");
- });
-}
 front.inert=false;front.setAttribute("aria-hidden","false");back.inert=true;back.setAttribute("aria-hidden","true");
 render();persist();
 })();

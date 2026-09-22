@@ -369,3 +369,159 @@
  .mode-button,.deck-tile,.group-button,.deck-item,.nav-deck{transition:none!important}
  .mode-button:hover,.deck-tile:hover,.group-button:hover,.nav-deck:hover{transform:none!important}
 }
+
+
+
+/* ================================================================
+   STARTER MOTION V2 — SEMANTIC MOTION, NOT A GENERIC ANIMATED POSTER
+   The picture stays readable and grounded. Only meaning-bearing
+   details move. Existing Book V1/V2 pilots are not affected.
+   ================================================================ */
+@keyframes starterSceneArrive{
+  from{opacity:.3;transform:translateY(8px) scale(.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes starterWaveA{
+  0%,24%,100%{transform:rotate(0)}
+  35%,55%{transform:rotate(-5deg)}
+  45%,66%{transform:rotate(3deg)}
+}
+@keyframes starterWaveB{
+  0%,30%,100%{transform:rotate(0)}
+  42%,65%{transform:rotate(5deg)}
+  55%,77%{transform:rotate(-3deg)}
+}
+@keyframes starterWater{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(1.8px)}
+}
+@keyframes starterSteam{
+  0%,100%{opacity:.32;transform:translateY(3px)}
+  45%{opacity:.72;transform:translateY(-5px)}
+}
+@keyframes starterHeart{
+  0%,100%{transform:scale(1)}
+  45%{transform:scale(1.075)}
+}
+@keyframes starterZipper{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(3px)}
+}
+@keyframes starterClock{
+  0%,100%{transform:rotate(0)}
+  50%{transform:rotate(5deg)}
+}
+@keyframes starterWindowGlow{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(1.10)}
+}
+@keyframes starterBookLeaf{
+  0%,100%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-1px) rotate(.7deg)}
+}
+@keyframes starterChoiceEnter{
+  from{opacity:0;transform:translateY(7px)}
+  to{opacity:1;transform:translateY(0)}
+}
+/* Remove shared one-card demo fireworks, non-semantic 3-D tilt, and endlessly floating whole objects. */
+.shell .flip-scene{animation:none;transform:none!important;transition:none}
+.shell .flip-scene:hover .face{box-shadow:0 24px 54px #2b254014,0 3px 12px #352d5008}
+.shell .card-fx,.shell .ambient-orb,.shell .illustration-sticker{display:none!important}
+.shell .illustration::after{display:none!important;animation:none!important}
+.shell .illustration::before{animation:none!important;opacity:.65}
+.shell .art-sprite svg.starter-art,
+.shell .art-sprite svg.book-illustration-v2{
+  animation:starterSceneArrive .48s cubic-bezier(.18,.86,.25,1) both!important;
+  transform-origin:center center;
+  filter:drop-shadow(0 11px 14px #53488920);
+  transition:none
+}
+.shell .art-sprite svg.starter-art:hover,
+.shell .illustration:hover .art-sprite svg.starter-art{
+  filter:drop-shadow(0 11px 14px #53488920)!important;
+  transform:none
+}
+.shell .flip-card{transition:transform .54s cubic-bezier(.23,.74,.3,1)}
+.shell .reveal::after{display:none}
+.shell .reveal{background:#6355c1;box-shadow:0 7px 17px #6556b725,0 3px 0 #4e43a4;transition:transform .16s ease,background .16s ease}
+.shell .reveal:hover{background:#5649b0;box-shadow:0 8px 18px #6556b72b,0 3px 0 #4e43a4;transform:translateY(-1px)}
+.shell .reveal:active{transform:translateY(1px);box-shadow:0 2px 7px #6556b725}
+.shell .page-heading,.shell .study-bar,.shell .topbar,.shell .info-rail>.rail-card{animation:none}
+.shell .saved-light,.shell .pill-dot,.shell .side-link.current .sideicon,.shell .back-hero h2{animation:none}
+.shell .tile-pict svg,.shell .tile-pict svg.starter-art,.shell .tile-pict svg.book-illustration-v2{
+  animation:none!important;transform:none!important;filter:none!important
+}
+.shell .deck-tile:hover{transform:translateY(-2px)}
+.shell .mode-button:hover{transform:translateY(-1px)}
+.shell .card-finish{animation:starterChoiceEnter .3s ease-out both}
+.shell .card-finish>span{animation:none}
+.shell .flip-card.has-choice.choice-know .card-finish{
+  background:#f0f9f4;border-color:#bedfcb
+}
+.shell .flip-card.has-choice.choice-learn .card-finish{
+  background:#fff7f1;border-color:#f0d4c3
+}
+.shell .flip-card.has-choice.choice-learn .card-finish>span,
+.shell .flip-card.has-choice.choice-learn .card-finish>strong{
+  color:#bb785e
+}
+.shell .flip-card.has-choice.choice-learn .card-finish .finish-buttons button{
+  background:#ffeadf;color:#a86c51
+}
+/* Deliberate, low-amplitude movements explain the vocabulary without distorting shape. */
+.art-sprite[data-scene=greeting] .semantic-wave{
+  transform-box:fill-box;transform-origin:15% 94%;
+}
+.art-sprite[data-scene=greeting] .semantic-wave.wave-one{
+  animation:starterWaveA 5.6s ease-in-out 1s infinite
+}
+.art-sprite[data-scene=greeting] .semantic-wave.wave-two{
+  animation:starterWaveB 5.6s ease-in-out 1.3s infinite
+}
+.art-sprite[data-scene=friend] .semantic-heart{
+  transform-box:fill-box;transform-origin:center;animation:starterHeart 4.8s ease-in-out infinite
+}
+.art-sprite[data-scene=bag] .semantic-zipper{
+  animation:starterZipper 5.6s ease-in-out infinite
+}
+.art-sprite[data-scene=water] .semantic-ripple{
+  animation:starterWater 3.6s ease-in-out infinite
+}
+.art-sprite[data-scene=coffee] .coffee-steam,
+.art-sprite[data-scene=cafe] .semantic-cafe-steam{
+  animation:starterSteam 4.1s ease-in-out infinite
+}
+.art-sprite[data-scene=school] .semantic-clock{
+  transform-box:fill-box;transform-origin:center;animation:starterClock 6s ease-in-out infinite
+}
+.art-sprite[data-scene=home] .semantic-home-windows{
+  animation:starterWindowGlow 6s ease-in-out infinite
+}
+.art-sprite[data-scene=library] .semantic-library-book{
+  animation:starterBookLeaf 5.5s ease-in-out infinite
+}
+.art-sprite[data-scene=book] .v2-left-page,
+.art-sprite[data-scene=book] .v2-right-page{
+  transform-box:fill-box;transform-origin:bottom center;
+  animation:openLeftPage 7s ease-in-out infinite
+}
+.art-sprite[data-scene=book] .v2-right-page{
+  animation-name:openRightPage
+}
+.art-sprite[data-scene=book] .v2-bookmark{
+  transform-box:fill-box;transform-origin:top center;
+  animation:bookmarkSway 6s ease-in-out infinite
+}
+/* No loud, looping animation for student and name: these scenes are for visual recognition. */
+@media(prefers-reduced-motion:reduce){
+  .shell .art-sprite svg.starter-art,
+  .shell .art-sprite svg.book-illustration-v2,
+  .shell .art-sprite svg *,
+  .shell .mode-illustration,
+  .shell .card-finish{
+    animation:none!important;transition:none!important;transform:none!important
+  }
+  .shell .flip-card{transition:none!important}
+  .shell .flip-card.flipped{transform:rotateY(180deg)!important}
+  .shell .reveal:hover,.shell .mode-button:hover,.shell .deck-tile:hover{transform:none!important}
+}
