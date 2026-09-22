@@ -26,7 +26,7 @@ const {chromium}=require("playwright");
 
   await page.locator('.deck-item[aria-label="Open 책 in Objects"]').click();
   assert.equal(await page.locator("#front-word").innerText(),"책");
-  assert.equal(await page.locator(".book-illustration-v2").count(),1);
+  assert.equal(await page.locator("#art-sprite .book-illustration-v2").count(),1);
   assert.equal(await page.locator("#back").getAttribute("aria-hidden"),"true");
   await page.locator("#reveal").click();
   await page.waitForTimeout(850);
@@ -39,7 +39,7 @@ const {chromium}=require("playwright");
   assert.ok((await page.locator("#saved-list").innerText()).includes("책"));
   await page.locator("#continue-next").click();
   assert.equal(await page.locator("#front-word").innerText(),"가방");
-  assert.equal(await page.locator(".book-illustration-v2").count(),0);
+  assert.equal(await page.locator("#art-sprite .book-illustration-v2").count(),0);
   assert.match(await page.locator("#art-sprite svg").getAttribute("aria-label"),/backpack/);
   console.log("PASS: book/notebook distinction, recalled status, saved collection, next word and meaningful art change");
 
