@@ -2,17 +2,12 @@
 
 import { useState } from "react";
 import styles from "./landing.module.css";
+import { HallimHeroGraph, HallimFeatureSystem } from "./FeatureAtlas";
 
 const scenes = [
   { korean:"오늘 뭐 해요?", sound:"oneul mwo haeyo?", meaning:"What are you doing today?", context:"Your friend checks in after class.", pieces:["오늘","뭐","해요?"], gloss:["today","what","do?"] },
   { korean:"커피 한 잔 주세요.", sound:"keopi han jan juseyo.", meaning:"One cup of coffee, please.", context:"You're ordering at a little café.", pieces:["커피","한 잔","주세요."], gloss:["coffee","one cup","please give me"] },
   { korean:"주말에 같이 공부해요.", sound:"jumare gachi gongbuhaeyo.", meaning:"Let's study together this weekend.", context:"You're making plans with a study partner.", pieces:["주말에","같이","공부해요."], gloss:["on the weekend","together","study"] },
-];
-
-const process = [
-  { no:"01", title:"Learn it in a real situation.", text:"Meet words inside a conversation, not in an endless list. Hear them, see the grammar, and know when you'd actually say them.", tag:"CONTEXT FIRST", korean:"안녕하세요!" },
-  { no:"02", title:"Use it before it fades.", text:"Build sentences, listen without hints, try short checks, and return to exactly the words that deserve another look.", tag:"PRACTICE WITH PURPOSE", korean:"기억해요" },
-  { no:"03", title:"Make the next step yours.", text:"Your selected level, completed lessons, and test history inform your route. AI support helps explain mistakes and plan focused practice.", tag:"A ROUTE THAT ADAPTS", korean:"다음은?" },
 ];
 
 const faqs = [
@@ -68,12 +63,12 @@ export default function LandingPage({ authHref, authError = "" }) {
 
   return (
     <main className={styles.root} id="main">
-      <a className={styles.skip} href="#what-you-learn">Skip to content</a>
+      <a className={styles.skip} href="#features">Skip to content</a>
       <header className={styles.header}>
         <div className={styles.navInner}>
           <a href="/" className={styles.logo} onClick={closeMenu} aria-label="Hallim home"><Mark/><span>hallim<span className={styles.logoDot}>.</span></span></a>
           <nav className={styles.nav} aria-label="Primary navigation">
-            <a href="#the-method">The method</a>
+            <a href="#features">Explore Hallim</a>
             <a href="#try-a-moment">Try a moment</a>
             <a href="#study-together">Study together</a>
             <a href="/demo">Product tour <Arrow diagonal/></a>
@@ -82,7 +77,7 @@ export default function LandingPage({ authHref, authError = "" }) {
           <button className={styles.menuButton} type="button" onClick={() => setMenuOpen(o => !o)} aria-expanded={menuOpen} aria-controls="hallim-menu" aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? "Close ×" : "Menu ☰"}</button>
         </div>
         {menuOpen && <nav className={styles.mobileMenu} id="hallim-menu" aria-label="Mobile navigation">
-          <a href="#the-method" onClick={closeMenu}>The method</a>
+          <a href="#features" onClick={closeMenu}>Explore Hallim</a>
           <a href="#try-a-moment" onClick={closeMenu}>Try a moment</a>
           <a href="#study-together" onClick={closeMenu}>Study together</a>
           <a href="/demo" onClick={closeMenu}>Product tour ↗</a>
@@ -92,28 +87,20 @@ export default function LandingPage({ authHref, authError = "" }) {
 
       <section className={styles.hero} aria-labelledby="hero-title">
         <div className={styles.heroCopy}>
-          <span className={styles.pill}><span className={styles.pillStar}>✳</span> A DIFFERENT WAY INTO KOREAN</span>
-          <h1 id="hero-title">Don't just <em>study</em> Korean.<br/><span>Live a little in it.</span></h1>
-          <p className={styles.heroLead}>Learn the words. Hear the feeling. Find your own voice. Hallim turns scattered practice into a Korean-learning journey you can actually follow.</p>
+          <span className={styles.pill}><span className={styles.pillStar}>✳</span> 15 UNITS · 76 LESSONS & CHECKPOINTS · ONE CONNECTED ROUTE</span>
+          <h1 id="hero-title">Everything you need to <em>learn</em> Korean.<br/><span>Finally connected.</span></h1>
+          <p className={styles.heroLead}>Companion lessons, listening, grammar, study checks, spaced review, AI learning tools and Study Partners—built to work together, not send you between five apps.</p>
           <div className={styles.heroActions}>
-            <a href={entry} className={styles.primary}>Start your journey <Arrow diagonal/></a>
-            <a href="#try-a-moment" className={styles.secondary}>See how it feels <span aria-hidden="true">↓</span></a>
+            <a href={entry} className={styles.primary}>Explore the learning system <Arrow diagonal/></a>
+            <a href="#features" className={styles.secondary}>See how it all connects <span aria-hidden="true">↓</span></a>
           </div>
           {authError && <p className={styles.authError} role="alert">{authError}</p>}
           <div className={styles.heroFoot}>
             <span className={styles.threeMarks} aria-hidden="true"><i>가</i><i>나</i><i>다</i></span>
-            <p>From your first letter to a conversation that feels like yours.</p>
+            <p>A connected path from your first letter to your next conversation.</p>
           </div>
         </div>
-        <div className={styles.heroArt} aria-label="Illustration of a Korean learning conversation">
-          <div className={styles.heroHalo}/>
-          <div className={styles.heroKorean} aria-hidden="true">한<span>글</span></div>
-          <div className={styles.visualTop}><span className={styles.visualDot}/>YOUR KOREAN WORLD <span>01 / 03</span></div>
-          <div className={styles.bubbleA}><span>친구에게</span><strong>오늘 뭐 해요?</strong><small>What are you doing today?</small></div>
-          <div className={styles.bubbleB}><span aria-hidden="true">↗</span><strong>같이 공부해요!</strong><small>Let's study together!</small></div>
-          <div className={styles.heroStamp}><span>작은 시작,</span><strong>큰 변화.</strong><small>A small start. A new world.</small></div>
-          <span className={styles.heroArtCaption}>WORDS BECOME CONVERSATIONS. CONVERSATIONS BECOME CONFIDENCE.</span>
-        </div>
+        <HallimHeroGraph />
       </section>
 
       <section className={styles.ribbon} aria-label="Hallim learning approach">
@@ -124,17 +111,11 @@ export default function LandingPage({ authHref, authError = "" }) {
         <div><span>03 / RETURN</span><b>Remember what matters</b></div>
       </section>
 
-      <section className={styles.statement} id="what-you-learn">
-        <div className={styles.sectionEyebrow}><span className={styles.sectionIndex}>01</span> THE IDEA</div>
-        <div className={styles.statementGrid}>
-          <h2>More than remembering <span>a word.</span></h2>
-          <div><p>A word is useful when you know what to do with it. That's why Hallim connects new Korean to a situation, gives you room to try it, and brings it back when practice matters.</p><a href="#the-method" className={styles.textLink}>This is how we learn <Arrow diagonal/></a></div>
-        </div>
-      </section>
+      <HallimFeatureSystem authHref={authHref} />
 
       <section className={styles.demoSection} id="try-a-moment">
         <div className={styles.demoHeading}>
-          <div><span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>02</span> A LITTLE TASTE OF HALLIM</span><h2>Try a moment.<br/><em>Feel the difference.</em></h2></div>
+          <div><span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>07</span> TRY IT YOURSELF</span><h2>Try a moment.<br/><em>Feel the difference.</em></h2></div>
           <p>This is a tiny interactive preview. Your choices here stay on this page; your real learning history starts after sign-in.</p>
         </div>
         <div className={styles.demoCard}>
@@ -181,18 +162,8 @@ export default function LandingPage({ authHref, authError = "" }) {
         </div>
       </section>
 
-      <section className={styles.method} id="the-method">
-        <span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>03</span> A BETTER RHYTHM</span>
-        <div className={styles.methodIntro}><h2>A way forward that<br/><em>feels human.</em></h2><p>Real progress is a collection of little moments that finally connect. Here’s how Hallim makes space for them.</p></div>
-        <div className={styles.process}>{process.map((step, i)=><article className={styles.processCard} key={step.no}>
-          <div className={styles.processTop}><span>{step.no}</span><span>{step.tag}</span></div>
-          <div className={styles.processGraphic} aria-hidden="true"><span>{step.korean}</span><i>{i===0?"↗":i===1?"◎":"✳"}</i></div>
-          <h3>{step.title}</h3><p>{step.text}</p>
-        </article>)}</div>
-      </section>
-
       <section className={styles.partner} id="study-together">
-        <div className={styles.partnerCopy}><span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>04</span> BETTER TOGETHER</span><h2>Your next breakthrough might be <em>another learner.</em></h2><p>You’re great at words. They’re finding their way through grammar. Hallim’s optional Study Partners helps you find complementary learners and share the notes you actually choose to share.</p><div className={styles.partnerActions}><a href="/study-partners" className={styles.primary}>Discover Study Partners <Arrow diagonal/></a><span>Opt-in discovery · Mutual acceptance</span></div></div>
+        <div className={styles.partnerCopy}><span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>08</span>  BETTER TOGETHER</span><h2>Your next breakthrough might be <em>another learner.</em></h2><p>You’re great at words. They’re finding their way through grammar. Hallim’s optional Study Partners helps you find complementary learners and share the notes you actually choose to share.</p><div className={styles.partnerActions}><a href="/study-partners" className={styles.primary}>Discover Study Partners <Arrow diagonal/></a><span>Opt-in discovery · Mutual acceptance</span></div></div>
         <div className={styles.partnerIllustration} aria-label="Illustration of complementary vocabulary and grammar strengths">
           <span className={styles.partnerSticker}>같이 배우자 ✳</span>
           <div className={styles.learnerOne}><span className={styles.avatar}>가</span><div><small>LEARNER A</small><b>Vocabulary <span>↗</span></b><em>Working on grammar</em></div></div>
@@ -204,7 +175,7 @@ export default function LandingPage({ authHref, authError = "" }) {
       </section>
 
       <section className={styles.doorways}>
-        <span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>05</span> WHERE WOULD YOU LIKE TO BEGIN?</span>
+        <span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>09</span>  WHERE WOULD YOU LIKE TO BEGIN?</span>
         <h2>There's more than one<br/><em>way to start.</em></h2>
         <div className={styles.doorGrid}>
           <a href="/hangul" className={styles.doorOne}><span>01 / COMPLETE BEGINNER</span><strong lang="ko">가 나 다</strong><h3>Start with Hangul.</h3><p>Meet the writing system through sound, visual practice, and writing.</p><span className={styles.doorLink}>Open Hangul Lab <Arrow diagonal/></span></a>
@@ -214,7 +185,7 @@ export default function LandingPage({ authHref, authError = "" }) {
       </section>
 
       <section className={styles.faq} id="faq">
-        <div><span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>06</span> GOOD TO KNOW</span><h2>A few things you<br/>might be wondering.</h2></div>
+        <div><span className={styles.sectionEyebrow}><span className={styles.sectionIndex}>10</span>  GOOD TO KNOW</span><h2>A few things you<br/>might be wondering.</h2></div>
         <div className={styles.faqList}>{faqs.map(item=><details key={item.q}><summary>{item.q}<span aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div>
       </section>
 
