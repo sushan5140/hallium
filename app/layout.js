@@ -1,4 +1,5 @@
 import "./globals.css";
+import { LegalSiteFooter } from "./legal/LegalPage";
 
 export const metadata = {
   metadataBase: new URL("https://hallium.vercel.app"),
@@ -18,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}<LegalSiteFooter /></body>
     </html>
   );
 }
