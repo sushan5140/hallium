@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#F4F5F1">
 <meta name="description" content="Standalone interactive Hallium learning dashboard layout preview: balanced progress, today's plan, curriculum, and adaptive study coach.">
 <title>Hallium · Original V4 Dashboard Preview</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='19' fill='%23254a3b'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='42' font-weight='800' fill='white'%3E%E3%85%8E%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='19' fill='%235147e8'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='42' font-weight='800' fill='white'%3E%E3%85%8E%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="./dashboard-preview.css">
 <link rel="stylesheet" href="./dashboard-theme.css">
 <script src="./dashboard-preview.js" defer></script>
@@ -38,7 +38,7 @@
     <li><button class="task" data-task="1"><span class="task-num">02</span><span class="task-copy"><strong>Practice vocabulary</strong><small>Three words from daily life</small><em id="task-hint-1">Start quick recall →</em></span><span class="task-arrow">↗</span></button></li>
     <li><button class="task" data-task="2"><span class="task-num">03</span><span class="task-copy"><strong>Check what you know</strong><small>A two-question mini check</small><em id="task-hint-2">Try the check →</em></span><span class="task-arrow">↗</span></button></li>
    </ol>
-   <div class="aside-fill" aria-label="Today's session progress"><span class="eyebrow">TODAY'S SESSION</span><strong><span id="goal-percent">0%</span> complete</strong><p>Three small steps make one complete study session.</p><span class="mini-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+   <div class="aside-fill" aria-label="Today's session progress"><span class="session-orbit" id="session-orbit" aria-hidden="true"><i>한</i></span><span class="eyebrow">TODAY'S SESSION</span><strong><span id="goal-percent">0%</span> complete</strong><p id="session-caption">Three small steps make one complete study session.</p><span class="mini-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
   </section>
   <section class="pane catalog" id="curriculum" aria-labelledby="catalog-head">
    <div class="section-tag"><span class="number green">02</span> YOUR CURRICULUM</div>
