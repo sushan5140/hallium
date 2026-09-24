@@ -6,7 +6,7 @@
 - Twenty? No: **19 unique practice sheets** (12 I and 7 II). No claim these are all rights-cleared, full-featured mocks.
 - UI marks audio, exact-key scoring and rights pending; previous localStorage keys preserved; responsive end-to-end check expanded; no source PDF or MP3 published to the repo; no original questions copied as in-app text.
 - Existing timer / pause / resume / local answer storage / writing textboxes remain. Option sheet is not automatically scored. Existing page source links are external.
-- Copyright inquiry to NIIED PBT contact topik@korea.kr saved as a **Gmail draft** for review, not sent.
+- Copyright inquiry to NIIED PBT contact topik@korea.kr sent to **topik@korea.kr** from Sushan's connected account (Gmail message ID `1a0d348250ed8176`); awaiting reply. No permission is presumed.
 
 ## Remaining gates (do not falsely label complete)
 1. Confirm with NIIED in writing whether Hallium may embed PDFs, present question text/graphics in an interactive UI, host/play recordings and keys, and offer optional monetization. Source archive's permissions do not transfer to Hallium.
