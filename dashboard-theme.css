@@ -348,3 +348,155 @@ button:active:not(:disabled){transform:scale(.975)}
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 }
+
+
+/* COMPACT LEARNING RAIL / SEPTEMBER 2026
+   Keep the plan, curriculum and momentum visually continuous. No pushed-down
+   checkpoint, oversized step cards, or tall cards with unused blank interiors. */
+.dashboard-grid{
+  grid-template-columns:minmax(250px,277px) minmax(0,1fr) minmax(265px,302px);
+  gap:10px;padding:10px;min-height:0
+}
+.column{padding:clamp(21px,1.95vw,30px)}
+.left{gap:16px}
+.center{display:flex;flex-direction:column;padding:clamp(26px,2.55vw,39px)}
+.center .lesson{flex:1}
+.left-intro{padding-top:0}
+.left-intro::before{top:-8px;width:30px}
+.left-intro h1{font-size:clamp(28px,2vw,33px);margin:10px 0 7px;line-height:1.08}
+.left-intro>p{font-size:11px;line-height:1.55;max-width:240px}
+.left .pane{padding-top:15px}
+.left .pane h2{font-size:17px;margin:8px 0 4px}
+.left .pane-desc{font-size:11px;line-height:1.45;margin-bottom:10px}
+.task-list{
+  display:grid;gap:0;overflow:hidden;border-radius:15px;
+  background:#fffefa;border:1px solid #dfe5da
+}
+.task-list li+li{border-top:1px solid #e7e8df}
+.task{
+  min-height:75px;border:0;border-radius:0;box-shadow:none;
+  padding:10px;gap:8px;grid-template-columns:27px minmax(0,1fr) 12px;
+  align-items:center;background:transparent
+}
+.task.active{background:#eaf1e8;box-shadow:inset 3px 0 0 var(--pine)}
+.task.done{background:#eef4ea}
+.task-num{width:27px;height:27px}
+.task-copy{gap:3px}
+.task-copy strong{font-size:11.5px;line-height:1.35}
+.task-copy small{font-size:10px;line-height:1.3}
+.task-copy em{font-size:9.5px;margin-top:0}
+.task-arrow{align-self:center}
+.aside-fill{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  gap:5px 8px;margin-top:10px;border-radius:13px;
+  padding:12px 13px;background:#f9ede0
+}
+.aside-fill>.eyebrow{grid-column:1;grid-row:1;font-size:9px;letter-spacing:.07em}
+.aside-fill>strong{
+  grid-column:2;grid-row:1;font:800 13px Manrope,sans-serif;
+  margin:0;text-align:right;white-space:nowrap
+}
+.aside-fill p{grid-column:1/-1;font-size:10px;line-height:1.4}
+.mini-dots{grid-column:1/-1;margin-top:3px;gap:4px}
+.mini-dots i{height:4px}
+.catalog-card{border-radius:14px;padding:13px 14px;gap:6px}
+.catalog-symbol{height:30px;width:30px;border-radius:9px;font-size:13px}
+.catalog-arrow{height:26px;width:26px}
+.catalog-card>strong{font-size:12px}
+.catalog-card>small{font-size:10px}
+.progress.slim{margin-top:4px;height:6px}
+.route-sequence{
+  margin-top:11px;border:1px solid #e5e7dc;border-radius:14px;
+  padding:11px 12px 9px;background:#fdfcf6
+}
+.route-sequence-head{
+  display:flex;justify-content:space-between;gap:6px;
+  font-size:8px;line-height:1.3;letter-spacing:.075em;
+  font-weight:900;color:#758273;margin-bottom:6px
+}
+.route-sequence-head span:last-child{color:#a18b73}
+.route-step{
+  display:grid;grid-template-columns:22px minmax(0,1fr) auto;
+  gap:8px;align-items:center;padding:6px 0;min-width:0
+}
+.route-step+.route-step{border-top:1px solid #edece3}
+.route-step-no{
+  height:21px;width:21px;display:grid;place-items:center;border-radius:7px;
+  background:#e8ece3;color:#617b66;font-size:9px;font-weight:900
+}
+.route-step.current .route-step-no{background:var(--pine);color:white}
+.route-step-copy{min-width:0;display:grid;gap:2px}
+.route-step-copy strong{font-size:10px;line-height:1.25;color:var(--pine-dark)}
+.route-step-copy small{font-size:9px;color:#748073;line-height:1.2}
+.route-step-status{
+  color:#617b66;font-size:8px;font-weight:900;letter-spacing:.02em;
+  white-space:nowrap
+}
+.route-step.current .route-step-status{color:#a45236}
+.momentum{
+  padding:clamp(26px,2.7vw,40px);
+  background:#e9eee5
+}
+.momentum-head{align-items:end;margin-bottom:16px;gap:14px}
+.momentum-head h2{font-size:clamp(28px,2.7vw,39px);margin:7px 0 5px}
+.momentum-head p{font-size:12px;line-height:1.5}
+.path-stat{padding:11px 16px;border-radius:14px;min-width:135px}
+.path-stat strong{font-size:29px;line-height:1.05}
+.path-stat>span{font-size:8px}
+.momentum-grid{grid-template-columns:1.12fr 1fr 1fr;gap:11px}
+.chapter-card,.momentum-action{
+  min-height:184px;padding:clamp(17px,1.9vw,25px);border-radius:16px
+}
+.chapter-top{font-size:9px}
+.chapter-top strong{font-size:24px}
+.chapter-card h3{font-size:clamp(20px,2vw,26px);margin:13px 0 15px;line-height:1.2}
+.chapter-card .progress.tall{height:8px}
+.chapter-pips{margin-top:10px;gap:5px}
+.chapter-card p{margin-top:9px;font-size:11px}
+.momentum-action{gap:9px}
+.momentum-action>span{font-size:9px}
+.momentum-action>strong{font-size:clamp(18px,1.7vw,23px)}
+.momentum-action small{font-size:11px}
+.momentum-action b{font-size:10px}
+@media(max-width:1240px){
+  .dashboard-grid{grid-template-columns:minmax(236px,250px) minmax(0,1fr) minmax(247px,265px)}
+  .column{padding:21px 19px}
+  .center{padding:29px 23px}
+  .task{padding:9px 8px}
+  .task-copy strong{font-size:11px}
+  .route-sequence{padding:10px}
+}
+@media(max-width:1080px){
+  .dashboard-grid{grid-template-columns:minmax(230px,245px) minmax(0,1fr)}
+  .right{grid-column:1/-1;grid-row:2}
+  .left,.center{grid-row:1}
+  .momentum-grid{grid-template-columns:1.12fr 1fr 1fr}
+  .chapter-card{grid-column:auto}
+}
+@media(max-width:920px){
+  .momentum-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chapter-card{grid-column:1/-1;min-height:155px}
+}
+@media(max-width:720px){
+  .dashboard-grid{grid-template-columns:minmax(0,1fr)}
+  .left,.center,.right{grid-column:1;grid-row:auto}
+  .column,.center{padding:23px 20px}
+  .center .lesson{flex:auto}
+  .left{gap:16px}
+  .left-intro h1{font-size:31px}
+  .left-intro>p{max-width:none}
+  .task{min-height:69px}
+  .route-sequence{padding:12px 14px}
+  .route-step{padding:8px 0}
+  .momentum{padding:26px 18px}
+  .momentum-grid{grid-template-columns:minmax(0,1fr)}
+  .chapter-card{grid-column:auto;min-height:0}
+  .momentum-action{min-height:145px}
+  .momentum-head{align-items:flex-start}
+}
+@media(max-width:440px){
+  .aside-fill{grid-template-columns:minmax(0,1fr) auto}
+  .aside-fill>strong{font-size:12px}
+  .momentum-head{flex-wrap:wrap}
+  .path-stat{width:100%}
+}
