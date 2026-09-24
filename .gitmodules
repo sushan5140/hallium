@@ -1,0 +1,32 @@
+[submodule ".agents/skill-sources/emil-kowalski"]
+	path = .agents/skill-sources/emil-kowalski
+	url = https://github.com/emilkowalski/skills.git
+	branch = main
+[submodule ".agents/skill-sources/anthropic"]
+	path = .agents/skill-sources/anthropic
+	url = https://github.com/anthropics/skills.git
+	branch = main
+[submodule ".agents/skill-sources/ui-ux-pro-max"]
+	path = .agents/skill-sources/ui-ux-pro-max
+	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+	branch = main
+[submodule ".agents/skill-sources/material-3"]
+	path = .agents/skill-sources/material-3
+	url = https://github.com/hamen/material-3-skill.git
+	branch = master
+[submodule ".agents/skill-sources/karpathy"]
+	path = .agents/skill-sources/karpathy
+	url = https://github.com/multica-ai/andrej-karpathy-skills.git
+	branch = main
+[submodule ".agents/skill-sources/animate-skill"]
+	path = .agents/skill-sources/animate-skill
+	url = https://github.com/delphi-ai/animate-skill.git
+	branch = main
+[submodule ".agents/skill-sources/design-motion-principles"]
+	path = .agents/skill-sources/design-motion-principles
+	url = https://github.com/kylezantos/design-motion-principles.git
+	branch = main
+[submodule ".agents/skill-sources/design-engineering"]
+	path = .agents/skill-sources/design-engineering
+	url = https://github.com/AgentsORG/design-engineering.git
+	branch = main
