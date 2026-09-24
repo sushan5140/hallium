@@ -2822,8 +2822,9 @@ export default function Hallim() {
           <a className="field-guide-button rail-destination flashcards-rail-link" href="/flashcards">
             <span>▤ Flashcards ↗</span><small>12 illustrated words · listen · recall</small>
           </a>
+          <a className="field-guide-button rail-destination" href="/topik-companion"><span>시 TOPIK Companion ↗</span><small>22 targeted exam lessons · 110 words · 44 grammar patterns</small></a>
           <a className="field-guide-button rail-destination topik-rail-link" href="/topik-mocks">
-            <span>◉ TOPIK Mock Tests ↗</span><small>14 released past papers · TOPIK I &amp; II · timed practice</small>
+            <span>◉ TOPIK Mock Tests ↗</span><small>19 source-linked practice sheets · TOPIK I &amp; II</small>
           </a>
           <a className="field-guide-button rail-destination sp-rail-link" href="/study-partners">
             <span>✦ Study Partners ↗</span><small>Mutual strengths · shared notes · practice</small>
@@ -2961,6 +2962,8 @@ export default function Hallim() {
             <button onClick={() => navigate(reviewLessonCount || dueMistakes.length ? "review" : "companion")}>{reviewLabel} →</button>
           </div>
           <div className="study-cards">
+            <a className="companion-hub-card" href="/?view=companion"><span className="study-glyph">말</span><span><strong>Korean Companion</strong><small>Everyday Korean · 15 units · keep your progress</small></span><em>Continue the real-life course ↗</em></a>
+            <a className="topik-companion-hub-card" href="/topik-companion"><span className="study-glyph topik">시</span><span><strong>TOPIK Companion</strong><small>22 exam-focused lessons · 110 words · 44 grammar patterns</small></span><em>Prepare for the TOPIK exam ↗</em></a>
             <a className="flashcards-hub-card" href="/flashcards" aria-label="Open Hallium Starter Unit 1 illustrated flashcards">
               <span className="study-glyph flashcards">책</span>
               <span><strong>Starter Flashcards</strong><small>12 illustrated Korean words · audio · recall · review</small></span>
@@ -2968,7 +2971,7 @@ export default function Hallim() {
             </a>
             <a className="topik-hub-card" href="/topik-mocks" aria-label="Open Hallium TOPIK past-paper mock tests">
               <span className="study-glyph topik">◉</span>
-              <span><strong>TOPIK Mock Tests</strong><small>14 past papers · timed answer sheets · listening resources</small></span>
+              <span><strong>TOPIK Mock Tests</strong><small>19 source-linked past-paper practice sheets</small></span>
               <em>Choose TOPIK I or II ↗</em>
             </a>
             <a className="sp-hub-card" href="/study-partners" aria-label="Open Hallium Study Partners">
@@ -3034,8 +3037,8 @@ export default function Hallim() {
       <div className="curriculum-lab-body">
         <div className="lab-topline">
           <div>
-            <span className="section-label">Hallim path</span>
-            <h2>One connected route to real conversations.</h2>
+            <span className="section-label">01 · KOREAN COMPANION · EVERYDAY KOREAN</span>
+            <h2>Korean Companion. One connected route to real conversations.</h2>
           </div>
 
         </div>
@@ -4847,9 +4850,10 @@ export default function Hallim() {
             className={"nav-tab" + (view === "companion" ? " is-active" : "")}
             aria-current={view === "companion" ? "page" : undefined}
             onClick={() => navigate("companion")}
-          >Lessons</button>
+          >Korean Companion</button>
           <a className="nav-tab hangul-nav-tab" href="/hangul">Hangul Lab</a>
           <a className="nav-tab flashcards-main-nav-link" href="/flashcards">Flashcards</a>
+          <a className="nav-tab topik-companion-nav-link" href="/topik-companion">TOPIK Companion</a>
           <a className="nav-tab sp-main-nav-link" href="/study-partners">Study Partners</a>
           <button
             className={"nav-tab" + (topView === "words" ? " is-active" : "")}
@@ -4943,7 +4947,7 @@ export default function Hallim() {
         </button>
         <button className={view === "companion" ? "is-active" : ""} onClick={() => navigate("companion")}>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C7 4 10 4 12 6v13c-2-2-5-2-8-.5zM12 6c2-2 5-2 8-.5v13c-3-1.5-6-1.5-8 .5z" /></svg>
-          <span>Lessons</span>
+          <span>Korean</span>
         </button>
         <button
           className={topView === "words" ? "is-active" : ""}
