@@ -19,10 +19,21 @@ assert.ok(theme.includes("--pine:#254a3b")&&theme.includes("--terra:#b8573b"),"n
     const box=s=>{const b=document.querySelector(s).getBoundingClientRect();return {x:b.x,y:b.y,right:b.right,bottom:b.bottom,width:b.width}};
     return {scroll:document.documentElement.scrollWidth,viewport:document.documentElement.clientWidth,
       left:box(".left"),center:box(".center"),right:box(".right"),momentum:box(".momentum"),study:box(".study"),
+      curriculum:box("#curriculum"),plan:box("#plan"),checkpoint:box(".aside-fill"),
+      route:box(".route-sequence"),momentumCard:box(".chapter-card"),
+      leftPadding:parseFloat(getComputedStyle(document.querySelector(".left")).paddingBottom),
       lessonBackground:getComputedStyle(document.querySelector(".lesson")).backgroundColor,
       focusBackground:getComputedStyle(document.querySelector(".focus-card")).backgroundColor};
    });
    assert.ok(dim.scroll<=dim.viewport+2,"horizontal overflow "+width+": "+JSON.stringify(dim));
+   assert.ok(dim.checkpoint.y>dim.plan.y&&dim.checkpoint.bottom<=dim.plan.bottom+1,"checkpoint should live inside today's plan "+width);
+   assert.ok(dim.route.y>dim.curriculum.y&&dim.route.bottom<=dim.curriculum.bottom+1,"curriculum sequence should be in curriculum panel "+width);
+   if(width>1080){
+    const unused=Math.round(dim.left.bottom-dim.curriculum.bottom-dim.leftPadding);
+    console.log("desktop rail "+width+": unused "+unused+"px; momentum card "+Math.round(dim.momentumCard.bottom-dim.momentumCard.y)+"px");
+    assert.ok(unused<=42,"excess empty space under left learning rail "+width+": "+unused+"px");
+    assert.ok(dim.momentumCard.bottom-dim.momentumCard.y<=225,"momentum cards too tall "+width);
+   }
    if(width>1080)assert.ok(Math.abs(dim.left.bottom-dim.center.bottom)<2&&Math.abs(dim.right.bottom-dim.center.bottom)<2,"uneven panel depths "+width);
    assert.ok(dim.momentum.y>=Math.max(dim.left.bottom,dim.center.bottom,dim.right.bottom)-2,"momentum overlaps dashboard "+width);
    assert.ok(dim.study.y>=dim.momentum.bottom-2,"study should follow momentum");
@@ -49,6 +60,6 @@ assert.ok(theme.includes("--pine:#254a3b")&&theme.includes("--terra:#b8573b"),"n
    assert.deepEqual(errors,[],"browser errors "+width);
    await page.close();
   }
-  console.log("PASS: field-notes palette, equal-depth desktop cards, 320–1600 responsive, lesson/review/quiz persistence, no login");
+  console.log("PASS: compact no-gap learning rail, momentum, field-notes palette, 320–1600 responsive, lesson/review/quiz persistence, no login");
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
