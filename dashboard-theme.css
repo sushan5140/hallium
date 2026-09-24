@@ -687,3 +687,199 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--papaya);outline-off
 .answer-row span{color:var(--indigo-deep)}
 .word-item button{background:var(--indigo-soft);border-color:#D5D1FF;color:var(--indigo-deep)}
 .toast{background:var(--ink);color:#FFFFFF}
+
+
+/* READABLE V4 TYPOGRAPHY + MEANINGFUL FEEDBACK
+   Hierarchy follows Hallium's original DM Sans / Manrope system. Text is
+   intentionally legible on laptop screens without expanding cards needlessly. */
+:root{
+  --type-caption:12px;
+  --type-secondary:13px;
+  --type-body:14px;
+  --type-control:13px
+}
+body{font-size:var(--type-body);line-height:1.5}
+.top{gap:clamp(12px,1.6vw,24px)}
+.brand strong{font-size:23px;letter-spacing:-.045em}
+.brand small{font-size:12px}
+.topnav .navlink{font-size:13px;min-height:43px;line-height:1.2}
+.preview-banner{font-size:12px;line-height:1.55}
+.sample-pill{font-size:12px}
+.icon-btn{width:42px;height:42px;border-radius:13px;font-size:22px}
+.eyebrow,.section-tag{font-size:11.5px;line-height:1.35;letter-spacing:.065em}
+.subtag{font-size:11px;min-width:48px;text-align:center}
+.left-intro h1{font-size:clamp(31px,2.18vw,38px);line-height:1.08}
+.left-intro>p{font-size:13px;line-height:1.58;max-width:270px}
+.pane h2{font-size:18.5px;line-height:1.3;letter-spacing:-.04em}
+.pane-desc{font-size:12.5px;line-height:1.5;margin-bottom:11px}
+.task{min-height:86px;grid-template-columns:29px minmax(0,1fr) 14px;gap:9px;padding:11px}
+.task-num{width:29px;height:29px;font-size:11px}
+.task-copy{gap:4px}
+.task-copy strong{font-size:12.8px;line-height:1.3;letter-spacing:-.01em}
+.task-copy small{font-size:11.6px;line-height:1.4}
+.task-copy em{font-size:11.1px;line-height:1.3;font-weight:800}
+.task-arrow{font-size:15px}
+.aside-fill{grid-template-columns:46px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:12px;row-gap:4px;align-items:center;padding:12px 13px}
+.aside-fill>.eyebrow{grid-column:2;grid-row:1;font-size:11px;align-self:end}
+.aside-fill>strong{grid-column:2;grid-row:2;font:800 15px/1.25 Manrope,sans-serif;text-align:left;white-space:normal}
+.aside-fill p{grid-column:2;grid-row:3;font-size:11.5px;line-height:1.38}
+.aside-fill .mini-dots{grid-column:1/-1;grid-row:4;margin-top:6px}
+.session-orbit{
+  --completion:0%;
+  grid-column:1;grid-row:1/4;
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--indigo) var(--completion),#E9DCA4 0);
+  transition:background-color 200ms ease;flex-shrink:0;
+}
+.session-orbit i{
+  display:grid;place-items:center;width:35px;height:35px;border-radius:50%;
+  background:#FFF9E4;color:var(--indigo-deep);font:800 14px/1 "Noto Sans KR","Malgun Gothic",Manrope,sans-serif;font-style:normal
+}
+.catalog-card{padding:15px;gap:8px}
+.catalog-symbol{height:36px;width:36px;font-size:15px}
+.catalog-arrow{height:31px;width:31px;font-size:15px}
+.catalog-card>strong{font-size:13.5px;line-height:1.32}
+.catalog-card>small{font-size:11.8px;line-height:1.4}
+.route-sequence{margin-top:10px;padding:12px 13px}
+.route-sequence-head{font-size:10px;letter-spacing:.04em;line-height:1.45;margin-bottom:4px}
+.route-step{grid-template-columns:25px minmax(0,1fr) auto;gap:8px;padding:8px 0}
+.route-step-no{width:25px;height:25px;font-size:10px}
+.route-step-copy strong{font-size:12px;line-height:1.3}
+.route-step-copy small{font-size:11px;line-height:1.32}
+.route-step-status{font-size:10px}
+.center-head h2{font-size:clamp(35px,3.3vw,49px)}
+.center-head p{font-size:14px;line-height:1.55}
+.daily-goal{min-width:113px;padding:13px 14px}
+.daily-goal small{font-size:10px;line-height:1.35}
+.lesson{padding:clamp(24px,2.35vw,37px)}
+.lesson-label,.lesson-index{font-size:11.5px;letter-spacing:.04em}
+.lesson-title p{font-size:13.5px;line-height:1.55}
+.lesson-badge{font-size:11.5px}
+.lesson-progress>span,.lesson-progress strong{font-size:12.5px}
+.dialogue-head{font-size:11.3px;letter-spacing:.03em;margin:22px 0 11px}
+.dialogue{gap:10px}
+.bubble{padding:14px;gap:11px}
+.bubble b{
+  font:750 clamp(17px,1.45vw,20px)/1.35 "Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo","DM Sans",sans-serif;
+  word-break:keep-all
+}
+.bubble small{font-size:12.5px;line-height:1.45}
+.speaker{height:30px;width:30px;flex-basis:30px;font-size:11px}
+.sound{height:42px;width:42px;flex-basis:42px;font-size:13px;transition:background-color 160ms ease,color 160ms ease,box-shadow 160ms ease,transform 160ms ease}
+.sound.is-speaking{
+  background:var(--indigo);color:#FFFFFF;border-color:var(--indigo);
+  box-shadow:0 0 0 4px #5147E822
+}
+.lesson-tip strong{font-size:12px}
+.lesson-tip small{font-size:11.5px;line-height:1.42}
+.primary-button{font-size:12.5px;min-height:45px}
+.practice-bar h3{font-size:18px}
+.practice-bar p{font-size:12.5px;line-height:1.52}
+.practice-actions button,.study-tools button{font-size:12.5px;min-height:44px}
+.coach-heading h2{font-size:clamp(20px,1.7vw,23px);line-height:1.28}
+.coach-desc{font-size:13px;line-height:1.6}
+.coach-note p{font-size:13.3px;line-height:1.6;margin:10px 0 14px}
+.coach-note-label{font-size:11px}
+.coach-note,.signal-panel{padding:17px}
+.subtle-button{font-size:12px;min-height:43px}
+.signal-head strong{font-size:13.5px}
+.signal-head span{font-size:10px}
+.signal-row{grid-template-columns:minmax(0,77px) minmax(0,1fr) minmax(0,56px);gap:7px}
+.signal-row label{font-size:12px}
+.signal-row strong{font-size:10.8px}
+.focus-card>span{font-size:11px}
+.focus-card h3{font-size:clamp(22px,1.9vw,27px)}
+.focus-card p{font-size:13.2px;line-height:1.58}
+.focus-card button{font-size:12.5px;min-height:44px}
+.coach-bottom strong{font-size:17px}
+.coach-bottom small{font-size:12.5px;line-height:1.55}
+.momentum-head h2{font-size:clamp(33px,2.8vw,42px)}
+.momentum-head p{font-size:14px}
+.path-stat strong{font-size:32px}
+.path-stat strong small{font-size:14px}
+.path-stat>span{font-size:10px;letter-spacing:.04em}
+.chapter-top{font-size:11px;letter-spacing:.025em}
+.chapter-top strong{font-size:25px}
+.chapter-card h3{font-size:clamp(22px,2.1vw,29px)}
+.chapter-card p{font-size:12.5px;line-height:1.5}
+.momentum-action>span{font-size:11px;letter-spacing:.035em}
+.momentum-action>strong{font-size:clamp(20px,1.8vw,25px);line-height:1.3}
+.momentum-action small{font-size:13px;line-height:1.5}
+.momentum-action b{font-size:12px}
+.study-caption{font-size:11px;line-height:1.4}
+.route-card strong{font-size:21px}
+.route-card small{font-size:13px;line-height:1.55}
+.route-card em{font-size:12px}
+.foot{font-size:11.5px;line-height:1.5}
+.dialog-card h2{font-size:30px}
+.dialog-card>p{font-size:14px;line-height:1.6}
+.close-dialog{width:42px;height:42px;font-size:18px}
+.word-item small,.catalog-item small{font-size:12.5px}
+.word-item button{min-height:42px;font-size:12px}
+.quiz-prompt{font-size:15px}
+.quiz-help{font-size:12.5px}
+.answer-row{font-size:13.5px;min-height:45px}
+.dialog-bottom button{min-height:44px;font-size:12.5px}
+.toast{font-size:12.5px}
+@media(hover:hover) and (pointer:fine){
+  .task:hover:not(:disabled){background:#F0EEFF}
+  .task.done:hover:not(:disabled){background:#DFF2EB}
+  .catalog-card:hover{box-shadow:0 7px 18px #5147E815}
+  .sound:hover{border-color:#ACA4F6;background:#E9E7FF}
+  .sound.is-speaking:hover{background:var(--indigo);color:#FFFFFF}
+}
+@media(max-width:1240px){
+  .dashboard-grid{grid-template-columns:minmax(244px,266px) minmax(0,1fr) minmax(249px,270px)}
+  .column{padding:22px 19px}
+  .center{padding:29px 23px}
+  .task{padding:10px 9px}
+  .task-copy strong{font-size:12.5px}
+  .task-copy small{font-size:11.3px}
+  .signal-row{grid-template-columns:minmax(0,65px) minmax(0,1fr) minmax(0,49px)}
+  .signal-row label{font-size:11px}
+  .signal-row strong{font-size:10px}
+}
+@media(max-width:1080px){
+  .dashboard-grid{grid-template-columns:minmax(244px,266px) minmax(0,1fr)}
+  .right{grid-column:1/-1;grid-row:2}
+  .left,.center{grid-row:1}
+  .signal-row{grid-template-columns:minmax(0,77px) minmax(0,1fr) minmax(0,56px)}
+  .signal-row label{font-size:12px}
+  .signal-row strong{font-size:11px}
+}
+@media(max-width:720px){
+  .dashboard-grid{grid-template-columns:minmax(0,1fr)}
+  .left,.center,.right{grid-column:1;grid-row:auto}
+  .column,.center{padding:23px 20px}
+  .left-intro h1{font-size:36px}
+  .task{min-height:74px}
+  .task-copy strong{font-size:13.5px}
+  .task-copy small{font-size:12px}
+  .route-step-copy strong{font-size:12.5px}
+  .route-step-copy small{font-size:11.5px}
+  .lesson{padding:24px}
+  .bubble{width:100%}
+  .bubble-b{width:94%}
+  .momentum-head h2{font-size:35px}
+  .momentum-action{min-height:160px}
+}
+@media(max-width:440px){
+  .topend{gap:7px}
+  .brand strong{font-size:21px}
+  .center-head h2{font-size:30px}
+  .daily-goal{min-width:89px;padding:10px}
+  .daily-goal strong{font-size:26px}
+  .lesson-label,.lesson-index{font-size:10.5px}
+  .lesson-title h3{font-size:30px}
+  .bubble{gap:8px;padding:11px}
+  .bubble b{font-size:17px}
+  .bubble small{font-size:12px}
+  .sound{width:38px;height:40px;flex-basis:38px}
+  .lesson-bottom{gap:15px}
+  .study-tools button{flex:1 1 auto}
+  .momentum{padding:26px 18px}
+  .momentum-head h2{font-size:31px}
+}
+@media(prefers-reduced-motion:reduce){
+  .session-orbit,.sound{transition:none!important}
+}
