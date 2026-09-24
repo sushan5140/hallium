@@ -9,7 +9,7 @@ const vocab=[
  ["Places",["학교","집","도서관","카페"]]
 ];
 const districts=vocab.map(([name,words],i)=>'<section class="map-district district-'+(i+1)+'"><span>'+name+'</span>'+words.map(w=>'<button class="map-node"><strong>'+w+'</strong><small>Everyday '+name.toLowerCase()+' meaning</small></button>').join("")+'</section>').join("");
-const doc=`<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><div class="app-shell"><header class="topbar"><a class="brand"><span class="brand-mark">ㅎ</span><span><strong>Hallim</strong><small>한림 · Structured Korean</small></span></a><nav class="primary-nav">${["Practice","Lessons","Hangul Lab","Flashcards","Study Partners","Word map","Review"].map(s=>'<button class="nav-tab'+(s==="Study Partners"?" sp-main-nav-link":s==="Flashcards"?" flashcards-main-nav-link":s==="Hangul Lab"?" hangul-nav-tab":"")+'">'+s+'</button>').join("")}</nav><div class="top-actions"><button class="lesson-count partner-v4-shortcut partner-top-link">Real Korean ♡</button><a class="lesson-count partnerLink">Ambassadors</a><button class="streak"><span>1</span><small>lesson done</small></button><button class="profile-button">SU</button></div></header><div class="workspace"><aside class="lesson-rail"><h1>Word map</h1></aside><main class="lab"><div class="lab-topline"><div><h2>Meaning lives between words.</h2></div><span class="lesson-count">0 strong words</span></div><div class="word-map-stage">${districts}<svg class="map-lines"></svg></div></main><aside class="coach word-detail"><div class="coach-head"><h2>안녕하세요</h2></div><div class="example-card"><strong>안녕하세요. 저는 민지예요.</strong></div></aside></div></div></body></html>`;
+const doc=`<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><div class="app-shell"><header class="topbar"><a class="brand"><span class="brand-mark">ㅎ</span><span><strong>Hallim</strong><small>한림 · Structured Korean</small></span></a><nav class="primary-nav">${["Practice","Korean Companion","Hangul Lab","Flashcards","TOPIK Companion","Study Partners","Word map","Review"].map(s=>s==="TOPIK Companion"?'<a class="nav-tab topik-companion-nav-link" href="/topik-companion">TOPIK Companion</a>':'<button class="nav-tab'+(s==="Study Partners"?" sp-main-nav-link":s==="Flashcards"?" flashcards-main-nav-link":s==="Hangul Lab"?" hangul-nav-tab":"")+'">'+s+'</button>').join("")}</nav><div class="top-actions"><button class="lesson-count partner-v4-shortcut partner-top-link">Real Korean ♡</button><a class="lesson-count partnerLink">Ambassadors</a><button class="streak"><span>1</span><small>lesson done</small></button><button class="profile-button">SU</button></div></header><div class="workspace"><aside class="lesson-rail"><h1>Word map</h1></aside><main class="lab"><div class="lab-topline"><div><h2>Meaning lives between words.</h2></div><span class="lesson-count">0 strong words</span></div><div class="word-map-stage">${districts}<svg class="map-lines"></svg></div></main><aside class="coach word-detail"><div class="coach-head"><h2>안녕하세요</h2></div><div class="example-card"><strong>안녕하세요. 저는 민지예요.</strong></div></aside></div></div></body></html>`;
 const near=(a,b)=>a<b+.75;
 (async()=>{
  const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
@@ -36,7 +36,17 @@ const near=(a,b)=>a<b+.75;
      assert.equal(overlap,false,a.name+" overlaps "+b.name+" at "+width);
     }
    }
-   if(metrics.navDisplay!=="none")assert.ok(near(metrics.brand.right,metrics.nav.x)&&near(metrics.nav.right,metrics.actions.x),"header elements overlap at "+width+": "+JSON.stringify(metrics));
+   if(metrics.navDisplay!=="none"){
+     const tabAlignment=await page.evaluate(()=>{
+       const p=document.querySelector(".primary-nav .nav-tab").getBoundingClientRect();
+       const t=document.querySelector(".primary-nav .topik-companion-nav-link");
+       const r=t.getBoundingClientRect();
+       return {offset:Math.abs((p.y+p.height/2)-(r.y+r.height/2)),decoration:getComputedStyle(t).textDecorationLine};
+     });
+     assert.ok(tabAlignment.offset<=2,"TOPIK Companion tab vertically misaligned at "+width+": "+JSON.stringify(tabAlignment));
+     assert.equal(tabAlignment.decoration,"none","TOPIK Companion link looks underlined at "+width);
+     assert.ok(near(metrics.brand.right,metrics.nav.x)&&near(metrics.nav.right,metrics.actions.x),"header elements overlap at "+width+": "+JSON.stringify(metrics));
+   }
   }
   console.log("PASS: no word collisions, clipped districts, page overflow or header overlap at 320–1440px");
  }finally{await browser.close()}
