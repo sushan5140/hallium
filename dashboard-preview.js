@@ -9,7 +9,18 @@ const nDone=()=>tasks().filter(Boolean).length;
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch{}}
 function toast(message){const el=$("toast");el.textContent=message;el.classList.add("show");clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>el.classList.remove("show"),3000)}
 function jump(id){const el=$(id);if(el)el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});document.querySelectorAll(".navlink").forEach(b=>b.classList.toggle("active",b.dataset.jump===id));}
-function speak(ko){if(!("speechSynthesis" in window)){toast("Korean speech is unavailable in this browser.");return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(ko);u.lang="ko-KR";u.rate=.86;window.speechSynthesis.speak(u)}
+let playingSound=null;
+function speak(ko){
+ if(!("speechSynthesis" in window)){toast("Korean speech is unavailable in this browser.");return}
+ if(playingSound){playingSound.classList.remove("is-speaking");playingSound=null}
+ window.speechSynthesis.cancel();
+ const source=document.activeElement?.matches?.(".sound")?document.activeElement:null;
+ if(source){playingSound=source;source.classList.add("is-speaking")}
+ const u=new SpeechSynthesisUtterance(ko);u.lang="ko-KR";u.rate=.86;
+ const finish=()=>{if(playingSound===source){source?.classList.remove("is-speaking");playingSound=null}};
+ u.onend=finish;u.onerror=finish;
+ window.speechSynthesis.speak(u);
+}
 function coachMessage(){
  if(!state.lesson)return {reason:"Start with one lesson. Your next steps will become clearer as you practise.",title:"Find your first rhythm.",caption:"Listen, practice, and complete one lesson.",action:"Continue the lesson",target:"lesson"};
  if(!state.words)return {reason:"Nice start. You have finished the lesson; now recall three everyday words before moving on.",title:"Turn recognition into recall.",caption:"Review the words from the morning dialogue.",action:"Review vocabulary",target:"words"};
@@ -21,8 +32,11 @@ function render(){
  $("daily-fraction").innerHTML=completed+"<span>/3</span>";
  $("steps-complete").textContent=completed+" / 3";
  $("goal-percent").textContent=percent+"%";
+ $("session-orbit").style.setProperty("--completion",percent+"%");
+ $("session-orbit").querySelector("i").textContent=completed===3?"✓":"한";
+ $("session-caption").textContent=["Three small steps make one complete study session.","Nice start! Two more moments of practice.","One more step to finish your session.","Session complete. Your next review is ready."][completed];
  document.querySelectorAll(".mini-dots i").forEach((e,i)=>e.classList.toggle("filled",i<completed));
- document.querySelectorAll(".task").forEach((e,i)=>{e.classList.toggle("done",tasks()[i]);e.classList.toggle("active",!tasks()[i]&&(i===0||tasks()[i-1]));e.querySelector(".task-num").textContent=tasks()[i]?"✓":"0"+(i+1)});
+ document.querySelectorAll(".task").forEach((e,i)=>{e.classList.toggle("done",tasks()[i]);e.classList.toggle("active",!tasks()[i]&&(i===0||tasks()[i-1]));if(!tasks()[i]&&(i===0||tasks()[i-1]))e.setAttribute("aria-current","step");else e.removeAttribute("aria-current");e.querySelector(".task-num").textContent=tasks()[i]?"✓":"0"+(i+1)});
  ["Completed · revisit →","Completed · revisit →","Completed · try again →"].forEach((t,i)=>{$("task-hint-"+i).textContent=tasks()[i]?t:["Begin learning →","Start quick recall →","Try the check →"][i]});
  $("catalog-done").textContent=p;$("path-total").textContent=p;$("catalog-fill").style.width=p/40*100+"%";$("catalog-progress").setAttribute("aria-valuenow",p);
  $("lesson-percent").textContent=state.lesson?"100%":state.words?"65%":"0%";$("lesson-fill").style.width=state.lesson?"100%":state.words?"65%":"0%";$("lesson-progress").setAttribute("aria-valuenow",state.lesson?100:state.words?65:0);
