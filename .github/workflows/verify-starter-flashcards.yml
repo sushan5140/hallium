@@ -48,3 +48,4 @@ jobs:
           node .github/scripts/verify-flashcards-vercel.cjs
           node .github/scripts/verify-responsive-layout.cjs
           node .github/scripts/verify-topik-mocks.cjs
+          node .github/scripts/verify-companions.cjs
