@@ -20,6 +20,7 @@ const assert=require("node:assert/strict");const {chromium}=require("playwright"
    await page.getByRole("button",{name:/Finish this sample lesson/i}).click();
    await page.getByText(/100% of your plan/i).count();
    assert.match(await page.locator("#daily-fraction").innerText(),/1\/3/);
+   assert.match(await page.locator("#unit-fraction").innerText(),/1 \/ 5/,"current chapter should increment with a finished lesson");
    await page.getByRole("button",{name:/Review 3 words/i}).click();
    await page.getByRole("dialog").waitFor();
    await page.getByRole("button",{name:/Mark these words reviewed/i}).click();
