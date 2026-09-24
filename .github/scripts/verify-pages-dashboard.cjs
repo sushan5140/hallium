@@ -5,7 +5,7 @@ const html=fs.readFileSync("index.html","utf8");
 const theme=fs.readFileSync("dashboard-theme.css","utf8");
 new Function(fs.readFileSync("dashboard-preview.js","utf8"));
 assert.ok(html.includes('href="./dashboard-theme.css"'),"theme not linked in Pages entry");
-assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--sun:#E9C54F","--sun-soft:#FFF5C8"].every(token=>theme.includes(token)),"archived paper/ink/sun palette missing");
+assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--indigo:#5147E8","--jade:#087F69","--papaya:#E76F51","--sun:#E9C54F","--sun-soft:#FFF5C8"].every(token=>theme.includes(token)),"original Hallium V4 token system missing");
 (async()=>{
  const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
  try{
@@ -41,10 +41,10 @@ assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--sun:#E9C54F"
    if(width>1080)assert.ok(Math.abs(dim.left.bottom-dim.center.bottom)<2&&Math.abs(dim.right.bottom-dim.center.bottom)<2,"uneven panel depths "+width);
    assert.ok(dim.momentum.y>=Math.max(dim.left.bottom,dim.center.bottom,dim.right.bottom)-2,"momentum overlaps dashboard "+width);
    assert.ok(dim.study.y>=dim.momentum.bottom-2,"study should follow momentum");
-   assert.equal(dim.lessonBackground,"rgb(255, 249, 224)","soft-yellow lesson background absent");
-   assert.equal(dim.curriculumBackground,"rgb(255, 255, 255)","white curriculum absent");
+   assert.equal(dim.lessonBackground,"rgb(245, 244, 255)","V4 indigo-soft lesson background absent");
+   assert.equal(dim.curriculumBackground,"rgb(232, 231, 255)","V4 indigo curriculum absent");
    assert.equal(dim.rightBackground,"rgb(247, 248, 244)","neutral coach panel absent");
-   assert.equal(dim.reviewBackground,"rgb(255, 245, 200)","sun-soft review panel absent");
+   assert.equal(dim.reviewBackground,"rgb(223, 242, 235)","V4 jade review panel absent");
    assert.equal(dim.chapterBackground,"rgb(23, 25, 31)","ink chapter absent");
    assert.equal(dim.focusBackground,"rgb(23, 25, 31)","ink focus card absent");
 
@@ -87,6 +87,6 @@ assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--sun:#E9C54F"
    assert.deepEqual(errors,[],"browser errors "+width);
    await page.close();
   }
-  console.log("PASS: restored Hallium paper/ink/sun palette, compact no-gap rail, 320–1600 responsive, lesson/review/quiz persistence, no login");
+  console.log("PASS: original Hallium V4 multi-accent palette, compact no-gap rail, 320–1600 responsive, lesson/review/quiz persistence, no login");
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
