@@ -2777,43 +2777,46 @@ export default function Hallim() {
       test: "Start study check", review_queue: "Open review",
       adaptive_review: "Adaptive practice", checkpoint: "Open checkpoint",
     };
+    const currentIndex = Math.max(0, pathUnits.findIndex((unit) => unit.id === nextLessonUnit?.id));
+    const routeStart = Math.max(0, Math.min(currentIndex - 1, pathUnits.length - 3));
+    const visibleUnits = pathUnits.slice(routeStart, routeStart + 3);
     return (
-      <aside className="lesson-rail home-rail" aria-label="Today's study plan and learning links">
-        <header>
-          <span className="rail-kicker">Your learning desk</span>
-          <h1>One step at a time.</h1>
+      <aside className="lesson-rail home-rail" aria-label="Today's study plan and curriculum">
+        <header className="home-desk-intro">
+          <span className="rail-kicker">YOUR LEARNING DESK</span>
+          <h1>One step<br />at a time<span className="home-accent-dot">.</span></h1>
           <p>{activeLearningRoute.headline} · {activeLearningRoute.focus}</p>
         </header>
-
         <section className="rail-group rail-plan" aria-labelledby="rail-plan-title">
           <div className="rail-group-heading">
             <span className="rail-group-label">01 · TODAY'S PLAN</span>
-            <span className="rail-plan-count">{activeLearningRoute.steps.slice(0, 3).length} steps · one clear route</span>
-            <h2 id="rail-plan-title">Practice in order</h2>
-            <p>Each step opens its own activity, not the lesson catalog.</p>
+            <h2 id="rail-plan-title">A clear route for today.</h2>
+            <p>Small steps, real learning progress.</p>
           </div>
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
               <li key={step.kind + index} className={index === 0 ? "is-current" : ""}>
                 <button onClick={() => launchLearningRouteStep(step.kind)} aria-label={(routeLabels[step.kind] || "Open practice") + ": " + step.title}>
-                  <span>{index + 1}</span>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <div className="route-task-copy">
                     <strong>{step.title}</strong>
                     <small>{step.why}</small>
-                    <em>{routeLabels[step.kind] || "Open practice"} →</em>
+                    <em>{routeLabels[step.kind] || "Open practice"} ↗</em>
                   </div>
                 </button>
               </li>
             ))}
           </ol>
+          <div className="home-session-checkpoint" aria-label={completedPathCount + " of " + pathLessons.length + " course lessons completed"}>
+            <span className="home-session-orbit" style={{ "--completion": unitProgress + "%" }} aria-hidden="true"><i>한</i></span>
+            <span className="home-session-copy"><small>YOUR LEARNING PATH</small><strong>{unitProgress}% complete</strong><span>{completedPathCount} of {pathLessons.length} lessons completed</span></span>
+          </div>
         </section>
-
         <section className="rail-group rail-catalog" aria-labelledby="rail-catalog-title">
           <div className="rail-group-heading">
             <span className="rail-group-label">02 · YOUR CURRICULUM</span>
-            <span className="rail-catalog-kicker">YOUR LEARNING LIBRARY</span>
-            <h2 id="rail-catalog-title">All lessons</h2>
-            <p>Explore units and open a particular lesson.</p>
+            <h2 id="rail-catalog-title">Keep the big picture.</h2>
+            <p>One connected Korean learning path.</p>
           </div>
           <button className="curriculum-button rail-destination" onClick={() => navigate("companion")}>
             <span>Browse lesson catalog<small>{completedPathCount} of {pathLessons.length} completed</small>
@@ -2821,8 +2824,22 @@ export default function Hallim() {
             </span>
             <strong aria-hidden="true">↗</strong>
           </button>
+          <div className="home-route-sequence" aria-label="Current curriculum route">
+            <span className="home-route-sequence-label">THE ROAD AHEAD <small>YOUR UNITS</small></span>
+            {visibleUnits.map((unit) => {
+              const count = unit.lessons.filter((lesson) => progress[lesson.id]?.completed).length;
+              const active = unit.id === nextLessonUnit?.id;
+              return (
+                <button key={unit.id} className={"home-route-unit" + (active ? " is-active" : "")}
+                  onClick={() => navigate("companion")} aria-label={"Browse unit " + unit.number + ": " + unit.title}>
+                  <span className="home-route-number">{String(unit.number).padStart(2, "0")}</span>
+                  <span className="home-route-unit-copy"><strong>{unit.title}</strong><small>{active ? "Your current unit" : count === unit.lessons.length ? "Completed" : "Explore this unit"}</small></span>
+                  <span className="home-route-status">{count} / {unit.lessons.length}</span>
+                </button>
+              );
+            })}
+          </div>
         </section>
-
       </aside>
     );
   }
@@ -3017,65 +3034,57 @@ export default function Hallim() {
       .slice(0, 3)
       .map((step, index) => ({
         who: index % 2 === 0 ? "A" : "B",
-        korean: String(step.transcript || step.korean).split("\n")[0],
+        korean: String(step.transcript || step.korean).split("\\n")[0],
         gloss: step.meaning || step.prompt || step.instruction || "",
       }));
-
     return (
       <div className="home-body">
         <div className="home-heading">
           <div>
-            <span className="section-label">Hallim · 한림</span>
-            <h2>{greeting}</h2>
-            <p>Your path runs from <strong>{currentLevel.label}</strong> toward <strong>{targetLevel.label}</strong>. {activeStudy.label} vocabulary and grammar stay separate, and tests only use what those sections teach.</p>
+            <span className="section-label">YOUR DAY, YOUR PACE</span>
+            <h2>{greeting}<span className="home-accent-dot">.</span></h2>
+            <p>From <strong>{currentLevel.label}</strong> toward <strong>{targetLevel.label}</strong>. A little Korean today becomes natural Korean tomorrow.</p>
           </div>
-          <div className="daily-ring" style={{ "--daily": unitProgress + "%" }}>
-            <strong>{unitProgress}%</strong>
-            <span>PATH</span>
+          <div className="daily-ring" style={{ "--daily": unitProgress + "%" }} aria-label={unitProgress + "% of your learning path completed"}>
+            <strong>{unitProgress}%</strong><span>PATH</span>
           </div>
         </div>
-
-        <section className="continue-panel">
-          <div className="continue-copy">
-            <span>CONTINUE LEARNING</span>
-            <h3>{nextLesson.title}</h3>
-            <p>Unit {nextLesson.unitNumber} · {nextLesson.type === "checkpoint" ? "Checkpoint" : "Lesson " + nextLesson.number} · {nextLesson.subtitle}</p>
-            {canDo[0] && <strong>{canDo[0]}</strong>}
-            <div className="continue-progress">
-              <i><em style={{ width: Math.max(4, lessonPct) + "%" }} /></i>
-              <small>{lessonPct}% through this lesson · {completedPathCount} of {pathLessons.length} lessons complete</small>
-            </div>
+        <article className="home-feature-lesson" aria-labelledby="home-feature-title">
+          <div className="home-feature-kicker"><span><b aria-hidden="true">한</b> YOUR NEXT LESSON</span><span>UNIT {String(nextLesson.unitNumber).padStart(2, "0")} · {nextLesson.type === "checkpoint" ? "CHECKPOINT" : "LESSON " + String(nextLesson.number).padStart(2, "0")}</span></div>
+          <div className="home-feature-title"><div><h3 id="home-feature-title">{nextLesson.title}</h3><p>{nextLesson.subtitle}</p></div><span className="home-feature-level">{activeStudy.label}</span></div>
+          <div className="home-feature-progress">
+            <div><span>Keep practicing, then finish the lesson</span><strong>{lessonPct}%</strong></div>
+            <span className="home-feature-track" role="progressbar" aria-label="Current lesson progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={lessonPct}><i style={{ width: lessonPct + "%" }} /></span>
           </div>
-          <button onClick={() => openLesson(nextLesson.id)}>Continue →</button>
+          {spoken.length > 0 && (
+            <section className="home-feature-dialogue" aria-label="Real Korean from your next lesson">
+              <div className="home-feature-dialogue-title"><span>REAL KOREAN, IN CONTEXT</span><small>짧은 대화 · SHORT EXCHANGE</small></div>
+              <div className="home-feature-lines">
+                {spoken.map((line, index) => (
+                  <div className={"home-feature-bubble" + (index % 2 ? " is-reply" : "")} key={line.korean + index}>
+                    <span className="home-feature-speaker" aria-hidden="true">{line.who}</span>
+                    <span className="home-feature-line-copy"><strong lang="ko">{line.korean}</strong><small>{line.gloss}</small></span>
+                    <button type="button" className="home-feature-audio" aria-label={"Listen to " + line.korean}
+                      onClick={() => playKorean(line.korean, 0.92)}>
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v6h4l5 4V5L9 9H5Z" /><path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a8 8 0 0 1 0 11" /></svg>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+          <div className="home-feature-bottom">
+            <div className="home-feature-tip"><span aria-hidden="true">✦</span><span><strong>{canDo[0] ? "What you'll be able to do" : "Learn by doing"}</strong><small>{canDo[0] || "Listen, practice and build a Korean habit."}</small></span></div>
+            <button onClick={() => openLesson(nextLesson.id)} className="home-feature-cta">{lessonPct ? "Continue your lesson" : "Start this lesson"} <span aria-hidden="true">↗</span></button>
+          </div>
+        </article>
+        <section className="home-practice-bar" aria-label="Quick study actions">
+          <div><span className="section-label">PRACTICE WITHOUT LEAVING YOUR PATH</span><h3>Try one small thing now.</h3><p>Explore real exercises; your study progress stays connected.</p></div>
+          <div className="home-practice-actions">
+            <button onClick={() => navigate("vocab")}>Vocabulary ↗</button>
+            <button onClick={startStudyTest}>Study check ↗</button>
+          </div>
         </section>
-
-
-
-        {spoken.length > 0 && (
-          <section className="real-korean">
-            <div>
-              <span className="section-label">Real Korean, in context</span>
-              <h3>{nextLesson.title}</h3>
-              <p>Lines from the lesson you are about to continue.</p>
-            </div>
-            <div className="chat-lines">
-              {spoken.map((line, index) => (
-                <p key={line.korean + index}>
-                  <span>{line.who}</span>
-                  <strong lang="ko">{line.korean}</strong>
-                  <small>{line.gloss}</small>
-                </p>
-              ))}
-            </div>
-            <div className="real-actions">
-              <button onClick={() => playKorean(spoken.map((l) => l.korean).join(" "), 0.92)}>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v6h4l5 4V5L9 9H5Z" /><path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a8 8 0 0 1 0 11" /></svg>
-                Play all
-              </button>
-              <button onClick={() => openLesson(nextLesson.id)}>Open the lesson →</button>
-            </div>
-          </section>
-        )}
       </div>
     );
   }
