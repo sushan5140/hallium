@@ -66,14 +66,29 @@ assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--indigo:#5147
     ].map(([fg,bg])=>({fg,bg,ratio:ratio(getComputedStyle(document.querySelector(fg)).color,getComputedStyle(document.querySelector(bg)).backgroundColor)}));
    });
    for(const item of contrast)assert.ok(item.ratio>=4.5,"low contrast at "+width+": "+JSON.stringify(item));
+   const textSizes=await page.evaluate(()=>Object.fromEntries([
+     ".topnav .navlink",".task-copy strong",".task-copy small",".bubble b",
+     ".bubble small",".coach-note p",".momentum-action small",".route-card small",
+     ".preview-banner",".catalog-card>small"
+   ].map(sel=>[sel,parseFloat(getComputedStyle(document.querySelector(sel)).fontSize)])));
+   for(const [sel,min] of Object.entries({
+     ".topnav .navlink":12.5,".task-copy strong":12.4,
+     ".task-copy small":11.2,".bubble b":16.5,".bubble small":11.9,
+     ".coach-note p":13,".momentum-action small":12.9,
+     ".route-card small":12.9,".preview-banner":11.9,
+     ".catalog-card>small":11.6
+   }))assert.ok(textSizes[sel]>=min,"text too small at "+width+": "+sel+" "+textSizes[sel]);
+   assert.equal(await page.locator("#session-orbit").evaluate(el=>el.style.getPropertyValue("--completion")),"0%","daily orbit initial state");
    assert.equal(await page.locator("input[type=password], form[action*=login]").count(),0,"preview should not ask for sign-in");
    await page.locator("#complete-lesson").click();
    assert.match(await page.locator("#daily-fraction").innerText(),/1\/3/);
+   assert.equal(await page.locator("#session-orbit").evaluate(el=>el.style.getPropertyValue("--completion")),"33%","daily orbit lesson progress");
    assert.match(await page.locator("#unit-fraction").innerText(),/1 \/ 5/);
    await page.locator("#open-words").click();
    await page.getByRole("dialog").waitFor();
    await page.getByRole("button",{name:/Mark these words reviewed/i}).click();
    assert.match(await page.locator("#daily-fraction").innerText(),/2\/3/);
+   assert.equal(await page.locator("#session-orbit").evaluate(el=>el.style.getPropertyValue("--completion")),"67%","daily orbit vocabulary progress");
    await page.locator("#open-check").click();
    await page.getByRole("dialog").waitFor();
    const choices=page.getByRole("dialog").locator(".answer-row");
@@ -82,11 +97,12 @@ assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--indigo:#5147
    await page.getByRole("button",{name:/Check my answers/}).click();
    await page.getByRole("button",{name:"Finish",exact:true}).click();
    assert.match(await page.locator("#daily-fraction").innerText(),/3\/3/);
+   assert.equal(await page.locator("#session-orbit").evaluate(el=>el.style.getPropertyValue("--completion")),"100%","daily orbit completed progress");
    await page.reload({waitUntil:"domcontentloaded"});
    assert.match(await page.locator("#daily-fraction").innerText(),/3\/3/);
    assert.deepEqual(errors,[],"browser errors "+width);
    await page.close();
   }
-  console.log("PASS: original Hallium V4 multi-accent palette, compact no-gap rail, 320–1600 responsive, lesson/review/quiz persistence, no login");
+  console.log("PASS: V4 readable typography, daily progress feedback and palette, compact no-gap rail, 320–1600 responsive, lesson/review/quiz persistence, no login");
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
