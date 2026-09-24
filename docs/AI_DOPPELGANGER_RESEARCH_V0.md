@@ -1,6 +1,6 @@
 # Hallium Research Room: AI Doppelgänger (V0)
 
-Status: **private-branch, simulated research prototype — NOT a live user matchmaking service.**
+Status: **isolated-branch, simulated research prototype — NOT a live user matchmaking service.**
 
 ## What exists
 
