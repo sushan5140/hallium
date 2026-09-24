@@ -2534,3 +2534,16 @@ button.toast{border:0;text-align:left}
   .word-map-stage .map-node{padding:10px}
   .word-map-stage .map-node strong{font-size:15px}
 }
+
+
+/* Specificity repair: generic top-action links were overriding the intended
+   compact-header visibility rules and squeezing mobile navigation. */
+@media(max-width:1250px){.top-actions .partner-top-link{display:none}}
+@media(max-width:760px){.top-actions .partnerLink{display:none}}
+@media(max-width:620px){
+  .top-actions .streak small{display:none}
+  .top-actions .streak{height:40px;min-width:40px;padding:0 6px;justify-content:center}
+  .top-actions .profile-button{flex-shrink:0;width:40px;height:40px}
+  .topbar .brand{min-width:0;gap:8px}
+  .topbar .brand-mark{flex:0 0 auto}
+}
