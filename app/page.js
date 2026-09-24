@@ -2822,6 +2822,9 @@ export default function Hallim() {
           <a className="field-guide-button rail-destination flashcards-rail-link" href="/flashcards">
             <span>▤ Flashcards ↗</span><small>12 illustrated words · listen · recall</small>
           </a>
+          <a className="field-guide-button rail-destination topik-rail-link" href="/topik-mocks">
+            <span>◉ TOPIK Mock Tests ↗</span><small>14 released past papers · TOPIK I &amp; II · timed practice</small>
+          </a>
           <a className="field-guide-button rail-destination sp-rail-link" href="/study-partners">
             <span>✦ Study Partners ↗</span><small>Mutual strengths · shared notes · practice</small>
           </a>
@@ -2962,6 +2965,11 @@ export default function Hallim() {
               <span className="study-glyph flashcards">책</span>
               <span><strong>Starter Flashcards</strong><small>12 illustrated Korean words · audio · recall · review</small></span>
               <em>Explore the first collection ↗</em>
+            </a>
+            <a className="topik-hub-card" href="/topik-mocks" aria-label="Open Hallium TOPIK past-paper mock tests">
+              <span className="study-glyph topik">◉</span>
+              <span><strong>TOPIK Mock Tests</strong><small>14 past papers · timed answer sheets · listening resources</small></span>
+              <em>Choose TOPIK I or II ↗</em>
             </a>
             <a className="sp-hub-card" href="/study-partners" aria-label="Open Hallium Study Partners">
               <span className="study-glyph sp">✦</span>

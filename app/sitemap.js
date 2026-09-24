@@ -5,6 +5,7 @@ export default function sitemap() {
     { url: base + "/demo", changeFrequency: "weekly", priority: 0.9 },
     { url: base + "/ambassadors", changeFrequency: "weekly", priority: 0.8 },
     { url: base + "/creator-kit", changeFrequency: "weekly", priority: 0.8 },
+    { url: base + "/topik-mocks", changeFrequency: "monthly", priority: 0.8 },
     { url: base + "/privacy", changeFrequency: "monthly", priority: 0.4 },
     { url: base + "/terms", changeFrequency: "monthly", priority: 0.4 },
   ];
