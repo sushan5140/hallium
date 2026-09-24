@@ -2449,3 +2449,88 @@ button.toast{border:0;text-align:left}
 @media(max-width:1350px){.primary-nav .flashcards-main-nav-link{display:none}}
 @media(max-width:620px){.study-cards>.flashcards-hub-card{min-height:112px;display:grid;grid-template-columns:46px 1fr;gap:0 12px}.study-cards>.flashcards-hub-card>span:nth-child(2){margin-top:3px}.study-cards>.flashcards-hub-card em{grid-column:2;margin-top:8px;padding-top:0}}
 @media(prefers-reduced-motion:reduce){.study-cards>.flashcards-hub-card{transition:none}.study-cards>.flashcards-hub-card:hover{transform:none}}
+
+
+/* 2026-09-24 · Hallium V4 layout repair.
+   Word districts used viewport percentages and absolute positioning: Objects and
+   Places could physically overlap at ordinary desktop widths. Let content size
+   the layout instead; preserve all existing words, progress and section design. */
+.workspace > .lab,.workspace > .lesson-rail,.workspace > .coach{min-width:0}
+.word-map-stage{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  align-content:start;
+  min-height:0;
+  padding:18px;
+  overflow:hidden;
+}
+.word-map-stage .map-district{
+  position:relative;
+  inset:auto!important;
+  margin:0;
+  min-width:0;
+  max-width:none;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  align-content:start;
+  height:auto;
+  padding:15px;
+}
+.word-map-stage .map-district>span{min-width:0;overflow-wrap:anywhere}
+.word-map-stage .map-node{
+  min-width:0;
+  width:100%;
+  height:auto;
+  min-height:72px;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+.word-map-stage .map-node strong,.word-map-stage .map-node small{
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+.word-map-stage .map-lines{display:none}
+.word-map-stage:before{pointer-events:none}
+
+/* The same narrow-center-column problem could squeeze activity controls, the
+   vocabulary details rail and the top navigation before mobile breakpoints. */
+.lab-topline{flex-wrap:wrap}
+.lab-topline>div{min-width:0}
+.word-detail,.word-detail .coach-head,.example-card,.mastery-card,.related-words{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.topbar{column-gap:clamp(8px,1.3vw,20px);grid-template-columns:minmax(170px,1fr) minmax(0,max-content) minmax(170px,1fr)}
+.primary-nav{min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}
+.primary-nav::-webkit-scrollbar{display:none}
+.primary-nav .nav-tab,.top-actions .streak,.top-actions .streak small{white-space:nowrap}
+.top-actions{min-width:0;gap:7px}
+.top-actions .streak{flex-shrink:0}
+@media (max-width:1350px) and (min-width:821px){
+  .topbar{grid-template-columns:minmax(150px,1fr) minmax(0,max-content) minmax(130px,1fr)}
+  .primary-nav .nav-tab{padding-inline:11px;font-size:12px}
+  .top-actions .streak{padding-inline:8px}
+}
+@media(max-width:1180px){
+  .word-map-stage{grid-template-columns:repeat(2,minmax(0,1fr));min-height:0;padding:16px}
+  .word-map-stage .map-district{margin:0}
+}
+@media(max-width:820px){
+  .topbar{grid-template-columns:minmax(0,1fr) auto}
+  .word-map-stage{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:13px}
+  .word-map-stage .map-district{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px}
+}
+@media(max-width:620px){
+  .word-map-stage{grid-template-columns:minmax(0,1fr);gap:12px}
+  .word-map-stage .map-district{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lab-actions{flex-wrap:wrap}
+  .lesson-rail,.lab,.coach{min-width:0}
+}
+@media(max-width:390px){
+  .word-map-stage{padding:10px}
+  .word-map-stage .map-district{padding:10px;gap:7px}
+  .word-map-stage .map-node{padding:10px}
+  .word-map-stage .map-node strong{font-size:15px}
+}
