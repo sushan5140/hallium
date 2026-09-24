@@ -4,7 +4,7 @@ Status: **isolated-branch, simulated research prototype — NOT a live user matc
 
 ## What exists
 
-Route: `/research/ai-twins` on the research branch. An interactive standalone Hallium demo lets one person describe their Korean learning focus, explicitly opt in, inspect four **fictional** learning twins, view transparent complementary-skill explanations, read a **scripted** twin-to-twin introduction, and approve a 15-minute practice plan **locally**.
+Historical V0 route: `/research/ai-twins` (now redirects to live `/ai-twins`). The fictional V0 matching module remains in the repository for benchmark comparisons; this document describes that old experiment, not the current live two-account page. An interactive standalone Hallium demo lets one person describe their Korean learning focus, explicitly opt in, inspect four **fictional** learning twins, view transparent complementary-skill explanations, read a **scripted** twin-to-twin introduction, and approve a 15-minute practice plan **locally**.
 
 - The demo does **not** use a generative model, Supabase, Google login, other people's profiles, an outbound network request, or persistent browser storage.
 - The four names and bios are invented fixtures, not Hallium members or actual consent records.
@@ -46,7 +46,7 @@ npm run build
 npm run dev
 ```
 
-Open `http://localhost:3000/research/ai-twins`. No environment variables are required for this simulated route.
+Open `http://localhost:3000/ai-twins` for the live pilot; the old `/research/ai-twins` address redirects there. No environment variables are required for this simulated route.
 
 ## Next milestone (NOT implemented)
 
