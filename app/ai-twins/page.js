@@ -23,24 +23,31 @@ export default function AiTwinsLivePage(){
   const [people,setPeople]=useState([]),[meetups,setMeetups]=useState([]),[connections,setConnections]=useState([]),[selected,setSelected]=useState(null);
   const [busy,setBusy]=useState(""),[error,setError]=useState(""),[notice,setNotice]=useState("");
   const [stage,setStage]=useState(0);
+  const [phase,setPhase]=useState({mode:"loading",active_humans:0,threshold:12,founder_ids:[]});
+  const [publicMode,setPublicMode]=useState("seed");
   const update=(field,value)=>setForm(p=>({...p,[field]:value}));
 
   const refresh=useCallback(async(id,{hydrate=false}={})=>{
-    const [own,ownTwin,twins,profiles,meetings,rooms]=await Promise.all([
+    const [own,ownTwin,twins,profiles,meetings,rooms,cohort]=await Promise.all([
       sb.from(P).select("user_id,nickname,level,availability,strength,growth_area,discoverable").eq("user_id",id).maybeSingle(),
       sb.from(T).select("user_id,enabled,twin_name,intro,interests,tone").eq("user_id",id).maybeSingle(),
       sb.from(T).select("user_id,enabled,twin_name,intro,interests,tone").eq("enabled",true).neq("user_id",id).limit(80),
       sb.from(P).select("user_id,nickname,level,availability,strength,growth_area,discoverable").eq("discoverable",true).limit(120),
       sb.from(M).select("*").or("user_low.eq."+id+",user_high.eq."+id).order("created_at",{ascending:false}).limit(35),
-      sb.from("hallium_partner_connections").select("id,user_low,user_high,status").eq("status","accepted").limit(100)
+      sb.from("hallium_partner_connections").select("id,user_low,user_high,status").eq("status","accepted").limit(100),
+      sb.rpc("hallium_twinverse_status")
     ]);
-    const problem=[own.error,ownTwin.error,twins.error,profiles.error,meetings.error,rooms.error].find(Boolean);
+    const problem=[own.error,ownTwin.error,twins.error,profiles.error,meetings.error,rooms.error,cohort.error].find(Boolean);
     if(problem){setError("Could not load the live Twinverse: "+problem.message);return;}
     const profileMap=new Map((profiles.data||[]).map(p=>[p.user_id,p]));
     const roster=(twins.data||[]).filter(t=>profileMap.has(t.user_id)).map(t=>({...t,profile:profileMap.get(t.user_id)}));
     setPeople(roster);
     setMeetups(meetings.data||[]);
     setConnections(rooms.data||[]);
+    if(cohort.data && ["seed","human"].includes(cohort.data.mode)) {
+      setPhase(cohort.data);
+      setPublicMode(cohort.data.mode);
+    }
     setSaved(Boolean(ownTwin.data?.enabled&&own.data?.discoverable));
     if(hydrate){
       setForm({...empty,...(own.data||{}),...(ownTwin.data||{}),
@@ -61,6 +68,10 @@ export default function AiTwinsLivePage(){
       if(e)setError(e.message);
       setUser(u||null);
       if(u)await refresh(u.id,{hydrate:true});
+      else {
+        const {data:visibility}=await sb.from("hallium_twinverse_phase").select("mode").eq("id",1).maybeSingle();
+        if(active)setPublicMode(visibility?.mode||"seed");
+      }
       if(active)setLoading(false);
     })();
     return()=>{active=false};
@@ -156,13 +167,14 @@ export default function AiTwinsLivePage(){
   const activeRoom=connections.find(c=>c.status==="accepted"&&selected&&c.user_low===selected.user_low&&c.user_high===selected.user_high);
   const mineApproved=selected?(selected.user_low===user?.id?selected.approved_low:selected.approved_high):false;
   const otherApproved=selected?(selected.user_low===user?.id?selected.approved_high:selected.approved_low):false;
+  const founders=new Set(phase.founder_ids||[]);
   const pairs=people.map(p=>({
     ...p,
     reciprocal:p.profile.strength===form.growth_area&&form.strength===p.profile.growth_area
-  })).sort((a,b)=>Number(b.reciprocal)-Number(a.reciprocal));
+  })).sort((a,b)=>Number(founders.has(b.user_id))-Number(founders.has(a.user_id)) || Number(b.reciprocal)-Number(a.reciprocal));
 
   if(loading)return <main className="tw-page tw-live-loading">Opening your Twinverse…</main>;
-  if(!user)return <main className="tw-page"><div className="tw-frame"><header className="tw-topbar"><a className="tw-brand" href="/">ㅎ hallium / twinverse</a><a href="/study-partners" className="tw-back">← Study Partners</a></header><section className="tw-hero"><div className="tw-eyebrow">YOUR DIGITAL STUDY DOUBLE</div><h1>Your twin.<br/><em>Your Korean universe.</em></h1><p>Sign in with Google to create your opt-in learning twin, meet another real learner's AI twin and approve a shared Korean activity together.</p><p style={{marginTop:24}}><a className="tw-primary tw-link-button" href="/auth/google?next=%2Fai-twins">Continue with Google ↗</a> <a className="tw-secondary tw-guest-guide-link" href="/ai-twins/guides">Meet the 12 AI teaching characters ✳</a></p></section></div></main>;
+  if(!user)return <main className="tw-page"><div className="tw-frame"><header className="tw-topbar"><a className="tw-brand" href="/">ㅎ hallium / twinverse</a><a href="/study-partners" className="tw-back">← Study Partners</a></header><section className="tw-hero"><div className="tw-eyebrow">YOUR DIGITAL STUDY DOUBLE</div><h1>Your twin.<br/><em>Your Korean universe.</em></h1><p>Sign in with Google to create your opt-in learning twin, meet another real learner's AI twin and approve a shared Korean activity together.</p><p style={{marginTop:24}}><a className="tw-primary tw-link-button" href="/auth/google?next=%2Fai-twins">Continue with Google ↗</a> {publicMode==="seed"&&<a className="tw-secondary tw-guest-guide-link" href="/ai-twins/guides">Meet the 12 AI teaching characters ✳</a>}</p></section></div></main>;
 
   return <main className="tw-page"><div className="tw-frame">
     <header className="tw-topbar">
@@ -177,7 +189,22 @@ export default function AiTwinsLivePage(){
       <div className="tw-orbit" aria-hidden="true"><span className="tw-orbit-a">ㅎ</span><span className="tw-orbit-b">✳</span><span className="tw-orbit-c">♡</span><span className="tw-orbit-d">가</span></div>
     </section>
     {(error||notice)&&<div className={"tw-alert "+(error?"tw-alert-error":"")} role={error?"alert":"status"}>{error||notice}<button onClick={()=>{setError("");setNotice("")}} aria-label="Dismiss">×</button></div>}
-    <section className="tw-guide-strip" aria-label="Meet the AI teaching characters">
+    <section className="tw-lanes" aria-label="Choose your Twinverse experience">
+      <div className="tw-lanes-head"><span className="tw-kicker">TWO DISTINCT SPACES · REAL PEOPLE ARE NEVER AI CHARACTERS</span>
+        <h2>{phase.mode==="human"?"The human Twinverse is open ✳":"Choose your Twinverse lane"}</h2>
+        <p>{phase.mode==="human"?"Our first 12 opted-in people unlocked the human-first Twinverse. Meet their twins and make real Korean study connections.":"Meet real, opted-in learners in one space—or practise with the clearly labeled AI teachers while our human community grows."}</p></div>
+      <div className="tw-lane-grid">
+        <a href="#tw-human-lane" className="tw-lane tw-lane-human"><span className="tw-lane-icon">♡</span>
+          <span className="tw-lane-copy"><small>{phase.mode==="human"?"NOW LEADING · THE FIRST 12 FOUNDERS":"REAL PEOPLE · HUMAN APPROVAL REQUIRED"}</small><strong>Meet human learners</strong>
+          <em>{phase.mode==="human"?"Explore the founding cohort and existing human study partners.":"Build your twin, explore real learner profiles and request a mutual study session."}</em></span><b>↗</b></a>
+        {phase.mode==="seed"&&<a href="/ai-twins/guides" className="tw-lane tw-lane-ai"><span className="tw-lane-icon">✳</span>
+          <span className="tw-lane-copy"><small>12 LABELED FICTIONAL AI TEACHERS · STARTER PHASE</small><strong>Meet the AI guides</strong>
+          <em>Learn Korean directly with 12 distinct characters while the first 12 humans join.</em></span><b>↗</b></a>}
+      </div>
+      {phase.mode==="seed"&&<p className="tw-cohort-progress" role="status">{phase.active_humans} of 12 opted-in real learners · At 12, Hallium retires the AI teaching cast and focuses on human connections. Only real people count.</p>}
+      {phase.mode==="human"&&<p className="tw-cohort-progress" role="status">✳ The first 12 real learner accounts unlocked this chapter. AI guide chats are retired; existing private chat history remains available for its owner to view or delete.</p>}
+    </section>
+    {phase.mode==="seed"&&<section className="tw-guide-strip" aria-label="Meet the AI teaching characters">
       <div className="tw-guide-strip-heading"><div><span className="tw-kicker">THE TWINVERSE STARTING LINEUP · EVERY CHARACTER IS AI</span>
         <h2>No real learners online yet? <em>Learn with these 12.</em></h2>
         <p>Not fake accounts. Twelve clearly labeled AI teaching characters who actually chat, correct Korean and give you little sidequests—no human discovery opt-in required.</p></div>
@@ -186,8 +213,8 @@ export default function AiTwinsLivePage(){
       <div className="tw-guide-previews">{[AI_GUIDES[0],AI_GUIDES[1],AI_GUIDES[5],AI_GUIDES[9]].map(g=>
         <a href="/ai-twins/guides" key={g.id} className="tw-guide-preview"><span className="tw-guide-preview-emoji" aria-hidden="true">{g.emoji}</span>
           <strong>{g.name} <small>AI</small></strong><span>{g.title}</span></a>)}</div>
-    </section>
-    <div className="tw-layout">
+    </section>}
+    <div className="tw-layout" id="tw-human-lane">
       <section className="tw-builder"><div className="tw-section-head"><span className="tw-step">01</span><div><span className="tw-kicker">YOUR DIGITAL ALTER EGO</span><h2>Build your twin</h2></div></div>
         <div className="tw-self"><span className="tw-avatar tw-avatar-big">{short(form.twin_name||form.nickname)}</span><div><small>YOUR OPT-IN TWIN</small><strong>{form.twin_name||"Meet your twin"} ✳</strong><p>{saved?"Live and discoverable":"Not yet enabled"}</p></div></div>
         <label className="tw-label">Your display nickname<input value={form.nickname} maxLength={35} onChange={e=>update("nickname",e.target.value)}/></label>
@@ -207,10 +234,10 @@ export default function AiTwinsLivePage(){
         {saved&&<button className="tw-secondary tw-full" disabled={Boolean(busy)} onClick={()=>save(false)}>Disable my twin & discovery</button>}
       </section>
       <section className="tw-stage"><div className="tw-section-head"><span className="tw-step">02</span><div><span className="tw-kicker">THE TWINVERSE</span><h2>Meet the other twins</h2></div></div>
-        {!saved?<div className="tw-empty-live">✳<h3>Your twin isn't in the room yet.</h3><p>Enable your profile first, then have your sister sign into her own Google account and enable her twin too.</p></div>:
-          !pairs.length?<div className="tw-empty-live">♡<h3>Waiting for another human.</h3><p>Ask your sister to enable her own twin. Until then, you can practise with 12 clearly labeled AI teaching characters above. They are not counted as real people.</p><button className="tw-secondary" onClick={()=>refresh(user.id)}>Check for twins ↻</button></div>:
+        {!saved?<div className="tw-empty-live">✳<h3>Your twin isn't in the room yet.</h3><p>Enable your profile first; then you can meet real opted-in learners, including your sister when she joins with her own Google account.</p></div>:
+          !pairs.length?<div className="tw-empty-live">♡<h3>Waiting for another human.</h3><p>{phase.mode==="seed"?"Ask another learner to enable their twin, or practise with the AI teachers in the separate starter lane.":"Invite another real learner to opt in. The AI seed cast has retired after the 12-person milestone."}</p><button className="tw-secondary" onClick={()=>refresh(user.id)}>Check for twins ↻</button></div>:
           <div className="tw-live-people">{pairs.map(p=><article className="tw-person" key={p.user_id}>
-            <div className="tw-person-head"><span className="tw-avatar tw-lavender">{short(p.twin_name)}</span><div><strong>{p.twin_name}</strong><small>{p.profile.level} · {p.profile.availability}</small></div><span className="tw-tag">{p.reciprocal?"SKILL SWAP":"STUDY BUDDY"}</span></div>
+            <div className="tw-person-head"><span className="tw-avatar tw-lavender">{short(p.twin_name)}</span><div><strong>{p.twin_name}</strong><small>{p.profile.level} · {p.profile.availability}</small></div><span className="tw-tag">{phase.mode==="human"&&founders.has(p.user_id)?"FOUNDING HUMAN":p.reciprocal?"SKILL SWAP":"STUDY BUDDY"}</span></div>
             <p>{p.intro||"Ready to meet a new Korean learning partner."}</p>
             <div className="tw-mini-skills"><span>Gives: {p.profile.strength}</span><span>Learning: {p.profile.growth_area}</span></div>
             <small className="tw-muted">Interests: {p.interests||"Korean practice"}</small>
