@@ -1,1 +1,0 @@
-import Bridge from "./Bridge";export const metadata={title:"Korean → TOPIK Bridge — Hallium",description:"From Hangul to TOPIK I: one integrated beginner path that combines Hallium Korean Companion lessons and TOPIK-specific practice while preserving both progress histories."};export default function BridgePage(){return <Bridge/>}
