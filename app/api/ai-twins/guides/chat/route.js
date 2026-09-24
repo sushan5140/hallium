@@ -53,6 +53,16 @@ export async function POST(request) {
   if (!guide || !message) {
     return Response.json({ error: "Choose an AI guide and write a message." }, { status: 400 });
   }
+  // The human-first milestone is permanent. A saved AI chat stays readable/deletable,
+  // but a retired guide must never issue another paid/generated reply.
+  const { data: phase, error: phaseError } = await sb.rpc("hallium_twinverse_status");
+  if (phaseError || !phase) {
+    return Response.json({ error: "Twinverse availability could not be verified. Please retry." }, { status: 503 });
+  }
+  if (phase.mode === "human") {
+    return Response.json({ error: "The first 12 real learners have arrived! AI guide chat is retired; explore the human Twinverse. Your prior chat history is still available to view or delete." }, { status: 410 });
+  }
+
   const key = process.env.AI_API || process.env.GROQ_API_KEY;
   if (!key) {
     return Response.json({ error: "AI chat is not configured for this deployment." }, { status: 503 });
@@ -104,6 +114,16 @@ export async function POST(request) {
     if (!assistant) throw new Error("EMPTY_REPLY");
   } catch {
     return Response.json({ error: "The AI tutor couldn't respond this time. No fake or scripted answer was inserted; please retry." }, { status: 503 });
+  }
+
+  // Recheck after the provider call: another signed-in learner may have just
+  // become the 12th founder while the LLM was responding.
+  const { data: finalPhase, error: finalPhaseError } = await sb.rpc("hallium_twinverse_status");
+  if (finalPhaseError || !finalPhase) {
+    return Response.json({ error: "Twinverse availability could not be verified. No reply was saved." }, { status: 503 });
+  }
+  if (finalPhase.mode === "human") {
+    return Response.json({ error: "The human Twinverse opened during this chat. Your conversation history was preserved; no new AI reply was saved." }, { status: 410 });
   }
 
   const { data: saved, error: saveError } = await sb.from(TABLE)
