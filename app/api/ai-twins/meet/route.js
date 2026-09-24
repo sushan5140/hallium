@@ -1,5 +1,5 @@
-import { createHallimServerSupabase } from "../../../lib/supabase/server";
-import { UUID_RE, pairFor, publicTwin, guidedPlan, validatePlan } from "../../../lib/ai-twins/live.mjs";
+import { createHallimServerSupabase } from "../../../../lib/supabase/server";
+import { UUID_RE, pairFor, publicTwin, guidedPlan, validatePlan } from "../../../../lib/ai-twins/live.mjs";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
