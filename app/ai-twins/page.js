@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { getHallimSupabase } from "../../lib/supabase/client";
+import { focusFromAiAudit } from "../../lib/study-partners/core.mjs";
 import "../research/ai-twins/twins.css";
 import "./live.css";
 
@@ -101,6 +102,20 @@ export default function AiTwinsLivePage(){
     finally{setBusy("")}
   }
 
+  async function importLearningFocus(){
+    if(!user)return;
+    setBusy("audit");setError("");setNotice("");
+    try{
+      const {data,error:e}=await sb.from("learner_state").select("ai_audit").eq("user_id",user.id).maybeSingle();
+      if(e)throw e;
+      const focus=focusFromAiAudit(data?.ai_audit);
+      if(!focus)throw new Error("Your current AI learning report does not clearly distinguish vocabulary and grammar strengths. Choose them manually or complete a Hallium learning check.");
+      setForm(p=>({...p,strength:focus.strength,growth_area:focus.growth}));
+      setNotice("Private AI audit read locally for category-level signals. Review the imported categories and save to share only those summaries.");
+    }catch(e){setError(e.message||"Could not read your learning report.")}
+    finally{setBusy("")}
+  }
+
   async function meet(otherId){
     if(!saved)return setError("Save and enable your own twin first.");
     setBusy("meet:"+otherId);setError("");setNotice("");setStage(0);
@@ -170,6 +185,7 @@ export default function AiTwinsLivePage(){
           <label className="tw-label">Your strength<select value={form.strength} onChange={e=>update("strength",e.target.value)}>{skills.map(s=><option key={s}>{s}</option>)}</select></label>
           <label className="tw-label">Your growth area<select value={form.growth_area} onChange={e=>update("growth_area",e.target.value)}>{skills.map(s=><option key={s}>{s}</option>)}</select></label>
         </div>
+        <button className="tw-secondary tw-full" type="button" disabled={Boolean(busy)} onClick={importLearningFocus}>{busy==="audit"?"Reading your report…":"✳ Import my Hallium learning focus (review first)"}</button>
         <div className="tw-two"><label className="tw-label">Level<select value={form.level} onChange={e=>update("level",e.target.value)}>{levels.map(s=><option key={s}>{s}</option>)}</select></label>
         <label className="tw-label">Study time<select value={form.availability} onChange={e=>update("availability",e.target.value)}>{slots.map(s=><option key={s}>{s}</option>)}</select></label></div>
         <label className="tw-label">What should your twin say about your learning?<textarea maxLength={300} rows={3} value={form.intro} onChange={e=>update("intro",e.target.value)} placeholder="I love K-dramas, remember words quickly, and want help with particles…"/></label>
