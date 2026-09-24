@@ -5,7 +5,7 @@ const html=fs.readFileSync("index.html","utf8");
 const theme=fs.readFileSync("dashboard-theme.css","utf8");
 new Function(fs.readFileSync("dashboard-preview.js","utf8"));
 assert.ok(html.includes('href="./dashboard-theme.css"'),"theme not linked in Pages entry");
-assert.ok(theme.includes("--accent-primary:#23665C")&&theme.includes("--accent-blush:#984759")&&theme.includes("--surface-iris:#F1EDFB"),"sea-glass palette missing");
+assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--sun:#E9C54F","--sun-soft:#FFF5C8"].every(token=>theme.includes(token)),"archived paper/ink/sun palette missing");
 (async()=>{
  const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
  try{
@@ -41,12 +41,12 @@ assert.ok(theme.includes("--accent-primary:#23665C")&&theme.includes("--accent-b
    if(width>1080)assert.ok(Math.abs(dim.left.bottom-dim.center.bottom)<2&&Math.abs(dim.right.bottom-dim.center.bottom)<2,"uneven panel depths "+width);
    assert.ok(dim.momentum.y>=Math.max(dim.left.bottom,dim.center.bottom,dim.right.bottom)-2,"momentum overlaps dashboard "+width);
    assert.ok(dim.study.y>=dim.momentum.bottom-2,"study should follow momentum");
-   assert.equal(dim.lessonBackground,"rgb(227, 243, 237)","sea-glass lesson background absent");
-   assert.equal(dim.curriculumBackground,"rgb(240, 236, 251)","iris curriculum absent");
-   assert.equal(dim.rightBackground,"rgb(245, 242, 251)","lilac coach panel absent");
-   assert.equal(dim.reviewBackground,"rgb(250, 233, 234)","blush review panel absent");
-   assert.equal(dim.chapterBackground,"rgb(35, 102, 92)","jade chapter absent");
-   assert.equal(dim.focusBackground,"rgb(35, 102, 92)","sea-glass focus card absent");
+   assert.equal(dim.lessonBackground,"rgb(255, 249, 224)","soft-yellow lesson background absent");
+   assert.equal(dim.curriculumBackground,"rgb(255, 255, 255)","white curriculum absent");
+   assert.equal(dim.rightBackground,"rgb(247, 248, 244)","neutral coach panel absent");
+   assert.equal(dim.reviewBackground,"rgb(255, 245, 200)","sun-soft review panel absent");
+   assert.equal(dim.chapterBackground,"rgb(23, 25, 31)","ink chapter absent");
+   assert.equal(dim.focusBackground,"rgb(23, 25, 31)","ink focus card absent");
 
    const contrast=await page.evaluate(()=>{
     const luminance=rgb=>{
@@ -87,6 +87,6 @@ assert.ok(theme.includes("--accent-primary:#23665C")&&theme.includes("--accent-b
    assert.deepEqual(errors,[],"browser errors "+width);
    await page.close();
   }
-  console.log("PASS: sea-glass/iris/blush palette, compact no-gap rail, 320–1600 responsive, lesson/review/quiz persistence, no login");
+  console.log("PASS: restored Hallium paper/ink/sun palette, compact no-gap rail, 320–1600 responsive, lesson/review/quiz persistence, no login");
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
