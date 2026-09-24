@@ -43,7 +43,7 @@ assert.ok(["--paper:#F4F5F1","--surface:#FFFFFF","--ink:#17191F","--indigo:#5147
    assert.ok(dim.study.y>=dim.momentum.bottom-2,"study should follow momentum");
    assert.equal(dim.lessonBackground,"rgb(245, 244, 255)","V4 indigo-soft lesson background absent");
    assert.equal(dim.curriculumBackground,"rgb(232, 231, 255)","V4 indigo curriculum absent");
-   assert.equal(dim.rightBackground,"rgb(247, 248, 244)","neutral coach panel absent");
+   assert.equal(dim.rightBackground,"rgb(248, 248, 245)","neutral V4 coach panel absent");
    assert.equal(dim.reviewBackground,"rgb(223, 242, 235)","V4 jade review panel absent");
    assert.equal(dim.chapterBackground,"rgb(23, 25, 31)","ink chapter absent");
    assert.equal(dim.focusBackground,"rgb(23, 25, 31)","ink focus card absent");
