@@ -20,8 +20,8 @@ These are **distinct prompted LLM agents** in sequential turns, not independent 
 - UI: `app/ai-twins/page.js` and `app/ai-twins/live.css`
 - Server-only orchestration: `app/api/ai-twins/meet/route.js`
 - Public summary + plan validators: `lib/ai-twins/live.mjs`
-- Tables/RLS/approvals: `supabase/migrations/20260925_ai_twins_pilot.sql`
-- Shared study room handoff: `supabase/migrations/20260925_ai_twins_practice_handoff.sql`
+- Tables/RLS/approvals: `supabase/migrations/20260925000100_ai_twins_pilot.sql`
+- Shared study room handoff: `supabase/migrations/20260925000200_ai_twins_practice_handoff.sql`
 - Unit checks: `tests/ai-twins-live.test.mjs`
 
 ## Privacy and safety
