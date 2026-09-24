@@ -24,7 +24,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: hallium-dashboard-preview
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Fetch the standalone gh-pages website
