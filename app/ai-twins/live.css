@@ -18,3 +18,26 @@
 .tw-guide-preview small{font-size:9px;background:#eddefb;padding:3px 5px;border-radius:5px;color:#7851aa}
 .tw-guide-preview>span:last-child{font-size:11px;line-height:1.4;color:#74687b}
 @media(max-width:760px){.tw-guide-strip{padding:17px;margin-top:17px}.tw-guide-strip-heading{align-items:stretch;flex-direction:column}.tw-guide-all{width:100%}.tw-guide-previews{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tw-guide-preview{padding:11px}}
+
+/* Two honest, visually separate Twinverse paths; hide the AI lane at the real-human milestone. */
+.tw-lanes{margin-top:24px;background:#fffdfa;border:1px solid #e9e1eb;border-radius:25px;padding:24px;box-shadow:0 14px 44px #53386108}
+.tw-lanes-head h2{font-size:clamp(25px,3vw,34px);font-weight:900;letter-spacing:-1.4px;margin:9px 0}
+.tw-lanes-head>p{font-size:13px;line-height:1.65;color:#726779;max-width:730px;margin:0 0 18px}
+.tw-lane-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.tw-lane-grid:has(>a:only-child){grid-template-columns:1fr}
+.tw-lane{display:flex;align-items:center;gap:15px;border:1px solid #e2d6e9;border-radius:20px;padding:22px;background:#f4ecff;color:#30223f;min-width:0;transition:background .2s,border-color .2s}
+.tw-lane:hover{background:#f0e4ff;border-color:#bd98de}
+.tw-lane-ai{background:#fff2e9;border-color:#f1ddd2}
+.tw-lane-ai:hover{background:#ffe9df;border-color:#edbdaa}
+.tw-lane-icon{width:55px;height:55px;border-radius:19px;background:#e1cafa;color:#7250a7;display:grid;place-items:center;font-size:33px;flex:none}
+.tw-lane-ai .tw-lane-icon{background:#ffdfd0;color:#aa654f}
+.tw-lane-copy{display:grid;gap:6px;min-width:0;flex:1}
+.tw-lane-copy small{font-size:9px;letter-spacing:1px;font-weight:850;color:#8a679f}
+.tw-lane-ai .tw-lane-copy small{color:#a16e60}
+.tw-lane-copy strong{font-size:20px;letter-spacing:-.6px;font-weight:900}
+.tw-lane-copy em{font-size:12px;line-height:1.6;color:#72687b;font-weight:400;font-style:normal}
+.tw-lane>b{font-size:22px;color:#936eb7}
+.tw-cohort-progress{font-size:11px;font-weight:750;color:#786a82;background:#fbf6fe;border:1px dashed #dfceef;padding:12px 15px;border-radius:14px;margin:14px 0 0}
+#tw-human-lane{scroll-margin-top:24px}
+@media(max-width:820px){.tw-lane-grid{grid-template-columns:1fr}.tw-lanes{padding:18px;margin-top:18px}.tw-lane{padding:15px}.tw-lane-copy strong{font-size:18px}.tw-lane-icon{width:46px;height:46px;font-size:27px;border-radius:15px}}
+@media(max-width:390px){.tw-lane{gap:10px}.tw-lane-copy small{font-size:8px}}
