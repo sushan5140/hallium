@@ -2819,6 +2819,37 @@ export default function Hallim() {
           </button>
         </section>
 
+        <section className="rail-momentum" aria-labelledby="rail-momentum-title">
+          <div className="rail-momentum-head">
+            <span className="rail-group-label">03 · YOUR MOMENTUM</span>
+            <span className="rail-momentum-spark" aria-hidden="true">↗</span>
+          </div>
+          <h2 id="rail-momentum-title">One chapter closer.</h2>
+          <p>Based on your completed Hallium lessons, not a predicted exam score.</p>
+          {(() => {
+            const chapter = nextLessonUnit || pathUnits[0];
+            const total = chapter?.lessons?.length || 1;
+            const done = chapter?.lessons?.filter((lesson) => progress[lesson.id]?.completed).length || 0;
+            const percent = Math.round((done / total) * 100);
+            return (
+              <div className="rail-momentum-chapter">
+                <div className="rail-momentum-topline"><span>UNIT {chapter?.number || 1}</span><strong>{done}<small> / {total}</small></strong></div>
+                <strong className="rail-momentum-chapter-name">{chapter?.title || "Your learning path"}</strong>
+                <div className="rail-momentum-track" role="progressbar" aria-label="Current chapter lessons completed" aria-valuemin={0} aria-valuemax={total} aria-valuenow={done}><i style={{ transform: "scaleX(" + (percent / 100) + ")" }} /></div>
+                <div className="rail-momentum-markers" aria-hidden="true">
+                  {Array.from({ length: total }, (_, index) => <span key={index} className={index < done ? "is-done" : index === done ? "is-next" : ""} />)}
+                </div>
+                <span className="rail-momentum-counter">{Math.max(0, total - done)} chapter step{total - done === 1 ? "" : "s"} to go</span>
+              </div>
+            );
+          })()}
+          <button className="rail-momentum-next" onClick={() => openLesson(nextLesson.id)}>
+            <span><small>UP NEXT · {nextLesson.type === "checkpoint" ? "CHECKPOINT" : "LESSON " + nextLesson.number}</small><strong>{nextLesson.title}</strong></span><span className="rail-momentum-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button className="rail-momentum-review" onClick={() => navigate(dueMistakes.length || reviewLessonCount ? "review" : "companion")}>
+            <span><strong>{dueMistakes.length ? dueMistakes.length + " due for review" : reviewLessonCount ? "Review what you've learned" : "Build your first lesson"}</strong><small>{dueMistakes.length ? "Revisit the words or patterns you missed" : reviewLessonCount ? "Keep earlier lessons fresh" : "Start with a small win today"}</small></span><span aria-hidden="true">→</span>
+          </button>
+        </section>
       </aside>
     );
   }
@@ -2987,20 +3018,7 @@ export default function Hallim() {
           <button onClick={() => openLesson(nextLesson.id)}>Continue →</button>
         </section>
 
-        <section className="study-hub">
-          <div className="study-title">
-            <div>
-              <span className="section-label">Structured study</span>
-              <h3>Study it directly, then test it.</h3>
-            </div>
-            <button onClick={() => navigate(reviewLessonCount || dueMistakes.length ? "review" : "companion")}>{reviewLabel} →</button>
-          </div>
-          <div className="study-cards">
-            <a className="topik-from-zero-hub-card" href="/topik-from-zero" aria-label="Open the combined Korean to TOPIK beginner bridge"><span className="study-glyph topik">가</span><span><strong>Korean → TOPIK Bridge</strong><small>Starting from zero · 43 linked everyday + exam lessons</small></span><em>Start the combined path ↗</em></a>
-            <a className="companion-hub-card" href="/?view=companion"><span className="study-glyph">말</span><span><strong>Korean Companion</strong><small>Everyday Korean · 15 units · keep your progress</small></span><em>Continue the real-life course ↗</em></a>
-            <a className="topik-companion-hub-card" href="/topik-companion"><span className="study-glyph topik">시</span><span><strong>TOPIK Companion</strong><small>Already know the basics? 22 focused revision lessons</small></span><em>Prepare for the TOPIK exam ↗</em></a>
-          </div>
-        </section>
+
 
         {spoken.length > 0 && (
           <section className="real-korean">
