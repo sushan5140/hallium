@@ -2586,3 +2586,28 @@ button.toast{border:0;text-align:left}
 
 /* Keep the new TOPIK Companion link aligned with existing button-style tabs. */
 .primary-nav a.topik-companion-nav-link{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:42px;line-height:1;white-space:nowrap;text-decoration:none}
+
+/* Home refresh: one full-width work surface; detailed side rails remain on lessons. */
+.workspace.workspace-home{display:block;width:min(100%,1500px);min-height:calc(100dvh - 76px)}
+.workspace.workspace-home>.lab.home-dashboard{width:100%;min-width:0;padding:clamp(22px,3.5vw,52px) clamp(18px,4vw,56px) 66px}
+.workspace-home .study-hub{width:100%;margin-top:36px}
+.workspace-home .study-title{align-items:center}
+.workspace-home .study-title h3{font-size:clamp(25px,2.5vw,34px);line-height:1.17}
+.workspace-home .study-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.5vw,20px);margin-top:20px}
+.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card){min-width:0;min-height:255px;display:flex;flex-direction:column;align-items:flex-start;gap:15px;padding:clamp(20px,2.4vw,32px);border-radius:25px;border:1px solid #d8d4ec;box-shadow:var(--shadow-low);text-decoration:none;color:var(--ink);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.workspace-home .study-cards>a.topik-from-zero-hub-card{background:#eef0ff;border-color:#d9dcff}
+.workspace-home .study-cards>a.companion-hub-card{background:#eaf8f0;border-color:#cce9da}
+.workspace-home .study-cards>a.topik-companion-hub-card{background:#f2eeff;border-color:#ddd4ff}
+.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card) .study-glyph{flex:0 0 auto;width:56px;height:56px;border-radius:18px;font-size:26px;background:#dcdfff;color:#4334ac}
+.workspace-home .study-cards>a.companion-hub-card .study-glyph{background:#d4eee0;color:#28684d}
+.workspace-home .study-cards>a.topik-companion-hub-card .study-glyph{background:#e1d9ff;color:#5744af}
+.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card)>span:nth-child(2){display:flex;flex-direction:column;gap:8px;margin:0;min-width:0}
+.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card)>span:nth-child(2) strong{font-size:clamp(18px,1.65vw,24px);font-weight:850;line-height:1.2;letter-spacing:-.035em;overflow-wrap:anywhere}
+.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card)>span:nth-child(2) small{font-size:13px;line-height:1.6;color:#60636c}
+.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card) em{margin-top:auto;padding-top:14px;font-size:12px;font-weight:850;font-style:normal;line-height:1.4;color:#463bb1}
+.workspace-home .study-cards>a.companion-hub-card em{color:#28684d}
+.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card):focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+@media(hover:hover) and (pointer:fine){.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card):hover{transform:translateY(-3px);border-color:#b5a7ef;box-shadow:0 16px 34px #3f389019}}
+@media(max-width:920px){.workspace-home .study-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace-home .study-cards>a.topik-companion-hub-card{grid-column:1/-1;min-height:180px}}
+@media(max-width:620px){.workspace.workspace-home>.lab.home-dashboard{padding:23px 17px 110px}.workspace-home .study-title{align-items:flex-start;gap:9px;flex-wrap:wrap}.workspace-home .study-cards{grid-template-columns:minmax(0,1fr);gap:12px}.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card){grid-column:auto;min-height:190px;padding:20px;display:flex;flex-direction:column;gap:12px}.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card)>span:nth-child(2){margin:0}.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card) em{grid-column:auto;margin-top:auto;padding-top:5px}.workspace-home .study-hub{margin-top:28px}}
+@media(prefers-reduced-motion:reduce){.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card){transition:none}.workspace-home .study-cards>a:is(.topik-from-zero-hub-card,.companion-hub-card,.topik-companion-hub-card):hover{transform:none}}
