@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f9f7">
+<meta name="description" content="Standalone interactive Hallium learning dashboard layout preview: balanced progress, today's plan, curriculum, and adaptive study coach.">
+<title>Hallium · Learning Dashboard Preview</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='19' fill='%23574bd1'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='42' font-weight='800' fill='white'%3E%E3%85%8E%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./dashboard-preview.css">
+<script src="./dashboard-preview.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#today">Skip to learning dashboard</a>
+<div class="app">
+<header class="top">
+ <a class="brand" href="#today" aria-label="Hallium dashboard preview"><span class="brand-symbol" aria-hidden="true">ㅎ</span><span><strong>Hallium</strong><small>한림 · Structured Korean</small></span></a>
+ <nav class="topnav" aria-label="Dashboard navigation">
+  <button class="navlink active" data-jump="today">Practice</button>
+  <button class="navlink" data-jump="curriculum">Korean Companion</button>
+  <button class="navlink" data-jump="momentum">Your Momentum</button>
+  <button class="navlink" data-jump="coach">Adaptive Coach</button>
+ </nav>
+ <div class="topend"><span class="sample-pill"><i></i> Interactive design preview</span><button id="reset" class="icon-btn" title="Reset sample progress" aria-label="Reset sample progress">↻</button><div class="avatar" aria-hidden="true">SU</div></div>
+</header>
+<div class="preview-banner"><span class="preview-dot"></span> STANDALONE PREVIEW <span class="banner-divide">/</span> The figures below are editable sample data stored only in this browser. No sign-in, account sync, or official TOPIK score.</div>
+<main class="surface" id="today">
+<section class="dashboard-grid" aria-label="Learning dashboard">
+ <aside class="column left" aria-label="Today's study plan and curriculum">
+  <div class="left-intro"><span class="eyebrow"><i class="eyebrow-mark"></i> YOUR LEARNING DESK</span><h1>One step<br>at a time<span>.</span></h1><p>Build the habit, then build the language. Your next three actions are right here.</p></div>
+  <section class="pane" id="plan" aria-labelledby="plan-head">
+   <div class="section-tag"><span class="number">01</span> TODAY'S PLAN <span class="subtag" id="steps-complete">0 / 3</span></div>
+   <h2 id="plan-head">A clear route for today.</h2>
+   <p class="pane-desc">Small steps, visible progress.</p>
+   <ol class="task-list">
+    <li><button class="task active" data-task="0"><span class="task-num">01</span><span class="task-copy"><strong>Continue the lesson</strong><small>My morning · useful expressions</small><em id="task-hint-0">Begin learning →</em></span><span class="task-arrow">↗</span></button></li>
+    <li><button class="task" data-task="1"><span class="task-num">02</span><span class="task-copy"><strong>Practice vocabulary</strong><small>Three words from daily life</small><em id="task-hint-1">Start quick recall →</em></span><span class="task-arrow">↗</span></button></li>
+    <li><button class="task" data-task="2"><span class="task-num">03</span><span class="task-copy"><strong>Check what you know</strong><small>A two-question mini check</small><em id="task-hint-2">Try the check →</em></span><span class="task-arrow">↗</span></button></li>
+   </ol>
+  </section>
+  <section class="pane catalog" id="curriculum" aria-labelledby="catalog-head">
+   <div class="section-tag"><span class="number green">02</span> YOUR CURRICULUM</div>
+   <h2 id="catalog-head">Keep the big picture.</h2>
+   <p class="pane-desc">Progress through one connected Korean path.</p>
+   <button class="catalog-card" id="open-catalog"><span class="catalog-top"><span class="catalog-symbol">책</span><span class="catalog-arrow">↗</span></span><strong>Browse lesson catalog</strong><small><span id="catalog-done">0</span> of 40 sample lessons completed</small><span class="progress slim" role="progressbar" aria-label="Curriculum completed" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0" id="catalog-progress"><i id="catalog-fill"></i></span></button>
+  </section>
+  <div class="aside-fill" aria-label="Today's goal"><span class="eyebrow">DAILY CHECKPOINT</span><strong><span id="goal-percent">0%</span> of your plan</strong><p>Finish the three steps above for a complete study session.</p><span class="mini-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+ </aside>
+ <section class="column center" aria-label="Continue learning">
+  <div class="center-head"><div><span class="eyebrow"><i class="eyebrow-mark"></i> YOUR DAY, YOUR PACE</span><h2>Welcome back<span>.</span></h2><p>A little Korean today becomes natural Korean tomorrow.</p></div><div class="daily-goal"><strong id="daily-fraction">0<span>/3</span></strong><small>STEPS<br>DONE</small></div></div>
+  <article class="lesson" id="lesson">
+   <div class="lesson-top"><span class="lesson-label"><span>한</span> YOUR NEXT LESSON</span><span class="lesson-index">UNIT 02 <i></i> LESSON 01</span></div>
+   <div class="lesson-title"><div><h3>My morning</h3><p>Learn to tell someone what your day looks like.</p></div><span class="lesson-badge">A1 · Daily life</span></div>
+   <div class="lesson-progress"><span>Practice the words, then finish the lesson</span><strong id="lesson-percent">0%</strong><div class="progress" role="progressbar" aria-label="Lesson preview practice" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="lesson-progress"><i id="lesson-fill"></i></div></div>
+   <div class="dialogue-head"><span>REAL KOREAN, IN CONTEXT</span><span>짧은 대화 · SHORT EXCHANGE</span></div>
+   <div class="dialogue">
+    <div class="bubble bubble-a"><span class="speaker">A</span><div><b lang="ko">아침에 일어나요.</b><small>I wake up in the morning.</small></div><button class="sound" data-say="아침에 일어나요." aria-label="Hear 아침에 일어나요">▶</button></div>
+    <div class="bubble bubble-b"><span class="speaker">B</span><div><b lang="ko">그리고 밥을 먹어요.</b><small>And I eat a meal.</small></div><button class="sound" data-say="그리고 밥을 먹어요." aria-label="Hear 그리고 밥을 먹어요">▶</button></div>
+    <div class="bubble bubble-a"><span class="speaker">A</span><div><b lang="ko">그다음에 학교에 가요.</b><small>After that, I go to school.</small></div><button class="sound" data-say="그다음에 학교에 가요." aria-label="Hear 그다음에 학교에 가요">▶</button></div>
+   </div>
+   <div class="lesson-bottom"><div class="lesson-tip"><span>✦</span><span><strong>Pattern to notice</strong><small>Actions in order: 그리고 → 그다음에</small></span></div><button class="primary-button" id="complete-lesson">Finish this sample lesson <span>↗</span></button></div>
+  </article>
+  <section class="practice-bar" aria-label="Mini study interactions"><div><span class="eyebrow">PRACTICE WITHOUT LEAVING THE PAGE</span><h3>Try one small thing now.</h3><p>Use the buttons to see how the dashboard responds to progress.</p></div><div class="practice-actions"><button id="open-words">Review 3 words ↗</button><button id="open-check">Mini check ↗</button></div></section>
+ </section>
+ <aside class="column right" id="coach" aria-labelledby="coach-head">
+  <div class="coach-heading"><div class="coach-glyph" aria-hidden="true"><span></span><span></span><span></span></div><div><div class="section-tag"><span class="number">04</span> ADAPTIVE COACH</div><h2 id="coach-head">Reading your pattern.</h2></div></div>
+  <p class="coach-desc">Your guidance updates as you work through this sample study session.</p>
+  <div class="coach-note"><span class="coach-note-label">YOUR STUDY SIGNAL</span><p id="coach-message">Start with one lesson. We'll use your answers to suggest what to review next.</p><button class="subtle-button" id="coach-refresh">Refresh recommendation <span>↻</span></button></div>
+  <div class="signal-panel"><div class="signal-head"><strong>Your live signals</strong><span>LOCAL PREVIEW</span></div><div class="signal-row"><label for="vocab-bar">Vocabulary</label><span class="bar" id="vocab-bar"><i id="vocab-fill"></i></span><strong id="vocab-note">Starting</strong></div><div class="signal-row"><label for="grammar-bar">Grammar</label><span class="bar" id="grammar-bar"><i id="grammar-fill"></i></span><strong id="grammar-note">Starting</strong></div><div class="signal-row"><label for="routine-bar">Routine</label><span class="bar" id="routine-bar"><i id="routine-fill"></i></span><strong id="routine-note">0 of 3</strong></div></div>
+  <div class="focus-card"><span>YOUR CURRENT FOCUS</span><h3 id="focus-title">Find your first rhythm.</h3><p id="focus-description">Listen, practice, and mark your first lesson complete.</p><button id="focus-action">Continue the lesson <span>↗</span></button></div>
+  <div class="coach-bottom"><span class="eyebrow">THERE'S NO RUSH</span><strong>Consistency beats cramming.</strong><small>This design preview doesn't calculate an official language level.</small></div>
+ </aside>
+</section>
+<section class="momentum" id="momentum" aria-labelledby="momentum-head">
+ <div class="momentum-head"><div><div class="section-tag"><span class="number">03</span> YOUR MOMENTUM</div><h2 id="momentum-head">One chapter closer.</h2><p>Everything from today's learning, connected in one place.</p></div><div class="path-stat"><strong><span id="path-total">0</span><small> / 40</small></strong><span>SAMPLE LESSONS DONE</span></div></div>
+ <div class="momentum-grid">
+  <div class="chapter-card"><div class="chapter-top"><span>UNIT 02 · CURRENT CHAPTER</span><strong id="unit-fraction">0 / 5</strong></div><h3>My everyday life</h3><span class="progress tall" role="progressbar" aria-label="Current unit complete" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="unit-progress"><i id="unit-fill"></i></span><div class="chapter-pips" id="unit-pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><p id="unit-remaining">5 chapter steps to go</p></div>
+  <button class="momentum-action" id="momentum-next"><span>UP NEXT · LESSON 01</span><strong id="next-heading">My morning</strong><small id="next-caption">Your next little win.</small><b>Continue learning <span>↗</span></b></button>
+  <button class="momentum-action review" id="momentum-review"><span>REVIEW QUEUE</span><strong id="review-heading">Ready for the first recall?</strong><small id="review-caption">Practice three everyday words.</small><b>Open review <span>↗</span></b></button>
+ </div>
+</section>
+<section class="study" id="study"><div class="study-header"><div><span class="eyebrow">STRUCTURED STUDY</span><h2>Study it directly, then test it.</h2></div><span class="study-caption">THE ROUTES ARE HERE WHEN YOU NEED THEM</span></div><div class="study-cards"><button data-open="bridge" class="route-card bridge"><span class="route-icon">가</span><strong>Korean → TOPIK Bridge</strong><small>Starting from zero · everyday Korean + exam readiness.</small><em>Explore this route ↗</em></button><button data-open="everyday" class="route-card everyday"><span class="route-icon">말</span><strong>Korean Companion</strong><small>Daily life, conversation, and steady progress.</small><em>Explore this route ↗</em></button><button data-open="topik" class="route-card topik"><span class="route-icon">시</span><strong>TOPIK Companion</strong><small>Focused revision when you already know the basics.</small><em>Explore this route ↗</em></button></div><div class="study-tools"><button data-open="words">Vocabulary ↗</button><button data-open="check">Mini check ↗</button><button data-open="catalog">All lessons ↗</button><button data-open="coach">Adaptive Coach ↗</button></div></section>
+<footer class="foot"><span>HALLIUM · DASHBOARD DESIGN PREVIEW</span><span>Independent GitHub Pages prototype · no landing page or sign-in</span></footer>
+</main></div>
+<div class="dialog-backdrop" id="dialog" hidden><section class="dialog-card" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="dialog-top"><span class="eyebrow" id="dialog-kicker">PRACTICE</span><button id="close-dialog" class="close-dialog" aria-label="Close dialog">✕</button></div><h2 id="dialog-title">Practice</h2><p id="dialog-intro"></p><div id="dialog-body"></div><div class="dialog-bottom" id="dialog-footer"></div></section></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body></html>
