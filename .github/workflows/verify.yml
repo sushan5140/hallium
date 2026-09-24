@@ -28,5 +28,7 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Test research modules
+        run: node --test tests/*.test.mjs
       - name: Compile Next.js
         run: npm run build
