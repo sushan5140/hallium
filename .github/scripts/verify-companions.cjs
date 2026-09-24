@@ -44,7 +44,6 @@ const {chromium}=require("playwright");
   });
   await page.reload({waitUntil:"domcontentloaded"});
   await page.getByText("2 / 43").first().waitFor();
-  await page.getByRole("button",{name:/First words and introductions/i}).click();
   await page.getByRole("link",{name:/Identity & people/i}).first().click();
   await page.getByRole("heading",{name:"Identity & people"}).waitFor();
   assert.ok(page.url().includes("unit=i01"),"TOPIK bridge must link exact revision chapter");
