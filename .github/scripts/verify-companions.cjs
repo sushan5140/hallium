@@ -88,7 +88,7 @@ const {chromium}=require("playwright");
       assert.ok(Math.abs(home.momentum.x-home.lab.x)<=1&&Math.abs(home.momentum.right-home.coach.right)<=1,"momentum should span the center + right columns at "+width);
       assert.ok(home.momentum.y>=Math.max(home.lab.bottom,home.coach.bottom)-2,"momentum must follow the top content at "+width);
     }
-    assert.ok(home.next.bottom<=home.review.y+1,"momentum controls overlap at "+width);
+    assert.ok(!(home.next.x<home.review.right-.5&&home.next.right>home.review.x+.5&&home.next.y<home.review.bottom-.5&&home.next.bottom>home.review.y+.5),"momentum controls overlap at "+width);
 
     assert.ok(home.scroll<=home.doc+2,"home horizontal overflow at "+width+": "+JSON.stringify(home));
     assert.ok(Math.abs(home.study.width-home.main.width)<=1,"structured study must span full width at "+width);
