@@ -3034,7 +3034,7 @@ export default function Hallim() {
       .slice(0, 3)
       .map((step, index) => ({
         who: index % 2 === 0 ? "A" : "B",
-        korean: String(step.transcript || step.korean).split("\\n")[0],
+        korean: String(step.transcript || step.korean).split("\n")[0],
         gloss: step.meaning || step.prompt || step.instruction || "",
       }));
     return (
