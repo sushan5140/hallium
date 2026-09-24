@@ -1,0 +1,76 @@
+"use client";
+import {useEffect,useMemo,useState} from "react";
+import {topikUnits,sourceNote} from "./curriculum";
+import {papers} from "../topik-mocks/papers";
+import s from "./studio.module.css";
+
+const STORE="hallium:topik-companion:v1";
+const defaults={level:"I",unit:"i01",answers:{},results:{},examDate:"",minutes:15,review:[]};
+function challengeBank(unit){
+ const same=topikUnits.filter(x=>x.level===unit.level);
+ const words=same.flatMap(x=>x.words);
+ const forms=same.flatMap(x=>x.grammar);
+ return [...unit.words.map((item,i)=>{
+   const others=words.filter(x=>x.ko!==item.ko&&x.en!==item.en);
+   const distinct=[...new Set(others.map(x=>x.en))];
+   const picks=[distinct[(i*7+3)%distinct.length],distinct[(i*7+11)%distinct.length],distinct[(i*7+19)%distinct.length]];
+   const answer=(i+1)%4,options=picks.slice();options.splice(answer,0,item.en);
+   return {id:"w"+i,type:"vocabulary",prompt:"What does “"+item.ko+"” mean?",options,answer,ko:item.ko,explain:item.ko+" means "+item.en+"."};
+ }),...unit.grammar.map((item,i)=>{
+   const opts=[...new Set(forms.filter(x=>x.form!==item.form&&x.meaning!==item.meaning).map(x=>x.meaning))];
+   const picks=[opts[(i*3+1)%opts.length],opts[(i*3+5)%opts.length],opts[(i*3+9)%opts.length]];
+   const answer=(i+2)%4,options=picks.slice();options.splice(answer,0,item.meaning);
+   return {id:"g"+i,type:"grammar",prompt:"What does “"+item.form+"” express?",options,answer,ko:item.example,explain:item.rule};
+ })];
+}
+function say(korean,pace=0.89){
+ if(typeof window==="undefined"||!("speechSynthesis" in window))return false;
+ try{window.speechSynthesis.cancel();let x=new SpeechSynthesisUtterance(korean);x.lang="ko-KR";x.rate=pace;window.speechSynthesis.speak(x);return true}catch{return false}
+}
+export default function TopikCompanion(){
+ const [data,setData]=useState(defaults),[ready,setReady]=useState(false),[mode,setMode]=useState("learn"),[showReview,setShowReview]=useState(false),[voiceNotice,setVoiceNotice]=useState("");
+ useEffect(()=>{try{const saved=JSON.parse(localStorage.getItem(STORE)||"{}");if(saved&&typeof saved==="object"&&!Array.isArray(saved))setData({...defaults,...saved,answers:saved.answers||{},results:saved.results||{},review:saved.review||[]})}catch{}setReady(true);return()=>{try{window.speechSynthesis?.cancel()}catch{}}},[]);
+ useEffect(()=>{if(ready)try{localStorage.setItem(STORE,JSON.stringify(data))}catch{}},[data,ready]);
+ const level=data.level==="II"?"II":"I",units=topikUnits.filter(x=>x.level===level);
+ const active=units.find(x=>x.id===data.unit)||units[0];
+ const bank=useMemo(()=>challengeBank(active),[active]);
+ const answers=data.answers[active.id]||{},result=data.results[active.id];
+ const given=bank.filter(q=>answers[q.id]!==undefined).length;
+ const complete=units.filter(x=>data.results[x.id]?.done).length;
+ const scores=Object.values(data.results).filter(x=>x&&x.done);
+ const wrong=bank.filter(q=>result?.wrong?.includes(q.id));
+ const dates=data.examDate?Math.ceil((new Date(data.examDate+"T12:00:00").getTime()-new Date().setHours(12,0,0,0))/86400000):null;
+ const sorted=units.map(x=>({unit:x,score:data.results[x.id]?.score??null})).sort((a,b)=>(a.score===null?-1:b.score===null?1:a.score-b.score));
+ const focus=sorted[0]?.unit||active;
+ function selectLevel(next){setData(old=>({...old,level:next,unit:next==="I"?"i01":"ii01"}));setMode("learn");setShowReview(false)}
+ function selectUnit(id){setData(old=>({...old,unit:id}));setMode("learn");setShowReview(false)}
+ function select(qid,index){if(result?.done)return;setData(old=>({...old,answers:{...old.answers,[active.id]:{...(old.answers[active.id]||{}),[qid]:index}}}))}
+ function grade(){
+  if(given!==bank.length)return;
+  const n=bank.filter(q=>answers[q.id]===q.answer).length;
+  const wrongIds=bank.filter(q=>answers[q.id]!==q.answer).map(q=>q.id);
+  const missedWords=bank.filter(q=>q.id.startsWith("w")&&wrongIds.includes(q.id)).map(q=>q.ko);
+  setData(old=>({...old,results:{...old.results,[active.id]:{done:true,score:n,total:bank.length,wrong:wrongIds,at:new Date().toISOString()}},review:[...new Set([...old.review,...missedWords])]}));setShowReview(false);
+ }
+ function retry(){setData(old=>{let results={...old.results},answers={...old.answers};delete results[active.id];delete answers[active.id];return {...old,results,answers}});setShowReview(false);setMode("test")}
+ function hear(text){if(!say(text))setVoiceNotice("Korean speech synthesis is unavailable in this browser.")}
+ if(!ready)return <div className={s.loading}>Opening TOPIK Companion…</div>;
+ return <div className={s.shell}>
+  <header className={s.header}><a className={s.logo} href="/companions"><span>ㅎ</span><strong>Hallium <small>COMPANION PATHS</small></strong></a><nav aria-label="Companion routes"><a href="/?view=companion">Korean Companion</a><a aria-current="page" href="/topik-companion">TOPIK Companion</a><a href="/topik-mocks">Past papers ↗</a></nav></header>
+  <main className={s.main}>
+   <section className={s.hero}><div><span className={s.overline}>THE EXAM PREPARATION PATH · 토픽</span><h1>TOPIK Companion<span>.</span></h1><p>Build the vocabulary, grammar and reading decisions that appear across authentic paper-based TOPIK materials, then try the original papers when you are ready.</p><div className={s.heroActions}><a href="/topik-mocks">Open past-paper practice ↗</a><a href="/?view=companion">Explore everyday Korean →</a></div></div><aside className={s.heroStat}><span>YOUR OWN EXAM PREP</span><strong>{complete}<small> / {units.length}</small></strong><div className={s.track}><i style={{width:(complete/units.length*100)+"%"}}/></div><small>Lessons completed in TOPIK {level} · local to this browser</small></aside></section>
+   <div className={s.switcher} role="group" aria-label="TOPIK preparation level"><button className={level==="I"?s.selected:""} aria-pressed={level==="I"} onClick={()=>selectLevel("I")}><b>TOPIK I</b><small>Levels 1–2 · beginner · 12 lessons</small></button><button className={level==="II"?s.selected:""} aria-pressed={level==="II"} onClick={()=>selectLevel("II")}><b>TOPIK II</b><small>Levels 3–6 · intermediate–advanced · 10 lessons</small></button></div>
+   <div className={s.overview}><div className={s.overviewCopy}><span className={s.overline}>PERSONAL PLAN</span><h2>{dates===null?"When is your TOPIK test?":dates<0?"Your saved exam date has passed.":dates===0?"Exam day is here.":dates+" days until your exam"}</h2><p>{dates!==null&&dates<=14&&dates>=0?"Short runway: prioritize missed concepts, connectors and one original-paper session over new material.":"Your lesson results stay separate from mock exam scores. Focus on one weakness, review words, then try a timed paper."}</p><p><b>Suggested focus:</b> {focus.title}{focus.id===active.id?" (your current lesson)":""}</p></div><div className={s.inputs}><label>Exam date<input type="date" value={data.examDate||""} onChange={e=>setData(o=>({...o,examDate:e.target.value}))}/></label><label>Daily study time<select value={data.minutes||15} onChange={e=>setData(o=>({...o,minutes:Number(e.target.value)}))}><option value="5">5 minutes</option><option value="10">10 minutes</option><option value="15">15 minutes</option><option value="20">20 minutes</option><option value="30">30 minutes</option></select></label><span>{dates!==null&&dates>=0?Math.min(3,Math.max(1,Math.floor((data.minutes||15)/10)))+" mini-drill(s) per day suggested":"Set a date to tailor the study pace."}</span></div></div>
+   <div className={s.layout}><aside className={s.sidebar}><div className={s.sideHead}><span>YOUR STUDY MAP</span><h2>TOPIK {level} syllabus</h2><small>{units.length*5} original-example vocabulary cards · {units.length*2} grammar patterns</small></div><div className={s.lessonList}>{units.map((u,i)=>{const score=data.results[u.id];return <button key={u.id} className={active.id===u.id?s.current:""} aria-current={active.id===u.id?"step":undefined} onClick={()=>selectUnit(u.id)}><span className={s.num}>{score?.done?"✓":String(i+1).padStart(2,"0")}</span><span><strong>{u.title}</strong><small>{score?.done?score.score+"/"+score.total+" practice correct":u.focus}</small></span><span aria-hidden="true">↗</span></button>})}</div><a className={s.sourceLink} href="/topik-mocks">Go to original past papers ↗</a></aside>
+    <section className={s.lesson}><div className={s.lessonLead}><span className={s.overline}>TOPIK {level} · LESSON {units.indexOf(active)+1} OF {units.length}</span><h2>{active.title}</h2><p>{active.focus}</p><div className={s.chips}><span>5 vocabulary items</span><span>2 grammar patterns</span><span>7 original Hallium checks</span></div></div>
+     <div className={s.mode} role="tablist" aria-label="Lesson section"><button role="tab" aria-selected={mode==="learn"} onClick={()=>setMode("learn")}>Vocabulary &amp; grammar</button><button role="tab" aria-selected={mode==="test"} onClick={()=>setMode("test")}>Mini check {result?.done?"✓":given+"/"+bank.length}</button><button role="tab" aria-selected={mode==="sources"} onClick={()=>setMode("sources")}>Exam source trail</button></div>
+     {mode==="learn"&&<div className={s.content}><div className={s.topic}><span className={s.overline}>01 / WORDS YOU NEED</span><h3>Recognize these in context.</h3><p>Every example is written for Hallium. Words are organized by exam task—not presented as an official frequency list.</p></div><div className={s.wordGrid}>{active.words.map((w,i)=><article key={w.ko} className={s.word}><span>{String(i+1).padStart(2,"0")}</span><button className={s.audio} title={"Hear "+w.ko} onClick={()=>hear(w.ko)}>▶<span className={s.sr}>Hear {w.ko}</span></button><strong lang="ko">{w.ko}</strong><p>{w.en}</p>{data.review.includes(w.ko)&&<small>↺ In your review queue</small>}</article>)}</div><div className={s.topic}><span className={s.overline}>02 / PATTERN LENS</span><h3>Grammar as a reading decision.</h3><p>Learn what a pattern changes in a sentence before trying answer options.</p></div>{active.grammar.map((g,i)=><article className={s.grammar} key={g.form}><div><small>PATTERN {String(i+1).padStart(2,"0")}</small><h4>{g.form}</h4><b>{g.meaning}</b><p>{g.rule}</p></div><div className={s.example}><button onClick={()=>hear(g.example)} aria-label={"Hear "+g.example}>▶ Listen</button><strong lang="ko">{g.example}</strong><span>{g.translation}</span><small>Original Hallium example · not an examination question</small></div></article>)}<div className={s.lessonActions}><button onClick={()=>setMode("test")}>Practice these 7 concepts →</button><a href="/topik-mocks">Then try a real paper ↗</a></div></div>}
+     {mode==="test"&&<div className={s.content}><div className={s.topic}><span className={s.overline}>03 / FAST RECALL</span><h3>{result?.done?"Your lesson result":"Check your understanding."}</h3><p>Hallium-created vocabulary and grammar questions. A lesson score is not an official TOPIK prediction or past-paper score.</p></div>{result?.done&&<div className={s.result}><strong>{result.score} / {result.total} correct</strong><span>{result.wrong.length?"Review the highlighted concepts, then retry.":"Every concept was correct. Try the next chapter."}</span><button onClick={retry}>Retry lesson ↻</button></div>}<div className={s.quiz}>{bank.map((q,i)=><fieldset key={q.id} className={s.question}><legend><span>{String(i+1).padStart(2,"0")} / {q.type}</span><strong>{q.prompt}</strong></legend><div className={s.options}>{q.options.map((option,k)=>{const checked=result?.done;const picked=answers[q.id]===k;const right=q.answer===k;return <button key={k} type="button" disabled={checked} aria-pressed={picked} className={checked&&(right?s.correct:picked?s.incorrect:"")||""} onClick={()=>select(q.id,k)}><span>{["①","②","③","④"][k]}</span>{option}{checked&&right&&" ✓"}</button>})}</div>{result?.done&&<p className={s.explain}>{q.explain}</p>}</fieldset>)}</div>{!result?.done&&<div className={s.finish}><strong>{given} of {bank.length} answered</strong><button onClick={grade} disabled={given!==bank.length}>Finish mini check →</button></div>}</div>}
+     {mode==="sources"&&<div className={s.content}><div className={s.topic}><span className={s.overline}>PROVENANCE / NOT AN OFFICIAL SYLLABUS</span><h3>Why this lesson is here.</h3><p>{sourceNote}</p></div><p className={s.sourceExplain}>The owner's seven older rounds of TOPIK {level} were scanned for exam-section themes and grammar signals. Newer TOPIK I rounds are only attached to lessons where inspected reading samples establish a relevant topic. We do not claim every vocabulary word appeared in every round or provide fabricated occurrence counts.</p><div className={s.sourceCards}>{active.rounds.map(n=>{let p=papers.find(x=>x.round===n&&x.level===level);return <article key={n}><strong>{n}회 · TOPIK {level}</strong><span>{n>=80?"Newer source · sampled topic":"Owner's exam compilation · text-reviewed"}</span>{p?.paper&&<a href={p.paper} target="_blank" rel="noopener noreferrer">Open source paper ↗</a>}{p?.resource&&<a href={p.resource} target="_blank" rel="noopener noreferrer">Source index ↗</a>}</article>})}</div><p className={s.sourceExplain}>Third-party source material stays external while copyright permissions and full MP3/key matching remain unresolved. TOPIK II writing examples in this course are Hallium originals, not test question reproductions.</p></div>}
+     <div className={s.next}><button onClick={()=>selectUnit(units[Math.max(0,units.indexOf(active)-1)].id)} disabled={units.indexOf(active)===0}>← Previous</button><span>{units.indexOf(active)+1} / {units.length}</span><button onClick={()=>selectUnit(units[Math.min(units.length-1,units.indexOf(active)+1)].id)} disabled={units.indexOf(active)===units.length-1}>Next lesson →</button></div>
+    </section></div>
+   <section className={s.review}><div><span className={s.overline}>REVIEW IS PERSONAL</span><h2>Keep the words that need another look.</h2><p>{data.review.length} unique words in your review queue. Incorrect choices add words automatically; you can clear them after reviewing.</p></div><button onClick={()=>setShowReview(v=>!v)}>{showReview?"Hide review":"Open review queue"} →</button>{showReview&&<div className={s.reviewItems}>{data.review.length?data.review.map(w=>{const item=topikUnits.flatMap(x=>x.words).find(x=>x.ko===w);return <div key={w}><strong lang="ko">{w}</strong><span>{item?.en||""}</span><button onClick={()=>hear(w)}>▶</button><button onClick={()=>setData(o=>({...o,review:o.review.filter(x=>x!==w)}))}>Mark reviewed ✓</button></div>}):<p>Your review queue is clear. Finish a mini check to find weak words.</p>}</div>}</section>
+   <footer className={s.footer}><span>HALLIUM · TWO COMPANIONS, TWO PURPOSES</span><a href="/companions">Switch companion ↗</a></footer>
+   {voiceNotice&&<div className={s.voiceNotice} role="status" onClick={()=>setVoiceNotice("")}>{voiceNotice} ×</div>}
+  </main></div>
+}
