@@ -7,6 +7,7 @@ export default function sitemap() {
     { url: base + "/creator-kit", changeFrequency: "weekly", priority: 0.8 },
     { url: base + "/companions", changeFrequency: "monthly", priority: 0.9 },
     { url: base + "/korean-companion", changeFrequency: "monthly", priority: 0.8 },
+    { url: base + "/topik-from-zero", changeFrequency: "weekly", priority: 0.9 },
     { url: base + "/topik-companion", changeFrequency: "weekly", priority: 0.9 },
     { url: base + "/topik-mocks", changeFrequency: "monthly", priority: 0.8 },
     { url: base + "/privacy", changeFrequency: "monthly", priority: 0.4 },

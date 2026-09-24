@@ -2830,7 +2830,8 @@ export default function Hallim() {
           <a className="field-guide-button rail-destination flashcards-rail-link" href="/flashcards">
             <span>▤ Flashcards ↗</span><small>12 illustrated words · listen · recall</small>
           </a>
-          <a className="field-guide-button rail-destination" href="/topik-companion"><span>시 TOPIK Companion ↗</span><small>22 targeted exam lessons · 110 words · 44 grammar patterns</small></a>
+          <a className="field-guide-button rail-destination" href="/topik-from-zero"><span>가 Korean → TOPIK Bridge ↗</span><small>Start from zero · 43 linked lessons</small></a>
+          <a className="field-guide-button rail-destination" href="/topik-companion"><span>시 TOPIK Companion ↗</span><small>Already know the basics? Focused revision</small></a>
           <a className="field-guide-button rail-destination topik-rail-link" href="/topik-mocks">
             <span>◉ TOPIK Mock Tests ↗</span><small>19 source-linked practice sheets · TOPIK I &amp; II</small>
           </a>
@@ -2970,8 +2971,9 @@ export default function Hallim() {
             <button onClick={() => navigate(reviewLessonCount || dueMistakes.length ? "review" : "companion")}>{reviewLabel} →</button>
           </div>
           <div className="study-cards">
+            <a className="topik-from-zero-hub-card" href="/topik-from-zero" aria-label="Open the combined Korean to TOPIK beginner bridge"><span className="study-glyph topik">가</span><span><strong>Korean → TOPIK Bridge</strong><small>Starting from zero · 43 linked everyday + exam lessons</small></span><em>Start the combined path ↗</em></a>
             <a className="companion-hub-card" href="/?view=companion"><span className="study-glyph">말</span><span><strong>Korean Companion</strong><small>Everyday Korean · 15 units · keep your progress</small></span><em>Continue the real-life course ↗</em></a>
-            <a className="topik-companion-hub-card" href="/topik-companion"><span className="study-glyph topik">시</span><span><strong>TOPIK Companion</strong><small>22 exam-focused lessons · 110 words · 44 grammar patterns</small></span><em>Prepare for the TOPIK exam ↗</em></a>
+            <a className="topik-companion-hub-card" href="/topik-companion"><span className="study-glyph topik">시</span><span><strong>TOPIK Companion</strong><small>Already know the basics? 22 focused revision lessons</small></span><em>Prepare for the TOPIK exam ↗</em></a>
             <a className="flashcards-hub-card" href="/flashcards" aria-label="Open Hallium Starter Unit 1 illustrated flashcards">
               <span className="study-glyph flashcards">책</span>
               <span><strong>Starter Flashcards</strong><small>12 illustrated Korean words · audio · recall · review</small></span>
