@@ -1,0 +1,25 @@
+name: Verify isolated dashboard preview
+on:
+  push:
+    branches: [gh-pages]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.58.0
+      - run: npx playwright install --with-deps chromium
+      - run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/hallium-preview.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node preview-check.cjs
