@@ -1,0 +1,35 @@
+name: Verify Pages dashboard visual redesign
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'dashboard-preview.css'
+      - 'dashboard-theme.css'
+      - 'dashboard-preview.js'
+      - '.github/scripts/verify-pages-dashboard.cjs'
+      - '.github/workflows/verify-pages-dashboard.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save --no-package-lock playwright@1.58.0
+      - run: npx playwright install --with-deps chromium
+      - name: Verify no-login dashboard and responsiveness
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/pages-preview.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node .github/scripts/verify-pages-dashboard.cjs
