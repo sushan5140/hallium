@@ -4499,9 +4499,16 @@ export default function Hallim() {
   function googleGateHref(destination = "/") {
     let next = destination;
     if (typeof window !== "undefined") {
-      const incomingRef = new URLSearchParams(window.location.search).get("ref") || referralCode || "";
+      const params = new URLSearchParams(window.location.search);
+      const requestedLesson = params.get("lesson");
+      // A bridge newcomer must return to their specific lesson after Google sign-in.
+      if (destination === "/?view=companion" && params.get("view") === "lesson" &&
+          requestedLesson && lessons.some(item => item.id === requestedLesson)) {
+        next = "/?view=lesson&lesson=" + encodeURIComponent(requestedLesson);
+      }
+      const incomingRef = params.get("ref") || referralCode || "";
       if (/^[A-Za-z0-9_-]{2,48}$/.test(incomingRef)) {
-        const url = new URL(destination, window.location.origin);
+        const url = new URL(next, window.location.origin);
         url.searchParams.set("ref", incomingRef);
         next = url.pathname + url.search;
       }
