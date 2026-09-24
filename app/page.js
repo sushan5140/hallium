@@ -1557,8 +1557,16 @@ export default function Hallim() {
         await hydrateFromCloud(user);
         const authParams = new URLSearchParams(window.location.search);
         const requestedView = authParams.get("view");
+        const requestedLesson = authParams.get("lesson");
         const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile"]);
-        if (requestedView && allowedViews.has(requestedView)) {
+        // The Beginner to TOPIK bridge links to existing lesson IDs. Reuse their
+        // original lesson component and progress records, not a duplicate.
+        if (requestedView === "lesson" && requestedLesson && lessons.some(item => item.id === requestedLesson)) {
+          const previousStep = readProgress()?.[requestedLesson]?.stepIndex || 0;
+          setActiveLesson(requestedLesson);
+          setStepIndex(previousStep);
+          setView("lesson");
+        } else if (requestedView && allowedViews.has(requestedView)) {
           setView(requestedView);
         }
         if (authParams.get("auth") === "google") {
