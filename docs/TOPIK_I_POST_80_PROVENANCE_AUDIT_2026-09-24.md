@@ -9,7 +9,7 @@ Authority triangulation:
 - TOPIK GUIDE published released-paper index: https://www.topikguide.com/previous-papers/
 - Japanese Korean study archive of TOPIK's past released papers: https://kajiritate-no-hangul.com/KENTEI/TOPIK_data.html
 - KoreanTopik archive explicitly marks other later rounds NON-PUBLIC: https://www.koreantopik.com/2018/07/download-topik-tests-pdf-audio-answer.html
-- Konkuk University Language Institute 91st TOPIK I original booklet/key/audio post: https://www.konkuk.ac.kr/kli/18988/subview.do
+- Konkuk University Language Institute 91st TOPIK I original booklet/key/audio post: search result title `2023년도 제91회 TOPIK I (PBT) 기출문항` (Konkuk University; the exact public permalink needs verification because the university site may redirect to SSO).
 - NIIED format: https://niied.go.kr/web/niied/contents/niied_topik
 
 ## Candidate evidence (do not activate automatically)
