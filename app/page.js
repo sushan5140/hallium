@@ -2771,6 +2771,58 @@ export default function Hallim() {
     );
   }
 
+  function HomeRail() {
+    const routeLabels = {
+      companion: "Continue lesson", vocab: "Open vocabulary", grammar: "Open grammar",
+      test: "Start study check", review_queue: "Open review",
+      adaptive_review: "Adaptive practice", checkpoint: "Open checkpoint",
+    };
+    return (
+      <aside className="lesson-rail home-rail" aria-label="Today's study plan and learning links">
+        <header>
+          <span className="rail-kicker">Your learning desk</span>
+          <h1>One step at a time.</h1>
+          <p>{activeLearningRoute.headline} · {activeLearningRoute.focus}</p>
+        </header>
+
+        <section className="rail-group rail-plan" aria-labelledby="rail-plan-title">
+          <div className="rail-group-heading">
+            <span className="rail-group-label">01 · TODAY'S PLAN</span>
+            <h2 id="rail-plan-title">Practice in order</h2>
+            <p>Each step opens its own activity, not the lesson catalog.</p>
+          </div>
+          <ol className="today-route">
+            {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
+              <li key={step.kind + index} className={index === 0 ? "is-current" : ""}>
+                <button onClick={() => launchLearningRouteStep(step.kind)} aria-label={(routeLabels[step.kind] || "Open practice") + ": " + step.title}>
+                  <span>{index + 1}</span>
+                  <div className="route-task-copy">
+                    <strong>{step.title}</strong>
+                    <small>{step.why}</small>
+                    <em>{routeLabels[step.kind] || "Open practice"} →</em>
+                  </div>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="rail-group rail-catalog" aria-labelledby="rail-catalog-title">
+          <div className="rail-group-heading">
+            <span className="rail-group-label">02 · YOUR CURRICULUM</span>
+            <h2 id="rail-catalog-title">All lessons</h2>
+            <p>Explore units and open a particular lesson.</p>
+          </div>
+          <button className="curriculum-button rail-destination" onClick={() => navigate("companion")}>
+            <span>Browse lesson catalog<small>{completedPathCount} of {pathLessons.length} completed</small></span>
+            <strong aria-hidden="true">↗</strong>
+          </button>
+        </section>
+
+      </aside>
+    );
+  }
+
   function CatalogRail() {
     return (
       <aside className="lesson-rail catalog-rail" aria-label="Lesson catalog navigation">
@@ -2838,6 +2890,60 @@ export default function Hallim() {
           <span>Browse lessons</span><strong aria-hidden="true">↗</strong>
         </button>
       </aside>
+    );
+  }
+
+  function StructuredStudy() {
+    return (
+        <section className="study-hub study-hub-wide">
+          <div className="study-title">
+            <div>
+              <span className="section-label">Structured study</span>
+              <h3>Study it directly, then test it.</h3>
+            </div>
+            <button onClick={() => navigate(reviewLessonCount || dueMistakes.length ? "review" : "companion")}>{reviewLabel} →</button>
+          </div>
+          <div className="study-cards">
+            <a className="topik-from-zero-hub-card" href="/topik-from-zero" aria-label="Open the combined Korean to TOPIK beginner bridge"><span className="study-glyph topik">가</span><span><strong>Korean → TOPIK Bridge</strong><small>Starting from zero · 43 linked everyday + exam lessons</small></span><em>Start the combined path ↗</em></a>
+            <a className="companion-hub-card" href="/?view=companion"><span className="study-glyph">말</span><span><strong>Korean Companion</strong><small>Everyday Korean · 15 units · keep your progress</small></span><em>Continue the real-life course ↗</em></a>
+            <a className="topik-companion-hub-card" href="/topik-companion"><span className="study-glyph topik">시</span><span><strong>TOPIK Companion</strong><small>Already know the basics? 22 focused revision lessons</small></span><em>Prepare for the TOPIK exam ↗</em></a>
+            <a className="flashcards-hub-card" href="/flashcards" aria-label="Open Hallium Starter Unit 1 illustrated flashcards">
+              <span className="study-glyph flashcards">책</span>
+              <span><strong>Starter Flashcards</strong><small>12 illustrated Korean words · audio · recall · review</small></span>
+              <em>Explore the first collection ↗</em>
+            </a>
+            <a className="topik-hub-card" href="/topik-mocks" aria-label="Open Hallium TOPIK past-paper mock tests">
+              <span className="study-glyph topik">◉</span>
+              <span><strong>TOPIK Mock Tests</strong><small>19 source-linked past-paper practice sheets</small></span>
+              <em>Choose TOPIK I or II ↗</em>
+            </a>
+            <a className="sp-hub-card" href="/study-partners" aria-label="Open Hallium Study Partners">
+              <span className="study-glyph sp">✦</span>
+              <span><strong>Study Partners</strong><small>Complementary matching · shared notes · mutual practice</small></span>
+              <em>Learn with another person ↗</em>
+            </a>
+            <a className="hangul-hub-card" href="/hangul" aria-label="Open the separate Hallium Hangul Lab learning section">
+              <span className="study-glyph hangul">ㅎ</span>
+              <span><strong>Hangul Lab</strong><small>40 letters · syllables · pronunciation · handwriting</small></span>
+              <em>Explore the alphabet ↗</em>
+            </a>
+            <button onClick={() => navigate("vocab")}>
+              <span className="study-glyph">가</span>
+              <span><strong>Vocabulary</strong><small>{(activeStudy.vocabulary || []).length} {activeStudy.label} words across {vocabDistricts.length} groups</small></span>
+              <em>Open the word map →</em>
+            </button>
+            <button onClick={() => navigate("grammar")}>
+              <span className="study-glyph grammar">문</span>
+              <span><strong>Grammar</strong><small>{(activeStudy.grammar || []).length} {activeStudy.label} patterns with examples</small></span>
+              <em>Open the field guide →</em>
+            </button>
+            <button onClick={startStudyTest}>
+              <span className="study-glyph test">✓</span>
+              <span><strong>Test</strong><small>{latestStudyPct == null ? "No evidence recorded yet" : "Last result " + latestStudyPct + "%"}</small></span>
+              <em>Run the {activeStudy.label} check →</em>
+            </button>
+          </div>
+        </section>
     );
   }
 
@@ -4787,8 +4893,9 @@ export default function Hallim() {
       {profileEditorOpen && <LearnerSetup editing />}
 
       <main id="workspace" className={"workspace view-" + topView + (view === "home" ? " workspace-home" : "")} tabIndex={-1}>
-        {topView === "practice" && view !== "home" && (
-          view === "companion" ? <CatalogRail />
+        {topView === "practice" && (
+          view === "home" ? <HomeRail />
+          : view === "companion" ? <CatalogRail />
           : view === "grammar" ? <GuideRail />
           : view === "profile" ? <ProgressRail />
           : view === "partner" ? <PartnerRail />
@@ -4829,11 +4936,13 @@ export default function Hallim() {
 
         {view === "vocab"
           ? <WordCoach />
-          : view !== "home" && <Coach variant={
-              view === "review" ? "review-coach"
+          : <Coach variant={
+              view === "home" ? "home-coach"
+              : view === "review" ? "review-coach"
               : (view === "test" || view === "testResult") ? "test-coach"
               : ""
             } />}
+        {view === "home" && <StructuredStudy />}
       </main>
 
       <nav className="mobile-nav" aria-label="Mobile navigation">
