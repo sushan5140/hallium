@@ -2788,6 +2788,7 @@ export default function Hallim() {
         <section className="rail-group rail-plan" aria-labelledby="rail-plan-title">
           <div className="rail-group-heading">
             <span className="rail-group-label">01 · TODAY'S PLAN</span>
+            <span className="rail-plan-count">{activeLearningRoute.steps.slice(0, 3).length} steps · one clear route</span>
             <h2 id="rail-plan-title">Practice in order</h2>
             <p>Each step opens its own activity, not the lesson catalog.</p>
           </div>
@@ -2810,11 +2811,14 @@ export default function Hallim() {
         <section className="rail-group rail-catalog" aria-labelledby="rail-catalog-title">
           <div className="rail-group-heading">
             <span className="rail-group-label">02 · YOUR CURRICULUM</span>
+            <span className="rail-catalog-kicker">YOUR LEARNING LIBRARY</span>
             <h2 id="rail-catalog-title">All lessons</h2>
             <p>Explore units and open a particular lesson.</p>
           </div>
           <button className="curriculum-button rail-destination" onClick={() => navigate("companion")}>
-            <span>Browse lesson catalog<small>{completedPathCount} of {pathLessons.length} completed</small></span>
+            <span>Browse lesson catalog<small>{completedPathCount} of {pathLessons.length} completed</small>
+              <span className="rail-catalog-track" role="progressbar" aria-label="Learning path completed" aria-valuemin={0} aria-valuemax={pathLessons.length} aria-valuenow={completedPathCount}><i style={{ width: unitProgress + "%" }} /></span>
+            </span>
             <strong aria-hidden="true">↗</strong>
           </button>
         </section>
@@ -2911,7 +2915,7 @@ export default function Hallim() {
           </div>
           <div className="home-momentum-path" aria-label={completedPathCount + " of " + pathLessons.length + " path lessons completed"}>
             <strong>{completedPathCount}<small> / {pathLessons.length}</small></strong>
-            <span>YOUR LEARNING PATH</span>
+            <span>PATH COMPLETED</span>
           </div>
         </div>
         <div className="home-momentum-grid">
@@ -4836,7 +4840,7 @@ export default function Hallim() {
         <div className="coach-head">
           <div className="coach-orb" aria-hidden="true"><span /><span /><span /></div>
           <div>
-            <span className="section-label">Adaptive coach</span>
+            <span className="section-label">{variant === "home-coach" ? "04 · ADAPTIVE COACH" : "Adaptive coach"}</span>
             <h2 id="coach-title">Reading your pattern</h2>
           </div>
         </div>
