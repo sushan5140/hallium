@@ -1,6 +1,6 @@
 import MockStudio from "./MockStudio";
 export const metadata = {
   title: "Past TOPIK Mock Tests — Hallium",
-  description: "Seven released TOPIK sessions as fourteen paper-based timed practice tests for TOPIK I and TOPIK II."
+  description: "Twelve TOPIK I and seven TOPIK II original-session practice answer sheets, with clear source and verification status."
 };
 export default function TopikMockPage(){return <MockStudio/>}
