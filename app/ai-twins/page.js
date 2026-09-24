@@ -18,25 +18,27 @@ export default function AiTwinsLivePage(){
   const sb=useMemo(()=>getHallimSupabase(),[]);
   const [user,setUser]=useState(null),[loading,setLoading]=useState(true);
   const [form,setForm]=useState(empty),[saved,setSaved]=useState(false);
-  const [people,setPeople]=useState([]),[meetups,setMeetups]=useState([]),[selected,setSelected]=useState(null);
+  const [people,setPeople]=useState([]),[meetups,setMeetups]=useState([]),[connections,setConnections]=useState([]),[selected,setSelected]=useState(null);
   const [busy,setBusy]=useState(""),[error,setError]=useState(""),[notice,setNotice]=useState("");
   const [stage,setStage]=useState(0);
   const update=(field,value)=>setForm(p=>({...p,[field]:value}));
 
   const refresh=useCallback(async(id,{hydrate=false}={})=>{
-    const [own,ownTwin,twins,profiles,meetings]=await Promise.all([
+    const [own,ownTwin,twins,profiles,meetings,rooms]=await Promise.all([
       sb.from(P).select("user_id,nickname,level,availability,strength,growth_area,discoverable").eq("user_id",id).maybeSingle(),
       sb.from(T).select("user_id,enabled,twin_name,intro,interests,tone").eq("user_id",id).maybeSingle(),
       sb.from(T).select("user_id,enabled,twin_name,intro,interests,tone").eq("enabled",true).neq("user_id",id).limit(80),
       sb.from(P).select("user_id,nickname,level,availability,strength,growth_area,discoverable").eq("discoverable",true).limit(120),
-      sb.from(M).select("*").or("user_low.eq."+id+",user_high.eq."+id).order("created_at",{ascending:false}).limit(35)
+      sb.from(M).select("*").or("user_low.eq."+id+",user_high.eq."+id).order("created_at",{ascending:false}).limit(35),
+      sb.from("hallium_partner_connections").select("id,user_low,user_high,status").eq("status","accepted").limit(100)
     ]);
-    const problem=[own.error,ownTwin.error,twins.error,profiles.error,meetings.error].find(Boolean);
+    const problem=[own.error,ownTwin.error,twins.error,profiles.error,meetings.error,rooms.error].find(Boolean);
     if(problem){setError("Could not load the live Twinverse: "+problem.message);return;}
     const profileMap=new Map((profiles.data||[]).map(p=>[p.user_id,p]));
     const roster=(twins.data||[]).filter(t=>profileMap.has(t.user_id)).map(t=>({...t,profile:profileMap.get(t.user_id)}));
     setPeople(roster);
     setMeetups(meetings.data||[]);
+    setConnections(rooms.data||[]);
     setSaved(Boolean(ownTwin.data?.enabled&&own.data?.discoverable));
     if(hydrate){
       setForm({...empty,...(own.data||{}),...(ownTwin.data||{}),
@@ -135,6 +137,7 @@ export default function AiTwinsLivePage(){
 
   const peerId=selected?(selected.user_low===user?.id?selected.user_high:selected.user_low):null;
   const peer=people.find(p=>p.user_id===peerId);
+  const activeRoom=connections.find(c=>c.status==="accepted"&&selected&&c.user_low===selected.user_low&&c.user_high===selected.user_high);
   const mineApproved=selected?(selected.user_low===user?.id?selected.approved_low:selected.approved_high):false;
   const otherApproved=selected?(selected.user_low===user?.id?selected.approved_high:selected.approved_low):false;
   const pairs=people.map(p=>({
@@ -205,7 +208,7 @@ export default function AiTwinsLivePage(){
               {!mineApproved&&<div className="tw-actions"><button disabled={Boolean(busy)} className="tw-primary" onClick={()=>decide(true)}>Approve this practice plan ↗</button><button disabled={Boolean(busy)} className="tw-secondary" onClick={()=>decide(false)}>Decline</button></div>}
               {mineApproved&&<p className="tw-confirm">Your approval is saved. Waiting for the other learner. No room opens until both agree.</p>}
             </>}
-            {selected.status==="accepted"&&<><p className="tw-confirm">Both people accepted. This plan was added to your Study Partners sessions.</p><a className="tw-primary tw-link-button" href="/study-partners">Open your shared study room ↗</a></>}
+            {selected.status==="accepted"&&<><p className="tw-confirm">Both people accepted. This plan was added to your Study Partners sessions.</p><a className="tw-primary tw-link-button" href={activeRoom?"/study-partners?room="+activeRoom.id+"&tab=practice":"/study-partners"}>Open your shared study room ↗</a></>}
             {selected.status==="declined"&&<p className="tw-muted">This invitation was declined. No new room was opened.</p>}
           </div>
         </div>}
