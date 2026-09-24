@@ -15,7 +15,7 @@ const stages=[
  row(6,"Past events and reasons",[1,2,3,4,5],[8,12])
 ];
 const lessonNames={
- 1:["Meeting someone new","What's this?","People around me","Where is it?","First short exchange","Unit 1 checkpoint"],
+ 1:["Meeting someone new","What's this?","Places around me","Where are you going?","A tiny first conversation","Unit 1 checkpoint"],
  2:["My morning","What time is it?","What I like","Weekend plans","Unit 2 checkpoint"],
  3:["Food I know","One, two, three","What do you want?","At the counter","Unit 3 checkpoint"],
  4:["How much is this?","Do you have this?","I’ll take this one","Shopping conversation","Unit 4 checkpoint"],
