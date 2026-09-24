@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { getHallimSupabase } from "../../lib/supabase/client";
 import { focusFromAiAudit } from "../../lib/study-partners/core.mjs";
+import { AI_GUIDES } from "../../lib/ai-twins/guides.mjs";
 import "../research/ai-twins/twins.css";
 import "./live.css";
 
@@ -161,7 +162,7 @@ export default function AiTwinsLivePage(){
   })).sort((a,b)=>Number(b.reciprocal)-Number(a.reciprocal));
 
   if(loading)return <main className="tw-page tw-live-loading">Opening your Twinverse…</main>;
-  if(!user)return <main className="tw-page"><div className="tw-frame"><header className="tw-topbar"><a className="tw-brand" href="/">ㅎ hallium / twinverse</a><a href="/study-partners" className="tw-back">← Study Partners</a></header><section className="tw-hero"><div className="tw-eyebrow">YOUR DIGITAL STUDY DOUBLE</div><h1>Your twin.<br/><em>Your Korean universe.</em></h1><p>Sign in with Google to create your opt-in learning twin, meet another real learner's AI twin and approve a shared Korean activity together.</p><p style={{marginTop:24}}><a className="tw-primary tw-link-button" href="/auth/google?next=%2Fai-twins">Continue with Google ↗</a></p></section></div></main>;
+  if(!user)return <main className="tw-page"><div className="tw-frame"><header className="tw-topbar"><a className="tw-brand" href="/">ㅎ hallium / twinverse</a><a href="/study-partners" className="tw-back">← Study Partners</a></header><section className="tw-hero"><div className="tw-eyebrow">YOUR DIGITAL STUDY DOUBLE</div><h1>Your twin.<br/><em>Your Korean universe.</em></h1><p>Sign in with Google to create your opt-in learning twin, meet another real learner's AI twin and approve a shared Korean activity together.</p><p style={{marginTop:24}}><a className="tw-primary tw-link-button" href="/auth/google?next=%2Fai-twins">Continue with Google ↗</a> <a className="tw-secondary tw-guest-guide-link" href="/ai-twins/guides">Meet the 12 AI teaching characters ✳</a></p></section></div></main>;
 
   return <main className="tw-page"><div className="tw-frame">
     <header className="tw-topbar">
@@ -176,6 +177,16 @@ export default function AiTwinsLivePage(){
       <div className="tw-orbit" aria-hidden="true"><span className="tw-orbit-a">ㅎ</span><span className="tw-orbit-b">✳</span><span className="tw-orbit-c">♡</span><span className="tw-orbit-d">가</span></div>
     </section>
     {(error||notice)&&<div className={"tw-alert "+(error?"tw-alert-error":"")} role={error?"alert":"status"}>{error||notice}<button onClick={()=>{setError("");setNotice("")}} aria-label="Dismiss">×</button></div>}
+    <section className="tw-guide-strip" aria-label="Meet the AI teaching characters">
+      <div className="tw-guide-strip-heading"><div><span className="tw-kicker">THE TWINVERSE STARTING LINEUP · EVERY CHARACTER IS AI</span>
+        <h2>No real learners online yet? <em>Learn with these 12.</em></h2>
+        <p>Not fake accounts. Twelve clearly labeled AI teaching characters who actually chat, correct Korean and give you little sidequests—no human discovery opt-in required.</p></div>
+        <a className="tw-guide-all" href="/ai-twins/guides">Enter the AI Guide District ↗</a>
+      </div>
+      <div className="tw-guide-previews">{[AI_GUIDES[0],AI_GUIDES[1],AI_GUIDES[5],AI_GUIDES[9]].map(g=>
+        <a href="/ai-twins/guides" key={g.id} className="tw-guide-preview"><span className="tw-guide-preview-emoji" aria-hidden="true">{g.emoji}</span>
+          <strong>{g.name} <small>AI</small></strong><span>{g.title}</span></a>)}</div>
+    </section>
     <div className="tw-layout">
       <section className="tw-builder"><div className="tw-section-head"><span className="tw-step">01</span><div><span className="tw-kicker">YOUR DIGITAL ALTER EGO</span><h2>Build your twin</h2></div></div>
         <div className="tw-self"><span className="tw-avatar tw-avatar-big">{short(form.twin_name||form.nickname)}</span><div><small>YOUR OPT-IN TWIN</small><strong>{form.twin_name||"Meet your twin"} ✳</strong><p>{saved?"Live and discoverable":"Not yet enabled"}</p></div></div>
@@ -197,7 +208,7 @@ export default function AiTwinsLivePage(){
       </section>
       <section className="tw-stage"><div className="tw-section-head"><span className="tw-step">02</span><div><span className="tw-kicker">THE TWINVERSE</span><h2>Meet the other twins</h2></div></div>
         {!saved?<div className="tw-empty-live">✳<h3>Your twin isn't in the room yet.</h3><p>Enable your profile first, then have your sister sign into her own Google account and enable her twin too.</p></div>:
-          !pairs.length?<div className="tw-empty-live">♡<h3>Waiting for another human.</h3><p>Ask your sister to open this same page, sign in separately, and enable her own twin. Then refresh.</p><button className="tw-secondary" onClick={()=>refresh(user.id)}>Check for twins ↻</button></div>:
+          !pairs.length?<div className="tw-empty-live">♡<h3>Waiting for another human.</h3><p>Ask your sister to enable her own twin. Until then, you can practise with 12 clearly labeled AI teaching characters above. They are not counted as real people.</p><button className="tw-secondary" onClick={()=>refresh(user.id)}>Check for twins ↻</button></div>:
           <div className="tw-live-people">{pairs.map(p=><article className="tw-person" key={p.user_id}>
             <div className="tw-person-head"><span className="tw-avatar tw-lavender">{short(p.twin_name)}</span><div><strong>{p.twin_name}</strong><small>{p.profile.level} · {p.profile.availability}</small></div><span className="tw-tag">{p.reciprocal?"SKILL SWAP":"STUDY BUDDY"}</span></div>
             <p>{p.intro||"Ready to meet a new Korean learning partner."}</p>
