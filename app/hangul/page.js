@@ -14,7 +14,7 @@ export default function HangulLab() {
         </a>
         <div className={styles.brand}>
           <span className={styles.mark} aria-hidden="true">ㅎ</span>
-          <span><strong>Hallium</strong><small>HANGUL LAB · LOCAL PREVIEW</small></span>
+          <span><strong>Hallium</strong><small>HANGUL LAB · ALPHABET STUDIO</small></span>
         </div>
         <a className={styles.lessons} href="/?view=companion">My lessons <span aria-hidden="true">↗</span></a>
       </nav>
