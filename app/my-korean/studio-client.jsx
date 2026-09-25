@@ -45,7 +45,7 @@ function SpeakButton({ value, say, children = "Listen" }) {
     <span aria-hidden="true">◖))</span> {children}
   </button>;
 }
-export default function OwnerStudyClient({ course, initialState, stateError, userId }) {
+export default function OwnerStudyClient({ course, exceptionNotes, initialState, stateError, userId }) {
   const [activeId,setActiveId] = useState(1);
   const [tab,setTab] = useState("vocabulary");
   const [state,setState] = useState(() => ({
@@ -66,6 +66,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
   const [voicePlaying,setVoicePlaying] = useState(false);
   const lastSavedRef=useRef(null);
   const lesson=course.find((l) => l.id === activeId) || course[0];
+  const lessonExceptions=exceptionNotes?.[activeId] || { grammar: [], vocab: {} };
   const result=state.lesson_results[lkey(activeId)] || {};
   const quiz=useMemo(() => buildQuiz(lesson,quizRound),[lesson,quizRound]);
   const savedEntries=useMemo(() =>
@@ -226,14 +227,18 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
 
         {tab==="vocabulary"&&<section className="oks-content" aria-label="Vocabulary to learn">
           <div className="oks-section-top"><div><span className="oks-eyebrow">A · 15 TARGET ITEMS</span>
-            <h3>Learn the words in this lesson.</h3><p>Play the Korean, mark what you recognize, and pin anything worth revisiting.</p></div>
+            <h3>Learn the words in this lesson.</h3><p>Play Korean, save words and review irregular forms or meaning traps where they apply. Extra notes are not counted as new vocabulary.</p></div>
             <span className="oks-section-counter">{learnedVocabulary} / 15 recognized</span>
           </div>
           <div className="oks-word-grid">{lesson.vocabulary.map((word,index)=>{
             const key=slug("v",activeId,index),saved=!!state.saved_items[key],learned=(result.learnedVocab||[]).includes(index);
+            const exception=lessonExceptions.vocab?.[word.ko];
             return <article className={"oks-word"+(learned?" is-learned":"")} key={key}>
               <span className="oks-word-index">{padded(index+1)}</span>
               <div className="oks-word-copy"><strong lang="ko">{word.ko}</strong><span>{word.meaning}</span></div>
+              {exception && <div className="oks-word-exception" aria-label={"Usage watch-out for "+word.ko}>
+                <span>⚡ {exception.tag}</span><p>{exception.text}</p><small lang="ko">{exception.example}</small>
+              </div>}
               <div className="oks-word-actions">
                 <button onClick={()=>toggleLearned("v",index)} className={learned?"is-on":""} title={learned?"Mark as still learning":"Mark recognized"} aria-pressed={learned}>{learned?"✓ Learned":"Mark learned"}</button>
                 <button onClick={()=>toggleSaved("v",index)} className={saved?"is-saved":""} aria-pressed={saved} title={saved?"Remove saved word":"Save this word"}>{saved?"★":"☆"}</button>
@@ -247,9 +252,10 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
 
         {tab==="grammar"&&<section className="oks-content">
           <div className="oks-section-top"><div><span className="oks-eyebrow">B · TWO PRIMARY TARGETS</span>
-            <h3>Make sense of the pattern.</h3><p>Clear rule, examples and your own saved reference for each grammar point.</p></div></div>
+            <h3>Make sense of the pattern.</h3><p>Every grammar point has a separate exception, irregular-form or meaning-contrast note. Save the grammar card to retain its watch-out.</p></div></div>
           <div className="oks-grammar-list">{lesson.grammar.map((g,index)=>{
             const key=slug("g",activeId,index),saved=!!state.saved_items[key],learned=(result.learnedGrammar||[]).includes(index);
+            const exception=lessonExceptions.grammar?.[index];
             return <article className="oks-grammar" key={key}>
               <div className="oks-grammar-head"><span className="oks-grammar-no">0{index+1}</span>
                 <div><span className="oks-eyebrow">{g.meaning}</span><h4>{g.name}</h4></div>
@@ -257,6 +263,10 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
                   aria-pressed={saved}>{saved?"★ Saved":"☆ Save"}</button>
               </div>
               <p className="oks-rule">{g.explanation}</p>
+              {exception && <aside className="oks-grammar-exception" aria-label={"Exception or usage watch-out for "+g.name}>
+                <strong>⚡ EXCEPTION / WATCH-OUT · {exception.tag}</strong>
+                <p>{exception.text}</p><span lang="ko">{exception.example}</span>
+              </aside>}
               <div className="oks-examples">{g.examples.map((ex,i)=><div key={i}>
                 <div className="oks-example-line"><strong lang="ko">{ex.ko}</strong><SpeakButton value={ex.ko} say={say}>Hear</SpeakButton></div>
                 {ex.en&&<small>{ex.en}</small>}
@@ -369,16 +379,19 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
         </button>
         {vaultOpen&&<div className="oks-vault-list">
           {savedEntries.length===0?<p>Tap ☆ on a word or grammar pattern to build your private review list.</p>:
-            savedEntries.map(({key,kind,lesson:origin,item})=><article key={key}>
+            savedEntries.map(({key,kind,lesson:origin,item})=>{
+              const exception=kind==="v"?exceptionNotes?.[origin.id]?.vocab?.[item.ko]:exceptionNotes?.[origin.id]?.grammar?.[Number(key.split(":")[2])];
+              return <article key={key}>
               <div><small>LESSON {padded(origin.id)} · {kind==="v"?"WORD":"GRAMMAR"}</small>
                 <button onClick={()=>{mutate(prev=>({...prev,saved_items:{...prev.saved_items,[key]:false}}))}}
                   aria-label={"Unsave "+(item.ko||item.name)}>✕</button></div>
               <strong lang="ko">{item.ko||item.name}</strong><p>{item.meaning}</p>
+              {exception&&<div className="oks-saved-exception"><strong>⚡ {exception.tag}</strong><p>{exception.text}</p><small lang="ko">{exception.example}</small></div>}
               <label>Personal note<textarea maxLength={600} value={state.personal_notes[key]||""}
                 placeholder="Why did I save this? Example, memory trick…"
                 onChange={e=>updateNote(key,e.target.value)}/></label>
               <button className="oks-vault-jump" onClick={()=>{selectLesson(origin.id);selectTab(kind==="v"?"vocabulary":"grammar");}}>Go to lesson ↗</button>
-            </article>)}
+            </article>})}
         </div>}
         <div className="oks-save-status" role="status" aria-live="polite">{saveStatus}</div>
         <div className="oks-vault-note">Only your signed-in owner account can open this page or read and change these saved items. Learning status and quiz scores are for your personal study.</div>
