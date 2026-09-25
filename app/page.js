@@ -1418,7 +1418,8 @@ export default function Hallim() {
   const [view, setView] = useState("home");
   const [greeting, setGreeting] = useState("Welcome back.");
   const [authUser, setAuthUser] = useState(null);
-  const [adminAccess, setAdminAccess] = useState(false);
+  const [adminUserId, setAdminUserId] = useState(null);
+  const adminAccess = !!authUser?.id && adminUserId === authUser.id;
   const [authReady, setAuthReady] = useState(false);
   const [authBusy, setAuthBusy] = useState(false);
   const [authError, setAuthError] = useState("");
@@ -1608,14 +1609,14 @@ export default function Hallim() {
   // localStorage, or client-editable profile metadata.
   useEffect(() => {
     let active = true;
-    setAdminAccess(false);
+    setAdminUserId(null);
     if (!authUser?.id) return () => { active = false; };
     getHallimSupabase().from("admin_users")
       .select("user_id")
       .eq("user_id", authUser.id)
       .maybeSingle()
       .then(({ data, error }) => {
-        if (active) setAdminAccess(!error && data?.user_id === authUser.id);
+        if (active) setAdminUserId(!error && data?.user_id === authUser.id ? authUser.id : null);
       });
     return () => { active = false; };
   }, [authUser?.id]);
