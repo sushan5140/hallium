@@ -4997,6 +4997,11 @@ export default function Hallim() {
           <button className="streak" onClick={() => navigate("profile")} aria-label="Learning progress">
             <span>{completedCount}</span><small>lessons done</small>
           </button>
+          {adminAccess && authUser?.email?.trim().toLowerCase() === "sushan5140s@gmail.com" && (
+            <a className="owner-study-shortcut" href="/my-korean" title="Your private Korean lessons, vocabulary, grammar and saved study notes">
+              ✦ My Korean studio ↗
+            </a>
+          )}
           {adminAccess && <span className="admin-access-badge" title="Admin preview enabled for this account">ADMIN</span>}
           <button className="profile-button" onClick={() => navigate("profile")} aria-label="Open learner progress">
             {learnerInitials}
