@@ -49,7 +49,7 @@ const {chromium}=require("playwright");
    "Learning ledger must end with Lesson 20's final primary grammar target");
  const exceptionSource=fs.readFileSync("lib/owner-korean/exceptions.js","utf8");
  const notes=vm.runInNewContext(
-  exceptionSource.replace(/export const ownerExceptionNotes\\s*=/,"const ownerExceptionNotes =")+"\\nownerExceptionNotes"
+  exceptionSource.replace(/export const ownerExceptionNotes\s*=/,"const ownerExceptionNotes =")+"\nownerExceptionNotes"
  );
  assert.equal(Object.keys(notes).length,20,"Every lesson needs exception and usage notes");
  let totalWordsWithNotes=0;
