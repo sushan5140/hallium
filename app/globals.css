@@ -3453,7 +3453,7 @@ button.toast{border:0;text-align:left}
    Move the live unit roadmap into Momentum rather than cramming it beneath
    the narrow left catalog; distribute genuine content within each top column.
    No spacers, fake results, or hard-coded screen-height hacks. */
-@media(min-width:1081px){
+@media(min-width:821px){
   .workspace.workspace-home>.home-rail,
   .workspace.workspace-home>.lab.home-dashboard,
   .workspace.workspace-home>.home-coach{align-self:stretch;min-height:0}
@@ -3480,6 +3480,8 @@ button.toast{border:0;text-align:left}
   }
   .workspace-home .home-feature-bottom{margin-top:auto;padding-top:19px}
   .workspace-home .home-practice-bar{flex:0 0 auto}
+}
+@media(min-width:1081px){
   .workspace.workspace-home>.home-coach{
     display:flex;flex-direction:column;align-items:stretch
   }
