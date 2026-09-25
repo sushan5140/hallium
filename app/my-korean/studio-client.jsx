@@ -15,7 +15,7 @@ const tabs = [
 const slug = (kind, lessonId, index) => kind + ":" + lessonId + ":" + index;
 const lkey = (id) => "l" + id;
 const norm = (value) => String(value || "").trim().toLowerCase()
-  .replace(/[.!?。！？,，‘’“”"']/g,"").replace(/\\s+/g,"").replace(/\s+/g,"");
+  .replace(/[.!?。！？,，‘’“”"']/g,"").replace(/\s+/g,"");
 const padded = (n) => String(n).padStart(2, "0");
 
 function buildQuiz(lesson, attempts = 0) {
@@ -62,7 +62,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
   const [readingRevealed,setReadingRevealed] = useState({});
   const [listeningRevealed,setListeningRevealed] = useState({});
   const [showScript,setShowScript] = useState(false);
-  const [vaultOpen,setVaultOpen] = useState(false);
+  const [vaultOpen,setVaultOpen] = useState(() => Object.values(initialState?.saved_items || {}).some(Boolean));
   const [voicePlaying,setVoicePlaying] = useState(false);
   const lastSavedRef=useRef(null);
   const lesson=course.find((l) => l.id === activeId) || course[0];
@@ -158,6 +158,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
   }
   function selectTab(next){
     setTab(next);setQuizAnswers({});setQuizChecked(false);
+    if(next==="test")setQuizRound(state.lesson_results[lkey(activeId)]?.attempts || 0);
     window.scrollTo({top:0,behavior:"smooth"});
   }
   function checkQuiz(){
@@ -362,7 +363,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
         <button className="oks-vault-toggle" aria-expanded={vaultOpen} onClick={()=>setVaultOpen(v=>!v)}>
           {vaultOpen?"Hide saved library":"Open saved library"} <span>{savedCount} ↗</span>
         </button>
-        {(vaultOpen||savedCount>0)&&<div className="oks-vault-list">
+        {vaultOpen&&<div className="oks-vault-list">
           {savedEntries.length===0?<p>Tap ☆ on a word or grammar pattern to build your private review list.</p>:
             savedEntries.map(({key,kind,lesson:origin,item})=><article key={key}>
               <div><small>LESSON {padded(origin.id)} · {kind==="v"?"WORD":"GRAMMAR"}</small>
