@@ -2777,9 +2777,6 @@ export default function Hallim() {
       test: "Start study check", review_queue: "Open review",
       adaptive_review: "Adaptive practice", checkpoint: "Open checkpoint",
     };
-    const currentIndex = Math.max(0, pathUnits.findIndex((unit) => unit.id === nextLessonUnit?.id));
-    const routeStart = Math.max(0, Math.min(currentIndex - 1, pathUnits.length - 3));
-    const visibleUnits = pathUnits.slice(routeStart, routeStart + 3);
     return (
       <aside className="lesson-rail home-rail" aria-label="Today's study plan and curriculum">
         <header className="home-desk-intro">
@@ -2824,21 +2821,7 @@ export default function Hallim() {
             </span>
             <strong aria-hidden="true">↗</strong>
           </button>
-          <div className="home-route-sequence" aria-label="Current curriculum route">
-            <span className="home-route-sequence-label">THE ROAD AHEAD <small>YOUR UNITS</small></span>
-            {visibleUnits.map((unit) => {
-              const count = unit.lessons.filter((lesson) => progress[lesson.id]?.completed).length;
-              const active = unit.id === nextLessonUnit?.id;
-              return (
-                <button key={unit.id} className={"home-route-unit" + (active ? " is-active" : "")}
-                  onClick={() => navigate("companion")} aria-label={"Browse unit " + unit.number + ": " + unit.title}>
-                  <span className="home-route-number">{String(unit.number).padStart(2, "0")}</span>
-                  <span className="home-route-unit-copy"><strong>{unit.title}</strong><small>{active ? "Your current unit" : count === unit.lessons.length ? "Completed" : "Explore this unit"}</small></span>
-                  <span className="home-route-status">{count} / {unit.lessons.length}</span>
-                </button>
-              );
-            })}
-          </div>
+
         </section>
       </aside>
     );
@@ -2919,6 +2902,9 @@ export default function Hallim() {
     const total = chapter?.lessons?.length || 1;
     const done = chapter?.lessons?.filter((lesson) => progress[lesson.id]?.completed).length || 0;
     const percent = Math.round((done / total) * 100);
+    const currentIndex = Math.max(0, pathUnits.findIndex((unit) => unit.id === nextLessonUnit?.id));
+    const routeStart = Math.max(0, Math.min(currentIndex - 1, pathUnits.length - 3));
+    const visibleUnits = pathUnits.slice(routeStart, routeStart + 3);
     return (
       <section className="home-momentum rail-momentum" aria-labelledby="home-momentum-title">
         <div className="home-momentum-header">
@@ -2966,6 +2952,21 @@ export default function Hallim() {
               </span>
               <span aria-hidden="true">→</span>
             </button>
+          </div>
+          <div className="home-route-sequence home-momentum-route" aria-label="Current curriculum route">
+            <span className="home-route-sequence-label">THE ROAD AHEAD <small>YOUR UNITS</small></span>
+            {visibleUnits.map((unit) => {
+              const count = unit.lessons.filter((lesson) => progress[lesson.id]?.completed).length;
+              const active = unit.id === nextLessonUnit?.id;
+              return (
+                <button key={unit.id} className={"home-route-unit" + (active ? " is-active" : "")}
+                  onClick={() => navigate("companion")} aria-label={"Browse unit " + unit.number + ": " + unit.title}>
+                  <span className="home-route-number">{String(unit.number).padStart(2, "0")}</span>
+                  <span className="home-route-unit-copy"><strong>{unit.title}</strong><small>{active ? "Your current unit" : count === unit.lessons.length ? "Completed" : "Explore this unit"}</small></span>
+                  <span className="home-route-status">{count} / {unit.lessons.length}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
