@@ -58,6 +58,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
   const [saveStatus,setSaveStatus] = useState(stateError || "Saved privately");
   const [quizAnswers,setQuizAnswers] = useState({});
   const [quizChecked,setQuizChecked] = useState(false);
+  const [quizRound,setQuizRound] = useState(initialState?.lesson_results?.l1?.attempts || 0);
   const [readingRevealed,setReadingRevealed] = useState({});
   const [listeningRevealed,setListeningRevealed] = useState({});
   const [showScript,setShowScript] = useState(false);
@@ -66,7 +67,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
   const lastSavedRef=useRef(null);
   const lesson=course.find((l) => l.id === activeId) || course[0];
   const result=state.lesson_results[lkey(activeId)] || {};
-  const quiz=useMemo(() => buildQuiz(lesson,result.attempts || 0),[lesson,result.attempts]);
+  const quiz=useMemo(() => buildQuiz(lesson,quizRound),[lesson,quizRound]);
   const savedEntries=useMemo(() =>
     Object.entries(state.saved_items).filter(([,value])=>value).map(([key])=>{
       const [type,id,n]=key.split(":");
@@ -149,7 +150,8 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
   function selectLesson(id){
     window.speechSynthesis?.cancel();
     setVoicePlaying(false);setActiveId(id);setTab("vocabulary");
-    setQuizAnswers({});setQuizChecked(false);setShowScript(false);
+    setQuizAnswers({});setQuizChecked(false);
+    setQuizRound(state.lesson_results[lkey(id)]?.attempts || 0);setShowScript(false);
     setReadingRevealed({});setListeningRevealed({});
     setVaultOpen(false);
     window.scrollTo({top:0,behavior:"smooth"});
@@ -159,7 +161,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
     window.scrollTo({top:0,behavior:"smooth"});
   }
   function checkQuiz(){
-    if(quizChecked)return;
+    if(quizChecked || quiz.some(q=>!String(quizAnswers[q.id]||"").trim()))return;
     const perQuestion=quiz.map((q)=>norm(quizAnswers[q.id])===norm(q.answer));
     const points=perQuestion.filter(Boolean).length,key=lkey(activeId);
     mutate(prev=>{
@@ -172,7 +174,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
     });
     setQuizChecked(true);
   }
-  function newQuiz(){setQuizAnswers({});setQuizChecked(false);}
+  function newQuiz(){setQuizRound(result.attempts || 0);setQuizAnswers({});setQuizChecked(false);}
   const answered=quiz.filter(q=>String(quizAnswers[q.id]||"").trim()).length;
   return <div className="owner-studio">
     <header className="oks-topbar">
