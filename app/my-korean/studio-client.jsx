@@ -188,7 +188,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
       <aside className="oks-rail">
         <div className="oks-rail-intro"><span className="oks-eyebrow">YOUR OWN STUDY SPACE</span>
           <h1>One lesson,<br/>a little more<br/><em>Korean.</em></h1>
-          <p>Fifteen foundation lessons across your original two batches and the new Batch 03 continuation. Your progress stays private.</p>
+          <p>Twenty foundation lessons across your first two study batches and the newly authored Batches 03–04. Your progress stays private.</p>
         </div>
         <div className="oks-rail-head"><span>01 · COURSE MAP</span><strong>{course.length} lessons</strong></div>
         <nav aria-label="Your private Korean lesson list" className="oks-lesson-list">
@@ -212,7 +212,7 @@ export default function OwnerStudyClient({ course, initialState, stateError, use
         <div className="oks-heading">
           <div><span className="oks-eyebrow">BATCH {padded(Math.ceil(activeId/5))} · LESSON {padded(activeId)}</span>
             <h2>{lesson.title}<span>.</span></h2><p>{lesson.aim}</p></div>
-          <span className="oks-batch-badge">{activeId<=5?"FOUNDATIONS I":activeId<=10?"FOUNDATIONS II":"FOUNDATIONS III"}</span>
+          <span className="oks-batch-badge">{activeId<=5?"FOUNDATIONS I":activeId<=10?"FOUNDATIONS II":activeId<=15?"FOUNDATIONS III":"FOUNDATIONS IV"}</span>
         </div>
         <div className="oks-metrics">
           <div><span>WORDS</span><strong>{learnedVocabulary}<small>/ 15 learned</small></strong></div>
