@@ -1418,6 +1418,7 @@ export default function Hallim() {
   const [view, setView] = useState("home");
   const [greeting, setGreeting] = useState("Welcome back.");
   const [authUser, setAuthUser] = useState(null);
+  const [adminAccess, setAdminAccess] = useState(false);
   const [authReady, setAuthReady] = useState(false);
   const [authBusy, setAuthBusy] = useState(false);
   const [authError, setAuthError] = useState("");
@@ -1601,6 +1602,23 @@ export default function Hallim() {
       if (syncTimerRef.current) window.clearTimeout(syncTimerRef.current);
     };
   }, []);
+
+  // Admin identity comes from the authenticated user's own, RLS-protected
+  // admin_users row. Never infer privileges from name, email, query params,
+  // localStorage, or client-editable profile metadata.
+  useEffect(() => {
+    let active = true;
+    setAdminAccess(false);
+    if (!authUser?.id) return () => { active = false; };
+    getHallimSupabase().from("admin_users")
+      .select("user_id")
+      .eq("user_id", authUser.id)
+      .maybeSingle()
+      .then(({ data, error }) => {
+        if (active) setAdminAccess(!error && data?.user_id === authUser.id);
+      });
+    return () => { active = false; };
+  }, [authUser?.id]);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
@@ -2532,6 +2550,7 @@ export default function Hallim() {
     navigate("lesson");
   }
   function isUnlocked(index) {
+    if (adminAccess) return index >= 0 && index < lessons.length;
     const lesson = lessons[index];
     const unit = units.find((item) => item.id === lesson?.unitId);
     if (!lesson || !unit) return false;
@@ -2543,9 +2562,27 @@ export default function Hallim() {
     if (units.find((item) => item.id === previous.unitId)?.levelRank < effectiveStartRank) return true;
     return !!progress[previous.id]?.completed;
   }
+  function jumpToLessonStep(index) {
+    if (!currentLesson) return;
+    const nextIndex = Math.max(0, Math.min(index, currentLesson.steps.length - 1));
+    if (!adminAccess && nextIndex > stepIndex) return;
+    setStepIndex(nextIndex);
+    resetInteraction();
+    // Previewing a later stage is not evidence of completing the lesson.
+    // Keep a real learner's completed status and previously reached index.
+    persist({
+      ...progress,
+      [currentLesson.id]: {
+        ...(progress[currentLesson.id] || {}),
+        stepIndex: Math.max(Number(progress[currentLesson.id]?.stepIndex || 0), nextIndex),
+      },
+    });
+  }
   function advance() {
     if (!currentLesson) return;
     const nextIndex = Math.min(stepIndex + 1, currentLesson.steps.length - 1);
+    // Regular learners advance only after the step's real completion check.
+    // This function is called by the validated Continue button.
     setStepIndex(nextIndex);
     resetInteraction();
     persist({
@@ -3114,7 +3151,11 @@ export default function Hallim() {
           </div>
         )}
 
-        {pathUnits.length !== units.length && (
+        {adminAccess ? (
+          <div className="catalog-scope admin-catalog-notice" role="status">
+            <p><strong>Admin preview:</strong> All published levels and lessons are open for testing. Your completion statistics still reflect only lessons you finish.</p>
+          </div>
+        ) : pathUnits.length !== units.length && (
           <div className="catalog-scope">
             <p>Showing the {pathLessons.length} lessons and checkpoints in your selected learning path.</p>
             <button onClick={() => setShowOtherLevels(value => !value)} aria-expanded={showOtherLevels}>
@@ -3124,11 +3165,11 @@ export default function Hallim() {
         )}
 
         <div className="unit-stack">
-          {(showOtherLevels ? units : pathUnits).map((unit) => {
+          {(adminAccess || showOtherLevels ? units : pathUnits).map((unit) => {
             const beforeStart = unit.levelRank < effectiveStartRank;
             const beyondGoal = unit.levelRank > effectiveTargetRank;
             const currentBand = unit.levelRank === effectiveStartRank && !beforeStart;
-            const status = beforeStart ? "Review available" : beyondGoal ? "Beyond current goal" : currentBand ? "Current band" : "On your path";
+            const status = adminAccess && beyondGoal ? "Admin access · outside selected goal" : beforeStart ? "Review available" : beyondGoal ? "Beyond current goal" : currentBand ? "Current band" : "On your path";
             const doneCount = unit.lessons.filter((l) => progress[l.id]?.completed).length;
             const holdsCurrent = unit.lessons.some((l) => l.id === nextLesson.id);
             const expanded = expandedUnit === null ? holdsCurrent : expandedUnit === unit.id;
@@ -3571,6 +3612,22 @@ export default function Hallim() {
         )}
 
         <StepBody step={currentStep} />
+
+        {adminAccess && (
+          <nav className="admin-lesson-tools" aria-label="Admin lesson preview controls">
+            <span className="admin-tools-label">ADMIN · LESSON PREVIEW</span>
+            <p>Jump between stages without answering. Previewing does not automatically mark this lesson complete.</p>
+            <div className="admin-tools-actions">
+              <button type="button" className="quiet-button" disabled={stepIndex === 0}
+                onClick={() => jumpToLessonStep(stepIndex - 1)}>← Previous</button>
+              <button type="button" className="quiet-button" disabled={stepIndex >= currentLesson.steps.length - 1}
+                onClick={() => jumpToLessonStep(stepIndex + 1)}>Next step →</button>
+              <button type="button" className="check-button"
+                disabled={stepIndex >= currentLesson.steps.length - 1}
+                onClick={() => jumpToLessonStep(currentLesson.steps.length - 1)}>Jump to completion ↗</button>
+            </div>
+          </nav>
+        )}
 
         {currentStep.kind !== "finish" && !selfPaced && (
           <div className="lab-actions" style={{ border: 0, paddingInline: 0 }}>
@@ -4611,8 +4668,8 @@ export default function Hallim() {
             note: stepNote(step),
             done: index < stepIndex,
             active: index === stepIndex,
-            reachable: index <= stepIndex,
-            go: () => index <= stepIndex && setStepIndex(index),
+            reachable: adminAccess || index <= stepIndex,
+            go: () => (adminAccess || index <= stepIndex) && jumpToLessonStep(index),
             label: index + 1,
           };
         })
@@ -4939,6 +4996,7 @@ export default function Hallim() {
           <button className="streak" onClick={() => navigate("profile")} aria-label="Learning progress">
             <span>{completedCount}</span><small>lessons done</small>
           </button>
+          {adminAccess && <span className="admin-access-badge" title="Admin preview enabled for this account">ADMIN</span>}
           <button className="profile-button" onClick={() => navigate("profile")} aria-label="Open learner progress">
             {learnerInitials}
           </button>
