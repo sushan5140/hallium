@@ -5,21 +5,36 @@ const {chromium}=require("playwright");
 
 (async()=>{
  const src=fs.readFileSync("lib/owner-korean/course.js","utf8");
- const course=vm.runInNewContext(src.replace("export const ownerCourse =","const ownerCourse =")+"\nownerCourse");
- assert.equal(course.length,10,"Exactly ten PDF lessons must be included");
+ const sourceCourse=vm.runInNewContext(src.replace("export const ownerCourse =","const ownerCourse =")+"\nownerCourse");
+ const batch=fs.readFileSync("lib/owner-korean/batch03.js","utf8");
+ const nextCourse=vm.runInNewContext(batch.replace("export const ownerBatch03 =","const ownerBatch03 =")+"\nownerBatch03");
+ assert.equal(sourceCourse.length,10,"The original two PDFs must remain intact");
+ assert.equal(nextCourse.length,5,"Batch 03 must contain precisely Lessons 11–15");
+ const course=[...sourceCourse,...nextCourse];
+ assert.equal(course.length,15,"Fifteen lessons must be available for owner");
+ const existingWords=new Set(sourceCourse.flatMap(l=>l.vocabulary.map(w=>w.ko)));
+ const batchWords=nextCourse.flatMap(l=>l.vocabulary.map(w=>w.ko));
+ const originalGrammar=new Set(sourceCourse.flatMap(l=>l.grammar.map(g=>g.name)));
+ const batchGrammar=nextCourse.flatMap(l=>l.grammar.map(g=>g.name));
+ assert.equal(existingWords.size,150,"Original target word ledger unexpectedly overlaps");
+ assert.equal(new Set(batchWords).size,75,"Repeated new vocabulary within Batch 03");
+ assert.ok(batchWords.every(w=>!existingWords.has(w)),"Batch 03 reused an earlier new-target vocabulary word");
+ assert.equal(originalGrammar.size,20,"Original grammar ledger unexpectedly overlaps");
+ assert.equal(new Set(batchGrammar).size,10,"Repeated new grammar within Batch 03");
+ assert.ok(batchGrammar.every(g=>!originalGrammar.has(g)),"Batch 03 reused an earlier primary grammar target");
  let vocab=0,grammar=0;
  for(let n=0;n<course.length;n++){
   const lesson=course[n];
   assert.equal(lesson.id,n+1,"Lesson order must match the source PDFs");
-  assert.equal(lesson.vocabulary.length,15,"PDF vocabulary shortfall in "+lesson.id);
-  assert.equal(lesson.grammar.length,2,"PDF grammar shortfall in "+lesson.id);
-  assert.equal(lesson.checks.length,3,"Missing original source check in "+lesson.id);
+  assert.equal(lesson.vocabulary.length,15,"Lesson vocabulary shortfall in "+lesson.id);
+  assert.equal(lesson.grammar.length,2,"Lesson grammar shortfall in "+lesson.id);
+  assert.equal(lesson.checks.length,3,"Missing lesson grammar check in "+lesson.id);
   assert.equal(lesson.readingQuestions.length,2,"Missing reading question in "+lesson.id);
   assert.equal(lesson.listeningQuestions.length,2,"Missing listening question in "+lesson.id);
   assert.ok(lesson.reading&&lesson.listening&&lesson.writing&&lesson.note,"Incomplete lesson "+lesson.id);
   vocab+=lesson.vocabulary.length;grammar+=lesson.grammar.length;
  }
- assert.equal(vocab,150);assert.equal(grammar,20);
+ assert.equal(vocab,225);assert.equal(grammar,30);
  const client=fs.readFileSync("app/my-korean/studio-client.jsx","utf8");
  const body=client.slice(client.indexOf("function buildQuiz("),client.indexOf("\nfunction SpeakButton"));
  const make=vm.runInNewContext(body+"\nbuildQuiz");
@@ -46,6 +61,7 @@ const {chromium}=require("playwright");
  assert.ok(server.includes('supabase.from("admin_users")'),"Admin role check must be server-side");
  assert.ok(server.includes('user.email?.trim().toLowerCase() !== "sushan5140s@gmail.com"'),"Owner email must be verified");
  assert.ok(server.includes("notFound()"),"Unauthorized route must not expose course");
+ assert.ok(server.includes("course={[...ownerCourse,...ownerBatch03]}"),"New batch must be available only after server owner verification");
  assert.ok(server.includes("robots: { index: false"),"Private content should be noindex");
  assert.ok(!fs.readFileSync("app/sitemap.js","utf8").includes("/my-korean"),"Private page listed in sitemap");
  const app=fs.readFileSync("app/page.js","utf8");
@@ -67,5 +83,5 @@ const {chromium}=require("playwright");
    await page.close();
   }
  }finally{await browser.close()}
- console.log("PASS: owner-only study is anonymous-proof, source-grounded (10 lessons, 150 words, 20 grammar), 8-question per-lesson tests and 15-word rotation");
+ console.log("PASS: owner-only course stays private with 15 lessons, 225 non-overlapping words, 30 non-overlapping grammar, lesson tests and three-round word coverage");
 })().catch(e=>{console.error(e);process.exitCode=1});
