@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { createHallimServerSupabase } from "../../lib/supabase/server";
 import { ownerCourse } from "../../lib/owner-korean/course";
+import { ownerBatch03 } from "../../lib/owner-korean/batch03";
 import OwnerStudyClient from "./studio-client";
 import "./studio.css";
 
@@ -32,7 +33,7 @@ export default async function OwnerKoreanStudio() {
 
   return (
     <OwnerStudyClient
-      course={ownerCourse}
+      course={[...ownerCourse,...ownerBatch03]}
       initialState={stateError ? null : saved}
       stateError={stateError ? "Your private notes could not load. Saving is paused; try refreshing." : ""}
       userId={user.id}
