@@ -351,3 +351,16 @@
 @media(prefers-reduced-motion:reduce){
  .owner-studio button{transition:none!important}
 }
+
+
+/* Lesson-specific notes preserve source nuances and the Batch 03 mini-review. */
+.oks-lesson-note{
+ margin:24px 0 0;padding:17px 20px;
+ border-radius:15px;background:#FFF6D9;border:1px solid #E6DCA9;
+}
+.oks-lesson-note .oks-eyebrow{color:#775A0B;font-size:10.7px}
+.oks-lesson-note p{margin-top:8px;font-size:12.7px;line-height:1.64;color:#5A4F32}
+@media(max-width:520px){
+ .oks-lesson-note{padding:15px}
+ .oks-lesson-note p{font-size:12.2px}
+}
