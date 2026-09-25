@@ -9,7 +9,7 @@ const {chromium}=require("playwright");
  const batch=fs.readFileSync("lib/owner-korean/batch03.js","utf8");
  const nextCourse=vm.runInNewContext(batch.replace("export const ownerBatch03 =","const ownerBatch03 =")+"\nownerBatch03");
  const batch04=fs.readFileSync("lib/owner-korean/batch04.js","utf8");
- const newestCourse=vm.runInNewContext(batch04.replace("export const ownerBatch04 =","const ownerBatch04 =")+"\nownerBatch04");
+ const newestCourse=vm.runInNewContext(batch04.replace(/export const ownerBatch04\s*=/,"const ownerBatch04 =")+"\nownerBatch04");
  assert.equal(sourceCourse.length,10,"The original two PDFs must remain intact");
  assert.equal(nextCourse.length,5,"Batch 03 must preserve Lessons 11–15");
  assert.equal(newestCourse.length,5,"Batch 04 must contain exactly Lessons 16–20");
