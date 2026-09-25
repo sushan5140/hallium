@@ -49,3 +49,4 @@ jobs:
           node .github/scripts/verify-responsive-layout.cjs
           node .github/scripts/verify-topik-mocks.cjs
           node .github/scripts/verify-companions.cjs
+          node .github/scripts/verify-hangul-layout.cjs
