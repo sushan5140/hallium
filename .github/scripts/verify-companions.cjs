@@ -53,6 +53,30 @@ const {chromium}=require("playwright");
   // Keep the original top-left plan and right-side adaptive progress dashboard;
   // only Structured Study is the full-width second row. Recheck the real CSS.
   const source=require("node:fs").readFileSync("app/page.js","utf8");
+  // Verified-owner QA bypass must come from the RLS-protected admin_users
+  // table. Non-admin learners still use sequential lessons and answer checks.
+  assert.ok(source.includes('.from("admin_users")')&&source.includes('.eq("user_id", authUser.id)'),
+    "Admin privileges must come from the authenticated account's admin row");
+  assert.ok(source.includes('adminUserId === authUser.id'),
+    "Admin status must be bound to the exact signed-in user");
+  assert.ok(source.includes('if (adminAccess) return index >= 0 && index < lessons.length;'),
+    "Admin should be able to open published lessons");
+  assert.ok(source.includes('return !!progress[previous.id]?.completed;'),
+    "Ordinary learner sequencing must remain intact");
+  assert.ok(source.includes('reachable: adminAccess || index <= stepIndex'),
+    "Admin must be able to jump directly to Build and Complete");
+  assert.ok(source.includes('adminAccess || showOtherLevels ? units : pathUnits'),
+    "Admin must be able to see all published units");
+  assert.ok(source.includes('admin-tools-actions')&&source.includes('Jump to completion ↗'),
+    "Missing owner-only preview controls");
+  assert.ok(source.includes('stepIndex: Math.max(Number(progress[currentLesson.id]?.stepIndex || 0), nextIndex)'),
+    "Admin preview must not mark lesson complete automatically");
+  assert.ok(source.includes('(isShadowing && shadowDone)'),
+    "Ordinary shadowing steps must still require real practice");
+  const adminStyles=require("node:fs").readFileSync("app/globals.css","utf8");
+  assert.ok(adminStyles.includes(".admin-lesson-tools")&&adminStyles.includes(".admin-access-badge"),
+    "Missing visible V4 owner preview controls");
+
   assert.ok(source.includes('function HomeRail()'),"home study plan rail missing");
   assert.ok(source.includes('home-session-checkpoint'),"Live learning-path checkpoint missing");
   assert.ok(source.includes('rail-catalog-track')&&source.includes('home-route-sequence'),"Curriculum progress or roadmap missing");
