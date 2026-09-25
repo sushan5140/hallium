@@ -47,6 +47,31 @@ const {chromium}=require("playwright");
    "Expanded ledger must mark all 75 new words and 10 new grammar targets");
  assert.ok(ledger.includes('"340","20","Comparing everyday choices","Grammar","V-거나","or (between actions)","NEW authored Batch 04"'),
    "Learning ledger must end with Lesson 20's final primary grammar target");
+ const exceptionSource=fs.readFileSync("lib/owner-korean/exceptions.js","utf8");
+ const notes=vm.runInNewContext(
+  exceptionSource.replace(/export const ownerExceptionNotes\\s*=/,"const ownerExceptionNotes =")+"\\nownerExceptionNotes"
+ );
+ assert.equal(Object.keys(notes).length,20,"Every lesson needs exception and usage notes");
+ let totalWordsWithNotes=0;
+ for(const lesson of course){
+   const ex=notes[lesson.id];
+   assert.ok(ex,"Missing watch-outs for Lesson "+lesson.id);
+   assert.equal(ex.grammar.length,2,"Both grammar rules require exception/watch-out details in Lesson "+lesson.id);
+   for(let i=0;i<2;i++){
+     const hint=ex.grammar[i];
+     assert.ok(hint.tag&&hint.text&&hint.example,
+       "Incomplete grammar exception for Lesson "+lesson.id+" grammar "+lesson.grammar[i].name);
+   }
+   const vocabulary=new Set(lesson.vocabulary.map(w=>w.ko));
+   assert.ok(Object.keys(ex.vocab).length>=3,"Fewer than three selected vocabulary watch-outs for Lesson "+lesson.id);
+   for(const [word,hint] of Object.entries(ex.vocab)){
+     assert.ok(vocabulary.has(word),"Watch-out incorrectly attached to non-target "+word+" in Lesson "+lesson.id);
+     assert.ok(hint.tag&&hint.text&&hint.example,
+       "Incomplete vocabulary exception for "+word+" in Lesson "+lesson.id);
+     totalWordsWithNotes++;
+   }
+ }
+ assert.ok(totalWordsWithNotes>=60,"Insufficient targeted vocabulary meaning or irregularity notes");
  const client=fs.readFileSync("app/my-korean/studio-client.jsx","utf8");
  const body=client.slice(client.indexOf("function buildQuiz("),client.indexOf("\nfunction SpeakButton"));
  const make=vm.runInNewContext(body+"\nbuildQuiz");
@@ -80,6 +105,14 @@ const {chromium}=require("playwright");
  assert.ok(app.includes('adminAccess && authUser?.email?.trim().toLowerCase() === "sushan5140s@gmail.com"'),
    "Private menu must be hidden for non-owner accounts");
  assert.ok(client.includes('from("owner_korean_study")'),"No private synced notes storage");
+ assert.ok(client.includes('exceptionNotes?.[activeId]'),"Lesson exception data must be connected to visible study UI");
+ assert.ok(client.includes('lessonExceptions.vocab?.[word.ko]'),"Word meanings/irregular forms must show on vocabulary cards");
+ assert.ok(client.includes('lessonExceptions.grammar?.[index]'),"Every grammar pattern must show its watch-out");
+ assert.ok(client.includes('oks-saved-exception'),"Saved words and grammar should retain the watch-out");
+ assert.ok(server.includes('ownerExceptionNotes'),"Exception data must load only inside the authorized private route");
+ const css=fs.readFileSync("app/my-korean/studio.css","utf8");
+ assert.ok(css.includes(".oks-grammar-exception")&&css.includes(".oks-word-exception"),
+   "Exception callouts require readable desktop/mobile styling");
  assert.ok(client.includes('quizRound'),"Quiz must remain stable while checking answers");
  const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
  try{
@@ -95,5 +128,5 @@ const {chromium}=require("playwright");
    await page.close();
   }
  }finally{await browser.close()}
- console.log("PASS: owner-only course stays private with 20 lessons, 300 unique words, 40 unique grammar, preserved ledger, lesson tests and three-round word coverage");
+ console.log("PASS: owner-only course stays private with 20 lessons, 300 unique words, 40 unique grammar, preserved ledger, exceptions, lesson tests and three-round word coverage");
 })().catch(e=>{console.error(e);process.exitCode=1});
