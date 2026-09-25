@@ -364,3 +364,26 @@
  .oks-lesson-note{padding:15px}
  .oks-lesson-note p{font-size:12.2px}
 }
+
+
+/* With 15 lessons, keep the course map and private collection usable without
+   forcing empty space underneath shorter Grammar or Writing sections. */
+@media(min-width:1151px){
+ .oks-rail,.oks-vault-rail{
+  position:sticky;top:0;align-self:start;max-height:100dvh;
+  overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin
+ }
+ .oks-rail{scrollbar-color:#C9C7DC transparent}
+ .oks-vault-rail{scrollbar-color:#CCC9D6 transparent}
+}
+@media(min-width:791px) and (max-width:1150px){
+ .oks-rail{
+  position:sticky;top:0;align-self:start;max-height:100dvh;
+  overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin
+ }
+}
+@media(max-width:790px){
+ .oks-rail,.oks-vault-rail{
+  position:static;max-height:none;overflow:visible
+ }
+}
