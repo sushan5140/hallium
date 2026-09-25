@@ -3447,3 +3447,99 @@ button.toast{border:0;text-align:left}
  .workspace-home .home-feature-cta{transition:none}
  .workspace-home .home-feature-cta:active{transform:none}
 }
+
+
+/* CONTINUOUS LEARNING DESK — no unused desktop column gutters.
+   Move the live unit roadmap into Momentum rather than cramming it beneath
+   the narrow left catalog; distribute genuine content within each top column.
+   No spacers, fake results, or hard-coded screen-height hacks. */
+@media(min-width:1081px){
+  .workspace.workspace-home>.home-rail,
+  .workspace.workspace-home>.lab.home-dashboard,
+  .workspace.workspace-home>.home-coach{align-self:stretch;min-height:0}
+  .workspace-home .home-rail .rail-plan{
+    display:flex;flex-direction:column;flex:1 1 auto;min-height:0
+  }
+  .workspace-home .rail-plan .today-route{
+    flex:1 1 auto;grid-auto-rows:minmax(76px,1fr);
+    align-content:stretch
+  }
+  .workspace-home .rail-plan .today-route>li,
+  .workspace-home .rail-plan .today-route>li button{height:100%}
+  .workspace-home .home-rail .rail-catalog{flex:0 0 auto}
+  .workspace.workspace-home>.lab.home-dashboard{display:flex;flex-direction:column}
+  .workspace-home .home-dashboard .home-body{
+    display:flex;flex-direction:column;flex:1 1 auto;min-height:0
+  }
+  .workspace-home .home-feature-lesson{flex:1 1 auto}
+  .workspace-home .home-feature-dialogue{
+    display:flex;flex-direction:column;flex:1 1 auto
+  }
+  .workspace-home .home-feature-lines{
+    grid-auto-rows:minmax(64px,1fr);flex:1 1 auto
+  }
+  .workspace-home .home-feature-bottom{margin-top:auto;padding-top:19px}
+  .workspace-home .home-practice-bar{flex:0 0 auto}
+  .workspace.workspace-home>.home-coach{
+    display:flex;flex-direction:column;align-items:stretch
+  }
+  .workspace-home .home-coach .coach-note{
+    flex:1 1 auto;display:flex;flex-direction:column
+  }
+  .workspace-home .home-coach .why-button{margin-top:auto}
+  .workspace-home .home-coach .signal-card{
+    flex:1 1 auto;display:flex;flex-direction:column
+  }
+  .workspace-home .home-coach .signal-row{
+    flex:1 1 auto;min-height:42px;align-content:center
+  }
+  .workspace-home .home-coach .next-card{flex:0 0 auto}
+}
+.workspace-home .home-momentum-grid{
+  grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.16fr);
+  gap:12px
+}
+.workspace-home .home-momentum-route{
+  margin:0;padding:17px 18px;min-height:185px;
+  background:#FFFFFF;border:1px solid #DED9FA;border-radius:19px;
+  display:flex;flex-direction:column;justify-content:center;min-width:0
+}
+.workspace-home .home-momentum-route .home-route-sequence-label{
+  font-size:10.5px;color:var(--indigo-deep);margin-bottom:7px
+}
+.workspace-home .home-momentum-route .home-route-sequence-label small{
+  font-size:9.5px;color:#706B8A
+}
+.workspace-home .home-momentum-route .home-route-unit{
+  min-height:44px;flex:1 1 0;padding:5px 0;
+  grid-template-columns:26px minmax(0,1fr) auto
+}
+.workspace-home .home-momentum-route .home-route-unit:first-of-type{border-top:0}
+.workspace-home .home-momentum-route .home-route-unit-copy strong{
+  font-size:12.4px;line-height:1.3
+}
+.workspace-home .home-momentum-route .home-route-unit-copy small{
+  font-size:10.8px;line-height:1.35
+}
+.workspace-home .home-momentum-route .home-route-status{
+  font-size:10.2px;font-variant-numeric:tabular-nums
+}
+.workspace-home .home-momentum-route .home-route-unit:focus-visible{
+  outline:3px solid var(--indigo);outline-offset:2px
+}
+@media(max-width:1240px) and (min-width:1081px){
+ .workspace-home .home-momentum-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))
+ }
+ .workspace-home .home-momentum-route{min-height:185px}
+}
+@media(max-width:1080px){
+ .workspace-home .home-momentum-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))
+ }
+ .workspace-home .home-momentum-route{min-height:170px}
+}
+@media(max-width:620px){
+ .workspace-home .home-momentum-grid{grid-template-columns:minmax(0,1fr)}
+ .workspace-home .home-momentum-route{min-height:185px;padding:17px}
+}
