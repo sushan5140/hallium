@@ -35,6 +35,12 @@ const {chromium}=require("playwright");
   vocab+=lesson.vocabulary.length;grammar+=lesson.grammar.length;
  }
  assert.equal(vocab,225);assert.equal(grammar,30);
+ const ledger=fs.readFileSync("lib/owner-korean/cumulative-ledger-01-15.csv","utf8").trim().split("\n");
+ assert.equal(ledger.length,256,"Cumulative ledger must hold the header and all 255 grammar/vocabulary targets");
+ assert.equal(ledger.filter(x=>x.includes('"NEW authored Batch 03"')).length,85,
+   "Cumulative ledger must mark 75 new vocabulary and 10 new grammar in Batch 03");
+ assert.ok(ledger.includes('"255","15","Trips and experiences","Grammar","V-아/어 보다","try doing / experience doing","NEW authored Batch 03"'),
+   "Cumulative ledger must end with the final new grammar target");
  const client=fs.readFileSync("app/my-korean/studio-client.jsx","utf8");
  const body=client.slice(client.indexOf("function buildQuiz("),client.indexOf("\nfunction SpeakButton"));
  const make=vm.runInNewContext(body+"\nbuildQuiz");
