@@ -2,6 +2,17 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getHallimSupabase } from "../lib/supabase/client";
+import {
+  DEFAULT_KOREAN_VOICE_PREFERENCE,
+  clampKoreanRate,
+  koreanVoices,
+  newerVoicePreference,
+  normalizeVoicePreference,
+  readLocalVoicePreference,
+  resolveKoreanVoice,
+  speakKoreanText,
+  writeLocalVoicePreference,
+} from "../lib/korean-voice";
 import PartnerKorean from "./partner/PartnerKorean";
 import LandingPage from "./landing/LandingPage";
 
@@ -1477,6 +1488,9 @@ export default function Hallim() {
   const [draftCurrentLevel, setDraftCurrentLevel] = useState("new");
   const [draftTargetLevel, setDraftTargetLevel] = useState("elementary");
   const [profileEditorOpen, setProfileEditorOpen] = useState(false);
+  const [voicePreference, setVoicePreference] = useState(DEFAULT_KOREAN_VOICE_PREFERENCE);
+  const [availableKoreanVoices, setAvailableKoreanVoices] = useState([]);
+  const [voiceSaveStatus, setVoiceSaveStatus] = useState("local");
   const koreanVoiceRef = useRef(null);
   const syncTimerRef = useRef(null);
   const authUserRef = useRef(null);
@@ -1494,6 +1508,8 @@ export default function Hallim() {
     setPromotionRecord(savedIntelligence.promotion || null);
     setLearningRouteRecord(savedIntelligence.learningRoute || null);
     setMistakeLog(savedIntelligence.mistakeLog || []);
+    const savedVoicePreference = readLocalVoicePreference();
+    setVoicePreference(savedVoicePreference);
     const savedProfile = readLearnerProfile();
     if (savedProfile) {
       setLearnerProfile(savedProfile);
@@ -1623,20 +1639,15 @@ export default function Hallim() {
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    const chooseKoreanVoice = () => {
-      const voices = window.speechSynthesis.getVoices().filter((voice) =>
-        voice.lang?.toLowerCase().startsWith("ko")
-      );
-      koreanVoiceRef.current =
-        voices.find((voice) => /google|microsoft|samsung|siri/i.test(voice.name || "")) ||
-        voices.find((voice) => voice.localService) ||
-        voices[0] ||
-        null;
+    const refreshKoreanVoices = () => {
+      const voices = koreanVoices();
+      setAvailableKoreanVoices(voices);
+      koreanVoiceRef.current = resolveKoreanVoice(voicePreference, voices);
     };
-    chooseKoreanVoice();
-    window.speechSynthesis.addEventListener("voiceschanged", chooseKoreanVoice);
-    return () => window.speechSynthesis.removeEventListener("voiceschanged", chooseKoreanVoice);
-  }, []);
+    refreshKoreanVoices();
+    window.speechSynthesis.addEventListener("voiceschanged", refreshKoreanVoices);
+    return () => window.speechSynthesis.removeEventListener("voiceschanged", refreshKoreanVoices);
+  }, [voicePreference.voiceUri, voicePreference.voiceName]);
 
 
   useEffect(() => {
@@ -1959,6 +1970,30 @@ export default function Hallim() {
       return;
     }
 
+    const localVoicePreference = readLocalVoicePreference();
+    const { data: remoteVoiceRow } = await supabase.from("hallium_voice_preferences")
+      .select("voice_uri,voice_name,rate,updated_at")
+      .eq("user_id", user.id)
+      .maybeSingle();
+    const mergedVoicePreference = newerVoicePreference(localVoicePreference, remoteVoiceRow ? {
+      voiceUri: remoteVoiceRow.voice_uri || "",
+      voiceName: remoteVoiceRow.voice_name || "",
+      rate: remoteVoiceRow.rate,
+      updatedAt: remoteVoiceRow.updated_at || "",
+    } : null);
+    setVoicePreference(writeLocalVoicePreference(mergedVoicePreference));
+    setVoiceSaveStatus(remoteVoiceRow ? "synced" : "local");
+    if (!remoteVoiceRow && (mergedVoicePreference.voiceUri || mergedVoicePreference.voiceName || mergedVoicePreference.updatedAt)) {
+      await supabase.from("hallium_voice_preferences").upsert({
+        user_id: user.id,
+        voice_uri: mergedVoicePreference.voiceUri || null,
+        voice_name: mergedVoicePreference.voiceName || null,
+        rate: mergedVoicePreference.rate,
+        updated_at: mergedVoicePreference.updatedAt || new Date().toISOString(),
+      });
+      setVoiceSaveStatus("synced");
+    }
+
     const localProfile = readLearnerProfile();
     const remoteProfile = profileRead.data ? {
       currentLevel: profileRead.data.current_level,
@@ -2004,6 +2039,41 @@ export default function Hallim() {
       await trackLearningEvent("account_signup", "account-signup", {
         source_referral: readReferralCode() || null,
       });
+    }
+  }
+
+  async function saveKoreanVoicePreference(nextValue) {
+    const next = writeLocalVoicePreference(normalizeVoicePreference({
+      ...nextValue,
+      updatedAt: new Date().toISOString(),
+    }));
+    setVoicePreference(next);
+    koreanVoiceRef.current = resolveKoreanVoice(next, availableKoreanVoices);
+    const user = authUserRef.current;
+    if (!user) {
+      setVoiceSaveStatus("local");
+      return next;
+    }
+    setVoiceSaveStatus("saving");
+    const { error } = await getHallimSupabase().from("hallium_voice_preferences").upsert({
+      user_id: user.id,
+      voice_uri: next.voiceUri || null,
+      voice_name: next.voiceName || null,
+      rate: next.rate,
+      updated_at: next.updatedAt,
+    });
+    if (error) {
+      setVoiceSaveStatus("error");
+      setAuthError(error.message);
+      return next;
+    }
+    setVoiceSaveStatus("synced");
+    return next;
+  }
+
+  function previewKoreanVoice() {
+    if (!speakKoreanText("안녕하세요. 오늘도 한국어를 같이 연습해요.", voicePreference)) {
+      setNotice("Korean speech synthesis is unavailable in this browser.");
     }
   }
 
@@ -2614,70 +2684,43 @@ export default function Hallim() {
   }
   function getKoreanVoice() {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
-    if (koreanVoiceRef.current) return koreanVoiceRef.current;
-    const voices = window.speechSynthesis.getVoices().filter((voice) =>
-      voice.lang?.toLowerCase().startsWith("ko")
-    );
-    koreanVoiceRef.current = voices[0] || null;
-    return koreanVoiceRef.current;
+    const voice = resolveKoreanVoice(voicePreference, availableKoreanVoices.length ? availableKoreanVoices : koreanVoices());
+    koreanVoiceRef.current = voice;
+    return voice;
   }
 
-  function speakKorean(text, rate = 1) {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "ko-KR";
-    utterance.rate = Math.max(0.45, Math.min(1.15, Number(rate) || 1));
-    utterance.pitch = 1;
-    utterance.volume = 1;
-    const voice = getKoreanVoice();
-    if (voice) utterance.voice = voice;
-    window.setTimeout(() => window.speechSynthesis.speak(utterance), 45);
+  function speakKorean(text, rateMultiplier = 1) {
+    speakKoreanText(text, voicePreference, { rateMultiplier });
   }
 
-  function playKorean(text, rate = 1) {
-    speakKorean(text, rate);
+  function playKorean(text, rateMultiplier = 1) {
+    speakKorean(text, rateMultiplier);
   }
 
   function playVocabKorean(text, speed = 1) {
-    const effectiveRate = speed <= 0.5 ? 0.42 : speed <= 0.75 ? 0.62 : 1;
-    speakKorean(text, effectiveRate);
+    const multiplier = speed <= 0.5 ? 0.58 : speed <= 0.75 ? 0.78 : 1;
+    speakKorean(text, multiplier);
   }
 
   function playSyllable(text) {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text + "  " + text);
-    utterance.lang = "ko-KR";
-    utterance.rate = 0.92;
-    utterance.pitch = 1;
-    const voice = getKoreanVoice();
-    if (voice) utterance.voice = voice;
-    window.setTimeout(() => window.speechSynthesis.speak(utterance), 45);
+    speakKoreanText(text + "  " + text, voicePreference, { rateMultiplier: 0.92 });
   }
 
   function playContrast(text) {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text + ", " + text + ", " + text);
-    utterance.lang = "ko-KR";
-    utterance.rate = 0.9;
-    utterance.pitch = 1;
-    const voice = getKoreanVoice();
-    if (voice) utterance.voice = voice;
-    window.setTimeout(() => window.speechSynthesis.speak(utterance), 45);
+    speakKoreanText(text + ", " + text + ", " + text, voicePreference, { rateMultiplier: 0.9 });
   }
 
   function playGrammarChunks(chunks) {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
     const voice = getKoreanVoice();
+    const rate = clampKoreanRate(voicePreference.rate * 0.8);
 
     const speakAt = (index) => {
       if (index >= chunks.length) return;
       const utterance = new SpeechSynthesisUtterance(chunks[index] + ",");
       utterance.lang = "ko-KR";
-      utterance.rate = 0.8;
+      utterance.rate = rate;
       utterance.pitch = 1.02;
       utterance.volume = 0.98;
       if (voice) utterance.voice = voice;
@@ -2687,6 +2730,7 @@ export default function Hallim() {
 
     window.setTimeout(() => speakAt(0), 60);
   }
+
   function restoreScroll(targetView) {
     if (typeof window === "undefined") return;
     const top = viewScrollRef.current[targetView] || 0;
@@ -4189,6 +4233,59 @@ export default function Hallim() {
           {authError && <div className="accountNotice error">{authError}</div>}
           {authMessage && <div className="accountNotice">{authMessage}</div>}
           {referralCode && <div className="referralAttribution">Joined through ambassador code <b>{referralCode}</b></div>}
+        </section>
+
+        <section className="voicePreferencePanel">
+          <div className="voicePreferenceHead">
+            <div>
+              <span className="eyebrow">Korean voice</span>
+              <h2>Use one voice across Hallim.</h2>
+              <p>Your preferred Korean system voice and pace are saved to this device and, when signed in, synced to your Hallim account.</p>
+            </div>
+            <span className={"voiceSyncPill " + voiceSaveStatus}>
+              {voiceSaveStatus === "synced" ? "Account synced" : voiceSaveStatus === "saving" ? "Saving…" : voiceSaveStatus === "error" ? "Sync issue" : "Saved locally"}
+            </span>
+          </div>
+          <div className="voicePreferenceControls">
+            <label>
+              <span>Preferred Korean voice</span>
+              <select
+                value={voicePreference.voiceUri}
+                onChange={(event) => {
+                  const voice = availableKoreanVoices.find((item) => item.voiceURI === event.target.value);
+                  saveKoreanVoicePreference({
+                    ...voicePreference,
+                    voiceUri: voice?.voiceURI || "",
+                    voiceName: voice?.name || "",
+                  });
+                }}
+              >
+                <option value="">Automatic best Korean voice</option>
+                {availableKoreanVoices.map((voice) => (
+                  <option value={voice.voiceURI} key={voice.voiceURI || voice.name}>
+                    {voice.name}{voice.localService ? " · device" : ""}
+                  </option>
+                ))}
+              </select>
+              <small>{availableKoreanVoices.length ? availableKoreanVoices.length + " Korean voice" + (availableKoreanVoices.length === 1 ? "" : "s") + " available on this device." : "No Korean system voice has been exposed by this browser yet."}</small>
+            </label>
+            <label>
+              <span>Speaking pace · {voicePreference.rate.toFixed(2)}×</span>
+              <input
+                type="range"
+                min="0.65"
+                max="1.10"
+                step="0.05"
+                value={voicePreference.rate}
+                onChange={(event) => saveKoreanVoicePreference({
+                  ...voicePreference,
+                  rate: Number(event.target.value),
+                })}
+              />
+              <small>Lesson-specific slow-practice controls still slow this base pace further.</small>
+            </label>
+            <button type="button" onClick={previewKoreanVoice}>▶ Preview voice</button>
+          </div>
         </section>
 
         {shareMessage && <div className="shareNotice">{shareMessage}</div>}
