@@ -1,7 +1,9 @@
+import {auditTopikCatalog,enrichPaperProvenance} from "../../lib/topik/provenance";
+
 // Third-party source links only. Do not host original examination bytes without permission.
 // Legacy links traced to TOPIK GUIDE pages; answer keys / MP3 content need full audit before scoring.
 // 83/91/96/102 sources: Hallium TOPIK I recovery audit, 2026-09-24.
-export const papers=[
+const rawPapers=[
   {
     "id": "83-I",
     "round": 83,
@@ -712,3 +714,7 @@ export const papers=[
     "oldPaper": true
   }
 ];
+
+
+export const papers=rawPapers.map(enrichPaperProvenance);
+export const paperCatalogAudit=auditTopikCatalog(papers);
