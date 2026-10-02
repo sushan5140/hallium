@@ -1,5 +1,13 @@
 "use client";
 import {useEffect,useMemo,useState} from "react";
+import {getHallimSupabase} from "../../lib/supabase/client";
+import {
+ DEFAULT_KOREAN_VOICE_PREFERENCE,
+ newerVoicePreference,
+ readLocalVoicePreference,
+ speakKoreanText,
+ writeLocalVoicePreference,
+} from "../../lib/korean-voice";
 import {topikUnits,sourceNote} from "./curriculum";
 import {papers} from "../topik-mocks/papers";
 import s from "./studio.module.css";
@@ -23,14 +31,29 @@ function challengeBank(unit){
    return {id:"g"+i,type:"grammar",prompt:"What does “"+item.form+"” express?",options,answer,ko:item.example,explain:item.rule};
  })];
 }
-function say(korean,pace=0.89){
- if(typeof window==="undefined"||!("speechSynthesis" in window))return false;
- try{window.speechSynthesis.cancel();let x=new SpeechSynthesisUtterance(korean);x.lang="ko-KR";x.rate=pace;window.speechSynthesis.speak(x);return true}catch{return false}
-}
 export default function TopikCompanion(){
  const [data,setData]=useState(defaults),[ready,setReady]=useState(false),[mode,setMode]=useState("learn"),[showReview,setShowReview]=useState(false),[voiceNotice,setVoiceNotice]=useState("");
- useEffect(()=>{try{const saved=JSON.parse(localStorage.getItem(STORE)||"{}");const restored=saved&&typeof saved==="object"&&!Array.isArray(saved)?{...defaults,...saved,answers:saved.answers||{},results:saved.results||{},review:saved.review||[]}:defaults;const requested=new URLSearchParams(location.search).get("unit");const target=topikUnits.find(x=>x.id===requested);setData(target?{...restored,level:target.level,unit:target.id}:restored)}catch{}setReady(true);return()=>{try{window.speechSynthesis?.cancel()}catch{}}},[]);
+ const [voicePreference,setVoicePreference]=useState(DEFAULT_KOREAN_VOICE_PREFERENCE);
+ useEffect(()=>{setVoicePreference(readLocalVoicePreference());try{const saved=JSON.parse(localStorage.getItem(STORE)||"{}");const restored=saved&&typeof saved==="object"&&!Array.isArray(saved)?{...defaults,...saved,answers:saved.answers||{},results:saved.results||{},review:saved.review||[]}:defaults;const requested=new URLSearchParams(location.search).get("unit");const target=topikUnits.find(x=>x.id===requested);setData(target?{...restored,level:target.level,unit:target.id}:restored)}catch{}setReady(true);return()=>{try{window.speechSynthesis?.cancel()}catch{}}},[]);
  useEffect(()=>{if(ready)try{localStorage.setItem(STORE,JSON.stringify(data))}catch{}},[data,ready]);
+ useEffect(()=>{
+  let active=true;
+  const supabase=getHallimSupabase();
+  supabase.auth.getSession().then(async({data:sessionData})=>{
+   const user=sessionData?.session?.user;
+   if(!active||!user)return;
+   const {data:row}=await supabase.from("hallium_voice_preferences")
+    .select("voice_uri,voice_name,rate,updated_at")
+    .eq("user_id",user.id).maybeSingle();
+   if(!active||!row)return;
+   const merged=newerVoicePreference(readLocalVoicePreference(),{
+    voiceUri:row.voice_uri||"",voiceName:row.voice_name||"",rate:row.rate,updatedAt:row.updated_at||""
+   });
+   setVoicePreference(writeLocalVoicePreference(merged));
+  });
+  return()=>{active=false};
+ },[]);
+
  const level=data.level==="II"?"II":"I",units=topikUnits.filter(x=>x.level===level);
  const active=units.find(x=>x.id===data.unit)||units[0];
  const bank=useMemo(()=>challengeBank(active),[active]);
@@ -53,12 +76,12 @@ export default function TopikCompanion(){
   setData(old=>({...old,results:{...old.results,[active.id]:{done:true,score:n,total:bank.length,wrong:wrongIds,at:new Date().toISOString()}},review:[...new Set([...old.review,...missedWords])]}));setShowReview(false);
  }
  function retry(){setData(old=>{let results={...old.results},answers={...old.answers};delete results[active.id];delete answers[active.id];return {...old,results,answers}});setShowReview(false);setMode("test")}
- function hear(text){if(!say(text))setVoiceNotice("Korean speech synthesis is unavailable in this browser.")}
+ function hear(text){if(!speakKoreanText(text,voicePreference,{rateMultiplier:0.94}))setVoiceNotice("Korean speech synthesis is unavailable in this browser.")}
  if(!ready)return <div className={s.loading}>Opening TOPIK Companion…</div>;
  return <div className={s.shell}>
   <header className={s.header}><a className={s.logo} href="/companions"><span>ㅎ</span><strong>Hallium <small>COMPANION PATHS</small></strong></a><nav aria-label="Companion routes"><a href="/?view=companion">Korean Companion</a><a href="/topik-from-zero">From Zero → TOPIK</a><a aria-current="page" href="/topik-companion">TOPIK Companion</a><a href="/topik-mocks">Past papers ↗</a></nav></header>
   <main className={s.main}>
-   <section className={s.hero}><div><span className={s.overline}>FOCUSED REVISION FOR LEARNERS WITH THE BASICS · 토픽</span><h1>TOPIK Companion<span>.</span></h1><p>Already know some Hangul and basic Korean? Target the vocabulary, grammar and reading decisions practiced across authentic paper-based TOPIK materials. These compact lessons are revision, not a complete beginner course or guaranteed passing syllabus.</p><div className={s.heroActions}><a href="/topik-mocks">Open past-paper practice ↗</a><a href="/topik-from-zero">New to Korean? Start with the Bridge →</a></div></div><aside className={s.heroStat}><span>YOUR OWN EXAM PREP</span><strong>{complete}<small> / {units.length}</small></strong><div className={s.track}><i style={{width:(complete/units.length*100)+"%"}}/></div><small>Lessons completed in TOPIK {level} · local to this browser</small></aside></section>
+   <section className={s.hero}><div><span className={s.overline}>FOCUSED REVISION FOR LEARNERS WITH THE BASICS · 토픽</span><h1>TOPIK Companion<span>.</span></h1><p>Already know some Hangul and basic Korean? Target the vocabulary, grammar and reading decisions practiced across authentic paper-based TOPIK materials. These compact lessons are revision, not a complete beginner course or guaranteed passing syllabus.</p><div className={s.heroActions}><a href="/topik-mocks">Open past-paper practice ↗</a><a href="/topik-from-zero">New to Korean? Start with the Bridge →</a><a href="/?view=profile">Voice · {voicePreference.rate.toFixed(2)}× ↗</a></div></div><aside className={s.heroStat}><span>YOUR OWN EXAM PREP</span><strong>{complete}<small> / {units.length}</small></strong><div className={s.track}><i style={{width:(complete/units.length*100)+"%"}}/></div><small>Lessons completed in TOPIK {level} · local to this browser</small></aside></section>
    <div className={s.switcher} role="group" aria-label="TOPIK preparation level"><button className={level==="I"?s.selected:""} aria-pressed={level==="I"} onClick={()=>selectLevel("I")}><b>TOPIK I</b><small>Levels 1–2 · focused revision · 12 lessons</small></button><button className={level==="II"?s.selected:""} aria-pressed={level==="II"} onClick={()=>selectLevel("II")}><b>TOPIK II</b><small>Levels 3–6 · intermediate–advanced · 10 lessons</small></button></div>
    <div className={s.overview}><div className={s.overviewCopy}><span className={s.overline}>PERSONAL PLAN</span><h2>{dates===null?"When is your TOPIK test?":dates<0?"Your saved exam date has passed.":dates===0?"Exam day is here.":dates+" days until your exam"}</h2><p>{dates!==null&&dates<=14&&dates>=0?"Short runway: prioritize missed concepts, connectors and one original-paper session over new material.":"Your lesson results stay separate from mock exam scores. Focus on one weakness, review words, then try a timed paper."}</p><p><b>Suggested focus:</b> {focus.title}{focus.id===active.id?" (your current lesson)":""}</p></div><div className={s.inputs}><label>Exam date<input type="date" value={data.examDate||""} onChange={e=>setData(o=>({...o,examDate:e.target.value}))}/></label><label>Daily study time<select value={data.minutes||15} onChange={e=>setData(o=>({...o,minutes:Number(e.target.value)}))}><option value="5">5 minutes</option><option value="10">10 minutes</option><option value="15">15 minutes</option><option value="20">20 minutes</option><option value="30">30 minutes</option></select></label><span>{dates!==null&&dates>=0?Math.min(3,Math.max(1,Math.floor((data.minutes||15)/10)))+" mini-drill(s) per day suggested":"Set a date to tailor the study pace."}</span></div></div>
    <div className={s.layout}><aside className={s.sidebar}><div className={s.sideHead}><span>YOUR STUDY MAP</span><h2>TOPIK {level} syllabus</h2><small>{units.length*5} original-example vocabulary cards · {units.length*2} grammar patterns</small></div><div className={s.lessonList}>{units.map((u,i)=>{const score=data.results[u.id];return <button key={u.id} className={active.id===u.id?s.current:""} aria-current={active.id===u.id?"step":undefined} onClick={()=>selectUnit(u.id)}><span className={s.num}>{score?.done?"✓":String(i+1).padStart(2,"0")}</span><span><strong>{u.title}</strong><small>{score?.done?score.score+"/"+score.total+" practice correct":u.focus}</small></span><span aria-hidden="true">↗</span></button>})}</div><a className={s.sourceLink} href="/topik-mocks">Go to original past papers ↗</a></aside>
