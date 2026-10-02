@@ -16,24 +16,41 @@ permissions:
 jobs:
   topik:
     runs-on: ubuntu-latest
-    timeout-minutes: 14
+    timeout-minutes: 16
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
-      - run: npm install --no-save --no-package-lock playwright@1.58.0
-      - run: npx playwright install --with-deps chromium
-      - name: Start Hallium
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Compile Hallium
+        run: npm run build
+      - name: Install Chromium
         run: |
-          npm run dev >/tmp/hallium-topik.log 2>&1 &
-          for i in $(seq 1 50); do
-            if curl -fsS http://127.0.0.1:3000/topik-mocks >/dev/null; then exit 0; fi
-            sleep 1
-          done
-          cat /tmp/hallium-topik.log
-          exit 1
+          npm install --no-save --no-package-lock playwright@1.58.0
+          npx playwright install --with-deps chromium
       - name: Verify TOPIK source and practice gates
-        run: node .github/scripts/verify-topik-mocks.cjs
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3000 >/tmp/hallium-topik.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+
+          ok=0
+          for i in $(seq 1 45); do
+            if curl -fsS http://127.0.0.1:3000/topik-mocks >/dev/null; then
+              ok=1
+              break
+            fi
+            sleep 2
+          done
+
+          if [ "$ok" -ne 1 ]; then
+            cat /tmp/hallium-topik.log
+            exit 1
+          fi
+
+          node .github/scripts/verify-topik-mocks.cjs
