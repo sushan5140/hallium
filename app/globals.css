@@ -3610,3 +3610,110 @@ button.toast{border:0;text-align:left}
 @media(max-width:380px){
  .top-actions .owner-study-shortcut{max-width:90px;white-space:normal;padding-inline:5px;text-align:center}
 }
+
+
+/* Account-level Korean voice preference */
+.voicePreferencePanel{
+  margin-top:18px;
+  border:1px solid var(--line,#dfe2dc);
+  border-radius:18px;
+  background:var(--surface,#fff);
+  padding:20px;
+  box-shadow:0 8px 24px rgba(23,25,31,.04);
+}
+.voicePreferenceHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+}
+.voicePreferenceHead h2{
+  margin:5px 0 0;
+  font-size:clamp(22px,2.5vw,32px);
+  letter-spacing:-.035em;
+}
+.voicePreferenceHead p{
+  max-width:720px;
+  margin:7px 0 0;
+  color:var(--muted,#676b75);
+  font-size:12px;
+  line-height:1.65;
+}
+.voiceSyncPill{
+  flex:none;
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  border:1px solid var(--line,#dfe2dc);
+  border-radius:999px;
+  padding:0 10px;
+  background:var(--surface-2,#eceee9);
+  color:var(--muted,#676b75);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.voiceSyncPill.synced{background:var(--jade-soft,#dff2eb);color:var(--jade,#087f69);border-color:rgba(8,127,105,.18)}
+.voiceSyncPill.saving{background:var(--indigo-soft,#e8e7ff);color:var(--indigo,#5147e8);border-color:rgba(81,71,232,.18)}
+.voiceSyncPill.error{background:var(--papaya-soft,#fbe6df);color:var(--danger,#b83d3d);border-color:rgba(184,61,61,.18)}
+.voicePreferenceControls{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(240px,.75fr) auto;
+  gap:12px;
+  align-items:end;
+  margin-top:18px;
+}
+.voicePreferenceControls label{
+  display:grid;
+  gap:7px;
+}
+.voicePreferenceControls label>span{
+  color:var(--ink,#17191f);
+  font-size:10px;
+  font-weight:750;
+}
+.voicePreferenceControls select{
+  width:100%;
+  min-height:44px;
+  border:1px solid var(--line,#dfe2dc);
+  border-radius:12px;
+  background:var(--surface,#fff);
+  padding:0 12px;
+  color:var(--ink,#17191f);
+  font:600 12px/1.2 inherit;
+  outline:none;
+}
+.voicePreferenceControls select:focus{
+  border-color:rgba(81,71,232,.38);
+  box-shadow:0 0 0 3px var(--indigo-soft,#e8e7ff);
+}
+.voicePreferenceControls input[type="range"]{
+  width:100%;
+  accent-color:var(--indigo,#5147e8);
+}
+.voicePreferenceControls small{
+  color:var(--muted,#676b75);
+  font-size:9px;
+  line-height:1.45;
+}
+.voicePreferenceControls>button{
+  min-height:44px;
+  border:0;
+  border-radius:12px;
+  background:var(--ink,#17191f);
+  padding:0 15px;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.voicePreferenceControls>button:active{transform:scale(.97)}
+@media(max-width:900px){
+  .voicePreferenceControls{grid-template-columns:1fr}
+  .voicePreferenceControls>button{justify-self:start}
+}
+@media(max-width:620px){
+  .voicePreferenceHead{flex-direction:column}
+  .voicePreferencePanel{padding:16px}
+}
