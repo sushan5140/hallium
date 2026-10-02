@@ -8,6 +8,7 @@ const {chromium}=require("playwright");
   const response=await page.goto("http://127.0.0.1:3000/topik-mocks",{waitUntil:"domcontentloaded"});
   assert.equal(response.status(),200);
   await page.getByRole("heading",{name:/meet the exam/i}).waitFor();
+  await page.locator('[data-client-ready="true"]').waitFor();
   assert.equal(await page.getByRole("button",{name:/TOPIK I · Beginner/i}).count(),1);
   assert.equal(await page.getByRole("button",{name:/60th TOPIK I/i}).count(),1);
   for(const n of ["102nd","96th","91st","83rd","64th"])assert.equal(await page.getByRole("button",{name:new RegExp(n+" TOPIK I","i")}).count(),1);
