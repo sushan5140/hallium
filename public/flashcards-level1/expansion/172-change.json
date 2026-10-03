@@ -1,0 +1,13 @@
+{
+  "id": "change",
+  "ko": "바꾸다",
+  "latin": "bakkuda",
+  "meaning": "To change / replace",
+  "group": "Actions",
+  "type": "VERB · GENERAL",
+  "example": "비밀번호를 바꿔요.",
+  "translation": "I change the password.",
+  "tip": "바꾸다 changes to 바꿔요.",
+  "sentencePrompt": "비밀번호를 _____.",
+  "contrast": "바꾸다 means change; 그대로 means as it is."
+}
