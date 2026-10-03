@@ -1,0 +1,13 @@
+{
+  "id": "help",
+  "ko": "도와주다",
+  "latin": "dowajuda",
+  "meaning": "To help",
+  "group": "Actions",
+  "type": "VERB · SOCIAL",
+  "example": "친구를 도와줘요.",
+  "translation": "I help my friend.",
+  "tip": "도와주다 changes naturally to 도와줘요.",
+  "sentencePrompt": "친구를 _____.",
+  "contrast": "도와주다 means help someone; 돕다 is the base verb 'to help'."
+}
