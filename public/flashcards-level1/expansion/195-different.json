@@ -1,0 +1,13 @@
+{
+  "id": "different",
+  "ko": "다르다",
+  "latin": "dareuda",
+  "meaning": "To be different",
+  "group": "Description",
+  "type": "ADJECTIVE · COMPARISON",
+  "example": "두 방법이 달라요.",
+  "translation": "The two methods are different.",
+  "tip": "다르다 changes irregularly to 달라요.",
+  "sentencePrompt": "두 방법이 _____.",
+  "contrast": "다르다 means different; 같다 means same."
+}
