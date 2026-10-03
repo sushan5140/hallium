@@ -1,0 +1,13 @@
+{
+  "id": "counter-animals-9",
+  "ko": "아홉 마리",
+  "latin": "ahop mari",
+  "meaning": "9 animals",
+  "group": "Counters",
+  "type": "COUNTER · ANIMALS",
+  "example": "고양이가 아홉 마리 있어요.",
+  "translation": "There are 9 cats.",
+  "tip": "마리 is the common counter for animals.",
+  "sentencePrompt": "고양이가 _____ 있어요.",
+  "contrast": "마리 counts animals; 명 counts people."
+}
