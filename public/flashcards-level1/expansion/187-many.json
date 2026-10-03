@@ -1,0 +1,13 @@
+{
+  "id": "many",
+  "ko": "많다",
+  "latin": "manta",
+  "meaning": "To be many / much",
+  "group": "Description",
+  "type": "ADJECTIVE · QUANTITY",
+  "example": "사람이 많아요.",
+  "translation": "There are many people.",
+  "tip": "많다 is commonly pronounced 만타.",
+  "sentencePrompt": "사람이 _____.",
+  "contrast": "많다 means many/much; 적다 means few/little."
+}
