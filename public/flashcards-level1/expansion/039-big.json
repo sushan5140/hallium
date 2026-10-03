@@ -1,0 +1,13 @@
+{
+  "id": "big",
+  "ko": "크다",
+  "latin": "keuda",
+  "meaning": "To be big",
+  "group": "Description",
+  "type": "ADJECTIVE · SIZE",
+  "example": "학교가 커요.",
+  "translation": "The school is big.",
+  "tip": "크다 changes to 커요 in polite present speech.",
+  "sentencePrompt": "학교가 _____.",
+  "contrast": "크다 means big; 작다 means small."
+}
