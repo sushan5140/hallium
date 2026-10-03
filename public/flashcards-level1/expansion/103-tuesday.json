@@ -1,0 +1,13 @@
+{
+  "id": "tuesday",
+  "ko": "화요일",
+  "latin": "hwayoil",
+  "meaning": "Tuesday",
+  "group": "Time",
+  "type": "NOUN · DAY",
+  "example": "화요일에 운동해요.",
+  "translation": "I exercise on Tuesday.",
+  "tip": "화 is pronounced hwa.",
+  "sentencePrompt": "_____에 운동해요.",
+  "contrast": "화요일 is Tuesday; 수요일 is Wednesday."
+}
