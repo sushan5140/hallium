@@ -1,0 +1,13 @@
+{
+  "id": "between",
+  "ko": "사이",
+  "latin": "sai",
+  "meaning": "Between",
+  "group": "Travel",
+  "type": "NOUN · LOCATION",
+  "example": "학교와 집 사이에 공원이 있어요.",
+  "translation": "There is a park between the school and home.",
+  "tip": "사이 is pronounced sa-i.",
+  "sentencePrompt": "학교와 집 _____에 공원이 있어요.",
+  "contrast": "사이 means between/among; 옆 means beside."
+}
