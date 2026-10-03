@@ -1,0 +1,13 @@
+{
+  "id": "class",
+  "ko": "수업",
+  "latin": "sueop",
+  "meaning": "Class / lesson",
+  "group": "School",
+  "type": "NOUN · SCHOOL",
+  "example": "아침에 수업이 있어요.",
+  "translation": "I have class in the morning.",
+  "tip": "수업 ends with final ㅂ.",
+  "sentencePrompt": "아침에 _____이 있어요.",
+  "contrast": "수업 is class/lesson; 교실 is classroom."
+}
