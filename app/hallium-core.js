@@ -16,6 +16,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
+import { playServerKoreanTts } from "../lib/korean-tts-provider";
 import PartnerKorean from "./partner/PartnerKorean";
 import LandingPage from "./landing/LandingPage";
 
@@ -3055,8 +3056,15 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     speakKoreanText(text, voicePreference, { rateMultiplier });
   }
 
-  function playKorean(text, rateMultiplier = 1) {
+  async function playKorean(text, rateMultiplier = 1) {
+    if (!guestMode) {
+      const usedServerVoice = await playServerKoreanTts(text, {
+        rate: clampKoreanRate(voicePreference.rate * rateMultiplier),
+      });
+      if (usedServerVoice) return true;
+    }
     speakKorean(text, rateMultiplier);
+    return false;
   }
 
   function playVocabKorean(text, speed = 1) {
