@@ -1,0 +1,13 @@
+{
+  "id": "counter-times-15",
+  "ko": "열다섯 번",
+  "latin": "yeol-daseot beon",
+  "meaning": "15 times",
+  "group": "Counters",
+  "type": "COUNTER · OCCURRENCES",
+  "example": "열다섯 번 읽었어요.",
+  "translation": "I read it 15 times.",
+  "tip": "번 counts occurrences, repetitions, turns, and numbered instances.",
+  "sentencePrompt": "_____ 읽었어요.",
+  "contrast": "번 counts occurrences; 개 counts general objects."
+}
