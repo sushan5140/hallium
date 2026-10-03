@@ -2932,3 +2932,82 @@ Recommended experiment:
 - clearly state that this conservative interval method is a robustness experiment, not automatically a formal e-process
 
 Do not loosen goals post hoc.
+
+
+---
+
+# 36. TwinMem Pilot 11 — conservative null interval destroys power
+
+Draft PR: #16  
+Branch: `research/twinmem-pilot11-null-interval`
+
+Pilot 11 freezes:
+- baseline 48 labels/source
+- Pilot-9 delta 0.25
+- Pilot-9 alpha 0.10
+- stages 8 / 12 / 24 / 48
+- unchanged detection + efficiency goals
+
+Only null handling changes:
+- derive approximate posterior interval for each source's baseline reliability
+- choose the null p inside the interval that maximizes recent-data likelihood
+- compare Pilot-9 alternatives against that most H0-favorable null
+
+Development interval levels:
+
+70%:
+- stationary false alarm 0.77%
+- moderate detection 45.77%
+- moderate mean labels/source 43.78
+- severe detection 96.92%
+- severe mean labels/source 26.60
+- FAIL
+
+80%:
+- stationary false alarm 1.92%
+- moderate detection 46.92%
+- moderate labels 43.77
+- severe 96.54%
+- severe labels 29.46
+- FAIL
+
+90%:
+- stationary false alarm 0.38%
+- moderate detection 41.92%
+- moderate labels 44.42
+- severe 90.77%
+- severe labels 34.49
+- FAIL
+
+95%:
+- stationary false alarm 0.38%
+- moderate detection 20.0%
+- moderate labels 47.25
+- severe 83.46%
+- severe labels 38.57
+- FAIL
+
+No interval passes development.
+Therefore:
+- selected interval = none
+- held-out unbiased evaluation not run
+- bias stress not run
+
+Conclusion:
+Worst-case null intervals solve plug-in false alarms too aggressively and destroy power/efficiency.
+
+Exact next phase:
+**Pilot 12 — posterior-predictive null mixture**
+
+Freeze:
+- baseline 48 labels/source
+- delta 0.25
+- alpha 0.10
+- stages 8 / 12 / 24 / 48
+- detection/efficiency goals
+
+Use the full Beta baseline posterior as null predictive evidence rather than:
+- a point plug-in p0, or
+- a worst-case interval p0.
+
+Avoid post-hoc interval tuning.
