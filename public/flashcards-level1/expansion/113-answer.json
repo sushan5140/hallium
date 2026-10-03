@@ -1,0 +1,13 @@
+{
+  "id": "answer",
+  "ko": "대답",
+  "latin": "daedap",
+  "meaning": "Answer",
+  "group": "School",
+  "type": "NOUN · COMMUNICATION",
+  "example": "대답을 잘했어요.",
+  "translation": "I answered well.",
+  "tip": "대답 ends with final ㅂ.",
+  "sentencePrompt": "_____을 잘했어요.",
+  "contrast": "대답 means answer; 질문 means question."
+}
