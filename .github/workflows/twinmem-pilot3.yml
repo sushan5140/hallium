@@ -1,0 +1,42 @@
+name: TwinMem Pilot 3 budget-aware gate
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot3/**"
+      - ".github/workflows/twinmem-pilot3.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run budget-aware drift-response experiment
+        run: python research/twinmem_pilot3/budget_aware_gate.py
+      - name: Validate experiment structure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("research/twinmem_pilot3/outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["detector"]=={"window_per_source":24,"threshold":0.2}
+          assert set(d["action_table"])=={"no_drift","drift"}
+          assert len(d["scenarios"])==3
+          assert {s["scenario"] for s in d["scenarios"]}=={
+              "stationary","severe_shift","moderate_shift_unseen"
+          }
+          for regime in ("no_drift","drift"):
+              assert set(d["action_table"][regime])=={"52","105","210"}
+              assert all(v in {"calibrated","topic_recent"} for v in d["action_table"][regime].values())
+          print("PASS: Pilot 3 detector freeze, action table, and scenario separation")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot3-budget-aware-gate
+          path: research/twinmem_pilot3/outputs/
+          retention-days: 30
