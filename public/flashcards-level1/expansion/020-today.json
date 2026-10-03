@@ -1,0 +1,13 @@
+{
+  "id": "today",
+  "ko": "오늘",
+  "latin": "oneul",
+  "meaning": "Today",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "오늘 학교에 가요.",
+  "translation": "I go to school today.",
+  "tip": "늘 ends with final ㄹ; do not add an extra vowel.",
+  "sentencePrompt": "_____ 학교에 가요.",
+  "contrast": "오늘 is today; 내일 is tomorrow; 어제 is yesterday."
+}
