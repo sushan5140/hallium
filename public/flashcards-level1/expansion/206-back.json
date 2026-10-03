@@ -1,0 +1,13 @@
+{
+  "id": "back",
+  "ko": "뒤",
+  "latin": "dwi",
+  "meaning": "Back / behind",
+  "group": "Travel",
+  "type": "NOUN · DIRECTION",
+  "example": "건물 뒤에 주차장이 있어요.",
+  "translation": "There is a parking lot behind the building.",
+  "tip": "뒤 is one syllable with a rounded glide.",
+  "sentencePrompt": "건물 _____에 주차장이 있어요.",
+  "contrast": "뒤 means back/behind; 앞 means front."
+}
