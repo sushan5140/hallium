@@ -1,0 +1,13 @@
+{
+  "id": "notebook",
+  "ko": "공책",
+  "latin": "gongchaek",
+  "meaning": "Notebook",
+  "group": "School",
+  "type": "NOUN · OBJECT",
+  "example": "공책에 단어를 써요.",
+  "translation": "I write words in a notebook.",
+  "tip": "책 ends with final ㄱ.",
+  "sentencePrompt": "_____에 단어를 써요.",
+  "contrast": "공책 is notebook; 책 is book."
+}
