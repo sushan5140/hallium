@@ -1,0 +1,13 @@
+{
+  "id": "countryside",
+  "ko": "시골",
+  "latin": "sigol",
+  "meaning": "Countryside",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "주말에 시골에 가요.",
+  "translation": "I go to the countryside on the weekend.",
+  "tip": "시골 ends with final ㄹ.",
+  "sentencePrompt": "주말에 _____에 가요.",
+  "contrast": "시골 means countryside; 도시 means city."
+}
