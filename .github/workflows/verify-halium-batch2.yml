@@ -11,6 +11,7 @@ on:
       - 'tests/topik-exam-engine.test.mjs'
       - 'tests/curriculum-admin.test.mjs'
       - 'supabase/migrations/20261003000100_curriculum_admin_studio.sql'
+      - '.github/scripts/verify-topik-mocks.cjs'
       - '.github/workflows/verify-halium-batch2.yml'
   workflow_dispatch:
 permissions:
