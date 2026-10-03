@@ -1,0 +1,13 @@
+{
+  "id": "store",
+  "ko": "가게",
+  "latin": "gage",
+  "meaning": "Store / shop",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "가게에서 빵을 사요.",
+  "translation": "I buy bread at the store.",
+  "tip": "가게 is a general everyday word for a shop.",
+  "sentencePrompt": "_____에서 빵을 사요.",
+  "contrast": "가게 is a shop; 시장 is a market."
+}
