@@ -1,0 +1,40 @@
+name: TwinMem Pilot 9 mixture e-process
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot9/**"
+      - ".github/workflows/twinmem-pilot9.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run mixture e-process experiment
+        run: python research/twinmem_pilot9/mixture_eprocess.py
+      - name: Validate e-process-style design
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("research/twinmem_pilot9/outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["stages"]==[8,12,24,48]
+          assert d["deltas"]==[0.1,0.15,0.2,0.25]
+          assert d["alphas"]==[0.05,0.08,0.1]
+          assert d["mixture_components"]==6
+          assert len(d["development_candidates"])==12
+          assert d["development_repeats"]==240
+          assert d["test_repeats"]==500
+          print("PASS: Pilot 9 mixture e-process candidate grid is frozen")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot9-mixture-eprocess
+          path: research/twinmem_pilot9/outputs/
+          retention-days: 30
