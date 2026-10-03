@@ -1,0 +1,13 @@
+{
+  "id": "sea",
+  "ko": "바다",
+  "latin": "bada",
+  "meaning": "Sea",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "바다가 정말 예뻐요.",
+  "translation": "The sea is really beautiful.",
+  "tip": "바다 is pronounced ba-da.",
+  "sentencePrompt": "_____가 정말 예뻐요.",
+  "contrast": "바다 is sea; 강 is river."
+}
