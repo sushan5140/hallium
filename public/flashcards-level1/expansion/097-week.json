@@ -1,0 +1,13 @@
+{
+  "id": "week",
+  "ko": "주",
+  "latin": "ju",
+  "meaning": "Week",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "이번 주에 시험이 있어요.",
+  "translation": "There is a test this week.",
+  "tip": "주 is one syllable.",
+  "sentencePrompt": "이번 _____에 시험이 있어요.",
+  "contrast": "주 means week; 달 means month."
+}
