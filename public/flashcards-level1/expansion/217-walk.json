@@ -1,0 +1,13 @@
+{
+  "id": "walk",
+  "ko": "걷다",
+  "latin": "geotda",
+  "meaning": "To walk",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "매일 학교까지 걸어요.",
+  "translation": "I walk to school every day.",
+  "tip": "걷다 changes irregularly to 걸어요.",
+  "sentencePrompt": "매일 학교까지 _____.",
+  "contrast": "걷다 means walk; 뛰다 means run."
+}
