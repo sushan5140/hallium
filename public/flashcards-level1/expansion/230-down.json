@@ -1,0 +1,13 @@
+{
+  "id": "down",
+  "ko": "내려가다",
+  "latin": "naeryeogada",
+  "meaning": "To go down",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "일 층으로 내려가요.",
+  "translation": "I go down to the first floor.",
+  "tip": "내려가다 changes to 내려가요.",
+  "sentencePrompt": "일 층으로 _____.",
+  "contrast": "내려가다 means go down; 올라가다 means go up."
+}
