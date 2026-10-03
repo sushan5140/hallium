@@ -1,0 +1,44 @@
+name: TwinMem Pilot 14 baseline information
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot14/**"
+      - ".github/workflows/twinmem-pilot14.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run baseline-information robustness matrix
+        run: python research/twinmem_pilot14/baseline_information.py
+      - name: Validate frozen robustness matrix
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("research/twinmem_pilot14/outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["frozen_pilot9"]=={
+              "delta":0.25,
+              "alpha":0.1,
+              "stages":[8,12,24,48],
+          }
+          assert d["baseline_sizes"]==[96,192]
+          assert d["repeats_per_size_pattern_scenario"]==500
+          assert set(d["bias_patterns"])=={
+              "none","all_plus_0_03","all_minus_0_03","source_skew_0_03"
+          }
+          assert set(d["matrix"])=={"96","192"}
+          print("PASS: Pilot 14 frozen baseline-information matrix")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot14-baseline-information
+          path: research/twinmem_pilot14/outputs/
+          retention-days: 30
