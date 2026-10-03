@@ -1,0 +1,13 @@
+{
+  "id": "clean",
+  "ko": "청소하다",
+  "latin": "cheongsohada",
+  "meaning": "To clean",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "주말에 방을 청소해요.",
+  "translation": "I clean my room on the weekend.",
+  "tip": "청소하다 changes to 청소해요.",
+  "sentencePrompt": "주말에 방을 _____.",
+  "contrast": "청소하다 means clean; 씻다 means wash."
+}
