@@ -1,0 +1,13 @@
+{
+  "id": "firefighter",
+  "ko": "소방관",
+  "latin": "sobanggwan",
+  "meaning": "Firefighter",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "소방관이 사람을 도와줘요.",
+  "translation": "The firefighter helps people.",
+  "tip": "소방관 ends with 관.",
+  "sentencePrompt": "_____이 사람을 도와줘요.",
+  "contrast": "소방관 means firefighter; 경찰 means police officer."
+}
