@@ -52,7 +52,7 @@ const {chromium}=require("playwright");
   assert.ok(widthCheck[0]<=widthCheck[1]+2,"bridge overflow "+JSON.stringify(widthCheck));
   // Keep the original top-left plan and right-side adaptive progress dashboard;
   // only Structured Study is the full-width second row. Recheck the real CSS.
-  const source=require("node:fs").readFileSync("app/page.js","utf8");
+  const source=require("node:fs").readFileSync("app/hallium-core.js","utf8");
   // Verified-owner QA bypass must come from the RLS-protected admin_users
   // table. Non-admin learners still use sequential lessons and answer checks.
   assert.ok(source.includes('.from("admin_users")')&&source.includes('.eq("user_id", authUser.id)'),
