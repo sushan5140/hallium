@@ -1,0 +1,13 @@
+{
+  "id": "reserve",
+  "ko": "예약하다",
+  "latin": "yeyakhada",
+  "meaning": "To reserve / book",
+  "group": "Actions",
+  "type": "VERB · TRAVEL",
+  "example": "온라인으로 방을 예약해요.",
+  "translation": "I book a room online.",
+  "tip": "예약하다 changes to 예약해요.",
+  "sentencePrompt": "온라인으로 방을 _____.",
+  "contrast": "예약하다 means book; 취소하다 means cancel."
+}
