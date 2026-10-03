@@ -1556,3 +1556,90 @@ Execution order:
 6. final TOPIK usability QA
 7. final issue cleanup + production closure
 
+
+
+---
+
+# 24. H-P5 native-Korean/content QA — checkpoint 1
+
+H-P5 began against the real live curriculum in `app/hallium-core.js`. No duplicate audit dataset was created.
+
+Audit rule:
+- preserve valid Korean variants,
+- do not mass-rewrite for style,
+- patch only high-confidence grammar-label, teaching-accuracy, or clear naturalness issues.
+
+## Corrections landed
+
+### 1. -데다가 morphology label
+Old label:
+- `A/V + 는 데다가`
+
+Problem:
+- the same lesson uses the adjective example `비싼 데다가`, which the old label did not describe correctly.
+
+New label:
+- `A + (으)ㄴ 데다가 / V + 는 데다가`
+
+Explanation now refers to `-(으)ㄴ/는 데다가`.
+
+### 2. Natural app-review sentence
+Old:
+- `제가 계속 쓰는 이유는 복습이 좋아서예요.`
+
+Revised:
+- `제가 계속 쓰는 이유는 복습 기능이 좋아서예요.`
+
+English answer/feedback was updated consistently to refer to the review feature.
+
+### 3. -(으)ㄴ 채로 scope
+Old label:
+- `A/V + (으)ㄴ 채로`
+
+Revised:
+- `Verb + (으)ㄴ 채로`
+
+Explanation now makes explicit that the result/state of an action remains unchanged while another action occurs.
+
+### 4. Reported-statement morphology
+Old label:
+- `Statement + 다고 하다`
+
+Revised teaching label:
+- `V + -(ㄴ/는)다고 / A + -다고 / N + (이)라고 하다`
+
+Explanation now distinguishes present action verbs, descriptive verbs, and nouns, while noting that tense remains inside the reported clause.
+
+Existing valid example retained:
+- `회의가 취소됐다고 했어요.`
+
+Commits:
+- `4659fa6a463b3880418f624b0095c85a5d52e9d8` — Refine Korean grammar labels and naturalness
+- `856721932f94b1ccdfecfc66f71eb0b4a4bd2eea` — Clarify Korean reported statement forms
+
+## Verification
+
+For `4659fa6...`:
+- Hallium Security Gate ✅
+- standalone Hallium ✅
+- Study Partners production integration ✅
+- Batch 2 ✅
+- full integrated Starter Flashcards / browser regression ✅
+
+For `856721...`:
+- Hallium Security Gate ✅
+- standalone Hallium ✅
+- Hallium Batch 2 ✅
+- Study Partners production integration ✅
+- pages build/deployment ✅
+- integrated Starter Flashcards Chromium exercise ✅
+  - final workflow cleanup was still completing when this checkpoint was recorded, but the functional Chromium step itself had passed.
+
+## H-P5 status
+
+Native-Korean/content QA remains **in progress**.
+
+Next:
+1. finish the remaining intermediate/advanced curriculum language pass,
+2. avoid changing merely stylistic or acceptable Korean variants,
+3. then use the existing curriculum audit helpers/Admin Studio for formal coverage QA.
