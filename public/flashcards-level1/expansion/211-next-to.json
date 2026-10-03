@@ -1,0 +1,13 @@
+{
+  "id": "next-to",
+  "ko": "옆",
+  "latin": "yeop",
+  "meaning": "Next to / side",
+  "group": "Travel",
+  "type": "NOUN · LOCATION",
+  "example": "카페 옆에 은행이 있어요.",
+  "translation": "There is a bank next to the café.",
+  "tip": "옆 ends with final ㅂ.",
+  "sentencePrompt": "카페 _____에 은행이 있어요.",
+  "contrast": "옆 means beside/next to; 앞 means front."
+}
