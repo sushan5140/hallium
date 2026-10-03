@@ -1,0 +1,13 @@
+{
+  "id": "weak",
+  "ko": "약하다",
+  "latin": "yakhada",
+  "meaning": "To be weak",
+  "group": "Description",
+  "type": "ADJECTIVE · QUALITY",
+  "example": "바람이 약해요.",
+  "translation": "The wind is weak.",
+  "tip": "약하다 changes to 약해요.",
+  "sentencePrompt": "바람이 _____.",
+  "contrast": "약하다 means weak; 강하다 means strong."
+}
