@@ -1,0 +1,12 @@
+metric,value
+selected_candidate,null
+heldout,null
+candidate_count,9
+passing_all_goals_count,0
+best_detection_candidate_alpha,0.07
+best_detection_candidate_shape,late
+best_detection_candidate_stationary_false_alarm,0.00909090909090909
+best_detection_candidate_moderate_detection,0.8136363636363636
+best_detection_candidate_moderate_mean_labels,39.163636363636364
+best_detection_candidate_severe_detection,1.0
+best_detection_candidate_severe_mean_labels,19.381818181818183
