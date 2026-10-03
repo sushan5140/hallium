@@ -1,0 +1,13 @@
+{
+  "id": "tea",
+  "ko": "차",
+  "latin": "cha",
+  "meaning": "Tea",
+  "group": "Food",
+  "type": "NOUN · DRINK",
+  "example": "저녁에 따뜻한 차를 마셔요.",
+  "translation": "I drink warm tea in the evening.",
+  "tip": "차 can also mean car; context determines meaning.",
+  "sentencePrompt": "저녁에 따뜻한 _____를 마셔요.",
+  "contrast": "차 here means tea; 자동차/차 can also mean car."
+}
