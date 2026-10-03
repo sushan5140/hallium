@@ -1,0 +1,13 @@
+{
+  "id": "ticket",
+  "ko": "표",
+  "latin": "pyo",
+  "meaning": "Ticket",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "표를 두 장 샀어요.",
+  "translation": "I bought two tickets.",
+  "tip": "표 begins with aspirated ㅍ + yo.",
+  "sentencePrompt": "_____를 두 장 샀어요.",
+  "contrast": "표 means ticket; 여권 means passport."
+}
