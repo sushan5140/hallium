@@ -1,0 +1,13 @@
+{
+  "id": "native-number-95",
+  "ko": "여든다섯",
+  "latin": "yeodeun-daseot",
+  "meaning": "Native Korean number 95",
+  "group": "Numbers",
+  "type": "NUMBER · NATIVE KOREAN",
+  "example": "여든다섯예요.",
+  "translation": "It is the native Korean number 95.",
+  "tip": "Native Korean numbers are commonly used with counters for people, objects, age, hours, and repetitions.",
+  "sentencePrompt": "_____예요.",
+  "contrast": "Sino-Korean numbers are preferred for dates, money, minutes, and phone numbers."
+}
