@@ -1,0 +1,13 @@
+{
+  "id": "police",
+  "ko": "경찰",
+  "latin": "gyeongchal",
+  "meaning": "Police officer / police",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "경찰에게 길을 물어요.",
+  "translation": "I ask the police officer for directions.",
+  "tip": "경찰 is pronounced gyeong-chal.",
+  "sentencePrompt": "_____에게 길을 물어요.",
+  "contrast": "경찰 means police/police officer; 소방관 means firefighter."
+}
