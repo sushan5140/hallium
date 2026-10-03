@@ -17,7 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, adaptiveReviewSchedule, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -2852,13 +2852,37 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   }
 
   async function generateStudyPlan() {
+    const localResult = buildDeterministicStudyPlan({
+      mistakes: relevantMistakes,
+      preferences: learningPreferences,
+      latestStudyPct,
+      activeStudyLabel: activeStudy.label,
+      nextLessonTitle: nextLesson.title,
+    });
+    const localRecord = {
+      result: localResult,
+      generatedAt: new Date().toISOString(),
+      source: "Hallim local",
+    };
+    setStudyPlanRecord(localRecord);
+    saveIntelligenceState({ studyPlan: localRecord });
+
+    if (guestMode) return localRecord;
+
     const result = await callIntelligence("study_plan", buildIntelligenceSnapshot({
       requestedDifficulty: aiDifficultyRecord?.result?.level || "balanced",
+      deterministicStudyPlan: localResult,
     }));
-    if (!result) return;
-    const record = { result, generatedAt: new Date().toISOString() };
+    if (!result) return localRecord;
+
+    const record = {
+      result,
+      generatedAt: new Date().toISOString(),
+      source: "Hallim AI",
+    };
     setStudyPlanRecord(record);
     saveIntelligenceState({ studyPlan: record });
+    return record;
   }
 
   async function runPromotionCheck() {
@@ -4937,7 +4961,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                 <h2>{studyPlanRecord.result.title}</h2>
                 <p>{studyPlanRecord.result.summary}</p>
               </div>
-              <small>{new Date(studyPlanRecord.generatedAt).toLocaleDateString()}</small>
+              <small>{studyPlanRecord.source || "Hallim"} · {new Date(studyPlanRecord.generatedAt).toLocaleDateString()}</small>
             </div>
             <div className="studyPlanDays">
               {studyPlanRecord.result.days.map((day,index) => (

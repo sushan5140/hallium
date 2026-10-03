@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   adaptiveReviewSchedule,
+  buildDeterministicStudyPlan,
   buildTodayLearningPlan,
   enforceLearningPlanSafety,
   fitPlanToSession,
@@ -258,4 +259,74 @@ test("adaptive review intervals never exceed sixty days", () => {
   });
   assert.equal(schedule.intervalDays,60);
   assert.equal(schedule.stage,"stable");
+});
+
+
+test("deterministic weekly plan puts currently due review on day one", () => {
+  const plan=buildDeterministicStudyPlan({
+    mistakes:[
+      { id:"m1", skill:"Particles", nextReviewAt:"2026-10-03T10:00:00Z" },
+      { id:"m2", skill:"Vocabulary", nextReviewAt:"2026-10-05T10:00:00Z" },
+    ],
+    preferences:{dailyMinutes:20,focuses:["conversation","grammar"]},
+    latestStudyPct:82,
+    activeStudyLabel:"Beginner",
+    nextLessonTitle:"Ordering at a café",
+    now:NOW,
+  });
+
+  assert.equal(plan.days.length,5);
+  assert.equal(plan.days[0].minutes,20);
+  assert.match(plan.days[0].tasks[0],/Review 1 scheduled weakness/);
+  assert.match(plan.days[0].tasks.join(" "),/Particles/);
+});
+
+test("weekly plan rotates saved focus priorities", () => {
+  const plan=buildDeterministicStudyPlan({
+    mistakes:[],
+    preferences:{dailyMinutes:15,focuses:["grammar","assessment"]},
+    latestStudyPct:88,
+    activeStudyLabel:"Foundation",
+    nextLessonTitle:"Making plans",
+    now:NOW,
+  });
+
+  assert.equal(plan.days[0].focus,"grammar");
+  assert.equal(plan.days[1].focus,"assessment");
+  assert.equal(plan.days[2].focus,"grammar");
+  assert.ok(plan.days[0].tasks.some((task)=>/grammar pattern/i.test(task)));
+  assert.ok(plan.days[1].tasks.some((task)=>/study check/i.test(task)));
+});
+
+test("weekly plan creates a measurable baseline when no test exists", () => {
+  const plan=buildDeterministicStudyPlan({
+    mistakes:[],
+    preferences:{dailyMinutes:10,focuses:["vocabulary"]},
+    latestStudyPct:null,
+    activeStudyLabel:"Starter",
+    nextLessonTitle:"Greetings",
+    now:NOW,
+  });
+
+  assert.ok(plan.days[0].tasks.some((task)=>/study test/i.test(task)));
+  assert.equal(plan.generatedFrom.latestStudyPct,null);
+});
+
+test("weekly plan is stable for the same learner snapshot", () => {
+  const input={
+    mistakes:[{ id:"same", skill:"Grammar", nextReviewAt:"2026-10-04T12:00:00Z" }],
+    preferences:{dailyMinutes:30,focuses:["listening","conversation"]},
+    latestStudyPct:74,
+    activeStudyLabel:"Foundation",
+    nextLessonTitle:"Daily routines",
+    now:NOW,
+  };
+  assert.deepEqual(buildDeterministicStudyPlan(input),buildDeterministicStudyPlan(input));
+});
+
+test("weekly plan day count is bounded to five through seven", () => {
+  const short=buildDeterministicStudyPlan({days:2,now:NOW});
+  const long=buildDeterministicStudyPlan({days:30,now:NOW});
+  assert.equal(short.days.length,5);
+  assert.equal(long.days.length,7);
 });
