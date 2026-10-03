@@ -1,0 +1,13 @@
+{
+  "id": "stew",
+  "ko": "찌개",
+  "latin": "jjigae",
+  "meaning": "Stew",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "김치찌개가 매워요.",
+  "translation": "Kimchi stew is spicy.",
+  "tip": "찌개 begins with tense ㅉ.",
+  "sentencePrompt": "김치_____가 매워요.",
+  "contrast": "찌개 means stew; 국 means soup."
+}
