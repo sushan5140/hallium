@@ -35,3 +35,15 @@ test("Profile exposes daily time and focus controls", () => {
   assert.match(core, /Prioritize after required review/);
   assert.match(core, /H-P6 · Daily intelligence/);
 });
+
+
+test("H-P6 topic routing is restricted to curriculum-unlocked lessons", () => {
+  assert.match(core, /rankInterestLessons\([\s\S]*?unlocked: isUnlocked\(absoluteIndex\)/);
+  assert.match(core, /const interestLessonPick = interestLessonRecommendations\[0\] \|\| null/);
+});
+
+test("Profile exposes topical interests and Home exposes an interest pick", () => {
+  assert.match(core, /Topics you want more of/);
+  assert.match(core, /FOR YOUR INTERESTS/);
+  assert.match(core, /Interest-aware lesson recommendation/);
+});
