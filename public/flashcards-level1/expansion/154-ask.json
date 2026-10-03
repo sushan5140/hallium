@@ -1,0 +1,13 @@
+{
+  "id": "ask",
+  "ko": "묻다",
+  "latin": "mutda",
+  "meaning": "To ask",
+  "group": "Actions",
+  "type": "VERB · COMMUNICATION",
+  "example": "선생님께 질문을 물어요.",
+  "translation": "I ask the teacher a question.",
+  "tip": "묻다 changes irregularly to 물어요 in this meaning.",
+  "sentencePrompt": "선생님께 질문을 _____.",
+  "contrast": "묻다 means ask; 대답하다 means answer."
+}
