@@ -1,0 +1,13 @@
+{
+  "id": "difficult",
+  "ko": "어렵다",
+  "latin": "eoryeopda",
+  "meaning": "To be difficult",
+  "group": "Description",
+  "type": "ADJECTIVE · DIFFICULTY",
+  "example": "한국어 문법이 어려워요.",
+  "translation": "Korean grammar is difficult.",
+  "tip": "어렵다 changes to 어려워요.",
+  "sentencePrompt": "한국어 문법이 _____.",
+  "contrast": "어렵다 means difficult; 쉽다 means easy."
+}
