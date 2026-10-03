@@ -1,0 +1,13 @@
+{
+  "id": "slow",
+  "ko": "느리다",
+  "latin": "neurida",
+  "meaning": "To be slow",
+  "group": "Description",
+  "type": "ADJECTIVE · SPEED",
+  "example": "이 컴퓨터는 느려요.",
+  "translation": "This computer is slow.",
+  "tip": "느리다 changes to 느려요.",
+  "sentencePrompt": "이 컴퓨터는 _____.",
+  "contrast": "느리다 means slow; 빠르다 means fast."
+}
