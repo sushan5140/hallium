@@ -1,0 +1,13 @@
+{
+  "id": "run",
+  "ko": "뛰다",
+  "latin": "ttwida",
+  "meaning": "To run",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "공원에서 뛰어요.",
+  "translation": "I run in the park.",
+  "tip": "뛰다 changes to 뛰어요.",
+  "sentencePrompt": "공원에서 _____.",
+  "contrast": "뛰다 means run; 걷다 means walk."
+}
