@@ -1,0 +1,13 @@
+{
+  "id": "money",
+  "ko": "돈",
+  "latin": "don",
+  "meaning": "Money",
+  "group": "Shopping",
+  "type": "NOUN · MONEY",
+  "example": "돈이 조금 있어요.",
+  "translation": "I have a little money.",
+  "tip": "돈 is one syllable ending in ㄴ.",
+  "sentencePrompt": "_____이 조금 있어요.",
+  "contrast": "돈 means money; 가격 means price."
+}
