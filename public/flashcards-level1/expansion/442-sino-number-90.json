@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-90",
+  "ko": "구십",
+  "latin": "gu-sip",
+  "meaning": "Sino-Korean number 90",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "구십 번이에요.",
+  "translation": "It is number 90.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}
