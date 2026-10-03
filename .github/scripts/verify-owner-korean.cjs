@@ -101,7 +101,7 @@ const {chromium}=require("playwright");
  assert.ok(server.includes("course={[...ownerCourse,...ownerBatch03,...ownerBatch04]}"),"New batch must be available only after server owner verification");
  assert.ok(server.includes("robots: { index: false"),"Private content should be noindex");
  assert.ok(!fs.readFileSync("app/sitemap.js","utf8").includes("/my-korean"),"Private page listed in sitemap");
- const app=fs.readFileSync("app/page.js","utf8");
+ const app=fs.readFileSync("app/hallium-core.js","utf8");
  assert.ok(app.includes('adminAccess && authUser?.email?.trim().toLowerCase() === "sushan5140s@gmail.com"'),
    "Private menu must be hidden for non-owner accounts");
  assert.ok(client.includes('from("owner_korean_study")'),"No private synced notes storage");
