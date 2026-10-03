@@ -1,0 +1,13 @@
+{
+  "id": "train",
+  "ko": "기차",
+  "latin": "gicha",
+  "meaning": "Train",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "기차를 타고 부산에 가요.",
+  "translation": "I take the train to Busan.",
+  "tip": "기차 begins with a light ㄱ sound.",
+  "sentencePrompt": "_____를 타고 부산에 가요.",
+  "contrast": "기차 means train; 지하철 means subway."
+}
