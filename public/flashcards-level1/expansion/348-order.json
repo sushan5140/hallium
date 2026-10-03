@@ -1,0 +1,13 @@
+{
+  "id": "order",
+  "ko": "주문하다",
+  "latin": "jumunhada",
+  "meaning": "To order",
+  "group": "Actions",
+  "type": "VERB · RESTAURANT",
+  "example": "식당에서 음식을 주문해요.",
+  "translation": "I order food at the restaurant.",
+  "tip": "주문하다 changes to 주문해요.",
+  "sentencePrompt": "식당에서 음식을 _____.",
+  "contrast": "주문하다 means order; 계산하다 means pay/check out."
+}
