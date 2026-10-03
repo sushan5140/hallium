@@ -1,0 +1,13 @@
+{
+  "id": "counter-sheets-1",
+  "ko": "한 장",
+  "latin": "han jang",
+  "meaning": "1 sheet / page",
+  "group": "Counters",
+  "type": "COUNTER · FLAT OBJECTS",
+  "example": "종이가 한 장 있어요.",
+  "translation": "There is 1 sheet of paper.",
+  "tip": "장 counts flat objects such as sheets of paper, tickets, photos, and cards.",
+  "sentencePrompt": "종이가 _____ 있어요.",
+  "contrast": "장 counts flat objects; 권 counts books and bound volumes."
+}
