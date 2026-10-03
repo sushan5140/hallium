@@ -1,0 +1,13 @@
+{
+  "id": "salty",
+  "ko": "짜다",
+  "latin": "jjada",
+  "meaning": "To be salty",
+  "group": "Food",
+  "type": "ADJECTIVE · TASTE",
+  "example": "국이 조금 짜요.",
+  "translation": "The soup is a little salty.",
+  "tip": "짜다 changes to 짜요.",
+  "sentencePrompt": "국이 조금 _____.",
+  "contrast": "짜다 means salty; 싱겁다 means bland."
+}
