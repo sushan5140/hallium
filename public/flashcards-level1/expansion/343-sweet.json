@@ -1,0 +1,13 @@
+{
+  "id": "sweet",
+  "ko": "달다",
+  "latin": "dalda",
+  "meaning": "To be sweet",
+  "group": "Food",
+  "type": "ADJECTIVE · TASTE",
+  "example": "이 딸기는 아주 달아요.",
+  "translation": "This strawberry is very sweet.",
+  "tip": "달다 changes to 달아요.",
+  "sentencePrompt": "이 딸기는 아주 _____.",
+  "contrast": "달다 means sweet; 쓰다 can mean bitter."
+}
