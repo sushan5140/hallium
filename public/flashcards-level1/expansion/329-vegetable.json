@@ -1,0 +1,13 @@
+{
+  "id": "vegetable",
+  "ko": "채소",
+  "latin": "chaeso",
+  "meaning": "Vegetable",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "채소를 많이 먹어요.",
+  "translation": "I eat a lot of vegetables.",
+  "tip": "채소 is a common word for vegetables.",
+  "sentencePrompt": "_____를 많이 먹어요.",
+  "contrast": "채소 means vegetables; 과일 means fruit."
+}
