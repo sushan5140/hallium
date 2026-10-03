@@ -1,0 +1,13 @@
+{
+  "id": "hello-casual",
+  "ko": "안녕",
+  "latin": "annyeong",
+  "meaning": "Hi / bye (casual)",
+  "group": "Greetings",
+  "type": "GREETING · CASUAL",
+  "example": "친구에게 안녕이라고 말해요.",
+  "translation": "I say hi to my friend.",
+  "tip": "안녕 is casual; use 안녕하세요 politely.",
+  "sentencePrompt": "친구에게 _____이라고 말해요.",
+  "contrast": "안녕 is casual; 안녕하세요 is polite."
+}
