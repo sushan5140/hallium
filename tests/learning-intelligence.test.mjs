@@ -67,6 +67,7 @@ test("no structured result produces a baseline-building route", () => {
     latestStudyPct:null,
     activeStudyLabel:"Beginner",
     nextLessonTitle:"Greetings",
+    preferences:{dailyMinutes:30,focuses:["conversation"]},
     now:NOW,
   });
 
