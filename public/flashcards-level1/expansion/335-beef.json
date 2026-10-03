@@ -1,0 +1,13 @@
+{
+  "id": "beef",
+  "ko": "소고기",
+  "latin": "sogogi",
+  "meaning": "Beef",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "소고기를 구워 먹어요.",
+  "translation": "I grill and eat beef.",
+  "tip": "소고기 literally means cow meat.",
+  "sentencePrompt": "_____를 구워 먹어요.",
+  "contrast": "소고기 means beef; 돼지고기 means pork."
+}
