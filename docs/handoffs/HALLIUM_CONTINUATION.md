@@ -2271,3 +2271,133 @@ Until a real service is hosted:
 5. verify signed-in Korean audio resolves to the MeloTTS provider,
 6. verify service-down behavior falls back to Web Speech,
 7. only then call MeloTTS production-active.
+
+
+---
+
+# 30. Post-H-P5 performance phase — checkpoint
+
+MeloTTS provider activation is intentionally parked. Hallium moved into the previously documented performance backlog.
+
+## Supabase performance cleanup
+
+Performance advisor before this phase reported:
+- 14 unindexed foreign-key columns across Study Partners / Twinverse tables
+- 4 `owner_korean_study` auth-initplan warnings
+- 1 overlapping permissive SELECT-policy warning on `learner_state`
+- several unused-index informational findings
+
+### Changes applied
+
+Added covering indexes for all 14 flagged foreign-key columns:
+- `hallium_partner_answers.author_id`
+- `hallium_partner_blocks.blocked`
+- `hallium_partner_connections.requested_by`
+- `hallium_partner_connections.user_high`
+- `hallium_partner_joint_notes.author_id`
+- `hallium_partner_joint_notes.connection_id`
+- `hallium_partner_messages.sender_id`
+- `hallium_partner_reports.connection_id`
+- `hallium_partner_reports.reporter`
+- `hallium_partner_reports.target`
+- `hallium_partner_sessions.created_by`
+- `hallium_partner_shares.note_id`
+- `hallium_partner_shares.owner_id`
+- `hallium_twin_meetups.initiated_by`
+
+`learner_state`:
+- removed the separate own-row and admin SELECT policies
+- replaced them with one equivalent `learner_state_select_authorized` policy:
+  - own row via `(select auth.uid())`
+  - OR admin via `(select public.is_hallim_admin())`
+
+`is_hallim_admin()`:
+- keeps the same semantic check against `admin_users`
+- wraps `auth.uid()` in a scalar SELECT so it can be initialized once per statement
+
+Live advisor after changes:
+- **unindexed foreign-key warning: cleared ✅**
+- **multiple permissive learner_state SELECT warning: cleared ✅**
+
+The only remaining performance warning class is the legacy `owner_korean_study` auth-initplan warning.
+
+Important:
+Live inspection shows those owner-only policies already use `(select auth.uid())` and `(select auth.jwt())`. They were **not rewritten blindly** merely to silence the advisor.
+
+Unused-index findings were also **not removed**. Current tables are small and "never used yet" is not sufficient evidence that the indexes are unnecessary.
+
+Migration history:
+- Supabase version `20261003100009`
+- repo file `supabase/migrations/20261003100009_hallium_partner_performance_indexes_and_rls.sql`
+
+Commit:
+- `ce5805170d266583893d645244e37ca2d74c3b5d`
+
+## Client bundle cleanup
+
+`app/hallium-core.js` is the main client shell and is roughly 325 KB of source.
+
+`app/partner/PartnerKorean.jsx` is roughly 39.6 KB of route-specific source containing:
+- Real Korean phrase bank
+- dialogues
+- Message Makeover UI
+- relationship/vibe controls
+
+Previously it was imported eagerly into every Hallium session.
+
+Changed it to a Next dynamic import:
+- no eager `PartnerKorean` import
+- feature chunk loads only when Real Korean is opened
+- lightweight loading surface shown while the chunk resolves
+
+This moves the ~39.6 KB route-only source out of the eager main import graph without changing learner behavior.
+
+Commit:
+- `84c028dd6aa6a3ac6e6607543e10693c3e733b1e`
+
+Observed verification on that commit:
+- Hallium Security Gate ✅
+- standalone Hallium ✅
+- Hallium Batch 2 ✅
+- Study Partners production integration ✅
+
+## Performance regression coverage
+
+Added:
+- `tests/performance-contract.test.mjs`
+
+Protects:
+- Real Korean remains dynamically imported
+- all 14 FK covering indexes remain in the migration
+- `learner_state` stays on one owner-or-admin SELECT policy
+- admin helper keeps statement-level auth initialization
+
+Commit:
+- `250994e430b0338bfa3b1ada34308d66da92874f`
+
+Longer browser/build workflows for the regression-only commit were still running when this handoff checkpoint was written.
+
+## Performance phase conclusion
+
+Completed:
+- structural FK index backlog ✅
+- duplicate learner-state SELECT-policy warning ✅
+- one high-value client code-split ✅
+
+Deliberately deferred:
+- owner-only RLS linter false-positive/legacy investigation
+- deleting unused indexes without workload evidence
+- broad curriculum/client refactors that would increase churn without measured benefit
+
+## Next non-Melo track
+
+The only open repository backlog items are research drafts:
+- PR #4 — AI Doppelgänger theory/evaluation paper scaffold
+- PR #5 — TwinMem Pilot 0 synthetic benchmark
+
+A new stacked research phase has begun:
+- branch `research/twinmem-pilot1-calibrated-reliability`
+- draft PR #6
+- base: Pilot-0 research branch, not production `main`
+
+Pilot 1 tests development-calibrated source reliability under equal context budgets and explicit source-reliability shift. Production Hallium remains untouched.
