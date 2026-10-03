@@ -1,0 +1,13 @@
+{
+  "id": "photo",
+  "ko": "사진",
+  "latin": "sajin",
+  "meaning": "Photo",
+  "group": "Daily Life",
+  "type": "NOUN · MEDIA",
+  "example": "사진을 많이 찍어요.",
+  "translation": "I take many photos.",
+  "tip": "사진 is pronounced sa-jin.",
+  "sentencePrompt": "_____을 많이 찍어요.",
+  "contrast": "사진 means photo; 그림 means drawing/picture."
+}
