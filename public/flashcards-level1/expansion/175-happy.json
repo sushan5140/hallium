@@ -1,0 +1,13 @@
+{
+  "id": "happy",
+  "ko": "행복하다",
+  "latin": "haengbokhada",
+  "meaning": "To be happy",
+  "group": "Description",
+  "type": "ADJECTIVE · FEELING",
+  "example": "오늘 정말 행복해요.",
+  "translation": "I am really happy today.",
+  "tip": "행복하다 changes to 행복해요.",
+  "sentencePrompt": "오늘 정말 _____.",
+  "contrast": "행복하다 means happy; 슬프다 means sad."
+}
