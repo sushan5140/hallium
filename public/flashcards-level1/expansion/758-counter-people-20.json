@@ -1,0 +1,13 @@
+{
+  "id": "counter-people-20",
+  "ko": "스무 명",
+  "latin": "seumu myeong",
+  "meaning": "20 persons",
+  "group": "Counters",
+  "type": "COUNTER · PEOPLE",
+  "example": "학생이 스무 명 있어요.",
+  "translation": "There are 20 students.",
+  "tip": "명 is a common neutral counter for people.",
+  "sentencePrompt": "학생이 _____ 있어요.",
+  "contrast": "분 is a more respectful counter for people; 명 is neutral and common."
+}
