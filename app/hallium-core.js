@@ -17,7 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { buildTodayLearningPlan, rankWeakSkills } from "../lib/learning-intelligence";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, buildTodayLearningPlan, normalizeLearningPreferences, rankWeakSkills } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1513,6 +1513,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const [studyPlanRecord, setStudyPlanRecord] = useState(null);
   const [promotionRecord, setPromotionRecord] = useState(null);
   const [learningRouteRecord, setLearningRouteRecord] = useState(null);
+  const [learningPreferences, setLearningPreferences] = useState(DEFAULT_LEARNING_PREFERENCES);
   const [aiQuiz, setAiQuiz] = useState(null);
   const [aiQuizIndex, setAiQuizIndex] = useState(0);
   const [aiQuizChoice, setAiQuizChoice] = useState(null);
@@ -1562,6 +1563,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setStudyPlanRecord(savedIntelligence.studyPlan || null);
     setPromotionRecord(savedIntelligence.promotion || null);
     setLearningRouteRecord(savedIntelligence.learningRoute || null);
+    setLearningPreferences(normalizeLearningPreferences(savedIntelligence.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(savedIntelligence.mistakeLog || []);
     const savedVoicePreference = readLocalVoicePreference(scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, guestMode));
     setVoicePreference(savedVoicePreference);
@@ -1793,6 +1795,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     studyPlanRecord,
     promotionRecord,
     learningRouteRecord,
+    learningPreferences,
     mistakeLog,
   ]);
 
@@ -1890,6 +1893,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     totalPathLessons: pathLessons.length,
     activeStudyLabel: activeStudy.label,
     nextLessonTitle: nextLesson.title,
+    preferences: learningPreferences,
   });
 
   const activeLearningRoute = learningRouteRecord?.result || fallbackLearningRoute;
@@ -1954,6 +1958,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setStudyPlanRecord(intelligence?.studyPlan || null);
     setPromotionRecord(intelligence?.promotion || null);
     setLearningRouteRecord(intelligence?.learningRoute || null);
+    setLearningPreferences(normalizeLearningPreferences(intelligence?.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(intelligence?.mistakeLog || []);
 
     if (audit) {
@@ -2382,6 +2387,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       tests: { latest, bestScore: best, attempts },
       audit: aiAuditRecord?.audit || null,
       adaptiveDifficulty: aiDifficultyRecord?.result || null,
+      learningPreferences,
       aiPracticeHistory: readIntelligenceState(guestMode).practiceHistory || [],
       mistakeMemory: {
         dueCount: dueMistakes.length,
@@ -2405,6 +2411,13 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const previous = readIntelligenceState(guestMode);
     const next = { ...previous, ...partial };
     localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode), JSON.stringify(next));
+  }
+
+  function updateLearningPreferences(partial) {
+    const next = normalizeLearningPreferences({ ...learningPreferences, ...partial });
+    setLearningPreferences(next);
+    setLearningRouteRecord(null);
+    saveIntelligenceState({ preferences: next, learningRoute: null });
   }
 
   function guestIntelligenceDemo(action, payload = {}) {
