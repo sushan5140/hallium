@@ -1,0 +1,13 @@
+{
+  "id": "forget",
+  "ko": "잊다",
+  "latin": "itda",
+  "meaning": "To forget",
+  "group": "Actions",
+  "type": "VERB · COGNITION",
+  "example": "숙제를 잊었어요.",
+  "translation": "I forgot the homework.",
+  "tip": "잊다 is commonly pronounced 읻따.",
+  "sentencePrompt": "숙제를 _____.",
+  "contrast": "잊다 means forget; 기억하다 means remember."
+}
