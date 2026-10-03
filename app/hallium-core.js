@@ -17,7 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, buildTodayLearningPlan, normalizeLearningPreferences, rankWeakSkills } from "../lib/learning-intelligence";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, buildTodayLearningPlan, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1896,7 +1896,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     preferences: learningPreferences,
   });
 
-  const activeLearningRoute = learningRouteRecord?.result || fallbackLearningRoute;
+  const activeLearningRoute = fitPlanToSession(learningRouteRecord?.result || fallbackLearningRoute, learningPreferences);
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
@@ -4535,6 +4535,13 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   }
 
   function Profile() {
+    const focusLabels = {
+      conversation: "Conversation",
+      listening: "Listening",
+      vocabulary: "Vocabulary",
+      grammar: "Grammar",
+      assessment: "Checks & tests",
+    };
     return (
       <section className="profilePage">
         <button className="textBack" onClick={goBack}>← Back</button>
@@ -4657,6 +4664,69 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <span>vocab words + grammar patterns</span>
           </article>
         </div>
+        <section className="learningPreferencesPanel">
+          <div className="learningPreferencesHead">
+            <div>
+              <span className="eyebrow">H-P6 · Daily intelligence</span>
+              <h2>Fit Hallim to the time you actually have.</h2>
+              <p>Your daily route keeps required review first, then uses your time budget and preferred practice style to rank the remaining actions.</p>
+            </div>
+            <span className={"learningDifficultyPill " + (activeLearningRoute.difficulty || "balanced")}>
+              {(activeLearningRoute.difficulty || "balanced").replaceAll("_"," ")}
+            </span>
+          </div>
+
+          <div className="learningPreferenceGrid">
+            <div>
+              <small className="learningPreferenceLabel">Daily study time</small>
+              <div className="learningChoiceRow" role="group" aria-label="Daily study time">
+                {[10,15,20,30].map((minutes) => (
+                  <button
+                    type="button"
+                    key={minutes}
+                    className={learningPreferences.dailyMinutes === minutes ? "selected" : ""}
+                    aria-pressed={learningPreferences.dailyMinutes === minutes}
+                    onClick={() => updateLearningPreferences({ dailyMinutes: minutes })}
+                  >
+                    {minutes} min
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <small className="learningPreferenceLabel">Prioritize after required review</small>
+              <div className="learningChoiceRow focusChoices" role="group" aria-label="Learning focus priorities">
+                {LEARNING_FOCUS_OPTIONS.map((focus) => {
+                  const selected = learningPreferences.focuses.includes(focus);
+                  return (
+                    <button
+                      type="button"
+                      key={focus}
+                      className={selected ? "selected" : ""}
+                      aria-pressed={selected}
+                      onClick={() => {
+                        const nextFocuses = selected
+                          ? learningPreferences.focuses.filter((item) => item !== focus)
+                          : [...learningPreferences.focuses, focus].slice(-3);
+                        updateLearningPreferences({ focuses: nextFocuses });
+                      }}
+                    >
+                      {focusLabels[focus] || focus}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="learningPreferenceSummary">
+            <span><b>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min</b> planned today</span>
+            <span><b>{activeLearningRoute.steps.length}</b> recommended {activeLearningRoute.steps.length === 1 ? "action" : "actions"}</span>
+            <span><b>{topWeakSkills[0]?.skill || "No urgent weakness"}</b> highest current priority</span>
+          </div>
+        </section>
+
 
         <section className="weaknessMemoryPanel">
           <div>
