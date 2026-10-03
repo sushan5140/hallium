@@ -1,0 +1,13 @@
+{
+  "id": "floor",
+  "ko": "층",
+  "latin": "cheung",
+  "meaning": "Floor / story",
+  "group": "Places",
+  "type": "BOUND NOUN · PLACE",
+  "example": "교실은 이 층에 있어요.",
+  "translation": "The classroom is on the second floor.",
+  "tip": "층 begins with aspirated ㅊ.",
+  "sentencePrompt": "교실은 이 _____에 있어요.",
+  "contrast": "층 means a floor/story of a building."
+}
