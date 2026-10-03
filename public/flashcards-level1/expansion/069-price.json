@@ -1,0 +1,13 @@
+{
+  "id": "price",
+  "ko": "가격",
+  "latin": "gagyeok",
+  "meaning": "Price",
+  "group": "Shopping",
+  "type": "NOUN · MONEY",
+  "example": "가격이 얼마예요?",
+  "translation": "How much is the price?",
+  "tip": "가격 ends with 격, with final ㄱ unreleased.",
+  "sentencePrompt": "_____이 얼마예요?",
+  "contrast": "가격 is price; 돈 is money."
+}
