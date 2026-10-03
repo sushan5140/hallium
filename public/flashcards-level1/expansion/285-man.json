@@ -1,0 +1,13 @@
+{
+  "id": "man",
+  "ko": "남자",
+  "latin": "namja",
+  "meaning": "Man",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "저 남자는 제 선생님이에요.",
+  "translation": "That man is my teacher.",
+  "tip": "남자 is pronounced nam-ja.",
+  "sentencePrompt": "저 _____는 제 선생님이에요.",
+  "contrast": "남자 means man; 여자 means woman."
+}
