@@ -1,0 +1,13 @@
+{
+  "id": "apple",
+  "ko": "사과",
+  "latin": "sagwa",
+  "meaning": "Apple",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "아침에 사과를 먹어요.",
+  "translation": "I eat an apple in the morning.",
+  "tip": "사과 can also mean apology depending on context.",
+  "sentencePrompt": "아침에 _____를 먹어요.",
+  "contrast": "사과 here means apple; context distinguishes it from apology."
+}
