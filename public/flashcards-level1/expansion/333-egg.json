@@ -1,0 +1,13 @@
+{
+  "id": "egg",
+  "ko": "계란",
+  "latin": "gyeran",
+  "meaning": "Egg",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "아침에 계란을 먹어요.",
+  "translation": "I eat eggs in the morning.",
+  "tip": "계란 is pronounced gye-ran.",
+  "sentencePrompt": "아침에 _____을 먹어요.",
+  "contrast": "계란 means egg; 우유 means milk."
+}
