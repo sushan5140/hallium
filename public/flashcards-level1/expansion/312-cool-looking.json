@@ -1,0 +1,13 @@
+{
+  "id": "cool-looking",
+  "ko": "멋있다",
+  "latin": "meositda",
+  "meaning": "To be cool / stylish",
+  "group": "Description",
+  "type": "ADJECTIVE · APPEARANCE",
+  "example": "그 사람은 정말 멋있어요.",
+  "translation": "That person is really cool.",
+  "tip": "멋있다 is commonly pronounced 머싣따.",
+  "sentencePrompt": "그 사람은 정말 _____.",
+  "contrast": "멋있다 means cool/stylish; 귀엽다 means cute."
+}
