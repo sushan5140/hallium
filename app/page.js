@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getHallimSupabase } from "../lib/supabase/client";
+import { curriculumAudit, teachingItemFromStep } from "../lib/curriculum/admin";
 import {
   DEFAULT_KOREAN_VOICE_PREFERENCE,
   clampKoreanRate,
@@ -1491,6 +1492,11 @@ export default function Hallim() {
   const [voicePreference, setVoicePreference] = useState(DEFAULT_KOREAN_VOICE_PREFERENCE);
   const [availableKoreanVoices, setAvailableKoreanVoices] = useState([]);
   const [voiceSaveStatus, setVoiceSaveStatus] = useState("local");
+  const [adminStudioState, setAdminStudioState] = useState({ savedItems: [], lessonNotes: {}, qaFlags: {} });
+  const [adminStudioLoaded, setAdminStudioLoaded] = useState(false);
+  const [adminStudioSaveStatus, setAdminStudioSaveStatus] = useState("idle");
+  const [adminStudioQuery, setAdminStudioQuery] = useState("");
+  const [adminStudioScope, setAdminStudioScope] = useState("all");
   const koreanVoiceRef = useRef(null);
   const syncTimerRef = useRef(null);
   const authUserRef = useRef(null);
@@ -1576,7 +1582,7 @@ export default function Hallim() {
         const authParams = new URLSearchParams(window.location.search);
         const requestedView = authParams.get("view");
         const requestedLesson = authParams.get("lesson");
-        const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile"]);
+        const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile","admin"]);
         // The Beginner to TOPIK bridge links to existing lesson IDs. Reuse their
         // original lesson component and progress records, not a duplicate.
         if (requestedView === "lesson" && requestedLesson && lessons.some(item => item.id === requestedLesson)) {
@@ -1638,6 +1644,51 @@ export default function Hallim() {
   }, [authUser?.id]);
 
   useEffect(() => {
+    let active = true;
+    setAdminStudioLoaded(false);
+    if (!adminAccess || !authUser?.id) {
+      setAdminStudioState({ savedItems: [], lessonNotes: {}, qaFlags: {} });
+      return () => { active = false; };
+    }
+    const supabase = getHallimSupabase();
+    supabase.from("hallium_curriculum_admin_state")
+      .select("saved_items,lesson_notes,qa_flags,updated_at")
+      .eq("user_id", authUser.id)
+      .maybeSingle()
+      .then(async ({ data, error }) => {
+        if (!active) return;
+        if (error) {
+          setAdminStudioSaveStatus("error");
+          setAdminStudioLoaded(true);
+          return;
+        }
+        if (data) {
+          setAdminStudioState({
+            savedItems: Array.isArray(data.saved_items) ? data.saved_items : [],
+            lessonNotes: data.lesson_notes && typeof data.lesson_notes === "object" ? data.lesson_notes : {},
+            qaFlags: data.qa_flags && typeof data.qa_flags === "object" ? data.qa_flags : {},
+          });
+          setAdminStudioSaveStatus("synced");
+          setAdminStudioLoaded(true);
+          return;
+        }
+        const initial = { savedItems: [], lessonNotes: {}, qaFlags: {} };
+        const { error: insertError } = await supabase.from("hallium_curriculum_admin_state").insert({
+          user_id: authUser.id,
+          saved_items: initial.savedItems,
+          lesson_notes: initial.lessonNotes,
+          qa_flags: initial.qaFlags,
+          updated_at: new Date().toISOString(),
+        });
+        if (!active) return;
+        setAdminStudioState(initial);
+        setAdminStudioSaveStatus(insertError ? "error" : "synced");
+        setAdminStudioLoaded(true);
+      });
+    return () => { active = false; };
+  }, [adminAccess, authUser?.id]);
+
+  useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
     const refreshKoreanVoices = () => {
       const voices = koreanVoices();
@@ -1673,6 +1724,8 @@ export default function Hallim() {
     learningRouteRecord,
     mistakeLog,
   ]);
+
+  const adminCurriculumAudit = useMemo(() => curriculumAudit(units), []);
 
   const currentLevel = levelById(learnerProfile?.currentLevel || draftCurrentLevel);
   const targetLevel = levelById(learnerProfile?.targetLevel || draftTargetLevel);
@@ -2682,6 +2735,57 @@ export default function Hallim() {
     setView("companion");
     resetInteraction();
   }
+  async function persistAdminStudioState(nextState = adminStudioState) {
+    if (!adminAccess || !authUser?.id) return false;
+    const normalized = {
+      savedItems: Array.isArray(nextState.savedItems) ? nextState.savedItems.slice(0, 300) : [],
+      lessonNotes: nextState.lessonNotes && typeof nextState.lessonNotes === "object" ? nextState.lessonNotes : {},
+      qaFlags: nextState.qaFlags && typeof nextState.qaFlags === "object" ? nextState.qaFlags : {},
+    };
+    setAdminStudioState(normalized);
+    setAdminStudioSaveStatus("saving");
+    const { error } = await getHallimSupabase().from("hallium_curriculum_admin_state").upsert({
+      user_id: authUser.id,
+      saved_items: normalized.savedItems,
+      lesson_notes: normalized.lessonNotes,
+      qa_flags: normalized.qaFlags,
+      updated_at: new Date().toISOString(),
+    });
+    setAdminStudioSaveStatus(error ? "error" : "synced");
+    if (error) {
+      setNotice("Could not save Curriculum Studio state.");
+      return false;
+    }
+    setNotice("Curriculum Studio saved");
+    return true;
+  }
+
+  async function saveAdminTeachingItem(unit, lesson, step, stepIndex) {
+    if (!adminAccess) return;
+    const item = teachingItemFromStep({ unit, lesson, step, stepIndex });
+    if (adminStudioState.savedItems.some((saved) =>
+      saved.lessonId === item.lessonId &&
+      saved.kind === item.kind &&
+      saved.title === item.title
+    )) {
+      setNotice("That teaching item is already saved.");
+      return;
+    }
+    const next = {
+      ...adminStudioState,
+      savedItems: [item, ...adminStudioState.savedItems].slice(0, 300),
+    };
+    await persistAdminStudioState(next);
+  }
+
+  async function removeAdminTeachingItem(itemId) {
+    const next = {
+      ...adminStudioState,
+      savedItems: adminStudioState.savedItems.filter((item) => item.id !== itemId),
+    };
+    await persistAdminStudioState(next);
+  }
+
   function getKoreanVoice() {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
     const voice = resolveKoreanVoice(voicePreference, availableKoreanVoices.length ? availableKoreanVoices : koreanVoices());
@@ -2748,7 +2852,7 @@ export default function Hallim() {
     home: "Practice", companion: "Lesson catalog", lesson: "Lesson",
     vocab: "Word map", grammar: "Grammar", review: "Review",
     test: "Study check", testResult: "Test results",
-    profile: "Progress", partner: "Real Korean",
+    profile: "Progress", partner: "Real Korean", admin: "Curriculum Admin",
   };
 
   function navigate(nextView) {
@@ -5099,6 +5203,7 @@ export default function Hallim() {
               ✦ My Korean studio ↗
             </a>
           )}
+          {adminAccess && <button className="admin-studio-shortcut" onClick={() => navigate("admin")} title="Open the private curriculum administration workspace">Curriculum Admin ↗</button>}
           {adminAccess && <span className="admin-access-badge" title="Admin preview enabled for this account">ADMIN</span>}
           <button className="profile-button" onClick={() => navigate("profile")} aria-label="Open learner progress">
             {learnerInitials}
@@ -5114,7 +5219,8 @@ export default function Hallim() {
 
       <main id="workspace" className={"workspace view-" + topView + (view === "home" ? " workspace-home" : "")} tabIndex={-1}>
         {topView === "practice" && (
-          view === "home" ? <HomeRail />
+          view === "admin" ? <AdminRail />
+          : view === "home" ? <HomeRail />
           : view === "companion" ? <CatalogRail />
           : view === "grammar" ? <GuideRail />
           : view === "profile" ? <ProgressRail />
@@ -5131,6 +5237,7 @@ export default function Hallim() {
           + (view === "companion" ? " curriculum-lab" : "")
           + (view === "vocab" ? " map-lab" : "")
           + (view === "test" || view === "testResult" ? " test-card" : "")
+          + (view === "admin" ? " admin-studio-lab" : "")
         }>
           {view !== "home" && (
             <nav className="section-backbar" aria-label="Section navigation">
@@ -5151,10 +5258,13 @@ export default function Hallim() {
           {view === "test" && <StudyTest />}
           {view === "testResult" && <StudyTestResult />}
           {view === "profile" && <Profile />}
+          {view === "admin" && <AdminStudio />}
           {view === "partner" && <PartnerKorean goBack={goBack} playKorean={playKorean} callIntelligence={callIntelligence} aiBusy={aiBusy} />}
         </section>
 
-        {view === "vocab"
+        {view === "admin"
+          ? null
+          : view === "vocab"
           ? <WordCoach />
           : <Coach variant={
               view === "home" ? "home-coach"
