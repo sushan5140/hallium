@@ -1,0 +1,13 @@
+{
+  "id": "exit",
+  "ko": "나오다",
+  "latin": "naoda",
+  "meaning": "To come out / exit",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "건물에서 나와요.",
+  "translation": "I come out of the building.",
+  "tip": "나오다 changes to 나와요.",
+  "sentencePrompt": "건물에서 _____.",
+  "contrast": "나오다 means come out; 들어가다 means go in."
+}
