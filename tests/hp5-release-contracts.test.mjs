@@ -66,3 +66,19 @@ test("Guest Mode remains local-only while signed-in cloud writes stay canonical"
   assert.match(core, /if \(guestMode \|\| !authUser \|\| !syncHydrated\) return/);
   assert.match(core, /scopedLearnerStorageKey\(lessonKey, false\)/);
 });
+
+
+test("learning preferences are timestamped and merged by recency", () => {
+  const source = read("app/hallium-core.js");
+  assert.match(
+    source,
+    /merged\.preferences = newestByTimestamp\(local\?\.preferences, remote\?\.preferences, "updatedAt"\)/,
+    "Cross-device H-P6 preferences must use timestamp conflict resolution"
+  );
+  assert.match(
+    source,
+    /const persisted = \{ \.\.\.next, updatedAt: new Date\(\)\.toISOString\(\) \}/,
+    "Preference changes must persist an updatedAt timestamp"
+  );
+  assert.match(source, /setLearningPreferences\(normalizeLearningPreferences\(intelligence\?\.preferences/);
+});
