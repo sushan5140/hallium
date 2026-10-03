@@ -1,0 +1,13 @@
+{
+  "id": "exercise",
+  "ko": "운동하다",
+  "latin": "undonghada",
+  "meaning": "To exercise",
+  "group": "Actions",
+  "type": "VERB · HEALTH",
+  "example": "아침마다 운동해요.",
+  "translation": "I exercise every morning.",
+  "tip": "운동하다 changes to 운동해요.",
+  "sentencePrompt": "아침마다 _____.",
+  "contrast": "운동하다 means exercise; 쉬다 means rest."
+}
