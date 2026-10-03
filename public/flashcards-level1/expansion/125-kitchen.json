@@ -1,0 +1,13 @@
+{
+  "id": "kitchen",
+  "ko": "부엌",
+  "latin": "bueok",
+  "meaning": "Kitchen",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "어머니는 부엌에 있어요.",
+  "translation": "My mother is in the kitchen.",
+  "tip": "부엌 ends with final ㄱ.",
+  "sentencePrompt": "어머니는 _____에 있어요.",
+  "contrast": "부엌 is kitchen; 방 is room."
+}
