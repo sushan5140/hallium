@@ -1,0 +1,13 @@
+{
+  "id": "vacation",
+  "ko": "휴가",
+  "latin": "hyuga",
+  "meaning": "Vacation / leave",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "여름에 휴가를 가요.",
+  "translation": "I go on vacation in summer.",
+  "tip": "휴가 begins with hyu.",
+  "sentencePrompt": "여름에 _____를 가요.",
+  "contrast": "휴가 is vacation/leave; 여행 is trip/travel."
+}
