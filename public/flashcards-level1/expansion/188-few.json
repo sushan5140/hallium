@@ -1,0 +1,13 @@
+{
+  "id": "few",
+  "ko": "적다",
+  "latin": "jeokda",
+  "meaning": "To be few / little",
+  "group": "Description",
+  "type": "ADJECTIVE · QUANTITY",
+  "example": "오늘 사람이 적어요.",
+  "translation": "There are few people today.",
+  "tip": "적다 changes to 적어요.",
+  "sentencePrompt": "오늘 사람이 _____.",
+  "contrast": "적다 means few/little; 많다 means many/much."
+}
