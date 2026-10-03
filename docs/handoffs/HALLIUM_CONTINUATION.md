@@ -1728,3 +1728,155 @@ and each generated unit adds a checkpoint with:
 - finish
 
 Do not remove intentional exemptions merely to make every lesson mechanically identical.
+
+
+---
+
+# 26. H-P5 auth, voice, and TOPIK usability QA — checkpoint
+
+This checkpoint covers the next H-P5 layers after curriculum coverage QA.
+
+## Auth / cloud-sync QA
+
+### Guest storage isolation
+
+Problem found:
+Guest Mode was correctly blocked from direct Supabase learner-state writes, but guest and signed-in sessions still shared the same browser learner keys. A reviewer could therefore create local guest progress and later have that browser-local state merged into a Google account during cloud hydration.
+
+Fix:
+- added `lib/learner-storage.js`
+- guest learner storage now uses a dedicated `:guest` suffix
+- scoped:
+  - learner profile
+  - lesson progress
+  - study results
+  - AI audit
+  - intelligence/adaptive state
+  - Korean voice preference
+- referral attribution intentionally remains shared so guest → Google conversion attribution survives
+
+Guest adaptive reads were also corrected so mistake/practice history never reads the signed-in intelligence cache.
+
+Relevant commits:
+- `98dd56fda3129fb8cced4adccdeb1f27141872b9`
+- `0e9ae8ec277a5875d8bbde2c3d2a2b9e8378995f`
+- `4b870e9175a289cb4d24953be6550721353fb7cc`
+- `61f40993dfcb3611764840aa5d3c97b4d44d4f45`
+- `d95c6ea6e21958894ebea3b901d5d8785e058bb0`
+
+### Cross-account browser isolation
+
+Second problem found:
+The canonical signed-in local cache was not account-owned. Google account A could sign out, then account B could sign in on the same browser and local A state could be considered during B's merge.
+
+Fix:
+- canonical local learner cache now carries owner identity through `hallim:local-owner:v1`
+- local state is reusable only when:
+  - it is a legacy unowned cache, or
+  - owner ID matches the current Google user ID
+- if the cache belongs to a different user:
+  - canonical learner cache is cleared before merge
+  - guest sandbox keys are untouched
+  - referral attribution is untouched
+- successful hydration claims the cache for the authenticated user
+
+Important rendering fix:
+- signed-in Hallium now keeps `authReady=false` until cloud hydration completes
+- this prevents account B from briefly seeing account A's stale local learner state during hydration
+
+Relevant commits:
+- `4533d9eb2ee231be04d15efeb5391ca821eee036`
+- `a35b36324ebcb2d18cd8367eb154c2bc80bf2117`
+- `6b5a90cc8f4f0ac36ae430cb418ff2fe0a3a49ea`
+- `9d87e3f7438ef38f2ccd1a8ecfb3bdbdd4ad00f0`
+
+Regression coverage:
+- guest keys never collide with canonical account keys
+- guest voice preferences remain separate
+- guest sandbox survives canonical-cache clearing
+- local cache ownership A != B is rejected
+- hydration gate remains closed until cloud state is applied
+
+Security Gate + standalone + Study Partners + integrated browser regression passed after the browser test harness correction.
+
+## Korean voice/device QA
+
+Added pure device-independent regression coverage for:
+- natural rate clamping
+- exact saved voice URI resolution
+- missing saved voice on another device
+- Microsoft/Google/Samsung/Siri-style preferred provider fallback
+- local Korean voice fallback
+- first-available fallback
+- newer local vs newer cloud preference timestamps
+- fail-safe behavior when browser speech synthesis is unavailable
+
+Commit:
+- `c4d57bd8cc10fe8a6130a22b899f6a710abb7221`
+
+Verification on that commit:
+- standalone Hallium ✅
+- Study Partners production integration ✅
+- full integrated Starter Flashcards/browser suite ✅
+
+## TOPIK final usability QA
+
+Underlying provenance gating remained correct, but the learner-facing catalog copy had become inconsistent with the now-capable verified scoring engine.
+
+Old catalog copy said:
+- there is no automatic score
+
+That was too absolute because Hallium can grade an objective attempt when an exact answer/point bundle has passed the provenance gate.
+
+Updated behavior:
+- catalog now says automatic scoring appears only when exact key + point map are verified
+- explicitly states Hallium scores are never official TOPIK results
+- each paper now shows a plain-language status above the technical provenance panel:
+  - `Practice mode only` when interactive scoring/audio is locked
+  - `Verified interactive features available` when a verified capability is active
+- plain status explains:
+  - whether Hallium can grade the paper
+  - whether mapped verified question audio is available
+  - what the learner should use externally when locked
+- the full technical provenance panel remains unchanged underneath
+
+Commits:
+- `a5dab413de2e775deb05b3a12b69310e9d2d708d`
+- `8cd6663310e0cea3c9191e1c31a336f5658487e4`
+- `7333033c289c1497262c6a60a28cf79a70e827b6`
+
+Browser regression now explicitly checks the plain-language `Practice mode only` state.
+
+## Verification / production status
+
+Latest functional commit:
+- `7333033c289c1497262c6a60a28cf79a70e827b6`
+
+Verified:
+- standalone Hallium ✅
+- Hallium Batch 2 ✅
+- Study Partners production integration ✅
+- dedicated TOPIK provenance/usability Chromium run ✅
+- latest Vercel production deployment READY ✅
+
+Security on the combined auth/storage + TOPIK UI path:
+- Hallium Security Gate ✅ on `8cd6663310e0cea3c9191e1c31a336f5658487e4`
+- no application/security logic changed after that commit; the final `7333033...` commit only adds a browser assertion
+
+Production observability:
+- Vercel runtime error clusters, last 24h: **none found**
+
+## H-P5 status after this checkpoint
+
+Completed:
+- native-Korean/content QA — targeted high-confidence pass ✅
+- curriculum coverage model QA ✅
+- current responsive/device regression matrix ✅
+- guest / Google / cross-account cloud-state QA ✅
+- Korean voice preference/device fallback QA ✅
+- final TOPIK provenance/usability QA ✅
+
+Remaining before final production closure:
+1. let the broad integrated Chromium cleanup finish on the latest TOPIK assertion commit
+2. final issue/CI cleanup only if a real regression appears
+3. record production closure and stop changing architecture unless new evidence requires it
