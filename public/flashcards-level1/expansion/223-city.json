@@ -1,0 +1,13 @@
+{
+  "id": "city",
+  "ko": "도시",
+  "latin": "dosi",
+  "meaning": "City",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "서울은 큰 도시예요.",
+  "translation": "Seoul is a big city.",
+  "tip": "도시 is pronounced do-si.",
+  "sentencePrompt": "서울은 큰 _____예요.",
+  "contrast": "도시 means city; 시골 means countryside."
+}
