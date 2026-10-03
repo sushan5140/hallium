@@ -1,0 +1,13 @@
+{
+  "id": "counter-sheets-5",
+  "ko": "다섯 장",
+  "latin": "daseot jang",
+  "meaning": "5 sheets / pages",
+  "group": "Counters",
+  "type": "COUNTER · FLAT OBJECTS",
+  "example": "종이가 다섯 장 있어요.",
+  "translation": "There are 5 sheets of paper.",
+  "tip": "장 counts flat objects such as sheets of paper, tickets, photos, and cards.",
+  "sentencePrompt": "종이가 _____ 있어요.",
+  "contrast": "장 counts flat objects; 권 counts books and bound volumes."
+}
