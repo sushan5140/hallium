@@ -1,0 +1,13 @@
+{
+  "id": "start",
+  "ko": "시작하다",
+  "latin": "sijakhada",
+  "meaning": "To start",
+  "group": "Actions",
+  "type": "VERB · GENERAL",
+  "example": "수업을 시작해요.",
+  "translation": "I start the class.",
+  "tip": "시작하다 changes to 시작해요.",
+  "sentencePrompt": "수업을 _____.",
+  "contrast": "시작하다 means start; 끝나다 means end."
+}
