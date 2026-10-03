@@ -1,0 +1,13 @@
+{
+  "id": "traffic-light",
+  "ko": "신호등",
+  "latin": "sinhodeung",
+  "meaning": "Traffic light",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "신호등 앞에서 기다려요.",
+  "translation": "I wait in front of the traffic light.",
+  "tip": "신호등 ends with 등.",
+  "sentencePrompt": "_____ 앞에서 기다려요.",
+  "contrast": "신호등 is traffic light; 길 is road."
+}
