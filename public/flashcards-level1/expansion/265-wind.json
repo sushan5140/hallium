@@ -1,0 +1,13 @@
+{
+  "id": "wind",
+  "ko": "바람",
+  "latin": "baram",
+  "meaning": "Wind",
+  "group": "Weather",
+  "type": "NOUN · WEATHER",
+  "example": "오늘 바람이 많이 불어요.",
+  "translation": "It is very windy today.",
+  "tip": "바람 is pronounced ba-ram.",
+  "sentencePrompt": "오늘 _____이 많이 불어요.",
+  "contrast": "바람 is wind; 비 means rain."
+}
