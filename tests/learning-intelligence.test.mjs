@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  adaptiveReviewSchedule,
   buildTodayLearningPlan,
   enforceLearningPlanSafety,
   fitPlanToSession,
@@ -197,4 +198,64 @@ test("AI route cannot displace a required due review", () => {
   assert.equal(safe.dueCount,2);
   assert.equal(safe.steps[0].kind,"review_queue");
   assert.equal(safe.rankedWeaknesses[0].skill,"Particles");
+});
+
+
+test("repeated misses stay on a one-day relearn interval", () => {
+  const schedule=adaptiveReviewSchedule({
+    correct:false,
+    misses:5,
+    successfulReviews:0,
+    urgency:18,
+    previousResult:"wrong",
+  });
+  assert.equal(schedule.intervalDays,1);
+  assert.equal(schedule.stage,"relearn");
+  assert.equal(schedule.stability,0);
+});
+
+test("fragile first recovery can remain close when miss history is heavy", () => {
+  const schedule=adaptiveReviewSchedule({
+    correct:true,
+    misses:5,
+    successfulReviews:1,
+    urgency:18,
+    previousResult:"wrong",
+  });
+  assert.ok(schedule.intervalDays>=1 && schedule.intervalDays<=3);
+  assert.equal(schedule.stage,"recovering");
+});
+
+test("clean repeated recovery expands review spacing", () => {
+  const first=adaptiveReviewSchedule({
+    correct:true, misses:1, successfulReviews:1, urgency:2, previousResult:"wrong",
+  });
+  const stronger=adaptiveReviewSchedule({
+    correct:true, misses:1, successfulReviews:3, urgency:2, previousResult:"correct",
+  });
+  assert.ok(stronger.intervalDays>first.intervalDays);
+  assert.ok(stronger.stability>first.stability);
+  assert.equal(stronger.stage,"strengthening");
+});
+
+test("higher urgency shortens the next successful-review interval", () => {
+  const low=adaptiveReviewSchedule({
+    correct:true, misses:2, successfulReviews:3, urgency:2, previousResult:"correct",
+  });
+  const high=adaptiveReviewSchedule({
+    correct:true, misses:2, successfulReviews:3, urgency:20, previousResult:"correct",
+  });
+  assert.ok(high.intervalDays<low.intervalDays);
+});
+
+test("adaptive review intervals never exceed sixty days", () => {
+  const schedule=adaptiveReviewSchedule({
+    correct:true,
+    misses:1,
+    successfulReviews:99,
+    urgency:0,
+    previousResult:"correct",
+  });
+  assert.equal(schedule.intervalDays,60);
+  assert.equal(schedule.stage,"stable");
 });

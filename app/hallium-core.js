@@ -17,7 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills } from "../lib/learning-intelligence";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, adaptiveReviewSchedule, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -2618,11 +2618,6 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     return [levelId || "unknown", source || "practice", String(question?.prompt || "").trim()].join("|");
   }
 
-  function intervalForReview(successfulReviews) {
-    const intervals = [3, 7, 14, 30, 60];
-    return intervals[Math.min(Math.max(Number(successfulReviews || 1) - 1, 0), intervals.length - 1)];
-  }
-
   function addDaysIso(days) {
     return new Date(Date.now() + Number(days) * 86400000).toISOString();
   }
@@ -2649,17 +2644,34 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
     if (correct) {
       const successfulReviews = Number(existing.successfulReviews || 0) + 1;
-      const intervalDays = intervalForReview(successfulReviews);
+      const schedule = adaptiveReviewSchedule({
+        correct: true,
+        successfulReviews,
+        misses: Number(existing.misses || 1),
+        urgency: reviewUrgency(existing),
+        previousResult: existing.lastResult || "wrong",
+      });
       nextEntry = {
         ...existing,
         successfulReviews,
-        intervalDays,
-        nextReviewAt: addDaysIso(intervalDays),
+        intervalDays: schedule.intervalDays,
+        reviewStage: schedule.stage,
+        reviewStability: schedule.stability,
+        scheduleReason: schedule.reason,
+        nextReviewAt: addDaysIso(schedule.intervalDays),
         lastSeenAt: now,
         lastSelectedIndex: selectedIndex,
         lastResult: "correct",
       };
     } else {
+      const misses = Number(existing?.misses || 0) + 1;
+      const schedule = adaptiveReviewSchedule({
+        correct: false,
+        successfulReviews: 0,
+        misses,
+        urgency: existing ? reviewUrgency(existing) : 0,
+        previousResult: existing?.lastResult || "wrong",
+      });
       nextEntry = {
         id,
         source,
@@ -2673,9 +2685,12 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         lastSeenAt: now,
         lastSelectedIndex: selectedIndex,
         lastResult: "wrong",
-        misses: Number(existing?.misses || 0) + 1,
+        misses,
         successfulReviews: 0,
         intervalDays: 0,
+        reviewStage: schedule.stage,
+        reviewStability: schedule.stability,
+        scheduleReason: schedule.reason,
         nextReviewAt: now,
       };
     }
@@ -2690,23 +2705,35 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const now = new Date().toISOString();
 
     const successfulReviews = correct ? Number(existing.successfulReviews || 0) + 1 : 0;
-    const intervalDays = correct ? intervalForReview(successfulReviews) : 1;
+    const misses = correct ? Number(existing.misses || 1) : Number(existing.misses || 1) + 1;
+    const schedule = adaptiveReviewSchedule({
+      correct,
+      successfulReviews,
+      misses,
+      urgency: reviewUrgency(existing),
+      previousResult: existing.lastResult || "wrong",
+    });
     const updated = {
       ...existing,
       successfulReviews,
-      intervalDays,
-      nextReviewAt: addDaysIso(intervalDays),
+      intervalDays: schedule.intervalDays,
+      reviewStage: schedule.stage,
+      reviewStability: schedule.stability,
+      scheduleReason: schedule.reason,
+      nextReviewAt: addDaysIso(schedule.intervalDays),
       lastSeenAt: now,
       lastSelectedIndex: selectedIndex,
       lastResult: correct ? "correct" : "wrong",
-      misses: correct ? Number(existing.misses || 1) : Number(existing.misses || 1) + 1,
+      misses,
     };
     writeMistakeLog([updated, ...previous.filter((item) => item.id !== updated.id)]);
     trackLearningEvent("weakness_review_completed", "weakness-review:" + updated.id + ":" + new Date().toISOString().slice(0,10), {
       weakness_id: updated.id,
       skill: updated.skill,
       correct,
-      interval_days: intervalDays,
+      interval_days: schedule.intervalDays,
+      review_stage: schedule.stage,
+      review_stability: schedule.stability,
     });
     setMistakeReviewChoice(null);
     setMistakeReviewChecked(false);
@@ -4967,6 +4994,13 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const queue = reviewFilter === "mastered" ? mastered : reviewFilter === "mistakes" ? relevantMistakes : dueMistakes;
     const due = queue[0] || null;
     const reviewCorrect = !!due && mistakeReviewChoice === due.answer;
+    const reviewSchedulePreview = due ? adaptiveReviewSchedule({
+      correct: reviewCorrect,
+      successfulReviews: reviewCorrect ? Number(due.successfulReviews || 0) + 1 : 0,
+      misses: reviewCorrect ? Number(due.misses || 1) : Number(due.misses || 1) + 1,
+      urgency: reviewUrgency(due),
+      previousResult: due.lastResult || "wrong",
+    }) : null;
     const reviewed = lessons.filter((lesson) => progress[lesson.id]?.completed).slice(-4);
 
     if (reviewFilter === "mastered") {
@@ -5073,7 +5107,9 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           {mistakeReviewChecked && (
             <div className={"inline-feedback is-visible " + (reviewCorrect ? "success" : "error")}>
               <strong>{reviewCorrect ? "Recovered." : "Still needs reinforcement."}</strong>{" "}
-              {due.explanation || (reviewCorrect ? "Hallim will push the review interval out." : "This item returns tomorrow.")}
+              {reviewCorrect
+                ? (reviewSchedulePreview?.reason || due.explanation || "Hallim will push the review interval out.")
+                : (reviewSchedulePreview?.reason || due.explanation || "This item returns tomorrow.")}
             </div>
           )}
 
@@ -5083,7 +5119,9 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
               <button className="check-button" disabled={mistakeReviewChoice === null} onClick={() => setMistakeReviewChecked(true)}>Check recall</button>
             ) : (
               <button className="check-button" onClick={() => scheduleMistakeReview(due, mistakeReviewChoice, reviewCorrect)}>
-                {reviewCorrect ? "Schedule farther out" : "Review again tomorrow"} →
+                {reviewCorrect
+                  ? "Schedule in " + (reviewSchedulePreview?.intervalDays || 1) + ((reviewSchedulePreview?.intervalDays || 1) === 1 ? " day" : " days")
+                  : "Review again tomorrow"} →
               </button>
             )}
           </div>
