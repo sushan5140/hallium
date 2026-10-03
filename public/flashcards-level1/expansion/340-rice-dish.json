@@ -1,0 +1,13 @@
+{
+  "id": "rice-dish",
+  "ko": "볶음밥",
+  "latin": "bokkeumbap",
+  "meaning": "Fried rice",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "볶음밥을 하나 주세요.",
+  "translation": "Please give me one fried rice.",
+  "tip": "볶음밥 combines 볶음 and 밥.",
+  "sentencePrompt": "_____을 하나 주세요.",
+  "contrast": "볶음밥 means fried rice; 밥 is plain rice/meal."
+}
