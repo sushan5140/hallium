@@ -1,0 +1,13 @@
+{
+  "id": "stand",
+  "ko": "서다",
+  "latin": "seoda",
+  "meaning": "To stand",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "문 앞에 서요.",
+  "translation": "I stand in front of the door.",
+  "tip": "서다 changes to 서요.",
+  "sentencePrompt": "문 앞에 _____.",
+  "contrast": "서다 means stand; 앉다 means sit."
+}
