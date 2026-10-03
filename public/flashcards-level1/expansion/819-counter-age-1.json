@@ -1,0 +1,13 @@
+{
+  "id": "counter-age-1",
+  "ko": "한 살",
+  "latin": "han sal",
+  "meaning": "1 year old",
+  "group": "Counters",
+  "type": "COUNTER · AGE",
+  "example": "저는 한 살이에요.",
+  "translation": "I am 1 year old.",
+  "tip": "살 is the everyday counter for age and normally uses native Korean numbers.",
+  "sentencePrompt": "저는 _____이에요.",
+  "contrast": "세 is a more formal Sino-Korean age counter; 살 is common in conversation."
+}
