@@ -1,0 +1,13 @@
+{
+  "id": "head",
+  "ko": "머리",
+  "latin": "meori",
+  "meaning": "Head",
+  "group": "Body",
+  "type": "NOUN · BODY",
+  "example": "머리가 아파요.",
+  "translation": "My head hurts.",
+  "tip": "머리 is pronounced meo-ri.",
+  "sentencePrompt": "_____가 아파요.",
+  "contrast": "머리 means head/hair depending on context."
+}
