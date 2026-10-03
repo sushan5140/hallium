@@ -1,0 +1,13 @@
+{
+  "id": "counter-cups-5",
+  "ko": "다섯 잔",
+  "latin": "daseot jan",
+  "meaning": "5 cups / glasses",
+  "group": "Counters",
+  "type": "COUNTER · DRINKS",
+  "example": "커피 다섯 잔 주세요.",
+  "translation": "Please give me 5 cups of coffee.",
+  "tip": "잔 counts cups or glasses of drinks.",
+  "sentencePrompt": "커피 _____ 주세요.",
+  "contrast": "잔 counts drinks in cups/glasses; 병 counts bottles."
+}
