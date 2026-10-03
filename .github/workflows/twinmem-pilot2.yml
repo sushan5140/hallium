@@ -1,0 +1,41 @@
+name: TwinMem Pilot 2 drift gate
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot2/**"
+      - ".github/workflows/twinmem-pilot2.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run drift-gate experiment
+        run: python research/twinmem_pilot2/drift_gate.py
+      - name: Validate scenario structure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("research/twinmem_pilot2/outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert len(d["scenarios"])==2
+          names={x["scenario"] for x in d["scenarios"]}
+          assert names=={"stationary","source_reliability_shift"}
+          assert d["gate_config"]["window_per_source"] in {12,24,48,96}
+          assert d["gate_config"]["threshold"] in {0.05,0.10,0.15,0.20,0.25}
+          for s in d["scenarios"]:
+              assert s["gate_choice"] in {"calibrated","topic_recent"}
+              assert set(s["accuracy"])=={"frozen_calibrated","topic_recent","drift_gate","oracle_best_of_two"}
+          print("PASS: Pilot 2 scenarios and gate structure")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot2-drift-gate
+          path: research/twinmem_pilot2/outputs/
+          retention-days: 30
