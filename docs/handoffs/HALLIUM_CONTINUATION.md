@@ -2112,3 +2112,162 @@ Design and implement MeloTTS as a separate voice provider/service layer while pr
 3. device-safe fallback behavior,
 4. no regression to lesson latency,
 5. graceful provider failure.
+
+
+---
+
+# 29. Post-H-P5 infrastructure — MeloTTS provider boundary
+
+Hallium now has a production-safe high-quality Korean TTS provider boundary without bundling Python/PyTorch model inference into the Next.js/Vercel application runtime.
+
+## Architecture
+
+Signed-in learner audio path:
+
+1. Hallium calls `playServerKoreanTts()`.
+2. Browser sends same-origin POST to `/api/tts`.
+3. Hallium authenticates the Google user and applies the TTS quota.
+4. `/api/tts` forwards only the bounded Korean text + rate to the configured MeloTTS container.
+5. Audio is streamed back to the browser.
+6. If any server/provider/playback step fails, Hallium falls back to the existing remembered browser Korean voice.
+
+Guest Mode:
+- does **not** call server MeloTTS.
+- continues to use local browser Web Speech only.
+
+This preserves the reviewer/no-cost boundary.
+
+## Hallium browser provider
+
+Added:
+- `lib/korean-tts-provider.js`
+
+Behavior:
+- same-origin `/api/tts`
+- max 500 chars sent
+- 8 second client timeout
+- requires an audio response
+- provider failure returns `false`
+- caller immediately falls back to Web Speech
+
+Central `playKorean()` in `app/hallium-core.js` now tries server voice first only for signed-in learners.
+
+Relevant commits:
+- `f78e7c94539d5dde6136942c0d4b937afa2b95b0`
+- `0b1d9390b3bf100204fdbf30fb75f8d0d881bab0`
+
+## Authenticated Hallium proxy
+
+Added:
+- `app/api/tts/route.js`
+
+Security / reliability:
+- `requireHalliumAiUser()`
+- bounded JSON body
+- text length 1–500
+- TTS quota: 300/day, 30/minute per authenticated user
+- service URL remains server-only
+- service bearer token remains server-only
+- 7 second upstream timeout
+- accepts only audio responses
+- no-store response
+- provider identity response header
+
+Environment:
+- `MELOTTS_SERVICE_URL`
+- `MELOTTS_SERVICE_TOKEN`
+
+If no service URL is configured:
+- proxy returns 503
+- browser client falls back automatically to the existing Web Speech voice
+
+Commit:
+- `5baeac29a6e0b6caa80deac74d30b8ed018f6c0c`
+
+## Separate MeloTTS service scaffold
+
+Added under:
+- `services/melotts/`
+
+Files:
+- `app.py`
+- `Dockerfile`
+- `requirements.txt`
+- `README.md`
+
+Service:
+- FastAPI
+- Korean-only synthesis
+- bearer-protected production endpoint
+- health endpoint
+- 1–500 character request bound
+- speed bound 0.7–1.3
+- WAV response
+- temp audio cleaned after response
+- CPU/GPU/MPS selected through `MELOTTS_DEVICE`
+
+Upstream MeloTTS pinned to:
+- `209145371cff8fc3bd60d7be902ea69cbdb7965a`
+
+The upstream MeloTTS project is a Python model runtime and documents Docker/Python usage; this service intentionally stays outside the Next runtime.
+
+Commits:
+- `e77e51f38560ae7cb8c64b46d867f4d2d3af665a`
+- `dc1b650c23f86d41952a8766ce003411cd369964`
+- `c669b2d6e34346bce04ddf14ef6490af42710ac4`
+- `cd33639f37040ab2801b3ff90b270a89cbef532d`
+
+## Regression/security coverage
+
+Added:
+- `tests/melotts-provider-contract.test.mjs`
+
+Checks:
+- signed-in server-first / guest local-only routing
+- same-origin proxy usage
+- browser fallback behavior
+- auth + quota + bounded proxy contract
+- server-only MeloTTS URL/token
+- Korean-only service
+- service bearer protection
+- pinned upstream revision
+- separate Python container boundary
+
+Security Gate now also:
+- rejects unauthenticated `/api/tts`
+- rejects cross-origin `/api/tts`
+- runs the MeloTTS provider contract test
+
+Commits:
+- `f557a75793d830a542074f2b4b300ddf16224ff9`
+- `ed4e9af7c433e62465b915531d52e2752fb6fa53`
+- `b10634fedaa473c76d9f1d841cdf076735ebc576`
+
+Verification already observed on the provider route code path:
+- Hallium Security Gate ✅ on `ed4e9af7...`
+- standalone Hallium ✅ on `ed4e9af7...`
+- Study Partners production integration ✅ on `ed4e9af7...`
+
+## Activation status
+
+**Hallium MeloTTS integration: READY / SAFE FALLBACK ✅**
+
+**MeloTTS inference provider: NOT YET ACTIVE**
+
+Reason:
+- no external container host/service URL is currently connected in this workspace.
+- `MELOTTS_SERVICE_URL` and `MELOTTS_SERVICE_TOKEN` must not be invented.
+
+Until a real service is hosted:
+- production Hallium continues using the existing browser voice through automatic fallback.
+- there is no learner-facing outage.
+
+## Next infrastructure step
+
+1. deploy `services/melotts` to a warm container host suitable for Python/model inference,
+2. configure the same bearer token on service + Hallium,
+3. set `MELOTTS_SERVICE_URL` and `MELOTTS_SERVICE_TOKEN` in Vercel,
+4. health-test the service,
+5. verify signed-in Korean audio resolves to the MeloTTS provider,
+6. verify service-down behavior falls back to Web Speech,
+7. only then call MeloTTS production-active.
