@@ -1,0 +1,13 @@
+{
+  "id": "medicine",
+  "ko": "약",
+  "latin": "yak",
+  "meaning": "Medicine",
+  "group": "Daily Life",
+  "type": "NOUN · HEALTH",
+  "example": "약을 먹어요.",
+  "translation": "I take medicine.",
+  "tip": "약 is one syllable ending with final ㄱ.",
+  "sentencePrompt": "_____을 먹어요.",
+  "contrast": "약 means medicine; 물 means water."
+}
