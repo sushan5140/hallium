@@ -1,0 +1,13 @@
+{
+  "id": "grape",
+  "ko": "포도",
+  "latin": "podo",
+  "meaning": "Grape",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "포도가 달아요.",
+  "translation": "The grapes are sweet.",
+  "tip": "포도 is pronounced po-do.",
+  "sentencePrompt": "_____가 달아요.",
+  "contrast": "포도 means grape; 딸기 means strawberry."
+}
