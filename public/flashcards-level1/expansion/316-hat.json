@@ -1,0 +1,13 @@
+{
+  "id": "hat",
+  "ko": "모자",
+  "latin": "moja",
+  "meaning": "Hat / cap",
+  "group": "Shopping",
+  "type": "NOUN · CLOTHING",
+  "example": "모자를 써요.",
+  "translation": "I wear a hat.",
+  "tip": "모자 is pronounced mo-ja.",
+  "sentencePrompt": "_____를 써요.",
+  "contrast": "모자 means hat; 신발 means shoes."
+}
