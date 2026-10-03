@@ -1,0 +1,13 @@
+{
+  "id": "bus",
+  "ko": "버스",
+  "latin": "beoseu",
+  "meaning": "Bus",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "버스를 타요.",
+  "translation": "I take the bus.",
+  "tip": "버스 is a Korean loanword from English 'bus'.",
+  "sentencePrompt": "_____를 타요.",
+  "contrast": "버스 means bus; 지하철 means subway."
+}
