@@ -1,0 +1,13 @@
+{
+  "id": "try-on",
+  "ko": "입어보다",
+  "latin": "ibeoboda",
+  "meaning": "To try on",
+  "group": "Actions",
+  "type": "VERB · SHOPPING",
+  "example": "이 셔츠를 입어봐요.",
+  "translation": "I try on this shirt.",
+  "tip": "입어보다 literally combines wear + try.",
+  "sentencePrompt": "이 셔츠를 _____.",
+  "contrast": "입어보다 means try on clothing; 사다 means buy."
+}
