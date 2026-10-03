@@ -1,0 +1,13 @@
+{
+  "id": "safe",
+  "ko": "안전하다",
+  "latin": "anjeonhada",
+  "meaning": "To be safe",
+  "group": "Description",
+  "type": "ADJECTIVE · GENERAL",
+  "example": "이 길은 안전해요.",
+  "translation": "This road is safe.",
+  "tip": "안전하다 changes to 안전해요.",
+  "sentencePrompt": "이 길은 _____.",
+  "contrast": "안전하다 means safe; 위험하다 means dangerous."
+}
