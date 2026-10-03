@@ -1,0 +1,13 @@
+{
+  "id": "guide",
+  "ko": "안내",
+  "latin": "annae",
+  "meaning": "Guidance / information",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "안내를 잘 들어요.",
+  "translation": "I listen carefully to the guidance.",
+  "tip": "안내 is pronounced an-nae.",
+  "sentencePrompt": "_____를 잘 들어요.",
+  "contrast": "안내 means guidance/information; 지도 means map."
+}
