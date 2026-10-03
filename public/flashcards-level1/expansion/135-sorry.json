@@ -1,0 +1,13 @@
+{
+  "id": "sorry",
+  "ko": "미안하다",
+  "latin": "mianhada",
+  "meaning": "To be sorry",
+  "group": "Greetings",
+  "type": "EXPRESSION · APOLOGY",
+  "example": "늦어서 미안해요.",
+  "translation": "I'm sorry for being late.",
+  "tip": "미안하다 changes to 미안해요.",
+  "sentencePrompt": "늦어서 _____.",
+  "contrast": "미안해요 is polite; 미안해 is casual."
+}
