@@ -1,0 +1,13 @@
+{
+  "id": "grandfather",
+  "ko": "할아버지",
+  "latin": "harabeoji",
+  "meaning": "Grandfather",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "할아버지와 산책해요.",
+  "translation": "I take a walk with my grandfather.",
+  "tip": "할아버지 is a common respectful family term.",
+  "sentencePrompt": "_____와 산책해요.",
+  "contrast": "할아버지 means grandfather; 할머니 means grandmother."
+}
