@@ -1,0 +1,13 @@
+{
+  "id": "information-desk",
+  "ko": "안내소",
+  "latin": "annaeso",
+  "meaning": "Information desk",
+  "group": "Travel",
+  "type": "NOUN · PLACE",
+  "example": "안내소에서 지도를 받아요.",
+  "translation": "I get a map at the information desk.",
+  "tip": "안내소 combines 안내 and 소.",
+  "sentencePrompt": "_____에서 지도를 받아요.",
+  "contrast": "안내소 is information desk; 호텔 is hotel."
+}
