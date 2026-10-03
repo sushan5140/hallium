@@ -1,0 +1,13 @@
+{
+  "id": "classroom",
+  "ko": "교실",
+  "latin": "gyosil",
+  "meaning": "Classroom",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "학생들이 교실에 있어요.",
+  "translation": "The students are in the classroom.",
+  "tip": "교실 combines 교 'teaching/school' and 실 'room'.",
+  "sentencePrompt": "학생들이 _____에 있어요.",
+  "contrast": "교실 is a classroom; 학교 is the school."
+}
