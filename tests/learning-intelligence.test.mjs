@@ -2,11 +2,14 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   adaptiveReviewSchedule,
+  applyDailyLearningProgress,
   buildDeterministicStudyPlan,
   buildTodayLearningPlan,
   enforceLearningPlanSafety,
   fitPlanToSession,
   inferDifficulty,
+  markDailyLearningAction,
+  normalizeDailyLearningSession,
   normalizeLearningPreferences,
   rankWeakSkills,
   reviewUrgency,
@@ -329,4 +332,106 @@ test("weekly plan day count is bounded to five through seven", () => {
   const long=buildDeterministicStudyPlan({days:30,now:NOW});
   assert.equal(short.days.length,5);
   assert.equal(long.days.length,7);
+});
+
+
+test("daily learning session resets on a new date", () => {
+  const oldSession={
+    date:"2026-10-02",
+    startedKinds:["companion"],
+    completedKinds:["companion"],
+    updatedAt:"2026-10-02T12:00:00Z",
+  };
+  const current=normalizeDailyLearningSession(oldSession,NOW);
+  assert.equal(current.date,"2026-10-03");
+  assert.deepEqual(current.startedKinds,[]);
+  assert.deepEqual(current.completedKinds,[]);
+});
+
+test("marking daily actions deduplicates started and completed kinds", () => {
+  let session=markDailyLearningAction(null,"companion","started",NOW);
+  session=markDailyLearningAction(session,"companion","started",NOW);
+  session=markDailyLearningAction(session,"companion","completed",NOW);
+  assert.deepEqual(session.startedKinds,["companion"]);
+  assert.deepEqual(session.completedKinds,["companion"]);
+});
+
+test("completed recommendations disappear from today's route", () => {
+  const plan={
+    headline:"Keep moving",
+    dueCount:0,
+    steps:[
+      {kind:"companion",title:"Lesson"},
+      {kind:"test",title:"Test"},
+    ],
+  };
+  const session={
+    date:"2026-10-03",
+    startedKinds:["companion"],
+    completedKinds:["companion"],
+    updatedAt:"2026-10-03T10:00:00Z",
+  };
+  const next=applyDailyLearningProgress(plan,session,NOW);
+  assert.deepEqual(next.steps.map((s)=>s.kind),["test"]);
+});
+
+test("started optional actions move behind unstarted optional work", () => {
+  const plan={
+    headline:"Keep moving",
+    dueCount:0,
+    steps:[
+      {kind:"companion",title:"Lesson"},
+      {kind:"adaptive_review",title:"Review"},
+      {kind:"test",title:"Test"},
+    ],
+  };
+  const session={
+    date:"2026-10-03",
+    startedKinds:["companion"],
+    completedKinds:[],
+    updatedAt:"2026-10-03T10:00:00Z",
+  };
+  const next=applyDailyLearningProgress(plan,session,NOW);
+  assert.deepEqual(next.steps.map((s)=>s.kind),["adaptive_review","test","companion"]);
+});
+
+test("unfinished due review stays first even after it has been started", () => {
+  const plan={
+    headline:"Weakness due",
+    dueCount:2,
+    steps:[
+      {kind:"review_queue",title:"Review due"},
+      {kind:"companion",title:"Lesson"},
+      {kind:"test",title:"Test"},
+    ],
+  };
+  const session={
+    date:"2026-10-03",
+    startedKinds:["review_queue"],
+    completedKinds:[],
+    updatedAt:"2026-10-03T10:00:00Z",
+  };
+  const next=applyDailyLearningProgress(plan,session,NOW);
+  assert.equal(next.steps[0].kind,"review_queue");
+});
+
+test("finishing every recommendation marks today's plan complete", () => {
+  const plan={
+    headline:"Keep moving",
+    dueCount:0,
+    steps:[
+      {kind:"companion",title:"Lesson"},
+      {kind:"test",title:"Test"},
+    ],
+  };
+  const session={
+    date:"2026-10-03",
+    startedKinds:["companion","test"],
+    completedKinds:["companion","test"],
+    updatedAt:"2026-10-03T10:00:00Z",
+  };
+  const next=applyDailyLearningProgress(plan,session,NOW);
+  assert.equal(next.completedToday,true);
+  assert.equal(next.steps.length,0);
+  assert.match(next.headline,/complete/i);
 });
