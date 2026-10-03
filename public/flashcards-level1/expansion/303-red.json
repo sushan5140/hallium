@@ -1,0 +1,13 @@
+{
+  "id": "red",
+  "ko": "빨간색",
+  "latin": "ppalgansaek",
+  "meaning": "Red",
+  "group": "Description",
+  "type": "NOUN · COLOR",
+  "example": "빨간색 가방을 좋아해요.",
+  "translation": "I like the red bag.",
+  "tip": "빨간색 is pronounced ppal-gan-saek.",
+  "sentencePrompt": "_____ 가방을 좋아해요.",
+  "contrast": "빨간색 means red; 파란색 means blue."
+}
