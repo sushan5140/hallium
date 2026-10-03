@@ -1,0 +1,13 @@
+{
+  "id": "mountain",
+  "ko": "산",
+  "latin": "san",
+  "meaning": "Mountain",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "주말에 산에 가요.",
+  "translation": "I go to the mountain on the weekend.",
+  "tip": "산 is one syllable ending in ㄴ.",
+  "sentencePrompt": "주말에 _____에 가요.",
+  "contrast": "산 is mountain; 해변 is beach."
+}
