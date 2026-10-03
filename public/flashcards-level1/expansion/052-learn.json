@@ -1,0 +1,13 @@
+{
+  "id": "learn",
+  "ko": "배우다",
+  "latin": "baeuda",
+  "meaning": "To learn",
+  "group": "Actions",
+  "type": "VERB · STUDY",
+  "example": "한국어를 배워요.",
+  "translation": "I learn Korean.",
+  "tip": "배우다 changes to 배워요 in polite present speech.",
+  "sentencePrompt": "한국어를 _____.",
+  "contrast": "배우다 means learn; 가르치다 means teach."
+}
