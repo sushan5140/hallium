@@ -1,0 +1,13 @@
+{
+  "id": "delicious",
+  "ko": "맛있다",
+  "latin": "masitda",
+  "meaning": "To be delicious",
+  "group": "Description",
+  "type": "ADJECTIVE · FOOD",
+  "example": "이 음식은 맛있어요.",
+  "translation": "This food is delicious.",
+  "tip": "맛있다 is commonly pronounced close to 마싣따.",
+  "sentencePrompt": "이 음식은 _____.",
+  "contrast": "맛있다 means delicious; 맛없다 means not tasty."
+}
