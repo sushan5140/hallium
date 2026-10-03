@@ -1,0 +1,56 @@
+name: TwinMem Pilot 2 drift gate
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot2/**"
+      - ".github/workflows/twinmem-pilot2.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run drift-gate experiment
+        run: python research/twinmem_pilot2/drift_gate.py
+      - name: Validate scenario structure and exact accuracies
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path("research/twinmem_pilot2")
+          d=json.loads((root/"outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert len(d["scenarios"])==2
+          names={x["scenario"] for x in d["scenarios"]}
+          assert names=={"stationary","source_reliability_shift"}
+          assert d["gate_config"]["window_per_source"]==24
+          assert d["gate_config"]["threshold"]==0.2
+
+          got=[]
+          for s in d["scenarios"]:
+              assert s["gate_choice"] in {"calibrated","topic_recent"}
+              assert set(s["accuracy"])=={"frozen_calibrated","topic_recent","drift_gate","oracle_best_of_two"}
+              for method,by_budget in s["accuracy"].items():
+                  for budget in (52,105,210):
+                      got.append({
+                          "scenario":s["scenario"],
+                          "gate_choice":s["gate_choice"],
+                          "method":method,
+                          "word_budget":str(budget),
+                          "accuracy":str(by_budget[str(budget)] if str(budget) in by_budget else by_budget[budget]),
+                      })
+          with (root/"expected_accuracy.csv").open(newline="") as f:
+              expected=list(csv.DictReader(f))
+          assert got==expected, (got,expected)
+          print("PASS: Pilot 2 exact committed gate choices and accuracies")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot2-drift-gate
+          path: research/twinmem_pilot2/outputs/
+          retention-days: 30
