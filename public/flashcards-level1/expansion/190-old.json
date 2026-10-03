@@ -1,0 +1,13 @@
+{
+  "id": "old",
+  "ko": "오래되다",
+  "latin": "oraedoeda",
+  "meaning": "To be old / aged",
+  "group": "Description",
+  "type": "ADJECTIVE · QUALITY",
+  "example": "이 건물은 오래됐어요.",
+  "translation": "This building is old.",
+  "tip": "오래되다 often contracts to 오래됐어요.",
+  "sentencePrompt": "이 건물은 _____.",
+  "contrast": "오래되다 means old/aged; 새롭다 means new."
+}
