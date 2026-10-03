@@ -1,0 +1,13 @@
+{
+  "id": "counter-times-9",
+  "ko": "아홉 번",
+  "latin": "ahop beon",
+  "meaning": "9 times",
+  "group": "Counters",
+  "type": "COUNTER · OCCURRENCES",
+  "example": "아홉 번 읽었어요.",
+  "translation": "I read it 9 times.",
+  "tip": "번 counts occurrences, repetitions, turns, and numbered instances.",
+  "sentencePrompt": "_____ 읽었어요.",
+  "contrast": "번 counts occurrences; 개 counts general objects."
+}
