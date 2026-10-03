@@ -1,0 +1,13 @@
+{
+  "id": "park",
+  "ko": "공원",
+  "latin": "gongwon",
+  "meaning": "Park",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "주말에 공원에서 산책해요.",
+  "translation": "I take a walk in the park on weekends.",
+  "tip": "공원 is pronounced gong-won.",
+  "sentencePrompt": "주말에 _____에서 산책해요.",
+  "contrast": "공원 is park; 운동장은 sports field."
+}
