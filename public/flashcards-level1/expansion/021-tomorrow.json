@@ -1,0 +1,13 @@
+{
+  "id": "tomorrow",
+  "ko": "내일",
+  "latin": "naeil",
+  "meaning": "Tomorrow",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "내일 친구를 만나요.",
+  "translation": "I meet a friend tomorrow.",
+  "tip": "Pronounce 내일 smoothly as two syllables.",
+  "sentencePrompt": "_____ 친구를 만나요.",
+  "contrast": "내일 is tomorrow; 오늘 is today."
+}
