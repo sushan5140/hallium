@@ -1,0 +1,13 @@
+{
+  "id": "cute",
+  "ko": "귀엽다",
+  "latin": "gwiyeopda",
+  "meaning": "To be cute",
+  "group": "Description",
+  "type": "ADJECTIVE · APPEARANCE",
+  "example": "아기가 정말 귀여워요.",
+  "translation": "The baby is really cute.",
+  "tip": "귀엽다 changes to 귀여워요.",
+  "sentencePrompt": "아기가 정말 _____.",
+  "contrast": "귀엽다 means cute; 멋있다 means cool/handsome."
+}
