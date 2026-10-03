@@ -1,0 +1,13 @@
+{
+  "id": "cancel",
+  "ko": "취소하다",
+  "latin": "chwisohada",
+  "meaning": "To cancel",
+  "group": "Actions",
+  "type": "VERB · GENERAL",
+  "example": "예약을 취소해요.",
+  "translation": "I cancel the reservation.",
+  "tip": "취소하다 changes to 취소해요.",
+  "sentencePrompt": "예약을 _____.",
+  "contrast": "취소하다 means cancel; 예약하다 means reserve."
+}
