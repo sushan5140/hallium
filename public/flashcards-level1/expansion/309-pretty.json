@@ -1,0 +1,13 @@
+{
+  "id": "pretty",
+  "ko": "예쁘다",
+  "latin": "yeppeuda",
+  "meaning": "To be pretty",
+  "group": "Description",
+  "type": "ADJECTIVE · APPEARANCE",
+  "example": "이 꽃이 정말 예뻐요.",
+  "translation": "This flower is really pretty.",
+  "tip": "예쁘다 changes to 예뻐요.",
+  "sentencePrompt": "이 꽃이 정말 _____.",
+  "contrast": "예쁘다 means pretty; 아름답다 means beautiful."
+}
