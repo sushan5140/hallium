@@ -1,0 +1,13 @@
+{
+  "id": "tree",
+  "ko": "나무",
+  "latin": "namu",
+  "meaning": "Tree",
+  "group": "Daily Life",
+  "type": "NOUN · NATURE",
+  "example": "공원에 큰 나무가 있어요.",
+  "translation": "There is a big tree in the park.",
+  "tip": "나무 is pronounced na-mu.",
+  "sentencePrompt": "공원에 큰 _____가 있어요.",
+  "contrast": "나무 is tree; 꽃 is flower."
+}
