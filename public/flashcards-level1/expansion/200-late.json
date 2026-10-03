@@ -1,0 +1,13 @@
+{
+  "id": "late",
+  "ko": "늦다",
+  "latin": "neutda",
+  "meaning": "To be late",
+  "group": "Description",
+  "type": "ADJECTIVE · TIME",
+  "example": "수업에 늦었어요.",
+  "translation": "I was late for class.",
+  "tip": "늦다 changes to 늦어요.",
+  "sentencePrompt": "수업에 _____.",
+  "contrast": "늦다 means late; 이르다 means early."
+}
