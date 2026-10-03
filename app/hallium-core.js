@@ -2381,7 +2381,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       tests: { latest, bestScore: best, attempts },
       audit: aiAuditRecord?.audit || null,
       adaptiveDifficulty: aiDifficultyRecord?.result || null,
-      aiPracticeHistory: readIntelligenceState().practiceHistory || [],
+      aiPracticeHistory: readIntelligenceState(guestMode).practiceHistory || [],
       mistakeMemory: {
         dueCount: dueMistakes.length,
         topWeakSkills,
@@ -2545,7 +2545,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
   function recordQuestionOutcome(question, source, selectedIndex, correct, levelId = activeStudy.id) {
     if (!question || selectedIndex === null || selectedIndex === undefined) return;
-    const previous = readIntelligenceState().mistakeLog || mistakeLog || [];
+    const previous = readIntelligenceState(guestMode).mistakeLog || mistakeLog || [];
     const id = mistakeId(question, source, levelId);
     const existing = previous.find((item) => item.id === id);
 
@@ -2592,7 +2592,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
   function scheduleMistakeReview(entry, selectedIndex, correct) {
     if (!entry) return;
-    const previous = readIntelligenceState().mistakeLog || mistakeLog || [];
+    const previous = readIntelligenceState(guestMode).mistakeLog || mistakeLog || [];
     const existing = previous.find((item) => item.id === entry.id) || entry;
     const now = new Date().toISOString();
 
@@ -2759,7 +2759,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       total: aiQuiz.questions.length,
       completedAt: new Date().toISOString(),
     };
-    const previous = readIntelligenceState();
+    const previous = readIntelligenceState(guestMode);
     trackLearningEvent(
       aiQuiz.type === "checkpoint" ? "checkpoint_completed" : "adaptive_review_completed",
       null,
