@@ -1,0 +1,13 @@
+{
+  "id": "teach",
+  "ko": "가르치다",
+  "latin": "gareuchida",
+  "meaning": "To teach",
+  "group": "Actions",
+  "type": "VERB · STUDY",
+  "example": "선생님이 한국어를 가르쳐요.",
+  "translation": "The teacher teaches Korean.",
+  "tip": "가르치다 changes to 가르쳐요 in polite present speech.",
+  "sentencePrompt": "선생님이 한국어를 _____.",
+  "contrast": "가르치다 means teach; 배우다 means learn."
+}
