@@ -1,0 +1,13 @@
+{
+  "id": "listen",
+  "ko": "듣다",
+  "latin": "deutda",
+  "meaning": "To listen / hear",
+  "group": "Actions",
+  "type": "VERB · PERCEPTION",
+  "example": "음악을 들어요.",
+  "translation": "I listen to music.",
+  "tip": "듣다 changes irregularly to 들어요.",
+  "sentencePrompt": "음악을 _____.",
+  "contrast": "듣다 means listen/hear; 보다 means see/watch."
+}
