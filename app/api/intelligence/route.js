@@ -1,3 +1,4 @@
+import { consumeHalliumAiQuota, readBoundedJson, requireHalliumAiUser } from "../../../lib/server/ai-guard";
 export const runtime = "nodejs";
 
 let groqModel = null;
@@ -175,7 +176,9 @@ function validateStructuredResult(action, result, payload) {
   return true;
 }
 
-export async function GET() {
+export async function GET(request) {
+  const access = await requireHalliumAiUser(request);
+  if (!access.ok) return access.response;
   const apiKey = process.env.AI_API || process.env.GROQ_API_KEY || process.env.Grok_API;
   if (!apiKey) return Response.json({ ok: false, provider: "groq", configured: false }, { status: 503 });
   try {
@@ -192,17 +195,26 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  try {
-    const apiKey = process.env.AI_API || process.env.GROQ_API_KEY || process.env.Grok_API;
-    if (!apiKey) return Response.json({ error: "AI_API is not configured." }, { status: 503 });
+  const access = await requireHalliumAiUser(request);
+  if (!access.ok) return access.response;
 
-    const body = await request.json();
+  try {
+    const parsed = await readBoundedJson(request, 36000);
+    if (!parsed.ok) return Response.json({ error: parsed.error }, { status: parsed.status, headers: { "Cache-Control": "no-store" } });
+
+    const body = parsed.value;
     const action = body?.action;
     const payload = body?.payload;
 
     if (!prompts[action] || !outputShapes[action]) {
       return Response.json({ error: "Unsupported Hallim Intelligence action." }, { status: 400 });
     }
+
+    const quota = await consumeHalliumAiQuota(access.supabase, access.user.id, "intelligence", { daily: 60, perMinute: 8 });
+    if (!quota.ok) return Response.json({ error: quota.error }, { status: quota.status, headers: { "Cache-Control": "no-store" } });
+
+    const apiKey = process.env.AI_API || process.env.GROQ_API_KEY || process.env.Grok_API;
+    if (!apiKey) return Response.json({ error: "AI_API is not configured." }, { status: 503 });
 
     const serialized = JSON.stringify(payload || {});
     if (serialized.length > 30000) {
