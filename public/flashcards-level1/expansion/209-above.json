@@ -1,0 +1,13 @@
+{
+  "id": "above",
+  "ko": "위",
+  "latin": "wi",
+  "meaning": "Above / on",
+  "group": "Travel",
+  "type": "NOUN · LOCATION",
+  "example": "책상 위에 책이 있어요.",
+  "translation": "There is a book on the desk.",
+  "tip": "위 is one syllable.",
+  "sentencePrompt": "책상 _____에 책이 있어요.",
+  "contrast": "위 means above/on; 아래 means below."
+}
