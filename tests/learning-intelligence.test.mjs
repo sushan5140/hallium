@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   buildTodayLearningPlan,
+  enforceLearningPlanSafety,
   fitPlanToSession,
   inferDifficulty,
   normalizeLearningPreferences,
@@ -168,4 +169,32 @@ test("buildTodayLearningPlan applies session preferences", () => {
   assert.equal(plan.sessionMinutes,10);
   assert.ok(plan.steps.length>=1);
   assert.ok(plan.steps.every((step)=>Number.isFinite(step.minutes)));
+});
+
+
+test("AI route cannot displace a required due review", () => {
+  const fallback = {
+    dueCount: 2,
+    difficulty: "reinforce",
+    rankedWeaknesses: [{ skill:"Particles", score:14 }],
+    steps:[
+      { kind:"review_queue", title:"Review 2 due weaknesses", why:"Due now", priority:100 },
+      { kind:"adaptive_review", title:"Transfer Particles", why:"Fresh practice", priority:82 },
+    ],
+  };
+
+  const aiRoute = {
+    headline:"Use Korean in context",
+    focus:"Conversation",
+    reason:"AI prefers context",
+    steps:[
+      { kind:"companion", title:"Continue lesson", why:"Context" },
+      { kind:"test", title:"Take a test", why:"Reassess" },
+    ],
+  };
+
+  const safe=enforceLearningPlanSafety(aiRoute,fallback);
+  assert.equal(safe.dueCount,2);
+  assert.equal(safe.steps[0].kind,"review_queue");
+  assert.equal(safe.rankedWeaknesses[0].skill,"Particles");
 });
