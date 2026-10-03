@@ -38,7 +38,8 @@ test("Message Makeover validates relationship, vibe, intensity and bounded outpu
   assert.match(route, /message\.length <= 600/);
   assert.match(route, /intensity >= 0/);
   assert.match(route, /intensity <= 100/);
-  assert.match(route, /String\(result\.bestMatch\)\.length <= 240/);
+  assert.match(route, /\[result\.bestMatch,result\.softer,result\.bolder,result\.funnier\]\.every/);
+  assert.match(route, /String\(value\)\.length <= 240/);
 });
 
 test("Message Makeover stays behind Hallium's authenticated quota-limited Intelligence API", () => {
