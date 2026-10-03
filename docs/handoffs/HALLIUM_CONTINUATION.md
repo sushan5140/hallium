@@ -2739,3 +2739,82 @@ Exact next statistical direction should seek more power with explicit sequential
 - confidence-sequence boundary
 
 Do not loosen the predeclared detection or efficiency goals post hoc.
+
+
+---
+
+# 34. TwinMem Pilot 9 — mixture likelihood-ratio process restores power
+
+Draft PR: #14  
+Branch: `research/twinmem-pilot9-mixture-eprocess`
+
+Pilot 9 replaces Pilot-8 stage-wise alpha spending with an estimated-null mixture likelihood-ratio process.
+
+Statistic:
+- baseline correctness probability `p0` per source
+- alternatives `p0 ± delta`
+- 3 source types × 2 directions = 6 LR components
+- equal-weight mixture e-value
+- monitored at 8 / 12 / 24 / 48 labels/source
+- stop when `E >= 1/alpha`
+
+Development-only grid:
+- delta 0.10 / 0.15 / 0.20 / 0.25
+- alpha 0.05 / 0.08 / 0.10
+
+Selected:
+- **delta 0.25**
+- **alpha 0.10**
+
+Development:
+- stationary false alarms 1.67%
+- moderate detection 93.75%
+- moderate mean labels/source 28.52
+- severe detection 100%
+- severe mean labels/source 16.37
+
+Independent held-out:
+- stationary false alarms **2.6%**
+- stationary mean labels/source 47.54
+- moderate detection **89.2%**
+- moderate mean labels/source **30.432**
+- severe detection **100%**
+- severe mean labels/source **14.864**
+
+Held-out:
+- detection goals ✅
+- efficiency goals ✅
+- all goals ✅
+
+Comparison:
+Pilot 7 heuristic:
+- 5.2% stationary false alarms
+- 85.2% moderate detection
+- 31.02 moderate labels/source
+- 13.14 severe labels/source
+
+Pilot 9:
+- **2.6%** stationary false alarms
+- **89.2%** moderate detection
+- **30.43** moderate labels/source
+- 14.86 severe labels/source
+
+Interpretation:
+Pilot 9 recovers much of Pilot 7's efficiency while providing a cleaner repeated-monitoring statistic than heuristic strong-stop thresholds.
+
+Important statistical caveat:
+The likelihood-ratio mixture has a martingale/e-process interpretation only under a **fixed known null**.
+Here the null source-reliability probabilities are estimated from a separate synthetic baseline pool.
+Therefore formal finite-sample anytime-valid control is **not yet established**.
+
+Exact next phase:
+**Pilot 10 — estimated-null robustness**
+
+Stress-test:
+- smaller vs larger baseline calibration samples
+- null estimation error / mild misspecification
+- stationary false-alarm inflation
+- moderate/severe sensitivity under perturbed plug-in p0
+- possibly conservative null intervals or mixture-over-null alternatives
+
+Do not merge the TwinMem research stack into production Hallium.
