@@ -1,0 +1,43 @@
+name: TwinMem synthetic benchmark (research only)
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot0/**"
+      - ".github/workflows/twinmem-benchmark.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run synthetic held-out experiment
+        run: python research/twinmem_pilot0/benchmark.py
+      - name: Run paired and exploratory robustness analyses
+        run: |
+          python research/twinmem_pilot0/extra_analysis.py
+          python research/twinmem_pilot0/robustness.py
+      - name: Assert exact summary values and scenario counts
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p = Path("research/twinmem_pilot0")
+          with (p/"results_summary.csv").open(newline="") as f:
+              expected=list(csv.DictReader(f))
+          with (p/"outputs/results_summary.csv").open(newline="") as f:
+              got=list(csv.DictReader(f))
+          assert got==expected, (got,expected)
+          assert len(got)==13
+          assert all(int(r["queries"])==1920 for r in got)
+          print("Passed: full table reproduced byte-value for byte-value")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-synthetic-pilot0-output
+          path: research/twinmem_pilot0/outputs/
+          retention-days: 30
