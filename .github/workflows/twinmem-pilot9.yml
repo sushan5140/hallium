@@ -1,0 +1,61 @@
+name: TwinMem Pilot 9 mixture e-process
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot9/**"
+      - ".github/workflows/twinmem-pilot9.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run mixture e-process experiment
+        run: python research/twinmem_pilot9/mixture_eprocess.py
+      - name: Validate design and exact held-out outcomes
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path("research/twinmem_pilot9")
+          d=json.loads((root/"outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["stages"]==[8,12,24,48]
+          assert d["deltas"]==[0.1,0.15,0.2,0.25]
+          assert d["alphas"]==[0.05,0.08,0.1]
+          assert d["mixture_components"]==6
+          assert len(d["development_candidates"])==12
+          assert d["development_repeats"]==240
+          assert d["test_repeats"]==500
+          assert d["selected_candidate"] is not None
+          assert d["heldout"] is not None
+
+          dist=d["heldout"]["distributions"]
+          got={
+              "selected_delta":str(d["selected_candidate"]["delta"]),
+              "selected_alpha":str(d["selected_candidate"]["alpha"]),
+              "heldout_stationary_detection":str(dist["stationary"]["detection_rate"]),
+              "heldout_stationary_mean_labels":str(dist["stationary"]["mean_labels_per_source"]),
+              "heldout_moderate_detection":str(dist["moderate"]["detection_rate"]),
+              "heldout_moderate_mean_labels":str(dist["moderate"]["mean_labels_per_source"]),
+              "heldout_severe_detection":str(dist["severe"]["detection_rate"]),
+              "heldout_severe_mean_labels":str(dist["severe"]["mean_labels_per_source"]),
+              "heldout_detection_pass":str(bool(d["heldout"]["detection_pass"])).lower(),
+              "heldout_efficiency_pass":str(bool(d["heldout"]["efficiency_pass"])).lower(),
+              "heldout_all_goals_pass":str(bool(d["heldout"]["all_goals_pass"])).lower(),
+          }
+          with (root/"expected_results.csv").open(newline="") as f:
+              expected={r["metric"]:r["value"] for r in csv.DictReader(f)}
+          assert got==expected,(got,expected)
+          print("PASS: Pilot 9 exact selected e-process and held-out results pinned")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot9-mixture-eprocess
+          path: research/twinmem_pilot9/outputs/
+          retention-days: 30
