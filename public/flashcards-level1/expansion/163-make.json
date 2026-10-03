@@ -1,0 +1,13 @@
+{
+  "id": "make",
+  "ko": "만들다",
+  "latin": "mandeulda",
+  "meaning": "To make",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "친구와 케이크를 만들어요.",
+  "translation": "I make a cake with a friend.",
+  "tip": "만들다 changes to 만들어요.",
+  "sentencePrompt": "친구와 케이크를 _____.",
+  "contrast": "만들다 means make; 사용하다 means use."
+}
