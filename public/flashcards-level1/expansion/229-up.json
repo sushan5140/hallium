@@ -1,0 +1,13 @@
+{
+  "id": "up",
+  "ko": "올라가다",
+  "latin": "ollagada",
+  "meaning": "To go up",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "계단으로 올라가요.",
+  "translation": "I go up the stairs.",
+  "tip": "올라가다 changes to 올라가요.",
+  "sentencePrompt": "계단으로 _____.",
+  "contrast": "올라가다 means go up; 내려가다 means go down."
+}
