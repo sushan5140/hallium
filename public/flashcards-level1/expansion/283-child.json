@@ -1,0 +1,13 @@
+{
+  "id": "child",
+  "ko": "아이",
+  "latin": "ai",
+  "meaning": "Child",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "아이들이 공원에서 놀아요.",
+  "translation": "The children play in the park.",
+  "tip": "아이 is pronounced a-i.",
+  "sentencePrompt": "_____들이 공원에서 놀아요.",
+  "contrast": "아이 means child; 아기 means baby."
+}
