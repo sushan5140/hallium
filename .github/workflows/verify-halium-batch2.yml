@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'app/page.js'
+      - 'app/hallium-core.js'
       - 'app/globals.css'
       - 'app/topik-mocks/**'
       - 'lib/topik/**'
@@ -35,9 +36,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -q 'admin_users' app/page.js
-          grep -q 'hallium_curriculum_admin_state' app/page.js
-          grep -q 'adminAccess' app/page.js
+          grep -q 'admin_users' app/hallium-core.js
+          grep -q 'hallium_curriculum_admin_state' app/hallium-core.js
+          grep -q 'adminAccess' app/hallium-core.js
+          ! grep -q 'allowedViews = new Set([^)]*admin' app/hallium-core.js
           grep -q 'hallium_curriculum_admin_state' supabase/migrations/20261003000100_curriculum_admin_studio.sql
       - name: Compile Hallium
         run: npm run build
