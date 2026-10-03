@@ -1,0 +1,13 @@
+{
+  "id": "cook",
+  "ko": "요리하다",
+  "latin": "yorihada",
+  "meaning": "To cook",
+  "group": "Actions",
+  "type": "VERB · FOOD",
+  "example": "저녁에 요리해요.",
+  "translation": "I cook in the evening.",
+  "tip": "요리하다 changes to 요리해요.",
+  "sentencePrompt": "저녁에 _____.",
+  "contrast": "요리하다 means cook; 먹다 means eat."
+}
