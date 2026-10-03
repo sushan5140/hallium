@@ -1,0 +1,67 @@
+name: TwinMem Pilot 5 uncertainty-aware drift
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot5/**"
+      - ".github/workflows/twinmem-pilot5.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run uncertainty-aware drift experiment
+        run: python research/twinmem_pilot5/uncertainty_drift.py
+      - name: Validate design and exact selected detector
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path("research/twinmem_pilot5")
+          d=json.loads((root/"outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["criteria"]=={
+              "stationary_false_alarm_max":0.1,
+              "moderate_detection_min":0.8,
+              "severe_detection_min":0.9,
+          }
+          assert d["development_repeats"]==160
+          assert d["test_repeats"]==400
+          assert d["candidate_grid"]=={
+              "windows":[8,12,24,48],
+              "meaningful_margins":[0.05,0.1,0.15],
+              "zcrit":[1.64,1.96,2.58],
+          }
+
+          selected=d["selected_config"]
+          final=d["final_detection"]
+          got={
+              "selected_window_per_source":str(selected["window_per_source"]),
+              "selected_margin":str(selected["meaningful_margin"]),
+              "selected_zcrit":str(selected["zcrit"]),
+              "development_stationary_false_alarm":str(selected["stationary_false_alarm_rate"]),
+              "development_moderate_detection":str(selected["moderate_detection_rate"]),
+              "development_severe_detection":str(selected["severe_detection_rate"]),
+              "heldout_stationary_false_alarm":str(final["stationary"]["rate"]),
+              "heldout_moderate_detection":str(final["moderate"]["rate"]),
+              "heldout_severe_detection":str(final["severe"]["rate"]),
+              "heldout_meets_criteria":str(bool(d["final_meets_predeclared_criteria"])).lower(),
+              "stationary_expected_52_accuracy":str(d["expected_policy_accuracy"]["stationary"]["52"]),
+              "moderate_expected_52_accuracy":str(d["expected_policy_accuracy"]["moderate"]["52"]),
+              "severe_expected_52_accuracy":str(d["expected_policy_accuracy"]["severe"]["52"]),
+          }
+          with (root/"expected_results.csv").open(newline="") as f:
+              expected={r["metric"]:r["value"] for r in csv.DictReader(f)}
+          assert got==expected,(got,expected)
+          print("PASS: Pilot 5 exact selected uncertainty detector and held-out rates")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot5-uncertainty-aware-drift
+          path: research/twinmem_pilot5/outputs/
+          retention-days: 30

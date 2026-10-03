@@ -1,0 +1,14 @@
+metric,value
+selected_window_per_source,48
+selected_margin,0.05
+selected_zcrit,1.96
+development_stationary_false_alarm,0.00625
+development_moderate_detection,0.8625
+development_severe_detection,1.0
+heldout_stationary_false_alarm,0.01
+heldout_moderate_detection,0.8425
+heldout_severe_detection,1.0
+heldout_meets_criteria,true
+stationary_expected_52_accuracy,0.9335208333333334
+moderate_expected_52_accuracy,0.8411484375
+severe_expected_52_accuracy,0.8833333333333333
