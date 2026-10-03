@@ -1,0 +1,13 @@
+{
+  "id": "bathroom",
+  "ko": "화장실",
+  "latin": "hwajangsil",
+  "meaning": "Bathroom / restroom",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "화장실이 어디예요?",
+  "translation": "Where is the restroom?",
+  "tip": "화 starts with hwa.",
+  "sentencePrompt": "_____이 어디예요?",
+  "contrast": "화장실 is restroom; 방 is room."
+}
