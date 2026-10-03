@@ -1,0 +1,13 @@
+{
+  "id": "weekend",
+  "ko": "주말",
+  "latin": "jumal",
+  "meaning": "Weekend",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "주말에 친구를 만나요.",
+  "translation": "I meet a friend on the weekend.",
+  "tip": "주말 literally means end of the week.",
+  "sentencePrompt": "_____에 친구를 만나요.",
+  "contrast": "주말 is weekend; 평일 is weekday."
+}
