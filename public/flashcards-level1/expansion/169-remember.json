@@ -1,0 +1,13 @@
+{
+  "id": "remember",
+  "ko": "기억하다",
+  "latin": "gieokhada",
+  "meaning": "To remember",
+  "group": "Actions",
+  "type": "VERB · COGNITION",
+  "example": "그 이름을 기억해요.",
+  "translation": "I remember that name.",
+  "tip": "기억하다 changes to 기억해요.",
+  "sentencePrompt": "그 이름을 _____.",
+  "contrast": "기억하다 means remember; 잊다 means forget."
+}
