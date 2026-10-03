@@ -1,0 +1,13 @@
+{
+  "id": "beautiful",
+  "ko": "아름답다",
+  "latin": "areumdapda",
+  "meaning": "To be beautiful",
+  "group": "Description",
+  "type": "ADJECTIVE · APPEARANCE",
+  "example": "바다가 아름다워요.",
+  "translation": "The sea is beautiful.",
+  "tip": "아름답다 changes to 아름다워요.",
+  "sentencePrompt": "바다가 _____.",
+  "contrast": "아름답다 means beautiful; 예쁘다 means pretty."
+}
