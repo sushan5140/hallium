@@ -1,0 +1,13 @@
+{
+  "id": "healthy",
+  "ko": "건강하다",
+  "latin": "geonganghada",
+  "meaning": "To be healthy",
+  "group": "Description",
+  "type": "ADJECTIVE · HEALTH",
+  "example": "매일 운동하면 건강해요.",
+  "translation": "If you exercise every day, you are healthy.",
+  "tip": "건강하다 changes to 건강해요.",
+  "sentencePrompt": "매일 운동하면 _____.",
+  "contrast": "건강하다 means healthy; 아프다 means sick."
+}
