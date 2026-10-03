@@ -1,0 +1,13 @@
+{
+  "id": "chicken",
+  "ko": "닭고기",
+  "latin": "dakgogi",
+  "meaning": "Chicken meat",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "닭고기를 좋아해요.",
+  "translation": "I like chicken.",
+  "tip": "닭고기 combines 닭 and 고기.",
+  "sentencePrompt": "_____를 좋아해요.",
+  "contrast": "닭고기 means chicken meat; 고기 means meat generally."
+}
