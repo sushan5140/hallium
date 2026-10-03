@@ -1,0 +1,13 @@
+{
+  "id": "reservation",
+  "ko": "예약",
+  "latin": "yeyak",
+  "meaning": "Reservation",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "호텔 예약을 확인해요.",
+  "translation": "I check the hotel reservation.",
+  "tip": "예약 ends with final ㄱ.",
+  "sentencePrompt": "호텔 _____을 확인해요.",
+  "contrast": "예약 is a reservation; 표 is a ticket."
+}
