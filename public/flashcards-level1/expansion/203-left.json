@@ -1,0 +1,13 @@
+{
+  "id": "left",
+  "ko": "왼쪽",
+  "latin": "oenjjok",
+  "meaning": "Left",
+  "group": "Travel",
+  "type": "NOUN · DIRECTION",
+  "example": "왼쪽으로 가세요.",
+  "translation": "Please go to the left.",
+  "tip": "왼쪽 ends with tense 쪽.",
+  "sentencePrompt": "_____으로 가세요.",
+  "contrast": "왼쪽 means left; 오른쪽 means right."
+}
