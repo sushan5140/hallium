@@ -1,0 +1,13 @@
+{
+  "id": "answer-verb",
+  "ko": "대답하다",
+  "latin": "daedaphada",
+  "meaning": "To answer",
+  "group": "Actions",
+  "type": "VERB · COMMUNICATION",
+  "example": "질문에 대답해요.",
+  "translation": "I answer the question.",
+  "tip": "대답하다 changes to 대답해요.",
+  "sentencePrompt": "질문에 _____.",
+  "contrast": "대답하다 means answer; 묻다 means ask."
+}
