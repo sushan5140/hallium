@@ -1,0 +1,13 @@
+{
+  "id": "front",
+  "ko": "앞",
+  "latin": "ap",
+  "meaning": "Front",
+  "group": "Travel",
+  "type": "NOUN · DIRECTION",
+  "example": "학교 앞에서 만나요.",
+  "translation": "Let's meet in front of the school.",
+  "tip": "앞 ends with final ㅍ sound as p/t-like stop.",
+  "sentencePrompt": "학교 _____에서 만나요.",
+  "contrast": "앞 means front; 뒤 means back."
+}
