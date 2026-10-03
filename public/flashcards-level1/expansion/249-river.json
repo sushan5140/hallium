@@ -1,0 +1,13 @@
+{
+  "id": "river",
+  "ko": "강",
+  "latin": "gang",
+  "meaning": "River",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "강 옆을 걸어요.",
+  "translation": "I walk beside the river.",
+  "tip": "강 ends with -ng.",
+  "sentencePrompt": "_____ 옆을 걸어요.",
+  "contrast": "강 is river; 바다 is sea."
+}
