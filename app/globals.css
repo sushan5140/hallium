@@ -3901,3 +3901,68 @@ button.toast{border:0;text-align:left}
   .learningPreferenceGrid{grid-template-columns:1fr}
   .learningPreferenceSummary{grid-template-columns:1fr}
 }
+
+
+/* H-P6.3 interest-aware unlocked lesson routing */
+.learningTopicPreferences{grid-column:1/-1}
+.learningPreferenceSummary{grid-template-columns:repeat(4,minmax(0,1fr))}
+.home-interest-pick{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;
+  align-items:center;
+  margin-top:14px;
+  padding:20px 22px;
+  border:1px solid #dfe5f8;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fbfcff 0%,#f3f7ff 100%);
+}
+.home-interest-copy h3{
+  margin:5px 0 4px;
+  font-size:clamp(19px,2.2vw,27px);
+  letter-spacing:-.035em;
+}
+.home-interest-copy p{
+  max-width:720px;
+  margin:0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.55;
+}
+.home-interest-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.home-interest-tags span{
+  padding:6px 8px;
+  border:1px solid rgba(51,76,160,.14);
+  border-radius:999px;
+  background:var(--blueSoft,#e8efff);
+  color:var(--blueDeep,#334ca0);
+  font-size:7px;
+  font-weight:900;
+  text-transform:capitalize;
+}
+.home-interest-meta{
+  min-width:165px;
+  display:grid;
+  justify-items:end;
+  gap:5px;
+  text-align:right;
+}
+.home-interest-meta small{color:var(--muted);font-size:7px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.home-interest-meta strong{font-size:9px}
+.home-interest-meta button{
+  margin-top:5px;
+  min-height:34px;
+  padding:0 11px;
+  border:1px solid rgba(51,76,160,.18);
+  border-radius:11px;
+  background:var(--blueSoft,#e8efff);
+  color:var(--blueDeep,#334ca0);
+  font-size:8px;
+  font-weight:900;
+  cursor:pointer;
+}
+@media(max-width:760px){
+  .learningPreferenceSummary{grid-template-columns:1fr}
+  .home-interest-pick{grid-template-columns:1fr;padding:17px}
+  .home-interest-meta{justify-items:start;text-align:left}
+}
