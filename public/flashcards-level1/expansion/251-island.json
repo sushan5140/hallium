@@ -1,0 +1,13 @@
+{
+  "id": "island",
+  "ko": "섬",
+  "latin": "seom",
+  "meaning": "Island",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "작은 섬에 가요.",
+  "translation": "I go to a small island.",
+  "tip": "섬 is one syllable ending in ㅁ.",
+  "sentencePrompt": "작은 _____에 가요.",
+  "contrast": "섬 is island; 바다 is sea."
+}
