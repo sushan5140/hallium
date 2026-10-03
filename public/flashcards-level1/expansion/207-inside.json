@@ -1,0 +1,13 @@
+{
+  "id": "inside",
+  "ko": "안",
+  "latin": "an",
+  "meaning": "Inside",
+  "group": "Travel",
+  "type": "NOUN · LOCATION",
+  "example": "가방 안에 지갑이 있어요.",
+  "translation": "The wallet is inside the bag.",
+  "tip": "안 is one syllable.",
+  "sentencePrompt": "가방 _____에 지갑이 있어요.",
+  "contrast": "안 means inside; 밖 means outside."
+}
