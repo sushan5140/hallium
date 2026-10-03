@@ -1,0 +1,13 @@
+{
+  "id": "time",
+  "ko": "시간",
+  "latin": "sigan",
+  "meaning": "Time",
+  "group": "Daily Life",
+  "type": "NOUN · TIME",
+  "example": "지금 시간이 있어요.",
+  "translation": "I have time now.",
+  "tip": "시간 begins with a light 시 sound, not English 'shee'.",
+  "sentencePrompt": "지금 _____이 있어요.",
+  "contrast": "시간 means time or hours; 시 can mark an hour on the clock."
+}
