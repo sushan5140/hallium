@@ -1,0 +1,13 @@
+{
+  "id": "older-brother-male",
+  "ko": "형",
+  "latin": "hyeong",
+  "meaning": "Older brother (used by males)",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "형과 같이 운동해요.",
+  "translation": "I exercise with my older brother.",
+  "tip": "형 is used by a male speaker for an older brother or close older male.",
+  "sentencePrompt": "_____과 같이 운동해요.",
+  "contrast": "형 is male-speaker usage; 오빠 is female-speaker usage."
+}
