@@ -1,0 +1,13 @@
+{
+  "id": "short",
+  "ko": "짧다",
+  "latin": "jjalpda",
+  "meaning": "To be short",
+  "group": "Description",
+  "type": "ADJECTIVE · SIZE",
+  "example": "이 치마는 짧아요.",
+  "translation": "This skirt is short.",
+  "tip": "짧다 changes to 짧아요.",
+  "sentencePrompt": "이 치마는 _____.",
+  "contrast": "짧다 means short; 길다 means long."
+}
