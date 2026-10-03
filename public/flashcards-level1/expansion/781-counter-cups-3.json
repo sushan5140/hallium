@@ -1,0 +1,13 @@
+{
+  "id": "counter-cups-3",
+  "ko": "세 잔",
+  "latin": "se jan",
+  "meaning": "3 cups / glasses",
+  "group": "Counters",
+  "type": "COUNTER · DRINKS",
+  "example": "커피 세 잔 주세요.",
+  "translation": "Please give me 3 cups of coffee.",
+  "tip": "잔 counts cups or glasses of drinks.",
+  "sentencePrompt": "커피 _____ 주세요.",
+  "contrast": "잔 counts drinks in cups/glasses; 병 counts bottles."
+}
