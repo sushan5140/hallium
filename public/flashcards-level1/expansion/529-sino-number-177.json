@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-177",
+  "ko": "백칠십칠",
+  "latin": "baek-chil-sip-chil",
+  "meaning": "Sino-Korean number 177",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "백칠십칠 번이에요.",
+  "translation": "It is number 177.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}
