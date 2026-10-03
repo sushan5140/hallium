@@ -1,0 +1,13 @@
+{
+  "id": "pen",
+  "ko": "펜",
+  "latin": "pen",
+  "meaning": "Pen",
+  "group": "School",
+  "type": "NOUN · OBJECT",
+  "example": "펜으로 이름을 써요.",
+  "translation": "I write my name with a pen.",
+  "tip": "펜 is a short loanword.",
+  "sentencePrompt": "_____으로 이름을 써요.",
+  "contrast": "펜 is pen; 연필 is pencil."
+}
