@@ -1,0 +1,13 @@
+{
+  "id": "company",
+  "ko": "회사",
+  "latin": "hoesa",
+  "meaning": "Company / workplace",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "아버지는 회사에 가요.",
+  "translation": "My father goes to work.",
+  "tip": "회사 is pronounced hoe-sa, with ㅚ often sounding close to 'we'.",
+  "sentencePrompt": "아버지는 _____에 가요.",
+  "contrast": "회사 means company/workplace; 학교 means school."
+}
