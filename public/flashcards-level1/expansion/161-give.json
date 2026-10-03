@@ -1,0 +1,13 @@
+{
+  "id": "give",
+  "ko": "주다",
+  "latin": "juda",
+  "meaning": "To give",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "친구에게 선물을 줘요.",
+  "translation": "I give a gift to my friend.",
+  "tip": "주다 changes to 줘요 in polite speech.",
+  "sentencePrompt": "친구에게 선물을 _____.",
+  "contrast": "주다 means give; 받다 means receive."
+}
