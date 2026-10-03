@@ -1,0 +1,13 @@
+{
+  "id": "passport",
+  "ko": "여권",
+  "latin": "yeogwon",
+  "meaning": "Passport",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "여권을 보여 주세요.",
+  "translation": "Please show me your passport.",
+  "tip": "권 contains the glide gwon.",
+  "sentencePrompt": "_____을 보여 주세요.",
+  "contrast": "여권 is a passport; 표 is a ticket."
+}
