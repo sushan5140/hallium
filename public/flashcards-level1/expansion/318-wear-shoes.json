@@ -1,0 +1,13 @@
+{
+  "id": "wear-shoes",
+  "ko": "신다",
+  "latin": "sinda",
+  "meaning": "To wear (shoes)",
+  "group": "Actions",
+  "type": "VERB · CLOTHING",
+  "example": "밖에 나가기 전에 신발을 신어요.",
+  "translation": "I put on shoes before going outside.",
+  "tip": "신다 changes to 신어요.",
+  "sentencePrompt": "밖에 나가기 전에 신발을 _____.",
+  "contrast": "신다 is for shoes/socks; 입다 is for clothes."
+}
