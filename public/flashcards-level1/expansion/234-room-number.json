@@ -1,0 +1,13 @@
+{
+  "id": "room-number",
+  "ko": "방 번호",
+  "latin": "bang beonho",
+  "meaning": "Room number",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "방 번호가 몇 번이에요?",
+  "translation": "What is the room number?",
+  "tip": "번호 means number or identifier.",
+  "sentencePrompt": "_____가 몇 번이에요?",
+  "contrast": "방 번호 means room number; 전화번호 means phone number."
+}
