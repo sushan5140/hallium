@@ -1,0 +1,13 @@
+{
+  "id": "hospital",
+  "ko": "병원",
+  "latin": "byeongwon",
+  "meaning": "Hospital",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "아프면 병원에 가요.",
+  "translation": "If I am sick, I go to the hospital.",
+  "tip": "병원 is pronounced byeong-won.",
+  "sentencePrompt": "아프면 _____에 가요.",
+  "contrast": "병원 is hospital; 약국 is pharmacy."
+}
