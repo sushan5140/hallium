@@ -3592,3 +3592,102 @@ Therefore the deployed Hallium application state is current for product code, wh
 Batch 4 / H-P6 Learning Intelligence begins only when the user explicitly says to start it.
 
 MeloTTS/TwinMem remain parked.
+
+
+---
+
+# 44. Batch 4 / H-P6 Learning Intelligence — H-P6.1 + H-P6.2
+
+Batch 4 officially started after H-P5 production closure.
+
+## H-P6.1 — deterministic learner intelligence foundation
+
+Main merge:
+- `6164eae8dffc6b28054bda4a24b5a4e4db536ea4`
+
+Added:
+- `lib/learning-intelligence.js`
+- `tests/learning-intelligence.test.mjs`
+
+Core behavior:
+- deterministic weakness scoring
+- overdue review urgency
+- weak-skill ranking
+- reinforce / balanced / stretch inference
+- deterministic “what should I study next?” plan
+- due review gets priority
+- AI remains optional enrichment rather than the only recommendation source
+
+Existing Hallium Home/Profile/review/intelligence surfaces now use the same weakness model.
+
+## H-P6.2 — session-aware preferences
+
+Main commit:
+- `e421b2371140a65232034cb7d0ff43332d21d04f`
+
+Added learner-controlled:
+- daily study time
+- practice-focus preferences:
+  - conversation
+  - listening
+  - vocabulary
+  - grammar
+  - assessment
+
+Preferences:
+- live inside existing `intelligence_state`
+- sync for signed-in users
+- remain local in Guest Mode
+- shape optional route ordering
+- fit the route to available session time
+
+Profile exposes:
+- 10 / 15 / 20 / 30 minute choices
+- focus selectors
+- current difficulty
+- planned minutes
+- recommended action count
+- highest current weakness
+
+Home learning desk shows the fitted session duration.
+
+## H-P6.2 safety follow-up
+
+Additional main commits:
+- `28fbc2f0c3d36c604d2e94950fc85bbfc2001483`
+- `331234426ebad6bb7f8cfdf5911ac911e10d834b`
+- `52605145cf077e98582e3ca77bf43b25c96a3d80`
+- `666f72cd0e4490bd48f3424e613b6e1b6745cb94`
+- `95975807990360da76ab685129ccbee998976590`
+
+Safety invariant:
+- an AI-generated route cannot move optional conversation/test work ahead of a scheduled due review
+- `enforceLearningPlanSafety()` restores required `review_queue` first
+- session preferences may reorder optional actions only after required recall
+
+A mechanical literal-newline patch bug was detected immediately by CI, fixed, and the brittle integration assertion was updated to the new safe-route contract.
+
+Final verified current-head checks:
+- standalone Hallium: PASS
+- Study Partners production integration: PASS
+- integrated Starter Flashcards Chromium: PASS
+
+PR #27 was closed unmerged because the H-P6.2 work had already been pushed directly to `main`; merging it would duplicate/diverge history.
+
+## Exact next slice
+
+**H-P6.3 — adaptive review scheduling**
+
+Goal:
+replace the coarse fixed success-count review ladder with a deterministic schedule that considers:
+- miss count
+- consecutive/successful recoveries
+- current weakness urgency
+- whether the answer was just failed or recovered
+- bounded intervals suitable for Hallium’s short-session model
+
+Preserve:
+- Guest Mode isolation
+- cloud sync behavior
+- deterministic-first recommendation policy
+- AI as optional enrichment only
