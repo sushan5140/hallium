@@ -1,0 +1,13 @@
+{
+  "id": "counter-books-1",
+  "ko": "한 권",
+  "latin": "han gwon",
+  "meaning": "1 book",
+  "group": "Counters",
+  "type": "COUNTER · BOOKS",
+  "example": "책을 한 권 샀어요.",
+  "translation": "I bought 1 book.",
+  "tip": "권 counts bound volumes such as books and notebooks.",
+  "sentencePrompt": "책을 _____ 샀어요.",
+  "contrast": "권 counts books; 개 is the general counter for objects."
+}
