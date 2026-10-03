@@ -1380,3 +1380,179 @@ Performance advisor still has legacy/performance findings (unindexed foreign key
    - Vercel production readiness/live sanity
 5. Only after those pass, mark security closure complete and begin H-P5 native-Korean/curriculum/device/auth/voice/TOPIK QA.
 
+
+
+---
+
+# 23. Security closure COMPLETE — 2026-10-03
+
+This section supersedes the earlier "security closure in progress" tracker.
+
+## Final fixes landed during closure
+
+### TOPIK fail-closed activation
+Completed:
+- activation derived from release / asset / rights states + structural validity
+- legacy stored allow booleans are non-authoritative
+- dedicated provenance regression suite added
+- CI exercises the derived gates
+
+Commits:
+- `55679feb5fff0cbbb063c34afe01fe766b957d8c`
+- `2d4b6e3bb89f7c6c911138c5bdb9e0a806e65ed7`
+- `8fb57c66306390b030643ab6c81b3b7df562b624`
+- `f1a6180f1a653d125d3a27ce1e51bb12913e3eef`
+
+### Curriculum Admin least privilege
+Applied migration:
+- `supabase/migrations/20261003000400_curriculum_admin_least_privilege.sql`
+
+Authenticated access is now exactly:
+- SELECT
+- INSERT
+- UPDATE
+
+No authenticated DELETE / TRUNCATE / REFERENCES / TRIGGER privileges remain.
+
+Commit:
+- `020fb264302f1016b563f01c736a4a9d423e2fd6`
+
+### Security regression coverage
+Expanded:
+- framework-independent bounded JSON parser in `lib/server/request-guard.js`
+- malformed JSON => 400
+- wrong content type => 415
+- oversized JSON => 413
+- unauthenticated AI route rejection
+- cross-origin AI route rejection
+- TOPIK provenance hardening tests
+- admin URL fail-closed checks
+- least-privilege migration assertions
+
+Relevant commits:
+- `e9314af999504c433846ac3c29a9b7ce5874007a`
+- `1bc24b3be696e84c1eed8c73d850c9de5dcee93c`
+- `d66c13e37d8c42fe3c026f0615b829970dad0c95`
+- `3c15e9695c507249d3f41f5090c2cab064fa1ad0`
+- `5ed3da1f5212a23caa2d339dcefe661b323abdd8`
+- `bd1e3794a8c7a961153b10a3bc2b4081fd287ca5`
+- `422e6b1757ac631f62849646d19dccd4db97c9d9`
+
+### CI shell-split cleanup
+Guest Mode moved the real app shell into `app/hallium-core.js`. Several older regression assertions still read `app/page.js`.
+
+Fixed:
+- Batch 2 admin guards
+- Starter Flashcards main-link assertion
+- Companions/admin regression source
+- owner/private Korean menu assertion
+- Study Partners production workflow
+
+Commits:
+- `6c1e35c3e4788056416f3b3d1aed147455f0ecfb`
+- `fd1f11265150519105f21584dc111054f5b808fd`
+- `d4948dd7151e968eb3523e8b7e3ff3402fa9c7eb`
+- `e965b52bb7c910b8f0ba13f24ced956ff8b3fa5e`
+- `a79e26cbab271fa7e3c6a41510d93179550c0409`
+
+Study Partners production integration now runs on `main`, not only its old feature branch.
+
+## Final verification evidence
+
+### Hallium Security Gate
+PASS on current production-code state:
+- dependency critical-advisory gate
+- security/integrity unit tests
+- TOPIK provenance regressions
+- compile
+- hardening headers
+- unauthenticated API boundaries
+- cross-origin API boundaries
+
+Known good security run commit:
+- `422e6b1757ac631f62849646d19dccd4db97c9d9`
+
+No production application/security code changed after this point; subsequent commits only repaired regression workflow/script references.
+
+### Standalone Hallium
+On commit:
+- `a79e26cbab271fa7e3c6a41510d93179550c0409`
+
+Verified:
+- all `tests/*.test.mjs` ✅
+- Next.js production build ✅
+
+### Full browser regression
+On commit:
+- `a79e26cbab271fa7e3c6a41510d93179550c0409`
+
+Verified:
+- Starter Flashcards ✅
+- responsive layout 320–1440px ✅
+- TOPIK Mock Studio + provenance/fail-closed behavior ✅
+- unified Hallium dashboard / Companions ✅
+- Hangul Lab 320–1600px ✅
+- owner-only Korean route/privacy assertions ✅
+
+### Study Partners production integration
+On commit:
+- `a79e26cbab271fa7e3c6a41510d93179550c0409`
+
+Verified:
+- matching/evidence-grounded tests ✅
+- integrated build ✅
+- Hallium + Hangul + Study Partners smoke checks ✅
+- protected Study Partners AI endpoint rejects unauthenticated requests ✅
+
+### Vercel
+Production deployment for:
+- `a79e26cbab271fa7e3c6a41510d93179550c0409`
+
+State:
+- READY ✅
+
+Canonical live routes checked:
+- `/` => 200
+- `/topik-mocks` => 200
+- `/study-partners` => 200
+- `/flashcards` => 200
+
+### Supabase advisors
+Re-run after the final DB hardening migration.
+
+Remaining security advisor items are documented rather than silently "fixed":
+- intentional authenticated SECURITY DEFINER action/status RPCs
+- private/internal RLS-with-no-policy information findings
+- leaked-password-protection warning (current Hallium user path is Google OAuth)
+
+Performance-advisor findings remain a separate optimization backlog and are not security-closure blockers.
+
+## Security closure verdict
+
+**Security closure: COMPLETE ✅**
+
+No critical confirmed cross-user data leak was found during this audit.
+
+Do not reopen security architecture by default. Reopen only if:
+- a new regression fails,
+- a new exposed route/RPC is added,
+- auth/provider behavior changes,
+- password auth is introduced,
+- RLS/grants change,
+- or a concrete vulnerability is reported.
+
+## Current project phase
+
+Hallium has now moved to:
+
+**Batch 3 / H-P5 — Final Hallium Closure QA 🔄**
+
+Execution order:
+1. native-Korean/content QA
+2. curriculum coverage QA
+3. responsive/device QA beyond current regression matrix
+4. auth/cloud-sync QA across account/device states
+5. voice preference regression across device/voice availability states
+6. final TOPIK usability QA
+7. final issue cleanup + production closure
+
