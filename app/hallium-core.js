@@ -17,6 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
+import { buildTodayLearningPlan, rankWeakSkills } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1832,15 +1833,11 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const dueMistakes = relevantMistakes
     .filter((item) => new Date(item.nextReviewAt || 0).getTime() <= Date.now())
     .sort((a,b) => new Date(a.nextReviewAt || 0) - new Date(b.nextReviewAt || 0));
-  const weakSkillMap = relevantMistakes.reduce((map,item) => {
-    const skill = item.skill || "Mixed review";
-    map[skill] = (map[skill] || 0) + Math.max(1, Number(item.misses || 1) - Number(item.successfulReviews || 0));
-    return map;
-  }, {});
-  const topWeakSkills = Object.entries(weakSkillMap)
-    .sort((a,b) => b[1] - a[1])
-    .slice(0,3)
-    .map(([skill,weight]) => ({ skill, weight }));
+  const topWeakSkills = rankWeakSkills(relevantMistakes)
+    .map((item) => ({
+      ...item,
+      weight: Math.round(item.score),
+    }));
   const reviewLabel = dueMistakes.length
     ? dueMistakes.length + (dueMistakes.length === 1 ? " weakness due" : " weaknesses due")
     : reviewLessonCount
@@ -1886,54 +1883,14 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     ? (activeStudy.vocabulary || []).filter((w) => w.group === activeWord.group && w.korean !== activeWord.korean).slice(0, 4)
     : [];
 
-  const fallbackLearningRoute = (() => {
-    if (dueMistakes.length) {
-      return {
-        headline: "A weakness is due for review",
-        focus: topWeakSkills[0]?.skill || activeStudy.label + " retention",
-        reason: "Hallim remembered questions you missed earlier and scheduled them back before they fade.",
-        steps: [
-          { kind:"review_queue", title:"Review " + dueMistakes.length + " due " + (dueMistakes.length === 1 ? "weakness" : "weaknesses"), why:"Use spaced review on the exact questions Hallim remembered." },
-          { kind:"adaptive_review", title:"Transfer the weak skill", why:"Generate fresh practice after the scheduled recall." },
-          { kind:"companion", title:"Use it in context", why:"Return the repaired skill to a real lesson." },
-        ],
-      };
-    }
-    if (!latestStudyResult) {
-      return {
-        headline: "Build your " + activeStudy.label + " baseline",
-        focus: "Vocabulary → Grammar → Test",
-        reason: "Hallim needs a clean level-specific result before it can target weaknesses precisely.",
-        steps: [
-          { kind:"vocab", title:"Review core vocabulary", why:"Build recognition before testing recall." },
-          { kind:"grammar", title:"Study the active grammar pack", why:"Connect words into the patterns used at this level." },
-          { kind:"test", title:"Take the " + activeStudy.label + " study test", why:"Give Hallim measurable evidence for your next route." },
-        ],
-      };
-    }
-    if (latestStudyPct < 70) {
-      return {
-        headline: "Reinforce before adding difficulty",
-        focus: activeStudy.label + " recall",
-        reason: "Your latest level-specific test shows that the current layer needs another pass.",
-        steps: [
-          { kind:"vocab", title:"Repair vocabulary recall", why:"Revisit the words used by the current pack." },
-          { kind:"grammar", title:"Rebuild the weak grammar layer", why:"Review the forms before another assessment." },
-          { kind:"adaptive_review", title:"Run targeted review", why:"Generate fresh questions from already learned material." },
-        ],
-      };
-    }
-    return {
-      headline: "Turn recognition into usable Korean",
-      focus: "Context + transfer + reassessment",
-      reason: "Your current test evidence is strong enough to keep moving while still checking retention.",
-      steps: [
-        { kind:"companion", title:"Continue " + nextLesson.title, why:"Use the language inside a real-life context." },
-        { kind:"adaptive_review", title:"Run adaptive review", why:"Mix recall with transfer at your current difficulty." },
-        { kind:"test", title:"Reassess the study pack", why:"Confirm that the gains remain stable." },
-      ],
-    };
-  })();
+  const fallbackLearningRoute = buildTodayLearningPlan({
+    mistakes: relevantMistakes,
+    latestStudyPct,
+    completedPathCount,
+    totalPathLessons: pathLessons.length,
+    activeStudyLabel: activeStudy.label,
+    nextLessonTitle: nextLesson.title,
+  });
 
   const activeLearningRoute = learningRouteRecord?.result || fallbackLearningRoute;
 
