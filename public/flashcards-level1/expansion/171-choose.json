@@ -1,0 +1,13 @@
+{
+  "id": "choose",
+  "ko": "고르다",
+  "latin": "goreuda",
+  "meaning": "To choose",
+  "group": "Actions",
+  "type": "VERB · GENERAL",
+  "example": "메뉴에서 하나를 골라요.",
+  "translation": "I choose one from the menu.",
+  "tip": "고르다 changes irregularly to 골라요.",
+  "sentencePrompt": "메뉴에서 하나를 _____.",
+  "contrast": "고르다 means choose; 찾다 means find."
+}
