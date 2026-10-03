@@ -1,0 +1,13 @@
+{
+  "id": "refrigerator",
+  "ko": "냉장고",
+  "latin": "naengjanggo",
+  "meaning": "Refrigerator",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "우유가 냉장고에 있어요.",
+  "translation": "The milk is in the refrigerator.",
+  "tip": "냉장고 is pronounced naeng-jang-go.",
+  "sentencePrompt": "우유가 _____에 있어요.",
+  "contrast": "냉장고 is refrigerator; 부엌 is kitchen."
+}
