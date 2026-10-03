@@ -1,0 +1,13 @@
+{
+  "id": "nose",
+  "ko": "코",
+  "latin": "ko",
+  "meaning": "Nose",
+  "group": "Body",
+  "type": "NOUN · BODY",
+  "example": "코가 막혔어요.",
+  "translation": "My nose is blocked.",
+  "tip": "코 begins with aspirated ㅋ.",
+  "sentencePrompt": "_____가 막혔어요.",
+  "contrast": "코 means nose; 입 means mouth."
+}
