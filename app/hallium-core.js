@@ -3215,7 +3215,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           <div className="rail-group-heading">
             <span className="rail-group-label">01 · TODAY'S PLAN</span>
             <h2 id="rail-plan-title">A clear route for today.</h2>
-            <p>Small steps, real learning progress.</p>
+            <p>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min · fitted to your saved study preferences.</p>
           </div>
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
@@ -3224,7 +3224,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div className="route-task-copy">
                     <strong>{step.title}</strong>
-                    <small>{step.why}</small>
+                    <small>{step.minutes ? step.minutes + " min · " : ""}{step.why}</small>
                     <em>{routeLabels[step.kind] || "Open practice"} ↗</em>
                   </div>
                 </button>
