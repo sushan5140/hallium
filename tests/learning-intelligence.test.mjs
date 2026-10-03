@@ -198,3 +198,47 @@ test("AI route cannot displace a required due review", () => {
   assert.equal(safe.steps[0].kind,"review_queue");
   assert.equal(safe.rankedWeaknesses[0].skill,"Particles");
 });
+
+
+test("AI route safety restores due review before optional AI steps", async () => {
+  const { enforceLearningPlanSafety } = await import("../lib/learning-intelligence.js");
+  const fallback = {
+    headline:"One weakness is due now",
+    dueCount:1,
+    difficulty:"reinforce",
+    rankedWeaknesses:[{skill:"Particles",score:12}],
+    steps:[
+      {kind:"review_queue",title:"Review due weakness",priority:100},
+      {kind:"adaptive_review",title:"Transfer Particles",priority:82},
+    ],
+  };
+  const ai = {
+    headline:"Try something new",
+    steps:[
+      {kind:"companion",title:"Conversation",priority:95},
+      {kind:"test",title:"Challenge",priority:90},
+    ],
+  };
+  const safe = enforceLearningPlanSafety(ai,fallback);
+  assert.equal(safe.steps[0].kind,"review_queue");
+  assert.equal(safe.dueCount,1);
+});
+
+test("session fitting never drops a required due-review first action", async () => {
+  const { enforceLearningPlanSafety } = await import("../lib/learning-intelligence.js");
+  const fallback={
+    headline:"2 weaknesses are due now",
+    dueCount:2,
+    steps:[
+      {kind:"review_queue",title:"Review due",priority:100},
+      {kind:"adaptive_review",title:"Transfer",priority:82},
+    ],
+  };
+  const safe=enforceLearningPlanSafety({
+    headline:"AI route",
+    steps:[{kind:"grammar",title:"Grammar",priority:99}],
+  },fallback);
+  const fitted=fitPlanToSession(safe,{dailyMinutes:5,focuses:["grammar"]});
+  assert.equal(fitted.steps[0].kind,"review_queue");
+  assert.equal(fitted.steps[0].minutes,6);
+});
