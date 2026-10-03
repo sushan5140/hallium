@@ -1,0 +1,13 @@
+{
+  "id": "post-office",
+  "ko": "우체국",
+  "latin": "ucheguk",
+  "meaning": "Post office",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "우체국에서 편지를 보내요.",
+  "translation": "I send a letter at the post office.",
+  "tip": "우체국 ends with final ㄱ.",
+  "sentencePrompt": "_____에서 편지를 보내요.",
+  "contrast": "우체국 is post office; 은행 is bank."
+}
