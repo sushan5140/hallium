@@ -1,0 +1,13 @@
+{
+  "id": "baby",
+  "ko": "아기",
+  "latin": "agi",
+  "meaning": "Baby",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "아기가 자고 있어요.",
+  "translation": "The baby is sleeping.",
+  "tip": "아기 is pronounced a-gi.",
+  "sentencePrompt": "_____가 자고 있어요.",
+  "contrast": "아기 means baby; 아이 means child."
+}
