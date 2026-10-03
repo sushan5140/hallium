@@ -17,7 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, buildTodayLearningPlan, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills } from "../lib/learning-intelligence";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1896,7 +1896,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     preferences: learningPreferences,
   });
 
-  const activeLearningRoute = fitPlanToSession(learningRouteRecord?.result || fallbackLearningRoute, learningPreferences);
+  const safeLearningRoute = enforceLearningPlanSafety(learningRouteRecord?.result || fallbackLearningRoute, fallbackLearningRoute);\n  const activeLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
