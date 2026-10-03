@@ -1,0 +1,13 @@
+{
+  "id": "family-member",
+  "ko": "가족",
+  "latin": "gajok",
+  "meaning": "Family",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "주말에 가족과 시간을 보내요.",
+  "translation": "I spend time with my family on the weekend.",
+  "tip": "가족 ends with final ㄱ.",
+  "sentencePrompt": "주말에 _____과 시간을 보내요.",
+  "contrast": "가족 means family; 친척 means relative."
+}
