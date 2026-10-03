@@ -1,0 +1,13 @@
+{
+  "id": "expensive",
+  "ko": "비싸다",
+  "latin": "bissada",
+  "meaning": "To be expensive",
+  "group": "Shopping",
+  "type": "ADJECTIVE · PRICE",
+  "example": "이 가방은 비싸요.",
+  "translation": "This bag is expensive.",
+  "tip": "비싸다 changes to 비싸요 in polite present speech.",
+  "sentencePrompt": "이 가방은 _____.",
+  "contrast": "비싸다 means expensive; 싸다 means cheap."
+}
