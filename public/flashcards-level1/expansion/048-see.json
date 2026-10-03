@@ -1,0 +1,13 @@
+{
+  "id": "see",
+  "ko": "보다",
+  "latin": "boda",
+  "meaning": "To see / watch",
+  "group": "Actions",
+  "type": "VERB · PERCEPTION",
+  "example": "저는 영화를 봐요.",
+  "translation": "I watch a movie.",
+  "tip": "보다 changes to 봐요 in polite present speech.",
+  "sentencePrompt": "저는 영화를 _____.",
+  "contrast": "보다 can mean see, watch, or look at."
+}
