@@ -1,0 +1,13 @@
+{
+  "id": "summer",
+  "ko": "여름",
+  "latin": "yeoreum",
+  "meaning": "Summer",
+  "group": "Time",
+  "type": "NOUN · SEASON",
+  "example": "여름에는 날씨가 더워요.",
+  "translation": "The weather is hot in summer.",
+  "tip": "여름 is pronounced yeo-reum.",
+  "sentencePrompt": "_____에는 날씨가 더워요.",
+  "contrast": "여름 is summer; 겨울 is winter."
+}
