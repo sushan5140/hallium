@@ -1,0 +1,13 @@
+{
+  "id": "check-out",
+  "ko": "체크아웃하다",
+  "latin": "chekeuaut-hada",
+  "meaning": "To check out",
+  "group": "Actions",
+  "type": "VERB · TRAVEL",
+  "example": "아침 열한 시에 체크아웃해요.",
+  "translation": "I check out at 11 a.m.",
+  "tip": "체크아웃하다 changes to 체크아웃해요.",
+  "sentencePrompt": "아침 열한 시에 _____.",
+  "contrast": "체크아웃하다 means check out; 체크인하다 means check in."
+}
