@@ -1,0 +1,13 @@
+{
+  "id": "fit",
+  "ko": "맞다",
+  "latin": "matda",
+  "meaning": "To fit / be correct",
+  "group": "Description",
+  "type": "ADJECTIVE · GENERAL",
+  "example": "이 신발이 잘 맞아요.",
+  "translation": "These shoes fit well.",
+  "tip": "맞다 changes to 맞아요.",
+  "sentencePrompt": "이 신발이 잘 _____.",
+  "contrast": "맞다 can mean fit or be correct depending on context."
+}
