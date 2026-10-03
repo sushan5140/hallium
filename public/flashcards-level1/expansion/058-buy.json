@@ -1,0 +1,13 @@
+{
+  "id": "buy",
+  "ko": "사다",
+  "latin": "sada",
+  "meaning": "To buy",
+  "group": "Actions",
+  "type": "VERB · SHOPPING",
+  "example": "가게에서 물을 사요.",
+  "translation": "I buy water at the store.",
+  "tip": "사다 changes to 사요 in polite present speech.",
+  "sentencePrompt": "가게에서 물을 _____.",
+  "contrast": "사다 means buy; 팔다 means sell."
+}
