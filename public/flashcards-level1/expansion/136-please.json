@@ -1,0 +1,13 @@
+{
+  "id": "please",
+  "ko": "주세요",
+  "latin": "juseyo",
+  "meaning": "Please give me / please",
+  "group": "Greetings",
+  "type": "EXPRESSION · REQUEST",
+  "example": "물 한 잔 주세요.",
+  "translation": "Please give me a glass of water.",
+  "tip": "주세요 is a very common polite request ending.",
+  "sentencePrompt": "물 한 잔 _____.",
+  "contrast": "주세요 asks someone to give/do something politely."
+}
