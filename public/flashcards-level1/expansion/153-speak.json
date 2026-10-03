@@ -1,0 +1,13 @@
+{
+  "id": "speak",
+  "ko": "말하다",
+  "latin": "malhada",
+  "meaning": "To speak / say",
+  "group": "Actions",
+  "type": "VERB · COMMUNICATION",
+  "example": "한국어로 말해요.",
+  "translation": "I speak in Korean.",
+  "tip": "말하다 changes to 말해요.",
+  "sentencePrompt": "한국어로 _____.",
+  "contrast": "말하다 means speak/say; 듣다 means listen."
+}
