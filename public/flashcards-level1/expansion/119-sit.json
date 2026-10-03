@@ -1,0 +1,13 @@
+{
+  "id": "sit",
+  "ko": "앉다",
+  "latin": "antda",
+  "meaning": "To sit",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "의자에 앉아요.",
+  "translation": "I sit on a chair.",
+  "tip": "앉다 is pronounced close to 안따.",
+  "sentencePrompt": "의자에 _____.",
+  "contrast": "앉다 means sit; 서다 means stand."
+}
