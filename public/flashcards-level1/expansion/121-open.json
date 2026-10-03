@@ -1,0 +1,13 @@
+{
+  "id": "open",
+  "ko": "열다",
+  "latin": "yeolda",
+  "meaning": "To open",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "문을 열어요.",
+  "translation": "I open the door.",
+  "tip": "열다 changes to 열어요.",
+  "sentencePrompt": "문을 _____.",
+  "contrast": "열다 means open; 닫다 means close."
+}
