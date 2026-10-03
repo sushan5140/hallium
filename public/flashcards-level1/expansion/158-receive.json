@@ -1,0 +1,13 @@
+{
+  "id": "receive",
+  "ko": "받다",
+  "latin": "batda",
+  "meaning": "To receive",
+  "group": "Actions",
+  "type": "VERB · COMMUNICATION",
+  "example": "친구에게 선물을 받아요.",
+  "translation": "I receive a gift from my friend.",
+  "tip": "받다 changes to 받아요.",
+  "sentencePrompt": "친구에게 선물을 _____.",
+  "contrast": "받다 means receive; 보내다 means send."
+}
