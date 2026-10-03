@@ -1,0 +1,13 @@
+{
+  "id": "older-sister-male",
+  "ko": "누나",
+  "latin": "nuna",
+  "meaning": "Older sister (used by males)",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "누나가 요리를 잘해요.",
+  "translation": "My older sister cooks well.",
+  "tip": "누나 is used by a male speaker for an older sister or close older female.",
+  "sentencePrompt": "_____가 요리를 잘해요.",
+  "contrast": "누나 is male-speaker usage; 언니 is female-speaker usage."
+}
