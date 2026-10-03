@@ -1,0 +1,13 @@
+{
+  "id": "counter-sheets-4",
+  "ko": "네 장",
+  "latin": "ne jang",
+  "meaning": "4 sheets / pages",
+  "group": "Counters",
+  "type": "COUNTER · FLAT OBJECTS",
+  "example": "종이가 네 장 있어요.",
+  "translation": "There are 4 sheets of paper.",
+  "tip": "장 counts flat objects such as sheets of paper, tickets, photos, and cards.",
+  "sentencePrompt": "종이가 _____ 있어요.",
+  "contrast": "장 counts flat objects; 권 counts books and bound volumes."
+}
