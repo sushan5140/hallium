@@ -1,0 +1,13 @@
+{
+  "id": "foot",
+  "ko": "발",
+  "latin": "bal",
+  "meaning": "Foot",
+  "group": "Body",
+  "type": "NOUN · BODY",
+  "example": "발이 아파요.",
+  "translation": "My foot hurts.",
+  "tip": "발 ends with final ㄹ.",
+  "sentencePrompt": "_____이 아파요.",
+  "contrast": "발 means foot; 손 means hand."
+}
