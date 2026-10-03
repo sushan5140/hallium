@@ -1,0 +1,13 @@
+{
+  "id": "skirt",
+  "ko": "치마",
+  "latin": "chima",
+  "meaning": "Skirt",
+  "group": "Shopping",
+  "type": "NOUN · CLOTHING",
+  "example": "이 치마는 조금 길어요.",
+  "translation": "This skirt is a little long.",
+  "tip": "치마 begins with aspirated ㅊ.",
+  "sentencePrompt": "이 _____는 조금 길어요.",
+  "contrast": "치마 means skirt; 바지 means pants."
+}
