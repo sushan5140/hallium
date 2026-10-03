@@ -1,0 +1,13 @@
+{
+  "id": "sunday",
+  "ko": "일요일",
+  "latin": "iryoil",
+  "meaning": "Sunday",
+  "group": "Time",
+  "type": "NOUN · DAY",
+  "example": "일요일에는 쉬어요.",
+  "translation": "I rest on Sunday.",
+  "tip": "일요일 links ㄹ smoothly into the next syllable.",
+  "sentencePrompt": "_____에는 쉬어요.",
+  "contrast": "일요일 is Sunday; 월요일 is Monday."
+}
