@@ -1,0 +1,13 @@
+{
+  "id": "stairs",
+  "ko": "계단",
+  "latin": "gyedan",
+  "meaning": "Stairs",
+  "group": "Places",
+  "type": "NOUN · OBJECT",
+  "example": "계단으로 올라가요.",
+  "translation": "I go up by the stairs.",
+  "tip": "계 is pronounced gye.",
+  "sentencePrompt": "_____으로 올라가요.",
+  "contrast": "계단 means stairs; 엘리베이터 means elevator."
+}
