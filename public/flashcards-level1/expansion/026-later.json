@@ -1,0 +1,13 @@
+{
+  "id": "later",
+  "ko": "나중에",
+  "latin": "najunge",
+  "meaning": "Later",
+  "group": "Time",
+  "type": "ADVERB · TIME",
+  "example": "나중에 전화해요.",
+  "translation": "I will call later.",
+  "tip": "Keep the syllables even: 나-중-에.",
+  "sentencePrompt": "_____ 전화해요.",
+  "contrast": "나중에 means later; 지금 means now."
+}
