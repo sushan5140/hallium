@@ -1,0 +1,13 @@
+{
+  "id": "chef",
+  "ko": "요리사",
+  "latin": "yorisa",
+  "meaning": "Chef / cook",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "요리사가 음식을 만들어요.",
+  "translation": "The chef makes food.",
+  "tip": "요리사 combines 요리 and 사.",
+  "sentencePrompt": "_____가 음식을 만들어요.",
+  "contrast": "요리사 is a chef/cook; 요리하다 means to cook."
+}
