@@ -1,0 +1,13 @@
+{
+  "id": "noodles",
+  "ko": "국수",
+  "latin": "guksu",
+  "meaning": "Noodles",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "점심에 국수를 먹어요.",
+  "translation": "I eat noodles for lunch.",
+  "tip": "국수 is pronounced guk-su.",
+  "sentencePrompt": "점심에 _____를 먹어요.",
+  "contrast": "국수 means noodles; 밥 means rice/meal."
+}
