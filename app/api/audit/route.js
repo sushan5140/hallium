@@ -1,3 +1,4 @@
+import { consumeHalliumAiQuota, readBoundedJson, requireHalliumAiUser } from "../../../lib/server/ai-guard";
 export const runtime = "nodejs";
 
 let groqModel = null;
@@ -35,7 +36,9 @@ function parseJsonObject(raw) {
   return null;
 }
 
-export async function GET() {
+export async function GET(request) {
+  const access = await requireHalliumAiUser(request);
+  if (!access.ok) return access.response;
   const apiKey = process.env.AI_API || process.env.GROQ_API_KEY || process.env.Grok_API;
   if (!apiKey) return Response.json({ ok: false, provider: "groq", configured: false }, { status: 503 });
   try {
@@ -52,13 +55,22 @@ export async function GET() {
 }
 
 export async function POST(request) {
+  const access = await requireHalliumAiUser(request);
+  if (!access.ok) return access.response;
+
   try {
+    const parsed = await readBoundedJson(request, 32000);
+    if (!parsed.ok) return Response.json({ error: parsed.error }, { status: parsed.status, headers: { "Cache-Control": "no-store" } });
+
+    const quota = await consumeHalliumAiQuota(access.supabase, access.user.id, "audit", { daily: 20, perMinute: 4 });
+    if (!quota.ok) return Response.json({ error: quota.error }, { status: quota.status, headers: { "Cache-Control": "no-store" } });
+
     const apiKey = process.env.AI_API || process.env.GROQ_API_KEY || process.env.Grok_API;
     if (!apiKey) {
       return Response.json({ error: "AI_API is not configured on the server." }, { status: 503 });
     }
 
-    const learner = await request.json();
+    const learner = parsed.value;
     const model = await getGroqModel(apiKey);
 
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {

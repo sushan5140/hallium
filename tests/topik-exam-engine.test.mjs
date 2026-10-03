@@ -28,7 +28,7 @@ const scoringBundle = {
   verifiedAt: "2026-10-03T00:00:00.000Z",
   source: "https://example.test/verified-key",
   answers: { L1: 1, L2: 4, R1: 2, R2: 3 },
-  points: { L1: 10, L2: 10, R1: 20, R2: 20 },
+  points: { L1: 50, L2: 50, R1: 50, R2: 50 },
 };
 
 const audioBundle = {
@@ -61,8 +61,8 @@ test("verified scoring returns section and overall totals", () => {
   const scoredPaper = { ...paper, scoringBundle };
   const result = scoreObjectiveAttempt(scoredPaper, { L1: "1", L2: "2", R1: "2" });
   assert.equal(result.status, "scored");
-  assert.equal(result.earned, 30);
-  assert.equal(result.possible, 60);
+  assert.equal(result.earned, 100);
+  assert.equal(result.possible, 200);
   assert.equal(result.correct, 2);
   assert.equal(result.incorrect, 1);
   assert.equal(result.unanswered, 1);
@@ -87,4 +87,14 @@ test("verified question audio cues resolve only when both bundle and provenance 
     provenanceAudit: { ...paper.provenanceAudit, embeddedAudioAllowed: false },
   };
   assert.equal(questionAudioCue(locked, "L2"), null);
+});
+
+test("scoring bundle rejects non-official objective section totals", () => {
+  const broken = {
+    ...scoringBundle,
+    points: { ...scoringBundle.points, R1: 20, R2: 20 },
+  };
+  const audit = validateScoringBundle(paper, broken);
+  assert.equal(audit.valid, false);
+  assert.match(audit.issues.join(" "), /reading.*100 points/i);
 });

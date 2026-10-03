@@ -1,3 +1,4 @@
+import { isHalliumGoogleUser } from "../../../../lib/server/ai-guard";
 import { createHallimServerSupabase } from "../../../../lib/supabase/server";
 import { UUID_RE, pairFor, publicTwin, guidedPlan, validatePlan } from "../../../../lib/ai-twins/live.mjs";
 
@@ -88,6 +89,7 @@ export async function POST(request) {
   const supabase=await createHallimServerSupabase();
   const {data:{user},error:authError}=await supabase.auth.getUser();
   if(authError||!user) return Response.json({error:"Sign in to Hallium first."},{status:401});
+  if(!isHalliumGoogleUser(user))return Response.json({error:"Use Hallium's supported Google sign-in."},{status:403});
   let otherId;
   try{
     const raw=await request.text();

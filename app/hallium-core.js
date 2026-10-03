@@ -1596,7 +1596,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         const authParams = new URLSearchParams(window.location.search);
         const requestedView = authParams.get("view");
         const requestedLesson = authParams.get("lesson");
-        const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile","admin"]);
+        const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile"]);
         // The Beginner to TOPIK bridge links to existing lesson IDs. Reuse their
         // original lesson component and progress records, not a duplicate.
         if (requestedView === "lesson" && requestedLesson && lessons.some(item => item.id === requestedLesson)) {
@@ -2245,7 +2245,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
   function openProfileEditor() {
     if (guestMode) {
-      setNotice("Guest Mode already exposes the full Starter → Advanced review route.");
+      setNotice("Guest Mode exposes the full Starter → Advanced review route. Sign in with Google to save a personal level.");
       return;
     }
     setDraftCurrentLevel(learnerProfile?.currentLevel || "new");
@@ -2293,6 +2293,25 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     };
 
     try {
+      if (guestMode) {
+        const audit = {
+          summary: "Reviewer demo: Hallium can turn lesson progress, checks, and route evidence into a concise learning audit. Guest Mode keeps this demo local and does not call the paid AI provider.",
+          strengths: completedPathCount > 0 ? [completedPathCount + " route items completed in this browser session."] : ["The full Hallium route is available for review."],
+          weaknesses: ["Guest Mode starts without persistent assessment history, so ability claims are intentionally withheld."],
+          priorities: ["Complete a lesson or checkpoint to create stronger evidence.", "Review vocabulary and grammar from the selected route."],
+          nextActions: ["Open the next lesson.", "Try a study check.", "Inspect the adaptive review and route suggestions."],
+          levelAssessment: {
+            status: "insufficient_data",
+            note: "Guest Mode is a browser-only reviewer session; Hallium does not infer official TOPIK readiness from an empty profile.",
+          },
+        };
+        const record = { audit, model: "Guest demo · local", generatedAt: new Date().toISOString() };
+        setAiAuditRecord(record);
+        localStorage.setItem(aiAuditKey, JSON.stringify(record));
+        await generateLearningRoute(audit);
+        return;
+      }
+
       const response = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -2369,10 +2388,97 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     localStorage.setItem(intelligenceStateKey, JSON.stringify(next));
   }
 
+  function guestIntelligenceDemo(action, payload = {}) {
+    const vocab = Array.isArray(payload?.structuredStudy?.vocabulary) ? payload.structuredStudy.vocabulary : [];
+    const grammar = Array.isArray(payload?.structuredStudy?.grammar) ? payload.structuredStudy.grammar : [];
+    const makeQuestions = (count) => {
+      const source = vocab.length ? vocab : [
+        { korean: "안녕하세요", meaning: "hello" },
+        { korean: "감사합니다", meaning: "thank you" },
+        { korean: "학교", meaning: "school" },
+        { korean: "친구", meaning: "friend" },
+        { korean: "오늘", meaning: "today" },
+        { korean: "공부", meaning: "study" },
+        { korean: "시간", meaning: "time" },
+      ];
+      const meanings = source.map((item) => item.meaning || item.en || item.korean).filter(Boolean);
+      return Array.from({ length: count }, (_, i) => {
+        const item = source[i % source.length];
+        const answerText = item.meaning || item.en || item.korean;
+        const distractors = meanings.filter((value) => value !== answerText).slice(0, 3);
+        while (distractors.length < 3) distractors.push(["place","person","action"][distractors.length]);
+        return {
+          prompt: "What does “" + (item.korean || item.pattern || "this item") + "” mean?",
+          options: [answerText, ...distractors.slice(0, 3)],
+          answer: 0,
+          explanation: "Guest demo uses vocabulary already available in this Hallium route.",
+          skill: "Vocabulary",
+        };
+      });
+    };
+
+    if (action === "mistake_explain") return {
+      headline: "Review the evidence in the question",
+      whyWrong: "The selected option does not match the stored Hallium answer for this practice item.",
+      correctRule: "Use the vocabulary or grammar already taught in the current route.",
+      microExample: "Guest Mode keeps this explanation local for reviewer preview.",
+    };
+    if (action === "difficulty") return {
+      level: "balanced",
+      reason: "Guest Mode has limited evidence, so Hallium demonstrates a balanced recommendation instead of claiming a measured ability.",
+      behavior: "Mix direct recall with one short application step.",
+    };
+    if (action === "study_plan") return {
+      title: "Reviewer demo plan",
+      summary: "A compact Hallium route using only the visible curriculum.",
+      days: Array.from({length:5},(_,i)=>({
+        day:"Day "+(i+1),
+        focus:["Vocabulary recall","Grammar pattern","Listening & shadowing","Mixed review","Checkpoint"][i],
+        minutes:15,
+        tasks:["Open one Hallium lesson","Finish one focused practice activity"],
+      })),
+    };
+    if (action === "promotion") return {
+      status: "insufficient_data",
+      confidence: 20,
+      evidence: ["Guest Mode intentionally has no persistent learner history."],
+      gaps: ["More completed lessons and checks are needed."],
+      recommendation: "Use a signed-in profile for a real level-change recommendation.",
+    };
+    if (action === "learning_route") return {
+      headline: "Reviewer demo route",
+      focus: "See how Hallium connects practice, review, and reassessment.",
+      reason: "Guest Mode demonstrates route logic without sending reviewer data to a paid AI service.",
+      steps: [
+        { kind: "companion", title: "Open the curriculum", why: "Inspect the full learning path." },
+        { kind: "review_queue", title: "Try review", why: "See how weak items would be revisited." },
+        { kind: "test", title: "Run a study check", why: "Create evidence for the next recommendation." },
+      ],
+    };
+    if (action === "adaptive_review") return {
+      title: "Reviewer adaptive-review demo",
+      difficulty: "balanced",
+      reason: "Local demo generated from the visible Hallium study material.",
+      questions: makeQuestions(5),
+    };
+    if (action === "checkpoint") return {
+      title: "Reviewer checkpoint demo",
+      difficulty: "balanced",
+      questions: makeQuestions(6),
+    };
+    return null;
+  }
+
   async function callIntelligence(action, payload) {
     setAiBusy(action);
     setAiFeatureError("");
     try {
+      if (guestMode) {
+        const demo = guestIntelligenceDemo(action, payload);
+        if (!demo) throw new Error("This AI demo is unavailable in Guest Mode.");
+        return demo;
+      }
+
       const response = await fetch("/api/intelligence", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
