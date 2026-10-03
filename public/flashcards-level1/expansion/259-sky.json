@@ -1,0 +1,13 @@
+{
+  "id": "sky",
+  "ko": "하늘",
+  "latin": "haneul",
+  "meaning": "Sky",
+  "group": "Daily Life",
+  "type": "NOUN · NATURE",
+  "example": "오늘 하늘이 맑아요.",
+  "translation": "The sky is clear today.",
+  "tip": "하늘 ends with final ㄹ.",
+  "sentencePrompt": "오늘 _____이 맑아요.",
+  "contrast": "하늘 is sky; 구름 is cloud."
+}
