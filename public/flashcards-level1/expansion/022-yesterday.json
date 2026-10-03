@@ -1,0 +1,13 @@
+{
+  "id": "yesterday",
+  "ko": "어제",
+  "latin": "eoje",
+  "meaning": "Yesterday",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "어제 집에서 공부했어요.",
+  "translation": "I studied at home yesterday.",
+  "tip": "ㅓ in 어 is eo, not a pure English 'oh'.",
+  "sentencePrompt": "_____ 집에서 공부했어요.",
+  "contrast": "어제 is yesterday; 오늘 is today."
+}
