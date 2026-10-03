@@ -1880,3 +1880,109 @@ Remaining before final production closure:
 1. let the broad integrated Chromium cleanup finish on the latest TOPIK assertion commit
 2. final issue/CI cleanup only if a real regression appears
 3. record production closure and stop changing architecture unless new evidence requires it
+
+
+---
+
+# 27. H-P5 COMPLETE — production closure
+
+Hallium H-P5 final closure QA is complete.
+
+## Final verified production code checkpoint
+
+Functional code checkpoint:
+- `7333033c289c1497262c6a60a28cf79a70e827b6`
+
+Production state:
+- Vercel target: production
+- deployment state: READY
+
+## Final green matrix
+
+On the final functional code path:
+
+- standalone Hallium tests ✅
+- standalone Next.js build ✅
+- Hallium Security Gate ✅
+- Hallium Batch 2 ✅
+- Study Partners production integration ✅
+- dedicated TOPIK provenance/usability Chromium regression ✅
+- full integrated Chromium regression ✅
+  - Starter Flashcards
+  - responsive layouts
+  - TOPIK
+  - unified dashboard / Companions
+  - Hangul Lab
+  - owner/private Korean route
+- Vercel production deployment ✅
+
+Production observability:
+- Vercel runtime error clusters in the last 24 hours: none found ✅
+
+## H-P5 areas closed
+
+### Native Korean/content
+Targeted high-confidence grammar/naturalness corrections completed.
+
+### Curriculum coverage
+Live curriculum audit now distinguishes real gaps from documented intentional omissions.
+
+### Responsive/device
+Existing 320–1600px browser regression matrix remains green.
+
+### Auth/cloud sync
+Verified and hardened:
+- Guest Mode local sandbox
+- guest → Google isolation
+- Google account A → account B same-browser isolation
+- canonical local-cache owner binding
+- no cross-account hydration flash
+- admin identity remains RLS-backed
+- referral attribution remains intentionally shared
+
+### Voice
+Verified:
+- saved voice
+- missing voice on another device
+- provider fallback
+- local fallback
+- rate limits
+- cloud/local timestamp merge
+- unavailable speech synthesis
+
+### TOPIK
+Verified:
+- provenance fail-closed activation
+- scoring/audio rights gates
+- answer persistence
+- writing persistence
+- mobile
+- plain-language locked/verified feature status
+- verified scoring wording does not imply an official TOPIK score
+
+## Closure rule
+
+**H-P5: COMPLETE ✅**
+
+Do not reopen the completed closure audits by default.
+
+Reopen only if:
+- a new feature changes auth/state ownership,
+- a new Supabase table/RPC/API route is exposed,
+- TOPIK assets or rights states change,
+- a new voice/storage architecture is introduced,
+- responsive structure is substantially redesigned,
+- CI reports a real regression,
+- or a concrete production bug/security issue is observed.
+
+## Current project state
+
+Hallium is now in:
+
+**Production maintenance / feature development**
+
+Preferred workflow from here:
+1. define the next feature,
+2. implement against the existing architecture,
+3. add narrowly-scoped regressions for the changed behavior,
+4. preserve the now-closed security/auth/provenance boundaries.
