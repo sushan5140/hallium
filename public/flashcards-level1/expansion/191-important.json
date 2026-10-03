@@ -1,0 +1,13 @@
+{
+  "id": "important",
+  "ko": "중요하다",
+  "latin": "jungyohada",
+  "meaning": "To be important",
+  "group": "Description",
+  "type": "ADJECTIVE · GENERAL",
+  "example": "건강이 중요해요.",
+  "translation": "Health is important.",
+  "tip": "중요하다 changes to 중요해요.",
+  "sentencePrompt": "건강이 _____.",
+  "contrast": "중요하다 means important; 필요하다 means necessary."
+}
