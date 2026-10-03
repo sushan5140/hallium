@@ -1,0 +1,13 @@
+{
+  "id": "bill",
+  "ko": "계산",
+  "latin": "gyesan",
+  "meaning": "Bill / payment",
+  "group": "Shopping",
+  "type": "NOUN · PAYMENT",
+  "example": "계산을 부탁해요.",
+  "translation": "I ask for the bill.",
+  "tip": "계산 can mean calculation or payment depending on context.",
+  "sentencePrompt": "_____을 부탁해요.",
+  "contrast": "계산 is bill/payment; 가격 is price."
+}
