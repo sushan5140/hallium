@@ -1,0 +1,13 @@
+{
+  "id": "bed",
+  "ko": "침대",
+  "latin": "chimdae",
+  "meaning": "Bed",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "침대에서 자요.",
+  "translation": "I sleep in the bed.",
+  "tip": "침대 is pronounced chim-dae.",
+  "sentencePrompt": "_____에서 자요.",
+  "contrast": "침대 is bed; 의자 is chair."
+}
