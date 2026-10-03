@@ -1,0 +1,13 @@
+{
+  "id": "key",
+  "ko": "열쇠",
+  "latin": "yeolsoe",
+  "meaning": "Key",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "열쇠를 찾고 있어요.",
+  "translation": "I am looking for the key.",
+  "tip": "열쇠 contains the soe sound 쇠.",
+  "sentencePrompt": "_____를 찾고 있어요.",
+  "contrast": "열쇠 means key; 문 means door."
+}
