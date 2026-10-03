@@ -1,0 +1,13 @@
+{
+  "id": "spicy",
+  "ko": "맵다",
+  "latin": "maepda",
+  "meaning": "To be spicy",
+  "group": "Food",
+  "type": "ADJECTIVE · TASTE",
+  "example": "이 찌개는 정말 매워요.",
+  "translation": "This stew is really spicy.",
+  "tip": "맵다 changes to 매워요.",
+  "sentencePrompt": "이 찌개는 정말 _____.",
+  "contrast": "맵다 means spicy; 안 맵다 means not spicy."
+}
