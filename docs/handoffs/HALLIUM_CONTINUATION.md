@@ -3118,3 +3118,114 @@ Do not retune detector parameters.
 
 Question:
 Does more baseline evidence alone make the high-power Pilot-9 process robust enough, or does systematic p0 misspecification remain fatal?
+
+
+---
+
+# 39. TwinMem Pilot 14 — 192 baseline labels/source is robust across tested stress matrix
+
+Draft PR: #19  
+Branch: `research/twinmem-pilot14-baseline-information`
+
+Pilot 14 freezes the original Pilot-9 process:
+- delta 0.25
+- alpha 0.10
+- stages 8 / 12 / 24 / 48
+- unchanged detection + efficiency goals
+- no model change
+- no detector retuning
+
+Only baseline evidence changes:
+- 96 labels/source
+- 192 labels/source
+
+Each size is tested on fresh:
+- unbiased
+- all p0 +0.03
+- all p0 -0.03
+- source skew: verified +0.03, self-report -0.03
+
+500 repeats per size × pattern × scenario.
+
+## 96 labels/source
+
+Unbiased:
+- stationary false alarm 5.6%
+- moderate detection 85.6%
+- moderate labels 30.216
+- severe 100%
+- PASS
+
+All +0.03:
+- stationary 7.6%
+- moderate 92.2%
+- moderate labels 23.992
+- PASS
+
+All -0.03:
+- stationary **10.8%**
+- moderate 85.4%
+- moderate labels 31.32
+- FAIL only on stationary specificity
+
+Source skew ±0.03:
+- stationary 9.4%
+- moderate 96.4%
+- moderate labels 22.552
+- PASS
+
+Robust across all patterns: NO.
+
+## 192 labels/source
+
+Unbiased:
+- stationary 3.4%
+- moderate 86.8%
+- moderate labels 29.952
+- severe 100%
+- PASS
+
+All +0.03:
+- stationary 7.0%
+- moderate 93.8%
+- moderate labels 24.6
+- severe 100%
+- PASS
+
+All -0.03:
+- stationary 8.8%
+- moderate 89.8%
+- moderate labels 30.944
+- severe 100%
+- PASS
+
+Source skew ±0.03:
+- stationary 8.0%
+- moderate 97.4%
+- moderate labels 21.04
+- severe 100%
+- PASS
+
+Robust across all tested patterns: **YES**
+
+Main synthetic boundary:
+- 48/source: fresh robustness failure
+- 96/source: nearly robust but one 10.8% specificity miss
+- **192/source: all tested stress patterns pass**
+
+Important interpretation:
+More baseline information alone is enough in this simulator to make the high-power Pilot-9 plug-in detector empirically robust across the tested ±0.03 null stress.
+
+New bottleneck:
+- 192 baseline labels/source
+- 3 source types
+- **576 baseline labeled observations total**
+
+Exact next research focus should move from detector mathematics to **baseline-label acquisition efficiency**, e.g.:
+- hierarchical/shrinkage reliability estimation
+- active sampling of the source with highest uncertainty/value
+- safe pooling across time/tasks/users
+- naturally labeled trusted assessment outcomes
+
+Do not treat 192/source as a real-world threshold.
+Do not merge the research stack into production Hallium.
