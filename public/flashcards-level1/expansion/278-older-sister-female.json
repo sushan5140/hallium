@@ -1,0 +1,13 @@
+{
+  "id": "older-sister-female",
+  "ko": "언니",
+  "latin": "eonni",
+  "meaning": "Older sister (used by females)",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "언니와 쇼핑해요.",
+  "translation": "I shop with my older sister.",
+  "tip": "언니 is used by a female speaker for an older sister or close older female.",
+  "sentencePrompt": "_____와 쇼핑해요.",
+  "contrast": "언니 is female-speaker usage; 누나 is male-speaker usage."
+}
