@@ -1,0 +1,13 @@
+{
+  "id": "temperature",
+  "ko": "기온",
+  "latin": "gion",
+  "meaning": "Temperature (weather)",
+  "group": "Weather",
+  "type": "NOUN · WEATHER",
+  "example": "오늘 기온이 높아요.",
+  "translation": "The temperature is high today.",
+  "tip": "기온 is used for air temperature.",
+  "sentencePrompt": "오늘 _____이 높아요.",
+  "contrast": "기온 is air temperature; 온도 is general temperature."
+}
