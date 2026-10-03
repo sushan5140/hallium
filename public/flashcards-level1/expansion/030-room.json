@@ -1,0 +1,13 @@
+{
+  "id": "room",
+  "ko": "방",
+  "latin": "bang",
+  "meaning": "Room",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "제 방은 작아요.",
+  "translation": "My room is small.",
+  "tip": "방 ends with the ng sound ㅇ.",
+  "sentencePrompt": "제 _____은 작아요.",
+  "contrast": "방 means room; 집 means home/house."
+}
