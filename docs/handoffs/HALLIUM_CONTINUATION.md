@@ -3470,3 +3470,125 @@ Purpose:
 - force the existing GitHub → Vercel integration to build the current `main` tree
 - no application behavior changes in this checkpoint
 - Batch 4 remains intentionally not started
+
+
+---
+
+# 43. H-P5 FINAL PRODUCTION CLOSURE — COMPLETE ✅
+
+Completed on 3 October 2026.
+
+## Production rollout
+
+Production deployment:
+- Vercel project: `hallium`
+- deployment ID: `dpl_86TfZhSAq66AmjspYTSnamouF15i`
+- production alias: `https://hallium.vercel.app`
+- deployed Git commit: `6d3a9582529a6ddaa13621c74c118b67e975007a`
+- target: production
+- state: **READY**
+- alias error: none
+
+This deployment contains the H-P5 Guest Mode isolation fix and the merged H-P5 production closure work.
+
+A behavior-neutral source comment was used only to force the existing GitHub → Vercel integration to rebuild current Hallium after documentation-only commits were ignored.
+
+## Live production interactive QA
+
+QA PR: #23
+Merged QA workflow commit:
+`a486bcaddf3e7e0b96d0c7832105d512024d6581`
+
+Added:
+- `.github/scripts/verify-live-production.cjs`
+- `.github/workflows/verify-live-production.yml`
+
+The live Chromium suite ran against:
+`https://hallium.vercel.app`
+
+Validated successfully:
+
+### Landing / entry
+- landing page HTTP 200
+- Google entry CTA visible
+- Guest entry CTA visible
+- Guest Mode entered through the actual CTA
+
+### Guest isolation
+- guest session flag created
+- fresh guest session UUID created
+- canonical signed-in learner profile key remains empty
+- guest-scoped learner profile is present
+- no synthetic Supabase auth token/session is created
+- a separate fresh browser context receives a different guest session ID
+
+### Admin protection
+- direct `?guest=1&view=admin` request fails closed
+- private Curriculum Studio content is not exposed to guest
+
+### Live learning routes
+All responded successfully in production:
+- `/`
+- `/hangul`
+- `/topik-mocks`
+- `/study-partners`
+- `/flashcards`
+
+### Navigation
+- Hangul Lab back navigation points to Hallium dashboard
+- Flashcards back navigation points to Hallium dashboard
+
+### Real production flashcard interaction
+Chromium successfully:
+- opened the Starter flashcard iframe
+- selected `책`
+- verified displayed Korean word `책`
+- bookmarked the card
+- moved the card to Learning
+- confirmed progress UI updated
+
+### Responsive behavior
+Live checks passed at:
+- mobile 390×844
+- desktop 1440×1000
+
+No horizontal overflow was detected on the audited routes.
+
+### Browser/runtime health
+- live browser page-error/console-error assertion: PASS
+- standalone Hallium CI on QA branch: PASS
+- live production QA workflow: PASS
+- Vercel runtime error scan after interactions: **no runtime errors found in the previous hour**
+
+## Final H-P5 status
+
+**H-P5 is COMPLETE.**
+
+Closed areas:
+- production rollout
+- Guest Mode isolation
+- auth/cloud sync QA
+- direct-admin denial
+- responsive production routes
+- TOPIK production smoke
+- Hangul production smoke
+- Study Partners production smoke
+- Flashcards production interaction
+- back-navigation checks
+- security/runtime health
+
+## Important repository/deployment note
+
+After production was verified on app commit `6d3a958...`, PR #23 merged QA-only files to `main` as `a486bcad...`.
+
+Those later files are CI/QA infrastructure only and do not change Hallium runtime behavior.
+
+Therefore the deployed Hallium application state is current for product code, while `main` may contain newer non-runtime QA/documentation commits.
+
+## Next phase
+
+**Do not start Batch 4 automatically.**
+
+Batch 4 / H-P6 Learning Intelligence begins only when the user explicitly says to start it.
+
+MeloTTS/TwinMem remain parked.
