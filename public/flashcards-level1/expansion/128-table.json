@@ -1,0 +1,13 @@
+{
+  "id": "table",
+  "ko": "탁자",
+  "latin": "takja",
+  "meaning": "Table",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "탁자 위에 커피가 있어요.",
+  "translation": "There is coffee on the table.",
+  "tip": "탁 ends with final ㄱ.",
+  "sentencePrompt": "_____ 위에 커피가 있어요.",
+  "contrast": "탁자 is table; 책상 is desk."
+}
