@@ -1,0 +1,65 @@
+name: TwinMem Pilot 11 null interval
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot11/**"
+      - ".github/workflows/twinmem-pilot11.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run conservative null-interval experiment
+        run: python research/twinmem_pilot11/null_interval.py
+      - name: Validate design and pinned negative result
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path("research/twinmem_pilot11")
+          d=json.loads((root/"outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["frozen_pilot9"]=={
+              "baseline_labels_per_source":48,
+              "delta":0.25,
+              "alpha":0.1,
+              "stages":[8,12,24,48],
+          }
+          assert d["interval_levels"]==[0.7,0.8,0.9,0.95]
+          assert d["development_repeats"]==260
+          assert d["test_repeats"]==500
+          assert len(d["development_candidates"])==4
+          assert d["selected_interval_level"] is None
+          assert d["heldout_unbiased"] is None
+          assert d["heldout_bias_stress"] is None
+          passing=[x for x in d["development_candidates"] if x["all_goals_pass"]]
+          assert passing==[]
+          by={x["interval_level"]:x for x in d["development_candidates"]}
+          got={
+              "selected_interval_level":"null",
+              "heldout_unbiased":"null",
+              "heldout_bias_stress":"null",
+              "level_0_7_stationary_false_alarm":str(by[0.7]["distributions"]["stationary"]["detection_rate"]),
+              "level_0_7_moderate_detection":str(by[0.7]["distributions"]["moderate"]["detection_rate"]),
+              "level_0_7_moderate_labels":str(by[0.7]["distributions"]["moderate"]["mean_labels_per_source"]),
+              "level_0_8_moderate_detection":str(by[0.8]["distributions"]["moderate"]["detection_rate"]),
+              "level_0_9_moderate_detection":str(by[0.9]["distributions"]["moderate"]["detection_rate"]),
+              "level_0_95_moderate_detection":str(by[0.95]["distributions"]["moderate"]["detection_rate"]),
+              "passing_candidate_count":"0",
+          }
+          with (root/"expected_results.csv").open(newline="") as f:
+              expected={r["metric"]:r["value"] for r in csv.DictReader(f)}
+          assert got==expected,(got,expected)
+          print("PASS: Pilot 11 exact conservative-null negative result pinned")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot11-null-interval
+          path: research/twinmem_pilot11/outputs/
+          retention-days: 30

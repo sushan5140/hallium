@@ -1,0 +1,11 @@
+metric,value
+selected_interval_level,null
+heldout_unbiased,null
+heldout_bias_stress,null
+level_0_7_stationary_false_alarm,0.007692307692307693
+level_0_7_moderate_detection,0.4576923076923077
+level_0_7_moderate_labels,43.784615384615385
+level_0_8_moderate_detection,0.46923076923076923
+level_0_9_moderate_detection,0.41923076923076924
+level_0_95_moderate_detection,0.2
+passing_candidate_count,0
