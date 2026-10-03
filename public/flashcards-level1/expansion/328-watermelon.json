@@ -1,0 +1,13 @@
+{
+  "id": "watermelon",
+  "ko": "수박",
+  "latin": "subak",
+  "meaning": "Watermelon",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "여름에 수박을 많이 먹어요.",
+  "translation": "I eat a lot of watermelon in summer.",
+  "tip": "수박 ends with final ㄱ.",
+  "sentencePrompt": "여름에 _____을 많이 먹어요.",
+  "contrast": "수박 means watermelon; 참외 means Korean melon."
+}
