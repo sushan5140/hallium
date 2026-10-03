@@ -276,7 +276,7 @@ const units = [
         words: [["선택","choice"],["장점","advantage"],["단점","disadvantage"]],
         pattern: ["Opinion + 이유는…", "Use 이유는… to explicitly introduce your reason.", "제가 이걸 선택한 이유는 편해서예요.", [["선택한 이유는","the reason I chose it"],["편해서예요","is because it is convenient"]]],
         check: ["What does 이유 mean?", ["Reason","Price","Place","Time"], 0, "이유 means reason."],
-        listen: ["이 앱은 조금 어렵지만 유용해요. 제가 계속 쓰는 이유는 복습이 좋아서예요.", "Why does the speaker keep using it?", ["It is cheap","The review is good","It is easy","It has games"], 1, "복습이 좋아서예요 gives the reason."],
+        listen: ["이 앱은 조금 어렵지만 유용해요. 제가 계속 쓰는 이유는 복습 기능이 좋아서예요.", "Why does the speaker keep using it?", ["It is cheap","The review feature is good","It is easy","It has games"], 1, "복습 기능이 좋아서예요 gives the reason."],
         build: ["Build: The reason is that it is convenient.", ["편해서예요","이유는"], "이유는 편해서예요"],
         canDo: ["explain a choice","combine reason and contrast"],
       },
@@ -394,7 +394,7 @@ const units = [
       {
         title: "Add another factor", subtitle: "Use -는 데다가 to add a related point.",
         words: [["게다가","moreover"],["부담","burden"],["조건","condition"]],
-        pattern: ["A/V + 는 데다가", "Use -는 데다가 to add another related fact, often reinforcing the same evaluation.", "비가 오는 데다가 바람도 많이 불어요.", [["비가 오는 데다가","in addition to it raining"],["바람도","the wind also"],["많이 불어요","blows strongly"]]],
+        pattern: ["A + (으)ㄴ 데다가 / V + 는 데다가", "Use -(으)ㄴ/는 데다가 to add another related fact, often reinforcing the same evaluation.", "비가 오는 데다가 바람도 많이 불어요.", [["비가 오는 데다가","in addition to it raining"],["바람도","the wind also"],["많이 불어요","blows strongly"]]],
         check: ["What does -는 데다가 do?", ["Adds another related factor","Marks only past tense","Asks a question","Makes a command"], 0, "-는 데다가 adds another point of the same general direction."],
         listen: ["가격이 비싼 데다가 사용법도 복잡해서 다른 제품을 알아보고 있어요.", "Why is the speaker considering another product?", ["It is expensive and complicated","It is unavailable","It is too small","It arrived late"], 0, "Two negative factors are added together."],
         build: ["Build: It is expensive and also complicated.", ["비싼 데다가","복잡해요"], "비싼 데다가 복잡해요"],
@@ -609,7 +609,7 @@ const units = [
       {
         title: "While remaining in a state", subtitle: "Use -(으)ㄴ 채로 to describe an unchanged state.",
         words: [["상태","state"],["유지하다","maintain"],["그대로","as it is"]],
-        pattern: ["A/V + (으)ㄴ 채로", "Use -(으)ㄴ 채로 when one state remains unchanged while another action occurs.", "문을 연 채로 회의를 진행했어요.", [["문을 연 채로","with the door left open"],["회의를","meeting"],["진행했어요","conducted"]]],
+        pattern: ["Verb + (으)ㄴ 채로", "Use -(으)ㄴ 채로 when the result or state of an action remains unchanged while another action occurs.", "문을 연 채로 회의를 진행했어요.", [["문을 연 채로","with the door left open"],["회의를","meeting"],["진행했어요","conducted"]]],
         check: ["Which means “with the door left open”?", ["문을 연 채로","문을 열 리가 없이","문을 열자고","문을 여는 바람에"], 0, "-(으)ㄴ 채로 keeps a state in place."],
         listen: ["문제를 해결하지 않은 채로 다음 단계로 넘어가면 같은 오류가 반복될 수 있어요.", "What warning is given?", ["Moving on without solving the problem may repeat the error","The problem solved itself","The next step is unnecessary","Errors cannot repeat"], 0, "해결하지 않은 채로 means leaving it unresolved."],
         build: ["Build: They moved on without solving the problem.", ["문제를 해결하지 않은 채로","넘어갔어요"], "문제를 해결하지 않은 채로 넘어갔어요"],
