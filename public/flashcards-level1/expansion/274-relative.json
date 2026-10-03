@@ -1,0 +1,13 @@
+{
+  "id": "relative",
+  "ko": "친척",
+  "latin": "chincheok",
+  "meaning": "Relative",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "명절에 친척을 만나요.",
+  "translation": "I meet relatives during the holiday.",
+  "tip": "친척 ends with final ㄱ.",
+  "sentencePrompt": "명절에 _____을 만나요.",
+  "contrast": "친척 means relative; 가족 means immediate family/group."
+}
