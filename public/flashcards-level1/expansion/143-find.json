@@ -1,0 +1,13 @@
+{
+  "id": "find",
+  "ko": "찾다",
+  "latin": "chatda",
+  "meaning": "To find / look for",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "열쇠를 찾아요.",
+  "translation": "I look for the key.",
+  "tip": "찾다 changes to 찾아요.",
+  "sentencePrompt": "열쇠를 _____.",
+  "contrast": "찾다 means find/look for; 잃다 means lose."
+}
