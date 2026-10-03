@@ -3011,3 +3011,59 @@ Use the full Beta baseline posterior as null predictive evidence rather than:
 - a worst-case interval p0.
 
 Avoid post-hoc interval tuning.
+
+
+---
+
+# 37. TwinMem Pilot 12 — posterior-predictive null still loses moderate power
+
+Draft PR: #17  
+Branch: `research/twinmem-pilot12-posterior-predictive-null`
+
+Frozen:
+- baseline 48 labels/source
+- delta 0.25
+- alpha 0.10
+- stages 8 / 12 / 24 / 48
+- Beta(2,2) prior
+- unchanged detection + efficiency goals
+- no null-handling grid
+
+Null:
+- full Beta posterior predictive.
+
+Alternative:
+- shifted Beta distributions with same posterior concentration and mean ±0.25.
+
+Development:
+- stationary false alarm 2.0%
+- stationary mean labels 47.36
+- moderate detection **51.33%**
+- moderate mean labels **40.45**
+- severe detection 97.67%
+- severe mean labels 22.47
+
+All goals: FAIL.
+
+Therefore:
+- held-out unbiased evaluation not run
+- bias stress not run
+
+Conclusion:
+Full posterior-predictive null is less conservative than Pilot 11 and controls false alarms well, but diffuse shifted-Beta alternatives lose too much separation/power.
+
+Exact next phase:
+**Pilot 13 — posterior-predictive null + Pilot-9 point alternatives**
+
+Freeze:
+- baseline 48 labels/source
+- delta 0.25
+- alpha 0.10
+- stages 8 / 12 / 24 / 48
+- same goals
+
+Change only alternative model:
+- null = Beta posterior predictive
+- alternative = point p at posterior mean ±0.25
+
+No delta/alpha retuning.
