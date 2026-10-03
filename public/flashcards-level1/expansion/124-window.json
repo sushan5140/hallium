@@ -1,0 +1,13 @@
+{
+  "id": "window",
+  "ko": "창문",
+  "latin": "changmun",
+  "meaning": "Window",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "창문을 닫아요.",
+  "translation": "I close the window.",
+  "tip": "창문 combines 창 and 문.",
+  "sentencePrompt": "_____을 닫아요.",
+  "contrast": "창문 is window; 문 is door."
+}
