@@ -1,0 +1,13 @@
+{
+  "id": "easy",
+  "ko": "쉽다",
+  "latin": "swipda",
+  "meaning": "To be easy",
+  "group": "Description",
+  "type": "ADJECTIVE · DIFFICULTY",
+  "example": "이 문제는 쉬워요.",
+  "translation": "This problem is easy.",
+  "tip": "쉽다 changes to 쉬워요.",
+  "sentencePrompt": "이 문제는 _____.",
+  "contrast": "쉽다 means easy; 어렵다 means difficult."
+}
