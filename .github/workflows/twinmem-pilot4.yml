@@ -17,22 +17,36 @@ jobs:
           python-version: "3.11"
       - name: Run label-efficiency experiment
         run: python research/twinmem_pilot4/label_efficiency.py
-      - name: Validate predeclared design
+      - name: Validate design and exact detection rates
         run: |
           python - <<'PY'
-          import json
+          import csv, json
           from pathlib import Path
-          d=json.loads(Path("research/twinmem_pilot4/outputs/results.json").read_text())
+          root=Path("research/twinmem_pilot4")
+          d=json.loads((root/"outputs/results.json").read_text())
           assert d["status"]=="synthetic_research_only"
           assert d["detector_threshold"]==0.2
           assert d["repeats_per_window_scenario"]==250
-          assert [r["window_per_source"] for r in d["window_results"]]==[4,8,12,24,48]
           assert d["criteria"]=={
               "stationary_false_alarm_max":0.1,
               "moderate_detection_min":0.8,
               "severe_detection_min":0.9,
           }
-          print("PASS: Pilot 4 frozen detector, label windows, repeats, and predeclared criteria")
+          assert d["minimum_passing_window_per_source"] is None
+
+          got=[]
+          for row in d["window_results"]:
+              got.append({
+                  "window_per_source":str(row["window_per_source"]),
+                  "stationary_false_alarm_rate":str(row["stationary_false_alarm_rate"]),
+                  "moderate_detection_rate":str(row["moderate_detection_rate"]),
+                  "severe_detection_rate":str(row["severe_detection_rate"]),
+                  "meets":str(bool(row["meets_predeclared_criteria"])).lower(),
+              })
+          with (root/"expected_detection.csv").open(newline="") as f:
+              expected=list(csv.DictReader(f))
+          assert got==expected, (got,expected)
+          print("PASS: Pilot 4 exact false-alarm/detection curve; no tested window passes")
           PY
       - uses: actions/upload-artifact@v4
         with:
