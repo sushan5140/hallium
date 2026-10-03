@@ -20,14 +20,14 @@ const aiTools=[
 ];
 const faqs=[
  ["Do I need to know Hangul?","No. You can start with Hangul Lab, then move into the Companion curriculum when you feel ready."],
- ["Can I try Hallim before signing in?","Yes. The landing-page interactions here are public previews. Sign in to the main app to save an actual learning route and use personal account features."],
+ ["Can I try Hallim before signing in?","Yes. Guest Mode opens the full learning workspace with a temporary reviewer profile and no setup. Sign in with Google only when you want persistent synced progress."],
  ["Does Hallim grant an official TOPIK level?","No. Hallim supports practice and evidence-informed study, but its in-app assessments are not official TOPIK tests or certificates."],
  ["Can everyone see my Study Partners profile?","No. Study Partners discovery is opt-in. Shared spaces require mutual acceptance, and you choose which notes to share."],
  ["Is Partner Korean the same as Study Partners?","No. Partner Korean is a flirty and everyday phrase bank, mini-dialogues and an AI Message Makeover for writing your own Korean texts. Study Partners is a separate, opt-in workspace for learning with another Hallim user."]
 ];
 function Arrow(){return <span aria-hidden="true">↗</span>}
 function Logo(){return <span className={s.logoIcon} aria-hidden="true">ㅎ</span>}
-export default function LandingPage({authHref,authError=""}){
+export default function LandingPage({authHref,guestHref="",authError=""}){
  const [menu,setMenu]=useState(false);
  const [view,setView]=useState("learn");
  const [scene,setScene]=useState(0);
@@ -37,6 +37,7 @@ export default function LandingPage({authHref,authError=""}){
  const sample=moments[scene];
  const entry=authHref("/?view=companion");
  const other=authHref("/?view=profile");
+ const guest=guestHref||"";
  const correct=words.length===3&&words.every((word,i)=>word===i);
  const assembled=words.map(i=>sample.parts[i]).join(" ");
  function changeScene(direction){const next=(scene+direction+moments.length)%moments.length;setScene(next);setWords([]);setShown(false);setSpeech("");if(typeof window!=="undefined"&&"speechSynthesis"in window)window.speechSynthesis.cancel()}
@@ -47,10 +48,10 @@ export default function LandingPage({authHref,authError=""}){
    <div className={s.nav}>
     <a className={s.brand} href="/" aria-label="Hallim landing page"><Logo/><span>hallim<small lang="ko">한림</small></span></a>
     <nav className={s.navLinks} aria-label="Page navigation"><a href="#system">How it works</a><a href="#inside">Inside Hallim</a><a href="#real-korean">Real Korean ♡</a><a href="#connections">Learning together</a></nav>
-    <a className={s.navStart} href={entry}>Start learning <Arrow/></a>
+    {guest?<a className={s.navStart} href={guest}>Try as guest <Arrow/></a>:<a className={s.navStart} href={entry}>Start learning <Arrow/></a>}
     <button type="button" className={s.menuButton} aria-label={menu?"Close navigation":"Open navigation"} aria-controls="v2-menu" aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?"Close ×":"Menu ☰"}</button>
    </div>
-   {menu&&<nav id="v2-menu" className={s.mobileMenu} aria-label="Mobile navigation"><a href="#system" onClick={()=>setMenu(false)}>How it works</a><a href="#inside" onClick={()=>setMenu(false)}>Inside Hallim</a><a href="#real-korean" onClick={()=>setMenu(false)}>Real Korean ♡</a><a href="#connections" onClick={()=>setMenu(false)}>Learning together</a><a href={entry}>Start learning ↗</a></nav>}
+   {menu&&<nav id="v2-menu" className={s.mobileMenu} aria-label="Mobile navigation"><a href="#system" onClick={()=>setMenu(false)}>How it works</a><a href="#inside" onClick={()=>setMenu(false)}>Inside Hallim</a><a href="#real-korean" onClick={()=>setMenu(false)}>Real Korean ♡</a><a href="#connections" onClick={()=>setMenu(false)}>Learning together</a>{guest&&<a href={guest}>Try as guest ↗</a>}<a href={entry}>Sign in with Google ↗</a></nav>}
   </header>
 
   <section className={s.hero} aria-labelledby="hero-title">
@@ -59,7 +60,7 @@ export default function LandingPage({authHref,authError=""}){
      <span className={s.heroPill}><span aria-hidden="true">✳</span> A companion for the way you actually learn</span>
      <h1 id="hero-title">Your Korean world,<br/><em>all connected.</em></h1>
      <p>Learn Korean inside a real study workspace: a level-based Companion route, a searchable Word Map, grammar and pronunciation guides, honest study checks, intelligent review, flirty Korean for real messages, and people to practise with.</p>
-     <div className={s.heroActions}><a className={s.primary} href="#system">Explore Hallim <Arrow/></a><a className={s.secondary} href={entry}>Start your journey <Arrow/></a></div>
+     <div className={s.heroActions}><a className={s.primary} href={guest||entry}>{guest?"Continue as guest":"Start your journey"} <Arrow/></a><a className={s.secondary} href={entry}>Sign in with Google <Arrow/></a></div>
      {authError&&<p className={s.authError} role="alert">{authError}</p>}
      <div className={s.heroAside}><span className={s.dotCluster} aria-hidden="true"><i lang="ko">가</i><i lang="ko">나</i><i lang="ko">다</i></span><span>Six entry levels, one connected learning route—from Starter to Advanced.</span></div>
     </div>
@@ -115,8 +116,8 @@ export default function LandingPage({authHref,authError=""}){
   </section>
 
   <section className={s.end} aria-labelledby="end-title">
-   <div className={s.endText}><span className={s.kicker}>A learning home, at your level</span><h2 id="end-title">Come for a word.<br/>Stay for the journey.</h2><p>Start with Hangul, practise your first words, or dive into real messages and conversations. Google sign-in keeps your lessons, test history and review progress together.</p></div>
-   <div className={s.endActions}><a href={entry} className={s.primary}>Start learning with Google <Arrow/></a><a href="/hangul" className={s.secondary}>Explore Hangul Lab <Arrow/></a></div>
+   <div className={s.endText}><span className={s.kicker}>A learning home, at your level</span><h2 id="end-title">Come for a word.<br/>Stay for the journey.</h2><p>Start with Hangul, practise your first words, or dive into real messages and conversations. Guest Mode lets reviewers explore the full workspace instantly; Google sign-in keeps your own lessons, test history and review progress together.</p></div>
+   <div className={s.endActions}><a href={guest||entry} className={s.primary}>{guest?"Continue as guest":"Start learning with Google"} <Arrow/></a><a href={entry} className={s.secondary}>Sign in with Google <Arrow/></a></div>
    <div className={s.moreWays} aria-label="More Hallim learning spaces">
     <a href="/hangul"><span aria-hidden="true" lang="ko">가</span><strong>Hangul Lab</strong><small>Learn letters, build syllables and practise writing.</small><b aria-hidden="true">↗</b></a>
     <a href="/flashcards"><span aria-hidden="true">▦</span><strong>Starter flashcards</strong><small>Revisit essential beginner words another way.</small><b aria-hidden="true">↗</b></a>
