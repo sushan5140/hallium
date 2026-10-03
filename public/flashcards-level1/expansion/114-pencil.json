@@ -1,0 +1,13 @@
+{
+  "id": "pencil",
+  "ko": "연필",
+  "latin": "yeonpil",
+  "meaning": "Pencil",
+  "group": "School",
+  "type": "NOUN · OBJECT",
+  "example": "연필로 써요.",
+  "translation": "I write with a pencil.",
+  "tip": "연필 ends with final ㄹ.",
+  "sentencePrompt": "_____로 써요.",
+  "contrast": "연필 is pencil; 펜 is pen."
+}
