@@ -5,6 +5,7 @@ import {
   fitPlanToSession,
   inferDifficulty,
   normalizeLearningPreferences,
+  rankInterestLessons,
   rankWeakSkills,
   reviewUrgency,
 } from "../lib/learning-intelligence.js";
@@ -101,11 +102,11 @@ test("low score or heavy weakness load reinforces", () => {
 test("learning preferences clamp time and discard unsupported focus values", () => {
   assert.deepEqual(
     normalizeLearningPreferences({ dailyMinutes: 2, focuses:["grammar","unknown","grammar"] }),
-    { dailyMinutes:5, focuses:["grammar"] }
+    { dailyMinutes:5, focuses:["grammar"], topics:["daily_life"] }
   );
   assert.deepEqual(
     normalizeLearningPreferences({ dailyMinutes:120, focuses:[] }),
-    { dailyMinutes:60, focuses:["conversation"] }
+    { dailyMinutes:60, focuses:["conversation"], topics:["daily_life"] }
   );
 });
 
@@ -168,4 +169,84 @@ test("buildTodayLearningPlan applies session preferences", () => {
   assert.equal(plan.sessionMinutes,10);
   assert.ok(plan.steps.length>=1);
   assert.ok(plan.steps.every((step)=>Number.isFinite(step.minutes)));
+});
+
+
+test("topic preferences normalize and cap at three supported values", () => {
+  assert.deepEqual(
+    normalizeLearningPreferences({
+      dailyMinutes:20,
+      focuses:["listening"],
+      topics:["travel","food","travel","unknown","shopping","opinions"],
+    }),
+    {
+      dailyMinutes:20,
+      focuses:["listening"],
+      topics:["travel","food","shopping"],
+    }
+  );
+});
+
+test("interest routing considers only unlocked lessons", () => {
+  const ranked=rankInterestLessons([
+    {
+      id:"locked-food",
+      title:"Food & ordering",
+      subtitle:"Order from a menu",
+      unlocked:false,
+      completed:false,
+      current:false,
+    },
+    {
+      id:"unlocked-travel",
+      title:"Go straight",
+      subtitle:"Understand basic movement directions",
+      unlocked:true,
+      completed:false,
+      current:true,
+    },
+    {
+      id:"old-food",
+      title:"Food I know",
+      subtitle:"Recognize common food and drink words",
+      unlocked:true,
+      completed:true,
+      current:false,
+    },
+  ],{
+    dailyMinutes:15,
+    focuses:["conversation"],
+    topics:["food","travel"],
+  });
+
+  assert.ok(ranked.every((lesson)=>lesson.unlocked));
+  assert.ok(!ranked.some((lesson)=>lesson.id==="locked-food"));
+  assert.equal(ranked[0].id,"old-food");
+});
+
+test("current unlocked interest match receives a small progression boost", () => {
+  const ranked=rankInterestLessons([
+    {
+      id:"old",
+      title:"Weekend plans",
+      subtitle:"Make a simple plan",
+      unlocked:true,
+      completed:true,
+      current:false,
+    },
+    {
+      id:"current",
+      title:"My morning",
+      subtitle:"Talk about a simple morning routine",
+      unlocked:true,
+      completed:false,
+      current:true,
+    },
+  ],{
+    dailyMinutes:15,
+    focuses:["conversation"],
+    topics:["daily_life"],
+  });
+
+  assert.equal(ranked[0].id,"current");
 });
