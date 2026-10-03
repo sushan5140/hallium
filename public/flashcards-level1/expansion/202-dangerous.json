@@ -1,0 +1,13 @@
+{
+  "id": "dangerous",
+  "ko": "위험하다",
+  "latin": "wiheomhada",
+  "meaning": "To be dangerous",
+  "group": "Description",
+  "type": "ADJECTIVE · GENERAL",
+  "example": "밤에는 이 길이 위험해요.",
+  "translation": "This road is dangerous at night.",
+  "tip": "위험하다 changes to 위험해요.",
+  "sentencePrompt": "밤에는 이 길이 _____.",
+  "contrast": "위험하다 means dangerous; 안전하다 means safe."
+}
