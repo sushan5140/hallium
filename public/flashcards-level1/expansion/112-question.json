@@ -1,0 +1,13 @@
+{
+  "id": "question",
+  "ko": "질문",
+  "latin": "jilmun",
+  "meaning": "Question",
+  "group": "School",
+  "type": "NOUN · COMMUNICATION",
+  "example": "질문이 있어요.",
+  "translation": "I have a question.",
+  "tip": "질문 is pronounced jil-mun.",
+  "sentencePrompt": "_____이 있어요.",
+  "contrast": "질문 means question; 대답 means answer."
+}
