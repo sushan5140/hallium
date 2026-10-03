@@ -18,6 +18,8 @@ const prompts = {
     "Judge whether there is enough evidence to consider moving the learner beyond their selected current level. Completion alone is not proof. Do not claim official TOPIK readiness. If evidence is sparse, return insufficient_data.",
   learning_route:
     "Choose the learner's next 3 Hallim actions from the supported action kinds only. Use audit findings, recent scores, current adaptive difficulty, current-to-target path, available study material, and mistakeMemory. If mistakeMemory.dueCount is greater than zero, review_queue should normally be the first action. Then prioritize transfer practice and reassessment. Never recommend content outside Hallim.",
+  message_makeover:
+    "Rewrite the supplied message into natural Korean for the stated relationship and vibe. Preserve the sender's intended meaning; do not invent commitments, consent, insults, sexual content, threats, or personal facts. Relationship distance and politeness must match the supplied relationship. Flirt intensity is only a style dial from friendly to clearly interested and must remain non-explicit. Keep Korean concise and message-like, not textbook-like. Return one best version plus softer, bolder, and funnier alternatives. Romanization must correspond to bestMatch. naturalMeaning must explain the bestMatch in concise natural English, and why must explain the Korean register/style choice.",
 };
 
 const outputShapes = {
@@ -66,6 +68,15 @@ const outputShapes = {
         why: "",
       },
     ],
+  },
+  message_makeover: {
+    bestMatch: "",
+    romanization: "",
+    naturalMeaning: "",
+    why: "",
+    softer: "",
+    bolder: "",
+    funnier: "",
   },
 };
 
@@ -173,6 +184,26 @@ function validateStructuredResult(action, result, payload) {
       Number.isFinite(result?.confidence) && result.confidence >= 0 && result.confidence <= 100 &&
       Array.isArray(result?.evidence) && Array.isArray(result?.gaps) && isNonEmptyString(result?.recommendation);
   }
+  if (action === "message_makeover") {
+    const allowedRelationships = new Set(["friend","close_friend","friend_pulling","crush","talking_stage","partner","senior","unsure"]);
+    const allowedVibes = new Set(["natural","cute","funny","flirty","bold","playful_naughty","caring","dry","polite","make_up"]);
+    const message = String(payload?.message || "").trim();
+    const intensity = Number(payload?.flirtIntensity);
+    return (
+      message.length >= 1 &&
+      message.length <= 600 &&
+      allowedRelationships.has(payload?.relationship) &&
+      allowedVibes.has(payload?.vibe) &&
+      Number.isFinite(intensity) &&
+      intensity >= 0 &&
+      intensity <= 100 &&
+      ["bestMatch","romanization","naturalMeaning","why","softer","bolder","funnier"].every((key) => isNonEmptyString(result?.[key])) &&
+      [result.bestMatch,result.softer,result.bolder,result.funnier].every((value) => String(value).length <= 240) &&
+      String(result.romanization).length <= 300 &&
+      String(result.naturalMeaning).length <= 400 &&
+      String(result.why).length <= 500
+    );
+  }
   return true;
 }
 
@@ -231,8 +262,8 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         model,
-        temperature: action === "promotion" ? 0.1 : 0.2,
-        max_tokens: action === "study_plan" ? 2200 : 1800,
+        temperature: action === "promotion" ? 0.1 : action === "message_makeover" ? 0.35 : 0.2,
+        max_tokens: action === "study_plan" ? 2200 : action === "message_makeover" ? 1200 : 1800,
         response_format: { type: "json_object" },
         messages: [
           {
