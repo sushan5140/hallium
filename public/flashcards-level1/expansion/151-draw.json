@@ -1,0 +1,13 @@
+{
+  "id": "draw",
+  "ko": "그리다",
+  "latin": "geurida",
+  "meaning": "To draw",
+  "group": "Actions",
+  "type": "VERB · CREATIVE",
+  "example": "공책에 그림을 그려요.",
+  "translation": "I draw a picture in my notebook.",
+  "tip": "그리다 changes to 그려요.",
+  "sentencePrompt": "공책에 그림을 _____.",
+  "contrast": "그리다 means draw; 쓰다 means write."
+}
