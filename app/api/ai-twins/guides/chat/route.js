@@ -1,3 +1,4 @@
+import { isHalliumGoogleUser } from "../../../../../lib/server/ai-guard";
 import { createHallimServerSupabase } from "../../../../../lib/supabase/server";
 import { getAiGuide, guideSystemPrompt, cleanChatText } from "../../../../../lib/ai-twins/guides.mjs";
 
@@ -35,6 +36,7 @@ export async function POST(request) {
   if (authError || !user) {
     return Response.json({ error: "Sign in with Google to talk to an AI guide." }, { status: 401 });
   }
+  if (!isHalliumGoogleUser(user)) return Response.json({ error: "Use Hallium's supported Google sign-in." }, { status: 403 });
 
   let guideId, message;
   try {
