@@ -1,0 +1,13 @@
+{
+  "id": "pants",
+  "ko": "바지",
+  "latin": "baji",
+  "meaning": "Pants / trousers",
+  "group": "Shopping",
+  "type": "NOUN · CLOTHING",
+  "example": "검은색 바지를 샀어요.",
+  "translation": "I bought black pants.",
+  "tip": "바지 is pronounced ba-ji.",
+  "sentencePrompt": "검은색 _____를 샀어요.",
+  "contrast": "바지 means pants; 치마 means skirt."
+}
