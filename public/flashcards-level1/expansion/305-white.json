@@ -1,0 +1,13 @@
+{
+  "id": "white",
+  "ko": "흰색",
+  "latin": "huinsaek",
+  "meaning": "White",
+  "group": "Description",
+  "type": "NOUN · COLOR",
+  "example": "흰색 셔츠를 입어요.",
+  "translation": "I wear a white shirt.",
+  "tip": "흰색 begins with 희/흰 sound.",
+  "sentencePrompt": "_____ 셔츠를 입어요.",
+  "contrast": "흰색 means white; 검은색 means black."
+}
