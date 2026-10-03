@@ -17,6 +17,21 @@ test("paid Hallium AI routes keep authentication, same-origin and quota guards",
     assert.match(source, /consumeHalliumAiQuota/);
     assert.match(source, /readBoundedJson/);
   }
+  const guard = read("lib/server/ai-guard.js");
+  assert.match(guard, /isHalliumGoogleUser/);
+  assert.match(guard, /provider === "google"/);
+});
+
+test("every other Groq-backed server route enforces Hallium's Google identity", () => {
+  for (const path of [
+    "app/api/ai-twins/guides/chat/route.js",
+    "app/api/ai-twins/meet/route.js",
+    "app/api/study-partners/practice/route.js",
+  ]) {
+    const source = read(path);
+    assert.match(source, /isHalliumGoogleUser/);
+    assert.match(source, /status: ?403/);
+  }
 });
 
 test("Curriculum Admin cannot be bootstrapped directly from a URL view", () => {
