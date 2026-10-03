@@ -1,0 +1,13 @@
+{
+  "id": "clear-weather",
+  "ko": "맑다",
+  "latin": "makda",
+  "meaning": "To be clear (weather)",
+  "group": "Weather",
+  "type": "ADJECTIVE · WEATHER",
+  "example": "오늘 날씨가 맑아요.",
+  "translation": "The weather is clear today.",
+  "tip": "맑다 changes to 맑아요.",
+  "sentencePrompt": "오늘 날씨가 _____.",
+  "contrast": "맑다 means clear; 흐리다 means cloudy."
+}
