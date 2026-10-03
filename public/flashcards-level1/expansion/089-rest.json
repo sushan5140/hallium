@@ -1,0 +1,13 @@
+{
+  "id": "rest",
+  "ko": "쉬다",
+  "latin": "swida",
+  "meaning": "To rest",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "주말에는 집에서 쉬어요.",
+  "translation": "I rest at home on weekends.",
+  "tip": "쉬다 changes to 쉬어요.",
+  "sentencePrompt": "주말에는 집에서 _____.",
+  "contrast": "쉬다 means rest; 일하다 means work."
+}
