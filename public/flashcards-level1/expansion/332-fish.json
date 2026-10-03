@@ -1,0 +1,13 @@
+{
+  "id": "fish-food",
+  "ko": "생선",
+  "latin": "saengseon",
+  "meaning": "Fish (as food)",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "생선을 구워 먹어요.",
+  "translation": "I grill and eat fish.",
+  "tip": "생선 usually refers to fish as food.",
+  "sentencePrompt": "_____을 구워 먹어요.",
+  "contrast": "생선 is fish as food; 물고기 is a live/general fish."
+}
