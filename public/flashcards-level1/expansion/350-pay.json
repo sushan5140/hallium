@@ -1,0 +1,13 @@
+{
+  "id": "pay",
+  "ko": "계산하다",
+  "latin": "gyesanhada",
+  "meaning": "To pay / calculate",
+  "group": "Actions",
+  "type": "VERB · PAYMENT",
+  "example": "카드로 계산해요.",
+  "translation": "I pay by card.",
+  "tip": "계산하다 changes to 계산해요.",
+  "sentencePrompt": "카드로 _____.",
+  "contrast": "계산하다 means pay/calculate; 주문하다 means order."
+}
