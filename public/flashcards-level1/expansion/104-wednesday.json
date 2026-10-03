@@ -1,0 +1,13 @@
+{
+  "id": "wednesday",
+  "ko": "수요일",
+  "latin": "suyoil",
+  "meaning": "Wednesday",
+  "group": "Time",
+  "type": "NOUN · DAY",
+  "example": "수요일에 친구를 만나요.",
+  "translation": "I meet a friend on Wednesday.",
+  "tip": "수요일 is pronounced su-yo-il.",
+  "sentencePrompt": "_____에 친구를 만나요.",
+  "contrast": "수요일 is Wednesday; 목요일 is Thursday."
+}
