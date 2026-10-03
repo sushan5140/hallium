@@ -1,0 +1,13 @@
+{
+  "id": "mobile-phone",
+  "ko": "휴대폰",
+  "latin": "hyudaepon",
+  "meaning": "Mobile phone",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "휴대폰이 가방에 있어요.",
+  "translation": "The mobile phone is in the bag.",
+  "tip": "휴 starts with a light h + yu glide.",
+  "sentencePrompt": "_____이 가방에 있어요.",
+  "contrast": "휴대폰 is the device; 전화 is the call/telephone."
+}
