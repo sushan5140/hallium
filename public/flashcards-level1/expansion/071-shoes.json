@@ -1,0 +1,13 @@
+{
+  "id": "shoes",
+  "ko": "신발",
+  "latin": "sinbal",
+  "meaning": "Shoes",
+  "group": "Shopping",
+  "type": "NOUN · CLOTHING",
+  "example": "신발을 신어요.",
+  "translation": "I put on shoes.",
+  "tip": "신발 ends with final ㄹ in 발.",
+  "sentencePrompt": "_____을 신어요.",
+  "contrast": "신발 means shoes; 옷 means clothes."
+}
