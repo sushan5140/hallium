@@ -1,0 +1,13 @@
+{
+  "id": "counter-bottles-1",
+  "ko": "한 병",
+  "latin": "han byeong",
+  "meaning": "1 bottle",
+  "group": "Counters",
+  "type": "COUNTER · BOTTLES",
+  "example": "물을 한 병 샀어요.",
+  "translation": "I bought 1 bottle of water.",
+  "tip": "병 counts bottles and bottled drinks.",
+  "sentencePrompt": "물을 _____ 샀어요.",
+  "contrast": "병 counts bottles; 잔 counts cups or glasses."
+}
