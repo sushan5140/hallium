@@ -1896,7 +1896,8 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     preferences: learningPreferences,
   });
 
-  const safeLearningRoute = enforceLearningPlanSafety(learningRouteRecord?.result || fallbackLearningRoute, fallbackLearningRoute);\n  const activeLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
+  const safeLearningRoute = enforceLearningPlanSafety(learningRouteRecord?.result || fallbackLearningRoute, fallbackLearningRoute);
+  const activeLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
