@@ -1,0 +1,13 @@
+{
+  "id": "below",
+  "ko": "아래",
+  "latin": "arae",
+  "meaning": "Below / under",
+  "group": "Travel",
+  "type": "NOUN · LOCATION",
+  "example": "의자 아래에 가방이 있어요.",
+  "translation": "There is a bag under the chair.",
+  "tip": "아래 is pronounced a-rae.",
+  "sentencePrompt": "의자 _____에 가방이 있어요.",
+  "contrast": "아래 means below; 위 means above."
+}
