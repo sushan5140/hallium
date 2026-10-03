@@ -1824,6 +1824,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const currentStep = currentLesson?.steps[stepIndex];
   const currentLessonUnit = units.find((unit) => unit.id === currentLesson?.unitId);
   const nextLessonUnit = units.find((unit) => unit.id === nextLesson?.unitId);
+  const firstPathIndex = lessons.findIndex((lesson) => lesson.id === firstPathLesson?.id);
   const interestLessonRecommendations = rankInterestLessons(
     pathLessons.map((lesson) => {
       const absoluteIndex = lessons.findIndex((item) => item.id === lesson.id);
@@ -1844,7 +1845,6 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     3,
   );
   const interestLessonPick = interestLessonRecommendations[0] || null;
-  const firstPathIndex = lessons.findIndex((lesson) => lesson.id === firstPathLesson?.id);
   const latestStudyResult = activeStudyResults[0] || null;
   const bestStudyScore = activeStudyResults.length ? Math.max(...activeStudyResults.map((result) => result.score)) : null;
   const latestStudyPct = latestStudyResult ? Math.round((latestStudyResult.score / latestStudyResult.total) * 100) : null;
