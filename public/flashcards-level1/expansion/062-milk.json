@@ -1,0 +1,13 @@
+{
+  "id": "milk",
+  "ko": "우유",
+  "latin": "uyu",
+  "meaning": "Milk",
+  "group": "Daily Life",
+  "type": "NOUN · DRINK",
+  "example": "저는 우유를 마셔요.",
+  "translation": "I drink milk.",
+  "tip": "우유 has two clear vowel syllables: 우-유.",
+  "sentencePrompt": "저는 _____를 마셔요.",
+  "contrast": "우유 means milk; 물 means water."
+}
