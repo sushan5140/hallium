@@ -1,0 +1,13 @@
+{
+  "id": "impossible",
+  "ko": "불가능하다",
+  "latin": "bulganeunghada",
+  "meaning": "To be impossible",
+  "group": "Description",
+  "type": "ADJECTIVE · GENERAL",
+  "example": "지금은 예약이 불가능해요.",
+  "translation": "A reservation is impossible right now.",
+  "tip": "불가능하다 changes to 불가능해요.",
+  "sentencePrompt": "지금은 예약이 _____.",
+  "contrast": "불가능하다 means impossible; 가능하다 means possible."
+}
