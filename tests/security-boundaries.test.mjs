@@ -7,6 +7,7 @@ import {
   TOPIK_RIGHTS_STATE,
   topikActivationAllowed,
 } from "../lib/topik/provenance.js";
+import { readBoundedJson } from "../lib/server/ai-guard.js";
 
 const read = (path) => readFileSync(new URL("../" + path, import.meta.url), "utf8");
 
@@ -64,10 +65,13 @@ test("global response hardening headers stay enabled", () => {
 });
 
 test("Curriculum Admin database state remains least privilege", () => {
-  const source = read("supabase/migrations/20261003000200_security_hardening.sql");
-  assert.match(source, /revoke all on table public\.hallium_curriculum_admin_state from public, anon/i);
-  assert.match(source, /revoke delete on table public\.hallium_curriculum_admin_state from authenticated/i);
-  assert.match(source, /hallium_curriculum_qa_flags_values/);
+  const baseline = read("supabase/migrations/20261003000200_security_hardening.sql");
+  const closure = read("supabase/migrations/20261003000400_curriculum_admin_least_privilege.sql");
+  assert.match(baseline, /hallium_curriculum_qa_flags_values/);
+  assert.match(closure, /revoke all on table public\.hallium_curriculum_admin_state from public, anon, authenticated/i);
+  assert.match(closure, /grant select, insert, update on table public\.hallium_curriculum_admin_state to authenticated/i);
+  assert.doesNotMatch(closure, /grant[^;]*delete/i);
+  assert.doesNotMatch(closure, /grant[^;]*truncate/i);
 });
 
 test("TOPIK activation cannot bypass asset and rights verification", () => {
@@ -83,4 +87,31 @@ test("TOPIK activation cannot bypass asset and rights verification", () => {
   assert.equal(topikActivationAllowed({ ...base, rights: TOPIK_RIGHTS_STATE.PENDING, purpose: "scoring" }), false);
   assert.equal(topikActivationAllowed({ ...base, audio: TOPIK_ASSET_STATE.BLOCKED, purpose: "audio" }), false);
   assert.equal(topikActivationAllowed({ ...base, releaseState: TOPIK_RELEASE_STATE.LEGACY_ARCHIVE, purpose: "question_content" }), false);
+});
+
+
+test("bounded JSON parser rejects wrong content type, malformed JSON, and oversize bodies", async () => {
+  const wrongType = await readBoundedJson(new Request("https://hallium.test/api", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: "{}",
+  }), 32);
+  assert.equal(wrongType.ok, false);
+  assert.equal(wrongType.status, 415);
+
+  const malformed = await readBoundedJson(new Request("https://hallium.test/api", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: "{not-json",
+  }), 32);
+  assert.equal(malformed.ok, false);
+  assert.equal(malformed.status, 400);
+
+  const oversize = await readBoundedJson(new Request("https://hallium.test/api", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ value: "x".repeat(64) }),
+  }), 32);
+  assert.equal(oversize.ok, false);
+  assert.equal(oversize.status, 413);
 });
