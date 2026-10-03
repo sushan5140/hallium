@@ -1,0 +1,13 @@
+{
+  "id": "doctor",
+  "ko": "의사",
+  "latin": "uisa",
+  "meaning": "Doctor",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "의사가 환자를 봐요.",
+  "translation": "The doctor sees the patient.",
+  "tip": "의사 is pronounced ui-sa.",
+  "sentencePrompt": "_____가 환자를 봐요.",
+  "contrast": "의사 means doctor; 간호사 means nurse."
+}
