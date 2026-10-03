@@ -1,0 +1,13 @@
+{
+  "id": "gift",
+  "ko": "선물",
+  "latin": "seonmul",
+  "meaning": "Gift / present",
+  "group": "Daily Life",
+  "type": "NOUN · SOCIAL",
+  "example": "친구에게 선물을 줘요.",
+  "translation": "I give a gift to my friend.",
+  "tip": "선물 is pronounced seon-mul.",
+  "sentencePrompt": "친구에게 _____을 줘요.",
+  "contrast": "선물 means gift; 돈 means money."
+}
