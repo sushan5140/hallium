@@ -1113,6 +1113,7 @@ function lessonBase(number, title, subtitle, canDo, steps, type = "lesson", meta
     canDo,
     steps,
     type,
+    coverageExemptions: meta.coverageExemptions || {},
   };
 }
 
@@ -1263,7 +1264,13 @@ function lesson3() {
     choice("Which word means library?", ["학교", "도서관", "카페", "집"], 1, "도서관 means library."),
     reading("여기는 학교예요. 저기는 카페예요. 도서관은 학교 옆에 있어요.", "Which place is beside the school?", ["Home", "The cafe", "The library", "The station"], 2, "도서관은 학교 옆에 있어요 says the library is next to the school."),
     finish(["recognize school, home, library, and cafe", "understand a tiny place description"]),
-  ]);
+  ], "lesson", {
+    coverageExemptions: {
+      listening: "This recognition lesson deliberately uses a short reading passage as its receptive input.",
+      shadowing: "Pronunciation production is deferred to the adjacent movement lesson.",
+      build: "The lesson goal is place recognition before sentence production.",
+    },
+  });
 }
 
 function lesson4() {
@@ -1281,7 +1288,11 @@ function lesson4() {
     build("Build: I go to the library.", ["도서관에", "저는", "가요"], "저는 도서관에 가요"),
     reading("아침에 학교에 가요. 오후에 도서관에 가요. 저녁에 집에 가요.", "Where does the person go in the afternoon?", ["School", "Library", "Cafe", "Home"], 1, "오후에 도서관에 가요 means “I go to the library in the afternoon.”"),
     finish(["use 에 for a destination", "say where you are going", "follow a simple daily route"]),
-  ]);
+  ], "lesson", {
+    coverageExemptions: {
+      word: "This grammar lesson intentionally reuses the place vocabulary introduced immediately before it.",
+    },
+  });
 }
 
 function lesson5() {
@@ -1296,7 +1307,12 @@ function lesson5() {
     listening("안녕하세요. 저는 수아예요. 이것은 제 가방이에요. 지금 학교에 가요.", "Which two facts are true?", ["Sua has a bag and is going to school.", "Sua has coffee and is going home.", "Sua has a book and is going to a cafe.", "Sua is a teacher at a library."], 0, "가방 means bag and 학교에 가요 means going to school."),
     shadowing("안녕하세요. 저는 수아예요. 이것은 제 가방이에요. 지금 학교에 가요."),
     finish(["follow a complete mini-conversation", "combine identity, object, and destination patterns"]),
-  ]);
+  ], "lesson", {
+    coverageExemptions: {
+      word: "This synthesis lesson intentionally recombines vocabulary already taught across Unit 1.",
+      explain: "No new grammar is introduced; the lesson is designed to integrate earlier patterns in conversation.",
+    },
+  });
 }
 
 function checkpoint1() {
