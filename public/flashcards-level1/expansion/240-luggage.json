@@ -1,0 +1,13 @@
+{
+  "id": "luggage",
+  "ko": "짐",
+  "latin": "jim",
+  "meaning": "Luggage / baggage",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "짐을 방에 놓아요.",
+  "translation": "I put the luggage in the room.",
+  "tip": "짐 is one syllable ending in ㅁ.",
+  "sentencePrompt": "_____을 방에 놓아요.",
+  "contrast": "짐 means luggage/load; 가방 is a bag."
+}
