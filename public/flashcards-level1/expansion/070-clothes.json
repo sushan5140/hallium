@@ -1,0 +1,13 @@
+{
+  "id": "clothes",
+  "ko": "옷",
+  "latin": "ot",
+  "meaning": "Clothes",
+  "group": "Shopping",
+  "type": "NOUN · CLOTHING",
+  "example": "새 옷을 샀어요.",
+  "translation": "I bought new clothes.",
+  "tip": "옷 ends with final ㅅ pronounced as a t-like stop.",
+  "sentencePrompt": "새 _____을 샀어요.",
+  "contrast": "옷 means clothes; 신발 means shoes."
+}
