@@ -1,0 +1,13 @@
+{
+  "id": "grandmother",
+  "ko": "할머니",
+  "latin": "halmeoni",
+  "meaning": "Grandmother",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "할머니께 전화해요.",
+  "translation": "I call my grandmother.",
+  "tip": "할머니 is a respectful everyday family term.",
+  "sentencePrompt": "_____께 전화해요.",
+  "contrast": "할머니 means grandmother; 할아버지 means grandfather."
+}
