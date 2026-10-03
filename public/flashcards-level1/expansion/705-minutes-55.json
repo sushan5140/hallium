@@ -1,0 +1,13 @@
+{
+  "id": "minutes-55",
+  "ko": "오십오분",
+  "latin": "o-sip-o-bun",
+  "meaning": "55 minutes",
+  "group": "Dates & Time",
+  "type": "TIME · MINUTES",
+  "example": "오십오분 쉬어요.",
+  "translation": "I rest for 55 minutes.",
+  "tip": "Minutes use Sino-Korean numbers followed by 분.",
+  "sentencePrompt": "_____ 쉬어요.",
+  "contrast": "Hours usually use native Korean numbers + 시; minutes use Sino-Korean numbers + 분."
+}
