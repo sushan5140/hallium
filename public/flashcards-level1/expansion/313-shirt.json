@@ -1,0 +1,13 @@
+{
+  "id": "shirt",
+  "ko": "셔츠",
+  "latin": "syeocheu",
+  "meaning": "Shirt",
+  "group": "Shopping",
+  "type": "NOUN · CLOTHING",
+  "example": "흰색 셔츠를 입어요.",
+  "translation": "I wear a white shirt.",
+  "tip": "셔츠 is a Korean loanword from English 'shirt'.",
+  "sentencePrompt": "흰색 _____를 입어요.",
+  "contrast": "셔츠 means shirt; 바지 means pants."
+}
