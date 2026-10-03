@@ -1,0 +1,13 @@
+{
+  "id": "wear-clothes",
+  "ko": "입다",
+  "latin": "ipda",
+  "meaning": "To wear (clothes)",
+  "group": "Actions",
+  "type": "VERB · CLOTHING",
+  "example": "아침에 옷을 입어요.",
+  "translation": "I put on clothes in the morning.",
+  "tip": "입다 changes to 입어요.",
+  "sentencePrompt": "아침에 옷을 _____.",
+  "contrast": "입다 is used for clothes; 신다 is used for shoes."
+}
