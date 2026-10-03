@@ -1,0 +1,13 @@
+{
+  "id": "degree",
+  "ko": "도",
+  "latin": "do",
+  "meaning": "Degree (temperature)",
+  "group": "Weather",
+  "type": "BOUND NOUN · WEATHER",
+  "example": "오늘은 이십 도예요.",
+  "translation": "It is 20 degrees today.",
+  "tip": "도 follows a number for temperature.",
+  "sentencePrompt": "오늘은 이십 _____예요.",
+  "contrast": "도 can mean degree; context determines meaning."
+}
