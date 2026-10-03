@@ -1,0 +1,13 @@
+{
+  "id": "long",
+  "ko": "길다",
+  "latin": "gilda",
+  "meaning": "To be long",
+  "group": "Description",
+  "type": "ADJECTIVE · SIZE",
+  "example": "머리가 길어요.",
+  "translation": "The hair is long.",
+  "tip": "길다 changes to 길어요.",
+  "sentencePrompt": "머리가 _____.",
+  "contrast": "길다 means long; 짧다 means short."
+}
