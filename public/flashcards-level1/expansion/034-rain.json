@@ -1,0 +1,13 @@
+{
+  "id": "rain",
+  "ko": "비",
+  "latin": "bi",
+  "meaning": "Rain",
+  "group": "Weather",
+  "type": "NOUN · WEATHER",
+  "example": "오늘 비가 와요.",
+  "translation": "It is raining today.",
+  "tip": "비 is short and light; do not over-aspirate ㅂ.",
+  "sentencePrompt": "오늘 _____가 와요.",
+  "contrast": "비 means rain; 눈 can mean snow."
+}
