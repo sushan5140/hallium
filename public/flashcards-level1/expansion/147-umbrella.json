@@ -1,0 +1,13 @@
+{
+  "id": "umbrella",
+  "ko": "우산",
+  "latin": "usan",
+  "meaning": "Umbrella",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "비가 와서 우산을 써요.",
+  "translation": "It is raining, so I use an umbrella.",
+  "tip": "우산 is pronounced u-san.",
+  "sentencePrompt": "비가 와서 _____을 써요.",
+  "contrast": "우산 is umbrella; 비 means rain."
+}
