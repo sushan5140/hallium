@@ -1,0 +1,13 @@
+{
+  "id": "rice-meal",
+  "ko": "밥",
+  "latin": "bap",
+  "meaning": "Rice / meal",
+  "group": "Daily Life",
+  "type": "NOUN · FOOD",
+  "example": "아침에 밥을 먹어요.",
+  "translation": "I eat a meal in the morning.",
+  "tip": "Final ㅂ is unreleased; close the lips cleanly.",
+  "sentencePrompt": "아침에 _____을 먹어요.",
+  "contrast": "밥 can mean cooked rice or a meal depending on context."
+}
