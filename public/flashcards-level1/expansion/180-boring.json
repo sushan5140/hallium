@@ -1,0 +1,13 @@
+{
+  "id": "boring",
+  "ko": "재미없다",
+  "latin": "jaemieopda",
+  "meaning": "To be boring",
+  "group": "Description",
+  "type": "ADJECTIVE · FEELING",
+  "example": "그 영화는 재미없어요.",
+  "translation": "That movie is boring.",
+  "tip": "재미없다 changes to 재미없어요.",
+  "sentencePrompt": "그 영화는 _____.",
+  "contrast": "재미없다 means boring; 재미있다 means interesting."
+}
