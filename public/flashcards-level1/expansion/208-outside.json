@@ -1,0 +1,13 @@
+{
+  "id": "outside",
+  "ko": "밖",
+  "latin": "bak",
+  "meaning": "Outside",
+  "group": "Travel",
+  "type": "NOUN · LOCATION",
+  "example": "밖에 비가 와요.",
+  "translation": "It is raining outside.",
+  "tip": "밖 ends with tense final ㄲ realized as a stop.",
+  "sentencePrompt": "_____에 비가 와요.",
+  "contrast": "밖 means outside; 안 means inside."
+}
