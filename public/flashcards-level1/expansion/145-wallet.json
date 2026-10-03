@@ -1,0 +1,13 @@
+{
+  "id": "wallet",
+  "ko": "지갑",
+  "latin": "jigap",
+  "meaning": "Wallet",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "지갑이 가방 안에 있어요.",
+  "translation": "The wallet is inside the bag.",
+  "tip": "지갑 ends with final ㅂ.",
+  "sentencePrompt": "_____이 가방 안에 있어요.",
+  "contrast": "지갑 is wallet; 가방 is bag."
+}
