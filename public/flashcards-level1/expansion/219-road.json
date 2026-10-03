@@ -1,0 +1,13 @@
+{
+  "id": "road",
+  "ko": "길",
+  "latin": "gil",
+  "meaning": "Road / way",
+  "group": "Travel",
+  "type": "NOUN · PLACE",
+  "example": "이 길로 가세요.",
+  "translation": "Please go this way.",
+  "tip": "길 ends with final ㄹ.",
+  "sentencePrompt": "이 _____로 가세요.",
+  "contrast": "길 means road/way; 거리 means street/distance."
+}
