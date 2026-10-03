@@ -44,8 +44,10 @@ test("guest learner keys never collide with signed-in learner keys", () => {
 });
 
 test("guest voice preference remains separate from signed-in voice preference", () => {
-  const original = globalThis.localStorage;
+  const originalStorage = globalThis.localStorage;
+  const originalWindow = globalThis.window;
   globalThis.localStorage = memoryStorage();
+  globalThis.window = {};
   try {
     const signedKey = scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, false);
     const guestKey = scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, true);
@@ -57,8 +59,10 @@ test("guest voice preference remains separate from signed-in voice preference", 
     assert.equal(readLocalVoicePreference(signedKey).rate, 0.9);
     assert.equal(readLocalVoicePreference(guestKey).rate, 1.05);
   } finally {
-    if (original === undefined) delete globalThis.localStorage;
-    else globalThis.localStorage = original;
+    if (originalStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = originalStorage;
+    if (originalWindow === undefined) delete globalThis.window;
+    else globalThis.window = originalWindow;
   }
 });
 
