@@ -1,0 +1,13 @@
+{
+  "id": "yes",
+  "ko": "네",
+  "latin": "ne",
+  "meaning": "Yes",
+  "group": "Greetings",
+  "type": "RESPONSE",
+  "example": "네, 알겠어요.",
+  "translation": "Yes, I understand.",
+  "tip": "네 may sound close to 'de' in fast speech.",
+  "sentencePrompt": "_____, 알겠어요.",
+  "contrast": "네 means yes; 아니요 means no."
+}
