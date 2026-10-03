@@ -1,0 +1,13 @@
+{
+  "id": "possible",
+  "ko": "가능하다",
+  "latin": "ganeunghada",
+  "meaning": "To be possible",
+  "group": "Description",
+  "type": "ADJECTIVE · GENERAL",
+  "example": "오늘 방문이 가능해요.",
+  "translation": "A visit is possible today.",
+  "tip": "가능하다 changes to 가능해요.",
+  "sentencePrompt": "오늘 방문이 _____.",
+  "contrast": "가능하다 means possible; 불가능하다 means impossible."
+}
