@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-61",
+  "ko": "육십일",
+  "latin": "yuk-sip-il",
+  "meaning": "Sino-Korean number 61",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "육십일 번이에요.",
+  "translation": "It is number 61.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}
