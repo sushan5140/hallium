@@ -1,0 +1,13 @@
+{
+  "id": "sun",
+  "ko": "해",
+  "latin": "hae",
+  "meaning": "Sun",
+  "group": "Weather",
+  "type": "NOUN · WEATHER",
+  "example": "오늘 해가 밝아요.",
+  "translation": "The sun is bright today.",
+  "tip": "해 is pronounced like hae in one syllable.",
+  "sentencePrompt": "오늘 _____가 밝아요.",
+  "contrast": "해 can mean sun; 태양 is the more formal word."
+}

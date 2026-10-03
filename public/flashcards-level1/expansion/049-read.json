@@ -1,0 +1,13 @@
+{
+  "id": "read",
+  "ko": "읽다",
+  "latin": "ikda",
+  "meaning": "To read",
+  "group": "Actions",
+  "type": "VERB · STUDY",
+  "example": "책을 읽어요.",
+  "translation": "I read a book.",
+  "tip": "읽다 is commonly pronounced 익따 in isolation.",
+  "sentencePrompt": "책을 _____.",
+  "contrast": "읽다 means read; 쓰다 means write."
+}

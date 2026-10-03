@@ -1,0 +1,13 @@
+{
+  "id": "cold",
+  "ko": "춥다",
+  "latin": "chupda",
+  "meaning": "To be cold",
+  "group": "Weather",
+  "type": "ADJECTIVE · WEATHER",
+  "example": "겨울에는 추워요.",
+  "translation": "It is cold in winter.",
+  "tip": "춥다 changes to 추워요 in polite present speech.",
+  "sentencePrompt": "겨울에는 _____.",
+  "contrast": "춥다 is cold weather; 차갑다 is cold to the touch."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "bad",
+  "ko": "나쁘다",
+  "latin": "nappeuda",
+  "meaning": "To be bad",
+  "group": "Description",
+  "type": "ADJECTIVE · QUALITY",
+  "example": "오늘 기분이 나빠요.",
+  "translation": "I feel bad today.",
+  "tip": "나쁘다 changes to 나빠요 in polite present speech.",
+  "sentencePrompt": "오늘 기분이 _____.",
+  "contrast": "나쁘다 means bad; 좋다 means good."
+}

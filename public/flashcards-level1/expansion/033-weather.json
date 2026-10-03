@@ -1,0 +1,13 @@
+{
+  "id": "weather",
+  "ko": "날씨",
+  "latin": "nalssi",
+  "meaning": "Weather",
+  "group": "Daily Life",
+  "type": "NOUN · WEATHER",
+  "example": "오늘 날씨가 좋아요.",
+  "translation": "The weather is nice today.",
+  "tip": "날씨 is commonly heard with a tense ㅆ sound.",
+  "sentencePrompt": "오늘 _____가 좋아요.",
+  "contrast": "날씨 means weather; 비 means rain."
+}

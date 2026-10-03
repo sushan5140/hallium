@@ -1,0 +1,13 @@
+{
+  "id": "hot",
+  "ko": "덥다",
+  "latin": "deopda",
+  "meaning": "To be hot",
+  "group": "Weather",
+  "type": "ADJECTIVE · WEATHER",
+  "example": "오늘은 정말 더워요.",
+  "translation": "It is really hot today.",
+  "tip": "덥다 changes to 더워요 in polite present speech.",
+  "sentencePrompt": "오늘은 정말 _____.",
+  "contrast": "덥다 is hot weather; 뜨겁다 is hot to the touch."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "study",
+  "ko": "공부하다",
+  "latin": "gongbuhada",
+  "meaning": "To study",
+  "group": "Actions",
+  "type": "VERB · STUDY",
+  "example": "매일 한국어를 공부해요.",
+  "translation": "I study Korean every day.",
+  "tip": "공부하다 changes to 공부해요 in polite present speech.",
+  "sentencePrompt": "매일 한국어를 _____.",
+  "contrast": "공부하다 means study; 배우다 means learn."
+}

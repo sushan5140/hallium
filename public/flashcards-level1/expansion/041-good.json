@@ -1,0 +1,13 @@
+{
+  "id": "good",
+  "ko": "좋다",
+  "latin": "jota",
+  "meaning": "To be good",
+  "group": "Description",
+  "type": "ADJECTIVE · QUALITY",
+  "example": "이 책이 좋아요.",
+  "translation": "This book is good.",
+  "tip": "좋다 is commonly pronounced close to 조타.",
+  "sentencePrompt": "이 책이 _____.",
+  "contrast": "좋다 means good; 나쁘다 means bad."
+}

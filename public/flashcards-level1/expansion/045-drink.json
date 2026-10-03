@@ -1,0 +1,13 @@
+{
+  "id": "drink",
+  "ko": "마시다",
+  "latin": "masida",
+  "meaning": "To drink",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "물을 마셔요.",
+  "translation": "I drink water.",
+  "tip": "마시다 changes to 마셔요 in polite present speech.",
+  "sentencePrompt": "물을 _____.",
+  "contrast": "마시다 means drink; 먹다 means eat."
+}

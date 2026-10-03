@@ -1,0 +1,13 @@
+{
+  "id": "come",
+  "ko": "오다",
+  "latin": "oda",
+  "meaning": "To come",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "친구가 집에 와요.",
+  "translation": "My friend comes home.",
+  "tip": "오다 changes to 와요 in polite present speech.",
+  "sentencePrompt": "친구가 집에 _____.",
+  "contrast": "오다 means come; 가다 means go."
+}

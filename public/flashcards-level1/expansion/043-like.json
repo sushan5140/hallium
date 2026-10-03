@@ -1,0 +1,13 @@
+{
+  "id": "like",
+  "ko": "좋아하다",
+  "latin": "joahada",
+  "meaning": "To like",
+  "group": "Actions",
+  "type": "VERB · PREFERENCE",
+  "example": "저는 음악을 좋아해요.",
+  "translation": "I like music.",
+  "tip": "좋아하다 contracts naturally to 좋아해요 in polite speech.",
+  "sentencePrompt": "저는 음악을 _____.",
+  "contrast": "좋아하다 is to like; 사랑하다 is to love."
+}
