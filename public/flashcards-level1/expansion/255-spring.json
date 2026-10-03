@@ -1,0 +1,13 @@
+{
+  "id": "spring",
+  "ko": "봄",
+  "latin": "bom",
+  "meaning": "Spring",
+  "group": "Time",
+  "type": "NOUN · SEASON",
+  "example": "봄에는 꽃이 피어요.",
+  "translation": "Flowers bloom in spring.",
+  "tip": "봄 is one syllable ending in ㅁ.",
+  "sentencePrompt": "_____에는 꽃이 피어요.",
+  "contrast": "봄 is spring; 가을 is autumn."
+}
