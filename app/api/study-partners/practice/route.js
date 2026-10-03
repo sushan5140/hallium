@@ -1,3 +1,4 @@
+import { isHalliumGoogleUser } from "../../../../lib/server/ai-guard";
 import { createHallimServerSupabase } from "../../../../lib/supabase/server";
 import { offlinePractice } from "../../../../lib/study-partners/core.mjs";
 
@@ -45,6 +46,7 @@ export async function POST(request){
  const supabase=await createHallimServerSupabase();
  const {data:{user},error:authError}=await supabase.auth.getUser();
  if(authError||!user)return Response.json({error:"Sign in to use Study Partners."},{status:401});
+  if(!isHalliumGoogleUser(user))return Response.json({error:"Use Hallium's supported Google sign-in."},{status:403});
  try{
   const raw=await request.text();
   if(raw.length>500)return Response.json({error:"Request too large."},{status:413});
