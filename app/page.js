@@ -1,5 +1,7 @@
 "use client";
 
+// Production rollout checkpoint — H-P5 closure.
+
 import { useCallback, useEffect, useState } from "react";
 import HalliumCore from "./hallium-core";
 import LandingPage from "./landing/LandingPage";
