@@ -1,0 +1,13 @@
+{
+  "id": "fast",
+  "ko": "빠르다",
+  "latin": "ppareuda",
+  "meaning": "To be fast",
+  "group": "Description",
+  "type": "ADJECTIVE · SPEED",
+  "example": "지하철이 빨라요.",
+  "translation": "The subway is fast.",
+  "tip": "빠르다 changes to 빨라요.",
+  "sentencePrompt": "지하철이 _____.",
+  "contrast": "빠르다 means fast; 느리다 means slow."
+}
