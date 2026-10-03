@@ -1,0 +1,13 @@
+{
+  "id": "drive",
+  "ko": "운전하다",
+  "latin": "unjeonhada",
+  "meaning": "To drive",
+  "group": "Actions",
+  "type": "VERB · TRANSPORT",
+  "example": "아버지가 차를 운전해요.",
+  "translation": "My father drives the car.",
+  "tip": "운전하다 changes to 운전해요.",
+  "sentencePrompt": "아버지가 차를 _____.",
+  "contrast": "운전하다 means drive; 타다 means ride/take."
+}
