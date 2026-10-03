@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-136",
+  "ko": "백삼십육",
+  "latin": "baek-sam-sip-yuk",
+  "meaning": "Sino-Korean number 136",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "백삼십육 번이에요.",
+  "translation": "It is number 136.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}
