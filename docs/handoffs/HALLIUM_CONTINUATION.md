@@ -3229,3 +3229,111 @@ Exact next research focus should move from detector mathematics to **baseline-la
 
 Do not treat 192/source as a real-world threshold.
 Do not merge the research stack into production Hallium.
+
+
+---
+
+# 40. Hallium H-P5 closure — security + guest isolation + release gate
+
+Merged PR: #20  
+Merge commit: `fa9ad1b7f92f835a4d6914a006ce276282c7480f`
+
+This phase explicitly returned from the parked MeloTTS/TwinMem research track to the production Hallium closure roadmap.
+
+## Security closure verified on live repository state
+
+Already present and verified on `main` before H-P5 merge:
+
+- TOPIK activation flags are derived from release / asset / rights state.
+- Stale stored booleans cannot unlock scoring, embedded audio, or in-app question content.
+- Curriculum Admin least-privilege migration exists:
+  - revoke all from `public`, `anon`, `authenticated`
+  - grant only SELECT / INSERT / UPDATE to authenticated
+  - DELETE policy removed
+- direct startup `?view=admin` is not an allowed boot view.
+- `AdminStudio()` still independently fails closed on `adminAccess`.
+- `/api/audit` and `/api/intelligence` use shared:
+  - same-origin guard
+  - supported Google-auth guard
+  - bounded JSON body parsing
+  - per-user quota events
+- Groq-backed AI Twin / Study Partner routes enforce supported Google auth.
+- server security headers are covered by CI.
+
+## New regression discovered during H-P5
+
+The first unified browser closure run found a real Guest Mode isolation bug:
+
+`app/page.js -> seedFullReviewProfile()`
+
+was writing the reviewer guest profile into the canonical signed-in key:
+
+`hallim:learner-profile:v1`
+
+instead of the guest-scoped key.
+
+Risk:
+Guest reviewer state could survive into the canonical browser cache and contaminate the next signed-in learner session.
+
+## Fix
+
+Guest entry now writes through:
+
+`scopedLearnerStorageKey(learnerProfileKey, true)`
+
+and a regression test guarantees `app/page.js` cannot seed the canonical profile key for Guest Mode.
+
+## Unified H-P5 closure workflow
+
+Added:
+
+- `.github/workflows/verify-hp5-closure.yml`
+- `.github/scripts/verify-hp5-closure.cjs`
+
+Coverage includes:
+
+- full `tests/*.test.mjs`
+- production Next.js build
+- Guest Mode storage isolation
+- no manufactured Supabase auth session for guest
+- direct admin URL fail-closed behavior
+- mobile 390px responsive overflow checks
+- tablet 820px responsive overflow checks
+- desktop 1440px smoke
+- Hallium core
+- Hangul
+- TOPIK mocks
+- Study Partners
+- existing TOPIK fail-closed provenance browser path
+- unauthenticated API rejection
+- cross-origin API rejection
+- CSP / X-Frame-Options / nosniff / referrer policy checks
+
+## Final CI status on PR head `623e761768c6fda427ae76ba5af31f8063970515`
+
+- Verify standalone Hallium: **PASS**
+- Hallium Security Gate: **PASS**
+- Verify Hallium H-P5 closure: **PASS**
+
+## Vercel status at this checkpoint
+
+- Vercel project: `hallium`
+- connected repository: `sushan5140/hallium`
+- latest known production deployment before this merge remains READY
+- release-branch preview deployment is READY
+- at the time of this handoff update, Vercel had **not yet surfaced a new production deployment for merge SHA `fa9ad1b...`**
+- therefore do **not** claim the Guest Mode storage fix is live on production until a deployment containing the merge SHA is verified
+
+## Exact next step
+
+1. Verify or trigger a Vercel production deployment containing `fa9ad1b7f92f835a4d6914a006ce276282c7480f`.
+2. Confirm production is READY.
+3. Run final live sanity:
+   - landing / Guest Mode
+   - Hangul
+   - TOPIK mocks
+   - Study Partners
+   - direct admin denial for non-admin/guest
+4. After live production verification, mark H-P5 production closure complete.
+
+MeloTTS/TwinMem research remains parked and is not part of production closure.
