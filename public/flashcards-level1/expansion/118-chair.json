@@ -1,0 +1,13 @@
+{
+  "id": "chair",
+  "ko": "의자",
+  "latin": "uija",
+  "meaning": "Chair",
+  "group": "School",
+  "type": "NOUN · OBJECT",
+  "example": "의자에 앉아요.",
+  "translation": "I sit on the chair.",
+  "tip": "의 is often pronounced close to 'ui'.",
+  "sentencePrompt": "_____에 앉아요.",
+  "contrast": "의자 is chair; 책상 is desk."
+}
