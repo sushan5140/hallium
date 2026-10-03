@@ -1,0 +1,13 @@
+{
+  "id": "door",
+  "ko": "문",
+  "latin": "mun",
+  "meaning": "Door",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "문을 열어요.",
+  "translation": "I open the door.",
+  "tip": "문 is one syllable ending in ㄴ.",
+  "sentencePrompt": "_____을 열어요.",
+  "contrast": "문 is door; 창문 is window."
+}
