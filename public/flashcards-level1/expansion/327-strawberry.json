@@ -1,0 +1,13 @@
+{
+  "id": "strawberry",
+  "ko": "딸기",
+  "latin": "ttalgi",
+  "meaning": "Strawberry",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "딸기를 좋아해요.",
+  "translation": "I like strawberries.",
+  "tip": "딸기 begins with tense ㄸ.",
+  "sentencePrompt": "_____를 좋아해요.",
+  "contrast": "딸기 means strawberry; 포도 means grape."
+}
