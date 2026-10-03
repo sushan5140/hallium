@@ -1,0 +1,13 @@
+{
+  "id": "hour-4",
+  "ko": "네 시",
+  "latin": "ne si",
+  "meaning": "4 o'clock",
+  "group": "Dates & Time",
+  "type": "TIME · HOUR",
+  "example": "네 시에 만나요.",
+  "translation": "Let's meet at 4 o'clock.",
+  "tip": "Hours use native Korean number forms followed by 시.",
+  "sentencePrompt": "_____에 만나요.",
+  "contrast": "시 takes native Korean numbers; 분 takes Sino-Korean numbers."
+}
