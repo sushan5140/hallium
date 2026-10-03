@@ -1,0 +1,13 @@
+{
+  "id": "use",
+  "ko": "사용하다",
+  "latin": "sayonghada",
+  "meaning": "To use",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "컴퓨터를 사용해요.",
+  "translation": "I use a computer.",
+  "tip": "사용하다 changes to 사용해요.",
+  "sentencePrompt": "컴퓨터를 _____.",
+  "contrast": "사용하다 means use; 만들다 means make."
+}
