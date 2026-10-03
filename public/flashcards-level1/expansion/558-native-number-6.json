@@ -1,0 +1,13 @@
+{
+  "id": "native-number-6",
+  "ko": "여섯",
+  "latin": "yeoseot",
+  "meaning": "Native Korean number 6",
+  "group": "Numbers",
+  "type": "NUMBER · NATIVE KOREAN",
+  "example": "여섯예요.",
+  "translation": "It is the native Korean number 6.",
+  "tip": "Native Korean numbers are commonly used with counters for people, objects, age, hours, and repetitions.",
+  "sentencePrompt": "_____예요.",
+  "contrast": "Sino-Korean numbers are preferred for dates, money, minutes, and phone numbers."
+}
