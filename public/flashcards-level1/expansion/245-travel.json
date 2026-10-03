@@ -1,0 +1,13 @@
+{
+  "id": "travel-verb",
+  "ko": "여행하다",
+  "latin": "yeohaenghada",
+  "meaning": "To travel",
+  "group": "Actions",
+  "type": "VERB · TRAVEL",
+  "example": "친구와 한국을 여행해요.",
+  "translation": "I travel around Korea with a friend.",
+  "tip": "여행하다 changes to 여행해요.",
+  "sentencePrompt": "친구와 한국을 _____.",
+  "contrast": "여행하다 means travel; 관광하다 means sightsee."
+}
