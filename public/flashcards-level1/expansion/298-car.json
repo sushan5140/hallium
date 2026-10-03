@@ -1,0 +1,13 @@
+{
+  "id": "car",
+  "ko": "자동차",
+  "latin": "jadongcha",
+  "meaning": "Car / automobile",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "자동차로 회사에 가요.",
+  "translation": "I go to work by car.",
+  "tip": "자동차 is the full word for automobile; 차 is common in conversation.",
+  "sentencePrompt": "_____로 회사에 가요.",
+  "contrast": "자동차 means car; 버스 means bus."
+}
