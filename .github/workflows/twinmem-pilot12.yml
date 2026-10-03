@@ -1,0 +1,43 @@
+name: TwinMem Pilot 12 posterior predictive null
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot12/**"
+      - ".github/workflows/twinmem-pilot12.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run posterior-predictive null experiment
+        run: python research/twinmem_pilot12/posterior_predictive_null.py
+      - name: Validate frozen posterior-predictive design
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("research/twinmem_pilot12/outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["frozen"]=={
+              "baseline_labels_per_source":48,
+              "delta":0.25,
+              "alpha":0.1,
+              "stages":[8,12,24,48],
+              "prior_a":2.0,
+              "prior_b":2.0,
+          }
+          assert d["development_repeats"]==300
+          assert d["test_repeats"]==500
+          print("PASS: Pilot 12 posterior-predictive null design is frozen")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot12-posterior-predictive-null
+          path: research/twinmem_pilot12/outputs/
+          retention-days: 30
