@@ -1,0 +1,43 @@
+name: TwinMem Pilot 7 cost-aware stopping
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot7/**"
+      - ".github/workflows/twinmem-pilot7.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run cost-aware stopping experiment
+        run: python research/twinmem_pilot7/cost_aware_stopping.py
+      - name: Validate development-only stopping selection
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("research/twinmem_pilot7/outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["frozen_detector"]=={
+              "stages":[8,12,24,48],
+              "meaningful_margin":0.05,
+              "zcrit":1.96,
+              "consecutive_required":2,
+          }
+          assert d["candidate_strong_thresholds"]==[0.08,0.1,0.12,0.15,0.18]
+          assert d["development_repeats"]==220
+          assert d["test_repeats"]==500
+          assert len(d["development_candidates"])==5
+          print("PASS: Pilot 7 stopping-only development selection is frozen")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot7-cost-aware-stopping
+          path: research/twinmem_pilot7/outputs/
+          retention-days: 30
