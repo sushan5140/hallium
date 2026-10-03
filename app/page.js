@@ -46,33 +46,16 @@ function googleHref(destination = "/") {
 export default function HalliumEntry() {
   const [status, setStatus] = useState("checking");
   const [error, setError] = useState("");
+  const [guestName, setGuestName] = useState("");
 
   const startGuest = useCallback(async () => {
     setStatus("starting");
     setError("");
     const identity = getGuestIdentity();
     seedFullReviewProfile(identity);
-
-    const supabase = getHallimSupabase();
-    const { data, error: guestError } = await supabase.auth.signInAnonymously({
-      options: {
-        data: {
-          name: identity.name,
-          full_name: identity.name,
-          display_name: identity.name,
-          hallium_guest: true,
-        },
-      },
-    });
-
-    if (guestError || !data?.user) {
-      localStorage.removeItem(learnerProfileKey);
-      setError(guestError?.message || "Guest Mode could not be opened.");
-      setStatus("gate");
-      return;
-    }
-
-    setStatus("app");
+    sessionStorage.setItem("hallim:guest-active:v1", "1");
+    setGuestName(identity.name);
+    setStatus("guest");
     const params = new URLSearchParams(window.location.search);
     if (params.get("guest") === "1") {
       window.history.replaceState({}, "", window.location.pathname);
@@ -94,19 +77,17 @@ export default function HalliumEntry() {
 
       const user = data?.session?.user || null;
       if (user) {
-        if (user.is_anonymous) {
-          seedFullReviewProfile(getGuestIdentity());
-        } else {
-          try {
-            const profile = JSON.parse(localStorage.getItem(learnerProfileKey) || "null");
-            if (profile?.isGuest) localStorage.removeItem(learnerProfileKey);
-          } catch {}
-        }
+        try {
+          const profile = JSON.parse(localStorage.getItem(learnerProfileKey) || "null");
+          if (profile?.isGuest) localStorage.removeItem(learnerProfileKey);
+        } catch {}
+        sessionStorage.removeItem("hallim:guest-active:v1");
         setStatus("app");
         return;
       }
 
-      if (new URLSearchParams(window.location.search).get("guest") === "1") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("guest") === "1" || sessionStorage.getItem("hallim:guest-active:v1") === "1") {
         await startGuest();
         return;
       }
@@ -135,6 +116,10 @@ export default function HalliumEntry() {
         authError={error}
       />
     );
+  }
+
+  if (status === "guest") {
+    return <HalliumCore guestMode guestName={guestName || getGuestIdentity().name} />;
   }
 
   return <HalliumCore />;

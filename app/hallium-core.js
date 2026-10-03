@@ -1426,12 +1426,12 @@ function timeGreeting() {
   return "Good evening.";
 }
 
-export default function Hallim() {
+export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }) {
   const [view, setView] = useState("home");
   const [greeting, setGreeting] = useState("Welcome back.");
   const [authUser, setAuthUser] = useState(null);
   const [adminUserId, setAdminUserId] = useState(null);
-  const adminAccess = !!authUser?.id && adminUserId === authUser.id;
+  const adminAccess = !guestMode && !!authUser?.id && adminUserId === authUser.id;
   const [authReady, setAuthReady] = useState(false);
   const [authBusy, setAuthBusy] = useState(false);
   const [authError, setAuthError] = useState("");
@@ -1562,6 +1562,20 @@ export default function Hallim() {
   }, []);
 
   useEffect(() => {
+    if (guestMode) {
+      const guestUser = {
+        id: "guest-local",
+        email: null,
+        user_metadata: { name: guestName, full_name: guestName, hallium_guest: true },
+      };
+      setAuthUser(guestUser);
+      authUserRef.current = null;
+      setSyncHydrated(false);
+      setSyncStatus("local");
+      setAuthReady(true);
+      return;
+    }
+
     const supabase = getHallimSupabase();
     let active = true;
 
@@ -1624,7 +1638,7 @@ export default function Hallim() {
       listener?.subscription?.unsubscribe();
       if (syncTimerRef.current) window.clearTimeout(syncTimerRef.current);
     };
-  }, []);
+  }, [guestMode, guestName]);
 
   // Admin identity comes from the authenticated user's own, RLS-protected
   // admin_users row. Never infer privileges from name, email, query params,
@@ -1632,7 +1646,7 @@ export default function Hallim() {
   useEffect(() => {
     let active = true;
     setAdminUserId(null);
-    if (!authUser?.id) return () => { active = false; };
+    if (guestMode || !authUser?.id) return () => { active = false; };
     getHallimSupabase().from("admin_users")
       .select("user_id")
       .eq("user_id", authUser.id)
@@ -1641,7 +1655,7 @@ export default function Hallim() {
         if (active) setAdminUserId(!error && data?.user_id === authUser.id ? authUser.id : null);
       });
     return () => { active = false; };
-  }, [authUser?.id]);
+  }, [authUser?.id, guestMode]);
 
   useEffect(() => {
     let active = true;
@@ -1702,7 +1716,7 @@ export default function Hallim() {
 
 
   useEffect(() => {
-    if (!authUser || !syncHydrated) return;
+    if (guestMode || !authUser || !syncHydrated) return;
     if (syncTimerRef.current) window.clearTimeout(syncTimerRef.current);
     setSyncStatus((status) => status === "syncing" ? status : "saving");
     syncTimerRef.current = window.setTimeout(() => {
@@ -2230,6 +2244,10 @@ export default function Hallim() {
   }
 
   function openProfileEditor() {
+    if (guestMode) {
+      setNotice("Guest Mode already exposes the full Starter → Advanced review route.");
+      return;
+    }
     setDraftCurrentLevel(learnerProfile?.currentLevel || "new");
     setDraftTargetLevel(learnerProfile?.targetLevel || "elementary");
     setProfileEditorOpen(true);
@@ -4833,12 +4851,12 @@ export default function Hallim() {
     );
   }
 
-  if (!authUser) {
+  if (!authUser && !guestMode) {
     return <StaticHallimGate authHref={googleGateHref} authError={authError} />;
   }
 
   const learnerInitials = (() => {
-    const source = authUser?.user_metadata?.full_name || authUser?.user_metadata?.name || authUser?.email || "Hallim";
+    const source = guestMode ? guestName : (authUser?.user_metadata?.full_name || authUser?.user_metadata?.name || authUser?.email || "Hallim");
     const parts = String(source).replace(/@.*$/, "").split(/[^A-Za-z0-9]+/).filter(Boolean);
     if (!parts.length) return "HL";
     if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
@@ -5465,7 +5483,7 @@ export default function Hallim() {
       {notice && (
         <button className="toast is-visible" onClick={() => setNotice("")}>{notice}</button>
       )}
-      {profileLoaded && !learnerProfile && <LearnerSetup />}
+      {profileLoaded && !learnerProfile && !guestMode && <LearnerSetup />}
       {profileEditorOpen && <LearnerSetup editing />}
 
       <main id="workspace" className={"workspace view-" + topView + (view === "home" ? " workspace-home" : "")} tabIndex={-1}>
