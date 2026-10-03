@@ -1,0 +1,13 @@
+{
+  "id": "food",
+  "ko": "음식",
+  "latin": "eumsik",
+  "meaning": "Food",
+  "group": "Daily Life",
+  "type": "NOUN · FOOD",
+  "example": "한국 음식을 좋아해요.",
+  "translation": "I like Korean food.",
+  "tip": "Keep the ㅡ in 음 short and central.",
+  "sentencePrompt": "한국 _____을 좋아해요.",
+  "contrast": "음식 is food in general; 밥 often means rice or a meal."
+}
