@@ -1,0 +1,13 @@
+{
+  "id": "take-off",
+  "ko": "벗다",
+  "latin": "beotda",
+  "meaning": "To take off (clothes/shoes)",
+  "group": "Actions",
+  "type": "VERB · CLOTHING",
+  "example": "집에서 신발을 벗어요.",
+  "translation": "I take off my shoes at home.",
+  "tip": "벗다 changes to 벗어요.",
+  "sentencePrompt": "집에서 신발을 _____.",
+  "contrast": "벗다 means take off; 입다/신다 mean put on."
+}
