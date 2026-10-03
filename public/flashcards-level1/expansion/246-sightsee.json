@@ -1,0 +1,13 @@
+{
+  "id": "sightsee",
+  "ko": "관광하다",
+  "latin": "gwangwanghada",
+  "meaning": "To sightsee",
+  "group": "Actions",
+  "type": "VERB · TRAVEL",
+  "example": "서울에서 관광해요.",
+  "translation": "I go sightseeing in Seoul.",
+  "tip": "관광하다 changes to 관광해요.",
+  "sentencePrompt": "서울에서 _____.",
+  "contrast": "관광하다 means sightsee; 여행하다 means travel."
+}
