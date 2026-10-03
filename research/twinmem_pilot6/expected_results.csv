@@ -1,0 +1,12 @@
+metric,value
+stationary_sequential_detection,0.04
+stationary_fixed48_detection,0.0125
+stationary_mean_labels_per_source,46.89
+moderate_sequential_detection,0.92
+moderate_fixed48_detection,0.91
+moderate_mean_labels_per_source,37.05
+severe_sequential_detection,1.0
+severe_fixed48_detection,1.0
+severe_mean_labels_per_source,23.85
+detection_criteria_pass,true
+efficiency_goals_pass,false
