@@ -1,0 +1,13 @@
+{
+  "id": "call",
+  "ko": "전화하다",
+  "latin": "jeonhwahada",
+  "meaning": "To call (by phone)",
+  "group": "Actions",
+  "type": "VERB · COMMUNICATION",
+  "example": "저녁에 친구에게 전화해요.",
+  "translation": "I call my friend in the evening.",
+  "tip": "전화하다 changes to 전화해요.",
+  "sentencePrompt": "저녁에 친구에게 _____.",
+  "contrast": "전화하다 is to call; 말하다 is to speak."
+}
