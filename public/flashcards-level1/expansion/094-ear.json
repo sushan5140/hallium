@@ -1,0 +1,13 @@
+{
+  "id": "ear",
+  "ko": "귀",
+  "latin": "gwi",
+  "meaning": "Ear",
+  "group": "Body",
+  "type": "NOUN · BODY",
+  "example": "귀가 아파요.",
+  "translation": "My ear hurts.",
+  "tip": "귀 contains the gw glide.",
+  "sentencePrompt": "_____가 아파요.",
+  "contrast": "귀 means ear; 눈 means eye."
+}
