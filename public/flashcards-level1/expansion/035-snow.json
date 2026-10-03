@@ -1,0 +1,13 @@
+{
+  "id": "snow",
+  "ko": "눈",
+  "latin": "nun",
+  "meaning": "Snow",
+  "group": "Weather",
+  "type": "NOUN · WEATHER",
+  "example": "겨울에 눈이 와요.",
+  "translation": "It snows in winter.",
+  "tip": "눈 is one syllable ending in ㄴ.",
+  "sentencePrompt": "겨울에 _____이 와요.",
+  "contrast": "눈 can mean snow or eye depending on context."
+}
