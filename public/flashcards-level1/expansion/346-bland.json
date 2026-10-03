@@ -1,0 +1,13 @@
+{
+  "id": "bland",
+  "ko": "싱겁다",
+  "latin": "singgeopda",
+  "meaning": "To be bland",
+  "group": "Food",
+  "type": "ADJECTIVE · TASTE",
+  "example": "이 국은 조금 싱거워요.",
+  "translation": "This soup is a little bland.",
+  "tip": "싱겁다 changes to 싱거워요.",
+  "sentencePrompt": "이 국은 조금 _____.",
+  "contrast": "싱겁다 means bland; 짜다 means salty."
+}
