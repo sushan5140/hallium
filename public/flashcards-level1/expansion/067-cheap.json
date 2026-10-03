@@ -1,0 +1,13 @@
+{
+  "id": "cheap",
+  "ko": "싸다",
+  "latin": "ssada",
+  "meaning": "To be cheap",
+  "group": "Shopping",
+  "type": "ADJECTIVE · PRICE",
+  "example": "이 책은 싸요.",
+  "translation": "This book is cheap.",
+  "tip": "싸다 begins with tense ㅆ.",
+  "sentencePrompt": "이 책은 _____.",
+  "contrast": "싸다 means cheap; 비싸다 means expensive."
+}
