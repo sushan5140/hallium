@@ -1,0 +1,13 @@
+{
+  "id": "cross",
+  "ko": "건너다",
+  "latin": "geonneoda",
+  "meaning": "To cross",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "길을 건너요.",
+  "translation": "I cross the road.",
+  "tip": "건너다 changes to 건너요.",
+  "sentencePrompt": "길을 _____.",
+  "contrast": "건너다 means cross; 걷다 means walk."
+}
