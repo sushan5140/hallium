@@ -1,0 +1,13 @@
+{
+  "id": "fruit",
+  "ko": "과일",
+  "latin": "gwail",
+  "meaning": "Fruit",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "아침마다 과일을 먹어요.",
+  "translation": "I eat fruit every morning.",
+  "tip": "과일 is pronounced gwa-il.",
+  "sentencePrompt": "아침마다 _____을 먹어요.",
+  "contrast": "과일 means fruit; 채소 means vegetables."
+}
