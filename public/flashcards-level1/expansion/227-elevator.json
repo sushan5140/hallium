@@ -1,0 +1,13 @@
+{
+  "id": "elevator",
+  "ko": "엘리베이터",
+  "latin": "ellibeiteo",
+  "meaning": "Elevator",
+  "group": "Places",
+  "type": "NOUN · OBJECT",
+  "example": "엘리베이터를 타요.",
+  "translation": "I take the elevator.",
+  "tip": "엘리베이터 is a Korean loanword.",
+  "sentencePrompt": "_____를 타요.",
+  "contrast": "엘리베이터 is elevator; 계단 is stairs."
+}
