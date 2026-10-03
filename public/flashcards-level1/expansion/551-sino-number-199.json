@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-199",
+  "ko": "백구십구",
+  "latin": "baek-gu-sip-gu",
+  "meaning": "Sino-Korean number 199",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "백구십구 번이에요.",
+  "translation": "It is number 199.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}
