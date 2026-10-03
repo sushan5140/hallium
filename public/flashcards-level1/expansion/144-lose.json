@@ -1,0 +1,13 @@
+{
+  "id": "lose",
+  "ko": "잃다",
+  "latin": "ilta",
+  "meaning": "To lose",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "지갑을 잃었어요.",
+  "translation": "I lost my wallet.",
+  "tip": "잃다 is commonly pronounced 일타.",
+  "sentencePrompt": "지갑을 _____.",
+  "contrast": "잃다 means lose; 찾다 means find."
+}
