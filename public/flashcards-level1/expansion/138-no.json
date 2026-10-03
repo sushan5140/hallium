@@ -1,0 +1,13 @@
+{
+  "id": "no",
+  "ko": "아니요",
+  "latin": "aniyo",
+  "meaning": "No",
+  "group": "Greetings",
+  "type": "RESPONSE",
+  "example": "아니요, 괜찮아요.",
+  "translation": "No, it's okay.",
+  "tip": "아니요 is polite; 아니 is casual.",
+  "sentencePrompt": "_____, 괜찮아요.",
+  "contrast": "아니요 means no; 네 means yes."
+}
