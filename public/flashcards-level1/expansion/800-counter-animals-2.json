@@ -1,0 +1,13 @@
+{
+  "id": "counter-animals-2",
+  "ko": "두 마리",
+  "latin": "du mari",
+  "meaning": "2 animals",
+  "group": "Counters",
+  "type": "COUNTER · ANIMALS",
+  "example": "고양이가 두 마리 있어요.",
+  "translation": "There are 2 cats.",
+  "tip": "마리 is the common counter for animals.",
+  "sentencePrompt": "고양이가 _____ 있어요.",
+  "contrast": "마리 counts animals; 명 counts people."
+}

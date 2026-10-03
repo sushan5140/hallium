@@ -1,0 +1,13 @@
+{
+  "id": "counter-bottles-3",
+  "ko": "세 병",
+  "latin": "se byeong",
+  "meaning": "3 bottles",
+  "group": "Counters",
+  "type": "COUNTER · BOTTLES",
+  "example": "물을 세 병 샀어요.",
+  "translation": "I bought 3 bottles of water.",
+  "tip": "병 counts bottles and bottled drinks.",
+  "sentencePrompt": "물을 _____ 샀어요.",
+  "contrast": "병 counts bottles; 잔 counts cups or glasses."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "counter-cups-8",
+  "ko": "여덟 잔",
+  "latin": "yeodeol jan",
+  "meaning": "8 cups / glasses",
+  "group": "Counters",
+  "type": "COUNTER · DRINKS",
+  "example": "커피 여덟 잔 주세요.",
+  "translation": "Please give me 8 cups of coffee.",
+  "tip": "잔 counts cups or glasses of drinks.",
+  "sentencePrompt": "커피 _____ 주세요.",
+  "contrast": "잔 counts drinks in cups/glasses; 병 counts bottles."
+}

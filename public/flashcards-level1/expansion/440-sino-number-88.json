@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-88",
+  "ko": "팔십팔",
+  "latin": "pal-sip-pal",
+  "meaning": "Sino-Korean number 88",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "팔십팔 번이에요.",
+  "translation": "It is number 88.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}

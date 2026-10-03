@@ -1,0 +1,13 @@
+{
+  "id": "counter-people-15",
+  "ko": "열다섯 명",
+  "latin": "yeol-daseot myeong",
+  "meaning": "15 persons",
+  "group": "Counters",
+  "type": "COUNTER · PEOPLE",
+  "example": "학생이 열다섯 명 있어요.",
+  "translation": "There are 15 students.",
+  "tip": "명 is a common neutral counter for people.",
+  "sentencePrompt": "학생이 _____ 있어요.",
+  "contrast": "분 is a more respectful counter for people; 명 is neutral and common."
+}

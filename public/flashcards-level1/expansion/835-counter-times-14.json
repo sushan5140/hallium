@@ -1,0 +1,13 @@
+{
+  "id": "counter-times-14",
+  "ko": "열네 번",
+  "latin": "yeol-ne beon",
+  "meaning": "14 times",
+  "group": "Counters",
+  "type": "COUNTER · OCCURRENCES",
+  "example": "열네 번 읽었어요.",
+  "translation": "I read it 14 times.",
+  "tip": "번 counts occurrences, repetitions, turns, and numbered instances.",
+  "sentencePrompt": "_____ 읽었어요.",
+  "contrast": "번 counts occurrences; 개 counts general objects."
+}

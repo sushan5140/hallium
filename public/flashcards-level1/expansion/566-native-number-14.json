@@ -1,0 +1,13 @@
+{
+  "id": "native-number-14",
+  "ko": "넷",
+  "latin": "-net",
+  "meaning": "Native Korean number 14",
+  "group": "Numbers",
+  "type": "NUMBER · NATIVE KOREAN",
+  "example": "넷예요.",
+  "translation": "It is the native Korean number 14.",
+  "tip": "Native Korean numbers are commonly used with counters for people, objects, age, hours, and repetitions.",
+  "sentencePrompt": "_____예요.",
+  "contrast": "Sino-Korean numbers are preferred for dates, money, minutes, and phone numbers."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "counter-items-20",
+  "ko": "스무 개",
+  "latin": "seumu gae",
+  "meaning": "20 items",
+  "group": "Counters",
+  "type": "COUNTER · OBJECTS",
+  "example": "사과가 스무 개 있어요.",
+  "translation": "There are 20 apples.",
+  "tip": "개 is the common counter for objects. Native Korean numbers shorten before counters.",
+  "sentencePrompt": "사과가 _____ 있어요.",
+  "contrast": "명 counts people; 권 counts books; 개 counts general objects."
+}

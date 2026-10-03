@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-191",
+  "ko": "백구십일",
+  "latin": "baek-gu-sip-il",
+  "meaning": "Sino-Korean number 191",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "백구십일 번이에요.",
+  "translation": "It is number 191.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}

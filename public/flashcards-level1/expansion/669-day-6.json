@@ -1,0 +1,13 @@
+{
+  "id": "day-of-month-6",
+  "ko": "육일",
+  "latin": "yuk-il",
+  "meaning": "Day 6 of the month",
+  "group": "Dates & Time",
+  "type": "DATE · DAY",
+  "example": "오늘은 육일이에요.",
+  "translation": "Today is the 6th.",
+  "tip": "Days of the month use Sino-Korean numbers followed by 일.",
+  "sentencePrompt": "오늘은 _____이에요.",
+  "contrast": "일 can mean day/date here; 월 is used for months."
+}

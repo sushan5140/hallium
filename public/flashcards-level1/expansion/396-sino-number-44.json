@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-44",
+  "ko": "사십사",
+  "latin": "sa-sip-sa",
+  "meaning": "Sino-Korean number 44",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "사십사 번이에요.",
+  "translation": "It is number 44.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}

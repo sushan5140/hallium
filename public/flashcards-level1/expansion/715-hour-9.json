@@ -1,0 +1,13 @@
+{
+  "id": "hour-9",
+  "ko": "아홉 시",
+  "latin": "ahop si",
+  "meaning": "9 o'clock",
+  "group": "Dates & Time",
+  "type": "TIME · HOUR",
+  "example": "아홉 시에 만나요.",
+  "translation": "Let's meet at 9 o'clock.",
+  "tip": "Hours use native Korean number forms followed by 시.",
+  "sentencePrompt": "_____에 만나요.",
+  "contrast": "시 takes native Korean numbers; 분 takes Sino-Korean numbers."
+}

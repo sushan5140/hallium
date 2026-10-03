@@ -1,0 +1,13 @@
+{
+  "id": "counter-times-5",
+  "ko": "다섯 번",
+  "latin": "daseot beon",
+  "meaning": "5 times",
+  "group": "Counters",
+  "type": "COUNTER · OCCURRENCES",
+  "example": "다섯 번 읽었어요.",
+  "translation": "I read it 5 times.",
+  "tip": "번 counts occurrences, repetitions, turns, and numbered instances.",
+  "sentencePrompt": "_____ 읽었어요.",
+  "contrast": "번 counts occurrences; 개 counts general objects."
+}

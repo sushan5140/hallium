@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-158",
+  "ko": "백오십팔",
+  "latin": "baek-o-sip-pal",
+  "meaning": "Sino-Korean number 158",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "백오십팔 번이에요.",
+  "translation": "It is number 158.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}

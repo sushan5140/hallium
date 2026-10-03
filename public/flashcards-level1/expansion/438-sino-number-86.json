@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-86",
+  "ko": "팔십육",
+  "latin": "pal-sip-yuk",
+  "meaning": "Sino-Korean number 86",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "팔십육 번이에요.",
+  "translation": "It is number 86.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}

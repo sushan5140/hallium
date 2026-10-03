@@ -1,0 +1,13 @@
+{
+  "id": "month-6",
+  "ko": "유월",
+  "latin": "yuwol",
+  "meaning": "Month 6",
+  "group": "Dates & Time",
+  "type": "DATE · MONTH",
+  "example": "유월에 한국에 가요.",
+  "translation": "I go to Korea in month 6.",
+  "tip": "Korean months use Sino-Korean numbers + 월, with 유월 for June and 시월 for October.",
+  "sentencePrompt": "_____에 한국에 가요.",
+  "contrast": "월 marks months; 일 marks the day of the month."
+}

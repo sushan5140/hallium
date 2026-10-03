@@ -1,0 +1,13 @@
+{
+  "id": "month-9",
+  "ko": "구월",
+  "latin": "guwol",
+  "meaning": "Month 9",
+  "group": "Dates & Time",
+  "type": "DATE · MONTH",
+  "example": "구월에 한국에 가요.",
+  "translation": "I go to Korea in month 9.",
+  "tip": "Korean months use Sino-Korean numbers + 월, with 유월 for June and 시월 for October.",
+  "sentencePrompt": "_____에 한국에 가요.",
+  "contrast": "월 marks months; 일 marks the day of the month."
+}

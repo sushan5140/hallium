@@ -1,0 +1,13 @@
+{
+  "id": "day-of-month-28",
+  "ko": "이십팔일",
+  "latin": "i-sip-pal-il",
+  "meaning": "Day 28 of the month",
+  "group": "Dates & Time",
+  "type": "DATE · DAY",
+  "example": "오늘은 이십팔일이에요.",
+  "translation": "Today is the 28th.",
+  "tip": "Days of the month use Sino-Korean numbers followed by 일.",
+  "sentencePrompt": "오늘은 _____이에요.",
+  "contrast": "일 marks the day/date; 월 marks the month."
+}

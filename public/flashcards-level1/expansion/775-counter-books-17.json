@@ -1,0 +1,13 @@
+{
+  "id": "counter-books-17",
+  "ko": "열일곱 권",
+  "latin": "yeol-ilgop gwon",
+  "meaning": "17 books",
+  "group": "Counters",
+  "type": "COUNTER · BOOKS",
+  "example": "책을 열일곱 권 샀어요.",
+  "translation": "I bought 17 books.",
+  "tip": "권 counts bound volumes such as books and notebooks.",
+  "sentencePrompt": "책을 _____ 샀어요.",
+  "contrast": "권 counts books; 개 is the general counter for objects."
+}

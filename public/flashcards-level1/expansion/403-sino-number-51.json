@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-51",
+  "ko": "오십일",
+  "latin": "o-sip-il",
+  "meaning": "Sino-Korean number 51",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "오십일 번이에요.",
+  "translation": "It is number 51.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "native-number-82",
+  "ko": "일흔둘",
+  "latin": "ilheun-dul",
+  "meaning": "Native Korean number 82",
+  "group": "Numbers",
+  "type": "NUMBER · NATIVE KOREAN",
+  "example": "일흔둘예요.",
+  "translation": "It is the native Korean number 82.",
+  "tip": "Native Korean numbers are commonly used with counters for people, objects, age, hours, and repetitions.",
+  "sentencePrompt": "_____예요.",
+  "contrast": "Sino-Korean numbers are preferred for dates, money, minutes, and phone numbers."
+}

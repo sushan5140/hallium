@@ -1,0 +1,13 @@
+{
+  "id": "counter-items-6",
+  "ko": "여섯 개",
+  "latin": "yeoseot gae",
+  "meaning": "6 items",
+  "group": "Counters",
+  "type": "COUNTER · OBJECTS",
+  "example": "사과가 여섯 개 있어요.",
+  "translation": "There are 6 apples.",
+  "tip": "개 is the common counter for objects. Native Korean numbers use shortened forms such as 한, 두, 세, and 네 before counters.",
+  "sentencePrompt": "사과가 _____ 있어요.",
+  "contrast": "명 counts people; 권 counts books; 개 counts general objects."
+}

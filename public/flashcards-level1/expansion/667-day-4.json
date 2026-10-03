@@ -1,0 +1,13 @@
+{
+  "id": "day-of-month-4",
+  "ko": "사일",
+  "latin": "sa-il",
+  "meaning": "Day 4 of the month",
+  "group": "Dates & Time",
+  "type": "DATE · DAY",
+  "example": "오늘은 사일이에요.",
+  "translation": "Today is the 4th.",
+  "tip": "Days of the month use Sino-Korean numbers followed by 일.",
+  "sentencePrompt": "오늘은 _____이에요.",
+  "contrast": "일 can mean day/date here; 월 is used for months."
+}

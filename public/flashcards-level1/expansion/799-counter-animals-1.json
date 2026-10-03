@@ -1,0 +1,13 @@
+{
+  "id": "counter-animals-1",
+  "ko": "한 마리",
+  "latin": "han mari",
+  "meaning": "1 animal",
+  "group": "Counters",
+  "type": "COUNTER · ANIMALS",
+  "example": "고양이가 한 마리 있어요.",
+  "translation": "There is 1 cat.",
+  "tip": "마리 is the common counter for animals.",
+  "sentencePrompt": "고양이가 _____ 있어요.",
+  "contrast": "마리 counts animals; 명 counts people."
+}

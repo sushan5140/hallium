@@ -1,0 +1,13 @@
+{
+  "id": "counter-bottles-9",
+  "ko": "아홉 병",
+  "latin": "ahop byeong",
+  "meaning": "9 bottles",
+  "group": "Counters",
+  "type": "COUNTER · BOTTLES",
+  "example": "물을 아홉 병 샀어요.",
+  "translation": "I bought 9 bottles of water.",
+  "tip": "병 counts bottles and bottled drinks.",
+  "sentencePrompt": "물을 _____ 샀어요.",
+  "contrast": "병 counts bottles; 잔 counts cups or glasses."
+}

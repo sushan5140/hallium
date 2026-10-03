@@ -1,0 +1,13 @@
+{
+  "id": "counter-people-1",
+  "ko": "한 명",
+  "latin": "han myeong",
+  "meaning": "1 person",
+  "group": "Counters",
+  "type": "COUNTER · PEOPLE",
+  "example": "학생이 한 명 있어요.",
+  "translation": "There is 1 student.",
+  "tip": "명 is a common neutral counter for people.",
+  "sentencePrompt": "학생이 _____ 있어요.",
+  "contrast": "분 is a more respectful counter for people; 명 is neutral and common."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "day-of-month-25",
+  "ko": "이십오일",
+  "latin": "i-sip-o-il",
+  "meaning": "Day 25 of the month",
+  "group": "Dates & Time",
+  "type": "DATE · DAY",
+  "example": "오늘은 이십오일이에요.",
+  "translation": "Today is the 25th.",
+  "tip": "Days of the month use Sino-Korean numbers followed by 일.",
+  "sentencePrompt": "오늘은 _____이에요.",
+  "contrast": "일 marks the day/date; 월 marks the month."
+}

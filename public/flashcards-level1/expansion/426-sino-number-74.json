@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-74",
+  "ko": "칠십사",
+  "latin": "chil-sip-sa",
+  "meaning": "Sino-Korean number 74",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "칠십사 번이에요.",
+  "translation": "It is number 74.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "counter-bottles-6",
+  "ko": "여섯 병",
+  "latin": "yeoseot byeong",
+  "meaning": "6 bottles",
+  "group": "Counters",
+  "type": "COUNTER · BOTTLES",
+  "example": "물을 여섯 병 샀어요.",
+  "translation": "I bought 6 bottles of water.",
+  "tip": "병 counts bottles and bottled drinks.",
+  "sentencePrompt": "물을 _____ 샀어요.",
+  "contrast": "병 counts bottles; 잔 counts cups or glasses."
+}

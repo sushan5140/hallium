@@ -1,0 +1,13 @@
+{
+  "id": "counter-cups-19",
+  "ko": "열아홉 잔",
+  "latin": "yeol-ahop jan",
+  "meaning": "19 cups / glasses",
+  "group": "Counters",
+  "type": "COUNTER · DRINKS",
+  "example": "커피 열아홉 잔 주세요.",
+  "translation": "Please give me 19 cups of coffee.",
+  "tip": "잔 counts cups or glasses of drinks.",
+  "sentencePrompt": "커피 _____ 주세요.",
+  "contrast": "잔 counts drinks in cups/glasses; 병 counts bottles."
+}

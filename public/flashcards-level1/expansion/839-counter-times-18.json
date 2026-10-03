@@ -1,0 +1,13 @@
+{
+  "id": "counter-times-18",
+  "ko": "열여덟 번",
+  "latin": "yeol-yeodeol beon",
+  "meaning": "18 times",
+  "group": "Counters",
+  "type": "COUNTER · OCCURRENCES",
+  "example": "열여덟 번 읽었어요.",
+  "translation": "I read it 18 times.",
+  "tip": "번 counts occurrences, repetitions, turns, and numbered instances.",
+  "sentencePrompt": "_____ 읽었어요.",
+  "contrast": "번 counts occurrences; 개 counts general objects."
+}

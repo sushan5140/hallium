@@ -1,0 +1,13 @@
+{
+  "id": "counter-items-1",
+  "ko": "한 개",
+  "latin": "han gae",
+  "meaning": "1 item",
+  "group": "Counters",
+  "type": "COUNTER · OBJECTS",
+  "example": "사과가 한 개 있어요.",
+  "translation": "There is 1 apple.",
+  "tip": "개 is the common counter for objects. Native Korean numbers use shortened forms such as 한, 두, 세, and 네 before counters.",
+  "sentencePrompt": "사과가 _____ 있어요.",
+  "contrast": "명 counts people; 권 counts books; 개 counts general objects."
+}

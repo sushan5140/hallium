@@ -1,0 +1,13 @@
+{
+  "id": "counter-bottles-10",
+  "ko": "열 병",
+  "latin": "yeol byeong",
+  "meaning": "10 bottles",
+  "group": "Counters",
+  "type": "COUNTER · BOTTLES",
+  "example": "물을 열 병 샀어요.",
+  "translation": "I bought 10 bottles of water.",
+  "tip": "병 counts bottles and bottled drinks.",
+  "sentencePrompt": "물을 _____ 샀어요.",
+  "contrast": "병 counts bottles; 잔 counts cups or glasses."
+}
