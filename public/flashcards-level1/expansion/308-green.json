@@ -1,0 +1,13 @@
+{
+  "id": "green",
+  "ko": "초록색",
+  "latin": "choroksaek",
+  "meaning": "Green",
+  "group": "Description",
+  "type": "NOUN · COLOR",
+  "example": "초록색 나무가 많아요.",
+  "translation": "There are many green trees.",
+  "tip": "초록색 begins with aspirated ㅊ.",
+  "sentencePrompt": "_____ 나무가 많아요.",
+  "contrast": "초록색 means green; 노란색 means yellow."
+}
