@@ -1,0 +1,13 @@
+{
+  "id": "market",
+  "ko": "시장",
+  "latin": "sijang",
+  "meaning": "Market",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "시장에 사람이 많아요.",
+  "translation": "There are many people at the market.",
+  "tip": "시장 ends with 장, pronounced with -jang.",
+  "sentencePrompt": "_____에 사람이 많아요.",
+  "contrast": "시장 is a market; 가게 is an individual shop."
+}
