@@ -1,0 +1,9 @@
+metric,value
+development_all_goals_pass,false
+development_stationary_false_alarm,0.02
+development_moderate_detection,0.5133333333333333
+development_moderate_mean_labels,40.45333333333333
+development_severe_detection,0.9766666666666667
+development_severe_mean_labels,22.466666666666665
+heldout_unbiased,null
+heldout_bias_stress,null
