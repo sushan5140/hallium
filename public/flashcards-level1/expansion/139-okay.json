@@ -1,0 +1,13 @@
+{
+  "id": "okay",
+  "ko": "괜찮다",
+  "latin": "gwaenchanta",
+  "meaning": "To be okay / fine",
+  "group": "Description",
+  "type": "ADJECTIVE · STATE",
+  "example": "저는 괜찮아요.",
+  "translation": "I'm okay.",
+  "tip": "괜찮다 changes to 괜찮아요.",
+  "sentencePrompt": "저는 _____.",
+  "contrast": "괜찮다 means be okay/fine; 아프다 means be sick."
+}
