@@ -3691,3 +3691,72 @@ Preserve:
 - cloud sync behavior
 - deterministic-first recommendation policy
 - AI as optional enrichment only
+
+
+---
+
+# 45. Batch 4 / H-P6.3 — adaptive review scheduling COMPLETE
+
+Merged PR: #28  
+Merge commit: `680cacdc66514ac52249011cbe9dd1fb80aa3c88`
+
+The old fixed successful-review ladder:
+
+`[3, 7, 14, 30, 60]`
+
+has been removed.
+
+New deterministic scheduler:
+`adaptiveReviewSchedule()`
+
+Inputs:
+- latest recall correctness
+- total miss history
+- successful recovery count
+- current review urgency
+- previous result state
+
+Outputs:
+- next interval in days
+- review stage:
+  - relearn
+  - recovering
+  - strengthening
+  - stable
+- bounded stability score
+- human-readable scheduling reason
+
+Rules:
+- failed recall returns tomorrow
+- repeated misses keep spacing short
+- fragile recovery can remain close
+- clean repeated recovery expands spacing
+- high urgency shortens the next successful interval
+- max interval is 60 days
+
+Persisted weakness metadata now includes:
+- `intervalDays`
+- `reviewStage`
+- `reviewStability`
+- `scheduleReason`
+- `nextReviewAt`
+
+Review completion learning-events also include:
+- review stage
+- review stability
+- interval days
+
+Review UI previews the selected next interval before confirmation.
+
+Validation on PR #28:
+- standalone Hallium: PASS
+- Hallium Security Gate: PASS
+- full H-P5 Chromium closure: PASS
+
+Exact next slice:
+**H-P6.4 — deterministic weekly study planning**
+
+Goal:
+- provide a real 5–7 day evidence-grounded plan even when AI is unavailable
+- use due reviews, weakness ranking, session minutes, focus preferences and next lesson
+- keep AI as an optional enhancement rather than a dependency
