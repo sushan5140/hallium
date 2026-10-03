@@ -1,0 +1,13 @@
+{
+  "id": "near",
+  "ko": "가깝다",
+  "latin": "gakkapda",
+  "meaning": "To be near",
+  "group": "Description",
+  "type": "ADJECTIVE · DISTANCE",
+  "example": "학교가 집에서 가까워요.",
+  "translation": "The school is near my home.",
+  "tip": "가깝다 changes to 가까워요.",
+  "sentencePrompt": "학교가 집에서 _____.",
+  "contrast": "가깝다 means near; 멀다 means far."
+}
