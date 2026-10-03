@@ -1,0 +1,13 @@
+{
+  "id": "winter",
+  "ko": "겨울",
+  "latin": "gyeoul",
+  "meaning": "Winter",
+  "group": "Time",
+  "type": "NOUN · SEASON",
+  "example": "겨울에는 눈이 와요.",
+  "translation": "It snows in winter.",
+  "tip": "겨울 is pronounced gyeo-ul.",
+  "sentencePrompt": "_____에는 눈이 와요.",
+  "contrast": "겨울 is winter; 여름 is summer."
+}
