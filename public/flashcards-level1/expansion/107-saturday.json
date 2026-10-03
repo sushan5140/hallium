@@ -1,0 +1,13 @@
+{
+  "id": "saturday",
+  "ko": "토요일",
+  "latin": "toyoil",
+  "meaning": "Saturday",
+  "group": "Time",
+  "type": "NOUN · DAY",
+  "example": "토요일에 늦게 자요.",
+  "translation": "I sleep late on Saturday.",
+  "tip": "토 begins with aspirated ㅌ.",
+  "sentencePrompt": "_____에 늦게 자요.",
+  "contrast": "토요일 is Saturday; 일요일 is Sunday."
+}
