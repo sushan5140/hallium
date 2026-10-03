@@ -1,0 +1,13 @@
+{
+  "id": "desk",
+  "ko": "책상",
+  "latin": "chaeksang",
+  "meaning": "Desk",
+  "group": "School",
+  "type": "NOUN · OBJECT",
+  "example": "책상 위에 책이 있어요.",
+  "translation": "There is a book on the desk.",
+  "tip": "책상 combines 책 and 상.",
+  "sentencePrompt": "_____ 위에 책이 있어요.",
+  "contrast": "책상 is desk; 의자 is chair."
+}
