@@ -12,6 +12,8 @@ on:
       - 'supabase/migrations/**'
       - 'tests/security-boundaries.test.mjs'
       - 'tests/topik-exam-engine.test.mjs'
+      - 'tests/topik-provenance.test.mjs'
+      - 'tests/topik-provenance.test.mjs'
       - 'tests/curriculum-admin.test.mjs'
       - '.github/workflows/security.yml'
   pull_request:
@@ -45,7 +47,7 @@ jobs:
       - name: Reject critical production dependency advisories
         run: npm audit --omit=dev --audit-level=critical
       - name: Run security and integrity tests
-        run: node --test tests/security-boundaries.test.mjs tests/topik-exam-engine.test.mjs tests/curriculum-admin.test.mjs
+        run: node --test tests/security-boundaries.test.mjs tests/topik-exam-engine.test.mjs tests/topik-provenance.test.mjs tests/curriculum-admin.test.mjs
       - name: Compile Hallium
         run: npm run build
       - name: Exercise unauthenticated API boundaries and headers
@@ -83,3 +85,16 @@ jobs:
 
           code="$(curl -sS -o /tmp/cross.json -w '%{http_code}' -X POST             -H 'Content-Type: application/json'             -H 'Origin: https://attacker.invalid'             --data '{}' http://127.0.0.1:3000/api/audit)"
           test "$code" = "403"
+
+          for route in /api/ai-twins/guides/chat /api/ai-twins/meet /api/study-partners/practice; do
+            code="$(curl -sS -o /tmp/route-boundary.json -w '%{http_code}' -X POST \
+              -H 'Content-Type: application/json' \
+              --data '{}' "http://127.0.0.1:3000$route")"
+            test "$code" = "401"
+
+            code="$(curl -sS -o /tmp/route-cross.json -w '%{http_code}' -X POST \
+              -H 'Content-Type: application/json' \
+              -H 'Origin: https://attacker.invalid' \
+              --data '{}' "http://127.0.0.1:3000$route")"
+            test "$code" = "403"
+          done
