@@ -1,0 +1,13 @@
+{
+  "id": "family",
+  "ko": "가족",
+  "latin": "gajok",
+  "meaning": "Family",
+  "group": "People",
+  "type": "NOUN · PEOPLE",
+  "example": "제 가족은 네 명이에요.",
+  "translation": "There are four people in my family.",
+  "tip": "Final 족 ends with an unreleased ㄱ sound.",
+  "sentencePrompt": "제 _____은 네 명이에요.",
+  "contrast": "가족 means family as a group; 친구 means friend."
+}
