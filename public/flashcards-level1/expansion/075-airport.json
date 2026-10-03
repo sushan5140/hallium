@@ -1,0 +1,13 @@
+{
+  "id": "airport",
+  "ko": "공항",
+  "latin": "gonghang",
+  "meaning": "Airport",
+  "group": "Travel",
+  "type": "NOUN · PLACE",
+  "example": "공항에 일찍 가요.",
+  "translation": "I go to the airport early.",
+  "tip": "공항 ends with -hang.",
+  "sentencePrompt": "_____에 일찍 가요.",
+  "contrast": "공항 is an airport; 역 is a station."
+}
