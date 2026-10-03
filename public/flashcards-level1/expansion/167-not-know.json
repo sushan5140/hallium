@@ -1,0 +1,13 @@
+{
+  "id": "not-know",
+  "ko": "모르다",
+  "latin": "moreuda",
+  "meaning": "To not know",
+  "group": "Actions",
+  "type": "VERB · COGNITION",
+  "example": "저는 그 답을 몰라요.",
+  "translation": "I don't know that answer.",
+  "tip": "모르다 changes irregularly to 몰라요.",
+  "sentencePrompt": "저는 그 답을 _____.",
+  "contrast": "모르다 means not know; 알다 means know."
+}
