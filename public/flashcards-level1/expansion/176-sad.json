@@ -1,0 +1,13 @@
+{
+  "id": "sad",
+  "ko": "슬프다",
+  "latin": "seulpeuda",
+  "meaning": "To be sad",
+  "group": "Description",
+  "type": "ADJECTIVE · FEELING",
+  "example": "영화를 보고 슬퍼요.",
+  "translation": "I feel sad after watching the movie.",
+  "tip": "슬프다 changes to 슬퍼요.",
+  "sentencePrompt": "영화를 보고 _____.",
+  "contrast": "슬프다 means sad; 행복하다 means happy."
+}
