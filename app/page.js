@@ -18,12 +18,14 @@ function makeGuestIdentity() {
   return { name, createdAt: new Date().toISOString() };
 }
 
-function getGuestIdentity() {
+function getGuestIdentity({ fresh = false } = {}) {
   if (typeof window === "undefined") return { name: "HallimGuest", createdAt: new Date().toISOString() };
-  try {
-    const saved = JSON.parse(sessionStorage.getItem(guestIdentityKey) || "null");
-    if (saved?.name) return saved;
-  } catch {}
+  if (!fresh) {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(guestIdentityKey) || "null");
+      if (saved?.name) return saved;
+    } catch {}
+  }
   const identity = makeGuestIdentity();
   sessionStorage.setItem(guestIdentityKey, JSON.stringify(identity));
   return identity;
@@ -78,10 +80,10 @@ export default function HalliumEntry() {
   const [error, setError] = useState("");
   const [guestName, setGuestName] = useState("");
 
-  const startGuest = useCallback(async () => {
+  const startGuest = useCallback(async (fresh = false) => {
     setStatus("starting");
     setError("");
-    const identity = getGuestIdentity();
+    const identity = getGuestIdentity({ fresh });
     seedFullReviewProfile(identity);
     sessionStorage.setItem("hallim:guest-active:v1", "1");
     void logGuestEntry(identity);
@@ -118,8 +120,12 @@ export default function HalliumEntry() {
       }
 
       const params = new URLSearchParams(window.location.search);
-      if (params.get("guest") === "1" || sessionStorage.getItem("hallim:guest-active:v1") === "1") {
-        await startGuest();
+      if (params.get("guest") === "1") {
+        await startGuest(true);
+        return;
+      }
+      if (sessionStorage.getItem("hallim:guest-active:v1") === "1") {
+        await startGuest(false);
         return;
       }
 
