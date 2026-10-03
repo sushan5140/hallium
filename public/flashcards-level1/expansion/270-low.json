@@ -1,0 +1,13 @@
+{
+  "id": "low",
+  "ko": "낮다",
+  "latin": "natda",
+  "meaning": "To be low",
+  "group": "Description",
+  "type": "ADJECTIVE · POSITION",
+  "example": "기온이 낮아요.",
+  "translation": "The temperature is low.",
+  "tip": "낮다 changes to 낮아요.",
+  "sentencePrompt": "기온이 _____.",
+  "contrast": "낮다 means low; 높다 means high."
+}
