@@ -1,0 +1,13 @@
+{
+  "id": "send",
+  "ko": "보내다",
+  "latin": "bonaeda",
+  "meaning": "To send",
+  "group": "Actions",
+  "type": "VERB · COMMUNICATION",
+  "example": "친구에게 메시지를 보내요.",
+  "translation": "I send a message to my friend.",
+  "tip": "보내다 changes to 보내요.",
+  "sentencePrompt": "친구에게 메시지를 _____.",
+  "contrast": "보내다 means send; 받다 means receive."
+}
