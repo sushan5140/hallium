@@ -1,0 +1,13 @@
+{
+  "id": "early",
+  "ko": "이르다",
+  "latin": "ireuda",
+  "meaning": "To be early",
+  "group": "Description",
+  "type": "ADJECTIVE · TIME",
+  "example": "오늘은 조금 일러요.",
+  "translation": "It is a little early today.",
+  "tip": "이르다 changes irregularly to 일러요.",
+  "sentencePrompt": "오늘은 조금 _____.",
+  "contrast": "이르다 means early; 늦다 means late."
+}
