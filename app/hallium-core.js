@@ -15,7 +15,7 @@ import {
   speakKoreanText,
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
-import { scopedLearnerStorageKey } from "../lib/learner-storage";
+import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
 import PartnerKorean from "./partner/PartnerKorean";
 import LandingPage from "./landing/LandingPage";
 
@@ -1069,6 +1069,7 @@ const studyResultsKey = "hallim:study-results:v1";
 const aiAuditKey = "hallim:ai-audit:v1";
 const intelligenceStateKey = "hallim:intelligence:v1";
 const referralKey = "hallim:referral:v1";
+const localOwnerKey = "hallim:local-owner:v1";
 
 function readLearnerProfile(guestMode = false) {
   if (typeof window === "undefined") return null;
@@ -1097,6 +1098,29 @@ function readIntelligenceState(guestMode = false) {
 function readReferralCode() {
   if (typeof window === "undefined") return "";
   return localStorage.getItem(referralKey) || "";
+}
+
+function readLocalOwnerId() {
+  if (typeof window === "undefined") return "";
+  return localStorage.getItem(localOwnerKey) || "";
+}
+
+function claimLocalOwner(userId) {
+  if (typeof window === "undefined" || !userId) return;
+  localStorage.setItem(localOwnerKey, String(userId));
+}
+
+function clearCanonicalLearnerCache() {
+  if (typeof window === "undefined") return;
+  clearScopedLearnerStorage(localStorage, [
+    learnerProfileKey,
+    studyResultsKey,
+    aiAuditKey,
+    intelligenceStateKey,
+    lessonKey,
+    reviewKey,
+    KOREAN_VOICE_STORAGE_KEY,
+  ], false);
 }
 
 const lessonKey = "hallim:vercel:lessons:v2";
@@ -1608,9 +1632,11 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       const user = data?.session?.user || null;
       authUserRef.current = user;
       setAuthUser(user);
-      setAuthReady(true);
       if (user) {
+        setAuthReady(false);
         await hydrateFromCloud(user);
+        if (!active) return;
+        setAuthReady(true);
         const authParams = new URLSearchParams(window.location.search);
         const requestedView = authParams.get("view");
         const requestedLesson = authParams.get("lesson");
@@ -1631,6 +1657,8 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         if (requestedView || authParams.get("auth") === "google") {
           window.history.replaceState({}, "", window.location.pathname);
         }
+      } else {
+        setAuthReady(true);
       }
     };
 
@@ -1641,10 +1669,14 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       const user = session?.user || null;
       authUserRef.current = user;
       setAuthUser(user);
-      setAuthReady(true);
       if (user) {
-        window.setTimeout(() => hydrateFromCloud(user), 0);
+        setAuthReady(false);
+        window.setTimeout(async () => {
+          await hydrateFromCloud(user);
+          if (active) setAuthReady(true);
+        }, 0);
       } else {
+        setAuthReady(true);
         setSyncHydrated(false);
         setSyncStatus("local");
         setLastSyncedAt(null);
@@ -2055,6 +2087,11 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       return;
     }
 
+    const localOwnerId = readLocalOwnerId();
+    if (!localLearnerStateBelongsToUser(localOwnerId, user.id)) {
+      clearCanonicalLearnerCache();
+    }
+
     const localVoicePreference = readLocalVoicePreference(scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, false));
     const { data: remoteVoiceRow } = await supabase.from("hallium_voice_preferences")
       .select("voice_uri,voice_name,rate,updated_at")
@@ -2112,6 +2149,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     };
 
     applyMergedLocalState(snapshot);
+    claimLocalOwner(user.id);
     setSyncHydrated(true);
     await pushCloudState(user, snapshot);
 
