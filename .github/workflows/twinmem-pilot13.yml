@@ -17,12 +17,13 @@ jobs:
           python-version: "3.11"
       - name: Run predictive-null point-alternative experiment
         run: python research/twinmem_pilot13/predictive_null_point_alt.py
-      - name: Validate frozen Pilot 13 design
+      - name: Validate design and pinned development failure
         run: |
           python - <<'PY'
-          import json
+          import csv, json
           from pathlib import Path
-          d=json.loads(Path("research/twinmem_pilot13/outputs/results.json").read_text())
+          root=Path("research/twinmem_pilot13")
+          d=json.loads((root/"outputs/results.json").read_text())
           assert d["status"]=="synthetic_research_only"
           assert d["frozen"]=={
               "baseline_labels_per_source":48,
@@ -36,7 +37,22 @@ jobs:
           }
           assert d["development_repeats"]==320
           assert d["test_repeats"]==500
-          print("PASS: Pilot 13 null/alternative models and frozen detector verified")
+          assert d["heldout_unbiased"] is None
+          assert d["heldout_bias_stress"] is None
+          got={
+              "development_all_goals_pass":str(bool(d["development"]["all_goals_pass"])).lower(),
+              "development_stationary_false_alarm":str(d["development"]["distributions"]["stationary"]["detection_rate"]),
+              "development_moderate_detection":str(d["development"]["distributions"]["moderate"]["detection_rate"]),
+              "development_moderate_mean_labels":str(d["development"]["distributions"]["moderate"]["mean_labels_per_source"]),
+              "development_severe_detection":str(d["development"]["distributions"]["severe"]["detection_rate"]),
+              "development_severe_mean_labels":str(d["development"]["distributions"]["severe"]["mean_labels_per_source"]),
+              "heldout_unbiased":"null",
+              "heldout_bias_stress":"null",
+          }
+          with (root/"expected_results.csv").open(newline="") as f:
+              expected={r["metric"]:r["value"] for r in csv.DictReader(f)}
+          assert got==expected,(got,expected)
+          print("PASS: Pilot 13 exact development failure pinned")
           PY
       - uses: actions/upload-artifact@v4
         with:
