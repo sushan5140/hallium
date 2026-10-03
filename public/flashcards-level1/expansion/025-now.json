@@ -1,0 +1,13 @@
+{
+  "id": "now",
+  "ko": "지금",
+  "latin": "jigeum",
+  "meaning": "Now",
+  "group": "Time",
+  "type": "ADVERB · TIME",
+  "example": "지금 공부해요.",
+  "translation": "I am studying now.",
+  "tip": "ㅡ in 금 is the Korean eu vowel.",
+  "sentencePrompt": "_____ 공부해요.",
+  "contrast": "지금 means now; 나중에 means later."
+}
