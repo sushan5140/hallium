@@ -26,8 +26,9 @@ test("H-P6 preferences are supplied to both deterministic and AI intelligence", 
   assert.match(core, /adaptiveDifficulty: aiDifficultyRecord\?\.result \|\| null,\s*learningPreferences,/);
 });
 
-test("AI routes are also fitted to the learner session budget", () => {
-  assert.match(core, /fitPlanToSession\(learningRouteRecord\?\.result \|\| fallbackLearningRoute, learningPreferences\)/);
+test("AI routes keep required-review safety before session fitting", () => {
+  assert.match(core, /enforceLearningPlanSafety\(learningRouteRecord\?\.result \|\| fallbackLearningRoute, fallbackLearningRoute\)/);
+  assert.match(core, /fitPlanToSession\(safeLearningRoute, learningPreferences\)/);
 });
 
 test("Profile exposes daily time and focus controls", () => {
