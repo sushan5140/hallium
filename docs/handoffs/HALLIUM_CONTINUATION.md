@@ -1986,3 +1986,129 @@ Preferred workflow from here:
 2. implement against the existing architecture,
 3. add narrowly-scoped regressions for the changed behavior,
 4. preserve the now-closed security/auth/provenance boundaries.
+
+
+---
+
+# 28. Post-H-P5 feature development — Message Makeover
+
+The original Hallium V4 "Message Makeover" surface already existed in `app/partner/PartnerKorean.jsx`, but its live AI action was disconnected from the server Intelligence allowlist.
+
+## Problem found
+
+UI called:
+
+`callIntelligence("message_makeover", ...)`
+
+but `app/api/intelligence/route.js` did not support `message_makeover`.
+
+Result:
+- polished UI existed,
+- instant presets worked,
+- signed-in AI generation could only fail as unsupported.
+
+## Production fix
+
+Added `message_makeover` to Hallium Intelligence with:
+- explicit system task
+- strict output schema
+- relationship allowlist
+- vibe allowlist
+- flirt intensity 0–100
+- input length <= 600 chars
+- bounded Korean/romanization/explanation output
+- existing authenticated Google-user guard
+- existing same-origin protection
+- existing Hallium AI quota
+- existing bounded JSON parser
+- existing server-only provider key
+
+Required result shape:
+- `bestMatch`
+- `romanization`
+- `naturalMeaning`
+- `why`
+- `softer`
+- `bolder`
+- `funnier`
+
+The prompt explicitly preserves intended meaning and disallows invented commitments, consent, threats, explicit sexual content, insults, or personal facts.
+
+Commit:
+- `525713c48996069be28b02a4a1d06d43cfc53620`
+
+## Guest Mode
+
+Guest Mode does not fake arbitrary AI translation.
+
+For recognized built-in Hallium preset meanings, it can demonstrate Message Makeover locally using the existing phrase bank:
+- Did you eat?
+- I miss you
+- Are you busy?
+- Did you get home?
+- Call later?
+- Good night / sleep well
+- apology / "I didn't mean it"
+
+Unknown free text returns the normal guest fallback and leaves instant presets available.
+
+Commit:
+- `39effe3c4fbd5a04d73fb6ad0d9b0482675a2eae`
+
+## Contract regression
+
+Added:
+- `tests/message-makeover-contract.test.mjs`
+
+Checks:
+- UI/server action names stay aligned
+- every UI-read output field exists in the server schema
+- relationship/vibe/intensity validation remains present
+- output stays bounded
+- route remains authenticated/quota-limited
+- Guest Mode remains preset-grounded rather than pretending to translate arbitrary text
+
+Initial test assertion incorrectly expected a per-field literal length check even though the production validator correctly bounds all Korean variants through one array `.every()` guard.
+
+Corrected in:
+- `a768376e719766a62e5cfbd53841455f08b7d045`
+
+## Capability audit after Makeover wiring
+
+Current frontend Hallium Intelligence actions:
+- difficulty
+- learning_route
+- message_makeover
+- mistake_explain
+- promotion
+- study_plan
+
+Server also supports:
+- adaptive_review
+- checkpoint
+
+No frontend Intelligence action is currently missing from the server allowlist.
+
+## V4 feature-state check
+
+Confirmed:
+- interactive "Your Korean world" vocabulary district map already exists
+- review/mistake-memory workflow already exists
+- per-account Korean voice preference already exists
+- Message Makeover is now functionally wired
+
+Remaining original V4 infrastructure gap:
+- **MeloTTS/default high-quality Korean TTS**
+
+Current Hallium voice architecture is browser Web Speech + per-account preference/fallback. There is no MeloTTS or server-side TTS runtime/service in this repository.
+
+Do not deploy a heavyweight Python MeloTTS model directly into the Next/Vercel application runtime without a deliberate inference-service boundary.
+
+### Next infrastructure phase
+
+Design and implement MeloTTS as a separate voice provider/service layer while preserving:
+1. current browser speech as fallback,
+2. current per-account voice preference,
+3. device-safe fallback behavior,
+4. no regression to lesson latency,
+5. graceful provider failure.
