@@ -1,0 +1,13 @@
+{
+  "id": "pork",
+  "ko": "돼지고기",
+  "latin": "dwaejigogi",
+  "meaning": "Pork",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "돼지고기를 주문했어요.",
+  "translation": "I ordered pork.",
+  "tip": "돼지고기 literally means pig meat.",
+  "sentencePrompt": "_____를 주문했어요.",
+  "contrast": "돼지고기 means pork; 소고기 means beef."
+}
