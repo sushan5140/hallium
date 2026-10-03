@@ -1,0 +1,13 @@
+{
+  "id": "hour-1",
+  "ko": "한 시",
+  "latin": "han si",
+  "meaning": "1 o'clock",
+  "group": "Dates & Time",
+  "type": "TIME · HOUR",
+  "example": "한 시에 만나요.",
+  "translation": "Let's meet at 1 o'clock.",
+  "tip": "Hours use native Korean number forms followed by 시.",
+  "sentencePrompt": "_____에 만나요.",
+  "contrast": "시 takes native Korean numbers; 분 takes Sino-Korean numbers."
+}
