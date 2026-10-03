@@ -1,0 +1,13 @@
+{
+  "id": "flower",
+  "ko": "꽃",
+  "latin": "kkot",
+  "meaning": "Flower",
+  "group": "Daily Life",
+  "type": "NOUN · NATURE",
+  "example": "공원에 꽃이 많아요.",
+  "translation": "There are many flowers in the park.",
+  "tip": "꽃 ends with a final stop.",
+  "sentencePrompt": "공원에 _____이 많아요.",
+  "contrast": "꽃 is flower; 나무 is tree."
+}
