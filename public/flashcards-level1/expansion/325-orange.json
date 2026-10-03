@@ -1,0 +1,13 @@
+{
+  "id": "orange-fruit",
+  "ko": "오렌지",
+  "latin": "orenji",
+  "meaning": "Orange",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "오렌지 주스를 마셔요.",
+  "translation": "I drink orange juice.",
+  "tip": "오렌지 is a Korean loanword.",
+  "sentencePrompt": "_____ 주스를 마셔요.",
+  "contrast": "오렌지 means orange fruit; 주황색 means the color orange."
+}
