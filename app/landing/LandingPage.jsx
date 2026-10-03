@@ -48,10 +48,10 @@ export default function LandingPage({authHref,guestHref="",authError=""}){
    <div className={s.nav}>
     <a className={s.brand} href="/" aria-label="Hallim landing page"><Logo/><span>hallim<small lang="ko">한림</small></span></a>
     <nav className={s.navLinks} aria-label="Page navigation"><a href="#system">How it works</a><a href="#inside">Inside Hallim</a><a href="#real-korean">Real Korean ♡</a><a href="#connections">Learning together</a></nav>
-    {guest?<a className={s.navStart} href={guest}>Try as guest <Arrow/></a>:<a className={s.navStart} href={entry}>Start learning <Arrow/></a>}
+    <a className={s.navStart} href="#start-learning">Start learning <Arrow/></a>
     <button type="button" className={s.menuButton} aria-label={menu?"Close navigation":"Open navigation"} aria-controls="v2-menu" aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?"Close ×":"Menu ☰"}</button>
    </div>
-   {menu&&<nav id="v2-menu" className={s.mobileMenu} aria-label="Mobile navigation"><a href="#system" onClick={()=>setMenu(false)}>How it works</a><a href="#inside" onClick={()=>setMenu(false)}>Inside Hallim</a><a href="#real-korean" onClick={()=>setMenu(false)}>Real Korean ♡</a><a href="#connections" onClick={()=>setMenu(false)}>Learning together</a>{guest&&<a href={guest}>Try as guest ↗</a>}<a href={entry}>Sign in with Google ↗</a></nav>}
+   {menu&&<nav id="v2-menu" className={s.mobileMenu} aria-label="Mobile navigation"><a href="#system" onClick={()=>setMenu(false)}>How it works</a><a href="#inside" onClick={()=>setMenu(false)}>Inside Hallim</a><a href="#real-korean" onClick={()=>setMenu(false)}>Real Korean ♡</a><a href="#connections" onClick={()=>setMenu(false)}>Learning together</a><a href={entry}>Continue with Google ↗</a>{guest&&<a href={guest}>Try as guest ↗</a>}</nav>}
   </header>
 
   <section className={s.hero} aria-labelledby="hero-title">
@@ -60,7 +60,7 @@ export default function LandingPage({authHref,guestHref="",authError=""}){
      <span className={s.heroPill}><span aria-hidden="true">✳</span> A companion for the way you actually learn</span>
      <h1 id="hero-title">Your Korean world,<br/><em>all connected.</em></h1>
      <p>Learn Korean inside a real study workspace: a level-based Companion route, a searchable Word Map, grammar and pronunciation guides, honest study checks, intelligent review, flirty Korean for real messages, and people to practise with.</p>
-     <div className={s.heroActions}><a className={s.primary} href={guest||entry}>{guest?"Continue as guest":"Start your journey"} <Arrow/></a><a className={s.secondary} href={entry}>Sign in with Google <Arrow/></a></div>
+     <div className={s.heroActions} id="start-learning"><a className={s.primary} href={entry}>Continue with Google <Arrow/></a>{guest&&<a className={s.secondary} href={guest}>Try as guest <Arrow/></a>}</div>
      {authError&&<p className={s.authError} role="alert">{authError}</p>}
      <div className={s.heroAside}><span className={s.dotCluster} aria-hidden="true"><i lang="ko">가</i><i lang="ko">나</i><i lang="ko">다</i></span><span>Six entry levels, one connected learning route—from Starter to Advanced.</span></div>
     </div>

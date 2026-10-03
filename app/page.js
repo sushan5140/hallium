@@ -7,6 +7,8 @@ import { getHallimSupabase } from "../lib/supabase/client";
 
 const learnerProfileKey = "hallim:learner-profile:v1";
 const guestIdentityKey = "hallim:guest-review:v1";
+const guestSessionKey = "hallim:guest-session-id:v1";
+const guestEntryLoggedKey = "hallim:guest-entry-logged:v1";
 
 function makeGuestIdentity() {
   const first = ["Haneul","Nuri","Bomi","Haru","Miso","Duri","Jadu","Seoul"];
@@ -25,6 +27,34 @@ function getGuestIdentity() {
   const identity = makeGuestIdentity();
   sessionStorage.setItem(guestIdentityKey, JSON.stringify(identity));
   return identity;
+}
+
+function getGuestSessionId() {
+  if (typeof window === "undefined") return "";
+  let id = sessionStorage.getItem(guestSessionKey) || "";
+  if (!/^[0-9a-f-]{36}$/i.test(id)) {
+    id = crypto.randomUUID();
+    sessionStorage.setItem(guestSessionKey, id);
+  }
+  return id;
+}
+
+async function logGuestEntry(identity) {
+  if (typeof window === "undefined" || sessionStorage.getItem(guestEntryLoggedKey) === "1") return;
+  const guestSessionId = getGuestSessionId();
+  if (!guestSessionId) return;
+  try {
+    const supabase = getHallimSupabase();
+    const { error } = await supabase.from("hallium_guest_entries").insert({
+      guest_session_id: guestSessionId,
+      guest_name: String(identity?.name || "HallimGuest").slice(0, 64),
+      landing_path: window.location.pathname || "/",
+      entry_mode: "guest",
+    });
+    if (!error) sessionStorage.setItem(guestEntryLoggedKey, "1");
+  } catch {
+    // Analytics must never block reviewer access.
+  }
 }
 
 function seedFullReviewProfile(identity) {
@@ -54,6 +84,7 @@ export default function HalliumEntry() {
     const identity = getGuestIdentity();
     seedFullReviewProfile(identity);
     sessionStorage.setItem("hallim:guest-active:v1", "1");
+    void logGuestEntry(identity);
     setGuestName(identity.name);
     setStatus("guest");
     const params = new URLSearchParams(window.location.search);
