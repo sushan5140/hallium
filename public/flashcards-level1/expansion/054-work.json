@@ -1,0 +1,13 @@
+{
+  "id": "work",
+  "ko": "일하다",
+  "latin": "ilhada",
+  "meaning": "To work",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "아버지는 회사에서 일해요.",
+  "translation": "My father works at a company.",
+  "tip": "일하다 changes to 일해요 in polite present speech.",
+  "sentencePrompt": "아버지는 회사에서 _____.",
+  "contrast": "일하다 means work; 공부하다 means study."
+}
