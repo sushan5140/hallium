@@ -1,0 +1,13 @@
+{
+  "id": "native-number-53",
+  "ko": "마흔셋",
+  "latin": "maheun-set",
+  "meaning": "Native Korean number 53",
+  "group": "Numbers",
+  "type": "NUMBER · NATIVE KOREAN",
+  "example": "마흔셋예요.",
+  "translation": "It is the native Korean number 53.",
+  "tip": "Native Korean numbers are commonly used with counters for people, objects, age, hours, and repetitions.",
+  "sentencePrompt": "_____예요.",
+  "contrast": "Sino-Korean numbers are preferred for dates, money, minutes, and phone numbers."
+}
