@@ -1,0 +1,13 @@
+{
+  "id": "picture",
+  "ko": "그림",
+  "latin": "geurim",
+  "meaning": "Picture / drawing",
+  "group": "Daily Life",
+  "type": "NOUN · MEDIA",
+  "example": "그림을 그려요.",
+  "translation": "I draw a picture.",
+  "tip": "그림 contains ㅡ in 그.",
+  "sentencePrompt": "_____을 그려요.",
+  "contrast": "그림 is drawing/picture; 사진 is photo."
+}
