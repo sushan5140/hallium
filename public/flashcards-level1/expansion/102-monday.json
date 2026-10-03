@@ -1,0 +1,13 @@
+{
+  "id": "monday",
+  "ko": "월요일",
+  "latin": "woryoil",
+  "meaning": "Monday",
+  "group": "Time",
+  "type": "NOUN · DAY",
+  "example": "월요일에 수업이 있어요.",
+  "translation": "I have class on Monday.",
+  "tip": "요일 is used in all days of the week.",
+  "sentencePrompt": "_____에 수업이 있어요.",
+  "contrast": "월요일 is Monday; 화요일 is Tuesday."
+}
