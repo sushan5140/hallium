@@ -1,0 +1,13 @@
+{
+  "id": "crosswalk",
+  "ko": "횡단보도",
+  "latin": "hoengdanbodo",
+  "meaning": "Crosswalk",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "횡단보도를 건너요.",
+  "translation": "I cross the crosswalk.",
+  "tip": "횡단보도 is a four-syllable compound.",
+  "sentencePrompt": "_____를 건너요.",
+  "contrast": "횡단보도 is crosswalk; 길 is road."
+}
