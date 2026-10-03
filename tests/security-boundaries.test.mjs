@@ -35,10 +35,16 @@ test("every other Groq-backed server route enforces Hallium's Google identity", 
 });
 
 test("Curriculum Admin cannot be bootstrapped directly from a URL view", () => {
-  const source = read("app/page.js");
+  let source = read("app/page.js");
+  try {
+    source += "\n" + read("app/hallium-core.js");
+  } catch {}
   const allowed = source.match(/const allowedViews = new Set\(\[([^\]]+)\]\);/)?.[1] || "";
   assert.doesNotMatch(allowed, /["']admin["']/);
   assert.match(source, /adminAccess && <button className="admin-studio-shortcut"/);
+  if (source.includes("guestMode")) {
+    assert.match(source, /const adminAccess = !guestMode/);
+  }
 });
 
 test("global response hardening headers stay enabled", () => {
