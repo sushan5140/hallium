@@ -1,0 +1,13 @@
+{
+  "id": "teacher-job",
+  "ko": "교사",
+  "latin": "gyosa",
+  "meaning": "Teacher (formal job title)",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "제 꿈은 교사가 되는 거예요.",
+  "translation": "My dream is to become a teacher.",
+  "tip": "교사 is a formal job title; 선생님 is the common respectful address.",
+  "sentencePrompt": "제 꿈은 _____가 되는 거예요.",
+  "contrast": "교사 is a formal occupational term; 선생님 is a respectful everyday title."
+}
