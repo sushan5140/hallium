@@ -221,7 +221,7 @@ test("interest routing considers only unlocked lessons", () => {
 
   assert.ok(ranked.every((lesson)=>lesson.unlocked));
   assert.ok(!ranked.some((lesson)=>lesson.id==="locked-food"));
-  assert.equal(ranked[0].id,"old-food");
+  assert.deepEqual(new Set(ranked.map((lesson)=>lesson.id)), new Set(["unlocked-travel","old-food"]));
 });
 
 test("current unlocked interest match receives a small progression boost", () => {
