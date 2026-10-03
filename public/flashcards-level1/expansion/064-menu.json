@@ -1,0 +1,13 @@
+{
+  "id": "menu",
+  "ko": "메뉴",
+  "latin": "menyu",
+  "meaning": "Menu",
+  "group": "Daily Life",
+  "type": "NOUN · FOOD",
+  "example": "메뉴를 봐요.",
+  "translation": "I look at the menu.",
+  "tip": "메뉴 is a Korean loanword from English 'menu'.",
+  "sentencePrompt": "_____를 봐요.",
+  "contrast": "메뉴 is the list of dishes; 음식 is food."
+}
