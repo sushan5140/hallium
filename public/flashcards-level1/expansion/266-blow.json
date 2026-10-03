@@ -1,0 +1,13 @@
+{
+  "id": "blow",
+  "ko": "불다",
+  "latin": "bulda",
+  "meaning": "To blow",
+  "group": "Actions",
+  "type": "VERB · WEATHER",
+  "example": "바람이 세게 불어요.",
+  "translation": "The wind blows strongly.",
+  "tip": "불다 changes to 불어요.",
+  "sentencePrompt": "바람이 세게 _____.",
+  "contrast": "불다 means blow; 오다 is used for rain/snow falling."
+}
