@@ -27,7 +27,7 @@ jobs:
           for f in public/flashcards-level1/*.js; do node --check "$f"; done
           test -f public/flashcards-level1/index.html
           test -f public/flashcards-level1/styles.css
-          grep -q 'href="/flashcards"' app/page.js
+          grep -q 'href="/flashcards"' app/hallium-core.js
           grep -q '/flashcards-level1/index.html' app/flashcards/page.js
           grep -q 'book-illustration-v2' public/flashcards-level1/art-book.js
       - name: Compile Hallium Next.js
