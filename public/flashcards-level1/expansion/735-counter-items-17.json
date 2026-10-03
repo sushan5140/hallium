@@ -1,0 +1,13 @@
+{
+  "id": "counter-items-17",
+  "ko": "열일곱 개",
+  "latin": "yeol-ilgop gae",
+  "meaning": "17 items",
+  "group": "Counters",
+  "type": "COUNTER · OBJECTS",
+  "example": "사과가 열일곱 개 있어요.",
+  "translation": "There are 17 apples.",
+  "tip": "개 is the common counter for objects. Native Korean numbers shorten before counters.",
+  "sentencePrompt": "사과가 _____ 있어요.",
+  "contrast": "명 counts people; 권 counts books; 개 counts general objects."
+}
