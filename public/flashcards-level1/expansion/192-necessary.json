@@ -1,0 +1,13 @@
+{
+  "id": "necessary",
+  "ko": "필요하다",
+  "latin": "piryohada",
+  "meaning": "To be necessary / need",
+  "group": "Description",
+  "type": "ADJECTIVE · GENERAL",
+  "example": "여권이 필요해요.",
+  "translation": "I need a passport.",
+  "tip": "필요하다 changes to 필요해요.",
+  "sentencePrompt": "여권이 _____.",
+  "contrast": "필요하다 means be necessary/needed; 중요하다 means important."
+}
