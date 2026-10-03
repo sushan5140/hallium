@@ -1451,6 +1451,10 @@ function mergeIntelligenceState(local = {}, remote = {}) {
   ["difficulty", "studyPlan", "promotion", "learningRoute"].forEach((key) => {
     merged[key] = newestByTimestamp(local?.[key], remote?.[key]) || null;
   });
+  merged.preferences = newestByTimestamp(local?.preferences, remote?.preferences, "updatedAt")
+    || local?.preferences
+    || remote?.preferences
+    || null;
   const historyMap = new Map();
   [...(remote?.practiceHistory || []), ...(local?.practiceHistory || [])].forEach((item) => {
     if (!item) return;
@@ -1896,7 +1900,8 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     preferences: learningPreferences,
   });
 
-  const safeLearningRoute = enforceLearningPlanSafety(learningRouteRecord?.result || fallbackLearningRoute, fallbackLearningRoute);\n  const activeLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
+  const safeLearningRoute = enforceLearningPlanSafety(learningRouteRecord?.result || fallbackLearningRoute, fallbackLearningRoute);
+  const activeLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
@@ -2415,9 +2420,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
   function updateLearningPreferences(partial) {
     const next = normalizeLearningPreferences({ ...learningPreferences, ...partial });
+    const persisted = { ...next, updatedAt: new Date().toISOString() };
     setLearningPreferences(next);
     setLearningRouteRecord(null);
-    saveIntelligenceState({ preferences: next, learningRoute: null });
+    saveIntelligenceState({ preferences: persisted, learningRoute: null });
   }
 
   function guestIntelligenceDemo(action, payload = {}) {
