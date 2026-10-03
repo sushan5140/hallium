@@ -1,0 +1,13 @@
+{
+  "id": "warm",
+  "ko": "따뜻하다",
+  "latin": "ttatteuthada",
+  "meaning": "To be warm",
+  "group": "Weather",
+  "type": "ADJECTIVE · WEATHER",
+  "example": "봄에는 날씨가 따뜻해요.",
+  "translation": "The weather is warm in spring.",
+  "tip": "따뜻하다 changes to 따뜻해요.",
+  "sentencePrompt": "봄에는 날씨가 _____.",
+  "contrast": "따뜻하다 means warm; 춥다 means cold."
+}
