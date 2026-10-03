@@ -1582,7 +1582,7 @@ export default function Hallim() {
         const authParams = new URLSearchParams(window.location.search);
         const requestedView = authParams.get("view");
         const requestedLesson = authParams.get("lesson");
-        const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile","admin"]);
+        const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile"]);
         // The Beginner to TOPIK bridge links to existing lesson IDs. Reuse their
         // original lesson component and progress records, not a duplicate.
         if (requestedView === "lesson" && requestedLesson && lessons.some(item => item.id === requestedLesson)) {
