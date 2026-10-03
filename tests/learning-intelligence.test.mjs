@@ -250,3 +250,16 @@ test("current unlocked interest match receives a small progression boost", () =>
 
   assert.equal(ranked[0].id,"current");
 });
+
+
+test("explicit empty topic list disables interest routing", () => {
+  const prefs=normalizeLearningPreferences({
+    dailyMinutes:15,
+    focuses:["conversation"],
+    topics:[],
+  });
+  assert.deepEqual(prefs.topics,[]);
+  assert.deepEqual(rankInterestLessons([
+    {id:"food",title:"Food & ordering",subtitle:"Menus and requests",unlocked:true},
+  ],prefs),[]);
+});
