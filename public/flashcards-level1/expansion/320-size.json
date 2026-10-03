@@ -1,0 +1,13 @@
+{
+  "id": "size",
+  "ko": "크기",
+  "latin": "keugi",
+  "meaning": "Size",
+  "group": "Shopping",
+  "type": "NOUN · SHOPPING",
+  "example": "이 옷의 크기가 맞아요.",
+  "translation": "The size of these clothes fits.",
+  "tip": "크기 comes from 크다, 'to be big'.",
+  "sentencePrompt": "이 옷의 _____가 맞아요.",
+  "contrast": "크기 means size; 가격 means price."
+}
