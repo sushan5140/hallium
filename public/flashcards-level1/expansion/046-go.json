@@ -1,0 +1,13 @@
+{
+  "id": "go",
+  "ko": "가다",
+  "latin": "gada",
+  "meaning": "To go",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "학교에 가요.",
+  "translation": "I go to school.",
+  "tip": "가다 changes to 가요 in polite present speech.",
+  "sentencePrompt": "학교에 _____.",
+  "contrast": "가다 means go; 오다 means come."
+}
