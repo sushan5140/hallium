@@ -8,6 +8,7 @@ import {
   fitPlanToSession,
   inferDifficulty,
   normalizeLearningPreferences,
+  rankInterestLessons,
   rankWeakSkills,
   reviewUrgency,
 } from "../lib/learning-intelligence.js";
@@ -104,11 +105,11 @@ test("low score or heavy weakness load reinforces", () => {
 test("learning preferences clamp time and discard unsupported focus values", () => {
   assert.deepEqual(
     normalizeLearningPreferences({ dailyMinutes: 2, focuses:["grammar","unknown","grammar"] }),
-    { dailyMinutes:5, focuses:["grammar"] }
+    { dailyMinutes:5, focuses:["grammar"], topics:["daily_life"] }
   );
   assert.deepEqual(
     normalizeLearningPreferences({ dailyMinutes:120, focuses:[] }),
-    { dailyMinutes:60, focuses:["conversation"] }
+    { dailyMinutes:60, focuses:["conversation"], topics:["daily_life"] }
   );
 });
 
@@ -329,4 +330,108 @@ test("weekly plan day count is bounded to five through seven", () => {
   const long=buildDeterministicStudyPlan({days:30,now:NOW});
   assert.equal(short.days.length,5);
   assert.equal(long.days.length,7);
+});
+
+
+test("topic preferences normalize and cap at three supported values", () => {
+  assert.deepEqual(
+    normalizeLearningPreferences({
+      dailyMinutes:20,
+      focuses:["listening"],
+      topics:["travel","food","travel","unknown","shopping","opinions"],
+    }),
+    {
+      dailyMinutes:20,
+      focuses:["listening"],
+      topics:["travel","food","shopping"],
+    }
+  );
+});
+
+test("explicit empty topic list disables interest routing", () => {
+  const prefs=normalizeLearningPreferences({
+    dailyMinutes:15,
+    focuses:["conversation"],
+    topics:[],
+  });
+  assert.deepEqual(prefs.topics,[]);
+  assert.deepEqual(rankInterestLessons([
+    {id:"food",title:"Food & ordering",subtitle:"Menus and requests",unlocked:true},
+  ],prefs),[]);
+});
+
+test("interest routing excludes locked lessons even when topic match is perfect", () => {
+  const ranked=rankInterestLessons([
+    {
+      id:"locked-food",
+      title:"Food & ordering",
+      subtitle:"Order from a menu and request drinks",
+      unlocked:false,
+      completed:false,
+      current:false,
+    },
+    {
+      id:"unlocked-travel",
+      title:"Go straight",
+      subtitle:"Understand movement and directions",
+      unlocked:true,
+      completed:false,
+      current:true,
+    },
+    {
+      id:"old-food",
+      title:"Food I know",
+      subtitle:"Recognize common food and drink words",
+      unlocked:true,
+      completed:true,
+      current:false,
+    },
+  ],{
+    dailyMinutes:15,
+    focuses:["conversation"],
+    topics:["food","travel"],
+  });
+
+  assert.ok(ranked.every((lesson)=>lesson.unlocked));
+  assert.ok(!ranked.some((lesson)=>lesson.id==="locked-food"));
+  assert.deepEqual(new Set(ranked.map((lesson)=>lesson.id)),new Set(["unlocked-travel","old-food"]));
+});
+
+test("current unlocked interest match receives a small progression boost", () => {
+  const ranked=rankInterestLessons([
+    {
+      id:"old",
+      title:"My old morning",
+      subtitle:"Talk about a simple morning routine",
+      unlocked:true,
+      completed:true,
+      current:false,
+    },
+    {
+      id:"current",
+      title:"My morning",
+      subtitle:"Talk about a simple morning routine",
+      unlocked:true,
+      completed:false,
+      current:true,
+    },
+  ],{
+    dailyMinutes:15,
+    focuses:["conversation"],
+    topics:["daily_life"],
+  });
+
+  assert.equal(ranked[0].id,"current");
+});
+
+test("weekly plan preserves topic interests in generated evidence metadata", () => {
+  const plan=buildDeterministicStudyPlan({
+    mistakes:[],
+    preferences:{dailyMinutes:15,focuses:["conversation"],topics:["food","travel"]},
+    latestStudyPct:80,
+    activeStudyLabel:"Foundation",
+    nextLessonTitle:"Ordering",
+    now:NOW,
+  });
+  assert.deepEqual(plan.generatedFrom.topics,["food","travel"]);
 });
