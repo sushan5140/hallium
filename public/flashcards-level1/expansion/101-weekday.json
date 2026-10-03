@@ -1,0 +1,13 @@
+{
+  "id": "weekday",
+  "ko": "평일",
+  "latin": "pyeongil",
+  "meaning": "Weekday",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "평일에는 학교에 가요.",
+  "translation": "I go to school on weekdays.",
+  "tip": "평일 is pronounced pyeong-il.",
+  "sentencePrompt": "_____에는 학교에 가요.",
+  "contrast": "평일 is weekday; 주말 is weekend."
+}
