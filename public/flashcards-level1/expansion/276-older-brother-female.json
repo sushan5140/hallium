@@ -1,0 +1,13 @@
+{
+  "id": "older-brother-female",
+  "ko": "오빠",
+  "latin": "oppa",
+  "meaning": "Older brother (used by females)",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "오빠와 카페에 가요.",
+  "translation": "I go to a café with my older brother.",
+  "tip": "오빠 is used by a female speaker for an older brother or close older male.",
+  "sentencePrompt": "_____와 카페에 가요.",
+  "contrast": "오빠 is female-speaker usage; 형 is male-speaker usage."
+}
