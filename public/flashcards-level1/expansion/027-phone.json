@@ -1,0 +1,13 @@
+{
+  "id": "phone",
+  "ko": "전화",
+  "latin": "jeonhwa",
+  "meaning": "Phone call / telephone",
+  "group": "Daily Life",
+  "type": "NOUN · COMMUNICATION",
+  "example": "친구에게 전화해요.",
+  "translation": "I call my friend.",
+  "tip": "전화 is commonly used with 하다 to mean 'to call'.",
+  "sentencePrompt": "친구에게 _____해요.",
+  "contrast": "전화 is a phone call/telephone; 휴대폰 is a mobile phone."
+}
