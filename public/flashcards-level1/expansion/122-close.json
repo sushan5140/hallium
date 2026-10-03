@@ -1,0 +1,13 @@
+{
+  "id": "close",
+  "ko": "닫다",
+  "latin": "datda",
+  "meaning": "To close",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "창문을 닫아요.",
+  "translation": "I close the window.",
+  "tip": "닫다 changes to 닫아요.",
+  "sentencePrompt": "창문을 _____.",
+  "contrast": "닫다 means close; 열다 means open."
+}
