@@ -1,0 +1,13 @@
+{
+  "id": "tourist",
+  "ko": "관광객",
+  "latin": "gwangwanggaek",
+  "meaning": "Tourist",
+  "group": "Travel",
+  "type": "NOUN · PERSON",
+  "example": "관광객이 사진을 찍어요.",
+  "translation": "The tourist takes a photo.",
+  "tip": "관광객 ends with 객, final ㄱ.",
+  "sentencePrompt": "_____이 사진을 찍어요.",
+  "contrast": "관광객 is tourist; 여행자 is traveler."
+}
