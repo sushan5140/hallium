@@ -1,0 +1,13 @@
+{
+  "id": "far",
+  "ko": "멀다",
+  "latin": "meolda",
+  "meaning": "To be far",
+  "group": "Description",
+  "type": "ADJECTIVE · DISTANCE",
+  "example": "공항이 여기서 멀어요.",
+  "translation": "The airport is far from here.",
+  "tip": "멀다 changes to 멀어요.",
+  "sentencePrompt": "공항이 여기서 _____.",
+  "contrast": "멀다 means far; 가깝다 means near."
+}
