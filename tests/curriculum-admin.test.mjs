@@ -60,3 +60,28 @@ test("saved teaching item preserves lesson provenance", () => {
   assert.equal(item.kind, "word");
   assert.equal(item.title, "학교");
 });
+
+
+test("curriculum audit separates intentional omissions from genuine gaps", () => {
+  const intentional = {
+    id: "u1-l3",
+    type: "lesson",
+    title: "Recognition lesson",
+    coverageExemptions: {
+      listening: "Uses reading as receptive input.",
+      shadowing: "Deferred to the next lesson.",
+      build: "Recognition-first lesson.",
+    },
+    steps: [
+      { kind: "word", korean: "학교", meaning: "school" },
+      { kind: "explain", title: "Place words", body: "Recognize places." },
+      { kind: "choice", prompt: "Choose" },
+      { kind: "finish", canDo: ["recognize places"] },
+    ],
+  };
+  const coverage = lessonCoverage(intentional);
+  assert.deepEqual(coverage.missing, []);
+  assert.equal(coverage.intentionalOmissions.length, 3);
+  assert.equal(coverage.complete, true);
+  assert.match(coverage.intentionalOmissions[0].reason, /reading/i);
+});
