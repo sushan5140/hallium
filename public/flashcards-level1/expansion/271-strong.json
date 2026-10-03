@@ -1,0 +1,13 @@
+{
+  "id": "strong",
+  "ko": "강하다",
+  "latin": "ganghada",
+  "meaning": "To be strong",
+  "group": "Description",
+  "type": "ADJECTIVE · QUALITY",
+  "example": "바람이 강해요.",
+  "translation": "The wind is strong.",
+  "tip": "강하다 changes to 강해요.",
+  "sentencePrompt": "바람이 _____.",
+  "contrast": "강하다 means strong; 약하다 means weak."
+}
