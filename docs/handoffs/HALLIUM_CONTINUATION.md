@@ -3458,3 +3458,15 @@ Pending:
 - final live sanity on that exact production artifact
 
 MeloTTS/TwinMem remains parked.
+
+
+---
+
+# 42. Production rollout checkpoint
+
+Requested on 3 October 2026 after H-P5 closure.
+
+Purpose:
+- force the existing GitHub → Vercel integration to build the current `main` tree
+- no application behavior changes in this checkpoint
+- Batch 4 remains intentionally not started
