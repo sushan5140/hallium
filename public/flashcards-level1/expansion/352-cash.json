@@ -1,0 +1,13 @@
+{
+  "id": "cash",
+  "ko": "현금",
+  "latin": "hyeongeum",
+  "meaning": "Cash",
+  "group": "Shopping",
+  "type": "NOUN · PAYMENT",
+  "example": "현금으로 내요.",
+  "translation": "I pay in cash.",
+  "tip": "현금 is pronounced hyeon-geum.",
+  "sentencePrompt": "_____으로 내요.",
+  "contrast": "현금 means cash; 카드 means card."
+}
