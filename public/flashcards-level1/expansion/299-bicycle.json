@@ -1,0 +1,13 @@
+{
+  "id": "bicycle",
+  "ko": "자전거",
+  "latin": "jajeongeo",
+  "meaning": "Bicycle",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "자전거를 타고 공원에 가요.",
+  "translation": "I ride a bicycle to the park.",
+  "tip": "자전거 is pronounced ja-jeon-geo.",
+  "sentencePrompt": "_____를 타고 공원에 가요.",
+  "contrast": "자전거 means bicycle; 자동차 means car."
+}
