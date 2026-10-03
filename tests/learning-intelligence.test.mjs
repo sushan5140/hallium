@@ -401,8 +401,8 @@ test("current unlocked interest match receives a small progression boost", () =>
   const ranked=rankInterestLessons([
     {
       id:"old",
-      title:"Weekend plans",
-      subtitle:"Make a simple daily plan",
+      title:"My old morning",
+      subtitle:"Talk about a simple morning routine",
       unlocked:true,
       completed:true,
       current:false,
