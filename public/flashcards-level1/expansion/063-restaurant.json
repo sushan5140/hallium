@@ -1,0 +1,13 @@
+{
+  "id": "restaurant",
+  "ko": "식당",
+  "latin": "sikdang",
+  "meaning": "Restaurant",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "친구와 식당에 가요.",
+  "translation": "I go to a restaurant with a friend.",
+  "tip": "식당 ends with 당, pronounced with -dang.",
+  "sentencePrompt": "친구와 _____에 가요.",
+  "contrast": "식당 is a restaurant; 카페 is a café."
+}
