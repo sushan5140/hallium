@@ -50,6 +50,12 @@ TEST_MODERATE_SEED = 20262223
 TEST_SEVERE_SEED = 20262224
 
 
+def bernoulli_log_likelihood(correct, total, p):
+    p = p9.clip_probability(p)
+    wrong = total - correct
+    return correct * math.log(p) + wrong * math.log(1.0 - p)
+
+
 def global_log_bayes_factor(posteriors, streams, n):
     log_bfs = []
     for source in p12.SOURCES:
@@ -62,7 +68,7 @@ def global_log_bayes_factor(posteriors, streams, n):
 
         for direction in (-1.0, 1.0):
             p_alt = p9.clip_probability(mean + direction * DELTA)
-            alt_log = p12.bernoulli_log_likelihood(correct, n, p_alt)
+            alt_log = bernoulli_log_likelihood(correct, n, p_alt)
             log_bfs.append(alt_log - null_log)
 
     return p9.logsumexp(log_bfs) - math.log(len(log_bfs))
