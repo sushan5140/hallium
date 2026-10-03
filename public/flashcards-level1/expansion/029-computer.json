@@ -1,0 +1,13 @@
+{
+  "id": "computer",
+  "ko": "컴퓨터",
+  "latin": "keompyuteo",
+  "meaning": "Computer",
+  "group": "Objects",
+  "type": "NOUN · TECHNOLOGY",
+  "example": "컴퓨터로 공부해요.",
+  "translation": "I study using a computer.",
+  "tip": "컴퓨터 is a Korean loanword from English 'computer'.",
+  "sentencePrompt": "_____로 공부해요.",
+  "contrast": "컴퓨터 is a computer; 휴대폰 is a mobile phone."
+}
