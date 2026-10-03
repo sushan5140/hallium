@@ -5,6 +5,7 @@ import { getHallimSupabase } from "../lib/supabase/client";
 import { curriculumAudit, teachingItemFromStep } from "../lib/curriculum/admin";
 import {
   DEFAULT_KOREAN_VOICE_PREFERENCE,
+  KOREAN_VOICE_STORAGE_KEY,
   clampKoreanRate,
   koreanVoices,
   newerVoicePreference,
@@ -14,6 +15,7 @@ import {
   speakKoreanText,
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
+import { scopedLearnerStorageKey } from "../lib/learner-storage";
 import PartnerKorean from "./partner/PartnerKorean";
 import LandingPage from "./landing/LandingPage";
 
@@ -1068,28 +1070,28 @@ const aiAuditKey = "hallim:ai-audit:v1";
 const intelligenceStateKey = "hallim:intelligence:v1";
 const referralKey = "hallim:referral:v1";
 
-function readLearnerProfile() {
+function readLearnerProfile(guestMode = false) {
   if (typeof window === "undefined") return null;
-  try { return JSON.parse(localStorage.getItem(learnerProfileKey) || "null"); } catch { return null; }
+  try { return JSON.parse(localStorage.getItem(scopedLearnerStorageKey(learnerProfileKey, guestMode)) || "null"); } catch { return null; }
 }
 
 function levelById(id) {
   return learnerLevels.find((level) => level.id === id) || learnerLevels[0];
 }
 
-function readStudyResults() {
+function readStudyResults(guestMode = false) {
   if (typeof window === "undefined") return [];
-  try { return JSON.parse(localStorage.getItem(studyResultsKey) || "[]"); } catch { return []; }
+  try { return JSON.parse(localStorage.getItem(scopedLearnerStorageKey(studyResultsKey, guestMode)) || "[]"); } catch { return []; }
 }
 
-function readAiAudit() {
+function readAiAudit(guestMode = false) {
   if (typeof window === "undefined") return null;
-  try { return JSON.parse(localStorage.getItem(aiAuditKey) || "null"); } catch { return null; }
+  try { return JSON.parse(localStorage.getItem(scopedLearnerStorageKey(aiAuditKey, guestMode)) || "null"); } catch { return null; }
 }
 
-function readIntelligenceState() {
+function readIntelligenceState(guestMode = false) {
   if (typeof window === "undefined") return {};
-  try { return JSON.parse(localStorage.getItem(intelligenceStateKey) || "{}"); } catch { return {}; }
+  try { return JSON.parse(localStorage.getItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode)) || "{}"); } catch { return {}; }
 }
 
 function readReferralCode() {
@@ -1355,9 +1357,9 @@ const curriculumQuality = (() => {
   };
 })();
 
-function readProgress() {
+function readProgress(guestMode = false) {
   if (typeof window === "undefined") return {};
-  try { return JSON.parse(localStorage.getItem(lessonKey) || "{}"); } catch { return {}; }
+  try { return JSON.parse(localStorage.getItem(scopedLearnerStorageKey(lessonKey, guestMode)) || "{}"); } catch { return {}; }
 }
 
 function newestByTimestamp(a, b, field = "generatedAt") {
@@ -1521,18 +1523,18 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const viewScrollRef = useRef({ home: 0 });
 
   useEffect(() => {
-    setProgress(readProgress());
-    setStudyResults(readStudyResults());
-    setAiAuditRecord(readAiAudit());
-    const savedIntelligence = readIntelligenceState();
+    setProgress(readProgress(guestMode));
+    setStudyResults(readStudyResults(guestMode));
+    setAiAuditRecord(readAiAudit(guestMode));
+    const savedIntelligence = readIntelligenceState(guestMode);
     setAiDifficultyRecord(savedIntelligence.difficulty || null);
     setStudyPlanRecord(savedIntelligence.studyPlan || null);
     setPromotionRecord(savedIntelligence.promotion || null);
     setLearningRouteRecord(savedIntelligence.learningRoute || null);
     setMistakeLog(savedIntelligence.mistakeLog || []);
-    const savedVoicePreference = readLocalVoicePreference();
+    const savedVoicePreference = readLocalVoicePreference(scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, guestMode));
     setVoicePreference(savedVoicePreference);
-    const savedProfile = readLearnerProfile();
+    const savedProfile = readLearnerProfile(guestMode);
     if (savedProfile) {
       setLearnerProfile(savedProfile);
       setDraftCurrentLevel(savedProfile.currentLevel || "new");
@@ -1940,19 +1942,19 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
   function applyMergedLocalState({ profile, lessonProgress, results, intelligence, audit }) {
     if (profile) {
-      localStorage.setItem(learnerProfileKey, JSON.stringify(profile));
+      localStorage.setItem(scopedLearnerStorageKey(learnerProfileKey, false), JSON.stringify(profile));
       setLearnerProfile(profile);
       setDraftCurrentLevel(profile.currentLevel || "new");
       setDraftTargetLevel(profile.targetLevel || "elementary");
     }
 
-    localStorage.setItem(lessonKey, JSON.stringify(lessonProgress || {}));
+    localStorage.setItem(scopedLearnerStorageKey(lessonKey, false), JSON.stringify(lessonProgress || {}));
     setProgress(lessonProgress || {});
 
-    localStorage.setItem(studyResultsKey, JSON.stringify(results || []));
+    localStorage.setItem(scopedLearnerStorageKey(studyResultsKey, false), JSON.stringify(results || []));
     setStudyResults(results || []);
 
-    localStorage.setItem(intelligenceStateKey, JSON.stringify(intelligence || {}));
+    localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, false), JSON.stringify(intelligence || {}));
     setAiDifficultyRecord(intelligence?.difficulty || null);
     setStudyPlanRecord(intelligence?.studyPlan || null);
     setPromotionRecord(intelligence?.promotion || null);
@@ -1960,10 +1962,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setMistakeLog(intelligence?.mistakeLog || []);
 
     if (audit) {
-      localStorage.setItem(aiAuditKey, JSON.stringify(audit));
+      localStorage.setItem(scopedLearnerStorageKey(aiAuditKey, false), JSON.stringify(audit));
       setAiAuditRecord(audit);
     } else {
-      localStorage.removeItem(aiAuditKey);
+      localStorage.removeItem(scopedLearnerStorageKey(aiAuditKey, false));
       setAiAuditRecord(null);
     }
   }
@@ -2053,7 +2055,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       return;
     }
 
-    const localVoicePreference = readLocalVoicePreference();
+    const localVoicePreference = readLocalVoicePreference(scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, false));
     const { data: remoteVoiceRow } = await supabase.from("hallium_voice_preferences")
       .select("voice_uri,voice_name,rate,updated_at")
       .eq("user_id", user.id)
@@ -2064,7 +2066,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       rate: remoteVoiceRow.rate,
       updatedAt: remoteVoiceRow.updated_at || "",
     } : null);
-    setVoicePreference(writeLocalVoicePreference(mergedVoicePreference));
+    setVoicePreference(writeLocalVoicePreference(mergedVoicePreference, scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, false)));
     setVoiceSaveStatus(remoteVoiceRow ? "synced" : "local");
     if (!remoteVoiceRow && (mergedVoicePreference.voiceUri || mergedVoicePreference.voiceName || mergedVoicePreference.updatedAt)) {
       await supabase.from("hallium_voice_preferences").upsert({
@@ -2129,7 +2131,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const next = writeLocalVoicePreference(normalizeVoicePreference({
       ...nextValue,
       updatedAt: new Date().toISOString(),
-    }));
+    }), scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, guestMode));
     setVoicePreference(next);
     koreanVoiceRef.current = resolveKoreanVoice(next, availableKoreanVoices);
     const user = authUserRef.current;
@@ -2238,7 +2240,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setLearnerProfile(profile);
     setDraftCurrentLevel(profile.currentLevel);
     setDraftTargetLevel(profile.targetLevel);
-    localStorage.setItem(learnerProfileKey, JSON.stringify(profile));
+    localStorage.setItem(scopedLearnerStorageKey(learnerProfileKey, guestMode), JSON.stringify(profile));
     setStudyScore(0);
     setStudyTestIndex(0);
     setStudyTestChoice(null);
@@ -2323,7 +2325,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         };
         const record = { audit, model: "Guest demo · local", generatedAt: new Date().toISOString() };
         setAiAuditRecord(record);
-        localStorage.setItem(aiAuditKey, JSON.stringify(record));
+        localStorage.setItem(scopedLearnerStorageKey(aiAuditKey, guestMode), JSON.stringify(record));
         await generateLearningRoute(audit);
         return;
       }
@@ -2342,7 +2344,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         generatedAt: new Date().toISOString(),
       };
       setAiAuditRecord(record);
-      localStorage.setItem(aiAuditKey, JSON.stringify(record));
+      localStorage.setItem(scopedLearnerStorageKey(aiAuditKey, guestMode), JSON.stringify(record));
       await generateLearningRoute(data.audit);
     } catch (error) {
       setAiAuditError(error instanceof Error ? error.message : "Could not generate the AI audit.");
@@ -2401,7 +2403,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   function saveIntelligenceState(partial) {
     const previous = readIntelligenceState();
     const next = { ...previous, ...partial };
-    localStorage.setItem(intelligenceStateKey, JSON.stringify(next));
+    localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode), JSON.stringify(next));
   }
 
   function guestIntelligenceDemo(action, payload = {}) {
@@ -2794,7 +2796,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
   function persist(next) {
     setProgress(next);
-    localStorage.setItem(lessonKey, JSON.stringify(next));
+    localStorage.setItem(scopedLearnerStorageKey(lessonKey, guestMode), JSON.stringify(next));
   }
   function resetInteraction() {
     setChoiceIndex(null);
@@ -4231,7 +4233,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         const result = { levelId: activeStudy.id, score: nextScore, total: activeStudy.test.length, completedAt: new Date().toISOString() };
         const nextResults = [result, ...studyResults].slice(0, 12);
         setStudyResults(nextResults);
-        localStorage.setItem(studyResultsKey, JSON.stringify(nextResults));
+        localStorage.setItem(scopedLearnerStorageKey(studyResultsKey, guestMode), JSON.stringify(nextResults));
         trackLearningEvent("study_test_completed", null, {
           level_id: activeStudy.id,
           score: nextScore,
