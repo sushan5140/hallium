@@ -1,0 +1,13 @@
+{
+  "id": "hand",
+  "ko": "손",
+  "latin": "son",
+  "meaning": "Hand",
+  "group": "Body",
+  "type": "NOUN · BODY",
+  "example": "손을 씻어요.",
+  "translation": "I wash my hands.",
+  "tip": "손 is one syllable ending in ㄴ.",
+  "sentencePrompt": "_____을 씻어요.",
+  "contrast": "손 means hand; 발 means foot."
+}
