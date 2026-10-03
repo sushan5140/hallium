@@ -1,0 +1,13 @@
+{
+  "id": "write",
+  "ko": "쓰다",
+  "latin": "sseuda",
+  "meaning": "To write",
+  "group": "Actions",
+  "type": "VERB · STUDY",
+  "example": "이름을 써요.",
+  "translation": "I write my name.",
+  "tip": "쓰다 changes to 써요 in polite present speech.",
+  "sentencePrompt": "이름을 _____.",
+  "contrast": "쓰다 can mean write or use depending on context."
+}
