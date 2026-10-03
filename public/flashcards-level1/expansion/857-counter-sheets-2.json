@@ -1,0 +1,13 @@
+{
+  "id": "counter-sheets-2",
+  "ko": "두 장",
+  "latin": "du jang",
+  "meaning": "2 sheets / pages",
+  "group": "Counters",
+  "type": "COUNTER · FLAT OBJECTS",
+  "example": "종이가 두 장 있어요.",
+  "translation": "There are 2 sheets of paper.",
+  "tip": "장 counts flat objects such as sheets of paper, tickets, photos, and cards.",
+  "sentencePrompt": "종이가 _____ 있어요.",
+  "contrast": "장 counts flat objects; 권 counts books and bound volumes."
+}
