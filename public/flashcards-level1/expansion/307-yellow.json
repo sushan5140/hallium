@@ -1,0 +1,13 @@
+{
+  "id": "yellow",
+  "ko": "노란색",
+  "latin": "noransaek",
+  "meaning": "Yellow",
+  "group": "Description",
+  "type": "NOUN · COLOR",
+  "example": "노란색 꽃이 예뻐요.",
+  "translation": "The yellow flower is pretty.",
+  "tip": "노란색 is pronounced no-ran-saek.",
+  "sentencePrompt": "_____ 꽃이 예뻐요.",
+  "contrast": "노란색 means yellow; 초록색 means green."
+}
