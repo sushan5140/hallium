@@ -1,0 +1,13 @@
+{
+  "id": "father",
+  "ko": "아버지",
+  "latin": "abeoji",
+  "meaning": "Father",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "아버지는 회사에 가요.",
+  "translation": "My father goes to work.",
+  "tip": "아버지 is polite/formal; 아빠 is casual.",
+  "sentencePrompt": "_____는 회사에 가요.",
+  "contrast": "아버지 is polite; 아빠 is familiar."
+}
