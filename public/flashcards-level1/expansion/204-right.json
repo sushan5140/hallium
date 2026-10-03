@@ -1,0 +1,13 @@
+{
+  "id": "right",
+  "ko": "오른쪽",
+  "latin": "oreunjjok",
+  "meaning": "Right",
+  "group": "Travel",
+  "type": "NOUN · DIRECTION",
+  "example": "오른쪽에 은행이 있어요.",
+  "translation": "There is a bank on the right.",
+  "tip": "오른쪽 ends with tense 쪽.",
+  "sentencePrompt": "_____에 은행이 있어요.",
+  "contrast": "오른쪽 means right; 왼쪽 means left."
+}
