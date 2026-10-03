@@ -1,0 +1,13 @@
+{
+  "id": "understand",
+  "ko": "이해하다",
+  "latin": "ihaehada",
+  "meaning": "To understand",
+  "group": "Actions",
+  "type": "VERB · COGNITION",
+  "example": "이 문장을 이해해요.",
+  "translation": "I understand this sentence.",
+  "tip": "이해하다 changes to 이해해요.",
+  "sentencePrompt": "이 문장을 _____.",
+  "contrast": "이해하다 means understand; 모르다 means not know."
+}
