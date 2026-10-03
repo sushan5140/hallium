@@ -4855,6 +4855,257 @@ export default function Hallim() {
     { label: "Lessons", score: Math.round((completedCount / Math.max(lessons.length, 1)) * 100), note: completedCount + "/" + lessons.length },
   ];
 
+  function AdminRail() {
+    return (
+      <aside className="lesson-rail admin-studio-rail" aria-label="Curriculum administration">
+        <header>
+          <span className="rail-kicker">PRIVATE · ADMIN ONLY</span>
+          <h1>Curriculum Studio</h1>
+          <p>Inspect what Hallim actually teaches before changing what learners see.</p>
+        </header>
+        <div className="admin-rail-stats">
+          <span><b>{adminCurriculumAudit.summary.units}</b> units</span>
+          <span><b>{adminCurriculumAudit.summary.lessons}</b> lessons</span>
+          <span><b>{adminCurriculumAudit.summary.withGaps}</b> flagged gaps</span>
+          <span><b>{adminStudioState.savedItems.length}</b> saved items</span>
+        </div>
+        <button className="curriculum-button" onClick={() => navigate("companion")}>
+          <span>Open learner catalog</span><strong>↗</strong>
+        </button>
+        <a className="field-guide-button" href="/topik-mocks">
+          <span>TOPIK provenance studio</span>
+          <small>papers · keys · audio gates</small>
+        </a>
+        <div className="rail-insight">
+          <p><strong>Admin state</strong>{adminStudioSaveStatus === "synced" ? "Private notes are synced." : adminStudioSaveStatus === "saving" ? "Saving private changes…" : adminStudioSaveStatus === "error" ? "Private state needs attention." : "Loading private state…"}</p>
+        </div>
+      </aside>
+    );
+  }
+
+  function AdminStudio() {
+    if (!adminAccess) {
+      return (
+        <div className="admin-denied">
+          <span className="eyebrow">Private workspace</span>
+          <h1>Admin access required.</h1>
+          <p>This curriculum workspace is available only to accounts listed in Hallim's protected admin membership.</p>
+          <button onClick={returnHome}>Return to Practice</button>
+        </div>
+      );
+    }
+
+    const needle = adminStudioQuery.trim().toLowerCase();
+    const filteredRows = adminCurriculumAudit.rows.filter((row) => {
+      if (adminStudioScope === "gaps" && row.coverage.complete) return false;
+      if (adminStudioScope === "checkpoints" && row.lesson.type !== "checkpoint") return false;
+      if (adminStudioScope === "approved" && adminStudioState.qaFlags[row.lesson.id] !== "approved") return false;
+      if (!needle) return true;
+      return [
+        row.unitTitle,
+        row.levelLabel,
+        row.lesson.title,
+        row.lesson.subtitle,
+        ...row.coverage.vocabulary.map((item) => item.korean + " " + item.meaning),
+        ...row.coverage.grammar.map((item) => item.title + " " + item.body),
+      ].some((value) => String(value || "").toLowerCase().includes(needle));
+    });
+
+    const stepKinds = ["word","explain","choice","listening","shadowing","dictation","reading","build","finish"];
+
+    const openAdminLessonAt = (lesson, preferredKinds = []) => {
+      const index = lesson.steps.findIndex((step) => preferredKinds.includes(step.kind));
+      setActiveLesson(lesson.id);
+      setStepIndex(index >= 0 ? index : 0);
+      resetInteraction();
+      navigate("lesson");
+    };
+
+    return (
+      <div className="admin-studio-body">
+        <div className="admin-studio-hero">
+          <div>
+            <span className="section-label">PRIVATE CURRICULUM OPERATIONS</span>
+            <h1>See the whole course before the learner sees one lesson.</h1>
+            <p>Coverage is calculated from the live Hallim units array. Notes, QA flags and saved teaching items are private to the admin account.</p>
+          </div>
+          <span className={"admin-sync-state " + adminStudioSaveStatus}>
+            {adminStudioSaveStatus === "synced" ? "Synced" : adminStudioSaveStatus === "saving" ? "Saving…" : adminStudioSaveStatus === "error" ? "Sync issue" : "Loading"}
+          </span>
+        </div>
+
+        <div className="admin-metric-grid">
+          {[
+            ["Units", adminCurriculumAudit.summary.units],
+            ["Lessons", adminCurriculumAudit.summary.lessons],
+            ["Checkpoints", adminCurriculumAudit.summary.checkpoints],
+            ["Full stage coverage", adminCurriculumAudit.summary.complete],
+            ["Coverage gaps", adminCurriculumAudit.summary.withGaps],
+            ["Listening", adminCurriculumAudit.summary.listening],
+            ["Dictation", adminCurriculumAudit.summary.dictation],
+            ["Shadowing", adminCurriculumAudit.summary.shadowing],
+            ["Production", adminCurriculumAudit.summary.production],
+          ].map(([label,value]) => <div key={label}><span>{label}</span><b>{value}</b></div>)}
+        </div>
+
+        <div className="admin-studio-toolbar">
+          <label>
+            <span>Find a unit, lesson, word or grammar point</span>
+            <input type="search" value={adminStudioQuery} onChange={(event) => setAdminStudioQuery(event.target.value)} placeholder="Search the live curriculum…" />
+          </label>
+          <label>
+            <span>Scope</span>
+            <select value={adminStudioScope} onChange={(event) => setAdminStudioScope(event.target.value)}>
+              <option value="all">All lessons</option>
+              <option value="gaps">Coverage gaps</option>
+              <option value="checkpoints">Checkpoints</option>
+              <option value="approved">QA approved</option>
+            </select>
+          </label>
+          <button onClick={() => persistAdminStudioState(adminStudioState)}>Save private state</button>
+        </div>
+
+        {!adminStudioLoaded ? (
+          <div className="admin-loading">Loading private Curriculum Studio state…</div>
+        ) : (
+          <div className="admin-unit-stack">
+            {units.map((unit) => {
+              const unitRows = filteredRows.filter((row) => row.unitId === unit.id);
+              if (!unitRows.length) return null;
+              const unitGaps = unitRows.filter((row) => !row.coverage.complete).length;
+              return (
+                <section className="admin-unit" key={unit.id}>
+                  <header>
+                    <div>
+                      <span>UNIT {String(unit.number).padStart(2,"0")} · {unit.levelLabel}</span>
+                      <h2>{unit.title}</h2>
+                      <p>{unit.subtitle}</p>
+                    </div>
+                    <div>
+                      <b>{unitRows.length} lessons</b>
+                      <small>{unitGaps ? unitGaps + " coverage gap" + (unitGaps === 1 ? "" : "s") : "Stage coverage clear"}</small>
+                    </div>
+                  </header>
+
+                  <div className="admin-lesson-list">
+                    {unitRows.map(({ lesson, coverage }) => {
+                      const note = adminStudioState.lessonNotes[lesson.id] || "";
+                      const qa = adminStudioState.qaFlags[lesson.id] || "review";
+                      const saveableSteps = lesson.steps
+                        .map((step,index) => ({ step,index }))
+                        .filter(({step}) => ["word","explain","choice","listening","dictation","reading","build"].includes(step.kind));
+
+                      return (
+                        <article className={"admin-lesson-card" + (coverage.complete ? " is-complete" : " has-gap")} key={lesson.id}>
+                          <div className="admin-lesson-head">
+                            <div>
+                              <span>{lesson.type === "checkpoint" ? "CHECKPOINT" : "LESSON " + lesson.number}</span>
+                              <h3>{lesson.title}</h3>
+                              <p>{lesson.subtitle}</p>
+                            </div>
+                            <div className="admin-lesson-actions">
+                              <button onClick={() => openAdminLessonAt(lesson)}>Preview lesson</button>
+                              <button onClick={() => openAdminLessonAt(lesson, ["choice","listening","dictation","reading","build"])}>Open first check</button>
+                            </div>
+                          </div>
+
+                          <div className="admin-coverage-strip">
+                            {stepKinds.map((kind) => (
+                              <span key={kind} data-present={Boolean(coverage.counts[kind])}>
+                                {kind}<b>{coverage.counts[kind] || 0}</b>
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className="admin-lesson-summary">
+                            <span><b>{coverage.vocabulary.length}</b> vocabulary</span>
+                            <span><b>{coverage.grammar.length}</b> grammar</span>
+                            <span><b>{coverage.assessments}</b> assessment steps</span>
+                            <span className={coverage.missing.length ? "needs-work" : "clear"}>
+                              {coverage.missing.length ? "Missing · " + coverage.missing.join(", ") : "Expected stages present"}
+                            </span>
+                          </div>
+
+                          <details className="admin-step-inventory">
+                            <summary>Teaching inventory · {saveableSteps.length} saveable items</summary>
+                            <div>
+                              {saveableSteps.map(({step,index}) => {
+                                const title = step.kind === "word" ? step.korean : step.kind === "explain" ? step.title : step.prompt || step.kind;
+                                const alreadySaved = adminStudioState.savedItems.some((saved) =>
+                                  saved.lessonId === lesson.id && saved.kind === step.kind && saved.title === title
+                                );
+                                return (
+                                  <article key={step.kind + index}>
+                                    <span>{step.kind}</span>
+                                    <b>{title}</b>
+                                    <button disabled={alreadySaved} onClick={() => saveAdminTeachingItem(unit,lesson,step,index)}>
+                                      {alreadySaved ? "Saved ✓" : "Save item"}
+                                    </button>
+                                  </article>
+                                );
+                              })}
+                            </div>
+                          </details>
+
+                          <div className="admin-private-row">
+                            <label>
+                              <span>Private lesson note</span>
+                              <textarea
+                                value={note}
+                                onChange={(event) => setAdminStudioState((current) => ({
+                                  ...current,
+                                  lessonNotes: { ...current.lessonNotes, [lesson.id]: event.target.value.slice(0, 4000) },
+                                }))}
+                                placeholder="Native-speaker review, content issue, rewrite idea, device QA…"
+                              />
+                            </label>
+                            <label>
+                              <span>QA state</span>
+                              <select
+                                value={qa}
+                                onChange={(event) => setAdminStudioState((current) => ({
+                                  ...current,
+                                  qaFlags: { ...current.qaFlags, [lesson.id]: event.target.value },
+                                }))}
+                              >
+                                <option value="review">Needs review</option>
+                                <option value="native-review">Native Korean review</option>
+                                <option value="needs-fix">Needs fix</option>
+                                <option value="approved">Approved</option>
+                              </select>
+                            </label>
+                            <button onClick={() => persistAdminStudioState(adminStudioState)}>Save lesson QA</button>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        )}
+
+        <section className="admin-saved-bank">
+          <header>
+            <div><span className="section-label">SAVED TEACHING BANK</span><h2>Reusable items from the live curriculum.</h2></div>
+            <b>{adminStudioState.savedItems.length} saved</b>
+          </header>
+          <div>
+            {adminStudioState.savedItems.length ? adminStudioState.savedItems.map((item) => (
+              <article key={item.id}>
+                <span>{item.kind} · {item.unitTitle}</span>
+                <h3>{item.title}</h3>
+                <p>{item.lessonTitle}</p>
+                <button onClick={() => removeAdminTeachingItem(item.id)}>Remove</button>
+              </article>
+            )) : <p>No teaching items saved yet. Open a lesson inventory above and save the vocabulary, grammar, or assessment pieces you want to revisit.</p>}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   function PracticeRail() {
     const inLesson = view === "lesson" && currentLesson;
     const railUnit = currentLessonUnit || nextLessonUnit;
