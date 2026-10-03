@@ -1,0 +1,13 @@
+{
+  "id": "banana",
+  "ko": "바나나",
+  "latin": "banana",
+  "meaning": "Banana",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "바나나를 하나 샀어요.",
+  "translation": "I bought one banana.",
+  "tip": "바나나 is a straightforward loanword.",
+  "sentencePrompt": "_____를 하나 샀어요.",
+  "contrast": "바나나 means banana; 사과 means apple."
+}
