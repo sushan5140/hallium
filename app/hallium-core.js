@@ -2401,7 +2401,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   }
 
   function saveIntelligenceState(partial) {
-    const previous = readIntelligenceState();
+    const previous = readIntelligenceState(guestMode);
     const next = { ...previous, ...partial };
     localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode), JSON.stringify(next));
   }
