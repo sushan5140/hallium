@@ -419,7 +419,7 @@ const units = [
       {
         title: "Report what someone said", subtitle: "Use -다고 하다 for statements.",
         words: [["전하다","convey"],["발표","announcement"],["내용","content"]],
-        pattern: ["Statement + 다고 하다", "Use -다고 하다 to report a statement without quoting it word-for-word.", "회의가 취소됐다고 했어요.", [["회의가","meeting"],["취소됐다고","that it was cancelled"],["했어요","said"]]],
+        pattern: ["V + -(ㄴ/는)다고 / A + -다고 / N + (이)라고 하다", "Reported-statement form changes by word type: present action verbs usually use -(ㄴ/는)다고, descriptive verbs use -다고, and nouns use -(이)라고. Past or future marking stays inside the reported clause.", "회의가 취소됐다고 했어요.", [["회의가","meeting"],["취소됐다고","that it was cancelled"],["했어요","said"]]],
         check: ["Which reports “They said the meeting was cancelled”?", ["회의가 취소됐다고 했어요.","회의를 취소하라고 했어요.","회의가 취소됐냐고 했어요.","회의를 취소하자고 했어요."], 0, "-다고 하다 reports a statement."],
         listen: ["담당자가 일정이 다음 주로 바뀌었다고 했어요.", "What did the person in charge say?", ["The schedule moved to next week","The event was cancelled forever","The room changed","The price increased"], 0, "일정이 다음 주로 바뀌었다고 했어요."],
         build: ["Build: They said the schedule changed.", ["일정이 바뀌었다고","했어요"], "일정이 바뀌었다고 했어요"],
