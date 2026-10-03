@@ -1,0 +1,13 @@
+{
+  "id": "clock",
+  "ko": "시계",
+  "latin": "sigye",
+  "meaning": "Clock / watch",
+  "group": "Daily Life",
+  "type": "NOUN · OBJECT",
+  "example": "시계를 봐요.",
+  "translation": "I look at the clock.",
+  "tip": "계 is pronounced gye.",
+  "sentencePrompt": "_____를 봐요.",
+  "contrast": "시계 is clock/watch; 시간 means time."
+}
