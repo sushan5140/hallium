@@ -2818,3 +2818,117 @@ Stress-test:
 - possibly conservative null intervals or mixture-over-null alternatives
 
 Do not merge the TwinMem research stack into production Hallium.
+
+
+---
+
+# 35. TwinMem Pilot 10 — plug-in null is not robust
+
+Draft PR: #15  
+Branch: `research/twinmem-pilot10-null-estimation`
+
+Pilot 10 freezes Pilot 9:
+- delta = 0.25
+- alpha = 0.10
+- stages 8 / 12 / 24 / 48
+- same detection and efficiency targets
+
+Only the amount/quality of baseline evidence used to estimate null source reliabilities `p0` changes.
+
+Baseline-size robustness curve:
+
+12 labels/source:
+- stationary false alarm 49.6875%
+- moderate detection 72.1875%
+- moderate mean labels/source 35.25
+- severe detection 98.125%
+- severe mean labels/source 21.875
+- FAIL
+
+24:
+- stationary false alarm 27.5%
+- moderate detection 74.375%
+- moderate mean labels/source 35.6
+- severe detection 99.6875%
+- severe mean labels/source 18.7125
+- FAIL
+
+48:
+- stationary false alarm **10.0%**
+- moderate detection **80.0%**
+- moderate mean labels/source 31.65
+- severe detection 98.75%
+- severe mean labels/source 16.7125
+- PASS exactly on both key thresholds
+
+96:
+- stationary false alarm 5.9375%
+- moderate detection 80.3125%
+- moderate mean labels/source 30.2125
+- severe detection 100%
+- severe mean labels/source 15.6625
+- PASS
+
+192:
+- stationary false alarm 4.0625%
+- moderate detection 86.25%
+- moderate mean labels/source 28.4625
+- severe detection 100%
+- severe mean labels/source 14.4625
+- PASS
+
+Minimum passing baseline size on this curve: **48 labels/source**.
+
+Important:
+48 is only a marginal pass and has essentially no robustness margin.
+
+Fresh misspecification stress at 48 labels/source:
+
+No added bias:
+- stationary false alarm **10.75%**
+- moderate detection **74.25%**
+- moderate mean labels 33.13
+- severe detection 99.75%
+- FAIL
+
+All `p0 + 0.03`:
+- stationary false alarm 11.5%
+- moderate detection 80.25%
+- FAIL
+
+All `p0 - 0.03`:
+- stationary false alarm **22.5%**
+- moderate detection 77.5%
+- FAIL
+
+Source skew ±0.03:
+- stationary false alarm 14.5%
+- moderate detection 89.25%
+- FAIL
+
+**No fresh stress condition passes all goals.**
+
+Conclusion:
+Pilot 9's plug-in null is empirically fragile. Estimating a point `p0` and treating it as fixed can materially inflate false alarms and alter sensitivity.
+
+Exact next phase:
+**Pilot 11 — null-uncertainty-aware evidence**
+
+Freeze:
+- Pilot-9 delta 0.25
+- Pilot-9 alpha 0.10
+- stages 8 / 12 / 24 / 48
+- Pilot-3 budget-aware response
+- detection and efficiency targets
+
+Change only null handling.
+
+Recommended experiment:
+- baseline sample fixed initially at 48 labels/source, because it is the first plug-in curve pass yet fails fresh robustness
+- derive a conservative interval for each source's baseline reliability
+- when computing evidence for an alternative, choose the null probability inside the interval that is most favorable to H0 / closest to the recent empirical rate
+- test multiple interval confidence levels on development only if needed
+- then evaluate on fresh unbiased and ±0.03 misspecification streams
+- clearly state that this conservative interval method is a robustness experiment, not automatically a formal e-process
+
+Do not loosen goals post hoc.
