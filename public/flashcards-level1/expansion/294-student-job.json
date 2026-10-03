@@ -1,0 +1,13 @@
+{
+  "id": "student-person",
+  "ko": "학생",
+  "latin": "haksaeng",
+  "meaning": "Student",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "그 학생은 한국어를 공부해요.",
+  "translation": "That student studies Korean.",
+  "tip": "학생 is commonly pronounced close to 학쌩.",
+  "sentencePrompt": "그 _____은 한국어를 공부해요.",
+  "contrast": "학생 means student; 교사 means teacher."
+}
