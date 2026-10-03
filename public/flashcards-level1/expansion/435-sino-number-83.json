@@ -1,0 +1,13 @@
+{
+  "id": "sino-number-83",
+  "ko": "팔십삼",
+  "latin": "pal-sip-sam",
+  "meaning": "Sino-Korean number 83",
+  "group": "Numbers",
+  "type": "NUMBER · SINO-KOREAN",
+  "example": "팔십삼 번이에요.",
+  "translation": "It is number 83.",
+  "tip": "Sino-Korean numbers are used for dates, money, minutes, phone numbers, and many measurements.",
+  "sentencePrompt": "_____ 번이에요.",
+  "contrast": "Use native Korean numbers with many everyday counters such as 개, 명, and 살."
+}
