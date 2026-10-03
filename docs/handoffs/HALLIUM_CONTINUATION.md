@@ -2401,3 +2401,204 @@ A new stacked research phase has begun:
 - base: Pilot-0 research branch, not production `main`
 
 Pilot 1 tests development-calibrated source reliability under equal context budgets and explicit source-reliability shift. Production Hallium remains untouched.
+
+
+---
+
+# 31. TwinMem research progression — Pilots 1–6
+
+This research track remains **fully isolated from production Hallium**. All work below lives in stacked draft PRs and synthetic-only branches.
+
+## Pilot 1 — calibrated source reliability
+
+Draft PR: #6  
+Branch: `research/twinmem-pilot1-calibrated-reliability`
+
+Question:
+Can source reliability learned from a synthetic development split replace Pilot-0 hand-set source weights?
+
+Primary held-out result:
+- calibration ≈ tied with fixed adaptive at 52 words
+- modest point-estimate gains at 105/210
+- no universal improvement
+- under unseen source-reliability reversal, frozen quality-aware priors fail badly
+- recalibration recovers only when labeled shifted development evidence is available
+
+Important conclusion:
+Static source-trust assumptions can become stale.
+
+## Pilot 2 — drift-aware global gate
+
+Draft PR: #7  
+Branch: `research/twinmem-pilot2-drift-gate`
+
+Frozen detector:
+- 24 recent labeled observations/source
+- drift threshold 0.20
+
+Result:
+- correctly distinguishes stationary vs shifted regime in the tested simulator
+- global switch to freshness-first strongly helps 52-word tight context under shift
+- but hurts 105/210 where calibrated retrieval remains stronger
+
+Conclusion:
+Drift response must be **context-budget aware**, not one global switch.
+
+## Pilot 3 — budget-aware drift response
+
+Draft PR: #8  
+Branch: `research/twinmem-pilot3-budget-aware-gate`
+
+Learned development action table:
+
+No drift:
+- 52 → calibrated
+- 105 → calibrated
+- 210 → calibrated
+
+Drift:
+- 52 → topic_recent / freshness-first
+- 105 → calibrated
+- 210 → calibrated
+
+Held-out:
+- stationary preserved calibrated behavior
+- severe shift recovered +22.55 pp at 52 words without sacrificing 105/210
+- unseen moderate shift recovered +7.19 pp at 52 words while preserving larger budgets
+
+Conclusion:
+Budget-aware response is better than global switching in this simulator.
+
+## Pilot 4 — label efficiency / stability of fixed threshold
+
+Draft PR: #9  
+Branch: `research/twinmem-pilot4-label-efficiency`
+
+Frozen:
+- point-estimate threshold 0.20
+- Pilot-3 action table
+
+Predeclared criterion:
+- stationary false alarms ≤10%
+- moderate detection ≥80%
+- severe detection ≥90%
+
+250 resamples/window at 4, 8, 12, 24, 48 labels/source.
+
+Observed:
+- 4 labels: stationary false alarm 100%
+- 8: 100%
+- 12: 81.2%
+- 24: 48.4%
+- 48: 25.6%
+
+Moderate/severe sensitivity stayed very high.
+
+**No tested window passed.**
+
+Conclusion:
+Fixed absolute point-estimate threshold is not sample-size aware and is not credible.
+
+## Pilot 5 — uncertainty-aware drift detector
+
+Draft PR: #10  
+Branch: `research/twinmem-pilot5-uncertainty-aware-drift`
+
+Detector:
+`|recent posterior mean - baseline posterior mean| - z × SE(diff)`
+
+Development-only grid:
+- labels/source 8, 12, 24, 48
+- meaningful margin 0.05 / 0.10 / 0.15
+- z 1.64 / 1.96 / 2.58
+
+Selection rule:
+- only configs meeting 10% / 80% / 90%
+- smallest label window first
+- then better specificity/sensitivity
+
+Selected:
+- 48 labels/source
+- margin 0.05
+- z 1.96
+
+Independent held-out, 400 resamples/scenario:
+- stationary false alarm: **1.0%**
+- moderate detection: **84.25%**
+- severe detection: **100%**
+
+Predeclared held-out criterion: **PASS**
+
+Important limitation:
+Detector still needs 48 labels/source = 144 labeled observations across three source types.
+
+Conclusion:
+Uncertainty-awareness fixes specificity, not label efficiency.
+
+## Pilot 6 — sequential early stopping
+
+Draft PR: #11  
+Branch: `research/twinmem-pilot6-sequential-drift`
+
+Frozen:
+- Pilot-5 detector (margin 0.05, z 1.96)
+- Pilot-3 action table
+- max 48 labels/source
+
+Stages:
+- 8 → 12 → 24 → 48 labels/source
+
+Rule:
+- early drift only after two consecutive positive stage signals
+- otherwise use exact Pilot-5 decision at 48
+
+Predeclared detection criteria:
+- stationary false alarms ≤10%
+- moderate detection ≥80%
+- severe detection ≥90%
+
+Predeclared efficiency goals:
+- moderate mean labels/source ≤36
+- severe mean labels/source ≤24
+
+Held-out:
+- stationary: 4.0% false alarms, mean 46.89 labels/source
+- moderate: 92.0% detection, mean 37.05 labels/source
+- severe: 100% detection, mean 23.85 labels/source
+
+Detection criteria: **PASS**
+
+Efficiency:
+- severe ≤24: **PASS**
+- moderate ≤36: **FAIL by 1.05 labels/source**
+- overall efficiency goal: **FAIL**
+
+Stop behavior:
+Moderate:
+- 12 labels: 24.75%
+- 24: 8.50%
+- 48: 66.75%
+
+Severe:
+- 12 labels: 57.25%
+- 24: 14.75%
+- 48: 28.00%
+
+Conclusion:
+Sequential collection clearly reduces cost for strong drift but the conservative two-confirmation rule remains slightly too slow for moderate drift.
+
+## Exact next research phase
+
+Pilot 7 should optimize **only the sequential stopping boundary on development streams** while freezing:
+- Pilot-5 posterior reliability model
+- Pilot-5 meaningful margin / z family unless explicitly evaluated as stopping-only boundary multipliers
+- Pilot-3 budget-aware retrieval response
+- held-out detection criteria
+- moderate/severe label-cost targets
+
+Primary goal:
+reduce moderate mean labels/source below 36 **without** pushing stationary false alarms above 10% or moderate detection below 80%.
+
+Do not merge any TwinMem pilot into production Hallium.
+Do not claim human-study or on-device results.
+Do not treat synthetic simulator truth as production-available labels.
