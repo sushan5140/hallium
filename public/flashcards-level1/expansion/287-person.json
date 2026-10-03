@@ -1,0 +1,13 @@
+{
+  "id": "person",
+  "ko": "사람",
+  "latin": "saram",
+  "meaning": "Person",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "사람이 많아요.",
+  "translation": "There are many people.",
+  "tip": "사람 is pronounced sa-ram.",
+  "sentencePrompt": "_____이 많아요.",
+  "contrast": "사람 means person; 사람들 means people."
+}
