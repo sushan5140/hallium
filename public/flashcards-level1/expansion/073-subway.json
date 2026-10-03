@@ -1,0 +1,13 @@
+{
+  "id": "subway",
+  "ko": "지하철",
+  "latin": "jihacheol",
+  "meaning": "Subway",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "지하철로 학교에 가요.",
+  "translation": "I go to school by subway.",
+  "tip": "철 ends with final ㄹ.",
+  "sentencePrompt": "_____로 학교에 가요.",
+  "contrast": "지하철 means subway; 버스 means bus."
+}
