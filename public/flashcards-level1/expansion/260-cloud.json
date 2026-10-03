@@ -1,0 +1,13 @@
+{
+  "id": "cloud",
+  "ko": "구름",
+  "latin": "gureum",
+  "meaning": "Cloud",
+  "group": "Daily Life",
+  "type": "NOUN · NATURE",
+  "example": "하늘에 구름이 많아요.",
+  "translation": "There are many clouds in the sky.",
+  "tip": "구름 contains the ㅡ vowel in 름.",
+  "sentencePrompt": "하늘에 _____이 많아요.",
+  "contrast": "구름 is cloud; 하늘 is sky."
+}
