@@ -1,0 +1,13 @@
+{
+  "id": "take-photo",
+  "ko": "찍다",
+  "latin": "jjikda",
+  "meaning": "To take (a photo)",
+  "group": "Actions",
+  "type": "VERB · MEDIA",
+  "example": "여행에서 사진을 찍어요.",
+  "translation": "I take photos while traveling.",
+  "tip": "찍다 begins with tense ㅉ and changes to 찍어요.",
+  "sentencePrompt": "여행에서 사진을 _____.",
+  "contrast": "찍다 means take a photo or stamp/mark depending on context."
+}
