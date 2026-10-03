@@ -1202,3 +1202,181 @@ Main remaining risks:
 - client admin route presentation not fully fail-closed
 - incomplete API-route abuse review
 - possible overexposure of internal SECURITY DEFINER helpers
+
+---
+
+# 22. Live continuation update — 2026-10-03 (security closure resumed)
+
+This section supersedes older "not yet patched" statuses where the live repository/database has moved forward.
+
+## Verified repo/database drift since the original handoff
+
+The original handoff was accurate at capture time, but later work had already landed before security closure resumed:
+
+- `supabase/migrations/20261003000200_security_hardening.sql` is present and applied.
+  - Curriculum Admin DELETE policy/grant removed.
+  - explicit anon/public revocation applied.
+  - admin JSON constraints added.
+  - authenticated AI request quota table added for audit/intelligence endpoints.
+- `supabase/migrations/20261003000300_move_partner_rls_helpers_internal.sql` is present and applied.
+  - RLS-only partner helper functions moved to `hallium_internal`.
+  - old public helper functions dropped.
+  - Study Partner/Twin policies now call internal helpers.
+- `app/hallium-core.js` now owns the full Hallium application shell after the guest-mode entry split.
+  - URL `allowedViews` does not include `admin`.
+  - admin content still independently checks `adminAccess`.
+  - direct `?view=admin` therefore fails closed at the URL-routing layer as well as the component/data layers.
+- Guest reviewer mode and `hallium_guest_entries` analytics also landed after the original handoff.
+
+## TOPIK activation hardening — completed in this continuation
+
+Problem:
+Legacy provenance objects still carried `scoringAllowed`, `embeddedAudioAllowed`, and `inAppQuestionContentAllowed` booleans. They were acting as an additional authority rather than merely historical metadata.
+
+Changes:
+- `lib/topik/provenance.js`
+  - activation is now derived only from release/asset/rights states plus structure validity.
+  - added `deriveTopikActivationFlags()` as the single testable derived gate.
+  - stored legacy activation booleans are non-authoritative.
+- Added `tests/topik-provenance.test.mjs`.
+- Batch 2 CI now runs the provenance regression suite.
+
+Regression cases added:
+- manual `scoringAllowed: true` cannot unlock a pending answer key.
+- verified key + pending rights remains locked.
+- verified audio + pending rights remains locked.
+- fully verified synthetic states unlock even when legacy booleans are false.
+- structure errors fail closed.
+
+Commits:
+- `55679feb5fff0cbbb063c34afe01fe766b957d8c`
+- `2d4b6e3bb89f7c6c911138c5bdb9e0a806e65ed7`
+- `8fb57c66306390b030643ab6c81b3b7df562b624`
+- `f1a6180f1a653d125d3a27ce1e51bb12913e3eef`
+
+## Batch 2 CI shell-split repair
+
+Recent Guest Mode work moved the main Hallium application from `app/page.js` into `app/hallium-core.js`, leaving Batch 2 security grep assertions pointed at the old shell.
+
+Updated `.github/workflows/verify-halium-batch2.yml` to:
+- watch `app/hallium-core.js`,
+- check `admin_users`, `hallium_curriculum_admin_state`, and `adminAccess` in the real application file,
+- assert that the URL allowlist does not expose `admin`.
+
+Commit:
+- `6c1e35c3e4788056416f3b3d1aed147455f0ecfb`
+
+## Curriculum Admin final least-privilege pass
+
+Live inspection showed the earlier hardening had already removed authenticated DELETE and anon access, but default table grants still left authenticated with unnecessary:
+- REFERENCES
+- TRIGGER
+- TRUNCATE
+
+Added and applied:
+`supabase/migrations/20261003000400_curriculum_admin_least_privilege.sql`
+
+Authenticated now has exactly:
+- SELECT
+- INSERT
+- UPDATE
+
+No admin data was deleted.
+
+Commit:
+- `020fb264302f1016b563f01c736a4a9d423e2fd6`
+
+Live verification after migration confirmed the exact authenticated grant set above.
+
+## API audit status after current review
+
+### /api/audit
+Has:
+- same-origin/auth/Google-user guard via `requireHalliumAiUser`
+- bounded JSON body
+- authenticated daily + per-minute quota
+- server-only AI key
+- grounded prompt
+- JSON parsing
+- no-store on guard/quota failures
+
+### /api/intelligence
+Has:
+- same-origin/auth/Google-user guard
+- bounded JSON body + secondary learner-snapshot size check
+- supported-action allowlist
+- authenticated daily + per-minute quota
+- server-only AI key
+- grounded prompts
+- server-side structured-output validation
+
+### /api/ai-twins/guides/chat
+Has:
+- same-origin
+- server-side auth + Google-provider check
+- body/message limits
+- per-user daily + per-minute limits
+- private history scoped by user_id + guide_id
+- server-only AI key
+- permanent human-phase retirement checks before and after provider call
+
+### /api/study-partners/practice
+Has:
+- same-origin
+- server-side auth + Google-provider check
+- request-size + UUID validation
+- accepted-partnership ownership check
+- room-level 24-hour generation cap
+- RLS-protected shared-note reads
+- prompt treats notes as untrusted data
+- grounded-output/source validation
+- server-only AI key with guided fallback
+
+### /api/ai-twins/meet
+Previously reviewed and still has:
+- same-origin
+- server-side auth + Google-provider check
+- body + UUID validation
+- self-target rejection
+- opt-in/discoverability requirements
+- per-user 24-hour cap
+- untrusted-profile prompt handling
+- limited public profile fields
+- duplicate proposed-meetup reuse
+- server-only AI key
+- human approval remains required
+
+No critical cross-user data leak was found in the reviewed routes.
+
+## Supabase advisor status after current hardening
+
+Security advisor currently reports:
+- internal `hallium_internal` tables with RLS/no policy (intentional private/internal tables; no direct app grants)
+- four authenticated SECURITY DEFINER RPC warnings:
+  - `hallium_partner_request`
+  - `hallium_partner_respond`
+  - `hallium_twin_decide`
+  - `hallium_twinverse_status`
+  These are intentional authenticated action/status RPC surfaces and must not be blindly revoked.
+- leaked-password protection disabled. Hallium's active user auth path is Google OAuth, so this warning does not represent the current primary sign-in flow; retain as an account-level platform warning unless password auth is enabled.
+
+Performance advisor still has legacy/performance findings (unindexed foreign keys, owner_korean_study auth-initplan, one multiple-policy warning, unused indexes). Treat separately from the security closure; do not claim fixed.
+
+## Current next execution order
+
+1. Let the updated CI/security workflows finish and inspect any real failures.
+2. Add/confirm security regression checks for:
+   - unauthenticated AI route rejection
+   - cross-origin rejection
+   - oversize/malformed body rejection
+   - direct non-admin admin-route fallback
+3. Re-run security/performance advisors after final DB changes.
+4. Run the full production regression matrix:
+   - standalone Hallium
+   - Batch 2
+   - TOPIK provenance
+   - Study Partners/Twinverse
+   - guest mode
+   - Vercel production readiness/live sanity
+5. Only after those pass, mark security closure complete and begin H-P5 native-Korean/curriculum/device/auth/voice/TOPIK QA.
+
