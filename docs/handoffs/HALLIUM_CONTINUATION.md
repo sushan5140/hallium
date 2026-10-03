@@ -3337,3 +3337,124 @@ Coverage includes:
 4. After live production verification, mark H-P5 production closure complete.
 
 MeloTTS/TwinMem research remains parked and is not part of production closure.
+
+
+---
+
+# 41. H-P5 content / cloud sync / native-browser voice QA
+
+Merged PR: #22  
+Merge commit: `afd187c84f139c306153609ebb90dde6007c1816`
+
+This phase continues production Hallium closure while keeping MeloTTS/TwinMem parked.
+
+## New release-contract coverage
+
+Added:
+`tests/hp5-release-contracts.test.mjs`
+
+Release invariants now explicitly cover:
+
+### Curriculum / content structure
+- published curriculum retains the multiskill release invariant:
+  - listening
+  - shadowing
+  - dictation
+  - production
+  - checkpoint
+- curriculum coverage exemptions remain explicit rather than hiding missing stages
+- `curriculumAudit(units)` remains wired into the live curriculum.
+
+### Auth / cloud sync
+- signed-in app remains gated while `hydrateFromCloud(user)` runs
+- canonical local cache is cleared when it belongs to another user
+- local owner is claimed only after merged state is applied
+- merged lesson progress preserves:
+  - completion from either local or cloud
+  - furthest reached step
+- timestamped profile / AI audit state keeps the newer record
+- merged state is pushed back to cloud only after hydration/merge.
+
+### Guest Mode
+- guest entry profile remains guest-scoped
+- canonical signed-in learner profile key is not seeded by guest entry
+- guest path remains local-only for learner sync.
+
+### Native browser Korean voice
+- newer local/cloud voice preference wins by timestamp
+- slow practice remains a multiplier over account pace
+- rate remains clamped to the supported safe range
+- no MeloTTS dependency is required for this closure phase.
+
+## Korean content audit
+
+A source-level review was performed on the live Hallium curriculum/content surface:
+
+- no empty Korean teaching fields found in the scanned curriculum source
+- no malformed long standalone jamo sequences found
+- placeholder keyword hits were normal HTML form placeholders, not unfinished teaching content
+- romanization exists as a secondary learner aid
+- UI copy explicitly states that Romanization is only a learner guide
+- Hangul remains the primary teaching form
+- built-in casual Message Makeover phrases were reviewed at source level with no blocking language issue identified
+
+Important:
+This is a structural/editorial source audit, **not native-speaker certification**.
+
+## CI
+
+PR #22:
+- Verify standalone Hallium: PASS
+- Verify Hallium H-P5 closure: PASS
+
+H-P5 closure browser checks continued to pass after adding these contracts.
+
+## Production observability
+
+Current served production at `https://hallium.vercel.app`:
+- authenticated Vercel fetch: HTTP 200
+- security headers present
+- `/hangul`, `/topik-mocks`, and `/study-partners` responded successfully in live fetch checks
+- Vercel runtime error scan for the previous 24h: **no runtime errors found**
+
+## Remaining production blocker
+
+Vercel project:
+- `hallium`
+- project ID `prj_CMn14LNFYa4bKxjLmG9Vun7WBsIV`
+- repository `sushan5140/hallium`
+
+At this checkpoint, Vercel still reports the latest production deployment as older main SHA:
+
+`250994e430b0338bfa3b1ada34308d66da92874f`
+
+The merged H-P5 Guest Mode fix and QA commits are therefore **not yet verified as live in production**.
+
+There is no repo-side `VERCEL_TOKEN` / `VERCEL_PROJECT_ID` CI deployment wiring, and the connected Vercel tool surface does not expose a project-targeted promote/redeploy action for an arbitrary Git commit.
+
+Do not claim final production closure until a deployment containing:
+- `fa9ad1b7f92f835a4d6914a006ce276282c7480f` or descendant
+- preferably current main including `afd187c84f139c306153609ebb90dde6007c1816`
+
+is observed as READY in production.
+
+## Current H-P5 status
+
+Completed:
+- security/abuse audit
+- TOPIK fail-closed regression
+- guest/auth isolation
+- responsive/device CI coverage
+- auth/cloud merge regression coverage
+- curriculum structural QA
+- Korean content source audit
+- native-browser voice regression
+- TOPIK integration QA
+- Study Partners/Twinverse smoke + server guards
+- production build/security/header checks
+
+Pending:
+- **production deployment of current main**
+- final live sanity on that exact production artifact
+
+MeloTTS/TwinMem remains parked.
