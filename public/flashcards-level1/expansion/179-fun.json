@@ -1,0 +1,13 @@
+{
+  "id": "fun",
+  "ko": "재미있다",
+  "latin": "jaemiitda",
+  "meaning": "To be fun / interesting",
+  "group": "Description",
+  "type": "ADJECTIVE · FEELING",
+  "example": "이 수업은 재미있어요.",
+  "translation": "This class is interesting.",
+  "tip": "재미있다 changes to 재미있어요.",
+  "sentencePrompt": "이 수업은 _____.",
+  "contrast": "재미있다 means fun/interesting; 재미없다 means boring."
+}
