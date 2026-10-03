@@ -1,0 +1,13 @@
+{
+  "id": "paper",
+  "ko": "종이",
+  "latin": "jongi",
+  "meaning": "Paper",
+  "group": "School",
+  "type": "NOUN · OBJECT",
+  "example": "종이에 이름을 써요.",
+  "translation": "I write my name on paper.",
+  "tip": "종이 is pronounced jong-i.",
+  "sentencePrompt": "_____에 이름을 써요.",
+  "contrast": "종이 is paper; 공책 is notebook."
+}
