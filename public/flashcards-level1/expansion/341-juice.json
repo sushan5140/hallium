@@ -1,0 +1,13 @@
+{
+  "id": "juice",
+  "ko": "주스",
+  "latin": "juseu",
+  "meaning": "Juice",
+  "group": "Food",
+  "type": "NOUN · DRINK",
+  "example": "오렌지 주스를 마셔요.",
+  "translation": "I drink orange juice.",
+  "tip": "주스 is a Korean loanword from 'juice'.",
+  "sentencePrompt": "오렌지 _____를 마셔요.",
+  "contrast": "주스 means juice; 물 means water."
+}
