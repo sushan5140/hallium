@@ -1,0 +1,11 @@
+metric,value
+selected_strong_threshold,0.08
+heldout_stationary_detection,0.052
+heldout_stationary_mean_labels,46.28
+heldout_moderate_detection,0.852
+heldout_moderate_mean_labels,31.016
+heldout_severe_detection,1.0
+heldout_severe_mean_labels,13.144
+heldout_detection_pass,true
+heldout_efficiency_pass,true
+heldout_all_goals_pass,true

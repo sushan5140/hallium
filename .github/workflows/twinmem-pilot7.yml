@@ -1,0 +1,64 @@
+name: TwinMem Pilot 7 cost-aware stopping
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot7/**"
+      - ".github/workflows/twinmem-pilot7.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run cost-aware stopping experiment
+        run: python research/twinmem_pilot7/cost_aware_stopping.py
+      - name: Validate design and exact held-out outcomes
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path("research/twinmem_pilot7")
+          d=json.loads((root/"outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["frozen_detector"]=={
+              "stages":[8,12,24,48],
+              "meaningful_margin":0.05,
+              "zcrit":1.96,
+              "consecutive_required":2,
+          }
+          assert d["candidate_strong_thresholds"]==[0.08,0.1,0.12,0.15,0.18]
+          assert d["development_repeats"]==220
+          assert d["test_repeats"]==500
+          assert len(d["development_candidates"])==5
+          assert d["selected_candidate"] is not None
+          assert d["heldout"] is not None
+
+          held=d["heldout"]
+          dist=held["distributions"]
+          got={
+              "selected_strong_threshold":str(d["selected_candidate"]["strong_threshold"]),
+              "heldout_stationary_detection":str(dist["stationary"]["detection_rate"]),
+              "heldout_stationary_mean_labels":str(dist["stationary"]["mean_labels_per_source"]),
+              "heldout_moderate_detection":str(dist["moderate"]["detection_rate"]),
+              "heldout_moderate_mean_labels":str(dist["moderate"]["mean_labels_per_source"]),
+              "heldout_severe_detection":str(dist["severe"]["detection_rate"]),
+              "heldout_severe_mean_labels":str(dist["severe"]["mean_labels_per_source"]),
+              "heldout_detection_pass":str(bool(held["detection_pass"])).lower(),
+              "heldout_efficiency_pass":str(bool(held["efficiency_pass"])).lower(),
+              "heldout_all_goals_pass":str(bool(held["all_goals_pass"])).lower(),
+          }
+          with (root/"expected_results.csv").open(newline="") as f:
+              expected={r["metric"]:r["value"] for r in csv.DictReader(f)}
+          assert got==expected,(got,expected)
+          print("PASS: Pilot 7 exact selected threshold and held-out goals pinned")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot7-cost-aware-stopping
+          path: research/twinmem_pilot7/outputs/
+          retention-days: 30
