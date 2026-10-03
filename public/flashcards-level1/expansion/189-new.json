@@ -1,0 +1,13 @@
+{
+  "id": "new",
+  "ko": "새롭다",
+  "latin": "saeropda",
+  "meaning": "To be new",
+  "group": "Description",
+  "type": "ADJECTIVE · QUALITY",
+  "example": "이 기능은 새로워요.",
+  "translation": "This feature is new.",
+  "tip": "새롭다 changes to 새로워요.",
+  "sentencePrompt": "이 기능은 _____.",
+  "contrast": "새롭다 means new; 오래되다 means old/aged."
+}
