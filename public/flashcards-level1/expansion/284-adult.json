@@ -1,0 +1,13 @@
+{
+  "id": "adult",
+  "ko": "어른",
+  "latin": "eoreun",
+  "meaning": "Adult",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "어른에게 인사해요.",
+  "translation": "I greet the adult.",
+  "tip": "어른 is pronounced eo-reun.",
+  "sentencePrompt": "_____에게 인사해요.",
+  "contrast": "어른 means adult; 아이 means child."
+}
