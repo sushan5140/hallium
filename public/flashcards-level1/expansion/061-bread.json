@@ -1,0 +1,13 @@
+{
+  "id": "bread",
+  "ko": "빵",
+  "latin": "ppang",
+  "meaning": "Bread",
+  "group": "Daily Life",
+  "type": "NOUN · FOOD",
+  "example": "아침에 빵을 먹어요.",
+  "translation": "I eat bread in the morning.",
+  "tip": "빵 begins with tense ㅃ and ends with -ng.",
+  "sentencePrompt": "아침에 _____을 먹어요.",
+  "contrast": "빵 means bread; 밥 means rice or a meal."
+}
