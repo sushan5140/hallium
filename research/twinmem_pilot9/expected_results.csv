@@ -1,0 +1,12 @@
+metric,value
+selected_delta,0.25
+selected_alpha,0.1
+heldout_stationary_detection,0.026
+heldout_stationary_mean_labels,47.544
+heldout_moderate_detection,0.892
+heldout_moderate_mean_labels,30.432
+heldout_severe_detection,1.0
+heldout_severe_mean_labels,14.864
+heldout_detection_pass,true
+heldout_efficiency_pass,true
+heldout_all_goals_pass,true
