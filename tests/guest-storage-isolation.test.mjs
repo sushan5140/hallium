@@ -3,7 +3,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import {
   HALLIUM_GUEST_STORAGE_SUFFIX,
+  clearScopedLearnerStorage,
   isGuestScopedStorageKey,
+  localLearnerStateBelongsToUser,
   scopedLearnerStorageKey,
 } from "../lib/learner-storage.js";
 import {
@@ -86,5 +88,47 @@ test("Hallium guest writes are scoped while cloud hydration stays canonical", ()
   assert.ok(
     source.includes("readIntelligenceState(guestMode).mistakeLog"),
     "Adaptive guest history must read from the guest-scoped intelligence state"
+  );
+});
+
+
+test("canonical learner cache is reusable only by its owning Google account", () => {
+  assert.equal(localLearnerStateBelongsToUser("", "user-a"), true, "Legacy unowned cache may migrate once");
+  assert.equal(localLearnerStateBelongsToUser("user-a", "user-a"), true);
+  assert.equal(localLearnerStateBelongsToUser("user-a", "user-b"), false);
+  assert.equal(localLearnerStateBelongsToUser("user-a", ""), false);
+});
+
+test("clearing canonical learner cache does not delete guest sandbox data", () => {
+  const storage = memoryStorage();
+  const keys = ["profile", "progress", "voice"];
+  for (const key of keys) {
+    storage.setItem(scopedLearnerStorageKey(key, false), "signed");
+    storage.setItem(scopedLearnerStorageKey(key, true), "guest");
+  }
+
+  clearScopedLearnerStorage(storage, keys, false);
+
+  for (const key of keys) {
+    assert.equal(storage.getItem(scopedLearnerStorageKey(key, false)), null);
+    assert.equal(storage.getItem(scopedLearnerStorageKey(key, true)), "guest");
+  }
+});
+
+test("Hallium holds the access gate until signed-in cloud hydration finishes", () => {
+  const source = fs.readFileSync("app/hallium-core.js", "utf8");
+  assert.ok(
+    source.includes("setAuthReady(false);\n        await hydrateFromCloud(user);") &&
+      source.includes("setAuthReady(true);"),
+    "Bootstrap must keep authReady false until hydration completes"
+  );
+  assert.ok(
+    source.includes("localLearnerStateBelongsToUser(localOwnerId, user.id)") &&
+      source.includes("clearCanonicalLearnerCache();"),
+    "Hydration must reject canonical local cache owned by another account"
+  );
+  assert.ok(
+    source.includes("claimLocalOwner(user.id);"),
+    "Successful hydration must claim canonical local cache ownership"
   );
 });
