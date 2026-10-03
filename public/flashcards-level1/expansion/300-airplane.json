@@ -1,0 +1,13 @@
+{
+  "id": "airplane",
+  "ko": "비행기",
+  "latin": "bihaenggi",
+  "meaning": "Airplane",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "비행기를 타고 한국에 가요.",
+  "translation": "I take an airplane to Korea.",
+  "tip": "비행기 is pronounced bi-haeng-gi.",
+  "sentencePrompt": "_____를 타고 한국에 가요.",
+  "contrast": "비행기 means airplane; 공항 means airport."
+}
