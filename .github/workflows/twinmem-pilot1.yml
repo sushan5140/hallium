@@ -1,0 +1,40 @@
+name: TwinMem Pilot 1 calibrated reliability
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot1/**"
+      - ".github/workflows/twinmem-pilot1.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run calibrated-reliability experiment
+        run: python research/twinmem_pilot1/calibrated_reliability.py
+      - name: Check output structure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("research/twinmem_pilot1/outputs/results.json")
+          d=json.loads(p.read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["primary"]["test_profiles"]==480
+          assert d["primary"]["test_queries_per_method"]==5760
+          assert len(d["primary"]["summary"])==12
+          assert len(d["source_shift"]["frozen_original_calibration_summary"])==12
+          assert len(d["source_shift"]["recalibrated_summary"])==3
+          assert set(d["primary"]["calibration"])=={"verified_assessment","practice_result","self_report"}
+          print("PASS: Pilot 1 output structure and scenario counts")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot1-calibrated-reliability
+          path: research/twinmem_pilot1/outputs/
+          retention-days: 30
