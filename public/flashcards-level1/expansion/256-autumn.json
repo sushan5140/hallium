@@ -1,0 +1,13 @@
+{
+  "id": "autumn",
+  "ko": "가을",
+  "latin": "gaeul",
+  "meaning": "Autumn / fall",
+  "group": "Time",
+  "type": "NOUN · SEASON",
+  "example": "가을에는 날씨가 시원해요.",
+  "translation": "The weather is cool in autumn.",
+  "tip": "가을 is pronounced ga-eul.",
+  "sentencePrompt": "_____에는 날씨가 시원해요.",
+  "contrast": "가을 is autumn; 봄 is spring."
+}
