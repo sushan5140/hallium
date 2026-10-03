@@ -5150,11 +5150,19 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                           </div>
 
                           <div className="admin-coverage-strip">
-                            {stepKinds.map((kind) => (
-                              <span key={kind} data-present={Boolean(coverage.counts[kind])}>
-                                {kind}<b>{coverage.counts[kind] || 0}</b>
-                              </span>
-                            ))}
+                            {stepKinds.map((kind) => {
+                              const intentional = coverage.intentionalOmissions?.find((item) => item.kind === kind);
+                              return (
+                                <span
+                                  key={kind}
+                                  data-present={Boolean(coverage.counts[kind])}
+                                  data-intentional={Boolean(intentional)}
+                                  title={intentional?.reason || ""}
+                                >
+                                  {kind}<b>{coverage.counts[kind] || 0}</b>
+                                </span>
+                              );
+                            })}
                           </div>
 
                           <div className="admin-lesson-summary">
@@ -5165,6 +5173,15 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                               {coverage.missing.length ? "Missing · " + coverage.missing.join(", ") : "Expected stages present"}
                             </span>
                           </div>
+
+                          {coverage.intentionalOmissions?.length > 0 && (
+                            <div className="admin-intentional-omissions">
+                              <strong>Intentional omissions</strong>
+                              {coverage.intentionalOmissions.map((item) => (
+                                <span key={item.kind}><b>{item.kind}</b> · {item.reason}</span>
+                              ))}
+                            </div>
+                          )}
 
                           <details className="admin-step-inventory">
                             <summary>Teaching inventory · {saveableSteps.length} saveable items</summary>
