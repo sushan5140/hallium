@@ -1,0 +1,13 @@
+{
+  "id": "bitter",
+  "ko": "쓰다",
+  "latin": "sseuda",
+  "meaning": "To be bitter",
+  "group": "Food",
+  "type": "ADJECTIVE · TASTE",
+  "example": "이 커피는 조금 써요.",
+  "translation": "This coffee is a little bitter.",
+  "tip": "쓰다 has several meanings; here it means bitter.",
+  "sentencePrompt": "이 커피는 조금 _____.",
+  "contrast": "쓰다 here means bitter; 쓰다 can also mean write/use."
+}
