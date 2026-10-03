@@ -1643,3 +1643,88 @@ Next:
 1. finish the remaining intermediate/advanced curriculum language pass,
 2. avoid changing merely stylistic or acceptable Korean variants,
 3. then use the existing curriculum audit helpers/Admin Studio for formal coverage QA.
+
+
+---
+
+# 25. H-P5 curriculum coverage QA — checkpoint 1
+
+Coverage QA is running against the existing `lib/curriculum/admin.js` audit helper and the live `units` curriculum.
+
+Current live curriculum size:
+- 15 units
+- 76 published lessons/checkpoints
+- 15 checkpoints
+
+## Problem found
+
+The old coverage helper treated every absent expected stage as a defect.
+
+That created false-positive gaps for three intentionally specialized Unit 1 lessons:
+
+### Unit 1 · Places around me
+Intentional omissions:
+- listening — this recognition lesson deliberately uses a short reading passage as receptive input
+- shadowing — pronunciation production is deferred to the adjacent movement lesson
+- build — the lesson goal is place recognition before sentence production
+
+### Unit 1 · Where are you going?
+Intentional omission:
+- word — this grammar lesson reuses the place vocabulary introduced immediately before it
+
+### Unit 1 · A tiny first conversation
+Intentional omissions:
+- word — synthesis lesson recombines already taught Unit 1 vocabulary
+- explain — no new grammar is introduced; the goal is integration of prior patterns in conversation
+
+## Audit-model fix
+
+`lessonCoverage()` now:
+- accepts lesson-level `coverageExemptions`,
+- returns `intentionalOmissions` with `kind` + `reason`,
+- excludes documented intentional omissions from `missing`,
+- still reports any undocumented expected-stage absence as a real gap.
+
+The live Unit 1 lessons now carry their exception reasons directly through `lessonBase()` metadata.
+
+Admin Studio now:
+- marks intentionally omitted stage chips separately with a dashed treatment,
+- exposes the stored reason,
+- retains the normal gap styling/filter only for genuine unexplained omissions.
+
+Regression test added:
+- documented omissions => no real gap
+- reasons remain visible through the audit result
+
+Commits:
+- `474022d820a33474af78b7eedc149c4a10048772` — Distinguish intentional curriculum omissions from gaps
+- `c6059c222a91afab41a8d2387bd227d6b9679924` — Document intentional Unit 1 curriculum omissions
+- `4248b6834ea27caff40a80345747ce6a14749c0f` — Test intentional curriculum coverage exemptions
+- `36b48eb06c695617188b55e6c78588031bec1ea1` — Show intentional curriculum omissions in Admin Studio
+- `b2c2d5c637a04cd41a0c6a8d08496205c4187373` — Style intentional curriculum audit annotations
+
+Verification at checkpoint:
+- standalone Hallium on `b2c2d5...` ✅
+- Hallium Security Gate on `b2c2d5...` ✅
+- longer Batch 2 / Study Partners / Chromium regression runs were still executing when this checkpoint was recorded
+
+## Coverage conclusion so far
+
+After documented Unit 1 exceptions, no unexplained structural gap has been identified in the live curriculum model.
+
+Units 2–15 are generated through `makeUnitLessons()`, which supplies the full normal lesson sequence:
+- word
+- explain
+- choice
+- listening
+- shadowing
+- build
+- finish
+
+and each generated unit adds a checkpoint with:
+- choice
+- dictation
+- reading
+- finish
+
+Do not remove intentional exemptions merely to make every lesson mechanically identical.
