@@ -1,0 +1,13 @@
+{
+  "id": "wash",
+  "ko": "씻다",
+  "latin": "ssitda",
+  "meaning": "To wash",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "손을 씻어요.",
+  "translation": "I wash my hands.",
+  "tip": "씻다 is commonly pronounced 씯따.",
+  "sentencePrompt": "손을 _____.",
+  "contrast": "씻다 means wash; 닦다 means wipe/brush."
+}
