@@ -1,0 +1,13 @@
+{
+  "id": "woman",
+  "ko": "여자",
+  "latin": "yeoja",
+  "meaning": "Woman",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "저 여자는 의사예요.",
+  "translation": "That woman is a doctor.",
+  "tip": "여자 is pronounced yeo-ja.",
+  "sentencePrompt": "저 _____는 의사예요.",
+  "contrast": "여자 means woman; 남자 means man."
+}
