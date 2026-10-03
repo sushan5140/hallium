@@ -1,0 +1,13 @@
+{
+  "id": "enter",
+  "ko": "들어가다",
+  "latin": "deureogada",
+  "meaning": "To enter / go in",
+  "group": "Actions",
+  "type": "VERB · MOVEMENT",
+  "example": "교실에 들어가요.",
+  "translation": "I enter the classroom.",
+  "tip": "들어가다 changes to 들어가요.",
+  "sentencePrompt": "교실에 _____.",
+  "contrast": "들어가다 means go in; 나오다 means come out."
+}
