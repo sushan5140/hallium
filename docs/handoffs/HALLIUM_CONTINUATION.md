@@ -2683,3 +2683,59 @@ replace the heuristic repeated-look stopping boundary with an anytime-valid, alp
 - moderate ≤36 and severe ≤24 label-cost goals
 
 Do not merge this research stack into production Hallium.
+
+
+---
+
+# 33. TwinMem Pilot 8 — multiplicity-controlled early stopping is too conservative
+
+Draft PR: #13  
+Branch: `research/twinmem-pilot8-alpha-spending`
+
+Pilot 8 freezes:
+- Pilot-5 posterior reliability model
+- early stages 8 / 12 / 24 labels/source
+- final stage 48
+- meaningful margin 0.05
+- final z 1.96
+- Pilot-3 retrieval response
+- detection criteria
+- efficiency criteria
+
+Early-stop control:
+- total early alpha budgets: 0.03 / 0.05 / 0.07
+- spending shapes: front / equal / late
+- each stage Bonferroni-corrected across 3 source types
+
+Development result:
+**No one of the 9 schedules passes all detection + efficiency goals.**
+
+Therefore:
+- selected candidate: none
+- held-out evaluation: not run by design
+
+Closest detection-passing schedule:
+- alpha budget 0.07
+- late spending
+- stationary false alarms 0.91%
+- moderate detection 81.36%
+- moderate mean labels/source 39.16
+- severe detection 100%
+- severe mean labels/source 19.38
+
+Detection criteria pass, but moderate efficiency ≤36 fails by ~3.16 labels/source.
+
+Interpretation:
+- Pilot 7 heuristic: more efficient but 5.2% stationary false alarms
+- Pilot 8 Bonferroni-style control: ~0.9% stationary false alarms but too much moderate label cost
+
+Conclusion:
+Simple stage-wise alpha spending plus source-wise Bonferroni is too conservative for this target.
+
+Exact next statistical direction should seek more power with explicit sequential error control, e.g.:
+- e-values / test martingales
+- mixture sequential probability ratio test
+- source-adaptive or hierarchical sequential test
+- confidence-sequence boundary
+
+Do not loosen the predeclared detection or efficiency goals post hoc.
