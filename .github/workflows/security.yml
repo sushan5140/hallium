@@ -11,6 +11,8 @@ on:
       - 'package-lock.json'
       - 'supabase/migrations/**'
       - 'tests/security-boundaries.test.mjs'
+      - 'tests/guest-storage-isolation.test.mjs'
+      - 'tests/guest-storage-isolation.test.mjs'
       - 'tests/topik-exam-engine.test.mjs'
       - 'tests/topik-provenance.test.mjs'
       - 'tests/curriculum-admin.test.mjs'
@@ -47,7 +49,7 @@ jobs:
       - name: Reject critical production dependency advisories
         run: npm audit --omit=dev --audit-level=critical
       - name: Run security and integrity tests
-        run: node --test tests/security-boundaries.test.mjs tests/topik-exam-engine.test.mjs tests/topik-provenance.test.mjs tests/curriculum-admin.test.mjs
+        run: node --test tests/security-boundaries.test.mjs tests/guest-storage-isolation.test.mjs tests/topik-exam-engine.test.mjs tests/topik-provenance.test.mjs tests/curriculum-admin.test.mjs
       - name: Compile Hallium
         run: npm run build
       - name: Exercise unauthenticated API boundaries and headers
