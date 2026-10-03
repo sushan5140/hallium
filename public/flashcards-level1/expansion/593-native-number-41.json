@@ -1,0 +1,13 @@
+{
+  "id": "native-number-41",
+  "ko": "서른하나",
+  "latin": "seoreun-hana",
+  "meaning": "Native Korean number 41",
+  "group": "Numbers",
+  "type": "NUMBER · NATIVE KOREAN",
+  "example": "서른하나예요.",
+  "translation": "It is the native Korean number 41.",
+  "tip": "Native Korean numbers are commonly used with counters for people, objects, age, hours, and repetitions.",
+  "sentencePrompt": "_____예요.",
+  "contrast": "Sino-Korean numbers are preferred for dates, money, minutes, and phone numbers."
+}
