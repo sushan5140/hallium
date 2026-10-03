@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getHallimSupabase } from "../lib/supabase/client";
@@ -17,7 +18,7 @@ import {
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
-import PartnerKorean from "./partner/PartnerKorean";
+
 import LandingPage from "./landing/LandingPage";
 
 const units = [
@@ -1071,6 +1072,10 @@ const aiAuditKey = "hallim:ai-audit:v1";
 const intelligenceStateKey = "hallim:intelligence:v1";
 const referralKey = "hallim:referral:v1";
 const localOwnerKey = "hallim:local-owner:v1";
+const PartnerKorean = dynamic(() => import("./partner/PartnerKorean"), {
+  loading: () => <section className="partner-v4-shell"><div className="partnerLoading">Loading Real Korean…</div></section>,
+});
+
 
 function readLearnerProfile(guestMode = false) {
   if (typeof window === "undefined") return null;
