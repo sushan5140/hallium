@@ -2602,3 +2602,84 @@ reduce moderate mean labels/source below 36 **without** pushing stationary false
 Do not merge any TwinMem pilot into production Hallium.
 Do not claim human-study or on-device results.
 Do not treat synthetic simulator truth as production-available labels.
+
+
+---
+
+# 32. TwinMem Pilot 7 — first phase meeting both detection + efficiency targets
+
+Draft PR: #12  
+Branch: `research/twinmem-pilot7-cost-aware-stopping`
+
+Pilot 7 keeps frozen:
+- Pilot-5 uncertainty-aware detector family
+- stages 8 → 12 → 24 → 48 labels/source
+- ordinary margin 0.05
+- z = 1.96
+- Pilot-3 budget-aware retrieval response
+- final 48-label Pilot-5 decision
+- detection criteria
+- label-cost criteria
+
+Only one new stopping parameter is tuned on development streams:
+`strong_single_stage_threshold`
+
+Candidate thresholds:
+- 0.08
+- 0.10
+- 0.12
+- 0.15
+- 0.18
+
+Selection requirements:
+Detection:
+- stationary false alarms ≤10%
+- moderate detection ≥80%
+- severe detection ≥90%
+
+Efficiency:
+- moderate mean labels/source ≤36
+- severe mean labels/source ≤24
+
+Selected on development:
+- **strong threshold = 0.08**
+
+Development at selected threshold:
+- stationary false alarms 4.09%
+- moderate detection 88.18%
+- moderate mean labels/source 31.98
+- severe detection 100%
+- severe mean labels/source 14.82
+
+Independent held-out:
+- stationary false alarms: **5.2%**
+- stationary mean labels/source: 46.28
+- moderate detection: **85.2%**
+- moderate mean labels/source: **31.016**
+- severe detection: **100%**
+- severe mean labels/source: **13.144**
+
+Held-out:
+- detection goals ✅
+- efficiency goals ✅
+- all goals ✅
+
+Compared with Pilot 6:
+- moderate labels/source: 37.05 → 31.02
+- severe labels/source: 23.85 → 13.14
+- stationary false alarms: 4.0% → 5.2%
+
+Main caveat:
+Pilot 7 still performs repeated looks at accumulating evidence and is **not anytime-valid inference**. The nominal uncertainty calculation does not itself provide formal optional-stopping control.
+
+Exact next research phase:
+**Pilot 8 — explicit sequential false-positive control**
+
+Goal:
+replace the heuristic repeated-look stopping boundary with an anytime-valid, alpha-spending, or otherwise explicitly multiplicity-controlled boundary while keeping:
+- Pilot-5 posterior reliability model
+- Pilot-3 budget-aware retrieval response
+- the 10% / 80% / 90% detection criteria
+- moderate ≤36 and severe ≤24 label-cost goals
+
+Do not merge this research stack into production Hallium.
