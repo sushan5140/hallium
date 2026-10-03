@@ -1,0 +1,13 @@
+{
+  "id": "eat",
+  "ko": "먹다",
+  "latin": "meokda",
+  "meaning": "To eat",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "저는 아침을 먹어요.",
+  "translation": "I eat breakfast.",
+  "tip": "먹다 changes to 먹어요 in polite present speech.",
+  "sentencePrompt": "저는 아침을 _____.",
+  "contrast": "먹다 means eat; 마시다 means drink."
+}
