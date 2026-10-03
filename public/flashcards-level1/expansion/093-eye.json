@@ -1,0 +1,13 @@
+{
+  "id": "eye",
+  "ko": "눈",
+  "latin": "nun",
+  "meaning": "Eye",
+  "group": "Body",
+  "type": "NOUN · BODY",
+  "example": "눈이 커요.",
+  "translation": "The eyes are big.",
+  "tip": "눈 can mean eye or snow; context decides.",
+  "sentencePrompt": "_____이 커요.",
+  "contrast": "눈 can mean eye; 눈 also means snow."
+}
