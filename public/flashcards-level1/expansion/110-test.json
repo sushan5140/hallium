@@ -1,0 +1,13 @@
+{
+  "id": "test",
+  "ko": "시험",
+  "latin": "siheom",
+  "meaning": "Test / exam",
+  "group": "School",
+  "type": "NOUN · SCHOOL",
+  "example": "내일 시험이 있어요.",
+  "translation": "There is a test tomorrow.",
+  "tip": "시험 is pronounced si-heom.",
+  "sentencePrompt": "내일 _____이 있어요.",
+  "contrast": "시험 means test/exam; 숙제 means homework."
+}
