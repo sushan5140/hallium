@@ -1,0 +1,13 @@
+{
+  "id": "free-time",
+  "ko": "한가하다",
+  "latin": "hangahada",
+  "meaning": "To be free / not busy",
+  "group": "Description",
+  "type": "ADJECTIVE · STATE",
+  "example": "주말에는 한가해요.",
+  "translation": "I'm free on the weekend.",
+  "tip": "한가하다 changes to 한가해요.",
+  "sentencePrompt": "주말에는 _____.",
+  "contrast": "한가하다 means not busy; 바쁘다 means busy."
+}
