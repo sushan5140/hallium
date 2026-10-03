@@ -1,0 +1,13 @@
+{
+  "id": "beach",
+  "ko": "해변",
+  "latin": "haebyeon",
+  "meaning": "Beach",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "여름에 해변에 가요.",
+  "translation": "I go to the beach in summer.",
+  "tip": "해변 is pronounced hae-byeon.",
+  "sentencePrompt": "여름에 _____에 가요.",
+  "contrast": "해변 is beach; 산 is mountain."
+}
