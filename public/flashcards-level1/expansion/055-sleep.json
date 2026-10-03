@@ -1,0 +1,13 @@
+{
+  "id": "sleep",
+  "ko": "자다",
+  "latin": "jada",
+  "meaning": "To sleep",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "밤에 일찍 자요.",
+  "translation": "I sleep early at night.",
+  "tip": "자다 changes to 자요 in polite present speech.",
+  "sentencePrompt": "밤에 일찍 _____.",
+  "contrast": "자다 means sleep; 일어나다 means get up."
+}
