@@ -1,0 +1,13 @@
+{
+  "id": "busy",
+  "ko": "바쁘다",
+  "latin": "bappeuda",
+  "meaning": "To be busy",
+  "group": "Description",
+  "type": "ADJECTIVE · STATE",
+  "example": "오늘은 조금 바빠요.",
+  "translation": "I'm a little busy today.",
+  "tip": "바쁘다 changes to 바빠요.",
+  "sentencePrompt": "오늘은 조금 _____.",
+  "contrast": "바쁘다 means busy; 한가하다 means free/not busy."
+}
