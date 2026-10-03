@@ -1,0 +1,13 @@
+{
+  "id": "morning",
+  "ko": "아침",
+  "latin": "achim",
+  "meaning": "Morning",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "아침에 운동해요.",
+  "translation": "I exercise in the morning.",
+  "tip": "아침 is pronounced smoothly in two syllables.",
+  "sentencePrompt": "_____에 운동해요.",
+  "contrast": "아침 is morning; 저녁 is evening."
+}
