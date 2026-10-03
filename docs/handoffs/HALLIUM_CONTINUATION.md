@@ -3760,3 +3760,161 @@ Goal:
 - provide a real 5–7 day evidence-grounded plan even when AI is unavailable
 - use due reviews, weakness ranking, session minutes, focus preferences and next lesson
 - keep AI as an optional enhancement rather than a dependency
+
+
+---
+
+# 46. Batch 4 / H-P6.4 + H-P6.5 — LEARNING INTELLIGENCE COMPLETE ✅
+
+Batch 4 is now complete on production-source `main`.
+
+Current product-code merge after H-P6.5:
+`4e1ac1e7741c40c1db7e081a0e9dc79f6c104b9d`
+
+## H-P6.4 — deterministic weekly study planning
+
+Main commit:
+`75d72b526695074c3ae74e5c776aa3fa1979596b`
+
+Added deterministic local-first 5–7 day study planning grounded in:
+- scheduled review items
+- ranked weakness evidence
+- saved daily session minutes
+- saved practice-focus priorities
+- latest structured study score
+- current study level
+- next curriculum lesson
+
+Behavior:
+- Hallium creates a useful weekly plan before any AI call
+- Guest Mode keeps the local deterministic plan
+- signed-in users can optionally receive AI enrichment
+- the deterministic plan is passed into AI as grounded context
+- the UI labels whether the plan is local or AI-enhanced
+
+## H-P6.5 — interest-aware unlocked lesson routing
+
+Merged PR:
+#32
+
+Merge commit:
+`4e1ac1e7741c40c1db7e081a0e9dc79f6c104b9d`
+
+Added topic interests:
+- Daily life
+- Food
+- Shopping
+- Travel & directions
+- Conversation
+- Opinions
+
+Rules:
+- maximum 3 saved topics
+- explicit empty topic list disables interest routing
+- recommendations only consider lessons where existing curriculum gating returns `isUnlocked(...) === true`
+- future locked lessons are never recommended
+- completed unlocked lessons may be revisited
+- the current unlocked lesson receives only a small progression boost
+- stronger content relevance can still outrank that boost
+- mandatory next-lesson progression remains unchanged
+
+New Home surface:
+**FOR YOUR INTERESTS**
+
+Shows:
+- best unlocked lesson match
+- matched topic tags
+- unit number
+- current/review status
+- open/revisit action
+
+Profile now exposes topic-interest controls alongside:
+- daily session minutes
+- practice-focus preferences
+
+## H-P6 preference sync hardening
+
+Preference records now persist:
+`updatedAt`
+
+Local/cloud preference conflicts use:
+`newestByTimestamp(local.preferences, remote.preferences, "updatedAt")`
+
+This applies to the existing scoped `intelligence_state`:
+- signed-in preferences sync across devices
+- Guest Mode remains local/scoped
+- stale local preferences no longer blindly override newer cloud preferences
+
+Topic interests are also included in:
+- deterministic weekly-plan evidence metadata
+- AI learner snapshot
+- Home interest recommendations
+
+## H-P6.5 validation
+
+PR #32 final head:
+`7ba7db71686c590314cd991449a25ac5c6cf3d0f`
+
+Final required gates:
+- Verify standalone Hallium: **PASS**
+- Hallium Security Gate: **PASS**
+- Verify Hallium H-P5 closure / Chromium: **PASS**
+
+The first CI attempt had one test-fixture mismatch:
+- a completed lesson had more topic keyword evidence than the current lesson
+- the small progression boost correctly did not overpower stronger relevance
+- the test fixture was corrected rather than inflating the algorithmic boost
+
+Obsolete draft:
+- PR #26 closed unmerged
+- superseded by freshly rebased H-P6.5 PR #32
+
+## Batch 4 final capability matrix
+
+H-P6.1:
+- deterministic weakness scoring ✅
+- review urgency ✅
+- next-best-action route ✅
+- AI optional ✅
+
+H-P6.2:
+- daily session minutes ✅
+- practice-focus preferences ✅
+- session-aware route fitting ✅
+- due-review safety over preferences/AI ✅
+- scoped cloud sync ✅
+
+H-P6.3:
+- adaptive review scheduling ✅
+- miss/recovery-aware intervals ✅
+- bounded 1–60 day spacing ✅
+- review-stage/stability metadata ✅
+
+H-P6.4:
+- deterministic 5–7 day plan ✅
+- review/focus/score/lesson grounding ✅
+- Guest Mode local-first behavior ✅
+- optional AI enrichment ✅
+
+H-P6.5:
+- topic-interest preferences ✅
+- prerequisite-safe lesson ranking ✅
+- Home interest recommendation ✅
+- topic evidence in weekly/AI context ✅
+- timestamp-safe cross-device preference precedence ✅
+
+## Batch 4 status
+
+**COMPLETE ✅**
+
+No additional H-P6 slice is required for the originally defined Batch 4 scope:
+- learner weakness model
+- “what should I study next?”
+- spaced/adaptive review scheduling
+- session-aware personalization
+- deterministic weekly planning
+- interest-aware content routing
+
+Do not reopen H-P6 by default unless a concrete regression or new product requirement appears.
+
+MeloTTS/TwinMem research remains parked and separate.
