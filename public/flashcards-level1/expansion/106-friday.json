@@ -1,0 +1,13 @@
+{
+  "id": "friday",
+  "ko": "금요일",
+  "latin": "geumyoil",
+  "meaning": "Friday",
+  "group": "Time",
+  "type": "NOUN · DAY",
+  "example": "금요일에 영화를 봐요.",
+  "translation": "I watch a movie on Friday.",
+  "tip": "금 contains the Korean eu vowel ㅡ.",
+  "sentencePrompt": "_____에 영화를 봐요.",
+  "contrast": "금요일 is Friday; 토요일 is Saturday."
+}
