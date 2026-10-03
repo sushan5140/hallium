@@ -1,0 +1,13 @@
+{
+  "id": "end",
+  "ko": "끝나다",
+  "latin": "kkeunnada",
+  "meaning": "To end / finish",
+  "group": "Actions",
+  "type": "VERB · GENERAL",
+  "example": "수업이 세 시에 끝나요.",
+  "translation": "The class ends at three.",
+  "tip": "끝나다 changes to 끝나요.",
+  "sentencePrompt": "수업이 세 시에 _____.",
+  "contrast": "끝나다 means end; 시작하다 means start."
+}
