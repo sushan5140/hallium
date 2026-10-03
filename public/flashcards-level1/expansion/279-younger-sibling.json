@@ -1,0 +1,13 @@
+{
+  "id": "younger-sibling",
+  "ko": "동생",
+  "latin": "dongsaeng",
+  "meaning": "Younger sibling",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "동생은 학생이에요.",
+  "translation": "My younger sibling is a student.",
+  "tip": "동생 can mean younger brother or younger sister.",
+  "sentencePrompt": "_____은 학생이에요.",
+  "contrast": "동생 is gender-neutral for a younger sibling."
+}
