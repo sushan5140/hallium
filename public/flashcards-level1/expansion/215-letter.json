@@ -1,0 +1,13 @@
+{
+  "id": "letter",
+  "ko": "편지",
+  "latin": "pyeonji",
+  "meaning": "Letter",
+  "group": "Daily Life",
+  "type": "NOUN · COMMUNICATION",
+  "example": "친구에게 편지를 써요.",
+  "translation": "I write a letter to my friend.",
+  "tip": "편지 is pronounced pyeon-ji.",
+  "sentencePrompt": "친구에게 _____를 써요.",
+  "contrast": "편지 is a letter; 메시지 is a message."
+}
