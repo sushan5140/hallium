@@ -1,0 +1,13 @@
+{
+  "id": "driver",
+  "ko": "운전사",
+  "latin": "unjeonsa",
+  "meaning": "Driver",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "운전사가 버스를 운전해요.",
+  "translation": "The driver drives the bus.",
+  "tip": "운전사 means a professional driver.",
+  "sentencePrompt": "_____가 버스를 운전해요.",
+  "contrast": "운전사 is driver; 운전하다 means to drive."
+}
