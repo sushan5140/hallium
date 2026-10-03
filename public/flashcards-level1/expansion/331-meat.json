@@ -1,0 +1,13 @@
+{
+  "id": "meat",
+  "ko": "고기",
+  "latin": "gogi",
+  "meaning": "Meat",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "저녁에 고기를 먹어요.",
+  "translation": "I eat meat for dinner.",
+  "tip": "고기 is pronounced go-gi.",
+  "sentencePrompt": "저녁에 _____를 먹어요.",
+  "contrast": "고기 means meat; 생선 means fish."
+}
