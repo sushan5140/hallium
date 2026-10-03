@@ -1,0 +1,13 @@
+{
+  "id": "thursday",
+  "ko": "목요일",
+  "latin": "mogyoil",
+  "meaning": "Thursday",
+  "group": "Time",
+  "type": "NOUN · DAY",
+  "example": "목요일에 시험이 있어요.",
+  "translation": "There is a test on Thursday.",
+  "tip": "목 ends with final ㄱ.",
+  "sentencePrompt": "_____에 시험이 있어요.",
+  "contrast": "목요일 is Thursday; 금요일 is Friday."
+}
