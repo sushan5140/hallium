@@ -1,0 +1,13 @@
+{
+  "id": "ship",
+  "ko": "배",
+  "latin": "bae",
+  "meaning": "Ship / boat",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "배를 타고 섬에 가요.",
+  "translation": "I take a boat to the island.",
+  "tip": "배 can also mean stomach or pear depending on context.",
+  "sentencePrompt": "_____를 타고 섬에 가요.",
+  "contrast": "배 here means ship/boat; context distinguishes other meanings."
+}
