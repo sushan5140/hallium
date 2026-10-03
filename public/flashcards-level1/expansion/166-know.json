@@ -1,0 +1,13 @@
+{
+  "id": "know",
+  "ko": "알다",
+  "latin": "alda",
+  "meaning": "To know",
+  "group": "Actions",
+  "type": "VERB · COGNITION",
+  "example": "그 사람을 알아요.",
+  "translation": "I know that person.",
+  "tip": "알다 changes to 알아요.",
+  "sentencePrompt": "그 사람을 _____.",
+  "contrast": "알다 means know; 모르다 means not know."
+}
