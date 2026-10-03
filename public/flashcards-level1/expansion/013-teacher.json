@@ -1,0 +1,13 @@
+{
+  "id": "teacher",
+  "ko": "선생님",
+  "latin": "seonsaengnim",
+  "meaning": "Teacher",
+  "group": "People",
+  "type": "NOUN · PERSON",
+  "example": "선생님이 교실에 있어요.",
+  "translation": "The teacher is in the classroom.",
+  "tip": "선생님 is a respectful everyday word for teacher.",
+  "sentencePrompt": "_____이 교실에 있어요.",
+  "contrast": "선생님 means teacher; 학생 means student."
+}
