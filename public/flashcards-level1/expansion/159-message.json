@@ -1,0 +1,13 @@
+{
+  "id": "message",
+  "ko": "메시지",
+  "latin": "mesiji",
+  "meaning": "Message",
+  "group": "Daily Life",
+  "type": "NOUN · COMMUNICATION",
+  "example": "메시지를 확인해요.",
+  "translation": "I check the message.",
+  "tip": "메시지 is a Korean loanword from English 'message'.",
+  "sentencePrompt": "_____를 확인해요.",
+  "contrast": "메시지 is message; 전화 is phone call."
+}
