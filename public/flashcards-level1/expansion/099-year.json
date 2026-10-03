@@ -1,0 +1,13 @@
+{
+  "id": "year",
+  "ko": "년",
+  "latin": "nyeon",
+  "meaning": "Year",
+  "group": "Time",
+  "type": "BOUND NOUN · TIME",
+  "example": "내년에 한국에 가요.",
+  "translation": "I go to Korea next year.",
+  "tip": "년 is commonly used after Sino-Korean numbers.",
+  "sentencePrompt": "내_____에 한국에 가요.",
+  "contrast": "년 means year; 월 means month in dates."
+}
