@@ -1,0 +1,65 @@
+name: Verify Hallium Batch 2
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/page.js'
+      - 'app/globals.css'
+      - 'app/topik-mocks/**'
+      - 'lib/topik/**'
+      - 'lib/curriculum/**'
+      - 'tests/topik-exam-engine.test.mjs'
+      - 'tests/curriculum-admin.test.mjs'
+      - 'supabase/migrations/20261003000100_curriculum_admin_studio.sql'
+      - '.github/workflows/verify-halium-batch2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  batch2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Verify TOPIK engine and curriculum admin helpers
+        run: node --test tests/topik-exam-engine.test.mjs tests/curriculum-admin.test.mjs
+      - name: Verify admin guards are present
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'admin_users' app/page.js
+          grep -q 'hallium_curriculum_admin_state' app/page.js
+          grep -q 'adminAccess' app/page.js
+          grep -q 'hallium_curriculum_admin_state' supabase/migrations/20261003000100_curriculum_admin_studio.sql
+      - name: Compile Hallium
+        run: npm run build
+      - name: Install Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.58.0
+          npx playwright install --with-deps chromium
+      - name: Exercise TOPIK production path
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3000 >/tmp/hallium-batch2.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          ok=0
+          for i in $(seq 1 45); do
+            if curl -fsS http://127.0.0.1:3000/topik-mocks >/dev/null; then
+              ok=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ok" -ne 1 ]; then
+            cat /tmp/hallium-batch2.log
+            exit 1
+          fi
+          node .github/scripts/verify-topik-mocks.cjs
