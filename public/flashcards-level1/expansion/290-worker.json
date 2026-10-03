@@ -1,0 +1,13 @@
+{
+  "id": "worker",
+  "ko": "회사원",
+  "latin": "hoesawon",
+  "meaning": "Office worker",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "제 아버지는 회사원이에요.",
+  "translation": "My father is an office worker.",
+  "tip": "회사원 combines 회사 and 원.",
+  "sentencePrompt": "제 아버지는 _____이에요.",
+  "contrast": "회사원 is office worker; 학생 is student."
+}
