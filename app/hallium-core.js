@@ -2473,6 +2473,84 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       });
     };
 
+    if (action === "message_makeover") {
+      const message = String(payload?.message || "").trim().toLowerCase();
+      const presets = [
+        {
+          match: /did you eat|have you eaten|eat yet/,
+          bestMatch: "밥 먹었어?",
+          romanization: "bap meogeosseo?",
+          naturalMeaning: "Did you eat? / Have you eaten?",
+          why: "A very natural casual Korean check-in. Guest Mode uses the built-in Hallium phrase bank rather than calling the paid AI provider.",
+          softer: "밥은 먹었어?",
+          bolder: "밥 먹었어? 안 먹었으면 같이 먹자.",
+          funnier: "밥 먹었어? 안 먹었으면 혼난다 ㅋㅋ",
+        },
+        {
+          match: /i miss you|miss you/,
+          bestMatch: "보고 싶어.",
+          romanization: "bogo sipeo.",
+          naturalMeaning: "I miss you.",
+          why: "Korean naturally expresses this as wanting to see the person. Guest Mode uses the built-in Hallium phrase bank.",
+          softer: "요즘 좀 보고 싶네.",
+          bolder: "진짜 많이 보고 싶어.",
+          funnier: "보고 싶어서 큰일이네 ㅋㅋ",
+        },
+        {
+          match: /are you busy|busy right now/,
+          bestMatch: "지금 바빠?",
+          romanization: "jigeum bappa?",
+          naturalMeaning: "Are you busy right now?",
+          why: "The subject is normally omitted in a casual Korean message. Guest Mode uses the built-in Hallium phrase bank.",
+          softer: "지금 혹시 바빠?",
+          bolder: "지금 안 바쁘면 나랑 얘기해.",
+          funnier: "지금 바빠? 안 바쁘다고 해 줘 ㅋㅋ",
+        },
+        {
+          match: /get home|got home|arrive home/,
+          bestMatch: "집에 도착했어?",
+          romanization: "jibe dochakhaesseo?",
+          naturalMeaning: "Did you get home?",
+          why: "This is a common Korean check-in after someone heads home. Guest Mode uses the built-in Hallium phrase bank.",
+          softer: "집에 잘 도착했어?",
+          bolder: "도착했으면 바로 연락해.",
+          funnier: "집 도착했어? 생존 신고 해 줘 ㅋㅋ",
+        },
+        {
+          match: /call later|shall we call|talk later/,
+          bestMatch: "이따 통화할까?",
+          romanization: "itta tonghwahalkka?",
+          naturalMeaning: "Shall we call later?",
+          why: "통화하다 is the natural verb for having a phone call. Guest Mode uses the built-in Hallium phrase bank.",
+          softer: "이따 시간 되면 통화할래?",
+          bolder: "이따 나랑 꼭 통화하자.",
+          funnier: "이따 통화 콜? ㅋㅋ",
+        },
+        {
+          match: /sleep well|good night/,
+          bestMatch: "잘 자.",
+          romanization: "jal ja.",
+          naturalMeaning: "Sleep well / Good night.",
+          why: "Short Korean is often more natural than a full literal translation. Guest Mode uses the built-in Hallium phrase bank.",
+          softer: "푹 자.",
+          bolder: "잘 자. 내일도 연락해.",
+          funnier: "잘 자고 꿈에서 만나 ㅋㅋ",
+        },
+        {
+          match: /didn't mean it|did not mean it|i'm sorry|im sorry/,
+          bestMatch: "미안해. 그런 뜻은 아니었어.",
+          romanization: "mianhae. geureon tteuseun anieosseo.",
+          naturalMeaning: "I'm sorry. I didn't mean it that way.",
+          why: "This is a natural Korean repair phrase after a misunderstanding. Guest Mode uses the built-in Hallium phrase bank.",
+          softer: "미안해. 오해하게 하려던 건 아니었어.",
+          bolder: "진짜 미안해. 내가 잘못했어.",
+          funnier: "미안해… 내 입이 또 사고 쳤다 😭",
+        },
+      ];
+      const preset = presets.find((item) => item.match.test(message));
+      if (!preset) return null;
+      return preset;
+    }
     if (action === "mistake_explain") return {
       headline: "Review the evidence in the question",
       whyWrong: "The selected option does not match the stored Hallium answer for this practice item.",
