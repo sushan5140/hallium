@@ -1,0 +1,13 @@
+{
+  "id": "tired",
+  "ko": "피곤하다",
+  "latin": "pigonhada",
+  "meaning": "To be tired",
+  "group": "Description",
+  "type": "ADJECTIVE · STATE",
+  "example": "오늘 너무 피곤해요.",
+  "translation": "I am very tired today.",
+  "tip": "피곤하다 changes to 피곤해요.",
+  "sentencePrompt": "오늘 너무 _____.",
+  "contrast": "피곤하다 means tired; 건강하다 means healthy."
+}
