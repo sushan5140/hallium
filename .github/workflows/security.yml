@@ -1,0 +1,85 @@
+name: Hallium Security Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'lib/**'
+      - 'next.config.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'supabase/migrations/**'
+      - 'tests/security-boundaries.test.mjs'
+      - 'tests/topik-exam-engine.test.mjs'
+      - 'tests/curriculum-admin.test.mjs'
+      - '.github/workflows/security.yml'
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'lib/**'
+      - 'next.config.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'supabase/migrations/**'
+      - 'tests/security-boundaries.test.mjs'
+      - 'tests/topik-exam-engine.test.mjs'
+      - 'tests/curriculum-admin.test.mjs'
+      - '.github/workflows/security.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Reject critical production dependency advisories
+        run: npm audit --omit=dev --audit-level=critical
+      - name: Run security and integrity tests
+        run: node --test tests/security-boundaries.test.mjs tests/topik-exam-engine.test.mjs tests/curriculum-admin.test.mjs
+      - name: Compile Hallium
+        run: npm run build
+      - name: Exercise unauthenticated API boundaries and headers
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3000 >/tmp/hallium-security.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+
+          ok=0
+          for i in $(seq 1 45); do
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then
+              ok=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ok" -ne 1 ]; then
+            cat /tmp/hallium-security.log
+            exit 1
+          fi
+
+          headers="$(curl -fsSI http://127.0.0.1:3000/ | tr -d '\r')"
+          grep -qi '^x-content-type-options: nosniff$' <<<"$headers"
+          grep -qi '^x-frame-options: SAMEORIGIN$' <<<"$headers"
+          grep -qi '^referrer-policy: strict-origin-when-cross-origin$' <<<"$headers"
+          grep -qi '^content-security-policy: .*object-src.*none.*frame-ancestors.*self' <<<"$headers"
+
+          code="$(curl -sS -o /tmp/audit.json -w '%{http_code}' -X POST             -H 'Content-Type: application/json'             --data '{}' http://127.0.0.1:3000/api/audit)"
+          test "$code" = "401"
+
+          code="$(curl -sS -o /tmp/intelligence.json -w '%{http_code}' -X POST             -H 'Content-Type: application/json'             --data '{"action":"difficulty","payload":{}}' http://127.0.0.1:3000/api/intelligence)"
+          test "$code" = "401"
+
+          code="$(curl -sS -o /tmp/cross.json -w '%{http_code}' -X POST             -H 'Content-Type: application/json'             -H 'Origin: https://attacker.invalid'             --data '{}' http://127.0.0.1:3000/api/audit)"
+          test "$code" = "403"
