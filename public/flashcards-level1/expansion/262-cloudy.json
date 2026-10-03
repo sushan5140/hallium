@@ -1,0 +1,13 @@
+{
+  "id": "cloudy",
+  "ko": "흐리다",
+  "latin": "heurida",
+  "meaning": "To be cloudy",
+  "group": "Weather",
+  "type": "ADJECTIVE · WEATHER",
+  "example": "오늘은 조금 흐려요.",
+  "translation": "It is a little cloudy today.",
+  "tip": "흐리다 changes to 흐려요.",
+  "sentencePrompt": "오늘은 조금 _____.",
+  "contrast": "흐리다 means cloudy; 맑다 means clear."
+}
