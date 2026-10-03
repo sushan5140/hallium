@@ -23,7 +23,7 @@ const {chromium}=require("playwright");
   assert.match(await provenance.innerText(),/OFFICIAL RELEASE · GATED/i);
   assert.match(await provenance.innerText(),/Audio\s*BLOCKED/i);
   assert.match(await provenance.innerText(),/Auto scoring · locked/i);
-  assert.match(await provenance.innerText(),/Embedded audio · locked/i);
+  assert.match(await provenance.innerText(),/Question audio · locked/i);
   assert.match(await provenance.innerText(),/Question reproduction · locked/i);
   await page.getByRole("button",{name:/All papers/i}).click();
   await page.getByRole("button",{name:/60th TOPIK I/i}).click();
