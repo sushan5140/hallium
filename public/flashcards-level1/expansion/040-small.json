@@ -1,0 +1,13 @@
+{
+  "id": "small",
+  "ko": "작다",
+  "latin": "jakda",
+  "meaning": "To be small",
+  "group": "Description",
+  "type": "ADJECTIVE · SIZE",
+  "example": "제 방은 작아요.",
+  "translation": "My room is small.",
+  "tip": "Final ㄱ in 작 is unreleased before 다.",
+  "sentencePrompt": "제 방은 _____.",
+  "contrast": "작다 means small; 크다 means big."
+}
