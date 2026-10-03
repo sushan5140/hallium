@@ -1,0 +1,13 @@
+{
+  "id": "hour-12",
+  "ko": "열두 시",
+  "latin": "yeol-du si",
+  "meaning": "12 o'clock",
+  "group": "Dates & Time",
+  "type": "TIME · HOUR",
+  "example": "열두 시에 만나요.",
+  "translation": "Let's meet at 12 o'clock.",
+  "tip": "Hours use native Korean number forms followed by 시.",
+  "sentencePrompt": "_____에 만나요.",
+  "contrast": "시 takes native Korean numbers; 분 takes Sino-Korean numbers."
+}
