@@ -1,0 +1,13 @@
+{
+  "id": "angry",
+  "ko": "화나다",
+  "latin": "hwanada",
+  "meaning": "To be angry",
+  "group": "Description",
+  "type": "VERB · FEELING",
+  "example": "그 일 때문에 화가 나요.",
+  "translation": "I am angry because of that.",
+  "tip": "화나다 is often used as 화가 나다.",
+  "sentencePrompt": "그 일 때문에 화가 _____.",
+  "contrast": "화나다 means become angry; 기쁘다 means be glad."
+}
