@@ -1,0 +1,13 @@
+{
+  "id": "cool-weather",
+  "ko": "시원하다",
+  "latin": "siwonhada",
+  "meaning": "To be cool / refreshing",
+  "group": "Weather",
+  "type": "ADJECTIVE · WEATHER",
+  "example": "가을 바람이 시원해요.",
+  "translation": "The autumn breeze is cool.",
+  "tip": "시원하다 changes to 시원해요.",
+  "sentencePrompt": "가을 바람이 _____.",
+  "contrast": "시원하다 means pleasantly cool; 춥다 means cold."
+}
