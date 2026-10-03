@@ -1,0 +1,13 @@
+{
+  "id": "month",
+  "ko": "달",
+  "latin": "dal",
+  "meaning": "Month",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "한 달 동안 공부했어요.",
+  "translation": "I studied for one month.",
+  "tip": "달 ends with final ㄹ.",
+  "sentencePrompt": "한 _____ 동안 공부했어요.",
+  "contrast": "달 means month and can also mean moon."
+}
