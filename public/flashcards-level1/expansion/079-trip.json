@@ -1,0 +1,13 @@
+{
+  "id": "trip",
+  "ko": "여행",
+  "latin": "yeohaeng",
+  "meaning": "Travel / trip",
+  "group": "Travel",
+  "type": "NOUN · TRAVEL",
+  "example": "한국 여행을 준비해요.",
+  "translation": "I prepare for a trip to Korea.",
+  "tip": "여행 ends with -haeng.",
+  "sentencePrompt": "한국 _____을 준비해요.",
+  "contrast": "여행 is travel/trip; 관광 is sightseeing."
+}
