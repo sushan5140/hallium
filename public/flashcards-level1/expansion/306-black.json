@@ -1,0 +1,13 @@
+{
+  "id": "black",
+  "ko": "검은색",
+  "latin": "geomeunsaek",
+  "meaning": "Black",
+  "group": "Description",
+  "type": "NOUN · COLOR",
+  "example": "검은색 신발을 샀어요.",
+  "translation": "I bought black shoes.",
+  "tip": "검은색 is pronounced geo-meun-saek.",
+  "sentencePrompt": "_____ 신발을 샀어요.",
+  "contrast": "검은색 means black; 흰색 means white."
+}
