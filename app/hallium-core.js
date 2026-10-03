@@ -17,7 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1451,6 +1451,10 @@ function mergeIntelligenceState(local = {}, remote = {}) {
   ["difficulty", "studyPlan", "promotion", "learningRoute"].forEach((key) => {
     merged[key] = newestByTimestamp(local?.[key], remote?.[key]) || null;
   });
+  merged.preferences = newestByTimestamp(local?.preferences, remote?.preferences, "updatedAt")
+    || local?.preferences
+    || remote?.preferences
+    || null;
   const historyMap = new Map();
   [...(remote?.practiceHistory || []), ...(local?.practiceHistory || [])].forEach((item) => {
     if (!item) return;
@@ -1825,6 +1829,26 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const currentLessonUnit = units.find((unit) => unit.id === currentLesson?.unitId);
   const nextLessonUnit = units.find((unit) => unit.id === nextLesson?.unitId);
   const firstPathIndex = lessons.findIndex((lesson) => lesson.id === firstPathLesson?.id);
+  const interestLessonRecommendations = rankInterestLessons(
+    pathLessons.map((lesson) => {
+      const absoluteIndex = lessons.findIndex((item) => item.id === lesson.id);
+      const unit = units.find((item) => item.id === lesson.unitId);
+      return {
+        id: lesson.id,
+        title: lesson.title,
+        subtitle: lesson.subtitle,
+        canDo: lesson.canDo,
+        unitTitle: unit?.title || "",
+        unitNumber: lesson.unitNumber,
+        unlocked: isUnlocked(absoluteIndex),
+        completed: !!progress[lesson.id]?.completed,
+        current: lesson.id === nextLesson.id && !progress[lesson.id]?.completed,
+      };
+    }),
+    learningPreferences,
+    3,
+  );
+  const interestLessonPick = interestLessonRecommendations[0] || null;
   const latestStudyResult = activeStudyResults[0] || null;
   const bestStudyScore = activeStudyResults.length ? Math.max(...activeStudyResults.map((result) => result.score)) : null;
   const latestStudyPct = latestStudyResult ? Math.round((latestStudyResult.score / latestStudyResult.total) * 100) : null;
@@ -2389,6 +2413,13 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       audit: aiAuditRecord?.audit || null,
       adaptiveDifficulty: aiDifficultyRecord?.result || null,
       learningPreferences,
+      interestRecommendations: interestLessonRecommendations.map((lesson) => ({
+        id: lesson.id,
+        title: lesson.title,
+        matchedTopics: lesson.matchedTopics,
+        completed: lesson.completed,
+        current: lesson.current,
+      })),
       aiPracticeHistory: readIntelligenceState(guestMode).practiceHistory || [],
       mistakeMemory: {
         dueCount: dueMistakes.length,
@@ -2416,9 +2447,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
   function updateLearningPreferences(partial) {
     const next = normalizeLearningPreferences({ ...learningPreferences, ...partial });
+    const persisted = { ...next, updatedAt: new Date().toISOString() };
     setLearningPreferences(next);
     setLearningRouteRecord(null);
-    saveIntelligenceState({ preferences: next, learningRoute: null });
+    saveIntelligenceState({ preferences: persisted, learningRoute: null });
   }
 
   function guestIntelligenceDemo(action, payload = {}) {
@@ -3565,6 +3597,26 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <button onClick={startStudyTest}>Study check ↗</button>
           </div>
         </section>
+
+        {interestLessonPick && (
+          <section className="home-interest-pick" aria-label="Interest-aware lesson recommendation">
+            <div className="home-interest-copy">
+              <span className="section-label">FOR YOUR INTERESTS</span>
+              <h3>{interestLessonPick.title}</h3>
+              <p>{interestLessonPick.subtitle}</p>
+              <div className="home-interest-tags">
+                {interestLessonPick.matchedTopics.map((topic) => <span key={topic}>{topic.replaceAll("_"," ")}</span>)}
+              </div>
+            </div>
+            <div className="home-interest-meta">
+              <small>Unit {interestLessonPick.unitNumber}</small>
+              <strong>{interestLessonPick.completed ? "Unlocked review" : interestLessonPick.current ? "Current unlocked lesson" : "Unlocked lesson"}</strong>
+              <button onClick={() => openLesson(interestLessonPick.id)}>
+                {interestLessonPick.completed ? "Revisit lesson" : "Open lesson"} ↗
+              </button>
+            </div>
+          </section>
+        )}
       </div>
     );
   }
@@ -4594,6 +4646,14 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       grammar: "Grammar",
       assessment: "Checks & tests",
     };
+    const topicLabels = {
+      daily_life: "Daily life",
+      food: "Food",
+      shopping: "Shopping",
+      travel: "Travel & directions",
+      conversation: "Conversation",
+      opinions: "Opinions",
+    };
     return (
       <section className="profilePage">
         <button className="textBack" onClick={goBack}>← Back</button>
@@ -4770,12 +4830,38 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                 })}
               </div>
             </div>
+
+            <div className="learningTopicPreferences">
+              <small className="learningPreferenceLabel">Topics you want more of</small>
+              <div className="learningChoiceRow topicChoices" role="group" aria-label="Topic interests">
+                {LEARNING_TOPIC_OPTIONS.map((topic) => {
+                  const selected = learningPreferences.topics.includes(topic);
+                  return (
+                    <button
+                      type="button"
+                      key={topic}
+                      className={selected ? "selected" : ""}
+                      aria-pressed={selected}
+                      onClick={() => {
+                        const nextTopics = selected
+                          ? learningPreferences.topics.filter((item) => item !== topic)
+                          : [...learningPreferences.topics, topic].slice(-3);
+                        updateLearningPreferences({ topics: nextTopics });
+                      }}
+                    >
+                      {topicLabels[topic] || topic}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           <div className="learningPreferenceSummary">
             <span><b>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min</b> planned today</span>
             <span><b>{activeLearningRoute.steps.length}</b> recommended {activeLearningRoute.steps.length === 1 ? "action" : "actions"}</span>
             <span><b>{topWeakSkills[0]?.skill || "No urgent weakness"}</b> highest current priority</span>
+            <span><b>{interestLessonPick?.title || "Building interest signal"}</b> current interest pick</span>
           </div>
         </section>
 
