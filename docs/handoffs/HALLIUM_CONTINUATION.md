@@ -3067,3 +3067,54 @@ Change only alternative model:
 - alternative = point p at posterior mean ±0.25
 
 No delta/alpha retuning.
+
+
+---
+
+# 38. TwinMem Pilot 13 — point alternatives do not recover power
+
+Draft PR: #18  
+Branch: `research/twinmem-pilot13-predictive-null-point-alt`
+
+Frozen:
+- baseline 48 labels/source
+- null = Beta posterior predictive
+- alternatives = point posterior mean ±0.25
+- alpha 0.10
+- stages 8 / 12 / 24 / 48
+- unchanged goals
+- no tuning grid
+
+Development:
+- stationary false alarm 3.75%
+- stationary mean labels 46.81
+- moderate detection **51.56%**
+- moderate mean labels **39.85**
+- severe detection 94.38%
+- severe mean labels 23.225
+
+All goals: FAIL.
+No held-out stress run.
+
+Conclusion:
+Pilot 12's low power was not caused by diffuse alternatives.
+The broad uncertainty-aware null with only 48 baseline labels/source is the dominant bottleneck.
+
+Exact next phase:
+**Pilot 14 — baseline-information stress for the original Pilot-9 process**
+
+Freeze original Pilot-9:
+- delta 0.25
+- alpha 0.10
+- stages 8 / 12 / 24 / 48
+- plug-in p0 process
+
+Compare baseline sizes:
+- 96 labels/source
+- 192 labels/source
+
+Use fresh unbiased and ±0.03 misspecification stress for each size.
+Do not retune detector parameters.
+
+Question:
+Does more baseline evidence alone make the high-power Pilot-9 process robust enough, or does systematic p0 misspecification remain fatal?
