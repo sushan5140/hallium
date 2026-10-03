@@ -1,0 +1,13 @@
+{
+  "id": "nurse",
+  "ko": "간호사",
+  "latin": "ganhosa",
+  "meaning": "Nurse",
+  "group": "People",
+  "type": "NOUN · JOB",
+  "example": "간호사가 환자를 도와줘요.",
+  "translation": "The nurse helps the patient.",
+  "tip": "간호사 is pronounced gan-ho-sa.",
+  "sentencePrompt": "_____가 환자를 도와줘요.",
+  "contrast": "간호사 means nurse; 의사 means doctor."
+}
