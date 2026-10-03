@@ -1,0 +1,13 @@
+{
+  "id": "meet",
+  "ko": "만나다",
+  "latin": "mannada",
+  "meaning": "To meet",
+  "group": "Actions",
+  "type": "VERB · SOCIAL",
+  "example": "주말에 친구를 만나요.",
+  "translation": "I meet a friend on the weekend.",
+  "tip": "만나다 changes to 만나요 in polite present speech.",
+  "sentencePrompt": "주말에 친구를 _____.",
+  "contrast": "만나다 means meet; 헤어지다 means part ways."
+}
