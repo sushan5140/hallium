@@ -1,0 +1,13 @@
+{
+  "id": "mother",
+  "ko": "어머니",
+  "latin": "eomeoni",
+  "meaning": "Mother",
+  "group": "People",
+  "type": "NOUN · FAMILY",
+  "example": "어머니는 요리를 잘해요.",
+  "translation": "My mother cooks well.",
+  "tip": "어머니 is polite/formal; 엄마 is casual.",
+  "sentencePrompt": "_____는 요리를 잘해요.",
+  "contrast": "어머니 is polite; 엄마 is familiar."
+}
