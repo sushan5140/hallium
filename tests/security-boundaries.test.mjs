@@ -7,7 +7,7 @@ import {
   TOPIK_RIGHTS_STATE,
   topikActivationAllowed,
 } from "../lib/topik/provenance.js";
-import { readBoundedJson } from "../lib/server/ai-guard.js";
+import { readBoundedJson } from "../lib/server/request-guard.js";
 
 const read = (path) => readFileSync(new URL("../" + path, import.meta.url), "utf8");
 
