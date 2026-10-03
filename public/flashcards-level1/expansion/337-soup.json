@@ -1,0 +1,13 @@
+{
+  "id": "soup",
+  "ko": "국",
+  "latin": "guk",
+  "meaning": "Soup",
+  "group": "Food",
+  "type": "NOUN · FOOD",
+  "example": "따뜻한 국을 먹어요.",
+  "translation": "I eat warm soup.",
+  "tip": "국 is a common Korean soup category.",
+  "sentencePrompt": "따뜻한 _____을 먹어요.",
+  "contrast": "국 means soup; 찌개 means stew."
+}
