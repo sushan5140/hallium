@@ -1,0 +1,14 @@
+metric,value
+robust_sizes,192
+size_96_robust,false
+size_96_none_stationary_false_alarm,0.056
+size_96_minus_0_03_stationary_false_alarm,0.108
+size_96_source_skew_stationary_false_alarm,0.094
+size_192_robust,true
+size_192_none_stationary_false_alarm,0.034
+size_192_none_moderate_detection,0.868
+size_192_plus_0_03_stationary_false_alarm,0.07
+size_192_minus_0_03_stationary_false_alarm,0.088
+size_192_minus_0_03_moderate_detection,0.898
+size_192_source_skew_stationary_false_alarm,0.08
+size_192_source_skew_moderate_detection,0.974
