@@ -1,0 +1,67 @@
+name: TwinMem Pilot 10 null estimation
+
+on:
+  pull_request:
+    paths:
+      - "research/twinmem_pilot10/**"
+      - ".github/workflows/twinmem-pilot10.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run null-estimation robustness experiment
+        run: python research/twinmem_pilot10/null_estimation.py
+      - name: Validate design and exact robustness results
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path("research/twinmem_pilot10")
+          d=json.loads((root/"outputs/results.json").read_text())
+          assert d["status"]=="synthetic_research_only"
+          assert d["frozen_pilot9"]=={
+              "delta":0.25,
+              "alpha":0.1,
+              "stages":[8,12,24,48],
+          }
+          assert d["baseline_labels_grid"]==[12,24,48,96,192]
+          assert d["repeats_per_size_scenario"]==320
+          assert d["bias_repeats_per_pattern_scenario"]==400
+          assert len(d["baseline_size_curve"])==5
+          assert set(d["bias_patterns"])=={
+              "none","all_plus_0_03","all_minus_0_03","source_skew_0_03"
+          }
+
+          curve={r["baseline_labels_per_source"]:r for r in d["baseline_size_curve"]}
+          bias=d["bias_stress"]
+          got={
+              "minimum_passing_baseline_labels_per_source":str(d["minimum_passing_baseline_labels_per_source"]),
+              "curve_12_stationary_false_alarm":str(curve[12]["distributions"]["stationary"]["detection_rate"]),
+              "curve_24_stationary_false_alarm":str(curve[24]["distributions"]["stationary"]["detection_rate"]),
+              "curve_48_stationary_false_alarm":str(curve[48]["distributions"]["stationary"]["detection_rate"]),
+              "curve_48_moderate_detection":str(curve[48]["distributions"]["moderate"]["detection_rate"]),
+              "curve_96_stationary_false_alarm":str(curve[96]["distributions"]["stationary"]["detection_rate"]),
+              "curve_192_stationary_false_alarm":str(curve[192]["distributions"]["stationary"]["detection_rate"]),
+              "bias_none_all_goals_pass":str(bool(bias["none"]["all_goals_pass"])).lower(),
+              "bias_none_stationary_false_alarm":str(bias["none"]["distributions"]["stationary"]["detection_rate"]),
+              "bias_none_moderate_detection":str(bias["none"]["distributions"]["moderate"]["detection_rate"]),
+              "bias_plus_0_03_stationary_false_alarm":str(bias["all_plus_0_03"]["distributions"]["stationary"]["detection_rate"]),
+              "bias_minus_0_03_stationary_false_alarm":str(bias["all_minus_0_03"]["distributions"]["stationary"]["detection_rate"]),
+              "bias_source_skew_stationary_false_alarm":str(bias["source_skew_0_03"]["distributions"]["stationary"]["detection_rate"]),
+          }
+          with (root/"expected_results.csv").open(newline="") as f:
+              expected={r["metric"]:r["value"] for r in csv.DictReader(f)}
+          assert got==expected,(got,expected)
+          print("PASS: Pilot 10 plug-in null fragility curve pinned")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: twinmem-pilot10-null-estimation
+          path: research/twinmem_pilot10/outputs/
+          retention-days: 30

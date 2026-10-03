@@ -1,0 +1,14 @@
+metric,value
+minimum_passing_baseline_labels_per_source,48
+curve_12_stationary_false_alarm,0.496875
+curve_24_stationary_false_alarm,0.275
+curve_48_stationary_false_alarm,0.1
+curve_48_moderate_detection,0.8
+curve_96_stationary_false_alarm,0.059375
+curve_192_stationary_false_alarm,0.040625
+bias_none_all_goals_pass,false
+bias_none_stationary_false_alarm,0.1075
+bias_none_moderate_detection,0.7425
+bias_plus_0_03_stationary_false_alarm,0.115
+bias_minus_0_03_stationary_false_alarm,0.225
+bias_source_skew_stationary_false_alarm,0.145
