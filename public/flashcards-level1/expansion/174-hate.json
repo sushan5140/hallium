@@ -1,0 +1,13 @@
+{
+  "id": "hate",
+  "ko": "싫어하다",
+  "latin": "sireohada",
+  "meaning": "To dislike / hate",
+  "group": "Actions",
+  "type": "VERB · FEELING",
+  "example": "저는 추운 날씨를 싫어해요.",
+  "translation": "I dislike cold weather.",
+  "tip": "싫어하다 changes to 싫어해요.",
+  "sentencePrompt": "저는 추운 날씨를 _____.",
+  "contrast": "싫어하다 means dislike; 좋아하다 means like."
+}
