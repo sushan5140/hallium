@@ -1,0 +1,13 @@
+{
+  "id": "hotel",
+  "ko": "호텔",
+  "latin": "hotel",
+  "meaning": "Hotel",
+  "group": "Travel",
+  "type": "NOUN · PLACE",
+  "example": "호텔에 체크인해요.",
+  "translation": "I check in at the hotel.",
+  "tip": "호텔 is a Korean loanword from English 'hotel'.",
+  "sentencePrompt": "_____에 체크인해요.",
+  "contrast": "호텔 is hotel; 집 is home."
+}
