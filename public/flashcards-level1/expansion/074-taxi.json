@@ -1,0 +1,13 @@
+{
+  "id": "taxi",
+  "ko": "택시",
+  "latin": "taeksi",
+  "meaning": "Taxi",
+  "group": "Travel",
+  "type": "NOUN · TRANSPORT",
+  "example": "택시를 타고 집에 가요.",
+  "translation": "I take a taxi home.",
+  "tip": "택시 is a Korean loanword from English 'taxi'.",
+  "sentencePrompt": "_____를 타고 집에 가요.",
+  "contrast": "택시 means taxi; 버스 is public bus."
+}
