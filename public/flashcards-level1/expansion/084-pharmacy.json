@@ -1,0 +1,13 @@
+{
+  "id": "pharmacy",
+  "ko": "약국",
+  "latin": "yakguk",
+  "meaning": "Pharmacy",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "약국에서 약을 사요.",
+  "translation": "I buy medicine at the pharmacy.",
+  "tip": "약국 contains two final ㄱ stops across the word.",
+  "sentencePrompt": "_____에서 약을 사요.",
+  "contrast": "약국 is pharmacy; 병원 is hospital."
+}
