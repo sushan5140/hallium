@@ -1,0 +1,13 @@
+{
+  "id": "wait",
+  "ko": "기다리다",
+  "latin": "gidarida",
+  "meaning": "To wait",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "친구를 기다려요.",
+  "translation": "I wait for my friend.",
+  "tip": "기다리다 changes to 기다려요.",
+  "sentencePrompt": "친구를 _____.",
+  "contrast": "기다리다 means wait; 만나다 means meet."
+}
