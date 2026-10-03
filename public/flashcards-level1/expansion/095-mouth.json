@@ -1,0 +1,13 @@
+{
+  "id": "mouth",
+  "ko": "입",
+  "latin": "ip",
+  "meaning": "Mouth",
+  "group": "Body",
+  "type": "NOUN · BODY",
+  "example": "입을 크게 벌려요.",
+  "translation": "I open my mouth wide.",
+  "tip": "입 ends with final ㅂ.",
+  "sentencePrompt": "_____을 크게 벌려요.",
+  "contrast": "입 means mouth; 코 means nose."
+}
