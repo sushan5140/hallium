@@ -1,0 +1,13 @@
+{
+  "id": "thank-you",
+  "ko": "감사합니다",
+  "latin": "gamsahamnida",
+  "meaning": "Thank you",
+  "group": "Greetings",
+  "type": "EXPRESSION · POLITE",
+  "example": "도와줘서 감사합니다.",
+  "translation": "Thank you for helping me.",
+  "tip": "합니다 is commonly heard close to 함니다.",
+  "sentencePrompt": "도와줘서 _____.",
+  "contrast": "감사합니다 is formal/polite; 고마워 is casual."
+}
