@@ -1,0 +1,13 @@
+{
+  "id": "wake-up",
+  "ko": "일어나다",
+  "latin": "ireonada",
+  "meaning": "To get up",
+  "group": "Actions",
+  "type": "VERB · DAILY LIFE",
+  "example": "아침 일곱 시에 일어나요.",
+  "translation": "I get up at seven in the morning.",
+  "tip": "일어나다 changes to 일어나요 in polite present speech.",
+  "sentencePrompt": "아침 일곱 시에 _____.",
+  "contrast": "일어나다 means get up; 자다 means sleep."
+}
