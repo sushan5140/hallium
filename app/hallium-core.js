@@ -17,7 +17,7 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { buildTodayLearningPlan, rankWeakSkills } from "../lib/learning-intelligence";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, buildTodayLearningPlan, fitPlanToSession, normalizeLearningPreferences, rankWeakSkills } from "../lib/learning-intelligence";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1513,6 +1513,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const [studyPlanRecord, setStudyPlanRecord] = useState(null);
   const [promotionRecord, setPromotionRecord] = useState(null);
   const [learningRouteRecord, setLearningRouteRecord] = useState(null);
+  const [learningPreferences, setLearningPreferences] = useState(DEFAULT_LEARNING_PREFERENCES);
   const [aiQuiz, setAiQuiz] = useState(null);
   const [aiQuizIndex, setAiQuizIndex] = useState(0);
   const [aiQuizChoice, setAiQuizChoice] = useState(null);
@@ -1562,6 +1563,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setStudyPlanRecord(savedIntelligence.studyPlan || null);
     setPromotionRecord(savedIntelligence.promotion || null);
     setLearningRouteRecord(savedIntelligence.learningRoute || null);
+    setLearningPreferences(normalizeLearningPreferences(savedIntelligence.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(savedIntelligence.mistakeLog || []);
     const savedVoicePreference = readLocalVoicePreference(scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, guestMode));
     setVoicePreference(savedVoicePreference);
@@ -1793,6 +1795,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     studyPlanRecord,
     promotionRecord,
     learningRouteRecord,
+    learningPreferences,
     mistakeLog,
   ]);
 
@@ -1890,9 +1893,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     totalPathLessons: pathLessons.length,
     activeStudyLabel: activeStudy.label,
     nextLessonTitle: nextLesson.title,
+    preferences: learningPreferences,
   });
 
-  const activeLearningRoute = learningRouteRecord?.result || fallbackLearningRoute;
+  const activeLearningRoute = fitPlanToSession(learningRouteRecord?.result || fallbackLearningRoute, learningPreferences);
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
@@ -1954,6 +1958,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setStudyPlanRecord(intelligence?.studyPlan || null);
     setPromotionRecord(intelligence?.promotion || null);
     setLearningRouteRecord(intelligence?.learningRoute || null);
+    setLearningPreferences(normalizeLearningPreferences(intelligence?.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(intelligence?.mistakeLog || []);
 
     if (audit) {
@@ -2382,6 +2387,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       tests: { latest, bestScore: best, attempts },
       audit: aiAuditRecord?.audit || null,
       adaptiveDifficulty: aiDifficultyRecord?.result || null,
+      learningPreferences,
       aiPracticeHistory: readIntelligenceState(guestMode).practiceHistory || [],
       mistakeMemory: {
         dueCount: dueMistakes.length,
@@ -2405,6 +2411,13 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const previous = readIntelligenceState(guestMode);
     const next = { ...previous, ...partial };
     localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode), JSON.stringify(next));
+  }
+
+  function updateLearningPreferences(partial) {
+    const next = normalizeLearningPreferences({ ...learningPreferences, ...partial });
+    setLearningPreferences(next);
+    setLearningRouteRecord(null);
+    saveIntelligenceState({ preferences: next, learningRoute: null });
   }
 
   function guestIntelligenceDemo(action, payload = {}) {
@@ -3202,7 +3215,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           <div className="rail-group-heading">
             <span className="rail-group-label">01 · TODAY'S PLAN</span>
             <h2 id="rail-plan-title">A clear route for today.</h2>
-            <p>Small steps, real learning progress.</p>
+            <p>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min · fitted to your saved study preferences.</p>
           </div>
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
@@ -3211,7 +3224,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div className="route-task-copy">
                     <strong>{step.title}</strong>
-                    <small>{step.why}</small>
+                    <small>{step.minutes ? step.minutes + " min · " : ""}{step.why}</small>
                     <em>{routeLabels[step.kind] || "Open practice"} ↗</em>
                   </div>
                 </button>
@@ -4522,6 +4535,13 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   }
 
   function Profile() {
+    const focusLabels = {
+      conversation: "Conversation",
+      listening: "Listening",
+      vocabulary: "Vocabulary",
+      grammar: "Grammar",
+      assessment: "Checks & tests",
+    };
     return (
       <section className="profilePage">
         <button className="textBack" onClick={goBack}>← Back</button>
@@ -4644,6 +4664,69 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <span>vocab words + grammar patterns</span>
           </article>
         </div>
+        <section className="learningPreferencesPanel">
+          <div className="learningPreferencesHead">
+            <div>
+              <span className="eyebrow">H-P6 · Daily intelligence</span>
+              <h2>Fit Hallim to the time you actually have.</h2>
+              <p>Your daily route keeps required review first, then uses your time budget and preferred practice style to rank the remaining actions.</p>
+            </div>
+            <span className={"learningDifficultyPill " + (activeLearningRoute.difficulty || "balanced")}>
+              {(activeLearningRoute.difficulty || "balanced").replaceAll("_"," ")}
+            </span>
+          </div>
+
+          <div className="learningPreferenceGrid">
+            <div>
+              <small className="learningPreferenceLabel">Daily study time</small>
+              <div className="learningChoiceRow" role="group" aria-label="Daily study time">
+                {[10,15,20,30].map((minutes) => (
+                  <button
+                    type="button"
+                    key={minutes}
+                    className={learningPreferences.dailyMinutes === minutes ? "selected" : ""}
+                    aria-pressed={learningPreferences.dailyMinutes === minutes}
+                    onClick={() => updateLearningPreferences({ dailyMinutes: minutes })}
+                  >
+                    {minutes} min
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <small className="learningPreferenceLabel">Prioritize after required review</small>
+              <div className="learningChoiceRow focusChoices" role="group" aria-label="Learning focus priorities">
+                {LEARNING_FOCUS_OPTIONS.map((focus) => {
+                  const selected = learningPreferences.focuses.includes(focus);
+                  return (
+                    <button
+                      type="button"
+                      key={focus}
+                      className={selected ? "selected" : ""}
+                      aria-pressed={selected}
+                      onClick={() => {
+                        const nextFocuses = selected
+                          ? learningPreferences.focuses.filter((item) => item !== focus)
+                          : [...learningPreferences.focuses, focus].slice(-3);
+                        updateLearningPreferences({ focuses: nextFocuses });
+                      }}
+                    >
+                      {focusLabels[focus] || focus}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="learningPreferenceSummary">
+            <span><b>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min</b> planned today</span>
+            <span><b>{activeLearningRoute.steps.length}</b> recommended {activeLearningRoute.steps.length === 1 ? "action" : "actions"}</span>
+            <span><b>{topWeakSkills[0]?.skill || "No urgent weakness"}</b> highest current priority</span>
+          </div>
+        </section>
+
 
         <section className="weaknessMemoryPanel">
           <div>

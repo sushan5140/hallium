@@ -2,7 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   buildTodayLearningPlan,
+  fitPlanToSession,
   inferDifficulty,
+  normalizeLearningPreferences,
   rankWeakSkills,
   reviewUrgency,
 } from "../lib/learning-intelligence.js";
@@ -65,6 +67,7 @@ test("no structured result produces a baseline-building route", () => {
     latestStudyPct:null,
     activeStudyLabel:"Beginner",
     nextLessonTitle:"Greetings",
+    preferences:{dailyMinutes:30,focuses:["conversation"]},
     now:NOW,
   });
 
@@ -92,4 +95,77 @@ test("low score or heavy weakness load reinforces", () => {
   assert.equal(inferDifficulty({latestStudyPct:61,dueCount:0}),"reinforce");
   assert.equal(inferDifficulty({latestStudyPct:90,dueCount:4}),"reinforce");
   assert.equal(inferDifficulty({latestStudyPct:91,dueCount:0,topWeakness:{score:4}}),"stretch");
+});
+
+
+test("learning preferences clamp time and discard unsupported focus values", () => {
+  assert.deepEqual(
+    normalizeLearningPreferences({ dailyMinutes: 2, focuses:["grammar","unknown","grammar"] }),
+    { dailyMinutes:5, focuses:["grammar"] }
+  );
+  assert.deepEqual(
+    normalizeLearningPreferences({ dailyMinutes:120, focuses:[] }),
+    { dailyMinutes:60, focuses:["conversation"] }
+  );
+});
+
+test("short sessions keep at least one useful action and annotate minutes", () => {
+  const plan=fitPlanToSession({
+    headline:"Turn recognition into usable Korean",
+    dueCount:0,
+    steps:[
+      {kind:"companion",title:"Context",priority:86},
+      {kind:"adaptive_review",title:"Review",priority:80},
+      {kind:"test",title:"Test",priority:72},
+    ],
+  },{dailyMinutes:5,focuses:["conversation"]});
+
+  assert.equal(plan.steps.length,1);
+  assert.equal(plan.steps[0].kind,"companion");
+  assert.equal(plan.steps[0].minutes,10);
+  assert.equal(plan.sessionMinutes,5);
+});
+
+test("focus preference can reorder optional actions", () => {
+  const plan=fitPlanToSession({
+    headline:"Keep moving",
+    dueCount:0,
+    steps:[
+      {kind:"companion",title:"Context",priority:70},
+      {kind:"grammar",title:"Grammar",priority:69},
+      {kind:"test",title:"Test",priority:68},
+    ],
+  },{dailyMinutes:30,focuses:["grammar"]});
+
+  assert.equal(plan.steps[0].kind,"grammar");
+});
+
+test("due review remains first even when another focus is strongly preferred", () => {
+  const plan=fitPlanToSession({
+    headline:"2 weaknesses are due now",
+    dueCount:2,
+    steps:[
+      {kind:"review_queue",title:"Review due",priority:100},
+      {kind:"companion",title:"Conversation",priority:82},
+      {kind:"grammar",title:"Grammar",priority:80},
+    ],
+  },{dailyMinutes:30,focuses:["conversation"]});
+
+  assert.equal(plan.steps[0].kind,"review_queue");
+});
+
+test("buildTodayLearningPlan applies session preferences", () => {
+  const plan=buildTodayLearningPlan({
+    mistakes:[],
+    latestStudyPct:92,
+    completedPathCount:5,
+    totalPathLessons:10,
+    nextLessonTitle:"Plans",
+    preferences:{dailyMinutes:10,focuses:["assessment"]},
+    now:NOW,
+  });
+
+  assert.equal(plan.sessionMinutes,10);
+  assert.ok(plan.steps.length>=1);
+  assert.ok(plan.steps.every((step)=>Number.isFinite(step.minutes)));
 });
