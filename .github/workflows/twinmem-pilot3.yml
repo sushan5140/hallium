@@ -17,23 +17,42 @@ jobs:
           python-version: "3.11"
       - name: Run budget-aware drift-response experiment
         run: python research/twinmem_pilot3/budget_aware_gate.py
-      - name: Validate experiment structure
+      - name: Validate structure and exact committed results
         run: |
           python - <<'PY'
-          import json
+          import csv, json
           from pathlib import Path
-          d=json.loads(Path("research/twinmem_pilot3/outputs/results.json").read_text())
+          root=Path("research/twinmem_pilot3")
+          d=json.loads((root/"outputs/results.json").read_text())
           assert d["status"]=="synthetic_research_only"
           assert d["detector"]=={"window_per_source":24,"threshold":0.2}
-          assert set(d["action_table"])=={"no_drift","drift"}
-          assert len(d["scenarios"])==3
+          assert d["action_table"]=={
+              "no_drift":{"52":"calibrated","105":"calibrated","210":"calibrated"},
+              "drift":{"52":"topic_recent","105":"calibrated","210":"calibrated"},
+          }
           assert {s["scenario"] for s in d["scenarios"]}=={
               "stationary","severe_shift","moderate_shift_unseen"
           }
-          for regime in ("no_drift","drift"):
-              assert set(d["action_table"][regime])=={"52","105","210"}
-              assert all(v in {"calibrated","topic_recent"} for v in d["action_table"][regime].values())
-          print("PASS: Pilot 3 detector freeze, action table, and scenario separation")
+
+          got=[]
+          for s in d["scenarios"]:
+              detected=str(bool(s["detector"]["detected"])).lower()
+              for budget in (52,105,210):
+                  k=str(budget)
+                  got.append({
+                      "scenario":s["scenario"],
+                      "detected":detected,
+                      "budget":k,
+                      "policy":s["budget_policy"][k],
+                      "frozen_calibrated":str(s["accuracy"]["frozen_calibrated"][k]),
+                      "topic_recent":str(s["accuracy"]["topic_recent"][k]),
+                      "budget_aware_gate":str(s["accuracy"]["budget_aware_gate"][k]),
+                      "oracle_best_of_two":str(s["accuracy"]["oracle_best_of_two"][k]),
+                  })
+          with (root/"expected_accuracy.csv").open(newline="") as f:
+              expected=list(csv.DictReader(f))
+          assert got==expected, (got,expected)
+          print("PASS: Pilot 3 exact detector decisions, policy table, and accuracies")
           PY
       - uses: actions/upload-artifact@v4
         with:
