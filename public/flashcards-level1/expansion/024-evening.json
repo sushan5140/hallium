@@ -1,0 +1,13 @@
+{
+  "id": "evening",
+  "ko": "저녁",
+  "latin": "jeonyeok",
+  "meaning": "Evening",
+  "group": "Time",
+  "type": "NOUN · TIME",
+  "example": "저녁에 집에 가요.",
+  "translation": "I go home in the evening.",
+  "tip": "Final 녁 ends with an unreleased ㄱ sound.",
+  "sentencePrompt": "_____에 집에 가요.",
+  "contrast": "저녁 is evening and can also refer to dinner in context."
+}
