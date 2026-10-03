@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import HalliumCore from "./hallium-core";
 import LandingPage from "./landing/LandingPage";
 import { getHallimSupabase } from "../lib/supabase/client";
+import { scopedLearnerStorageKey } from "../lib/learner-storage";
 
 const learnerProfileKey = "hallim:learner-profile:v1";
 const guestIdentityKey = "hallim:guest-review:v1";
@@ -61,7 +62,7 @@ async function logGuestEntry(identity) {
 
 function seedFullReviewProfile(identity) {
   const now = new Date().toISOString();
-  localStorage.setItem(learnerProfileKey, JSON.stringify({
+  localStorage.setItem(scopedLearnerStorageKey(learnerProfileKey, true), JSON.stringify({
     currentLevel: "new",
     targetLevel: "advanced",
     displayName: identity.name,

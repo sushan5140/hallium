@@ -1,0 +1,96 @@
+name: Verify Hallium H-P5 closure
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'lib/**'
+      - 'tests/**'
+      - 'supabase/migrations/**'
+      - '.github/scripts/verify-hp5-closure.cjs'
+      - '.github/scripts/verify-topik-mocks.cjs'
+      - '.github/workflows/verify-hp5-closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Run full Hallium integrity suite
+        run: node --test tests/*.test.mjs
+
+      - name: Compile production Hallium
+        run: npm run build
+
+      - name: Install Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.58.0
+          npx playwright install --with-deps chromium
+
+      - name: Exercise H-P5 closure paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3000 >/tmp/hallium-hp5.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+
+          ok=0
+          for i in $(seq 1 45); do
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then
+              ok=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ok" -ne 1 ]; then
+            cat /tmp/hallium-hp5.log
+            exit 1
+          fi
+
+          node .github/scripts/verify-hp5-closure.cjs
+          node .github/scripts/verify-topik-mocks.cjs
+
+          # Server-side abuse boundaries must fail closed without auth.
+          for route in /api/audit /api/intelligence /api/ai-twins/guides/chat /api/ai-twins/meet /api/study-partners/practice /api/tts; do
+            code="$(curl -sS -o /tmp/hp5-api.json -w '%{http_code}' -X POST \
+              -H 'Content-Type: application/json' --data '{}' "http://127.0.0.1:3000$route")"
+            test "$code" = "401"
+
+            code="$(curl -sS -o /tmp/hp5-cross.json -w '%{http_code}' -X POST \
+              -H 'Content-Type: application/json' -H 'Origin: https://attacker.invalid' \
+              --data '{}' "http://127.0.0.1:3000$route")"
+            test "$code" = "403"
+          done
+
+          echo "PASS: H-P5 local production closure gate"
+
+      - name: Security headers
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3001 >/tmp/hallium-hp5-headers.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:3001/ >/dev/null && break || sleep 1
+          done
+          headers="$(curl -fsSI http://127.0.0.1:3001/ | tr -d '\r')"
+          grep -qi '^x-content-type-options: nosniff$' <<<"$headers"
+          grep -qi '^x-frame-options: SAMEORIGIN$' <<<"$headers"
+          grep -qi '^referrer-policy: strict-origin-when-cross-origin$' <<<"$headers"
+          grep -qi '^content-security-policy: .*object-src.*none.*frame-ancestors.*self' <<<"$headers"

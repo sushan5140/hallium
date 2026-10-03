@@ -136,3 +136,17 @@ test("Hallium holds the access gate until signed-in cloud hydration finishes", (
     "Successful hydration must claim canonical local cache ownership"
   );
 });
+
+
+test("Hallium entry seeds Guest Mode only into the guest-scoped profile key", () => {
+  const source = fs.readFileSync("app/page.js", "utf8");
+  assert.ok(
+    source.includes("scopedLearnerStorageKey(learnerProfileKey, true)"),
+    "Guest entry profile must never be written to the canonical signed-in profile key"
+  );
+  assert.doesNotMatch(
+    source,
+    /localStorage\.setItem\(learnerProfileKey\s*,/,
+    "Guest entry must not seed the canonical learner profile"
+  );
+});
