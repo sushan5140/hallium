@@ -1,0 +1,13 @@
+{
+  "id": "love",
+  "ko": "사랑하다",
+  "latin": "saranghada",
+  "meaning": "To love",
+  "group": "Actions",
+  "type": "VERB · FEELING",
+  "example": "가족을 사랑해요.",
+  "translation": "I love my family.",
+  "tip": "사랑하다 changes to 사랑해요.",
+  "sentencePrompt": "가족을 _____.",
+  "contrast": "사랑하다 means love; 좋아하다 means like."
+}
