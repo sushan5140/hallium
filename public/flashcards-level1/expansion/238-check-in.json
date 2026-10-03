@@ -1,0 +1,13 @@
+{
+  "id": "check-in",
+  "ko": "체크인하다",
+  "latin": "chekeuinhada",
+  "meaning": "To check in",
+  "group": "Actions",
+  "type": "VERB · TRAVEL",
+  "example": "오후 세 시에 체크인해요.",
+  "translation": "I check in at 3 p.m.",
+  "tip": "체크인하다 is a Koreanized English loan phrase.",
+  "sentencePrompt": "오후 세 시에 _____.",
+  "contrast": "체크인하다 means check in; 체크아웃하다 means check out."
+}
