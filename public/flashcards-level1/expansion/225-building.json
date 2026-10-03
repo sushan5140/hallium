@@ -1,0 +1,13 @@
+{
+  "id": "building",
+  "ko": "건물",
+  "latin": "geonmul",
+  "meaning": "Building",
+  "group": "Places",
+  "type": "NOUN · PLACE",
+  "example": "저 건물이 학교예요.",
+  "translation": "That building is the school.",
+  "tip": "건물 is pronounced geon-mul.",
+  "sentencePrompt": "저 _____이 학교예요.",
+  "contrast": "건물 is building; 집 is house/home."
+}
