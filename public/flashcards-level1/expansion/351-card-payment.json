@@ -1,0 +1,13 @@
+{
+  "id": "card-payment",
+  "ko": "카드",
+  "latin": "kadeu",
+  "meaning": "Card",
+  "group": "Shopping",
+  "type": "NOUN · PAYMENT",
+  "example": "카드로 계산할게요.",
+  "translation": "I'll pay by card.",
+  "tip": "카드 is a Korean loanword from English 'card'.",
+  "sentencePrompt": "_____로 계산할게요.",
+  "contrast": "카드 means card; 현금 means cash."
+}
