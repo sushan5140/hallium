@@ -1,0 +1,13 @@
+{
+  "id": "same",
+  "ko": "같다",
+  "latin": "gatda",
+  "meaning": "To be the same / like",
+  "group": "Description",
+  "type": "ADJECTIVE · COMPARISON",
+  "example": "두 가방이 같아요.",
+  "translation": "The two bags are the same.",
+  "tip": "같다 is commonly pronounced 가따.",
+  "sentencePrompt": "두 가방이 _____.",
+  "contrast": "같다 means same/alike; 다르다 means different."
+}
