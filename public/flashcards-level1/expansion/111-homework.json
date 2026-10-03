@@ -1,0 +1,13 @@
+{
+  "id": "homework",
+  "ko": "숙제",
+  "latin": "sukje",
+  "meaning": "Homework",
+  "group": "School",
+  "type": "NOUN · SCHOOL",
+  "example": "숙제를 다 했어요.",
+  "translation": "I finished all my homework.",
+  "tip": "숙 ends with final ㄱ.",
+  "sentencePrompt": "_____를 다 했어요.",
+  "contrast": "숙제 is homework; 시험 is test."
+}
