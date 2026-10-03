@@ -1,0 +1,13 @@
+{
+  "id": "station",
+  "ko": "역",
+  "latin": "yeok",
+  "meaning": "Station",
+  "group": "Travel",
+  "type": "NOUN · PLACE",
+  "example": "역에서 친구를 만나요.",
+  "translation": "I meet a friend at the station.",
+  "tip": "역 ends with final ㄱ unreleased.",
+  "sentencePrompt": "_____에서 친구를 만나요.",
+  "contrast": "역 is a station; 공항 is an airport."
+}
