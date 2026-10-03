@@ -1,0 +1,13 @@
+{
+  "id": "high",
+  "ko": "높다",
+  "latin": "nopda",
+  "meaning": "To be high",
+  "group": "Description",
+  "type": "ADJECTIVE · POSITION",
+  "example": "산이 높아요.",
+  "translation": "The mountain is high.",
+  "tip": "높다 changes to 높아요.",
+  "sentencePrompt": "산이 _____.",
+  "contrast": "높다 means high; 낮다 means low."
+}
