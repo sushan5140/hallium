@@ -1,0 +1,16 @@
+{
+  "id": "mining-0210",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "쇼핑해요",
+  "gloss": "shop",
+  "sentence": "시간이 있을 때 쇼핑해요",
+  "translation": "When I have time, I shop.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you shop using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
