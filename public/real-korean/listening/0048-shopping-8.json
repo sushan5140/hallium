@@ -1,0 +1,17 @@
+{
+  "id": "listening-0048",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "봉투 필요하세요?",
+  "cloze": "_____ 필요하세요?",
+  "answer": "봉투",
+  "translation": "Do you need a bag?",
+  "hint": "Listen for bag.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
