@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0230",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "찍다",
+  "example": "여기서 사진 찍어 봐요.",
+  "translation": "Try taking a photo here.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 찍다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
