@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0076",
+  "context": "family",
+  "level": "Low Intermediate",
+  "situation": "Calling a parent",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "엄마, 지금 통화 괜찮아요?",
+      "romanization": "eomma, jigeum tonghwa gwaenchanayo?",
+      "meaning": "Mom, is now okay for a call?"
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 괜찮아. 무슨 일이야?",
+      "romanization": "eung, gwaenchana. museun iriya?",
+      "meaning": "Yeah, it's fine. What's up?"
+    },
+    {
+      "speaker": "A",
+      "korean": "그냥 목소리 듣고 싶었어요.",
+      "romanization": "geunyang moksori deutgo sipeosseoyo.",
+      "meaning": "I just wanted to hear your voice."
+    }
+  ],
+  "teachingPoint": "듣고 싶었어요 means wanted to hear.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
