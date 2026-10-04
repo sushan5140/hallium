@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0001",
+  "context": "cafe",
+  "level": "Beginner",
+  "situation": "Ordering one iced Americano",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "주문 도와드릴까요?",
+      "romanization": "jumun dowadeurilkkayo?",
+      "meaning": "May I take your order?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "아이스 아메리카노 한 잔 주세요.",
+      "romanization": "aiseu amerikano han jan juseyo.",
+      "meaning": "One iced Americano, please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Sure."
+    }
+  ],
+  "teachingPoint": "Use N + counter + 주세요 for a compact polite order.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
