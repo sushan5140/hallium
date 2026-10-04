@@ -1,0 +1,17 @@
+{
+  "id": "listening-0094",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "마감이 언제예요?",
+  "cloze": "_____이 언제예요?",
+  "answer": "마감",
+  "translation": "When is the deadline?",
+  "hint": "Listen for deadline.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
