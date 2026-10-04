@@ -1,0 +1,17 @@
+{
+  "id": "listening-0143",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "오는 길에 우유 좀 사 와.",
+  "cloze": "오는 길에 우유 좀 _____ 와.",
+  "answer": "사",
+  "translation": "Buy some milk on your way back.",
+  "hint": "Listen for buy.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
