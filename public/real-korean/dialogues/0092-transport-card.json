@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0092",
+  "context": "transport",
+  "level": "Beginner",
+  "situation": "Reloading a transit card",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "교통카드 충전할 수 있어요?",
+      "romanization": "gyotongkadeu chungjeonhal su isseoyo?",
+      "meaning": "Can I recharge my transit card?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 얼마 충전할까요?",
+      "romanization": "ne, eolma chungjeonhalkkayo?",
+      "meaning": "Yes, how much should I add?"
+    },
+    {
+      "speaker": "A",
+      "korean": "만원이요.",
+      "romanization": "manwoniyo.",
+      "meaning": "10,000 won, please."
+    }
+  ],
+  "teachingPoint": "충전하다 means recharge/top up.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
