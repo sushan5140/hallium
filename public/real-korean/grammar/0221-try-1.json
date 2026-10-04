@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0221",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "먹다",
+  "example": "이 음식 한번 먹어 보세요.",
+  "translation": "Try this food once.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 먹다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
