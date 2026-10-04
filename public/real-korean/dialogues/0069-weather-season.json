@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0069",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "situation": "Talking about favorite seasons",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "어떤 계절 좋아해요?",
+      "romanization": "eotteon gyejeol joahaeyo?",
+      "meaning": "Which season do you like?"
+    },
+    {
+      "speaker": "B",
+      "korean": "가을을 제일 좋아해요.",
+      "romanization": "gaeureul jeil joahaeyo.",
+      "meaning": "I like autumn the most."
+    },
+    {
+      "speaker": "A",
+      "korean": "저도요. 날씨가 좋아요.",
+      "romanization": "jeodoyo. nalssiga joayo.",
+      "meaning": "Me too. The weather is nice."
+    }
+  ],
+  "teachingPoint": "제일 means the most.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
