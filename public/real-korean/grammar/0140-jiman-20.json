@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0140",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "재미있다",
+  "example": "재미있지만 시간이 오래 걸려요.",
+  "translation": "It is fun, but takes a long time.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 재미있다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
