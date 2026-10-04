@@ -1,0 +1,17 @@
+{
+  "id": "listening-0084",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "잠깐 쉴까요?",
+  "cloze": "잠깐 _____까요?",
+  "answer": "쉴",
+  "translation": "Shall we take a short break?",
+  "hint": "Listen for rest.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
