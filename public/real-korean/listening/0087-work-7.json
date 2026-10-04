@@ -1,0 +1,17 @@
+{
+  "id": "listening-0087",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "진행 상황이 어떻게 돼요?",
+  "cloze": "_____ 상황이 어떻게 돼요?",
+  "answer": "진행",
+  "translation": "How is the progress going?",
+  "hint": "Listen for progress.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
