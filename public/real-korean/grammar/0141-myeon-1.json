@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0141",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "시간이 있다",
+  "example": "시간이 있으면 같이 가요.",
+  "translation": "If you have time, let's go together.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 시간이 있다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
