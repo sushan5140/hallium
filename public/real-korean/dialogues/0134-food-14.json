@@ -1,0 +1,35 @@
+{
+  "id": "dialogue-0134",
+  "context": "food",
+  "level": "Beginner",
+  "situation": "Ordering japchae at a restaurant",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "주문하시겠어요?",
+      "romanization": "jumunhasigesseoyo?",
+      "meaning": "Would you like to order?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "잡채 하나 주세요.",
+      "romanization": "japchae hana juseyo.",
+      "meaning": "One japchae, please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Sure."
+    }
+  ],
+  "teachingPoint": "Dish + 하나 주세요 is a simple restaurant ordering pattern.",
+  "tags": [
+    "food",
+    "restaurant",
+    "ordering",
+    "real-korean",
+    "dialogue"
+  ]
+}
