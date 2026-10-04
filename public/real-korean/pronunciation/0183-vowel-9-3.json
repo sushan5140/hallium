@@ -1,0 +1,20 @@
+{
+  "id": "pron-0183",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㄷ",
+  "left": "돠",
+  "right": "둬",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 돠, then 둬. Keep the onset ㄷ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
