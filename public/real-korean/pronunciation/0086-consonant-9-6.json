@@ -1,0 +1,20 @@
+{
+  "id": "pron-0086",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅅ",
+    "ㅆ"
+  ],
+  "vowel": "ㅣ",
+  "left": "시",
+  "right": "씨",
+  "cue": "Notice the tenser hiss on ㅆ.",
+  "prompt": "Say 시, then 씨. Keep the vowel ㅣ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
