@@ -2193,6 +2193,41 @@ button.toast{border:0;text-align:left}
 .featurePanelHead h2{margin:5px 0 0;font-size:24px;letter-spacing:-.035em}
 .featurePanelHead p{margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
 
+/* Batch 5 · Register intelligence */
+.registerIntelligenceSection{margin-top:34px}
+.registerLead{max-width:690px;margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
+.registerGuideTabs{display:flex;gap:8px;overflow-x:auto;margin-top:16px;padding-bottom:4px}
+.registerGuideTabs button{
+  flex:0 0 auto;min-height:36px;padding:0 12px;border:1px solid #ddd9f3;border-radius:999px;
+  background:#fff;color:#69657a;font-size:10.5px;font-weight:800
+}
+.registerGuideTabs button.active{background:#efedff;border-color:#cfcaff;color:#5147e8}
+.registerGuidePanel{margin-top:13px;padding:18px;border:1px solid #e3e0f6;border-radius:18px;background:#faf9ff}
+.registerGuideHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.registerGuideHeader small{display:block;color:#5147e8;font-size:9px!important;font-weight:850!important;letter-spacing:.055em!important}
+.registerGuideHeader h3{margin:4px 0 0;font-size:20px;letter-spacing:-.03em}
+.registerGuideHeader p{margin:4px 0 0;color:var(--muted);font-size:10.5px}
+.registerGuideHeader>button{flex:0 0 auto;padding:9px 11px;border:1px solid #d8d3ff;border-radius:10px;background:#fff;color:#5147e8;font-size:9.5px;font-weight:850}
+.registerExampleCompare{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:16px}
+.registerExampleCompare article{padding:13px;border:1px solid #e1def4;border-radius:13px;background:#fff}
+.registerExampleCompare small,.registerGuideGrid small{display:block;color:#77728c;font-size:8.5px!important;font-weight:850!important;letter-spacing:.055em!important}
+.registerExampleCompare b{display:block;margin-top:6px;font-size:18px;line-height:1.35}
+.registerExampleCompare p{margin:5px 0 0;color:var(--muted);font-size:10px;line-height:1.45}
+.registerExampleCompare>span{color:#918ba6;font-weight:900}
+.registerGuideGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:10px}
+.registerGuideGrid article{padding:12px;border:1px solid #e1def4;border-radius:12px;background:#fff}
+.registerGuideGrid ul{margin:8px 0 0;padding-left:17px;color:#625f6c;font-size:10px;line-height:1.55}
+.registerWhy{margin-top:10px;padding:11px 12px;border-radius:11px;background:#efedff;color:#514a78}
+.registerWhy b{font-size:10px}
+.registerWhy p{margin:4px 0 0;font-size:10px;line-height:1.5}
+@media(max-width:760px){
+  .registerGuideHeader{flex-direction:column}
+  .registerGuideHeader>button{align-self:flex-start}
+  .registerExampleCompare{grid-template-columns:1fr}
+  .registerExampleCompare>span{transform:rotate(90deg);justify-self:center}
+  .registerGuideGrid{grid-template-columns:1fr}
+}
+
 /* Batch 5 · Real Korean scene packs */
 .realKoreanSceneSection{margin-top:34px}
 .realSceneLead{max-width:680px;margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
