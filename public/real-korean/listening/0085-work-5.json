@@ -1,0 +1,17 @@
+{
+  "id": "listening-0085",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "그 파일 보내주실 수 있어요?",
+  "cloze": "그 파일 _____주실 수 있어요?",
+  "answer": "보내",
+  "translation": "Could you send that file?",
+  "hint": "Listen for send.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
