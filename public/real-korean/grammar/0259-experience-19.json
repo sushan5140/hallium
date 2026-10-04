@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0259",
+  "pattern": "-(으)ㄴ 적이 있어요",
+  "level": "Low Intermediate",
+  "function": "Express past experience",
+  "baseForm": "온라인 수업을 듣다",
+  "example": "온라인 수업을 들은 적이 있어요.",
+  "translation": "I have taken an online class.",
+  "note": "Use V-(으)ㄴ 적이 있어요 to say you have experience doing something.",
+  "prompt": "Make a past-experience sentence with 온라인 수업을 듣다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
