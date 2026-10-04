@@ -1,0 +1,16 @@
+{
+  "id": "mining-0200",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "이메일을 써요",
+  "gloss": "write an email",
+  "sentence": "시간이 있을 때 이메일을 써요",
+  "translation": "When I have time, I write an email.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you write an email using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
