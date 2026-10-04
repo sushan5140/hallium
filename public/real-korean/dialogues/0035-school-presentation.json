@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0035",
+  "context": "school",
+  "level": "Low Intermediate",
+  "situation": "Checking presentation order",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "제가 몇 번째예요?",
+      "romanization": "jega myeot beonjjaeyeyo?",
+      "meaning": "What number am I in the order?"
+    },
+    {
+      "speaker": "Teacher",
+      "korean": "세 번째예요.",
+      "romanization": "se beonjjaeyeyo.",
+      "meaning": "You're third."
+    },
+    {
+      "speaker": "Student",
+      "korean": "네, 준비할게요.",
+      "romanization": "ne, junbihalgeyo.",
+      "meaning": "Okay, I'll get ready."
+    }
+  ],
+  "teachingPoint": "몇 번째 asks which ordinal position.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
