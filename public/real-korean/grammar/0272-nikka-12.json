@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0272",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "맛있다",
+  "example": "맛있으니까 또 주문해요.",
+  "translation": "Because it is delicious, let's order more.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 맛있다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
