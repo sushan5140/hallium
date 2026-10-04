@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0073",
+  "context": "family",
+  "level": "Beginner",
+  "situation": "Asking someone to buy milk",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오는 길에 우유 좀 사 와.",
+      "romanization": "oneun gire uyu jom sa wa.",
+      "meaning": "Buy some milk on your way back."
+    },
+    {
+      "speaker": "B",
+      "korean": "알겠어. 또 필요한 거 있어?",
+      "romanization": "algesseo. tto piryohan geo isseo?",
+      "meaning": "Okay. Anything else you need?"
+    },
+    {
+      "speaker": "A",
+      "korean": "아니, 그게 다야.",
+      "romanization": "ani, geuge daya.",
+      "meaning": "No, that's all."
+    }
+  ],
+  "teachingPoint": "오는 길에 means on the way here/back.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
