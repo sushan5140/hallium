@@ -1,0 +1,17 @@
+{
+  "id": "listening-0259",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "이 단어 자주 써요?",
+  "cloze": "이 단어 _____ 써요?",
+  "answer": "자주",
+  "translation": "Is this word used often?",
+  "hint": "Listen for often.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
