@@ -1,0 +1,17 @@
+{
+  "id": "listening-0061",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "오늘 숙제 있어요?",
+  "cloze": "오늘 _____ 있어요?",
+  "answer": "숙제",
+  "translation": "Do we have homework today?",
+  "hint": "Listen for homework.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
