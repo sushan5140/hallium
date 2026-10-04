@@ -1,0 +1,17 @@
+{
+  "id": "listening-0251",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "자막 없이 들어봐요.",
+  "cloze": "자막 없이 _____봐요.",
+  "answer": "들어",
+  "translation": "I try listening without subtitles.",
+  "hint": "Listen for listen.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
