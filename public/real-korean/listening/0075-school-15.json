@@ -1,0 +1,17 @@
+{
+  "id": "listening-0075",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "발표 준비했어요?",
+  "cloze": "발표 _____했어요?",
+  "answer": "준비",
+  "translation": "Did you prepare the presentation?",
+  "hint": "Listen for prepare.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
