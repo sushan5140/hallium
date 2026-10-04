@@ -1,0 +1,20 @@
+{
+  "id": "pron-0100",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "h-sound vs zero onset",
+  "contrast": [
+    "ㅎ",
+    "ㅇ"
+  ],
+  "vowel": "ㅕ",
+  "left": "혀",
+  "right": "여",
+  "cue": "ㅎ begins with audible breath; ㅇ is silent initially.",
+  "prompt": "Say 혀, then 여. Keep the vowel ㅕ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
