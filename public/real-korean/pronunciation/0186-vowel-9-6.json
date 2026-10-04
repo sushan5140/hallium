@@ -1,0 +1,20 @@
+{
+  "id": "pron-0186",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㅂ",
+  "left": "봐",
+  "right": "붜",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 봐, then 붜. Keep the onset ㅂ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
