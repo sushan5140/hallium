@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0070",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "situation": "Checking the temperature",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "지금 몇 도예요?",
+      "romanization": "jigeum myeot doyeyo?",
+      "meaning": "How many degrees is it now?"
+    },
+    {
+      "speaker": "B",
+      "korean": "십팔 도예요.",
+      "romanization": "sip-pal doyeyo.",
+      "meaning": "It's 18 degrees."
+    },
+    {
+      "speaker": "A",
+      "korean": "생각보다 쌀쌀하네요.",
+      "romanization": "saenggakboda ssalssalhaneyo.",
+      "meaning": "It's chillier than I expected."
+    }
+  ],
+  "teachingPoint": "몇 도예요? asks the temperature.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
