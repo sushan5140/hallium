@@ -1,0 +1,17 @@
+{
+  "id": "listening-0148",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "사진 한 장 찍을까요?",
+  "cloze": "사진 한 장 _____까요?",
+  "answer": "찍을",
+  "translation": "Shall we take a photo?",
+  "hint": "Listen for take a photo.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
