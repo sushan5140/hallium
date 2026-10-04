@@ -1,0 +1,17 @@
+{
+  "id": "listening-0280",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "문제가 해결됐어요.",
+  "cloze": "문제가 _____됐어요.",
+  "answer": "해결",
+  "translation": "The problem is solved.",
+  "hint": "Listen for solve.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
