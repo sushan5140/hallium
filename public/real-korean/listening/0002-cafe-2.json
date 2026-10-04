@@ -1,0 +1,17 @@
+{
+  "id": "listening-0002",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "포장해 주세요.",
+  "cloze": "_____해 주세요.",
+  "answer": "포장",
+  "translation": "Please make it to go.",
+  "hint": "Listen for the takeaway word.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
