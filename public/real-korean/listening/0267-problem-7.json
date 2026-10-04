@@ -1,0 +1,17 @@
+{
+  "id": "listening-0267",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "주소를 잘못 입력했어요.",
+  "cloze": "주소를 잘못 _____했어요.",
+  "answer": "입력",
+  "translation": "I entered the wrong address.",
+  "hint": "Listen for enter/input.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
