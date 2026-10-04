@@ -1,0 +1,16 @@
+{
+  "id": "mining-0213",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "청소해요",
+  "gloss": "clean",
+  "sentence": "아침에 청소해요",
+  "translation": "In the morning, I clean.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you clean using 아침에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
