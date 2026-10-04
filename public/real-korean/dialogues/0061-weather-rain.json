@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0061",
+  "context": "weather",
+  "level": "Beginner",
+  "situation": "Talking about rain",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 비 와요?",
+      "romanization": "oneul bi wayo?",
+      "meaning": "Is it raining today?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 오후부터 온대요.",
+      "romanization": "ne, ohubuteo ondaeyo.",
+      "meaning": "Yes, they say it'll rain from the afternoon."
+    },
+    {
+      "speaker": "A",
+      "korean": "우산 가져가야겠네요.",
+      "romanization": "usan gajyeogayagenneyo.",
+      "meaning": "I guess I should take an umbrella."
+    }
+  ],
+  "teachingPoint": "-대요 reports something you heard.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
