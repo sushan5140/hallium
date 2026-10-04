@@ -1,0 +1,17 @@
+{
+  "id": "listening-0178",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "새 노래 연습해요.",
+  "cloze": "새 노래 _____해요.",
+  "answer": "연습",
+  "translation": "I practice a new song.",
+  "hint": "Listen for practice.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
