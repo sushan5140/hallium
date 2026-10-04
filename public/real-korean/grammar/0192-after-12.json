@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0192",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "한국어를 공부하다",
+  "example": "한국어를 공부하고 나서 복습했어요.",
+  "translation": "After studying Korean, I reviewed.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 한국어를 공부하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
