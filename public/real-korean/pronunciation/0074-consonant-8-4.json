@@ -1,0 +1,20 @@
+{
+  "id": "pron-0074",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅈ",
+    "ㅉ"
+  ],
+  "vowel": "ㅜ",
+  "left": "주",
+  "right": "쭈",
+  "cue": "Notice tighter articulation on ㅉ.",
+  "prompt": "Say 주, then 쭈. Keep the vowel ㅜ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
