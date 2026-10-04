@@ -1,0 +1,14 @@
+{
+  "id": "qa-0018",
+  "targetType": "dialogue",
+  "sampleRef": "public/real-korean/dialogues/0018-*.json",
+  "expectedPass": true,
+  "checks": [
+    "id, context, level, situation, register, lines, teachingPoint and tags exist",
+    "lines contains at least 3 dialogue turns",
+    "every line has speaker, korean, romanization and meaning",
+    "register is casual or polite",
+    "Korean and English meaning fields are non-empty"
+  ],
+  "purpose": "Dialogue schema and bilingual completeness fixture 18"
+}
