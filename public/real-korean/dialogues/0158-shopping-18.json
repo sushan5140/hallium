@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0158",
+  "context": "shopping",
+  "level": "Beginner",
+  "situation": "Looking for a socks",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "양말 어디에 있어요?",
+      "romanization": "yangmal eodie isseoyo?",
+      "meaning": "Where are the sockss?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "저쪽에 있어요.",
+      "romanization": "jeojjoge isseoyo.",
+      "meaning": "They're over there."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "Item + 어디에 있어요? is a reusable shopping-location pattern.",
+  "tags": [
+    "shopping",
+    "location",
+    "real-korean",
+    "dialogue"
+  ]
+}
