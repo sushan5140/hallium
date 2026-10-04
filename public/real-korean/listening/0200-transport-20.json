@@ -1,0 +1,17 @@
+{
+  "id": "listening-0200",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "신호등을 건너세요.",
+  "cloze": "_____을 건너세요.",
+  "answer": "신호등",
+  "translation": "Cross at the traffic light.",
+  "hint": "Listen for traffic light.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
