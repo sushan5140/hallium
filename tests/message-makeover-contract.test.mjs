@@ -50,6 +50,6 @@ test("Message Makeover stays behind Hallium's authenticated quota-limited Intell
 
 test("Guest Mode offers only honest built-in makeover demos", () => {
   assert.match(core, /if \(action === "message_makeover"\)/);
-  assert.match(core, /Guest Mode uses the built-in Hallium phrase bank/);
-  assert.match(core, /if \(!preset\) return null;/);
+  assert.match(core, /findRealKoreanPreset/);
+  assert.match(core, /Guest Mode uses the built-in Hallium Real Korean phrase bank/);
 });

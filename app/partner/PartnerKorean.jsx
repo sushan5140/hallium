@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { realKoreanGrounding } from "../../lib/real-korean";
 
 // Retained educational phrase bank and mini-dialogues from the live Hallim app.
 const partnerKoreanCategories = [
@@ -327,6 +328,10 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
       vibeLabel: vibe.label,
       flirtIntensity: Number(makeoverIntensity),
       emojiGuidance: "Use emojis naturally. Keep playful output non-explicit.",
+      realKoreanContext: realKoreanGrounding(message, {
+        relationship: makeoverPerson,
+        vibe: makeoverVibe,
+      }),
     });
     if (!result) {
       setMakeoverError("Hallim couldn't generate this version right now. The instant presets still work below.");
