@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0003",
+  "context": "cafe",
+  "level": "Beginner",
+  "situation": "Asking for takeout",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "매장에서 드세요?",
+      "romanization": "maejangeseo deuseyo?",
+      "meaning": "Will you have it here?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "아니요, 포장해 주세요.",
+      "romanization": "aniyo, pojanghae juseyo.",
+      "meaning": "No, to go please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 포장해 드릴게요.",
+      "romanization": "ne, pojanghae deurilgeyo.",
+      "meaning": "Sure, I'll pack it to go."
+    }
+  ],
+  "teachingPoint": "포장해 주세요 is the standard takeaway request.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
