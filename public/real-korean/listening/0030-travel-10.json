@@ -1,0 +1,17 @@
+{
+  "id": "listening-0030",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "막차가 몇 시예요?",
+  "cloze": "_____가 몇 시예요?",
+  "answer": "막차",
+  "translation": "What time is the last train?",
+  "hint": "Listen for last train.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
