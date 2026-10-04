@@ -1,0 +1,16 @@
+{
+  "id": "mining-0063",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "요리해요",
+  "gloss": "cook",
+  "sentence": "아침에 요리해요",
+  "translation": "In the morning, I cook.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you cook using 아침에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
