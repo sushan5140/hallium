@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0064",
+  "context": "weather",
+  "level": "Beginner",
+  "situation": "Reacting to snow",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "밖에 눈 와요!",
+      "romanization": "bakke nun wayo!",
+      "meaning": "It's snowing outside!"
+    },
+    {
+      "speaker": "B",
+      "korean": "진짜요? 많이 와요?",
+      "romanization": "jinjjayo? mani wayo?",
+      "meaning": "Really? Is it snowing a lot?"
+    },
+    {
+      "speaker": "A",
+      "korean": "아직 조금만 와요.",
+      "romanization": "ajik jogeumman wayo.",
+      "meaning": "Only a little so far."
+    }
+  ],
+  "teachingPoint": "눈이 오다 means to snow.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
