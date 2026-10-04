@@ -1,0 +1,17 @@
+{
+  "id": "listening-0076",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "자료를 보내 주세요.",
+  "cloze": "_____를 보내 주세요.",
+  "answer": "자료",
+  "translation": "Please send the materials.",
+  "hint": "Listen for materials.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
