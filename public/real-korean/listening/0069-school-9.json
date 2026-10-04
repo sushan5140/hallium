@@ -1,0 +1,17 @@
+{
+  "id": "listening-0069",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "어제 수업에 못 왔어요.",
+  "cloze": "어제 _____에 못 왔어요.",
+  "answer": "수업",
+  "translation": "I could not come to class yesterday.",
+  "hint": "Listen for class.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
