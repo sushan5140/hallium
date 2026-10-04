@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0257",
+  "pattern": "-(으)ㄴ 적이 있어요",
+  "level": "Low Intermediate",
+  "function": "Express past experience",
+  "baseForm": "한국 요리를 배우다",
+  "example": "한국 요리를 배운 적이 있어요.",
+  "translation": "I have learned Korean cooking.",
+  "note": "Use V-(으)ㄴ 적이 있어요 to say you have experience doing something.",
+  "prompt": "Make a past-experience sentence with 한국 요리를 배우다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
