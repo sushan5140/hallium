@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0071",
+  "context": "family",
+  "level": "Beginner",
+  "situation": "Calling family to dinner",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "밥 다 됐어.",
+      "romanization": "bap da dwaesseo.",
+      "meaning": "Dinner's ready."
+    },
+    {
+      "speaker": "B",
+      "korean": "지금 갈게.",
+      "romanization": "jigeum galge.",
+      "meaning": "I'll come now."
+    },
+    {
+      "speaker": "A",
+      "korean": "빨리 와.",
+      "romanization": "ppalli wa.",
+      "meaning": "Come quickly."
+    }
+  ],
+  "teachingPoint": "다 됐어 means something is finished/ready.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
