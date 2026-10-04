@@ -1,0 +1,17 @@
+{
+  "id": "listening-0226",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "긴장돼요.",
+  "cloze": "_____돼요.",
+  "answer": "긴장",
+  "translation": "I am nervous.",
+  "hint": "Listen for nervous.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
