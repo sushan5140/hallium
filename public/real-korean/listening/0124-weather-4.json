@@ -1,0 +1,17 @@
+{
+  "id": "listening-0124",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "바람도 많이 불어요.",
+  "cloze": "_____도 많이 불어요.",
+  "answer": "바람",
+  "translation": "It is also very windy.",
+  "hint": "Listen for wind.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
