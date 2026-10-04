@@ -1,0 +1,17 @@
+{
+  "id": "listening-0263",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "설정을 확인해 주세요.",
+  "cloze": "설정을 _____해 주세요.",
+  "answer": "확인",
+  "translation": "Please check the settings.",
+  "hint": "Listen for check.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
