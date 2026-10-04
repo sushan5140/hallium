@@ -1,0 +1,20 @@
+{
+  "id": "pron-0076",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅈ",
+    "ㅉ"
+  ],
+  "vowel": "ㅣ",
+  "left": "지",
+  "right": "찌",
+  "cue": "Notice tighter articulation on ㅉ.",
+  "prompt": "Say 지, then 찌. Keep the vowel ㅣ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
