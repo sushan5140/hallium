@@ -1,0 +1,17 @@
+{
+  "id": "listening-0150",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "나갈 때 불 꺼 줘.",
+  "cloze": "나갈 때 불 _____ 줘.",
+  "answer": "꺼",
+  "translation": "Turn off the light when you leave.",
+  "hint": "Listen for turn off.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
