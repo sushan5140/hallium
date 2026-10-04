@@ -1,0 +1,17 @@
+{
+  "id": "listening-0107",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "오늘 진짜 춥다.",
+  "cloze": "오늘 진짜 _____다.",
+  "answer": "춥",
+  "translation": "It is really cold today.",
+  "hint": "Listen for cold.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
