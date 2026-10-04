@@ -1,0 +1,17 @@
+{
+  "id": "listening-0135",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "비가 그쳤어요.",
+  "cloze": "비가 _____어요.",
+  "answer": "그쳤",
+  "translation": "The rain stopped.",
+  "hint": "Listen for stopped.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
