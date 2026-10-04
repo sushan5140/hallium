@@ -1,0 +1,17 @@
+{
+  "id": "listening-0287",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "다음 주에 시작할 거예요.",
+  "cloze": "다음 주에 _____할 거예요.",
+  "answer": "시작",
+  "translation": "I will start next week.",
+  "hint": "Listen for start.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
