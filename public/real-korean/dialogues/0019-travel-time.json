@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0019",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "situation": "Asking how long the trip takes",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "여기서 얼마나 걸려요?",
+      "romanization": "yeogiseo eolmana geollyeoyo?",
+      "meaning": "How long does it take from here?"
+    },
+    {
+      "speaker": "Local",
+      "korean": "지하철로 이십 분 정도 걸려요.",
+      "romanization": "jihacheollo isip bun jeongdo geollyeoyo.",
+      "meaning": "It takes about 20 minutes by subway."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "생각보다 가깝네요.",
+      "romanization": "saenggakboda gakkapneyo.",
+      "meaning": "It's closer than I thought."
+    }
+  ],
+  "teachingPoint": "얼마나 걸려요? asks duration; 정도 means approximately.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
