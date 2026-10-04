@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0184",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "샤워하다",
+  "example": "샤워하고 나서 잤어요.",
+  "translation": "After showering, I slept.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 샤워하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
