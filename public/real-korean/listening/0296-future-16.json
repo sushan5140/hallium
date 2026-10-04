@@ -1,0 +1,17 @@
+{
+  "id": "listening-0296",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "회의 후에 보내드릴게요.",
+  "cloze": "회의 후에 _____드릴게요.",
+  "answer": "보내",
+  "translation": "I will send it after the meeting.",
+  "hint": "Listen for send.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
