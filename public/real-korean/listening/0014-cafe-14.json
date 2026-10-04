@@ -1,0 +1,17 @@
+{
+  "id": "listening-0014",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "그걸로 주세요.",
+  "cloze": "_____ 주세요.",
+  "answer": "그걸로",
+  "translation": "I will take that one.",
+  "hint": "Listen for the phrase meaning that one/as that.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
