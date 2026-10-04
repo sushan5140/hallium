@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0077",
+  "context": "family",
+  "level": "Low Intermediate",
+  "situation": "Planning to visit relatives",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "이번 달에 할머니 댁 갈 거야?",
+      "romanization": "ibeon dare halmeoni daek gal geoya?",
+      "meaning": "Are we going to Grandma's house this month?"
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 다음 주에 갈 거야.",
+      "romanization": "eung, daeum jue gal geoya.",
+      "meaning": "Yeah, we're going next week."
+    },
+    {
+      "speaker": "A",
+      "korean": "좋다.",
+      "romanization": "jota.",
+      "meaning": "Nice."
+    }
+  ],
+  "teachingPoint": "댁 is an honorific word for someone's home.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
