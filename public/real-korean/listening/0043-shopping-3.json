@@ -1,0 +1,17 @@
+{
+  "id": "listening-0043",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "다른 색도 있어요?",
+  "cloze": "다른 _____도 있어요?",
+  "answer": "색",
+  "translation": "Do you have another color too?",
+  "hint": "Listen for color.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
