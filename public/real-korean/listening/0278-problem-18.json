@@ -1,0 +1,17 @@
+{
+  "id": "listening-0278",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "저장 버튼을 눌러 주세요.",
+  "cloze": "저장 버튼을 _____ 주세요.",
+  "answer": "눌러",
+  "translation": "Please press the save button.",
+  "hint": "Listen for press.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
