@@ -1,0 +1,20 @@
+{
+  "id": "pron-0194",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "oe vs wi",
+  "contrast": [
+    "ㅚ",
+    "ㅟ"
+  ],
+  "onset": "ㄹ",
+  "left": "뢰",
+  "right": "뤼",
+  "cue": "Practice the rounded front-vowel/glide contrast in careful speech.",
+  "prompt": "Say 뢰, then 뤼. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
