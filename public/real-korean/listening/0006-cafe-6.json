@@ -1,0 +1,17 @@
+{
+  "id": "listening-0006",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "뭐가 제일 인기 있어요?",
+  "cloze": "뭐가 _____ 인기 있어요?",
+  "answer": "제일",
+  "translation": "What is the most popular?",
+  "hint": "Listen for the superlative word.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
