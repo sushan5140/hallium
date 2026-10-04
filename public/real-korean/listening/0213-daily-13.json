@@ -1,0 +1,17 @@
+{
+  "id": "listening-0213",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "샤워해요.",
+  "cloze": "_____해요.",
+  "answer": "샤워",
+  "translation": "I shower.",
+  "hint": "Listen for shower.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
