@@ -1,0 +1,17 @@
+{
+  "id": "listening-0218",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "주말에 쉬어요.",
+  "cloze": "주말에 _____요.",
+  "answer": "쉬어",
+  "translation": "I rest on weekends.",
+  "hint": "Listen for rest.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
