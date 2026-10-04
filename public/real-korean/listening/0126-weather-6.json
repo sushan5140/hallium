@@ -1,0 +1,17 @@
+{
+  "id": "listening-0126",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "내일 날씨 어때요?",
+  "cloze": "내일 _____ 어때요?",
+  "answer": "날씨",
+  "translation": "How is the weather tomorrow?",
+  "hint": "Listen for weather.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
