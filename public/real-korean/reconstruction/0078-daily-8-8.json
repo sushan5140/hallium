@@ -1,0 +1,17 @@
+{
+  "id": "reconstruction-0078",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "산책해요",
+    "가끔"
+  ],
+  "answer": "가끔 산책해요",
+  "translation": "Sometimes, I take a walk.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
