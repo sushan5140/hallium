@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0110",
+  "context": "cafe",
+  "level": "Beginner",
+  "situation": "Ordering lemon tea",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "뭐 드릴까요?",
+      "romanization": "mwo deurilkkayo?",
+      "meaning": "What can I get you?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "레몬차 한 잔 주세요.",
+      "romanization": "remoncha han jan juseyo.",
+      "meaning": "One lemon tea, please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 준비해 드릴게요.",
+      "romanization": "ne, junbihae deurilgeyo.",
+      "meaning": "Sure, I'll prepare it."
+    }
+  ],
+  "teachingPoint": "Drink + 한 잔 주세요 is a reusable café-ordering pattern.",
+  "tags": [
+    "cafe",
+    "ordering",
+    "real-korean",
+    "dialogue"
+  ]
+}
