@@ -1,0 +1,20 @@
+{
+  "id": "pron-0129",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ae vs e",
+  "contrast": [
+    "ㅐ",
+    "ㅔ"
+  ],
+  "onset": "ㅈ",
+  "left": "재",
+  "right": "제",
+  "cue": "Practice the written contrast; many modern speakers pronounce these similarly.",
+  "prompt": "Say 재, then 제. Keep the onset ㅈ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
