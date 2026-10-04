@@ -1,0 +1,17 @@
+{
+  "id": "listening-0195",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "막차 놓쳤어요.",
+  "cloze": "_____ 놓쳤어요.",
+  "answer": "막차",
+  "translation": "I missed the last train.",
+  "hint": "Listen for last train.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
