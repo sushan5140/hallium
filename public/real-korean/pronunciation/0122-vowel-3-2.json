@@ -1,0 +1,20 @@
+{
+  "id": "pron-0122",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ae vs e",
+  "contrast": [
+    "ㅐ",
+    "ㅔ"
+  ],
+  "onset": "ㄴ",
+  "left": "내",
+  "right": "네",
+  "cue": "Practice the written contrast; many modern speakers pronounce these similarly.",
+  "prompt": "Say 내, then 네. Keep the onset ㄴ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
