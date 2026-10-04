@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0118",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "가깝다",
+  "example": "가까워서 걸어갔어요.",
+  "translation": "It was close, so I walked.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 가깝다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
