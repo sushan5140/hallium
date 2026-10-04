@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0067",
+  "context": "weather",
+  "level": "Beginner",
+  "situation": "Borrowing an umbrella",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "혹시 우산 있어요?",
+      "romanization": "hoksi usan isseoyo?",
+      "meaning": "Do you happen to have an umbrella?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 하나 더 있어요.",
+      "romanization": "ne, hana deo isseoyo.",
+      "meaning": "Yes, I have one extra."
+    },
+    {
+      "speaker": "A",
+      "korean": "잠깐 빌려도 될까요?",
+      "romanization": "jamkkan billyeodo doelkkayo?",
+      "meaning": "Could I borrow it for a bit?"
+    }
+  ],
+  "teachingPoint": "혹시 softens a request/question.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
