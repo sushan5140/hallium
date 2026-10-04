@@ -1,0 +1,20 @@
+{
+  "id": "pron-0050",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs aspirated",
+  "contrast": [
+    "ㅂ",
+    "ㅍ"
+  ],
+  "vowel": "ㅕ",
+  "left": "벼",
+  "right": "펴",
+  "cue": "Notice stronger airflow on ㅍ.",
+  "prompt": "Say 벼, then 펴. Keep the vowel ㅕ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
