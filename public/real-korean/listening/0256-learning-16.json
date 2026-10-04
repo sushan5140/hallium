@@ -1,0 +1,17 @@
+{
+  "id": "listening-0256",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "무슨 뜻이에요?",
+  "cloze": "무슨 _____이에요?",
+  "answer": "뜻",
+  "translation": "What does it mean?",
+  "hint": "Listen for meaning.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
