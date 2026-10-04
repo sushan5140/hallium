@@ -1,0 +1,20 @@
+{
+  "id": "pron-0102",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "a vs eo",
+  "contrast": [
+    "ㅏ",
+    "ㅓ"
+  ],
+  "onset": "ㄴ",
+  "left": "나",
+  "right": "너",
+  "cue": "Keep the onset the same and distinguish ㅏ from ㅓ.",
+  "prompt": "Say 나, then 너. Keep the onset ㄴ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
