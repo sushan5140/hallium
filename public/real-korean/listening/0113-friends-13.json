@@ -1,0 +1,17 @@
+{
+  "id": "listening-0113",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "몇 시에 볼까?",
+  "cloze": "몇 시에 _____?",
+  "answer": "볼까",
+  "translation": "What time shall we meet?",
+  "hint": "Listen for shall we see/meet.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
