@@ -1,0 +1,17 @@
+{
+  "id": "listening-0134",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "날씨가 맑아요.",
+  "cloze": "날씨가 _____아요.",
+  "answer": "맑",
+  "translation": "The weather is clear.",
+  "hint": "Listen for clear.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
