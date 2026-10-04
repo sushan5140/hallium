@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0057",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "situation": "Talking about cold weather",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 진짜 춥다.",
+      "romanization": "oneul jinjja chupda.",
+      "meaning": "It's really cold today."
+    },
+    {
+      "speaker": "B",
+      "korean": "그러게. 장갑 가져왔어?",
+      "romanization": "geureoge. janggap gajyeowasseo?",
+      "meaning": "I know. Did you bring gloves?"
+    },
+    {
+      "speaker": "A",
+      "korean": "아니, 깜빡했어.",
+      "romanization": "ani, kkamppakhaesseo.",
+      "meaning": "No, I forgot."
+    }
+  ],
+  "teachingPoint": "그러게 is a natural agreement like 'I know, right.'",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
