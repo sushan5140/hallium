@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0148",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "괜찮다",
+  "example": "괜찮으면 시작할까요?",
+  "translation": "If it is okay, shall we start?",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 괜찮다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
