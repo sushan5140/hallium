@@ -1,0 +1,17 @@
+{
+  "id": "listening-0068",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "과제는 언제까지 내야 해요?",
+  "cloze": "과제는 _____ 내야 해요?",
+  "answer": "언제까지",
+  "translation": "By when do we submit the assignment?",
+  "hint": "Listen for deadline expression.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
