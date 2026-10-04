@@ -1,0 +1,20 @@
+{
+  "id": "pron-0035",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㄷ",
+    "ㄸ"
+  ],
+  "vowel": "ㅡ",
+  "left": "드",
+  "right": "뜨",
+  "cue": "Notice tighter articulation on ㄸ.",
+  "prompt": "Say 드, then 뜨. Keep the vowel ㅡ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
