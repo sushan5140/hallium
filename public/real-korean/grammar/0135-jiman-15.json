@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0135",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "맛있다",
+  "example": "맛있지만 조금 매워요.",
+  "translation": "It is delicious, but a little spicy.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 맛있다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
