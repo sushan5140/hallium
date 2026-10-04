@@ -1,0 +1,17 @@
+{
+  "id": "listening-0168",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "오늘 연습 있어?",
+  "cloze": "오늘 _____ 있어?",
+  "answer": "연습",
+  "translation": "Do you have practice today?",
+  "hint": "Listen for practice.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
