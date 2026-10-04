@@ -1,0 +1,16 @@
+{
+  "id": "mining-0002",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "한국어를 공부해요",
+  "gloss": "study Korean",
+  "sentence": "내일 한국어를 공부해요",
+  "translation": "Tomorrow, I study Korean.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you study Korean using 내일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
