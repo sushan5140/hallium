@@ -1,0 +1,20 @@
+{
+  "id": "pron-0088",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅅ",
+    "ㅆ"
+  ],
+  "vowel": "ㅔ",
+  "left": "세",
+  "right": "쎄",
+  "cue": "Notice the tenser hiss on ㅆ.",
+  "prompt": "Say 세, then 쎄. Keep the vowel ㅔ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
