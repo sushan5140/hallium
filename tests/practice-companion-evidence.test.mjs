@@ -16,8 +16,11 @@ test("Companion objective steps emit H-P8 evidence on Check", () => {
 });
 
 test("sentence building records the assembled response and exact target", () => {
-  const start = core.indexOf('if (step.kind === "build")');
-  const block = core.slice(start,start + 1200);
+  const helperStart = core.indexOf("function recordCompanionStepAttempt");
+  const helperEnd = core.indexOf("function retryCompanionStep", helperStart);
+  const helper = core.slice(helperStart,helperEnd);
+  const start = helper.indexOf('if (step.kind === "build")');
+  const block = helper.slice(start,start + 1200);
   assert.match(block,/const response = buildPhrase\(step\)/);
   assert.match(block,/mode: "lesson_build"/);
   assert.match(block,/skill: "Sentence building"/);
@@ -27,8 +30,11 @@ test("sentence building records the assembled response and exact target", () => 
 });
 
 test("dictation records learner text and normalized correctness", () => {
-  const start = core.indexOf('if (step.kind === "dictation")');
-  const block = core.slice(start,start + 1200);
+  const helperStart = core.indexOf("function recordCompanionStepAttempt");
+  const helperEnd = core.indexOf("function retryCompanionStep", helperStart);
+  const helper = core.slice(helperStart,helperEnd);
+  const start = helper.indexOf('if (step.kind === "dictation")');
+  const block = helper.slice(start,start + 1200);
   assert.match(block,/const response = dictationInput\.trim\(\)/);
   assert.match(block,/mode: "lesson_dictation"/);
   assert.match(block,/skill: "Listening recall"/);
@@ -56,10 +62,15 @@ test("Try again routes through the retry counter", () => {
 
 test("shadowing remains explicitly unscored", () => {
   const lessonStart = core.indexOf("function Lesson()");
-  const lessonBlock = core.slice(lessonStart,lessonStart + 9000);
+  const lessonEnd = core.indexOf("function WordCoach()", lessonStart);
+  const lessonBlock = core.slice(lessonStart,lessonEnd);
   assert.match(lessonBlock,/isShadowing && !shadowDone/);
-  assert.match(lessonBlock,/setShadowDone\(true\)/);
-  assert.doesNotMatch(lessonBlock,/recordCompanionStepAttempt\(currentStep\).*repeated it aloud/s);
+  assert.match(
+    lessonBlock,
+    /isShadowing && !shadowDone[\s\S]*?<button className="check-button" onClick=\{\(\) => setShadowDone\(true\)\}>I repeated it aloud<\/button>/
+  );
+  const shadowButton = lessonBlock.match(/<button className="check-button" onClick=\{\(\) => setShadowDone\(true\)\}>I repeated it aloud<\/button>/)?.[0] || "";
+  assert.doesNotMatch(shadowButton,/recordCompanionStepAttempt|recordPracticeEvidence|buildPracticeAttempt/);
 });
 
 test("advance does not emit duplicate practice evidence", () => {
