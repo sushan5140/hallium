@@ -1,0 +1,17 @@
+{
+  "id": "listening-0108",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "영화 어땠어?",
+  "cloze": "_____ 어땠어?",
+  "answer": "영화",
+  "translation": "How was the movie?",
+  "hint": "Listen for movie.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
