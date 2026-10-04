@@ -1,0 +1,20 @@
+{
+  "id": "pron-0160",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "i vs eu",
+  "contrast": [
+    "ㅣ",
+    "ㅡ"
+  ],
+  "onset": "ㅎ",
+  "left": "히",
+  "right": "흐",
+  "cue": "ㅣ is high front; ㅡ is high central/back and unrounded.",
+  "prompt": "Say 히, then 흐. Keep the onset ㅎ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
