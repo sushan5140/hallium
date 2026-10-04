@@ -1,0 +1,17 @@
+{
+  "id": "listening-0010",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "영수증 주세요.",
+  "cloze": "_____ 주세요.",
+  "answer": "영수증",
+  "translation": "Please give me a receipt.",
+  "hint": "Listen for the noun meaning receipt.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
