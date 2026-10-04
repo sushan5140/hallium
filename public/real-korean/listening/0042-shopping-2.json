@@ -1,0 +1,17 @@
+{
+  "id": "listening-0042",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "더 큰 사이즈 있어요?",
+  "cloze": "더 큰 _____ 있어요?",
+  "answer": "사이즈",
+  "translation": "Do you have a bigger size?",
+  "hint": "Listen for size.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
