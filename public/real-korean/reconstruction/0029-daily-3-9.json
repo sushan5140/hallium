@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0029",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "들어요",
+    "음악을",
+    "요즘"
+  ],
+  "answer": "요즘 음악을 들어요",
+  "translation": "These days, I listen to music.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
