@@ -1,0 +1,17 @@
+{
+  "id": "listening-0071",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "시험이 몇 시에 시작해요?",
+  "cloze": "시험이 몇 시에 _____해요?",
+  "answer": "시작",
+  "translation": "What time does the exam start?",
+  "hint": "Listen for start.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
