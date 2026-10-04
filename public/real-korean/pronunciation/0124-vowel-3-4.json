@@ -1,0 +1,20 @@
+{
+  "id": "pron-0124",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ae vs e",
+  "contrast": [
+    "ㅐ",
+    "ㅔ"
+  ],
+  "onset": "ㄹ",
+  "left": "래",
+  "right": "레",
+  "cue": "Practice the written contrast; many modern speakers pronounce these similarly.",
+  "prompt": "Say 래, then 레. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
