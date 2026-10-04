@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0060",
+  "context": "friends",
+  "level": "Beginner",
+  "situation": "Checking if a friend got home",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "집에 도착했어?",
+      "romanization": "jibe dochakhaesseo?",
+      "meaning": "Did you get home?"
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 방금 도착했어.",
+      "romanization": "eung, banggeum dochakhaesseo.",
+      "meaning": "Yeah, I just got home."
+    },
+    {
+      "speaker": "A",
+      "korean": "다행이다. 푹 쉬어.",
+      "romanization": "dahaengida. puk swieo.",
+      "meaning": "That's good. Get some good rest."
+    }
+  ],
+  "teachingPoint": "다행이다 means that's a relief / that's good.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
