@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0229",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "연습하다",
+  "example": "매일 조금씩 연습해 보세요.",
+  "translation": "Try practicing a little every day.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 연습하다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
