@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0017",
+  "context": "travel",
+  "level": "Beginner",
+  "situation": "Asking someone to repeat directions",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "죄송하지만 다시 말해 주세요.",
+      "romanization": "joesonghajiman dasi malhae juseyo.",
+      "meaning": "Sorry, please say that again."
+    },
+    {
+      "speaker": "Local",
+      "korean": "네, 천천히 말할게요.",
+      "romanization": "ne, cheoncheonhi malhalgeyo.",
+      "meaning": "Sure, I'll say it slowly."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "다시 말해 주세요 is a key repair phrase.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
