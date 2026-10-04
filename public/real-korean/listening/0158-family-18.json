@@ -1,0 +1,17 @@
+{
+  "id": "listening-0158",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "할머니께 전화했어?",
+  "cloze": "할머니께 _____했어?",
+  "answer": "전화",
+  "translation": "Did you call Grandma?",
+  "hint": "Listen for call.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
