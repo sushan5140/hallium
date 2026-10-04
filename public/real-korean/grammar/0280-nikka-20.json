@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0280",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "재미있다",
+  "example": "재미있으니까 끝까지 봐요.",
+  "translation": "Because it is interesting, let's watch to the end.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 재미있다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
