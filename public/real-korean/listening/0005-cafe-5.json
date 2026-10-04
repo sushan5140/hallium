@@ -1,0 +1,17 @@
+{
+  "id": "listening-0005",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "메뉴 좀 볼 수 있을까요?",
+  "cloze": "메뉴 좀 _____ 수 있을까요?",
+  "answer": "볼",
+  "translation": "Could I see the menu?",
+  "hint": "Listen for the ability/request form.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
