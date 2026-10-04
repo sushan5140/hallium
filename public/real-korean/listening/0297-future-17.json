@@ -1,0 +1,17 @@
+{
+  "id": "listening-0297",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "다음에는 더 잘할게요.",
+  "cloze": "다음에는 더 _____할게요.",
+  "answer": "잘",
+  "translation": "I will do better next time.",
+  "hint": "Listen for well/better.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
