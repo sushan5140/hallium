@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0132",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "가요",
+    "카페에",
+    "내일"
+  ],
+  "answer": "내일 카페에 가요",
+  "translation": "Tomorrow, I go to a cafe.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
