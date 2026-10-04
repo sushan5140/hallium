@@ -1,0 +1,20 @@
+{
+  "id": "pron-0031",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㄷ",
+    "ㄸ"
+  ],
+  "vowel": "ㅏ",
+  "left": "다",
+  "right": "따",
+  "cue": "Notice tighter articulation on ㄸ.",
+  "prompt": "Say 다, then 따. Keep the vowel ㅏ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
