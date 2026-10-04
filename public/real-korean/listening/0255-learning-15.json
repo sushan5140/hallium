@@ -1,0 +1,17 @@
+{
+  "id": "listening-0255",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "이 표현 자연스러워요?",
+  "cloze": "이 표현 _____러워요?",
+  "answer": "자연스",
+  "translation": "Is this expression natural?",
+  "hint": "Listen for natural.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
