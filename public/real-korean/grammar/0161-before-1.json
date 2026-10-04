@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0161",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "자다",
+  "example": "자기 전에 이를 닦아요.",
+  "translation": "I brush my teeth before sleeping.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 자다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
