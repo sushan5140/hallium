@@ -1,0 +1,17 @@
+{
+  "id": "listening-0204",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "몇 시에 일어나요?",
+  "cloze": "몇 시에 _____요?",
+  "answer": "일어나",
+  "translation": "What time do you wake up?",
+  "hint": "Listen for wake up.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
