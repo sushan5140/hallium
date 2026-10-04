@@ -1,0 +1,17 @@
+{
+  "id": "listening-0065",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "제가 몇 번째예요?",
+  "cloze": "제가 몇 _____예요?",
+  "answer": "번째",
+  "translation": "What number am I in the order?",
+  "hint": "Listen for ordinal counter.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
