@@ -1,0 +1,17 @@
+{
+  "id": "listening-0237",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "자신 있어요.",
+  "cloze": "_____ 있어요.",
+  "answer": "자신",
+  "translation": "I am confident.",
+  "hint": "Listen for confidence.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
