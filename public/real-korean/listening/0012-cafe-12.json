@@ -1,0 +1,17 @@
+{
+  "id": "listening-0012",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "매장에서 드세요?",
+  "cloze": "_____에서 드세요?",
+  "answer": "매장",
+  "translation": "Will you have it here?",
+  "hint": "Listen for the noun meaning store/interior.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
