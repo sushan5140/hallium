@@ -1,0 +1,17 @@
+{
+  "id": "listening-0170",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "한국어 얼마나 공부했어요?",
+  "cloze": "한국어 _____ 공부했어요?",
+  "answer": "얼마나",
+  "translation": "How long have you studied Korean?",
+  "hint": "Listen for how much/how long.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
