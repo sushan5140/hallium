@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0062",
+  "context": "weather",
+  "level": "Beginner",
+  "situation": "Talking about hot weather",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 정말 덥네요.",
+      "romanization": "oneul jeongmal deopneyo.",
+      "meaning": "It's really hot today."
+    },
+    {
+      "speaker": "B",
+      "korean": "그러게요. 물 많이 마셔야겠어요.",
+      "romanization": "geureogeyo. mul mani masyeoyagesseoyo.",
+      "meaning": "I know. I should drink lots of water."
+    },
+    {
+      "speaker": "A",
+      "korean": "맞아요.",
+      "romanization": "majayo.",
+      "meaning": "Right."
+    }
+  ],
+  "teachingPoint": "-네요 expresses noticing or reacting to something.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
