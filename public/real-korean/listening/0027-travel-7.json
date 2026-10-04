@@ -1,0 +1,17 @@
+{
+  "id": "listening-0027",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "다시 말해 주세요.",
+  "cloze": "_____ 말해 주세요.",
+  "answer": "다시",
+  "translation": "Please say it again.",
+  "hint": "Listen for again.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
