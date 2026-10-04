@@ -1,0 +1,16 @@
+{
+  "id": "mining-0250",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "쉬어요",
+  "gloss": "rest",
+  "sentence": "시간이 있을 때 쉬어요",
+  "translation": "When I have time, I rest.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you rest using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
