@@ -1,0 +1,20 @@
+{
+  "id": "pron-0105",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "a vs eo",
+  "contrast": [
+    "ㅏ",
+    "ㅓ"
+  ],
+  "onset": "ㅁ",
+  "left": "마",
+  "right": "머",
+  "cue": "Keep the onset the same and distinguish ㅏ from ㅓ.",
+  "prompt": "Say 마, then 머. Keep the onset ㅁ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
