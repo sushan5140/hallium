@@ -3553,7 +3553,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
               </button>
             </div>
           </section>
-
+        )}
 
         {realKoreanScenePick && (
           <section className="home-interest-pick home-interest-scene" aria-label="Interest-aware Real Korean recommendation">
@@ -3571,7 +3571,6 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
               <button onClick={() => navigate("partner")}>Open Real Korean ↗</button>
             </div>
           </section>
-        )}
         )}
       </div>
     );
