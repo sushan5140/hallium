@@ -1,0 +1,17 @@
+{
+  "id": "listening-0041",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "이거 얼마예요?",
+  "cloze": "이거 _____예요?",
+  "answer": "얼마",
+  "translation": "How much is this?",
+  "hint": "Listen for the price question word.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
