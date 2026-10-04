@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0282",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "주말에 부산에 가다",
+  "example": "주말에 부산에 가려고 해요.",
+  "translation": "I plan to go to Busan this weekend.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 주말에 부산에 가다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
