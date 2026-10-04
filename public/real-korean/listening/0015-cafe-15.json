@@ -1,0 +1,17 @@
+{
+  "id": "listening-0015",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "잠시만 기다려 주세요.",
+  "cloze": "_____ 기다려 주세요.",
+  "answer": "잠시만",
+  "translation": "Please wait a moment.",
+  "hint": "Listen for the short-time expression.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
