@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0253",
+  "pattern": "-(으)ㄴ 적이 있어요",
+  "level": "Low Intermediate",
+  "function": "Express past experience",
+  "baseForm": "한국어로 발표하다",
+  "example": "한국어로 발표한 적이 있어요.",
+  "translation": "I have presented in Korean.",
+  "note": "Use V-(으)ㄴ 적이 있어요 to say you have experience doing something.",
+  "prompt": "Make a past-experience sentence with 한국어로 발표하다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
