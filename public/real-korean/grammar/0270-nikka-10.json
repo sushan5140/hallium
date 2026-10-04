@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0270",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "늦다",
+  "example": "늦었으니까 바로 시작해요.",
+  "translation": "Because it is late, let's start right away.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 늦다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
