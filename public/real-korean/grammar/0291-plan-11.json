@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0291",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "사진을 많이 찍다",
+  "example": "사진을 많이 찍으려고 해요.",
+  "translation": "I plan to take many photos.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 사진을 많이 찍다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
