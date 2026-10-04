@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0266",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "피곤하다",
+  "example": "피곤하니까 조금 쉬세요.",
+  "translation": "Because you are tired, rest a little.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 피곤하다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
