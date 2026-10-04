@@ -1,0 +1,20 @@
+{
+  "id": "pron-0136",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eu vs u",
+  "contrast": [
+    "ㅡ",
+    "ㅜ"
+  ],
+  "onset": "ㅂ",
+  "left": "브",
+  "right": "부",
+  "cue": "ㅡ is unrounded; ㅜ is rounded.",
+  "prompt": "Say 브, then 부. Keep the onset ㅂ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
