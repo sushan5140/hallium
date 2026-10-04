@@ -1,0 +1,17 @@
+{
+  "id": "listening-0080",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "선생님께 물어볼게요.",
+  "cloze": "선생님께 _____볼게요.",
+  "answer": "물어",
+  "translation": "I will ask the teacher.",
+  "hint": "Listen for ask.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
