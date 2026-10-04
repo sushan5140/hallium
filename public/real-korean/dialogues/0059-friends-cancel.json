@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0059",
+  "context": "friends",
+  "level": "Intermediate",
+  "situation": "Canceling plans gently",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 약속 다음으로 미뤄도 될까?",
+      "romanization": "oneul yaksok daeumeuro mirwodo doelkka?",
+      "meaning": "Can we postpone today's plan?"
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 무슨 일 있어?",
+      "romanization": "eung, museun il isseo?",
+      "meaning": "Sure, did something happen?"
+    },
+    {
+      "speaker": "A",
+      "korean": "갑자기 할 일이 생겼어.",
+      "romanization": "gapjagi hal iri saenggyeosseo.",
+      "meaning": "Something suddenly came up."
+    }
+  ],
+  "teachingPoint": "미루다 means postpone; 일이 생기다 means something came up.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
