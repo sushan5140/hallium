@@ -1,0 +1,17 @@
+{
+  "id": "listening-0147",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "다음 주에 갈 거야.",
+  "cloze": "다음 주에 _____ 거야.",
+  "answer": "갈",
+  "translation": "We are going next week.",
+  "hint": "Listen for future go.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
