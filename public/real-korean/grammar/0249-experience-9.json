@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0249",
+  "pattern": "-(으)ㄴ 적이 있어요",
+  "level": "Low Intermediate",
+  "function": "Express past experience",
+  "baseForm": "한국 영화를 보다",
+  "example": "한국 영화를 본 적이 있어요.",
+  "translation": "I have watched a Korean movie.",
+  "note": "Use V-(으)ㄴ 적이 있어요 to say you have experience doing something.",
+  "prompt": "Make a past-experience sentence with 한국 영화를 보다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
