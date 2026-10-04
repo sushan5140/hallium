@@ -1,0 +1,17 @@
+{
+  "id": "listening-0040",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "도착하면 알려 주세요.",
+  "cloze": "_____하면 알려 주세요.",
+  "answer": "도착",
+  "translation": "Let me know when you arrive.",
+  "hint": "Listen for arrive.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
