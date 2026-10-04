@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { casualTextingPatterns, realKoreanDialogues, realKoreanGrounding, realKoreanRegisterGuides, realKoreanScenes } from "../../lib/real-korean";
+import { casualTextingPatterns, gradeRealKoreanScenario, realKoreanDialogues, realKoreanGrounding, realKoreanRegisterGuides, realKoreanScenarios, realKoreanScenes } from "../../lib/real-korean";
 
 // Retained educational phrase bank and mini-dialogues from the live Hallim app.
 const partnerKoreanCategories = [
@@ -305,6 +305,8 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
   const [partnerCategory, setPartnerCategory] = useState("all");
   const [realSceneId, setRealSceneId] = useState("friends");
   const [registerGuideId, setRegisterGuideId] = useState("neutral_polite");
+  const [scenarioId, setScenarioId] = useState("friend-rain-home");
+  const [scenarioResult, setScenarioResult] = useState(null);
   const [partnerQuery, setPartnerQuery] = useState("");
   const [partnerRomanization, setPartnerRomanization] = useState(true);
   const [partnerMessage, setPartnerMessage] = useState("");
@@ -345,6 +347,8 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
     const realScenes = realKoreanScenes();
     const activeRealScene = realScenes.find((scene) => scene.id === realSceneId) || realScenes[0];
     const activeRealDialogues = realKoreanDialogues(activeRealScene?.id);
+    const scenarios = realKoreanScenarios();
+    const activeScenario = scenarios.find((item) => item.id === scenarioId) || scenarios[0];
     const textingPatterns = casualTextingPatterns();
     const registerGuides = realKoreanRegisterGuides();
     const activeRegisterGuide = registerGuides.find((guide) => guide.id === registerGuideId) || registerGuides[1];
@@ -468,6 +472,60 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
               </div>
             ) : null;
           })()}
+        </section>
+
+        <section className="scenarioPracticeSection">
+          <div className="partnerSectionHead">
+            <div>
+              <span className="eyebrow">Scenario practice</span>
+              <h2>Pick the Korean that fits the moment.</h2>
+              <p className="scenarioLead">Hallium checks both meaning and social register, so a grammatically possible answer can still be the wrong choice for the relationship.</p>
+            </div>
+          </div>
+
+          <div className="scenarioTabs" role="tablist" aria-label="Real Korean practice scenarios">
+            {scenarios.map((scenario) => (
+              <button
+                key={scenario.id}
+                className={activeScenario.id === scenario.id ? "active" : ""}
+                onClick={() => { setScenarioId(scenario.id); setScenarioResult(null); }}
+              >
+                {scenario.sceneId.replaceAll("_"," ")}
+              </button>
+            ))}
+          </div>
+
+          <div className="scenarioCard">
+            <small>{activeScenario.targetRegister.toUpperCase()} TARGET</small>
+            <h3>{activeScenario.situation}</h3>
+            <p>{activeScenario.prompt}</p>
+
+            <div className="scenarioOptions">
+              {activeScenario.options.map((option) => {
+                const chosen = scenarioResult?.selected?.id === option.id;
+                const correct = scenarioResult?.correctChoice?.id === option.id;
+                return (
+                  <button
+                    key={option.id}
+                    className={scenarioResult ? (correct ? "correct" : chosen ? "wrong" : "") : ""}
+                    onClick={() => setScenarioResult(gradeRealKoreanScenario(activeScenario.id, option.id))}
+                  >
+                    <b lang="ko">{option.korean}</b>
+                    <span>{option.meaning}</span>
+                    <small>{option.register}</small>
+                  </button>
+                );
+              })}
+            </div>
+
+            {scenarioResult?.status === "graded" && (
+              <div className={scenarioResult.correct ? "scenarioFeedback correct" : "scenarioFeedback wrong"}>
+                <b>{scenarioResult.correct ? "Good register choice" : "Meaning alone isn't enough here"}</b>
+                <p>{scenarioResult.explanation}</p>
+                {!scenarioResult.correct && <button onClick={() => playKorean(scenarioResult.correctChoice.korean, 0.92)}>▶ Hear the natural answer</button>}
+              </div>
+            )}
+          </div>
         </section>
 
         <section className="casualTextingSection">
