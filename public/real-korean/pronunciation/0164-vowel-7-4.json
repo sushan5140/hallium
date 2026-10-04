@@ -1,0 +1,20 @@
+{
+  "id": "pron-0164",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ya vs yeo",
+  "contrast": [
+    "ㅑ",
+    "ㅕ"
+  ],
+  "onset": "ㄹ",
+  "left": "랴",
+  "right": "려",
+  "cue": "Keep the y-glide and distinguish the vowel quality.",
+  "prompt": "Say 랴, then 려. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
