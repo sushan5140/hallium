@@ -1,0 +1,17 @@
+{
+  "id": "listening-0220",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "사진을 찍어요.",
+  "cloze": "사진을 _____요.",
+  "answer": "찍어",
+  "translation": "I take photos.",
+  "hint": "Listen for take a photo.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
