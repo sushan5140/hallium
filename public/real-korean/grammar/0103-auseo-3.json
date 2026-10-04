@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0103",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "비가 오다",
+  "example": "비가 와서 우산을 썼어요.",
+  "translation": "It rained, so I used an umbrella.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 비가 오다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
