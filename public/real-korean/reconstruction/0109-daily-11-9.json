@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0109",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "타요",
+    "버스를",
+    "요즘"
+  ],
+  "answer": "요즘 버스를 타요",
+  "translation": "These days, I take the bus.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
