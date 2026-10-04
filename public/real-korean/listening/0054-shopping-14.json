@@ -1,0 +1,17 @@
+{
+  "id": "listening-0054",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "작은 사이즈 주세요.",
+  "cloze": "_____ 사이즈 주세요.",
+  "answer": "작은",
+  "translation": "Please give me a small size.",
+  "hint": "Listen for small.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
