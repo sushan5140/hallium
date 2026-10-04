@@ -1,0 +1,16 @@
+{
+  "id": "mining-0218",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "청소해요",
+  "gloss": "clean",
+  "sentence": "가끔 청소해요",
+  "translation": "Sometimes, I clean.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you clean using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
