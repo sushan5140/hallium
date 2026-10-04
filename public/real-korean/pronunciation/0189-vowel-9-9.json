@@ -1,0 +1,20 @@
+{
+  "id": "pron-0189",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㅈ",
+  "left": "좌",
+  "right": "줘",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 좌, then 줘. Keep the onset ㅈ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
