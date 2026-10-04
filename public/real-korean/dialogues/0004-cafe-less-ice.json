@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0004",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "situation": "Requesting less ice",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "얼음 조금만 넣어 주세요.",
+      "romanization": "eoreum jogeumman neoeo juseyo.",
+      "meaning": "Please put in only a little ice."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "얼음 적게요?",
+      "romanization": "eoreum jeokgeyo?",
+      "meaning": "Less ice?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "네, 맞아요.",
+      "romanization": "ne, majayo.",
+      "meaning": "Yes, that's right."
+    }
+  ],
+  "teachingPoint": "조금만 and 적게 are natural ways to ask for less.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
