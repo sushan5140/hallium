@@ -1,0 +1,17 @@
+{
+  "id": "listening-0129",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "미세먼지가 심해요.",
+  "cloze": "_____가 심해요.",
+  "answer": "미세먼지",
+  "translation": "The fine dust is bad.",
+  "hint": "Listen for fine dust.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
