@@ -1,0 +1,17 @@
+{
+  "id": "listening-0117",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "다음에 또 가자.",
+  "cloze": "다음에 또 _____자.",
+  "answer": "가",
+  "translation": "Let's go again next time.",
+  "hint": "Listen for let's go.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
