@@ -1,0 +1,17 @@
+{
+  "id": "listening-0299",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "내일부터 연습할 거예요.",
+  "cloze": "내일부터 _____할 거예요.",
+  "answer": "연습",
+  "translation": "I will practice starting tomorrow.",
+  "hint": "Listen for practice.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
