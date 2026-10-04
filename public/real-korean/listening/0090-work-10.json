@@ -1,0 +1,17 @@
+{
+  "id": "listening-0090",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "방금 끝났어요.",
+  "cloze": "_____ 끝났어요.",
+  "answer": "방금",
+  "translation": "I just finished.",
+  "hint": "Listen for just now.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
