@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0136",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "친절하다",
+  "example": "친절하지만 말이 빨라요.",
+  "translation": "They are kind, but speak quickly.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 친절하다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
