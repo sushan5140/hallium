@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0179",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "시험보다",
+  "example": "시험 보기 전에 복습해요.",
+  "translation": "I review before taking the test.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 시험보다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
