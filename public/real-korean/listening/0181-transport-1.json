@@ -1,0 +1,17 @@
+{
+  "id": "listening-0181",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "버스 정류장이 어디예요?",
+  "cloze": "버스 _____이 어디예요?",
+  "answer": "정류장",
+  "translation": "Where is the bus stop?",
+  "hint": "Listen for stop/station.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
