@@ -1,0 +1,20 @@
+{
+  "id": "pron-0154",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "i vs eu",
+  "contrast": [
+    "ㅣ",
+    "ㅡ"
+  ],
+  "onset": "ㄹ",
+  "left": "리",
+  "right": "르",
+  "cue": "ㅣ is high front; ㅡ is high central/back and unrounded.",
+  "prompt": "Say 리, then 르. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
