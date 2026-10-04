@@ -1,0 +1,17 @@
+{
+  "id": "listening-0099",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "배포 상태 확인해 주세요.",
+  "cloze": "배포 상태 _____해 주세요.",
+  "answer": "확인",
+  "translation": "Please check the deployment status.",
+  "hint": "Listen for check.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
