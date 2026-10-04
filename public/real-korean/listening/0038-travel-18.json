@@ -1,0 +1,17 @@
+{
+  "id": "listening-0038",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "교통카드 있어요?",
+  "cloze": "_____카드 있어요?",
+  "answer": "교통",
+  "translation": "Do you have a transit card?",
+  "hint": "Listen for transport/transit.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
