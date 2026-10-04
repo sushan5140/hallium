@@ -1,0 +1,17 @@
+{
+  "id": "listening-0074",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "답을 확인해 주세요.",
+  "cloze": "답을 _____해 주세요.",
+  "answer": "확인",
+  "translation": "Please check the answer.",
+  "hint": "Listen for check.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
