@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0265",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "배가 고프다",
+  "example": "배가 고프니까 먼저 먹어요.",
+  "translation": "Because we are hungry, let's eat first.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 배가 고프다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
