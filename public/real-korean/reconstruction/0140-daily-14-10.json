@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0140",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "가요",
+    "카페에",
+    "시간이 있을 때"
+  ],
+  "answer": "시간이 있을 때 카페에 가요",
+  "translation": "When I have time, I go to a cafe.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
