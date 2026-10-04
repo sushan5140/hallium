@@ -1,0 +1,17 @@
+{
+  "id": "listening-0072",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "교실이 어디예요?",
+  "cloze": "_____이 어디예요?",
+  "answer": "교실",
+  "translation": "Where is the classroom?",
+  "hint": "Listen for classroom.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
