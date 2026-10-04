@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0132",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "느리다",
+  "example": "느리지만 안전해요.",
+  "translation": "It is slow, but safe.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 느리다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
