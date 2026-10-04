@@ -1,0 +1,17 @@
+{
+  "id": "listening-0017",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "설탕 없이 주세요.",
+  "cloze": "설탕 _____ 주세요.",
+  "answer": "없이",
+  "translation": "Please give it without sugar.",
+  "hint": "Listen for without.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
