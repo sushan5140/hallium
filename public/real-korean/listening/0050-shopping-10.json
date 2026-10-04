@@ -1,0 +1,17 @@
+{
+  "id": "listening-0050",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "재고 있어요?",
+  "cloze": "_____ 있어요?",
+  "answer": "재고",
+  "translation": "Do you have it in stock?",
+  "hint": "Listen for stock/inventory.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
