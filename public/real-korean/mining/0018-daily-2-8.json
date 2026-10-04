@@ -1,0 +1,16 @@
+{
+  "id": "mining-0018",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "책을 읽어요",
+  "gloss": "read a book",
+  "sentence": "가끔 책을 읽어요",
+  "translation": "Sometimes, I read a book.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you read a book using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
