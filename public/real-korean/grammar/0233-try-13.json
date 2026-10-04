@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0233",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "주문하다",
+  "example": "이 메뉴 주문해 보세요.",
+  "translation": "Try ordering this menu item.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 주문하다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
