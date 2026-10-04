@@ -1,0 +1,20 @@
+{
+  "id": "pron-0139",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eu vs u",
+  "contrast": [
+    "ㅡ",
+    "ㅜ"
+  ],
+  "onset": "ㅈ",
+  "left": "즈",
+  "right": "주",
+  "cue": "ㅡ is unrounded; ㅜ is rounded.",
+  "prompt": "Say 즈, then 주. Keep the onset ㅈ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
