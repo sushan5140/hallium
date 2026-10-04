@@ -1,0 +1,17 @@
+{
+  "id": "listening-0232",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "조금 아쉬워요.",
+  "cloze": "조금 _____워요.",
+  "answer": "아쉬",
+  "translation": "I am a little disappointed/regretful.",
+  "hint": "Listen for 아쉽다.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
