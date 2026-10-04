@@ -1,0 +1,16 @@
+{
+  "id": "mining-0028",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "음악을 들어요",
+  "gloss": "listen to music",
+  "sentence": "가끔 음악을 들어요",
+  "translation": "Sometimes, I listen to music.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you listen to music using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
