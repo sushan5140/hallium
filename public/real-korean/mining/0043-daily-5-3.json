@@ -1,0 +1,16 @@
+{
+  "id": "mining-0043",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "사진을 찍어요",
+  "gloss": "take photos",
+  "sentence": "아침에 사진을 찍어요",
+  "translation": "In the morning, I take photos.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take photos using 아침에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
