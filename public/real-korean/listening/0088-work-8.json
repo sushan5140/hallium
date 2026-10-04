@@ -1,0 +1,17 @@
+{
+  "id": "listening-0088",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "도와드릴 일 있어요?",
+  "cloze": "도와드릴 _____ 있어요?",
+  "answer": "일",
+  "translation": "Is there anything I can help with?",
+  "hint": "Listen for work/task.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
