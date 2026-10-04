@@ -1,0 +1,17 @@
+{
+  "id": "listening-0192",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "다음 정류장에서 내려요.",
+  "cloze": "다음 정류장에서 _____요.",
+  "answer": "내려",
+  "translation": "Get off at the next stop.",
+  "hint": "Listen for get off.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
