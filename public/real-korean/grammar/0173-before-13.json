@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0173",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "기차를 타다",
+  "example": "기차를 타기 전에 표를 확인해요.",
+  "translation": "I check the ticket before boarding the train.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 기차를 타다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
