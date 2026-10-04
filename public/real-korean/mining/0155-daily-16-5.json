@@ -1,0 +1,16 @@
+{
+  "id": "mining-0155",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "일해요",
+  "gloss": "work",
+  "sentence": "주말에 일해요",
+  "translation": "On the weekend, I work.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you work using 주말에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
