@@ -1,0 +1,17 @@
+{
+  "id": "listening-0273",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "이 부분이 이해가 안 돼요.",
+  "cloze": "이 부분이 _____가 안 돼요.",
+  "answer": "이해",
+  "translation": "I do not understand this part.",
+  "hint": "Listen for understanding.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
