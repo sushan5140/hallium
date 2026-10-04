@@ -1,0 +1,16 @@
+{
+  "id": "mining-0066",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "요리해요",
+  "gloss": "cook",
+  "sentence": "매일 요리해요",
+  "translation": "Every day, I cook.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you cook using 매일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
