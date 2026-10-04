@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0246",
+  "pattern": "-(으)ㄴ 적이 있어요",
+  "level": "Low Intermediate",
+  "function": "Express past experience",
+  "baseForm": "길을 잃다",
+  "example": "길을 잃은 적이 있어요.",
+  "translation": "I have gotten lost.",
+  "note": "Use V-(으)ㄴ 적이 있어요 to say you have experience doing something.",
+  "prompt": "Make a past-experience sentence with 길을 잃다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
