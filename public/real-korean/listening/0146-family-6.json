@@ -1,0 +1,17 @@
+{
+  "id": "listening-0146",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "지금 통화 괜찮아요?",
+  "cloze": "지금 _____ 괜찮아요?",
+  "answer": "통화",
+  "translation": "Is now okay for a call?",
+  "hint": "Listen for call.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
