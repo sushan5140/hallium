@@ -1,0 +1,17 @@
+{
+  "id": "grammar-0013",
+  "pattern": "-고 싶어요",
+  "level": "Beginner",
+  "function": "Express wanting to do something",
+  "baseVerb": "만들다",
+  "romanization": "mandeulda",
+  "example": "만들고 싶어요",
+  "translation": "I want to make.",
+  "note": "Attach -고 싶어요 to a verb stem to express a personal desire.",
+  "prompt": "Use 만들다 with -고 싶어요.",
+  "tags": [
+    "grammar",
+    "desire",
+    "beginner"
+  ]
+}
