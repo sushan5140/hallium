@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0185",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "운동하다",
+  "example": "운동하고 나서 물을 많이 마셨어요.",
+  "translation": "After exercising, I drank lots of water.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 운동하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
