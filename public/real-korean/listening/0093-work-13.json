@@ -1,0 +1,17 @@
+{
+  "id": "listening-0093",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "이 부분 수정해 주세요.",
+  "cloze": "이 부분 _____해 주세요.",
+  "answer": "수정",
+  "translation": "Please revise this part.",
+  "hint": "Listen for revise.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
