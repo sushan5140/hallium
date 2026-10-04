@@ -1,0 +1,17 @@
+{
+  "id": "listening-0111",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "뭐 먹고 싶어?",
+  "cloze": "뭐 _____ 싶어?",
+  "answer": "먹고",
+  "translation": "What do you want to eat?",
+  "hint": "Listen for want-to-eat.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
