@@ -1,0 +1,20 @@
+{
+  "id": "pron-0097",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "h-sound vs zero onset",
+  "contrast": [
+    "ㅎ",
+    "ㅇ"
+  ],
+  "vowel": "ㅐ",
+  "left": "해",
+  "right": "애",
+  "cue": "ㅎ begins with audible breath; ㅇ is silent initially.",
+  "prompt": "Say 해, then 애. Keep the vowel ㅐ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
