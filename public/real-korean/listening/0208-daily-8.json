@@ -1,0 +1,17 @@
+{
+  "id": "listening-0208",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "친구를 만나요.",
+  "cloze": "_____를 만나요.",
+  "answer": "친구",
+  "translation": "I meet a friend.",
+  "hint": "Listen for friend.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
