@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0130",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "조용하다",
+  "example": "조용하지만 조금 어두워요.",
+  "translation": "It is quiet, but a little dark.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 조용하다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
