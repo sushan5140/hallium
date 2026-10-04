@@ -1,0 +1,16 @@
+{
+  "id": "mining-0206",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "쇼핑해요",
+  "gloss": "shop",
+  "sentence": "매일 쇼핑해요",
+  "translation": "Every day, I shop.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you shop using 매일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
