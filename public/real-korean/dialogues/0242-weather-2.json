@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0242",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "situation": "Preparing for snow",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 눈 조심해야 해요.",
+      "romanization": "oneul nun josimhaeya haeyo.",
+      "meaning": "We need to be careful about snow today."
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 나가기 전에 날씨 확인할게요.",
+      "romanization": "ne, nagagi jeone nalssi hwaginhalgeyo.",
+      "meaning": "Yes, I'll check the weather before going out."
+    },
+    {
+      "speaker": "A",
+      "korean": "좋아요. 조심해서 다녀오세요.",
+      "romanization": "joayo. josimhaeseo danyeooseyo.",
+      "meaning": "Good. Take care while you're out."
+    }
+  ],
+  "teachingPoint": "V-기 전에 means before doing V.",
+  "tags": [
+    "weather",
+    "planning",
+    "real-korean",
+    "dialogue"
+  ]
+}
