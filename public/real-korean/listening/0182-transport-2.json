@@ -1,0 +1,17 @@
+{
+  "id": "listening-0182",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "교통카드 충전할 수 있어요?",
+  "cloze": "교통카드 _____할 수 있어요?",
+  "answer": "충전",
+  "translation": "Can I recharge my transit card?",
+  "hint": "Listen for recharge.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
