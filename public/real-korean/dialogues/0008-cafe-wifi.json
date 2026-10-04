@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0008",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "situation": "Asking for Wi-Fi information",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "와이파이 비밀번호가 뭐예요?",
+      "romanization": "waipai bimilbeonhoga mwoyeyo?",
+      "meaning": "What's the Wi-Fi password?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "영수증 아래에 적혀 있어요.",
+      "romanization": "yeongsujeung araee jeokhyeo isseoyo.",
+      "meaning": "It's written at the bottom of the receipt."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "아, 감사합니다.",
+      "romanization": "a, gamsahamnida.",
+      "meaning": "Ah, thank you."
+    }
+  ],
+  "teachingPoint": "적혀 있어요 describes something being written/displayed.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
