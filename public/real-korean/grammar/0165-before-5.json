@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0165",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "운전하다",
+  "example": "운전하기 전에 길을 확인해요.",
+  "translation": "I check the route before driving.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 운전하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
