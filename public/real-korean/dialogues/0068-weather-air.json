@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0068",
+  "context": "weather",
+  "level": "Intermediate",
+  "situation": "Talking about air quality",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 공기 괜찮아요?",
+      "romanization": "oneul gonggi gwaenchanayo?",
+      "meaning": "Is the air okay today?"
+    },
+    {
+      "speaker": "B",
+      "korean": "미세먼지가 좀 심해요.",
+      "romanization": "misemeonjiga jom simhaeyo.",
+      "meaning": "The fine dust is a bit bad."
+    },
+    {
+      "speaker": "A",
+      "korean": "그럼 마스크 써야겠네요.",
+      "romanization": "geureom maseukeu sseoyagenneyo.",
+      "meaning": "Then I should wear a mask."
+    }
+  ],
+  "teachingPoint": "미세먼지 is the common term for fine dust.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
