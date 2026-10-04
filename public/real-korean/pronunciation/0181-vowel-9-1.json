@@ -1,0 +1,20 @@
+{
+  "id": "pron-0181",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㄱ",
+  "left": "과",
+  "right": "궈",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 과, then 궈. Keep the onset ㄱ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
