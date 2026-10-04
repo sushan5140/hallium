@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0039",
+  "context": "school",
+  "level": "Intermediate",
+  "situation": "Explaining an absence",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "어제 수업에 못 왔어요.",
+      "romanization": "eoje sueobe mot wasseoyo.",
+      "meaning": "I couldn't come to class yesterday."
+    },
+    {
+      "speaker": "Teacher",
+      "korean": "무슨 일 있었어요?",
+      "romanization": "museun il isseosseoyo?",
+      "meaning": "Did something happen?"
+    },
+    {
+      "speaker": "Student",
+      "korean": "집에 일이 있었어요.",
+      "romanization": "jibe iri isseosseoyo.",
+      "meaning": "Something came up at home."
+    }
+  ],
+  "teachingPoint": "못 + verb expresses inability.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
