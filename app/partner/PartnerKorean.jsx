@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { realKoreanGrounding } from "../../lib/real-korean";
+import { realKoreanGrounding, realKoreanScenes } from "../../lib/real-korean";
 
 // Retained educational phrase bank and mini-dialogues from the live Hallim app.
 const partnerKoreanCategories = [
@@ -303,6 +303,7 @@ const messageMakeoverVibes = [
 
 export default function PartnerKorean({ goBack, playKorean, callIntelligence, aiBusy }) {
   const [partnerCategory, setPartnerCategory] = useState("all");
+  const [realSceneId, setRealSceneId] = useState("friends");
   const [partnerQuery, setPartnerQuery] = useState("");
   const [partnerRomanization, setPartnerRomanization] = useState(true);
   const [partnerMessage, setPartnerMessage] = useState("");
@@ -340,6 +341,8 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
     setMakeoverResult(result);
   }
 
+    const realScenes = realKoreanScenes();
+    const activeRealScene = realScenes.find((scene) => scene.id === realSceneId) || realScenes[0];
     const selectedCategory = partnerKoreanCategories.find((item) => item.id === partnerCategory) || null;
     const source = partnerCategory === "all"
       ? partnerKoreanCategories.flatMap((group) =>
@@ -460,6 +463,58 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
               </div>
             ) : null;
           })()}
+        </section>
+
+        <section id="real-korean-scenes" className="realKoreanSceneSection">
+          <div className="partnerSectionHead">
+            <div>
+              <span className="eyebrow">Real Korean scenes</span>
+              <h2>Learn the line inside the situation.</h2>
+              <p className="realSceneLead">Authored everyday Korean for friends, caring messages, making up, cafés, travel, school and work. These examples are deterministic Hallium content, not AI-generated claims.</p>
+            </div>
+          </div>
+
+          <div className="realSceneTabs" role="tablist" aria-label="Real Korean scene packs">
+            {realScenes.map((scene) => (
+              <button
+                key={scene.id}
+                role="tab"
+                aria-selected={activeRealScene?.id === scene.id}
+                className={activeRealScene?.id === scene.id ? "active" : ""}
+                onClick={() => setRealSceneId(scene.id)}
+              >
+                {scene.label}
+              </button>
+            ))}
+          </div>
+
+          {activeRealScene && (
+            <div className="realScenePanel">
+              <div className="realSceneIntro">
+                <span>{activeRealScene.label}</span>
+                <p>{activeRealScene.description}</p>
+              </div>
+              <div className="realSceneCards">
+                {activeRealScene.phrases.map((phrase) => (
+                  <article key={phrase.id}>
+                    <div className="realSceneMeta">
+                      <small>{phrase.register === "polite" ? "POLITE" : "CASUAL"}</small>
+                      <span>{phrase.meaning}</span>
+                    </div>
+                    <button className="realSceneKorean" onClick={() => playKorean(phrase.korean, 0.92)}>
+                      <b lang="ko">{phrase.korean}</b><span>▶ Hear</span>
+                    </button>
+                    {partnerRomanization && <em>{phrase.romanization}</em>}
+                    <p>{phrase.note}</p>
+                    <div className="realSceneVariants">
+                      <button onClick={() => playKorean(phrase.variants.softer, 0.92)}><small>Softer</small><b lang="ko">{phrase.variants.softer}</b></button>
+                      <button onClick={() => playKorean(phrase.variants.bolder, 0.92)}><small>Stronger</small><b lang="ko">{phrase.variants.bolder}</b></button>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
 
         <section id="partner-phrases" className="partnerPhraseSection">
