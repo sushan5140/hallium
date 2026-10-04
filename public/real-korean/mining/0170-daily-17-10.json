@@ -1,0 +1,16 @@
+{
+  "id": "mining-0170",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "연습해요",
+  "gloss": "practice",
+  "sentence": "시간이 있을 때 연습해요",
+  "translation": "When I have time, I practice.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you practice using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
