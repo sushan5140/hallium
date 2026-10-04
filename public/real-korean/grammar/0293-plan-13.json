@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0293",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "내일 일찍 출발하다",
+  "example": "내일 일찍 출발하려고 해요.",
+  "translation": "I plan to leave early tomorrow.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 내일 일찍 출발하다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
