@@ -1,0 +1,16 @@
+{
+  "id": "mining-0153",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "일해요",
+  "gloss": "work",
+  "sentence": "아침에 일해요",
+  "translation": "In the morning, I work.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you work using 아침에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
