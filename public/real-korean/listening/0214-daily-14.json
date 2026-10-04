@@ -1,0 +1,17 @@
+{
+  "id": "listening-0214",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "책을 읽어요.",
+  "cloze": "책을 _____요.",
+  "answer": "읽어",
+  "translation": "I read a book.",
+  "hint": "Listen for read.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
