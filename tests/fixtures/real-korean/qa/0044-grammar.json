@@ -1,0 +1,14 @@
+{
+  "id": "qa-0044",
+  "targetType": "grammar",
+  "sampleRef": "public/real-korean/grammar/0014-*.json",
+  "expectedPass": true,
+  "checks": [
+    "id, pattern, level, function, example, translation, note and tags exist",
+    "example and translation are non-empty",
+    "pattern is non-empty",
+    "level is Beginner or Low Intermediate",
+    "prompt exists for production practice"
+  ],
+  "purpose": "Grammar schema and example integrity fixture 44"
+}
