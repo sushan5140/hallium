@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0263",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "길이 막히다",
+  "example": "길이 막히니까 일찍 출발해요.",
+  "translation": "Because traffic is heavy, let's leave early.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 길이 막히다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
