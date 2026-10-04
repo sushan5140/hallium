@@ -1,0 +1,17 @@
+{
+  "id": "listening-0157",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "오늘 집에 일찍 와.",
+  "cloze": "오늘 집에 _____ 와.",
+  "answer": "일찍",
+  "translation": "Come home early today.",
+  "hint": "Listen for early.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
