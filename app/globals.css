@@ -4043,6 +4043,35 @@ button.toast{border:0;text-align:left}
 }
 
 
+/* Batch 6 · H-P8 practice evidence summary */
+.practiceEvidencePanel{
+  margin-top:16px;padding:20px;border:1px solid #e4dfd7;border-radius:18px;background:#fffdf9
+}
+.practiceEvidenceHead{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.practiceEvidenceHead h2{margin:5px 0 4px;font-size:clamp(18px,2vw,25px);letter-spacing:-.03em}
+.practiceEvidenceHead p{max-width:720px;margin:0;color:var(--muted);font-size:10.5px;line-height:1.55}
+.practiceEvidenceBasis{flex:0 0 auto;padding:7px 9px;border-radius:999px;background:#f3ede5;color:#755f46;font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.practiceEvidenceStats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:15px}
+.practiceEvidenceStats article{padding:12px;border:1px solid #ebe3d9;border-radius:12px;background:#fff}
+.practiceEvidenceStats small{display:block;color:var(--muted);font-size:8px!important;font-weight:800!important;text-transform:uppercase}
+.practiceEvidenceStats b{display:block;margin-top:4px;font-size:18px}
+.practiceEvidenceStats span{display:block;margin-top:3px;color:var(--muted);font-size:8.5px}
+.practiceEvidenceModes{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.practiceEvidenceModes span{padding:8px 10px;border-radius:11px;background:#f7f2eb}
+.practiceEvidenceModes b{display:block;font-size:9.5px;text-transform:capitalize}
+.practiceEvidenceModes small{display:block;margin-top:2px;color:var(--muted);font-size:8px!important}
+.practiceEvidenceFocus{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:10px;padding:11px 12px;border-radius:12px;background:#f3ede5}
+.practiceEvidenceFocus small{display:block;color:#866a4b;font-size:8px!important;font-weight:850!important;text-transform:uppercase}
+.practiceEvidenceFocus b{display:block;margin-top:3px;font-size:13px}
+.practiceEvidenceFocus p{margin:0;color:#6f6255;font-size:9.5px;line-height:1.45;text-align:right}
+.practiceEvidenceEmpty{margin:12px 0 0;color:var(--muted);font-size:10px}
+@media(max-width:760px){
+  .practiceEvidenceHead{flex-direction:column}
+  .practiceEvidenceStats{grid-template-columns:1fr 1fr}
+  .practiceEvidenceFocus{align-items:flex-start;flex-direction:column}
+  .practiceEvidenceFocus p{text-align:left}
+}
+
 /* H-P6.5 interest-aware unlocked lesson routing */
 .learningTopicPreferences{grid-column:1/-1}
 .learningPreferenceSummary{grid-template-columns:repeat(4,minmax(0,1fr))}
