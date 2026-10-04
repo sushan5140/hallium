@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0211",
+  "pattern": "-(으)면서",
+  "level": "Low Intermediate",
+  "function": "Express two actions happening at the same time",
+  "baseForm": "한국어를 공부하다",
+  "example": "한국어를 공부하면서 드라마를 봐요.",
+  "translation": "I watch dramas while studying Korean.",
+  "note": "Use V-(으)면서 when one subject does two actions at the same time.",
+  "prompt": "Make a sentence with 한국어를 공부하다 using -(으)면서.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "low-intermediate"
+  ]
+}
