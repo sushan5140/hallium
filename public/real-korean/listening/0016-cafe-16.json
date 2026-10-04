@@ -1,0 +1,17 @@
+{
+  "id": "listening-0016",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "커피 두 잔 주세요.",
+  "cloze": "커피 _____ 잔 주세요.",
+  "answer": "두",
+  "translation": "Two coffees, please.",
+  "hint": "Listen for the native Korean counter form.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
