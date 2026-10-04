@@ -1,0 +1,17 @@
+{
+  "id": "listening-0292",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "저녁에 운동할 거예요.",
+  "cloze": "저녁에 _____할 거예요.",
+  "answer": "운동",
+  "translation": "I will exercise this evening.",
+  "hint": "Listen for exercise.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
