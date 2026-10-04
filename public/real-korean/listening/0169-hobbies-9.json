@@ -1,0 +1,17 @@
+{
+  "id": "listening-0169",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "오늘 영화 볼래?",
+  "cloze": "오늘 영화 _____래?",
+  "answer": "볼",
+  "translation": "Want to watch a movie today?",
+  "hint": "Listen for watch.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
