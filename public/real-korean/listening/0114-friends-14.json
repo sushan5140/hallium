@@ -1,0 +1,17 @@
+{
+  "id": "listening-0114",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "나도 같이 갈게.",
+  "cloze": "나도 같이 _____게.",
+  "answer": "갈",
+  "translation": "I will go with you too.",
+  "hint": "Listen for intention.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
