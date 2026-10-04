@@ -2193,6 +2193,42 @@ button.toast{border:0;text-align:left}
 .featurePanelHead h2{margin:5px 0 0;font-size:24px;letter-spacing:-.035em}
 .featurePanelHead p{margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
 
+/* Batch 5 · Real Korean scene packs */
+.realKoreanSceneSection{margin-top:34px}
+.realSceneLead{max-width:680px;margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
+.realSceneTabs{display:flex;gap:8px;overflow-x:auto;margin-top:16px;padding-bottom:4px}
+.realSceneTabs button{
+  flex:0 0 auto;min-height:36px;padding:0 12px;border:1px solid #efd7e1;border-radius:999px;
+  background:#fff;color:#80636f;font-size:10.5px;font-weight:800
+}
+.realSceneTabs button.active{background:#f3b8cf;border-color:#f3b8cf;color:#6f314b}
+.realScenePanel{margin-top:13px;padding:17px;border:1px solid #f3dce5;border-radius:18px;background:#fff9fb}
+.realSceneIntro span{font-size:15px;font-weight:850;color:#4d3d45}
+.realSceneIntro p{margin:4px 0 0;color:var(--muted);font-size:10.5px;line-height:1.55}
+.realSceneCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.realSceneCards article{min-width:0;padding:15px;border:1px solid #efdce4;border-radius:14px;background:#fff}
+.realSceneMeta{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.realSceneMeta small{color:#a85f7f;font-size:8.5px!important;font-weight:850!important;letter-spacing:.06em!important}
+.realSceneMeta span{color:#787078;font-size:9.5px;line-height:1.4;text-align:right}
+.realSceneKorean{
+  width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+  margin-top:9px;padding:0;border:0;background:transparent;color:var(--ink);text-align:left
+}
+.realSceneKorean b{font-size:19px;line-height:1.35}
+.realSceneKorean span{flex:0 0 auto;color:#a85f7f;font-size:9px;font-weight:850}
+.realSceneCards article>em{display:block;margin-top:4px;color:#a85f7f;font-size:10px;font-style:normal;font-weight:700}
+.realSceneCards article>p{margin:8px 0 0;color:var(--muted);font-size:10.5px;line-height:1.55}
+.realSceneVariants{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:11px}
+.realSceneVariants button{
+  padding:9px;border:1px solid #f0dfe6;border-radius:10px;background:#fff7fa;color:var(--ink);text-align:left
+}
+.realSceneVariants small{display:block;color:#a85f7f;font-size:8px!important;font-weight:850!important;letter-spacing:.04em!important}
+.realSceneVariants b{display:block;margin-top:4px;font-size:10.5px;line-height:1.4}
+@media(max-width:760px){
+  .realSceneCards{grid-template-columns:1fr}
+  .realScenePanel{padding:13px}
+}
+
 /* Partner Message Makeover */
 .messageMakeover{
   margin-top:24px;padding:20px;border:1px solid #f3d6e2;border-radius:20px;background:#fff9fb
