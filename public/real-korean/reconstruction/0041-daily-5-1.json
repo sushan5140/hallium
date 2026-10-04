@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0041",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "찍어요",
+    "사진을",
+    "오늘"
+  ],
+  "answer": "오늘 사진을 찍어요",
+  "translation": "Today, I take photos.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
