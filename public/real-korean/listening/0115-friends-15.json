@@ -1,0 +1,17 @@
+{
+  "id": "listening-0115",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "오늘 시간 돼?",
+  "cloze": "오늘 시간 _____?",
+  "answer": "돼",
+  "translation": "Are you free today?",
+  "hint": "Listen for availability.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
