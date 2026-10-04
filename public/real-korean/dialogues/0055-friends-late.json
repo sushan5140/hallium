@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0055",
+  "context": "friends",
+  "level": "Beginner",
+  "situation": "Saying you are running late",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "나 조금 늦을 것 같아.",
+      "romanization": "na jogeum neujeul geot gata.",
+      "meaning": "I think I'll be a little late."
+    },
+    {
+      "speaker": "B",
+      "korean": "괜찮아. 천천히 와.",
+      "romanization": "gwaenchana. cheoncheonhi wa.",
+      "meaning": "It's okay. Take your time."
+    },
+    {
+      "speaker": "A",
+      "korean": "미안! 곧 갈게.",
+      "romanization": "mian! got galge.",
+      "meaning": "Sorry! I'll be there soon."
+    }
+  ],
+  "teachingPoint": "-(으)ㄹ게 expresses a spontaneous intention/promise.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
