@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0023",
+  "context": "shopping",
+  "level": "Beginner",
+  "situation": "Asking for another color",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "다른 색도 있어요?",
+      "romanization": "dareun saekdo isseoyo?",
+      "meaning": "Do you have another color too?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "검은색하고 흰색이 있어요.",
+      "romanization": "geomeunsaekhago huinsaegi isseoyo.",
+      "meaning": "We have black and white."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "검은색 보여 주세요.",
+      "romanization": "geomeunsaek boyeo juseyo.",
+      "meaning": "Please show me the black one."
+    }
+  ],
+  "teachingPoint": "다른 N도 있어요? asks whether another option exists.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
