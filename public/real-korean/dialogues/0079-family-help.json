@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0079",
+  "context": "family",
+  "level": "Beginner",
+  "situation": "Helping with bags",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "그거 무거워 보여.",
+      "romanization": "geugeo mugeowo boyeo.",
+      "meaning": "That looks heavy."
+    },
+    {
+      "speaker": "B",
+      "korean": "조금 무거워.",
+      "romanization": "jogeum mugeowo.",
+      "meaning": "It's a little heavy."
+    },
+    {
+      "speaker": "A",
+      "korean": "내가 들어줄게.",
+      "romanization": "naega deureojulge.",
+      "meaning": "I'll carry it for you."
+    }
+  ],
+  "teachingPoint": "-아/어 줄게 offers to do something for someone.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
