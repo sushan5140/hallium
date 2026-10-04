@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0090",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "situation": "Talking about Korean study",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "한국어 얼마나 공부했어요?",
+      "romanization": "hangugeo eolmana gongbuhaesseoyo?",
+      "meaning": "How long have you studied Korean?"
+    },
+    {
+      "speaker": "B",
+      "korean": "한 일 년 정도 했어요.",
+      "romanization": "han il nyeon jeongdo haesseoyo.",
+      "meaning": "About a year."
+    },
+    {
+      "speaker": "A",
+      "korean": "발음이 정말 좋아요.",
+      "romanization": "bareumi jeongmal joayo.",
+      "meaning": "Your pronunciation is really good."
+    }
+  ],
+  "teachingPoint": "N 정도 means about/approximately N.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
