@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0391",
+  "context": "service",
+  "level": "Low Intermediate",
+  "situation": "Explaining that the screen will not turn on",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "화면이 안 켜져요.",
+      "romanization": "hwamyeoni an kyeojyeoyo.",
+      "meaning": "The screen will not turn on."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "불편을 드려 죄송합니다. 확인해 볼게요.",
+      "romanization": "bulpyeoneul deuryeo joesonghamnida. hwaginhae bolgeyo.",
+      "meaning": "Sorry for the inconvenience. I will check."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "네, 부탁드립니다.",
+      "romanization": "ne, butakdeurimnida.",
+      "meaning": "Yes, please."
+    }
+  ],
+  "teachingPoint": "Problem + 안 돼요 / -고 싶어요 are high-value service repair patterns.",
+  "tags": [
+    "service",
+    "problem-solving",
+    "real-korean",
+    "dialogue"
+  ]
+}
