@@ -1,0 +1,17 @@
+{
+  "id": "listening-0159",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "다 같이 먹자.",
+  "cloze": "다 같이 _____자.",
+  "answer": "먹",
+  "translation": "Let's all eat together.",
+  "hint": "Listen for let's eat.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
