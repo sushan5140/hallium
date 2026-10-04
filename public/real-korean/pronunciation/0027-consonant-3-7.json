@@ -1,0 +1,20 @@
+{
+  "id": "pron-0027",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs aspirated",
+  "contrast": [
+    "ㄷ",
+    "ㅌ"
+  ],
+  "vowel": "ㅐ",
+  "left": "대",
+  "right": "태",
+  "cue": "Notice stronger airflow on ㅌ.",
+  "prompt": "Say 대, then 태. Keep the vowel ㅐ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
