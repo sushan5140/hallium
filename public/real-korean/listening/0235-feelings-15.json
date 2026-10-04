@@ -1,0 +1,17 @@
+{
+  "id": "listening-0235",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "답답해요.",
+  "cloze": "_____해요.",
+  "answer": "답답",
+  "translation": "I feel frustrated/stuffy.",
+  "hint": "Listen for 답답하다.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
