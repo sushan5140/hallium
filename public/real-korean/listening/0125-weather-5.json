@@ -1,0 +1,17 @@
+{
+  "id": "listening-0125",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "밖에 눈 와요.",
+  "cloze": "밖에 _____ 와요.",
+  "answer": "눈",
+  "translation": "It is snowing outside.",
+  "hint": "Listen for snow.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
