@@ -1,0 +1,20 @@
+{
+  "id": "pron-0200",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "oe vs wi",
+  "contrast": [
+    "ㅚ",
+    "ㅟ"
+  ],
+  "onset": "ㅎ",
+  "left": "회",
+  "right": "휘",
+  "cue": "Practice the rounded front-vowel/glide contrast in careful speech.",
+  "prompt": "Say 회, then 휘. Keep the onset ㅎ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
