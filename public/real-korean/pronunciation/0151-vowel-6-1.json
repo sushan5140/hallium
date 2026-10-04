@@ -1,0 +1,20 @@
+{
+  "id": "pron-0151",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "i vs eu",
+  "contrast": [
+    "ㅣ",
+    "ㅡ"
+  ],
+  "onset": "ㄱ",
+  "left": "기",
+  "right": "그",
+  "cue": "ㅣ is high front; ㅡ is high central/back and unrounded.",
+  "prompt": "Say 기, then 그. Keep the onset ㄱ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
