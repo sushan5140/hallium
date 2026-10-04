@@ -3918,3 +3918,200 @@ No additional H-P6 slice is required for the originally defined Batch 4 scope:
 Do not reopen H-P6 by default unless a concrete regression or new product requirement appears.
 
 MeloTTS/TwinMem research remains parked and separate.
+
+
+---
+
+# 47. Batch 5 / H-P7 — REAL KOREAN EXPANSION COMPLETE ✅
+
+Batch 5 is complete on production-source `main`.
+
+Current Batch 5 closing merge:
+`27c8c8cf55ccb5a2981f73c8952dd92db5a8561f`
+
+## H-P7.1 — shared Real Korean foundation
+Merged PR: #33
+
+Added:
+- deterministic authored scene/phrase bank
+- friends, caring, feelings, making up, café/food, travel/directions, school/work
+- natural meaning + romanization + register notes
+- controlled softer/bolder/funnier variants
+- Guest Message Makeover routes through the same authored bank
+- signed-in AI Message Makeover receives compact Hallium-authored grounding
+- fail-closed behavior for unknown messages and unsupported register combinations
+
+Important regression found/fixed:
+- generic words such as “please” could create false phrase matches
+- matcher now ignores generic stopwords and requires meaningful overlap
+
+## H-P7.2 — Real Korean scene packs
+Merged PR: #34
+
+Added visible scene-pack learning UI:
+- authored Korean
+- natural meaning
+- register
+- romanization toggle
+- audio playback
+- softer/stronger variants
+- responsive mobile layout
+
+## H-P7.3 — natural multi-turn dialogues
+Merged PR: #35
+
+Every Real Korean scene now has at least one authored 3+ turn dialogue with:
+- explicit casual/polite register
+- Korean
+- romanization
+- natural English meaning
+- full-dialogue playback
+- contextual usage/register note
+
+## H-P7.4 — Register Intelligence
+Merged PR: #36
+
+Teaches register as a social-context system rather than only “casual vs polite”.
+
+Contexts:
+- close friend / 반말
+- acquaintance or stranger / 해요체
+- senior or teacher / honorific-aware speech
+- service interaction / compact polite Korean
+
+Each guide includes:
+- where it fits
+- where not to use it
+- common markers/endings
+- relationship-shift example
+- explanation of why the form sounds natural
+
+Deterministic relationship mapping fails closed when Hallium has no safe authored line.
+
+## H-P7.5 — Casual Korean / texting
+Merged PR: #37
+
+Added authored texting-pattern teaching for:
+- subject omission
+- compressed check-ins
+- ㅋㅋ vs ㅎㅎ
+- -네 reaction ending
+- -잖아 shared-context ending
+- 응 vs polite yes forms
+- 것 같아 softening
+
+Each pattern shows:
+- more explicit form
+- more text-like form
+- meaning
+- explanation
+- safe relationship contexts
+- contexts to avoid
+- audio
+
+Guardrail:
+casual shortcuts are not taught as safe defaults for seniors or strangers.
+
+## H-P7.6 — Scenario Practice
+Merged PR: #38
+
+Added deterministic real-life practice that grades both meaning and register.
+
+Initial authored scenarios include:
+- close friend heading home in heavy rain
+- asking a stranger for the subway station
+- telling a professor you may be late
+- café takeout request
+- reacting to a close friend's joke
+- repairing a misunderstanding
+
+Behavior:
+- 3+ plausible Korean choices
+- target register
+- authored correct answer
+- explanation of social fit
+- grammar/register mismatch distinction
+- fail-closed invalid scenario/choice handling
+- natural-answer audio after mistakes
+
+## H-P7.7 — H-P6 × H-P7 learning-intelligence integration
+Merged PR: #39
+
+Real Korean scenes now carry explicit H-P6 topic tags.
+
+The learning-intelligence engine can rank authored Real Korean scenes using the same saved interests used for unlocked-lesson routing.
+
+Grounded mappings include:
+- Travel → Travel & directions
+- Food → Café & food
+- Daily life / Conversation → social Real Korean scenes
+- Opinions → repair / school-work contexts where explicitly tagged
+
+Rules:
+- unsupported topics such as Shopping do not invent a scene match
+- explicit empty topic list disables Real Korean interest routing
+- Home now shows **REAL KOREAN FOR YOUR INTERESTS**
+- interest routing remains optional
+- mandatory due-review safety remains authoritative and cannot be displaced by an interest recommendation
+
+## Batch 5 validation
+
+Every H-P7 slice used the standard Hallium validation gates before merge:
+- Verify standalone Hallium ✅
+- Hallium Security Gate ✅
+- Verify Hallium H-P5 closure / Chromium ✅
+
+The final H-P7.7 closing head:
+`1beb705841e2788c8bcba0afa987dd743ec3d7d3`
+
+The final H-P7.7 merge:
+`27c8c8cf55ccb5a2981f73c8952dd92db5a8561f`
+
+## Batch 5 capability matrix
+
+H-P7.1:
+- shared authored Real Korean foundation ✅
+- deterministic Guest Mode phrase routing ✅
+- grounded AI Message Makeover ✅
+
+H-P7.2:
+- visible real-life scene packs ✅
+- audio/register/variants ✅
+
+H-P7.3:
+- multi-turn contextual dialogues ✅
+
+H-P7.4:
+- social register intelligence ✅
+- relationship-aware guidance ✅
+
+H-P7.5:
+- natural texting/casual layer ✅
+
+H-P7.6:
+- meaning + register scenario practice ✅
+
+H-P7.7:
+- H-P6 interest routing connected to H-P7 scenes ✅
+- due-review safety preserved ✅
+
+## Batch 5 status
+
+**COMPLETE ✅**
+
+Do not reopen H-P7 by default unless a concrete regression or new Real Korean requirement appears.
+
+## Exact continuation point
+
+Next phase:
+**Batch 6 / H-P8 — Practice Engine 2.0**
+
+Start Batch 6 from the current `main` after this handoff update.
+
+Batch 6 should build on:
+- H-P6 weakness/review/session/interest intelligence
+- H-P7 authored Real Korean scenes/register/texting/dialogues/scenarios
+- existing Guest Mode isolation
+- existing cloud-sync and security gates
+
+MeloTTS and TwinMem remain parked and are not part of the Batch 6 default continuation path.
