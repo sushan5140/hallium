@@ -1,0 +1,17 @@
+{
+  "id": "listening-0018",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "우유로 바꿔 주세요.",
+  "cloze": "우유로 _____ 주세요.",
+  "answer": "바꿔",
+  "translation": "Please change it to milk.",
+  "hint": "Listen for the verb meaning change.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
