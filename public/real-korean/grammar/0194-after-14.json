@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0194",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "예약하다",
+  "example": "예약하고 나서 확인 메일을 받았어요.",
+  "translation": "After booking, I received a confirmation email.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 예약하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
