@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0096",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "situation": "Asking about a delay",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "기차가 왜 안 와요?",
+      "romanization": "gichaga wae an wayo?",
+      "meaning": "Why isn't the train coming?"
+    },
+    {
+      "speaker": "B",
+      "korean": "지금 십 분 정도 지연됐어요.",
+      "romanization": "jigeum sip bun jeongdo jiyeondwaesseoyo.",
+      "meaning": "It's delayed by about 10 minutes."
+    },
+    {
+      "speaker": "A",
+      "korean": "아, 그렇군요.",
+      "romanization": "a, geureotgunyo.",
+      "meaning": "Ah, I see."
+    }
+  ],
+  "teachingPoint": "지연되다 means to be delayed.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
