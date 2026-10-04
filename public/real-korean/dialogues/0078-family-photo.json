@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0078",
+  "context": "family",
+  "level": "Beginner",
+  "situation": "Taking a family photo",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "사진 한 장 찍을까요?",
+      "romanization": "sajin han jang jjigeulkkayo?",
+      "meaning": "Shall we take a photo?"
+    },
+    {
+      "speaker": "B",
+      "korean": "좋아요. 다 같이 서요.",
+      "romanization": "joayo. da gachi seoyo.",
+      "meaning": "Sure. Everyone stand together."
+    },
+    {
+      "speaker": "A",
+      "korean": "하나, 둘, 셋!",
+      "romanization": "hana, dul, set!",
+      "meaning": "One, two, three!"
+    }
+  ],
+  "teachingPoint": "한 장 counts one photo/sheet.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
