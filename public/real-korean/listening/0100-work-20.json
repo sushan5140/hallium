@@ -1,0 +1,17 @@
+{
+  "id": "listening-0100",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "일정 다시 잡을까요?",
+  "cloze": "일정 다시 _____까요?",
+  "answer": "잡을",
+  "translation": "Shall we reschedule?",
+  "hint": "Listen for set/schedule.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
