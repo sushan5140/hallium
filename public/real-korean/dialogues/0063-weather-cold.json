@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0063",
+  "context": "weather",
+  "level": "Beginner",
+  "situation": "Talking about cold weather",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "밖에 많이 추워요?",
+      "romanization": "bakke mani chuwoyo?",
+      "meaning": "Is it very cold outside?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 바람도 많이 불어요.",
+      "romanization": "ne, baramdo mani bureoyo.",
+      "meaning": "Yes, it's also very windy."
+    },
+    {
+      "speaker": "A",
+      "korean": "코트 입어야겠어요.",
+      "romanization": "koteu ibeoyagesseoyo.",
+      "meaning": "I should wear a coat."
+    }
+  ],
+  "teachingPoint": "바람이 불다 means the wind blows / it's windy.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
