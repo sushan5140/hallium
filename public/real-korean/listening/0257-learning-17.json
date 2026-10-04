@@ -1,0 +1,17 @@
+{
+  "id": "listening-0257",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "어떻게 발음해요?",
+  "cloze": "어떻게 _____해요?",
+  "answer": "발음",
+  "translation": "How do you pronounce it?",
+  "hint": "Listen for pronunciation.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
