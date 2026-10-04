@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0081",
+  "context": "hobbies",
+  "level": "Beginner",
+  "situation": "Talking about music",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "요즘 어떤 음악 들어요?",
+      "romanization": "yojeum eotteon eumak deureoyo?",
+      "meaning": "What music do you listen to these days?"
+    },
+    {
+      "speaker": "B",
+      "korean": "한국 인디 음악 많이 들어요.",
+      "romanization": "hanguk indi eumak mani deureoyo.",
+      "meaning": "I listen to a lot of Korean indie music."
+    },
+    {
+      "speaker": "A",
+      "korean": "추천해 주세요.",
+      "romanization": "chucheonhae juseyo.",
+      "meaning": "Please recommend some."
+    }
+  ],
+  "teachingPoint": "어떤 N asks what kind of N.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
