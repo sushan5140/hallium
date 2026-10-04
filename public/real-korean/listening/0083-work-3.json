@@ -1,0 +1,17 @@
+{
+  "id": "listening-0083",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "내일 오전까지 부탁드릴게요.",
+  "cloze": "내일 _____까지 부탁드릴게요.",
+  "answer": "오전",
+  "translation": "Please have it by tomorrow morning.",
+  "hint": "Listen for morning.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
