@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0208",
+  "pattern": "-(으)면서",
+  "level": "Low Intermediate",
+  "function": "Express two actions happening at the same time",
+  "baseForm": "운동하다",
+  "example": "운동하면서 팟캐스트를 들어요.",
+  "translation": "I listen to a podcast while exercising.",
+  "note": "Use V-(으)면서 when one subject does two actions at the same time.",
+  "prompt": "Make a sentence with 운동하다 using -(으)면서.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "low-intermediate"
+  ]
+}
