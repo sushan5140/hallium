@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0015",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "situation": "Finding the correct platform",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "부산 가는 기차는 몇 번 승강장이에요?",
+      "romanization": "busan ganeun gichaneun myeot beon seunggangjangieyo?",
+      "meaning": "Which platform is the train to Busan?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "팔 번 승강장이에요.",
+      "romanization": "pal beon seunggangjangieyo.",
+      "meaning": "It's platform 8."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "몇 번 asks for a numbered place/item.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
