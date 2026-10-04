@@ -1,0 +1,17 @@
+{
+  "id": "listening-0244",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "발음을 연습해요.",
+  "cloze": "발음을 _____해요.",
+  "answer": "연습",
+  "translation": "I practice pronunciation.",
+  "hint": "Listen for practice.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
