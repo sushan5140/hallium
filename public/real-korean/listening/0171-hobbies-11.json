@@ -1,0 +1,17 @@
+{
+  "id": "listening-0171",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "주말에 등산해요.",
+  "cloze": "주말에 _____해요.",
+  "answer": "등산",
+  "translation": "I hike on weekends.",
+  "hint": "Listen for hiking.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
