@@ -1,0 +1,17 @@
+{
+  "id": "listening-0288",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "오늘은 일찍 잘 거예요.",
+  "cloze": "오늘은 일찍 _____ 거예요.",
+  "answer": "잘",
+  "translation": "I will sleep early today.",
+  "hint": "Listen for future sleep.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
