@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0086",
+  "context": "hobbies",
+  "level": "Beginner",
+  "situation": "Making a running plan",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "내일 같이 뛸래?",
+      "romanization": "naeil gachi ttwillae?",
+      "meaning": "Want to run together tomorrow?"
+    },
+    {
+      "speaker": "B",
+      "korean": "좋아. 몇 시에?",
+      "romanization": "joa. myeot sie?",
+      "meaning": "Sure. What time?"
+    },
+    {
+      "speaker": "A",
+      "korean": "아침 일곱 시 어때?",
+      "romanization": "achim ilgop si eottae?",
+      "meaning": "How about 7 in the morning?"
+    }
+  ],
+  "teachingPoint": "같이 + verb makes a natural together invitation.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
