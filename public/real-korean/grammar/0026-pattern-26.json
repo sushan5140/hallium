@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0026",
+  "pattern": "-아/어야 해요",
+  "level": "Beginner",
+  "function": "Express obligation: have to / must",
+  "baseVerb": "배우다",
+  "example": "배워야 해요",
+  "translation": "I have to learn.",
+  "note": "Attach -아/어야 해요 to a verb stem to say something is necessary.",
+  "prompt": "Use 배우다 with -아/어야 해요.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "beginner"
+  ]
+}
