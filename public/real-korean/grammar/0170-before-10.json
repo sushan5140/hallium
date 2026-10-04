@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0170",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "요리하다",
+  "example": "요리하기 전에 재료를 준비해요.",
+  "translation": "I prepare ingredients before cooking.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 요리하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
