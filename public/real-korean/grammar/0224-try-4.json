@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0224",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "읽다",
+  "example": "이 책 읽어 보세요.",
+  "translation": "Try reading this book.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 읽다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
