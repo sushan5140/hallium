@@ -1,0 +1,20 @@
+{
+  "id": "pron-0137",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eu vs u",
+  "contrast": [
+    "ㅡ",
+    "ㅜ"
+  ],
+  "onset": "ㅅ",
+  "left": "스",
+  "right": "수",
+  "cue": "ㅡ is unrounded; ㅜ is rounded.",
+  "prompt": "Say 스, then 수. Keep the onset ㅅ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
