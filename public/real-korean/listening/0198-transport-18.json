@@ -1,0 +1,17 @@
+{
+  "id": "listening-0198",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "왼쪽으로 도세요.",
+  "cloze": "_____으로 도세요.",
+  "answer": "왼쪽",
+  "translation": "Turn left.",
+  "hint": "Listen for left.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
