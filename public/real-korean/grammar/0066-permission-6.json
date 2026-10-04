@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0066",
+  "pattern": "-아/어도 돼요",
+  "level": "Beginner",
+  "function": "Ask or give permission",
+  "baseVerb": "앉다",
+  "example": "앉아도 돼요",
+  "translation": "You may sit.",
+  "note": "Use -아/어도 돼요 to ask or say that an action is allowed.",
+  "prompt": "Use 앉다 with -아/어도 돼요.",
+  "tags": [
+    "grammar",
+    "permission",
+    "beginner"
+  ]
+}
