@@ -1,0 +1,17 @@
+{
+  "id": "listening-0022",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "이 버스 시내에 가요?",
+  "cloze": "이 버스 _____에 가요?",
+  "answer": "시내",
+  "translation": "Does this bus go downtown?",
+  "hint": "Listen for the destination noun.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
