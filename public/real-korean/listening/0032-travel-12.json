@@ -1,0 +1,17 @@
+{
+  "id": "listening-0032",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "공항버스는 어디서 타요?",
+  "cloze": "공항버스는 어디서 _____?",
+  "answer": "타요",
+  "translation": "Where do I board the airport bus?",
+  "hint": "Listen for the verb board/ride.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
