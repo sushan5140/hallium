@@ -1,0 +1,17 @@
+{
+  "id": "listening-0211",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "저녁을 먹어요.",
+  "cloze": "_____을 먹어요.",
+  "answer": "저녁",
+  "translation": "I eat dinner.",
+  "hint": "Listen for dinner.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
