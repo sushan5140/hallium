@@ -1,0 +1,17 @@
+{
+  "id": "listening-0053",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "이 제품 있나요?",
+  "cloze": "이 _____ 있나요?",
+  "answer": "제품",
+  "translation": "Do you have this product?",
+  "hint": "Listen for product.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
