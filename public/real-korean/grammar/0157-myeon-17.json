@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0157",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "문제가 있다",
+  "example": "문제가 있으면 알려 주세요.",
+  "translation": "If there is a problem, let me know.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 문제가 있다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
