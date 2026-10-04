@@ -1,0 +1,17 @@
+{
+  "id": "listening-0131",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "지금 몇 도예요?",
+  "cloze": "지금 몇 _____예요?",
+  "answer": "도",
+  "translation": "How many degrees is it now?",
+  "hint": "Listen for degree counter.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
