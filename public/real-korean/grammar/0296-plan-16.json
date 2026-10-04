@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0296",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "매일 단어를 외우다",
+  "example": "매일 단어를 외우려고 해요.",
+  "translation": "I plan to memorize words every day.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 매일 단어를 외우다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
