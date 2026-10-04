@@ -1,0 +1,17 @@
+{
+  "id": "listening-0284",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "오늘 저녁에 요리할 거예요.",
+  "cloze": "오늘 저녁에 _____할 거예요.",
+  "answer": "요리",
+  "translation": "I will cook this evening.",
+  "hint": "Listen for cook.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
