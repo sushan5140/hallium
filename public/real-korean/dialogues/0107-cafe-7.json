@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0107",
+  "context": "cafe",
+  "level": "Beginner",
+  "situation": "Ordering cold brew",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "뭐 드릴까요?",
+      "romanization": "mwo deurilkkayo?",
+      "meaning": "What can I get you?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "콜드브루 한 잔 주세요.",
+      "romanization": "koldeubeuru han jan juseyo.",
+      "meaning": "One cold brew, please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 준비해 드릴게요.",
+      "romanization": "ne, junbihae deurilgeyo.",
+      "meaning": "Sure, I'll prepare it."
+    }
+  ],
+  "teachingPoint": "Drink + 한 잔 주세요 is a reusable café-ordering pattern.",
+  "tags": [
+    "cafe",
+    "ordering",
+    "real-korean",
+    "dialogue"
+  ]
+}
