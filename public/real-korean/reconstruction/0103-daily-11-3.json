@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0103",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "타요",
+    "버스를",
+    "아침에"
+  ],
+  "answer": "아침에 버스를 타요",
+  "translation": "In the morning, I take the bus.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
