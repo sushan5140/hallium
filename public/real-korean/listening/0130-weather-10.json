@@ -1,0 +1,17 @@
+{
+  "id": "listening-0130",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "가을을 제일 좋아해요.",
+  "cloze": "_____을 제일 좋아해요.",
+  "answer": "가을",
+  "translation": "I like autumn the most.",
+  "hint": "Listen for autumn.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
