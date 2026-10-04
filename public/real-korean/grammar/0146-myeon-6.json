@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0146",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "필요하다",
+  "example": "필요하면 말씀하세요.",
+  "translation": "If you need it, tell me.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 필요하다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
