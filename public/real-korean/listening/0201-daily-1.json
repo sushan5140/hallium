@@ -1,0 +1,17 @@
+{
+  "id": "listening-0201",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "지금 뭐 해요?",
+  "cloze": "지금 뭐 _____요?",
+  "answer": "해",
+  "translation": "What are you doing now?",
+  "hint": "Listen for do.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
