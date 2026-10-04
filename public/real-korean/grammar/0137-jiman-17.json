@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0137",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "편하다",
+  "example": "편하지만 사람이 많아요.",
+  "translation": "It is convenient, but crowded.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 편하다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
