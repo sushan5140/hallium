@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0151",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "날씨가 좋다",
+  "example": "날씨가 좋으면 산책해요.",
+  "translation": "If the weather is nice, let's walk.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 날씨가 좋다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
