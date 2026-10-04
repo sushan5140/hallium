@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0262",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "시간이 없다",
+  "example": "시간이 없으니까 택시를 타요.",
+  "translation": "Because there is no time, let's take a taxi.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 시간이 없다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
