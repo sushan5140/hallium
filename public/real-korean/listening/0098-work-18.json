@@ -1,0 +1,17 @@
+{
+  "id": "listening-0098",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "피드백 반영했어요.",
+  "cloze": "피드백 _____했어요.",
+  "answer": "반영",
+  "translation": "I applied the feedback.",
+  "hint": "Listen for incorporate/apply.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
