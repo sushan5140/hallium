@@ -1,0 +1,20 @@
+{
+  "id": "pron-0054",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅂ",
+    "ㅃ"
+  ],
+  "vowel": "ㅜ",
+  "left": "부",
+  "right": "뿌",
+  "cue": "Notice tighter articulation on ㅃ.",
+  "prompt": "Say 부, then 뿌. Keep the vowel ㅜ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
