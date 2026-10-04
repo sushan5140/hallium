@@ -1,0 +1,17 @@
+{
+  "id": "listening-0252",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "틀린 문장을 고쳐요.",
+  "cloze": "틀린 문장을 _____요.",
+  "answer": "고쳐",
+  "translation": "I correct wrong sentences.",
+  "hint": "Listen for correct.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
