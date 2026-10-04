@@ -1,0 +1,17 @@
+{
+  "id": "listening-0271",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "도움이 필요해요.",
+  "cloze": "_____이 필요해요.",
+  "answer": "도움",
+  "translation": "I need help.",
+  "hint": "Listen for help.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
