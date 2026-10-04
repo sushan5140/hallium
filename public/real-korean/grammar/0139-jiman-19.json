@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0139",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "좋다",
+  "example": "좋지만 지금은 필요 없어요.",
+  "translation": "It is good, but I do not need it now.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 좋다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
