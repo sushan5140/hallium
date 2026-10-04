@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0087",
+  "context": "hobbies",
+  "level": "Beginner",
+  "situation": "Talking about drawing",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "그림 자주 그려요?",
+      "romanization": "geurim jaju geuryeoyo?",
+      "meaning": "Do you draw often?"
+    },
+    {
+      "speaker": "B",
+      "korean": "시간 있을 때 그려요.",
+      "romanization": "sigan isseul ttae geuryeoyo.",
+      "meaning": "I draw when I have time."
+    },
+    {
+      "speaker": "A",
+      "korean": "나중에 보여 주세요.",
+      "romanization": "najunge boyeo juseyo.",
+      "meaning": "Show me sometime later."
+    }
+  ],
+  "teachingPoint": "V-(으)ㄹ 때 means when V.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
