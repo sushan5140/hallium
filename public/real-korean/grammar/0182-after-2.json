@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0182",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "수업이 끝나다",
+  "example": "수업이 끝나고 나서 친구를 만났어요.",
+  "translation": "After class ended, I met a friend.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 수업이 끝나다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
