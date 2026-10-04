@@ -1,0 +1,16 @@
+{
+  "id": "mining-0038",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "드라마를 봐요",
+  "gloss": "watch a drama",
+  "sentence": "가끔 드라마를 봐요",
+  "translation": "Sometimes, I watch a drama.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you watch a drama using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
