@@ -1,0 +1,20 @@
+{
+  "id": "pron-0120",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "o vs u",
+  "contrast": [
+    "ㅗ",
+    "ㅜ"
+  ],
+  "onset": "ㅎ",
+  "left": "호",
+  "right": "후",
+  "cue": "Keep the lips rounded but change tongue height.",
+  "prompt": "Say 호, then 후. Keep the onset ㅎ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
