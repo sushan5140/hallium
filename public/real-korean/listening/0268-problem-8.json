@@ -1,0 +1,17 @@
+{
+  "id": "listening-0268",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "예약을 변경하고 싶어요.",
+  "cloze": "예약을 _____하고 싶어요.",
+  "answer": "변경",
+  "translation": "I want to change the reservation.",
+  "hint": "Listen for change.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
