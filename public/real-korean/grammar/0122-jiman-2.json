@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0122",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "비싸다",
+  "example": "비싸지만 좋아요.",
+  "translation": "It is expensive, but good.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 비싸다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
