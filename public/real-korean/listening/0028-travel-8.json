@@ -1,0 +1,17 @@
+{
+  "id": "listening-0028",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "홍대입구역으로 가 주세요.",
+  "cloze": "홍대입구역으로 _____ 주세요.",
+  "answer": "가",
+  "translation": "Please go to Hongik University Station.",
+  "hint": "Listen for the movement verb.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
