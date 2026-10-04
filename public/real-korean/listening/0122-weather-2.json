@@ -1,0 +1,17 @@
+{
+  "id": "listening-0122",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "오후부터 온대요.",
+  "cloze": "_____부터 온대요.",
+  "answer": "오후",
+  "translation": "They say it will rain from the afternoon.",
+  "hint": "Listen for afternoon.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
