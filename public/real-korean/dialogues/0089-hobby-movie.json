@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0089",
+  "context": "hobbies",
+  "level": "Beginner",
+  "situation": "Choosing a movie",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 영화 볼래?",
+      "romanization": "oneul yeonghwa bollae?",
+      "meaning": "Want to watch a movie today?"
+    },
+    {
+      "speaker": "B",
+      "korean": "좋아. 뭐 볼까?",
+      "romanization": "joa. mwo bolkka?",
+      "meaning": "Sure. What should we watch?"
+    },
+    {
+      "speaker": "A",
+      "korean": "코미디 어때?",
+      "romanization": "komidi eottae?",
+      "meaning": "How about a comedy?"
+    }
+  ],
+  "teachingPoint": "뭐 볼까? is a casual collaborative question.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
