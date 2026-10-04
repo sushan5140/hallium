@@ -1,0 +1,17 @@
+{
+  "id": "grammar-0010",
+  "pattern": "-고 싶어요",
+  "level": "Beginner",
+  "function": "Express wanting to do something",
+  "baseVerb": "쉬다",
+  "romanization": "swida",
+  "example": "쉬고 싶어요",
+  "translation": "I want to rest.",
+  "note": "Attach -고 싶어요 to a verb stem to express a personal desire.",
+  "prompt": "Use 쉬다 with -고 싶어요.",
+  "tags": [
+    "grammar",
+    "desire",
+    "beginner"
+  ]
+}
