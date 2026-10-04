@@ -1,0 +1,17 @@
+{
+  "id": "listening-0286",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "끝나면 연락할게요.",
+  "cloze": "끝나면 _____할게요.",
+  "answer": "연락",
+  "translation": "I will contact you when it is done.",
+  "hint": "Listen for contact.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
