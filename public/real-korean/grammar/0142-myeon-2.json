@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0142",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "비가 오다",
+  "example": "비가 오면 집에 있을게요.",
+  "translation": "If it rains, I will stay home.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 비가 오다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
