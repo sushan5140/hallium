@@ -1,0 +1,17 @@
+{
+  "id": "listening-0230",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "마음에 들어요.",
+  "cloze": "마음에 _____요.",
+  "answer": "들어",
+  "translation": "I like it.",
+  "hint": "Listen for the idiom 마음에 들다.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
