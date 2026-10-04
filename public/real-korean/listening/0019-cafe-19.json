@@ -1,0 +1,17 @@
+{
+  "id": "listening-0019",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "여기서 먹을게요.",
+  "cloze": "_____ 먹을게요.",
+  "answer": "여기서",
+  "translation": "I will eat here.",
+  "hint": "Listen for the location phrase.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
