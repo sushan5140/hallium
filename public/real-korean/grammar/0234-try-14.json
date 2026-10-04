@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0234",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "찾다",
+  "example": "다른 방법을 찾아 보세요.",
+  "translation": "Try finding another way.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 찾다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
