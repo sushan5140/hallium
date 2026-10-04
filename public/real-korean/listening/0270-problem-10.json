@@ -1,0 +1,17 @@
+{
+  "id": "listening-0270",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "다른 방법이 있어요?",
+  "cloze": "다른 _____이 있어요?",
+  "answer": "방법",
+  "translation": "Is there another way?",
+  "hint": "Listen for method/way.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
