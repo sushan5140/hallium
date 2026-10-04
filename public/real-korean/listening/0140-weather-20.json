@@ -1,0 +1,17 @@
+{
+  "id": "listening-0140",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "저녁에는 선선해요.",
+  "cloze": "_____에는 선선해요.",
+  "answer": "저녁",
+  "translation": "It is cool in the evening.",
+  "hint": "Listen for evening.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
