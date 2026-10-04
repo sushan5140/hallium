@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0277",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "멀다",
+  "example": "머니까 지하철을 타요.",
+  "translation": "Because it is far, let's take the subway.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 멀다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
