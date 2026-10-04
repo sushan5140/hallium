@@ -1,0 +1,20 @@
+{
+  "id": "pron-0092",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "h-sound vs zero onset",
+  "contrast": [
+    "ㅎ",
+    "ㅇ"
+  ],
+  "vowel": "ㅓ",
+  "left": "허",
+  "right": "어",
+  "cue": "ㅎ begins with audible breath; ㅇ is silent initially.",
+  "prompt": "Say 허, then 어. Keep the vowel ㅓ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
