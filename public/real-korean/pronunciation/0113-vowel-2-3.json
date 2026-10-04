@@ -1,0 +1,20 @@
+{
+  "id": "pron-0113",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "o vs u",
+  "contrast": [
+    "ㅗ",
+    "ㅜ"
+  ],
+  "onset": "ㄷ",
+  "left": "도",
+  "right": "두",
+  "cue": "Keep the lips rounded but change tongue height.",
+  "prompt": "Say 도, then 두. Keep the onset ㄷ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
