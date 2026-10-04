@@ -1,0 +1,17 @@
+{
+  "id": "listening-0082",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "제가 보낸 메일 확인하셨어요?",
+  "cloze": "제가 보낸 메일 _____하셨어요?",
+  "answer": "확인",
+  "translation": "Did you check the email I sent?",
+  "hint": "Listen for check.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
