@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0094",
+  "context": "transport",
+  "level": "Beginner",
+  "situation": "Checking the next stop",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "다음 역이 강남역이에요?",
+      "romanization": "daeum yeogi gangnamyeogieyo?",
+      "meaning": "Is the next station Gangnam Station?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 다음 역이에요.",
+      "romanization": "ne, daeum yeogieyo.",
+      "meaning": "Yes, it's the next stop."
+    },
+    {
+      "speaker": "A",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "다음 means next.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
