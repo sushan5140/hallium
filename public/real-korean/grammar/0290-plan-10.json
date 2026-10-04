@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0290",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "주말에 방을 정리하다",
+  "example": "주말에 방을 정리하려고 해요.",
+  "translation": "I plan to organize my room this weekend.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 주말에 방을 정리하다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
