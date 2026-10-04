@@ -1,0 +1,17 @@
+{
+  "id": "listening-0291",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "한국어를 더 열심히 공부할 거예요.",
+  "cloze": "한국어를 더 열심히 _____할 거예요.",
+  "answer": "공부",
+  "translation": "I will study Korean harder.",
+  "hint": "Listen for study.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
