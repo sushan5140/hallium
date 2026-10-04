@@ -1,0 +1,17 @@
+{
+  "id": "listening-0221",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "오늘 기분이 어때요?",
+  "cloze": "오늘 _____이 어때요?",
+  "answer": "기분",
+  "translation": "How do you feel today?",
+  "hint": "Listen for feeling/mood.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
