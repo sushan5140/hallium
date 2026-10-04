@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0109",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "어렵다",
+  "example": "어려워서 친구에게 물어봤어요.",
+  "translation": "It was difficult, so I asked a friend.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 어렵다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
