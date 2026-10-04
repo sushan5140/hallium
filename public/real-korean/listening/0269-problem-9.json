@@ -1,0 +1,17 @@
+{
+  "id": "listening-0269",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "주문을 취소할게요.",
+  "cloze": "주문을 _____할게요.",
+  "answer": "취소",
+  "translation": "I will cancel the order.",
+  "hint": "Listen for cancel.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
