@@ -1,0 +1,17 @@
+{
+  "id": "listening-0044",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "입어봐도 돼요?",
+  "cloze": "_____봐도 돼요?",
+  "answer": "입어",
+  "translation": "May I try it on?",
+  "hint": "Listen for the try-on verb.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
