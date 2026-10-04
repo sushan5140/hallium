@@ -1,0 +1,17 @@
+{
+  "id": "listening-0047",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "다른 사이즈로 교환하고 싶어요.",
+  "cloze": "다른 사이즈로 _____하고 싶어요.",
+  "answer": "교환",
+  "translation": "I want to exchange it for another size.",
+  "hint": "Listen for exchange.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
