@@ -1,0 +1,17 @@
+{
+  "id": "listening-0175",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "캠핑 자주 가요.",
+  "cloze": "캠핑 _____ 가요.",
+  "answer": "자주",
+  "translation": "I go camping often.",
+  "hint": "Listen for frequency.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
