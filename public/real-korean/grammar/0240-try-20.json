@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0240",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "확인하다",
+  "example": "다시 한번 확인해 보세요.",
+  "translation": "Try checking once more.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 확인하다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
