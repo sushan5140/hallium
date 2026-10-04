@@ -1,0 +1,17 @@
+{
+  "id": "listening-0011",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "따뜻한 라테 한 잔 주세요.",
+  "cloze": "_____ 라테 한 잔 주세요.",
+  "answer": "따뜻한",
+  "translation": "One hot latte, please.",
+  "hint": "Listen for the adjective meaning warm/hot.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
