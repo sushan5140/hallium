@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0117",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "늦다",
+  "example": "늦어서 먼저 들어갔어요.",
+  "translation": "It was late, so I went in first.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 늦다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
