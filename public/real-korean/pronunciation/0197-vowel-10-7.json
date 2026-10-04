@@ -1,0 +1,20 @@
+{
+  "id": "pron-0197",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "oe vs wi",
+  "contrast": [
+    "ㅚ",
+    "ㅟ"
+  ],
+  "onset": "ㅅ",
+  "left": "쇠",
+  "right": "쉬",
+  "cue": "Practice the rounded front-vowel/glide contrast in careful speech.",
+  "prompt": "Say 쇠, then 쉬. Keep the onset ㅅ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
