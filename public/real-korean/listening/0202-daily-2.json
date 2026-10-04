@@ -1,0 +1,17 @@
+{
+  "id": "listening-0202",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "어디에 가요?",
+  "cloze": "_____에 가요?",
+  "answer": "어디",
+  "translation": "Where are you going?",
+  "hint": "Listen for where.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
