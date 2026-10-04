@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0198",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "써요",
+    "이메일을",
+    "가끔"
+  ],
+  "answer": "가끔 이메일을 써요",
+  "translation": "Sometimes, I write an email.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
