@@ -1,0 +1,20 @@
+{
+  "id": "pron-0010",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs aspirated",
+  "contrast": [
+    "ㄱ",
+    "ㅋ"
+  ],
+  "vowel": "ㅕ",
+  "left": "겨",
+  "right": "켜",
+  "cue": "Notice stronger airflow on ㅋ.",
+  "prompt": "Say 겨, then 켜. Keep the vowel ㅕ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
