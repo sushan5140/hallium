@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0215",
+  "pattern": "-(으)면서",
+  "level": "Low Intermediate",
+  "function": "Express two actions happening at the same time",
+  "baseForm": "여행하다",
+  "example": "여행하면서 사진을 많이 찍어요.",
+  "translation": "I take lots of photos while traveling.",
+  "note": "Use V-(으)면서 when one subject does two actions at the same time.",
+  "prompt": "Make a sentence with 여행하다 using -(으)면서.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "low-intermediate"
+  ]
+}
