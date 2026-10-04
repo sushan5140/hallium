@@ -1,0 +1,16 @@
+{
+  "id": "mining-0138",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "카페에 가요",
+  "gloss": "go to a cafe",
+  "sentence": "가끔 카페에 가요",
+  "translation": "Sometimes, I go to a cafe.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you go to a cafe using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
