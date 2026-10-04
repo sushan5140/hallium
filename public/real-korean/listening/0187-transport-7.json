@@ -1,0 +1,17 @@
+{
+  "id": "listening-0187",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "택시비가 얼마나 나와요?",
+  "cloze": "_____가 얼마나 나와요?",
+  "answer": "택시비",
+  "translation": "How much is the taxi fare?",
+  "hint": "Listen for taxi fare.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
