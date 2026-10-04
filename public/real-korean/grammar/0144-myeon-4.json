@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0144",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "피곤하다",
+  "example": "피곤하면 좀 쉬세요.",
+  "translation": "If you are tired, rest a little.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 피곤하다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
