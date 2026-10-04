@@ -1,0 +1,17 @@
+{
+  "id": "listening-0229",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "화가 났어요.",
+  "cloze": "화가 _____어요.",
+  "answer": "났",
+  "translation": "I got angry.",
+  "hint": "Listen for got angry.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
