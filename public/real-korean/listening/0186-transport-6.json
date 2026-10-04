@@ -1,0 +1,17 @@
+{
+  "id": "listening-0186",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "기차가 지연됐어요.",
+  "cloze": "기차가 _____됐어요.",
+  "answer": "지연",
+  "translation": "The train is delayed.",
+  "hint": "Listen for delay.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
