@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0043",
+  "context": "work",
+  "level": "Intermediate",
+  "situation": "Clarifying a deadline",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "이 자료는 언제까지 필요하세요?",
+      "romanization": "i jaryoneun eonjekkaji piryo haseyo?",
+      "meaning": "By when do you need this material?"
+    },
+    {
+      "speaker": "B",
+      "korean": "내일 오전까지 부탁드릴게요.",
+      "romanization": "naeil ojeonkkaji butakdeurilgeyo.",
+      "meaning": "Please have it by tomorrow morning."
+    },
+    {
+      "speaker": "A",
+      "korean": "네, 준비하겠습니다.",
+      "romanization": "ne, junbihagetseumnida.",
+      "meaning": "Okay, I'll prepare it."
+    }
+  ],
+  "teachingPoint": "부탁드릴게요 is a polite way to make a work request.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
