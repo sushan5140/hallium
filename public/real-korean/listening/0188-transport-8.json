@@ -1,0 +1,17 @@
+{
+  "id": "listening-0188",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "반대 방향이에요?",
+  "cloze": "_____ 방향이에요?",
+  "answer": "반대",
+  "translation": "Is this the opposite direction?",
+  "hint": "Listen for opposite.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
