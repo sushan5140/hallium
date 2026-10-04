@@ -1,0 +1,17 @@
+{
+  "id": "listening-0194",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "환승 할인돼요?",
+  "cloze": "_____ 할인돼요?",
+  "answer": "환승",
+  "translation": "Is there a transfer discount?",
+  "hint": "Listen for transfer.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
