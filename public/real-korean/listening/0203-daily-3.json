@@ -1,0 +1,17 @@
+{
+  "id": "listening-0203",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "오늘 뭐 먹어요?",
+  "cloze": "오늘 뭐 _____요?",
+  "answer": "먹어",
+  "translation": "What are you eating today?",
+  "hint": "Listen for eat.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
