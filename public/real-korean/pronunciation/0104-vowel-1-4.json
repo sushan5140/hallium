@@ -1,0 +1,20 @@
+{
+  "id": "pron-0104",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "a vs eo",
+  "contrast": [
+    "ㅏ",
+    "ㅓ"
+  ],
+  "onset": "ㄹ",
+  "left": "라",
+  "right": "러",
+  "cue": "Keep the onset the same and distinguish ㅏ from ㅓ.",
+  "prompt": "Say 라, then 러. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
