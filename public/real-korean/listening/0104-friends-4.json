@@ -1,0 +1,17 @@
+{
+  "id": "listening-0104",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "주말에 뭐 해?",
+  "cloze": "_____에 뭐 해?",
+  "answer": "주말",
+  "translation": "What are you doing this weekend?",
+  "hint": "Listen for weekend.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
