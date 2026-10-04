@@ -1,0 +1,17 @@
+{
+  "id": "listening-0282",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "주말에 친구를 만날 거예요.",
+  "cloze": "주말에 친구를 _____ 거예요.",
+  "answer": "만날",
+  "translation": "I will meet a friend this weekend.",
+  "hint": "Listen for future meet.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
