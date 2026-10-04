@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0220",
+  "pattern": "-(으)면서",
+  "level": "Low Intermediate",
+  "function": "Express two actions happening at the same time",
+  "baseForm": "읽다",
+  "example": "읽으면서 모르는 단어를 표시해요.",
+  "translation": "I mark unknown words while reading.",
+  "note": "Use V-(으)면서 when one subject does two actions at the same time.",
+  "prompt": "Make a sentence with 읽다 using -(으)면서.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "low-intermediate"
+  ]
+}
