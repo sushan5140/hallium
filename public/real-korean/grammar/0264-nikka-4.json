@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0264",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "날씨가 좋다",
+  "example": "날씨가 좋으니까 밖에 나가요.",
+  "translation": "Because the weather is nice, let's go outside.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 날씨가 좋다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
