@@ -1,0 +1,20 @@
+{
+  "id": "pron-0185",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㅁ",
+  "left": "뫄",
+  "right": "뭐",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 뫄, then 뭐. Keep the onset ㅁ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
