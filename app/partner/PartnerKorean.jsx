@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { casualTextingPatterns, gradeRealKoreanScenario, realKoreanDialogues, realKoreanGrounding, realKoreanRegisterGuides, realKoreanScenarios, realKoreanScenes } from "../../lib/real-korean";
+import { buildPracticeAttempt } from "../../lib/practice-engine";
 
 // Retained educational phrase bank and mini-dialogues from the live Hallim app.
 const partnerKoreanCategories = [
@@ -508,7 +509,23 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
                   <button
                     key={option.id}
                     className={scenarioResult ? (correct ? "correct" : chosen ? "wrong" : "") : ""}
-                    onClick={() => setScenarioResult(gradeRealKoreanScenario(activeScenario.id, option.id))}
+                    onClick={() => {
+                      const graded = gradeRealKoreanScenario(activeScenario.id, option.id);
+                      const attempt = buildPracticeAttempt({
+                        id: activeScenario.id + ":" + option.id,
+                        mode: "scenario_choice",
+                        sceneId: activeScenario.sceneId,
+                        skill: "Real Korean scenario",
+                        prompt: activeScenario.situation,
+                        response: option.korean,
+                        expected: graded.correctChoice?.korean || "",
+                        correct: graded.correct,
+                        targetRegister: activeScenario.targetRegister,
+                        selectedRegister: option.register,
+                        source: "real_korean_scenario",
+                      });
+                      setScenarioResult({ ...graded, practiceAttempt: attempt });
+                    }}
                   >
                     <b lang="ko">{option.korean}</b>
                     <span>{option.meaning}</span>
@@ -522,6 +539,11 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
               <div className={scenarioResult.correct ? "scenarioFeedback correct" : "scenarioFeedback wrong"}>
                 <b>{scenarioResult.correct ? "Good register choice" : "Meaning alone isn't enough here"}</b>
                 <p>{scenarioResult.explanation}</p>
+                {scenarioResult.practiceAttempt && (
+                  <small className="scenarioEvidence">
+                    Practice evidence: {scenarioResult.practiceAttempt.score}/100 · {scenarioResult.practiceAttempt.outcome}
+                  </small>
+                )}
                 {!scenarioResult.correct && <button onClick={() => playKorean(scenarioResult.correctChoice.korean, 0.92)}>▶ Hear the natural answer</button>}
               </div>
             )}
