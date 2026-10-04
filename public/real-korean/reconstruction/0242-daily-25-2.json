@@ -1,0 +1,17 @@
+{
+  "id": "reconstruction-0242",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "쉬어요",
+    "내일"
+  ],
+  "answer": "내일 쉬어요",
+  "translation": "Tomorrow, I rest.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
