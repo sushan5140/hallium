@@ -1,0 +1,20 @@
+{
+  "id": "pron-0062",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs aspirated",
+  "contrast": [
+    "ㅈ",
+    "ㅊ"
+  ],
+  "vowel": "ㅓ",
+  "left": "저",
+  "right": "처",
+  "cue": "Notice stronger airflow on ㅊ.",
+  "prompt": "Say 저, then 처. Keep the vowel ㅓ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
