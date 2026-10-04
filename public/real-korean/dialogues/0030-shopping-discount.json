@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0030",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "situation": "Asking whether an item is on sale",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "이거 할인 중이에요?",
+      "romanization": "igeo harin jungieyo?",
+      "meaning": "Is this on sale?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 지금 이십 퍼센트 할인해요.",
+      "romanization": "ne, jigeum isip peosenteu harinhaeyo.",
+      "meaning": "Yes, it's 20% off right now."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "그럼 이걸로 할게요.",
+      "romanization": "geureom igeollo halgeyo.",
+      "meaning": "Then I'll take this one."
+    }
+  ],
+  "teachingPoint": "-는 중이에요 means in the middle of / currently doing.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
