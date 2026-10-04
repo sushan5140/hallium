@@ -1,0 +1,16 @@
+{
+  "id": "mining-0232",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "게임해요",
+  "gloss": "play games",
+  "sentence": "내일 게임해요",
+  "translation": "Tomorrow, I play games.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you play games using 내일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
