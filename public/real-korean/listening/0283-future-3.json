@@ -1,0 +1,17 @@
+{
+  "id": "listening-0283",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "다음 달에 여행할 거예요.",
+  "cloze": "다음 달에 _____할 거예요.",
+  "answer": "여행",
+  "translation": "I will travel next month.",
+  "hint": "Listen for travel.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
