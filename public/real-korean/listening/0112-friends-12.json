@@ -1,0 +1,17 @@
+{
+  "id": "listening-0112",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "어디 갈래?",
+  "cloze": "어디 _____?",
+  "answer": "갈래",
+  "translation": "Where do you want to go?",
+  "hint": "Listen for casual intention.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
