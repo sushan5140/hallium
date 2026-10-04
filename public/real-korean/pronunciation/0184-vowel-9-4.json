@@ -1,0 +1,20 @@
+{
+  "id": "pron-0184",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㄹ",
+  "left": "롸",
+  "right": "뤄",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 롸, then 뤄. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
