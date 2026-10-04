@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0154",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "맛있다",
+  "example": "맛있으면 또 올게요.",
+  "translation": "If it is good, I will come again.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 맛있다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
