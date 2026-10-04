@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0196",
+  "context": "scheduling",
+  "level": "Beginner",
+  "situation": "Confirming an appointment at 5:00",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "다섯 시 괜찮으세요?",
+      "romanization": "daseot si gwaenchaneuseyo?",
+      "meaning": "Is 5:00 okay for you?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 괜찮아요.",
+      "romanization": "ne, gwaenchanayo.",
+      "meaning": "Yes, that's fine."
+    },
+    {
+      "speaker": "A",
+      "korean": "그럼 그때 뵐게요.",
+      "romanization": "geureom geuttae boelgeyo.",
+      "meaning": "Then I'll see you then."
+    }
+  ],
+  "teachingPoint": "Time + 괜찮으세요? is a natural scheduling check.",
+  "tags": [
+    "scheduling",
+    "time",
+    "real-korean",
+    "dialogue"
+  ]
+}
