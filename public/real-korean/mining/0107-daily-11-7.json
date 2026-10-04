@@ -1,0 +1,16 @@
+{
+  "id": "mining-0107",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "버스를 타요",
+  "gloss": "take the bus",
+  "sentence": "자주 버스를 타요",
+  "translation": "Often, I take the bus.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take the bus using 자주.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
