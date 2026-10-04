@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0006",
+  "context": "cafe",
+  "level": "Beginner",
+  "situation": "Asking to see the menu",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "메뉴 좀 볼 수 있을까요?",
+      "romanization": "menyu jom bol su isseulkkayo?",
+      "meaning": "Could I see the menu?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 여기 있습니다.",
+      "romanization": "ne, yeogi itseumnida.",
+      "meaning": "Yes, here it is."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "-(으)ㄹ 수 있을까요? makes a polite request.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
