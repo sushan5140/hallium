@@ -1,0 +1,17 @@
+{
+  "id": "listening-0052",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "검은색 보여 주세요.",
+  "cloze": "_____ 보여 주세요.",
+  "answer": "검은색",
+  "translation": "Please show me the black one.",
+  "hint": "Listen for the color.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
