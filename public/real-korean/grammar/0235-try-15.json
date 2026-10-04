@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0235",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "바꾸다",
+  "example": "설정을 바꿔 보세요.",
+  "translation": "Try changing the setting.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 바꾸다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
