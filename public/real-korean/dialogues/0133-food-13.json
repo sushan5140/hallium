@@ -1,0 +1,35 @@
+{
+  "id": "dialogue-0133",
+  "context": "food",
+  "level": "Beginner",
+  "situation": "Ordering fried rice at a restaurant",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "주문하시겠어요?",
+      "romanization": "jumunhasigesseoyo?",
+      "meaning": "Would you like to order?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "볶음밥 하나 주세요.",
+      "romanization": "bokkeumbap hana juseyo.",
+      "meaning": "One fried rice, please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Sure."
+    }
+  ],
+  "teachingPoint": "Dish + 하나 주세요 is a simple restaurant ordering pattern.",
+  "tags": [
+    "food",
+    "restaurant",
+    "ordering",
+    "real-korean",
+    "dialogue"
+  ]
+}
