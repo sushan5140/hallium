@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0269",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "가깝다",
+  "example": "가까우니까 걸어가요.",
+  "translation": "Because it is close, let's walk.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 가깝다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
