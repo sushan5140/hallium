@@ -1,0 +1,20 @@
+{
+  "id": "pron-0152",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "i vs eu",
+  "contrast": [
+    "ㅣ",
+    "ㅡ"
+  ],
+  "onset": "ㄴ",
+  "left": "니",
+  "right": "느",
+  "cue": "ㅣ is high front; ㅡ is high central/back and unrounded.",
+  "prompt": "Say 니, then 느. Keep the onset ㄴ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
