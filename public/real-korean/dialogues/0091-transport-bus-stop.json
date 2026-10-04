@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0091",
+  "context": "transport",
+  "level": "Beginner",
+  "situation": "Finding a bus stop",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "버스 정류장이 어디예요?",
+      "romanization": "beoseu jeongnyujangi eodiyeyo?",
+      "meaning": "Where is the bus stop?"
+    },
+    {
+      "speaker": "B",
+      "korean": "길 건너편에 있어요.",
+      "romanization": "gil geonneopyeone isseoyo.",
+      "meaning": "It's across the street."
+    },
+    {
+      "speaker": "A",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "건너편 means the opposite side/across from.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
