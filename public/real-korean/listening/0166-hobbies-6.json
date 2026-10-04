@@ -1,0 +1,17 @@
+{
+  "id": "listening-0166",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "내일 같이 뛸래?",
+  "cloze": "내일 같이 _____래?",
+  "answer": "뛸",
+  "translation": "Want to run together tomorrow?",
+  "hint": "Listen for run.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
