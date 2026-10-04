@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0012",
+  "context": "travel",
+  "level": "Beginner",
+  "situation": "Checking whether a bus goes downtown",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "이 버스 시내에 가요?",
+      "romanization": "i beoseu sinaee gayo?",
+      "meaning": "Does this bus go downtown?"
+    },
+    {
+      "speaker": "Local",
+      "korean": "네, 가요.",
+      "romanization": "ne, gayo.",
+      "meaning": "Yes, it does."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "이 + noun is useful for checking a specific item.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
