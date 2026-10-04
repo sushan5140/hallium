@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0033",
+  "context": "school",
+  "level": "Low Intermediate",
+  "situation": "Asking a teacher a question",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "선생님, 질문 하나 있어요.",
+      "romanization": "seonsaengnim, jilmun hana isseoyo.",
+      "meaning": "Teacher, I have one question."
+    },
+    {
+      "speaker": "Teacher",
+      "korean": "네, 물어보세요.",
+      "romanization": "ne, mureoboseyo.",
+      "meaning": "Sure, ask."
+    },
+    {
+      "speaker": "Student",
+      "korean": "이 문법은 언제 써요?",
+      "romanization": "i munbeobeun eonje sseoyo?",
+      "meaning": "When do we use this grammar?"
+    }
+  ],
+  "teachingPoint": "물어보다 means to ask.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
