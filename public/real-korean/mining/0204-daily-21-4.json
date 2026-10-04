@@ -1,0 +1,16 @@
+{
+  "id": "mining-0204",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "쇼핑해요",
+  "gloss": "shop",
+  "sentence": "저녁에 쇼핑해요",
+  "translation": "In the evening, I shop.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you shop using 저녁에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
