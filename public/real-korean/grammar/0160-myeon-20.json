@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0160",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "한국에 가다",
+  "example": "한국에 가면 부산에도 갈 거예요.",
+  "translation": "If I go to Korea, I will visit Busan too.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 한국에 가다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
