@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { realKoreanDialogues, realKoreanGrounding, realKoreanScenes } from "../../lib/real-korean";
+import { realKoreanDialogues, realKoreanGrounding, realKoreanRegisterGuides, realKoreanScenes } from "../../lib/real-korean";
 
 // Retained educational phrase bank and mini-dialogues from the live Hallim app.
 const partnerKoreanCategories = [
@@ -304,6 +304,7 @@ const messageMakeoverVibes = [
 export default function PartnerKorean({ goBack, playKorean, callIntelligence, aiBusy }) {
   const [partnerCategory, setPartnerCategory] = useState("all");
   const [realSceneId, setRealSceneId] = useState("friends");
+  const [registerGuideId, setRegisterGuideId] = useState("neutral_polite");
   const [partnerQuery, setPartnerQuery] = useState("");
   const [partnerRomanization, setPartnerRomanization] = useState(true);
   const [partnerMessage, setPartnerMessage] = useState("");
@@ -344,6 +345,8 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
     const realScenes = realKoreanScenes();
     const activeRealScene = realScenes.find((scene) => scene.id === realSceneId) || realScenes[0];
     const activeRealDialogues = realKoreanDialogues(activeRealScene?.id);
+    const registerGuides = realKoreanRegisterGuides();
+    const activeRegisterGuide = registerGuides.find((guide) => guide.id === registerGuideId) || registerGuides[1];
     const selectedCategory = partnerKoreanCategories.find((item) => item.id === partnerCategory) || null;
     const source = partnerCategory === "all"
       ? partnerKoreanCategories.flatMap((group) =>
@@ -464,6 +467,75 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
               </div>
             ) : null;
           })()}
+        </section>
+
+        <section className="registerIntelligenceSection">
+          <div className="partnerSectionHead">
+            <div>
+              <span className="eyebrow">Register intelligence</span>
+              <h2>Same meaning. Different social distance.</h2>
+              <p className="registerLead">Learn why Korean changes with closeness, hierarchy, and context—not just which ending to memorize.</p>
+            </div>
+          </div>
+
+          <div className="registerGuideTabs" role="tablist" aria-label="Korean register situations">
+            {registerGuides.map((guide) => (
+              <button
+                key={guide.id}
+                role="tab"
+                aria-selected={activeRegisterGuide.id === guide.id}
+                className={activeRegisterGuide.id === guide.id ? "active" : ""}
+                onClick={() => setRegisterGuideId(guide.id)}
+              >
+                {guide.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="registerGuidePanel">
+            <div className="registerGuideHeader">
+              <div>
+                <small>{activeRegisterGuide.speechLevel}</small>
+                <h3>{activeRegisterGuide.label}</h3>
+                <p>{activeRegisterGuide.tone}</p>
+              </div>
+              <button onClick={() => playKorean(activeRegisterGuide.example.korean, 0.92)}>▶ Hear example</button>
+            </div>
+
+            <div className="registerExampleCompare">
+              <article>
+                <small>THIS CONTEXT</small>
+                <b lang="ko">{activeRegisterGuide.example.korean}</b>
+                <p>{activeRegisterGuide.example.meaning}</p>
+              </article>
+              <span aria-hidden="true">→</span>
+              <article>
+                <small>RELATIONSHIP SHIFT</small>
+                <b lang="ko">{activeRegisterGuide.example.shift}</b>
+                <p>Notice how the wording changes when social distance changes.</p>
+              </article>
+            </div>
+
+            <div className="registerGuideGrid">
+              <article>
+                <small>USE WITH</small>
+                <ul>{activeRegisterGuide.useWith.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
+              <article>
+                <small>WATCH OUT</small>
+                <ul>{activeRegisterGuide.avoidWith.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
+              <article>
+                <small>COMMON SIGNALS</small>
+                <ul>{activeRegisterGuide.markers.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
+            </div>
+
+            <aside className="registerWhy">
+              <b>Why this sounds natural</b>
+              <p>{activeRegisterGuide.why}</p>
+            </aside>
+          </div>
         </section>
 
         <section id="real-korean-scenes" className="realKoreanSceneSection">
