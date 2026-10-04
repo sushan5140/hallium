@@ -1,0 +1,17 @@
+{
+  "id": "listening-0275",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "다시 로그인해 보세요.",
+  "cloze": "다시 _____해 보세요.",
+  "answer": "로그인",
+  "translation": "Try logging in again.",
+  "hint": "Listen for login.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
