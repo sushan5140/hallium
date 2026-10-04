@@ -1,0 +1,16 @@
+{
+  "id": "mining-0216",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "청소해요",
+  "gloss": "clean",
+  "sentence": "매일 청소해요",
+  "translation": "Every day, I clean.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you clean using 매일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
