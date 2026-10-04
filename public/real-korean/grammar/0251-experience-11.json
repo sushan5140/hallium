@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0251",
+  "pattern": "-(으)ㄴ 적이 있어요",
+  "level": "Low Intermediate",
+  "function": "Express past experience",
+  "baseForm": "지하철을 잘못 타다",
+  "example": "지하철을 잘못 탄 적이 있어요.",
+  "translation": "I have taken the wrong subway.",
+  "note": "Use V-(으)ㄴ 적이 있어요 to say you have experience doing something.",
+  "prompt": "Make a past-experience sentence with 지하철을 잘못 타다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
