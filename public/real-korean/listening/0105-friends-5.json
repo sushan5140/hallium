@@ -1,0 +1,17 @@
+{
+  "id": "listening-0105",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "나 조금 늦을 것 같아.",
+  "cloze": "나 조금 _____ 것 같아.",
+  "answer": "늦을",
+  "translation": "I think I will be a little late.",
+  "hint": "Listen for future late.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
