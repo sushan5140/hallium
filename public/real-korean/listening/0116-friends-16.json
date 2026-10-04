@@ -1,0 +1,17 @@
+{
+  "id": "listening-0116",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "진짜 재밌었어.",
+  "cloze": "진짜 _____었어.",
+  "answer": "재밌",
+  "translation": "It was really fun.",
+  "hint": "Listen for fun.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
