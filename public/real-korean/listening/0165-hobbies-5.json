@@ -1,0 +1,17 @@
+{
+  "id": "listening-0165",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "사진 찍는 거 좋아하세요?",
+  "cloze": "사진 _____ 거 좋아하세요?",
+  "answer": "찍는",
+  "translation": "Do you like taking photos?",
+  "hint": "Listen for the noun-modifying form.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
