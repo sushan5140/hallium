@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0114",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "기쁘다",
+  "example": "기뻐서 웃었어요.",
+  "translation": "I was happy, so I smiled.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 기쁘다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
