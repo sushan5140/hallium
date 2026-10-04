@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0128",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "피곤하다",
+  "example": "피곤하지만 공부해야 해요.",
+  "translation": "I am tired, but I have to study.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 피곤하다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
