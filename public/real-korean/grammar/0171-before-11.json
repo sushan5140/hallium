@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0171",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "사진 찍다",
+  "example": "사진 찍기 전에 렌즈를 닦아요.",
+  "translation": "I clean the lens before taking photos.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 사진 찍다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
