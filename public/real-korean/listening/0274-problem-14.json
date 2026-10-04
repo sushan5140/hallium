@@ -1,0 +1,17 @@
+{
+  "id": "listening-0274",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "오류 메시지가 나와요.",
+  "cloze": "오류 _____가 나와요.",
+  "answer": "메시지",
+  "translation": "An error message appears.",
+  "hint": "Listen for message.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
