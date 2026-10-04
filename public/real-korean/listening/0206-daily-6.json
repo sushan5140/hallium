@@ -1,0 +1,17 @@
+{
+  "id": "listening-0206",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "학교에 가요.",
+  "cloze": "_____에 가요.",
+  "answer": "학교",
+  "translation": "I go to school.",
+  "hint": "Listen for school.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
