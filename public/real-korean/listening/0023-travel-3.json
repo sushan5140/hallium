@@ -1,0 +1,17 @@
+{
+  "id": "listening-0023",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "어디에서 갈아타야 해요?",
+  "cloze": "어디에서 _____ 해요?",
+  "answer": "갈아타야",
+  "translation": "Where do I need to transfer?",
+  "hint": "Listen for the transfer verb.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
