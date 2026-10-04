@@ -1,0 +1,20 @@
+{
+  "id": "pron-0103",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "a vs eo",
+  "contrast": [
+    "ㅏ",
+    "ㅓ"
+  ],
+  "onset": "ㄷ",
+  "left": "다",
+  "right": "더",
+  "cue": "Keep the onset the same and distinguish ㅏ from ㅓ.",
+  "prompt": "Say 다, then 더. Keep the onset ㄷ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
