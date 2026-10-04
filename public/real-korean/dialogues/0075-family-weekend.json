@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0075",
+  "context": "family",
+  "level": "Low Intermediate",
+  "situation": "Planning a family outing",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "이번 주말에 어디 갈까?",
+      "romanization": "ibeon jumare eodi galkka?",
+      "meaning": "Where should we go this weekend?"
+    },
+    {
+      "speaker": "B",
+      "korean": "공원 어때?",
+      "romanization": "gongwon eottae?",
+      "meaning": "How about the park?"
+    },
+    {
+      "speaker": "A",
+      "korean": "좋아. 날씨도 좋대.",
+      "romanization": "joa. nalssido jotdae.",
+      "meaning": "Sounds good. They say the weather will be nice too."
+    }
+  ],
+  "teachingPoint": "-대 reports something heard.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
