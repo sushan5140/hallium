@@ -1,0 +1,17 @@
+{
+  "id": "listening-0254",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "다시 한번 말해 주세요.",
+  "cloze": "다시 한번 _____해 주세요.",
+  "answer": "말",
+  "translation": "Please say it once again.",
+  "hint": "Listen for say.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
