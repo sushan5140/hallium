@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0236",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "사용하다",
+  "example": "이 앱을 사용해 보세요.",
+  "translation": "Try using this app.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 사용하다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
