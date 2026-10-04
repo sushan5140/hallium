@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0074",
+  "context": "family",
+  "level": "Beginner",
+  "situation": "Cleaning together",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "방 좀 같이 치울래?",
+      "romanization": "bang jom gachi chiullae?",
+      "meaning": "Want to clean the room together?"
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 뭐부터 할까?",
+      "romanization": "eung, mwobuteo halkka?",
+      "meaning": "Yeah, what should we start with?"
+    },
+    {
+      "speaker": "A",
+      "korean": "책상부터 하자.",
+      "romanization": "chaeksangbuteo haja.",
+      "meaning": "Let's start with the desk."
+    }
+  ],
+  "teachingPoint": "N부터 means starting with N.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
