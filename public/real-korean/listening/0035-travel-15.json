@@ -1,0 +1,17 @@
+{
+  "id": "listening-0035",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "환승은 몇 번 해야 해요?",
+  "cloze": "환승은 몇 번 _____ 해요?",
+  "answer": "해야",
+  "translation": "How many transfers do I need?",
+  "hint": "Listen for the obligation form.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
