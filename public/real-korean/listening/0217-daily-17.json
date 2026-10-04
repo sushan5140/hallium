@@ -1,0 +1,17 @@
+{
+  "id": "listening-0217",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "일찍 자요.",
+  "cloze": "_____ 자요.",
+  "answer": "일찍",
+  "translation": "I sleep early.",
+  "hint": "Listen for early.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
