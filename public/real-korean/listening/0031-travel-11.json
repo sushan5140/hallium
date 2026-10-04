@@ -1,0 +1,17 @@
+{
+  "id": "listening-0031",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "표를 어디서 사요?",
+  "cloze": "표를 _____ 사요?",
+  "answer": "어디서",
+  "translation": "Where do I buy a ticket?",
+  "hint": "Listen for where-at.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
