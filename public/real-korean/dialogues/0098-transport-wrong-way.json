@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0098",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "situation": "Checking whether you boarded the wrong direction",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "혹시 반대 방향이에요?",
+      "romanization": "hoksi bandae banghyangieyo?",
+      "meaning": "Is this the opposite direction by any chance?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 반대편에서 타셔야 해요.",
+      "romanization": "ne, bandaepyeoneseo tasyeoya haeyo.",
+      "meaning": "Yes, you need to board on the other side."
+    },
+    {
+      "speaker": "A",
+      "korean": "아, 감사합니다.",
+      "romanization": "a, gamsahamnida.",
+      "meaning": "Ah, thank you."
+    }
+  ],
+  "teachingPoint": "반대편 means the opposite side.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
