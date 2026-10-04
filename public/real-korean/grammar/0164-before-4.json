@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0164",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "공부하다",
+  "example": "공부하기 전에 책상을 정리해요.",
+  "translation": "I organize my desk before studying.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 공부하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
