@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0158",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "눈이 오다",
+  "example": "눈이 오면 사진 찍어요.",
+  "translation": "If it snows, let's take photos.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 눈이 오다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
