@@ -1,0 +1,17 @@
+{
+  "id": "listening-0127",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "습도가 높아요.",
+  "cloze": "_____가 높아요.",
+  "answer": "습도",
+  "translation": "The humidity is high.",
+  "hint": "Listen for humidity.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
