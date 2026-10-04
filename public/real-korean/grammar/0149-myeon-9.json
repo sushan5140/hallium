@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0149",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "끝나다",
+  "example": "끝나면 알려 주세요.",
+  "translation": "When it is finished, let me know.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 끝나다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
