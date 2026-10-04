@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0050",
+  "pattern": "-(으)ㄹ 수 있어요",
+  "level": "Beginner",
+  "function": "Express ability or possibility",
+  "baseVerb": "만나다",
+  "example": "만날 수 있어요",
+  "translation": "I can meet.",
+  "note": "Attach -(으)ㄹ 수 있어요 to a verb stem to express ability or possibility.",
+  "prompt": "Use 만나다 with -(으)ㄹ 수 있어요.",
+  "tags": [
+    "grammar",
+    "ability",
+    "beginner"
+  ]
+}
