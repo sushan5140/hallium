@@ -1,0 +1,17 @@
+{
+  "id": "listening-0216",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "드라마를 봐요.",
+  "cloze": "드라마를 _____요.",
+  "answer": "봐",
+  "translation": "I watch a drama.",
+  "hint": "Listen for watch.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
