@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0029",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "situation": "Checking stock",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "이 제품 재고 있어요?",
+      "romanization": "i jepum jaego isseoyo?",
+      "meaning": "Do you have this product in stock?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "잠시 확인해 볼게요.",
+      "romanization": "jamsi hwaginhae bolgeyo.",
+      "meaning": "I'll check for a moment."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "네, 부탁드려요.",
+      "romanization": "ne, butakdeuryeoyo.",
+      "meaning": "Yes, please."
+    }
+  ],
+  "teachingPoint": "재고 means stock/inventory.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
