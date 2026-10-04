@@ -1,0 +1,20 @@
+{
+  "id": "pron-0157",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "i vs eu",
+  "contrast": [
+    "ㅣ",
+    "ㅡ"
+  ],
+  "onset": "ㅅ",
+  "left": "시",
+  "right": "스",
+  "cue": "ㅣ is high front; ㅡ is high central/back and unrounded.",
+  "prompt": "Say 시, then 스. Keep the onset ㅅ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
