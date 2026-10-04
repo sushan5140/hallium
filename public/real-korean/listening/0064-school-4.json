@@ -1,0 +1,17 @@
+{
+  "id": "listening-0064",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "조금 늦을 것 같아요.",
+  "cloze": "조금 _____ 것 같아요.",
+  "answer": "늦을",
+  "translation": "I think I will be a little late.",
+  "hint": "Listen for the future modifier.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
