@@ -1,0 +1,17 @@
+{
+  "id": "listening-0153",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "냉장고에 있어.",
+  "cloze": "_____에 있어.",
+  "answer": "냉장고",
+  "translation": "It is in the fridge.",
+  "hint": "Listen for refrigerator.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
