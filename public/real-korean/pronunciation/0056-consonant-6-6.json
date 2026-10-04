@@ -1,0 +1,20 @@
+{
+  "id": "pron-0056",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅂ",
+    "ㅃ"
+  ],
+  "vowel": "ㅣ",
+  "left": "비",
+  "right": "삐",
+  "cue": "Notice tighter articulation on ㅃ.",
+  "prompt": "Say 비, then 삐. Keep the vowel ㅣ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
