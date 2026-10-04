@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0048",
+  "context": "work",
+  "level": "Low Intermediate",
+  "situation": "Offering help",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "혹시 도와드릴 일 있어요?",
+      "romanization": "hoksi dowadeuril il isseoyo?",
+      "meaning": "Is there anything I can help with?"
+    },
+    {
+      "speaker": "B",
+      "korean": "이 표만 한번 봐주세요.",
+      "romanization": "i pyoman hanbeon bwajuseyo.",
+      "meaning": "Please just take a look at this table."
+    },
+    {
+      "speaker": "A",
+      "korean": "네, 볼게요.",
+      "romanization": "ne, bolgeyo.",
+      "meaning": "Sure, I will."
+    }
+  ],
+  "teachingPoint": "도와드리다 is a polite/humble form of helping.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
