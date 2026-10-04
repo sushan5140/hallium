@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0091",
+  "pattern": "-(으)ㄹ까요?",
+  "level": "Beginner",
+  "function": "Make a suggestion or ask shall we?",
+  "baseVerb": "주문하다",
+  "example": "주문할까요?",
+  "translation": "Shall we order?",
+  "note": "Use -(으)ㄹ까요? to suggest doing something together or ask for a decision.",
+  "prompt": "Use 주문하다 with -(으)ㄹ까요?.",
+  "tags": [
+    "grammar",
+    "suggestion",
+    "beginner"
+  ]
+}
