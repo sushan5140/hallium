@@ -1,0 +1,16 @@
+{
+  "id": "mining-0065",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "요리해요",
+  "gloss": "cook",
+  "sentence": "주말에 요리해요",
+  "translation": "On the weekend, I cook.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you cook using 주말에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
