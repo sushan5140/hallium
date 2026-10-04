@@ -302,7 +302,7 @@ const messageMakeoverVibes = [
   { id:"make_up", label:"Make up 🥲" }
 ];
 
-export default function PartnerKorean({ goBack, playKorean, callIntelligence, aiBusy }) {
+export default function PartnerKorean({ goBack, playKorean, callIntelligence, aiBusy, onPracticeAttempt }) {
   const [partnerCategory, setPartnerCategory] = useState("all");
   const [realSceneId, setRealSceneId] = useState("friends");
   const [registerGuideId, setRegisterGuideId] = useState("neutral_polite");
@@ -519,12 +519,14 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
                         prompt: activeScenario.situation,
                         response: option.korean,
                         expected: graded.correctChoice?.korean || "",
+                        choices: activeScenario.options.map((item) => item.korean),
                         correct: graded.correct,
                         targetRegister: activeScenario.targetRegister,
                         selectedRegister: option.register,
                         source: "real_korean_scenario",
                       });
                       setScenarioResult({ ...graded, practiceAttempt: attempt });
+                      onPracticeAttempt?.(attempt);
                     }}
                   >
                     <b lang="ko">{option.korean}</b>
