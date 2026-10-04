@@ -1,0 +1,16 @@
+{
+  "id": "mining-0118",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "지하철을 타요",
+  "gloss": "take the subway",
+  "sentence": "가끔 지하철을 타요",
+  "translation": "Sometimes, I take the subway.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take the subway using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
