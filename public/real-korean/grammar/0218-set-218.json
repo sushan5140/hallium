@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0218",
+  "pattern": "-(으)면서",
+  "level": "Low Intermediate",
+  "function": "Express two actions happening at the same time",
+  "baseForm": "달리다",
+  "example": "달리면서 음악을 들어요.",
+  "translation": "I listen to music while running.",
+  "note": "Use V-(으)면서 when one subject does two actions at the same time.",
+  "prompt": "Make a sentence with 달리다 using -(으)면서.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "low-intermediate"
+  ]
+}
