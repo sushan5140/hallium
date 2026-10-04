@@ -1,0 +1,17 @@
+{
+  "id": "listening-0207",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "버스를 타요.",
+  "cloze": "버스를 _____요.",
+  "answer": "타",
+  "translation": "I take the bus.",
+  "hint": "Listen for ride.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
