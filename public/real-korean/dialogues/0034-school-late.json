@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0034",
+  "context": "school",
+  "level": "Low Intermediate",
+  "situation": "Telling a teacher you will be late",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "죄송하지만 조금 늦을 것 같아요.",
+      "romanization": "joesonghajiman jogeum neujeul geot gatayo.",
+      "meaning": "I'm sorry, I think I'll be a little late."
+    },
+    {
+      "speaker": "Teacher",
+      "korean": "괜찮아요. 조심해서 오세요.",
+      "romanization": "gwaenchanayo. josimhaeseo oseyo.",
+      "meaning": "That's okay. Come safely."
+    },
+    {
+      "speaker": "Student",
+      "korean": "네, 감사합니다.",
+      "romanization": "ne, gamsahamnida.",
+      "meaning": "Yes, thank you."
+    }
+  ],
+  "teachingPoint": "-(으)ㄹ 것 같아요 softens a prediction.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
