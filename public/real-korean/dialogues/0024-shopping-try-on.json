@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0024",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "situation": "Finding the fitting room",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "탈의실이 어디예요?",
+      "romanization": "taruisiri eodiyeyo?",
+      "meaning": "Where is the fitting room?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "저쪽 안에 있어요.",
+      "romanization": "jeojjok ane isseoyo.",
+      "meaning": "It's inside over there."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "저쪽 means over that way.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
