@@ -1,0 +1,17 @@
+{
+  "id": "listening-0264",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "인터넷 연결이 끊겼어요.",
+  "cloze": "인터넷 연결이 _____어요.",
+  "answer": "끊겼",
+  "translation": "The internet connection was lost.",
+  "hint": "Listen for disconnected.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
