@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0222",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "입다",
+  "example": "이 옷 한번 입어 보세요.",
+  "translation": "Try this outfit on.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 입다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
