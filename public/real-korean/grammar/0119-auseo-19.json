@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0119",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "비싸다",
+  "example": "비싸서 안 샀어요.",
+  "translation": "It was expensive, so I did not buy it.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 비싸다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
