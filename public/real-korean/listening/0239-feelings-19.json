@@ -1,0 +1,17 @@
+{
+  "id": "listening-0239",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "외로워요.",
+  "cloze": "_____워요.",
+  "answer": "외로",
+  "translation": "I feel lonely.",
+  "hint": "Listen for lonely.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
