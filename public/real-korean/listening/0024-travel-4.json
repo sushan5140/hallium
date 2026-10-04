@@ -1,0 +1,17 @@
+{
+  "id": "listening-0024",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "서울역까지 한 장 주세요.",
+  "cloze": "서울역까지 _____ 장 주세요.",
+  "answer": "한",
+  "translation": "One ticket to Seoul Station, please.",
+  "hint": "Listen for the counter form for one.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
