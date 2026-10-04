@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0345",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "situation": "Talking about difficulty with numbers",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Learner",
+      "korean": "저는 숫자가 아직 어려워요.",
+      "romanization": "jeoneun sutjaga ajik eoryeowoyo.",
+      "meaning": "numbers is still difficult for me."
+    },
+    {
+      "speaker": "Partner",
+      "korean": "괜찮아요. 자주 연습하면 점점 쉬워져요.",
+      "romanization": "gwaenchanayo. jaju yeonseuphamyeon jeomjeom swiw o jyeoyo.",
+      "meaning": "It is okay. If you practice often, it gradually gets easier."
+    },
+    {
+      "speaker": "Learner",
+      "korean": "오늘부터 조금씩 연습할게요.",
+      "romanization": "oneulbuteo jogeumssik yeonseuphalgeyo.",
+      "meaning": "I will practice a little at a time starting today."
+    }
+  ],
+  "teachingPoint": "-면 expresses a condition; 조금씩 means little by little.",
+  "tags": [
+    "korean-learning",
+    "study",
+    "real-korean",
+    "dialogue"
+  ]
+}
