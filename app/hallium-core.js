@@ -19,7 +19,7 @@ import {
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
-import { buildPracticeAttempt, practiceAttemptMistakeEvidence } from "../lib/practice-engine";
+import { buildPracticeAttempt, practiceAttemptMistakeEvidence, summarizePracticeEvidence } from "../lib/practice-engine";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -4798,6 +4798,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   }
 
   function Profile() {
+    const practiceSummary = summarizePracticeEvidence(practiceEvidence);
     const focusLabels = {
       conversation: "Conversation",
       listening: "Listening",
@@ -4935,6 +4936,42 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <span>vocab words + grammar patterns</span>
           </article>
         </div>
+
+        <section className="practiceEvidencePanel">
+          <div className="practiceEvidenceHead">
+            <div>
+              <span className="eyebrow">H-P8 · Practice evidence</span>
+              <h2>Your recent practice, without pretending it is a proficiency score.</h2>
+              <p>Hallium summarizes only the attempts actually recorded across lessons, Real Korean, study checks, adaptive review, and checkpoints.</p>
+            </div>
+            <span className="practiceEvidenceBasis">{practiceSummary.evidenceLabel}</span>
+          </div>
+
+          <div className="practiceEvidenceStats">
+            <article><small>Recorded attempts</small><b>{practiceSummary.attempts}</b><span>latest evidence kept</span></article>
+            <article><small>Evidence average</small><b>{practiceSummary.averageScore == null ? "—" : practiceSummary.averageScore + "/100"}</b><span>practice evidence, not level</span></article>
+            <article><small>Strong</small><b>{practiceSummary.outcomes.strong}</b><span>clean recent attempts</span></article>
+            <article><small>Needs relearn</small><b>{practiceSummary.outcomes.relearn}</b><span>weak recent attempts</span></article>
+          </div>
+
+          {practiceSummary.modes.length > 0 ? (
+            <div className="practiceEvidenceModes">
+              {practiceSummary.modes.slice(0,6).map((item) => (
+                <span key={item.mode}><b>{item.mode}</b><small>{item.count} {item.count === 1 ? "attempt" : "attempts"}</small></span>
+              ))}
+            </div>
+          ) : (
+            <p className="practiceEvidenceEmpty">Complete an objective practice step to start building this evidence.</p>
+          )}
+
+          {practiceSummary.topWeakSkill && (
+            <div className="practiceEvidenceFocus">
+              <span><small>Evidence-based focus</small><b>{practiceSummary.topWeakSkill.skill}</b></span>
+              <p>{practiceSummary.topWeakSkill.relearn} relearn · {practiceSummary.topWeakSkill.developing} developing · {practiceSummary.topWeakSkill.averageScore}/100 average evidence score</p>
+            </div>
+          )}
+        </section>
+
         <section className="learningPreferencesPanel">
           <div className="learningPreferencesHead">
             <div>
