@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0058",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "situation": "Reacting to a movie",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "영화 어땠어?",
+      "romanization": "yeonghwa eottaesseo?",
+      "meaning": "How was the movie?"
+    },
+    {
+      "speaker": "B",
+      "korean": "생각보다 재밌었어.",
+      "romanization": "saenggakboda jaemisseosseo.",
+      "meaning": "It was more fun than I expected."
+    },
+    {
+      "speaker": "A",
+      "korean": "나도 보러 가야겠다.",
+      "romanization": "nado boreo gayagetda.",
+      "meaning": "I guess I should go see it too."
+    }
+  ],
+  "teachingPoint": "-아/어야겠다 expresses deciding/realizing you should do something.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
