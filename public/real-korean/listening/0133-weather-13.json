@@ -1,0 +1,17 @@
+{
+  "id": "listening-0133",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "하늘이 흐려요.",
+  "cloze": "하늘이 _____요.",
+  "answer": "흐려",
+  "translation": "The sky is cloudy.",
+  "hint": "Listen for cloudy.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
