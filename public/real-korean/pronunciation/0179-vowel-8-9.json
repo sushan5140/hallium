@@ -1,0 +1,20 @@
+{
+  "id": "pron-0179",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "yo vs yu",
+  "contrast": [
+    "ㅛ",
+    "ㅠ"
+  ],
+  "onset": "ㅈ",
+  "left": "죠",
+  "right": "쥬",
+  "cue": "Both are rounded y-glides; distinguish ㅗ vs ㅜ quality.",
+  "prompt": "Say 죠, then 쥬. Keep the onset ㅈ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
