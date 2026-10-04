@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0276",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "바쁘다",
+  "example": "바쁘니까 메시지로 이야기해요.",
+  "translation": "Because we are busy, let's talk by message.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 바쁘다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
