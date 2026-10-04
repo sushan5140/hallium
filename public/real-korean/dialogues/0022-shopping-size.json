@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0022",
+  "context": "shopping",
+  "level": "Beginner",
+  "situation": "Asking for a different size",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "더 큰 사이즈 있어요?",
+      "romanization": "deo keun saijeu isseoyo?",
+      "meaning": "Do you have a bigger size?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 하나 있어요.",
+      "romanization": "ne, hana isseoyo.",
+      "meaning": "Yes, we have one."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "입어봐도 돼요?",
+      "romanization": "ibeobwado dwaeyo?",
+      "meaning": "May I try it on?"
+    }
+  ],
+  "teachingPoint": "더 큰/작은 means bigger/smaller.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
