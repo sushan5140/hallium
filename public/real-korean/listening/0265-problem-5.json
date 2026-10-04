@@ -1,0 +1,17 @@
+{
+  "id": "listening-0265",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "파일이 안 열려요.",
+  "cloze": "파일이 안 _____요.",
+  "answer": "열려",
+  "translation": "The file will not open.",
+  "hint": "Listen for open.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
