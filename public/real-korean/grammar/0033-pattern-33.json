@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0033",
+  "pattern": "-아/어야 해요",
+  "level": "Beginner",
+  "function": "Express obligation: have to / must",
+  "baseVerb": "사다",
+  "example": "사야 해요",
+  "translation": "I have to buy it.",
+  "note": "Attach -아/어야 해요 to a verb stem to say something is necessary.",
+  "prompt": "Use 사다 with -아/어야 해요.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "beginner"
+  ]
+}
