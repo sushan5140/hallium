@@ -1,0 +1,17 @@
+{
+  "id": "listening-0118",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "조심히 가.",
+  "cloze": "_____ 가.",
+  "answer": "조심히",
+  "translation": "Take care going home.",
+  "hint": "Listen for carefully.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
