@@ -1,0 +1,17 @@
+{
+  "id": "listening-0167",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "그림 자주 그려요?",
+  "cloze": "그림 자주 _____요?",
+  "answer": "그려",
+  "translation": "Do you draw often?",
+  "hint": "Listen for draw.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
