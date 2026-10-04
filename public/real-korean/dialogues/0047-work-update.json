@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0047",
+  "context": "work",
+  "level": "Intermediate",
+  "situation": "Giving a progress update",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "진행 상황이 어떻게 돼요?",
+      "romanization": "jinhaeng sanghwangi eotteoke dwaeyo?",
+      "meaning": "How is the progress going?"
+    },
+    {
+      "speaker": "B",
+      "korean": "거의 끝났고 검토만 남았어요.",
+      "romanization": "geoui kkeunnatgo geomtoman namasseoyo.",
+      "meaning": "It's almost done; only review is left."
+    },
+    {
+      "speaker": "A",
+      "korean": "좋습니다.",
+      "romanization": "jotseumnida.",
+      "meaning": "Sounds good."
+    }
+  ],
+  "teachingPoint": "N만 남았어요 means only N remains.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
