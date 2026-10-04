@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0176",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "발표하다",
+  "example": "발표하기 전에 한 번 연습해요.",
+  "translation": "I practice once before presenting.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 발표하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
