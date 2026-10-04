@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0034",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "봐요",
+    "드라마를",
+    "저녁에"
+  ],
+  "answer": "저녁에 드라마를 봐요",
+  "translation": "In the evening, I watch a drama.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
