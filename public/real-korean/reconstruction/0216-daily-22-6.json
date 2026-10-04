@@ -1,0 +1,17 @@
+{
+  "id": "reconstruction-0216",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "청소해요",
+    "매일"
+  ],
+  "answer": "매일 청소해요",
+  "translation": "Every day, I clean.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
