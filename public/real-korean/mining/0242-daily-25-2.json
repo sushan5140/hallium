@@ -1,0 +1,16 @@
+{
+  "id": "mining-0242",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "쉬어요",
+  "gloss": "rest",
+  "sentence": "내일 쉬어요",
+  "translation": "Tomorrow, I rest.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you rest using 내일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
