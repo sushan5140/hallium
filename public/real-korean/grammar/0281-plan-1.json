@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0281",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "한국어를 더 공부하다",
+  "example": "한국어를 더 공부하려고 해요.",
+  "translation": "I plan to study Korean more.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 한국어를 더 공부하다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
