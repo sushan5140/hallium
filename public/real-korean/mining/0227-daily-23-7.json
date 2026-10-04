@@ -1,0 +1,16 @@
+{
+  "id": "mining-0227",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "빨래해요",
+  "gloss": "do laundry",
+  "sentence": "자주 빨래해요",
+  "translation": "Often, I do laundry.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you do laundry using 자주.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
