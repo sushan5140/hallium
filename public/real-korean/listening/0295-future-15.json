@@ -1,0 +1,17 @@
+{
+  "id": "listening-0295",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "나중에 답장할게요.",
+  "cloze": "나중에 _____할게요.",
+  "answer": "답장",
+  "translation": "I will reply later.",
+  "hint": "Listen for reply.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
