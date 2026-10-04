@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0196",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "청소하다",
+  "example": "청소하고 나서 창문을 열었어요.",
+  "translation": "After cleaning, I opened the window.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 청소하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
