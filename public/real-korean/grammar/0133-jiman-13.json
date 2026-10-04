@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0133",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "간단하다",
+  "example": "간단하지만 중요해요.",
+  "translation": "It is simple, but important.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 간단하다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
