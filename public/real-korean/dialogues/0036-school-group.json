@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0036",
+  "context": "school",
+  "level": "Low Intermediate",
+  "situation": "Joining a group project",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student A",
+      "korean": "우리 같이 할래요?",
+      "romanization": "uri gachi hallaeyo?",
+      "meaning": "Want to work together?"
+    },
+    {
+      "speaker": "Student B",
+      "korean": "좋아요. 역할은 어떻게 나눌까요?",
+      "romanization": "joayo. yeokareun eotteoke nanulkkayo?",
+      "meaning": "Sounds good. How should we divide the roles?"
+    },
+    {
+      "speaker": "Student A",
+      "korean": "제가 자료 조사할게요.",
+      "romanization": "jega jaryo josahalgeyo.",
+      "meaning": "I'll do the research."
+    }
+  ],
+  "teachingPoint": "-(으)ㄹ까요? suggests deciding something together.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
