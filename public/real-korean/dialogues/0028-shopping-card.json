@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0028",
+  "context": "shopping",
+  "level": "Beginner",
+  "situation": "Checking card payment",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "카드 돼요?",
+      "romanization": "kadeu dwaeyo?",
+      "meaning": "Can I pay by card?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 됩니다.",
+      "romanization": "ne, doemnida.",
+      "meaning": "Yes, you can."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "그럼 카드로 할게요.",
+      "romanization": "geureom kadeuro halgeyo.",
+      "meaning": "Then I'll pay by card."
+    }
+  ],
+  "teachingPoint": "N 돼요? is a compact way to ask whether something is possible/accepted.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
