@@ -1,0 +1,17 @@
+{
+  "id": "listening-0081",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "회의 몇 시에 시작해요?",
+  "cloze": "회의 몇 시에 _____해요?",
+  "answer": "시작",
+  "translation": "What time does the meeting start?",
+  "hint": "Listen for start.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
