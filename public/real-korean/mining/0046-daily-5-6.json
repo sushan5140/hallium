@@ -1,0 +1,16 @@
+{
+  "id": "mining-0046",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "사진을 찍어요",
+  "gloss": "take photos",
+  "sentence": "매일 사진을 찍어요",
+  "translation": "Every day, I take photos.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take photos using 매일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
