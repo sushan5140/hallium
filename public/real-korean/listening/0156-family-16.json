@@ -1,0 +1,17 @@
+{
+  "id": "listening-0156",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "장 보러 갈 거야.",
+  "cloze": "장 _____ 갈 거야.",
+  "answer": "보러",
+  "translation": "I am going grocery shopping.",
+  "hint": "Listen for purpose movement.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
