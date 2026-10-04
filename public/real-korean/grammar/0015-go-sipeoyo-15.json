@@ -1,0 +1,17 @@
+{
+  "id": "grammar-0015",
+  "pattern": "-고 싶어요",
+  "level": "Beginner",
+  "function": "Express wanting to do something",
+  "baseVerb": "찍다",
+  "romanization": "jjikda",
+  "example": "찍고 싶어요",
+  "translation": "I want to take a photo.",
+  "note": "Attach -고 싶어요 to a verb stem to express a personal desire.",
+  "prompt": "Use 찍다 with -고 싶어요.",
+  "tags": [
+    "grammar",
+    "desire",
+    "beginner"
+  ]
+}
