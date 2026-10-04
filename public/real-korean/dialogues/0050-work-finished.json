@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0050",
+  "context": "work",
+  "level": "Beginner",
+  "situation": "Checking whether a task is finished",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "이 일 다 끝났어요?",
+      "romanization": "i il da kkeunnasseoyo?",
+      "meaning": "Is this work all finished?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 방금 끝났어요.",
+      "romanization": "ne, banggeum kkeunnasseoyo.",
+      "meaning": "Yes, I just finished it."
+    },
+    {
+      "speaker": "A",
+      "korean": "수고하셨어요.",
+      "romanization": "sugohasyeosseoyo.",
+      "meaning": "Good work / Thank you for your effort."
+    }
+  ],
+  "teachingPoint": "수고하셨어요 is common after someone finishes work.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
