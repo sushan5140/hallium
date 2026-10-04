@@ -1,0 +1,17 @@
+{
+  "id": "listening-0162",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "책 자주 읽어요?",
+  "cloze": "책 _____ 읽어요?",
+  "answer": "자주",
+  "translation": "Do you read books often?",
+  "hint": "Listen for often.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
