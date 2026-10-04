@@ -2620,14 +2620,57 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     saveIntelligenceState({ practiceEvidence: nextEvidence });
 
     const weak = practiceAttemptMistakeEvidence(attempt);
-    if (!weak || !Array.isArray(weak.options) || weak.options.length < 2) return;
-
     const previousMistakes = Array.isArray(intelligence.mistakeLog)
       ? intelligence.mistakeLog
       : mistakeLog;
-    const reviewId = ["practice", attempt.source || "hallium_practice", attempt.sceneId || "scene", weak.skill].join("|");
-    const existing = (previousMistakes || []).find((item) => item.id === reviewId);
+    const source = attempt.source || "hallium_practice";
+    const scene = attempt.sceneId || "scene";
+    const reviewPrefix = ["practice", source, scene, ""].join("|");
+    const existingPractice = (previousMistakes || []).find((item) => String(item.id || "").startsWith(reviewPrefix));
     const now = attempt.createdAt || new Date().toISOString();
+
+    if (!weak) {
+      if (!existingPractice) return;
+
+      const successfulReviews = Number(existingPractice.successfulReviews || 0) + 1;
+      const schedule = adaptiveReviewSchedule({
+        correct: true,
+        successfulReviews,
+        misses: Number(existingPractice.misses || 1),
+        urgency: reviewUrgency(existingPractice),
+        previousResult: existingPractice.lastResult || "wrong",
+      });
+      const recovered = {
+        ...existingPractice,
+        response: attempt.response,
+        evidenceScore: attempt.score,
+        practiceOutcome: attempt.outcome,
+        successfulReviews,
+        intervalDays: schedule.intervalDays,
+        reviewStage: schedule.stage,
+        reviewStability: schedule.stability,
+        scheduleReason: schedule.reason,
+        nextReviewAt: addDaysIso(schedule.intervalDays),
+        lastSeenAt: now,
+        lastResult: "correct",
+      };
+
+      writeMistakeLog([recovered, ...(previousMistakes || []).filter((item) => item.id !== recovered.id)]);
+      trackLearningEvent("practice_recovery_recorded", "practice-recovery:" + recovered.id + ":" + now, {
+        source: recovered.source,
+        skill: recovered.skill,
+        score: attempt.score,
+        interval_days: schedule.intervalDays,
+        review_stage: schedule.stage,
+        review_stability: schedule.stability,
+      });
+      return;
+    }
+
+    if (!Array.isArray(weak.options) || weak.options.length < 2) return;
+
+    const reviewId = ["practice", source, scene, weak.skill].join("|");
+    const existing = (previousMistakes || []).find((item) => item.id === reviewId);
     const misses = Number(existing?.misses || 0) + 1;
     const schedule = adaptiveReviewSchedule({
       correct: false,
@@ -2641,7 +2684,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       ...existing,
       ...weak,
       id: reviewId,
-      source: attempt.source || "hallium_practice",
+      source,
       createdAt: existing?.createdAt || now,
       lastSeenAt: now,
       misses,
