@@ -1,0 +1,17 @@
+{
+  "id": "listening-0161",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "요즘 어떤 음악 들어요?",
+  "cloze": "요즘 어떤 _____ 들어요?",
+  "answer": "음악",
+  "translation": "What music do you listen to these days?",
+  "hint": "Listen for music.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
