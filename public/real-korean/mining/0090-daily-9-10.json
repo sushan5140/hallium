@@ -1,0 +1,16 @@
+{
+  "id": "mining-0090",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "커피를 마셔요",
+  "gloss": "drink coffee",
+  "sentence": "시간이 있을 때 커피를 마셔요",
+  "translation": "When I have time, I drink coffee.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you drink coffee using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
