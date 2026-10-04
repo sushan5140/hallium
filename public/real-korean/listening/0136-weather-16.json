@@ -1,0 +1,17 @@
+{
+  "id": "listening-0136",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "소나기가 올 것 같아요.",
+  "cloze": "_____가 올 것 같아요.",
+  "answer": "소나기",
+  "translation": "It looks like a shower will come.",
+  "hint": "Listen for shower.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
