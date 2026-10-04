@@ -20,6 +20,7 @@ import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearne
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
+import { buildAdaptivePracticeSession } from "../lib/practice-engine";
 
 import LandingPage from "./landing/LandingPage";
 
@@ -1867,6 +1868,12 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const dueMistakes = relevantMistakes
     .filter((item) => new Date(item.nextReviewAt || 0).getTime() <= Date.now())
     .sort((a,b) => new Date(a.nextReviewAt || 0) - new Date(b.nextReviewAt || 0));
+  const adaptivePracticeSession = buildAdaptivePracticeSession({
+    mistakes: relevantMistakes,
+    preferences: learningPreferences,
+    latestStudyPct,
+    itemLimit: 5,
+  });
   const topWeakSkills = rankWeakSkills(relevantMistakes)
     .map((item) => ({
       ...item,
@@ -3532,6 +3539,34 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           <div className="home-practice-actions">
             <button onClick={() => navigate("vocab")}>Vocabulary ↗</button>
             <button onClick={startStudyTest}>Study check ↗</button>
+          </div>
+        </section>
+
+        <section className="home-adaptive-practice" aria-label="Today's adaptive practice session">
+          <div className="home-adaptive-copy">
+            <span className="section-label">TODAY'S ADAPTIVE PRACTICE</span>
+            <h3>{adaptivePracticeSession.title}</h3>
+            <p>{adaptivePracticeSession.reason}</p>
+            <div className="home-adaptive-stats">
+              <span><b>{adaptivePracticeSession.sessionMinutes}</b> min</span>
+              <span><b>{adaptivePracticeSession.weaknessCount}</b> weakness</span>
+              <span><b>{adaptivePracticeSession.scenarioCount}</b> Real Korean</span>
+              <span><b>{adaptivePracticeSession.difficulty}</b> mode</span>
+            </div>
+          </div>
+          <div className="home-adaptive-queue">
+            {adaptivePracticeSession.items.slice(0,3).map((item, index) => (
+              <div key={item.id}>
+                <small>{String(index + 1).padStart(2,"0")} · {item.kind === "weakness_review" ? "DUE REVIEW" : "REAL KOREAN"}</small>
+                <strong>{item.title}</strong>
+              </div>
+            ))}
+            <button onClick={() => {
+              const first = adaptivePracticeSession.items[0];
+              navigate(first?.kind === "weakness_review" ? "review" : "partner");
+            }}>
+              Start this session ↗
+            </button>
           </div>
         </section>
 

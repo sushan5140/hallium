@@ -4042,6 +4042,31 @@ button.toast{border:0;text-align:left}
 }
 
 
+/* Batch 6 · H-P8.1 adaptive practice session */
+.home-adaptive-practice{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);
+  gap:18px;
+  margin-top:14px;
+  padding:20px 22px;
+  border:1px solid #d9e6df;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fbfffd 0%,#f1faf5 100%);
+}
+.home-adaptive-copy h3{margin:5px 0 4px;font-size:clamp(20px,2.2vw,28px);letter-spacing:-.035em}
+.home-adaptive-copy p{max-width:720px;margin:0;color:var(--muted);font-size:10px;line-height:1.55}
+.home-adaptive-stats{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+.home-adaptive-stats span{padding:6px 8px;border:1px solid #d8e8de;border-radius:999px;background:#fff;color:#52685a;font-size:8px;font-weight:750}
+.home-adaptive-stats b{color:#27633b}
+.home-adaptive-queue{display:grid;gap:7px}
+.home-adaptive-queue>div{padding:10px 11px;border:1px solid #dce9e0;border-radius:11px;background:#fff}
+.home-adaptive-queue small{display:block;color:#568064;font-size:7px!important;font-weight:900!important;letter-spacing:.055em!important}
+.home-adaptive-queue strong{display:block;margin-top:4px;font-size:10px;line-height:1.4}
+.home-adaptive-queue>button{min-height:36px;border:1px solid #c7ddcd;border-radius:11px;background:#e7f5eb;color:#27633b;font-size:8.5px;font-weight:900}
+@media(max-width:760px){
+  .home-adaptive-practice{grid-template-columns:1fr;padding:17px}
+}
+
 /* H-P6.5 interest-aware unlocked lesson routing */
 .learningTopicPreferences{grid-column:1/-1}
 .learningPreferenceSummary{grid-template-columns:repeat(4,minmax(0,1fr))}
