@@ -1,0 +1,16 @@
+{
+  "id": "mining-0239",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "게임해요",
+  "gloss": "play games",
+  "sentence": "요즘 게임해요",
+  "translation": "These days, I play games.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you play games using 요즘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
