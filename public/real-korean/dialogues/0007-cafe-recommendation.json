@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0007",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "situation": "Asking for a recommendation",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "뭐가 제일 인기 있어요?",
+      "romanization": "mwoga jeil ingi isseoyo?",
+      "meaning": "What's the most popular?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "바닐라 라테가 제일 인기 있어요.",
+      "romanization": "banilla ratega jeil ingi isseoyo.",
+      "meaning": "The vanilla latte is the most popular."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "그걸로 주세요.",
+      "romanization": "geugeollo juseyo.",
+      "meaning": "I'll have that."
+    }
+  ],
+  "teachingPoint": "그걸로 주세요 means I'll take that one.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
