@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0271",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "조용하다",
+  "example": "조용하니까 여기서 공부해요.",
+  "translation": "Because it is quiet, let's study here.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 조용하다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
