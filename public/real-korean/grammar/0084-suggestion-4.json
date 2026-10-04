@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0084",
+  "pattern": "-(으)ㄹ까요?",
+  "level": "Beginner",
+  "function": "Make a suggestion or ask shall we?",
+  "baseVerb": "읽다",
+  "example": "읽을까요?",
+  "translation": "Shall we read?",
+  "note": "Use -(으)ㄹ까요? to suggest doing something together or ask for a decision.",
+  "prompt": "Use 읽다 with -(으)ㄹ까요?.",
+  "tags": [
+    "grammar",
+    "suggestion",
+    "beginner"
+  ]
+}
