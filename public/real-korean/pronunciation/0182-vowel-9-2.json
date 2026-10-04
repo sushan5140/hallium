@@ -1,0 +1,20 @@
+{
+  "id": "pron-0182",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㄴ",
+  "left": "놔",
+  "right": "눠",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 놔, then 눠. Keep the onset ㄴ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
