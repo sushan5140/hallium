@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0049",
+  "context": "work",
+  "level": "Beginner",
+  "situation": "Making lunch plans",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "점심 뭐 드실래요?",
+      "romanization": "jeomsim mwo deusillaeyo?",
+      "meaning": "What would you like for lunch?"
+    },
+    {
+      "speaker": "B",
+      "korean": "오늘은 국수 어때요?",
+      "romanization": "oneureun guksu eottaeyo?",
+      "meaning": "How about noodles today?"
+    },
+    {
+      "speaker": "A",
+      "korean": "좋아요.",
+      "romanization": "joayo.",
+      "meaning": "Sounds good."
+    }
+  ],
+  "teachingPoint": "드시다 is the honorific form of 먹다.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
