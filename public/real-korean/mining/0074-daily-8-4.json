@@ -1,0 +1,16 @@
+{
+  "id": "mining-0074",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "산책해요",
+  "gloss": "take a walk",
+  "sentence": "저녁에 산책해요",
+  "translation": "In the evening, I take a walk.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take a walk using 저녁에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
