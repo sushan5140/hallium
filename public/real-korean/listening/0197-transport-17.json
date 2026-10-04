@@ -1,0 +1,17 @@
+{
+  "id": "listening-0197",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "이 길로 쭉 가세요.",
+  "cloze": "이 길로 _____ 가세요.",
+  "answer": "쭉",
+  "translation": "Go straight this way.",
+  "hint": "Listen for straight.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
