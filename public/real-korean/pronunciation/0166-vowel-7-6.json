@@ -1,0 +1,20 @@
+{
+  "id": "pron-0166",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ya vs yeo",
+  "contrast": [
+    "ㅑ",
+    "ㅕ"
+  ],
+  "onset": "ㅂ",
+  "left": "뱌",
+  "right": "벼",
+  "cue": "Keep the y-glide and distinguish the vowel quality.",
+  "prompt": "Say 뱌, then 벼. Keep the onset ㅂ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
