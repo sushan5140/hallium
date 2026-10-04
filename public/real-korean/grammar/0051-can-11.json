@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0051",
+  "pattern": "-(으)ㄹ 수 있어요",
+  "level": "Beginner",
+  "function": "Express ability or possibility",
+  "baseVerb": "듣다",
+  "example": "들을 수 있어요",
+  "translation": "I can hear/listen.",
+  "note": "Attach -(으)ㄹ 수 있어요 to a verb stem to express ability or possibility.",
+  "prompt": "Use 듣다 with -(으)ㄹ 수 있어요.",
+  "tags": [
+    "grammar",
+    "ability",
+    "beginner"
+  ]
+}
