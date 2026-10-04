@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0045",
+  "context": "work",
+  "level": "Low Intermediate",
+  "situation": "Asking for a file",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "그 파일 보내주실 수 있어요?",
+      "romanization": "geu pail bonaejusil su isseoyo?",
+      "meaning": "Could you send me that file?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 바로 보내드릴게요.",
+      "romanization": "ne, baro bonaedeurilgeyo.",
+      "meaning": "Yes, I'll send it right away."
+    },
+    {
+      "speaker": "A",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "-주실 수 있어요? is a polite request pattern.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
