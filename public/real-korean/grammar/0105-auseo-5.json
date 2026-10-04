@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0105",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "길이 막히다",
+  "example": "길이 막혀서 늦었어요.",
+  "translation": "Traffic was bad, so I was late.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 길이 막히다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
