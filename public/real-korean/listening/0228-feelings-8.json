@@ -1,0 +1,17 @@
+{
+  "id": "listening-0228",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "조금 심심해요.",
+  "cloze": "조금 _____해요.",
+  "answer": "심심",
+  "translation": "I am a little bored.",
+  "hint": "Listen for bored.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
