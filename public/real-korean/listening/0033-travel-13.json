@@ -1,0 +1,17 @@
+{
+  "id": "listening-0033",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "이 자리 비었어요?",
+  "cloze": "이 자리 _____어요?",
+  "answer": "비었",
+  "translation": "Is this seat empty?",
+  "hint": "Listen for the adjective/verb meaning empty.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
