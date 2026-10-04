@@ -1,0 +1,17 @@
+{
+  "id": "listening-0003",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "얼음 조금만 넣어 주세요.",
+  "cloze": "얼음 _____ 넣어 주세요.",
+  "answer": "조금만",
+  "translation": "Please put in only a little ice.",
+  "hint": "Listen for the limiting expression.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
