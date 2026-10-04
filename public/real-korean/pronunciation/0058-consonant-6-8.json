@@ -1,0 +1,20 @@
+{
+  "id": "pron-0058",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅂ",
+    "ㅃ"
+  ],
+  "vowel": "ㅔ",
+  "left": "베",
+  "right": "뻬",
+  "cue": "Notice tighter articulation on ㅃ.",
+  "prompt": "Say 베, then 뻬. Keep the vowel ㅔ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
