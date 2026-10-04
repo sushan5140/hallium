@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0107",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "날씨가 좋다",
+  "example": "날씨가 좋아서 산책했어요.",
+  "translation": "The weather was nice, so I took a walk.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 날씨가 좋다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
