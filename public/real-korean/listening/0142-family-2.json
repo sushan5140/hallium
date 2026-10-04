@@ -1,0 +1,17 @@
+{
+  "id": "listening-0142",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "오늘 몇 시에 와?",
+  "cloze": "오늘 몇 시에 _____?",
+  "answer": "와",
+  "translation": "What time are you coming home?",
+  "hint": "Listen for come.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
