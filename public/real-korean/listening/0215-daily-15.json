@@ -1,0 +1,17 @@
+{
+  "id": "listening-0215",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "음악을 들어요.",
+  "cloze": "음악을 _____요.",
+  "answer": "들어",
+  "translation": "I listen to music.",
+  "hint": "Listen for listen.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
