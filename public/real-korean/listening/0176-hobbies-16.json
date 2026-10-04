@@ -1,0 +1,17 @@
+{
+  "id": "listening-0176",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "사진 편집해요.",
+  "cloze": "사진 _____해요.",
+  "answer": "편집",
+  "translation": "I edit photos.",
+  "hint": "Listen for edit.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
