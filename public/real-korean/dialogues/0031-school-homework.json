@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0031",
+  "context": "school",
+  "level": "Beginner",
+  "situation": "Asking about homework",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "오늘 숙제 있어요?",
+      "romanization": "oneul sukje isseoyo?",
+      "meaning": "Do we have homework today?"
+    },
+    {
+      "speaker": "Classmate",
+      "korean": "네, 5쪽까지 해야 해요.",
+      "romanization": "ne, ojjokkkaji haeya haeyo.",
+      "meaning": "Yes, we have to do through page 5."
+    },
+    {
+      "speaker": "Student",
+      "korean": "알려 줘서 고마워요.",
+      "romanization": "allyeo jwoseo gomawoyo.",
+      "meaning": "Thanks for telling me."
+    }
+  ],
+  "teachingPoint": "-아/어야 해요 means have to.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
