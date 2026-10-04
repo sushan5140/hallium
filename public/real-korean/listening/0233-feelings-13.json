@@ -1,0 +1,17 @@
+{
+  "id": "listening-0233",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "편안해요.",
+  "cloze": "_____해요.",
+  "answer": "편안",
+  "translation": "I feel comfortable.",
+  "hint": "Listen for comfortable.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
