@@ -1,0 +1,16 @@
+{
+  "id": "mining-0247",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "쉬어요",
+  "gloss": "rest",
+  "sentence": "자주 쉬어요",
+  "translation": "Often, I rest.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you rest using 자주.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
