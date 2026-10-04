@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0188",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "사진을 찍다",
+  "example": "사진을 찍고 나서 바로 확인했어요.",
+  "translation": "After taking the photo, I checked it right away.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 사진을 찍다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
