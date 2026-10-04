@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0042",
+  "context": "work",
+  "level": "Intermediate",
+  "situation": "Checking whether an email arrived",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "제가 보낸 메일 확인하셨어요?",
+      "romanization": "jega bonaen meil hwaginhasyeosseoyo?",
+      "meaning": "Did you check the email I sent?"
+    },
+    {
+      "speaker": "B",
+      "korean": "아직 못 봤어요. 지금 볼게요.",
+      "romanization": "ajik mot bwasseoyo. jigeum bolgeyo.",
+      "meaning": "Not yet. I'll look now."
+    },
+    {
+      "speaker": "A",
+      "korean": "네, 감사합니다.",
+      "romanization": "ne, gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "보낸 is the noun-modifying form of 보내다.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
