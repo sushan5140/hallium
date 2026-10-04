@@ -1,0 +1,17 @@
+{
+  "id": "reconstruction-0210",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "쇼핑해요",
+    "시간이 있을 때"
+  ],
+  "answer": "시간이 있을 때 쇼핑해요",
+  "translation": "When I have time, I shop.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
