@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0083",
+  "context": "hobbies",
+  "level": "Beginner",
+  "situation": "Talking about games",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "요즘 무슨 게임 해?",
+      "romanization": "yojeum museun geim hae?",
+      "meaning": "What game are you playing these days?"
+    },
+    {
+      "speaker": "B",
+      "korean": "요즘은 퍼즐 게임 해.",
+      "romanization": "yojeumeun peojeul geim hae.",
+      "meaning": "These days I play puzzle games."
+    },
+    {
+      "speaker": "A",
+      "korean": "재밌어?",
+      "romanization": "jaemisseo?",
+      "meaning": "Is it fun?"
+    }
+  ],
+  "teachingPoint": "무슨 N asks what/which N.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
