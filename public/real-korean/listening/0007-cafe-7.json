@@ -1,0 +1,17 @@
+{
+  "id": "listening-0007",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "와이파이 비밀번호가 뭐예요?",
+  "cloze": "와이파이 _____가 뭐예요?",
+  "answer": "비밀번호",
+  "translation": "What is the Wi-Fi password?",
+  "hint": "Listen for the noun meaning password.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
