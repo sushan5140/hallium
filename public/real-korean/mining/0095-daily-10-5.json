@@ -1,0 +1,16 @@
+{
+  "id": "mining-0095",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "친구를 만나요",
+  "gloss": "meet a friend",
+  "sentence": "주말에 친구를 만나요",
+  "translation": "On the weekend, I meet a friend.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you meet a friend using 주말에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
