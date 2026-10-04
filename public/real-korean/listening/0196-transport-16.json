@@ -1,0 +1,17 @@
+{
+  "id": "listening-0196",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "지하철이 더 빨라요.",
+  "cloze": "지하철이 더 _____요.",
+  "answer": "빨라",
+  "translation": "The subway is faster.",
+  "hint": "Listen for faster.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
