@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0005",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "situation": "Ordering without syrup",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "시럽 빼 주세요.",
+      "romanization": "sireop ppae juseyo.",
+      "meaning": "Please leave out the syrup."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "시럽 없이 준비해 드릴게요.",
+      "romanization": "sireop eopsi junbihae deurilgeyo.",
+      "meaning": "I'll prepare it without syrup."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "N 빼 주세요 means please leave out N.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
