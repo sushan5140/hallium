@@ -1,0 +1,17 @@
+{
+  "id": "listening-0066",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "역할은 어떻게 나눌까요?",
+  "cloze": "역할은 어떻게 _____까요?",
+  "answer": "나눌",
+  "translation": "How should we divide the roles?",
+  "hint": "Listen for divide.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
