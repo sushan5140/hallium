@@ -1,0 +1,20 @@
+{
+  "id": "pron-0023",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs aspirated",
+  "contrast": [
+    "ㄷ",
+    "ㅌ"
+  ],
+  "vowel": "ㅗ",
+  "left": "도",
+  "right": "토",
+  "cue": "Notice stronger airflow on ㅌ.",
+  "prompt": "Say 도, then 토. Keep the vowel ㅗ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
