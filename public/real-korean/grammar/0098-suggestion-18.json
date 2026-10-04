@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0098",
+  "pattern": "-(으)ㄹ까요?",
+  "level": "Beginner",
+  "function": "Make a suggestion or ask shall we?",
+  "baseVerb": "바꾸다",
+  "example": "바꿀까요?",
+  "translation": "Shall we change it?",
+  "note": "Use -(으)ㄹ까요? to suggest doing something together or ask for a decision.",
+  "prompt": "Use 바꾸다 with -(으)ㄹ까요?.",
+  "tags": [
+    "grammar",
+    "suggestion",
+    "beginner"
+  ]
+}
