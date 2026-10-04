@@ -1,0 +1,17 @@
+{
+  "id": "listening-0045",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "탈의실이 어디예요?",
+  "cloze": "_____이 어디예요?",
+  "answer": "탈의실",
+  "translation": "Where is the fitting room?",
+  "hint": "Listen for fitting room.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
