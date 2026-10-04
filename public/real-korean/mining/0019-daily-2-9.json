@@ -1,0 +1,16 @@
+{
+  "id": "mining-0019",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "책을 읽어요",
+  "gloss": "read a book",
+  "sentence": "요즘 책을 읽어요",
+  "translation": "These days, I read a book.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you read a book using 요즘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
