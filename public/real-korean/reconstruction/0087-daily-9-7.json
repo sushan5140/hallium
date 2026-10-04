@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0087",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "마셔요",
+    "커피를",
+    "자주"
+  ],
+  "answer": "자주 커피를 마셔요",
+  "translation": "Often, I drink coffee.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
