@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0237",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "배우다",
+  "example": "새로운 기술을 배워 보세요.",
+  "translation": "Try learning a new skill.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 배우다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
