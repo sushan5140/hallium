@@ -1,0 +1,17 @@
+{
+  "id": "listening-0293",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "사진을 많이 찍을 거예요.",
+  "cloze": "사진을 많이 _____ 거예요.",
+  "answer": "찍을",
+  "translation": "I will take many photos.",
+  "hint": "Listen for take photos.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
