@@ -2224,9 +2224,28 @@ button.toast{border:0;text-align:left}
 }
 .realSceneVariants small{display:block;color:#a85f7f;font-size:8px!important;font-weight:850!important;letter-spacing:.04em!important}
 .realSceneVariants b{display:block;margin-top:4px;font-size:10.5px;line-height:1.4}
+
+.realSceneDialogues{display:grid;gap:10px;margin-top:12px}
+.realSceneDialogues>article{padding:15px;border:1px solid #efdce4;border-radius:14px;background:#fff}
+.realSceneDialogueHead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.realSceneDialogueHead small{color:#a85f7f;font-size:8.5px!important;font-weight:850!important;letter-spacing:.06em!important}
+.realSceneDialogueHead h3{margin:4px 0 0;font-size:17px;letter-spacing:-.02em}
+.realSceneDialogueHead p{margin:4px 0 0;color:var(--muted);font-size:10px;line-height:1.5}
+.realSceneDialogueHead>button{flex:0 0 auto;padding:8px 10px;border:1px solid #efcfdd;border-radius:10px;background:#fff6fa;color:#a85f7f;font-size:9.5px;font-weight:850}
+.realSceneDialogueLines{display:grid;gap:8px;margin-top:12px}
+.realSceneDialogueLines>div{width:min(88%,620px);padding:11px 12px;border-radius:13px;background:#f7f5f5}
+.realSceneDialogueLines>div.reply{margin-left:auto;background:#fff0f6}
+.realSceneDialogueLines small{display:block;color:#8b7c83;font-size:8px!important;font-weight:800!important;text-transform:uppercase}
+.realSceneDialogueLines b{display:block;margin-top:3px;font-size:14px}
+.realSceneDialogueLines em{display:block;margin-top:2px;color:#a85f7f;font-size:9.5px;font-style:normal;font-weight:700}
+.realSceneDialogueLines p{margin:3px 0 0;color:var(--muted);font-size:9.5px;line-height:1.45}
+.realSceneDialogues aside{margin-top:10px;padding:9px 10px;border-radius:10px;background:#fff7fa;color:#6e6368;font-size:9.5px;line-height:1.5}
 @media(max-width:760px){
   .realSceneCards{grid-template-columns:1fr}
   .realScenePanel{padding:13px}
+  .realSceneDialogueHead{flex-direction:column}
+  .realSceneDialogueHead>button{align-self:flex-start}
+  .realSceneDialogueLines>div{width:94%}
 }
 
 /* Partner Message Makeover */

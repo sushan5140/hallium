@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { realKoreanGrounding, realKoreanScenes } from "../../lib/real-korean";
+import { realKoreanDialogues, realKoreanGrounding, realKoreanScenes } from "../../lib/real-korean";
 
 // Retained educational phrase bank and mini-dialogues from the live Hallim app.
 const partnerKoreanCategories = [
@@ -343,6 +343,7 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
 
     const realScenes = realKoreanScenes();
     const activeRealScene = realScenes.find((scene) => scene.id === realSceneId) || realScenes[0];
+    const activeRealDialogues = realKoreanDialogues(activeRealScene?.id);
     const selectedCategory = partnerKoreanCategories.find((item) => item.id === partnerCategory) || null;
     const source = partnerCategory === "all"
       ? partnerKoreanCategories.flatMap((group) =>
@@ -510,6 +511,27 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
                       <button onClick={() => playKorean(phrase.variants.softer, 0.92)}><small>Softer</small><b lang="ko">{phrase.variants.softer}</b></button>
                       <button onClick={() => playKorean(phrase.variants.bolder, 0.92)}><small>Stronger</small><b lang="ko">{phrase.variants.bolder}</b></button>
                     </div>
+                  </article>
+                ))}
+              </div>
+              <div className="realSceneDialogues">
+                {activeRealDialogues.map((dialogue) => (
+                  <article key={dialogue.id}>
+                    <div className="realSceneDialogueHead">
+                      <div><small>{dialogue.register === "polite" ? "POLITE DIALOGUE" : "CASUAL DIALOGUE"}</small><h3>{dialogue.title}</h3><p>{dialogue.situation}</p></div>
+                      <button onClick={() => playKorean(dialogue.lines.map((line) => line.korean).join(". "), 0.9)}>▶ Play all</button>
+                    </div>
+                    <div className="realSceneDialogueLines">
+                      {dialogue.lines.map((line, index) => (
+                        <div key={dialogue.id + "-" + index} className={index % 2 ? "reply" : ""}>
+                          <small>{line.speaker}</small>
+                          <b lang="ko">{line.korean}</b>
+                          {partnerRomanization && <em>{line.romanization}</em>}
+                          <p>{line.meaning}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <aside>{dialogue.note}</aside>
                   </article>
                 ))}
               </div>
