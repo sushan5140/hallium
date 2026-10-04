@@ -1,0 +1,17 @@
+{
+  "id": "listening-0222",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "조금 피곤해요.",
+  "cloze": "조금 _____해요.",
+  "answer": "피곤",
+  "translation": "I am a little tired.",
+  "hint": "Listen for tired.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
