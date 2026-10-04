@@ -1,0 +1,20 @@
+{
+  "id": "pron-0114",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "o vs u",
+  "contrast": [
+    "ㅗ",
+    "ㅜ"
+  ],
+  "onset": "ㄹ",
+  "left": "로",
+  "right": "루",
+  "cue": "Keep the lips rounded but change tongue height.",
+  "prompt": "Say 로, then 루. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
