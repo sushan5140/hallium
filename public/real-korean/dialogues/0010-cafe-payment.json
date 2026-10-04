@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0010",
+  "context": "cafe",
+  "level": "Beginner",
+  "situation": "Paying by card",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "결제 도와드릴게요.",
+      "romanization": "gyeolje dowadeurilgeyo.",
+      "meaning": "I'll help you with payment."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "카드로 할게요.",
+      "romanization": "kadeuro halgeyo.",
+      "meaning": "I'll pay by card."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 여기 넣어 주세요.",
+      "romanization": "ne, yeogi neoeo juseyo.",
+      "meaning": "Sure, please insert it here."
+    }
+  ],
+  "teachingPoint": "N(으)로 할게요 means I'll go with/use N.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
