@@ -1,0 +1,17 @@
+{
+  "id": "listening-0298",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "시간 되면 방문할게요.",
+  "cloze": "시간 되면 _____할게요.",
+  "answer": "방문",
+  "translation": "I will visit if I have time.",
+  "hint": "Listen for visit.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
