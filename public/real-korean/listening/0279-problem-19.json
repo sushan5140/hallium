@@ -1,0 +1,17 @@
+{
+  "id": "listening-0279",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "잠시 후에 다시 해 보세요.",
+  "cloze": "잠시 후에 다시 _____ 보세요.",
+  "answer": "해",
+  "translation": "Try again later.",
+  "hint": "Listen for do/try.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
