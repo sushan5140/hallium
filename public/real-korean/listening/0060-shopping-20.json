@@ -1,0 +1,17 @@
+{
+  "id": "listening-0060",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "포장해 주세요.",
+  "cloze": "_____해 주세요.",
+  "answer": "포장",
+  "translation": "Please wrap/package it.",
+  "hint": "Listen for packaging.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
