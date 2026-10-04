@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0225",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "듣다",
+  "example": "이 노래 들어 보세요.",
+  "translation": "Try listening to this song.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 듣다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
