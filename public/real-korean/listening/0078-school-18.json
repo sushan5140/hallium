@@ -1,0 +1,17 @@
+{
+  "id": "listening-0078",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "복습해야 해요.",
+  "cloze": "_____해야 해요.",
+  "answer": "복습",
+  "translation": "I have to review.",
+  "hint": "Listen for review.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
