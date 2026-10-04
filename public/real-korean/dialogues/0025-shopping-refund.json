@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0025",
+  "context": "shopping",
+  "level": "Intermediate",
+  "situation": "Asking about a refund",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "이거 환불할 수 있을까요?",
+      "romanization": "igeo hwanbulhal su isseulkkayo?",
+      "meaning": "Could I get a refund for this?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "영수증 있으세요?",
+      "romanization": "yeongsujeung isseuseyo?",
+      "meaning": "Do you have the receipt?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "네, 여기 있어요.",
+      "romanization": "ne, yeogi isseoyo.",
+      "meaning": "Yes, here it is."
+    }
+  ],
+  "teachingPoint": "환불하다 means to refund/return for money back.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
