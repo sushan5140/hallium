@@ -1,0 +1,17 @@
+{
+  "id": "listening-0276",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "앱을 다시 시작해 보세요.",
+  "cloze": "앱을 다시 _____해 보세요.",
+  "answer": "시작",
+  "translation": "Try restarting the app.",
+  "hint": "Listen for start/restart.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
