@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0199",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "파일을 저장하다",
+  "example": "파일을 저장하고 나서 컴퓨터를 껐어요.",
+  "translation": "After saving the file, I turned off the computer.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 파일을 저장하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
