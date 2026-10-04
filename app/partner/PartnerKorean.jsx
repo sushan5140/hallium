@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { realKoreanDialogues, realKoreanGrounding, realKoreanRegisterGuides, realKoreanScenes } from "../../lib/real-korean";
+import { casualTextingPatterns, realKoreanDialogues, realKoreanGrounding, realKoreanRegisterGuides, realKoreanScenes } from "../../lib/real-korean";
 
 // Retained educational phrase bank and mini-dialogues from the live Hallim app.
 const partnerKoreanCategories = [
@@ -345,6 +345,7 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
     const realScenes = realKoreanScenes();
     const activeRealScene = realScenes.find((scene) => scene.id === realSceneId) || realScenes[0];
     const activeRealDialogues = realKoreanDialogues(activeRealScene?.id);
+    const textingPatterns = casualTextingPatterns();
     const registerGuides = realKoreanRegisterGuides();
     const activeRegisterGuide = registerGuides.find((guide) => guide.id === registerGuideId) || registerGuides[1];
     const selectedCategory = partnerKoreanCategories.find((item) => item.id === partnerCategory) || null;
@@ -467,6 +468,43 @@ export default function PartnerKorean({ goBack, playKorean, callIntelligence, ai
               </div>
             ) : null;
           })()}
+        </section>
+
+        <section className="casualTextingSection">
+          <div className="partnerSectionHead">
+            <div>
+              <span className="eyebrow">Casual Korean / texting</span>
+              <h2>Why real texts feel shorter than textbook Korean.</h2>
+              <p className="textingLead">See how omission, endings, and tiny tone markers change a message without changing its core meaning.</p>
+            </div>
+          </div>
+
+          <div className="textingPatternGrid">
+            {textingPatterns.map((pattern) => (
+              <article key={pattern.id}>
+                <div className="textingPatternHead">
+                  <div><small>TEXTING PATTERN</small><h3>{pattern.label}</h3></div>
+                  <button onClick={() => playKorean(pattern.after, 0.92)}>▶ Hear</button>
+                </div>
+                <div className="textingBeforeAfter">
+                  <div><small>MORE EXPLICIT</small><b lang="ko">{pattern.before}</b></div>
+                  <span aria-hidden="true">→</span>
+                  <div><small>MORE TEXT-LIKE</small><b lang="ko">{pattern.after}</b></div>
+                </div>
+                <p>{pattern.meaning}</p>
+                <aside>{pattern.note}</aside>
+                <div className="textingSafety">
+                  <span>Works best: {pattern.safeFor.join(", ").replaceAll("_"," ") || "context dependent"}</span>
+                  {pattern.avoidFor.length > 0 && <span>Avoid by default: {pattern.avoidFor.join(", ").replaceAll("_"," ")}</span>}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="textingRuleNote">
+            <b>Hallium rule</b>
+            <p>Casual does not mean careless. Text shortcuts are shown only with their relationship limits so learners do not copy intimate 반말 into senior or stranger contexts.</p>
+          </div>
         </section>
 
         <section className="registerIntelligenceSection">
