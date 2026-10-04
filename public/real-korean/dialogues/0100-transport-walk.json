@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0100",
+  "context": "transport",
+  "level": "Beginner",
+  "situation": "Asking whether a place is walkable",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "여기서 걸어갈 수 있어요?",
+      "romanization": "yeogiseo georeogal su isseoyo?",
+      "meaning": "Can I walk there from here?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 십 분 정도 걸려요.",
+      "romanization": "ne, sip bun jeongdo geollyeoyo.",
+      "meaning": "Yes, it takes about 10 minutes."
+    },
+    {
+      "speaker": "A",
+      "korean": "그럼 걸어갈게요.",
+      "romanization": "geureom georeogalgeyo.",
+      "meaning": "Then I'll walk."
+    }
+  ],
+  "teachingPoint": "걸어가다 means go on foot/walk there.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
