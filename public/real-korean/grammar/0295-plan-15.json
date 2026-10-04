@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0295",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "이번 달에 저축하다",
+  "example": "이번 달에 저축하려고 해요.",
+  "translation": "I plan to save money this month.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 이번 달에 저축하다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
