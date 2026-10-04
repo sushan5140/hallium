@@ -1,0 +1,17 @@
+{
+  "id": "listening-0101",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "밥 먹었어?",
+  "cloze": "_____ 먹었어?",
+  "answer": "밥",
+  "translation": "Did you eat?",
+  "hint": "Listen for meal/rice.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
