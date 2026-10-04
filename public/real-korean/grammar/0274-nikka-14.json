@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0274",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "필요하다",
+  "example": "필요하니까 지금 준비해요.",
+  "translation": "Because we need it, let's prepare now.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 필요하다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
