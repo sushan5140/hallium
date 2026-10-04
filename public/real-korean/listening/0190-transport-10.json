@@ -1,0 +1,17 @@
+{
+  "id": "listening-0190",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "걸어갈 수 있어요?",
+  "cloze": "_____ 수 있어요?",
+  "answer": "걸어갈",
+  "translation": "Can I walk there?",
+  "hint": "Listen for go on foot.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
