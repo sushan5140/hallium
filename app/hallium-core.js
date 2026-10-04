@@ -19,7 +19,7 @@ import {
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
-import { practiceAttemptMistakeEvidence } from "../lib/practice-engine";
+import { buildPracticeAttempt, practiceAttemptMistakeEvidence } from "../lib/practice-engine";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -2605,9 +2605,8 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     return limited;
   }
 
-  function recordPracticeEvidence(attempt) {
-    if (!attempt) return;
-
+  function writePracticeEvidenceHistory(attempt) {
+    if (!attempt) return [];
     const intelligence = readIntelligenceState(guestMode);
     const previousEvidence = Array.isArray(intelligence.practiceEvidence)
       ? intelligence.practiceEvidence
@@ -2618,6 +2617,14 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
 
     setPracticeEvidence(nextEvidence);
     saveIntelligenceState({ practiceEvidence: nextEvidence });
+    return nextEvidence;
+  }
+
+  function recordPracticeEvidence(attempt) {
+    if (!attempt) return;
+
+    const intelligence = readIntelligenceState(guestMode);
+    writePracticeEvidenceHistory(attempt);
 
     const weak = practiceAttemptMistakeEvidence(attempt);
     const previousMistakes = Array.isArray(intelligence.mistakeLog)
@@ -2711,6 +2718,20 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const previous = readIntelligenceState(guestMode).mistakeLog || mistakeLog || [];
     const id = mistakeId(question, source, levelId);
     const existing = previous.find((item) => item.id === id);
+
+    const attempt = buildPracticeAttempt({
+      id,
+      mode: source || "choice",
+      sceneId: levelId || activeStudy.id,
+      skill: classifyQuestionSkill(question, activeStudy.label + " practice"),
+      prompt: question.prompt,
+      response: question.options?.[selectedIndex] || "",
+      expected: question.options?.[question.answer] || "",
+      choices: question.options || [],
+      correct,
+      source: source || "hallium_practice",
+    });
+    writePracticeEvidenceHistory(attempt);
 
     if (correct && !existing) return;
 
