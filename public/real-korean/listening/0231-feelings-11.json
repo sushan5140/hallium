@@ -1,0 +1,17 @@
+{
+  "id": "listening-0231",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "정말 놀랐어요.",
+  "cloze": "정말 _____어요.",
+  "answer": "놀랐",
+  "translation": "I was really surprised.",
+  "hint": "Listen for surprised.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
