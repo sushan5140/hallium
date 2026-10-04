@@ -1,0 +1,20 @@
+{
+  "id": "pron-0133",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eu vs u",
+  "contrast": [
+    "ㅡ",
+    "ㅜ"
+  ],
+  "onset": "ㄷ",
+  "left": "드",
+  "right": "두",
+  "cue": "ㅡ is unrounded; ㅜ is rounded.",
+  "prompt": "Say 드, then 두. Keep the onset ㄷ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
