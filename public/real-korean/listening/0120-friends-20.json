@@ -1,0 +1,17 @@
+{
+  "id": "listening-0120",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "fullSentence": "나중에 연락해.",
+  "cloze": "나중에 _____해.",
+  "answer": "연락",
+  "translation": "Contact me later.",
+  "hint": "Listen for contact.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
