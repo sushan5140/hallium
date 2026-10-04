@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0213",
+  "pattern": "-(으)면서",
+  "level": "Low Intermediate",
+  "function": "Express two actions happening at the same time",
+  "baseForm": "회의하다",
+  "example": "회의하면서 중요한 내용을 적어요.",
+  "translation": "I write down key points during the meeting.",
+  "note": "Use V-(으)면서 when one subject does two actions at the same time.",
+  "prompt": "Make a sentence with 회의하다 using -(으)면서.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "low-intermediate"
+  ]
+}
