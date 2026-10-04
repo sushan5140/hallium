@@ -1,0 +1,17 @@
+{
+  "id": "listening-0151",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "문도 닫아 줘.",
+  "cloze": "문도 _____ 줘.",
+  "answer": "닫아",
+  "translation": "Close the door too.",
+  "hint": "Listen for close.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
