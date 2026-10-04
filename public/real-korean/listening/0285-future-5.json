@@ -1,0 +1,17 @@
+{
+  "id": "listening-0285",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "조금 있다가 전화할게요.",
+  "cloze": "조금 있다가 _____할게요.",
+  "answer": "전화",
+  "translation": "I will call in a little while.",
+  "hint": "Listen for call.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
