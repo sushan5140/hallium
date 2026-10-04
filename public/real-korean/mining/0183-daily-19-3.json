@@ -1,0 +1,16 @@
+{
+  "id": "mining-0183",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "메모해요",
+  "gloss": "take notes",
+  "sentence": "아침에 메모해요",
+  "translation": "In the morning, I take notes.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take notes using 아침에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
