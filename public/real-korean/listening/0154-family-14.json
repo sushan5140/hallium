@@ -1,0 +1,17 @@
+{
+  "id": "listening-0154",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "빨래 다 했어.",
+  "cloze": "_____ 다 했어.",
+  "answer": "빨래",
+  "translation": "I finished the laundry.",
+  "hint": "Listen for laundry.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
