@@ -1,0 +1,17 @@
+{
+  "id": "listening-0242",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "단어를 외워요.",
+  "cloze": "단어를 _____요.",
+  "answer": "외워",
+  "translation": "I memorize vocabulary.",
+  "hint": "Listen for memorize.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
