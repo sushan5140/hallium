@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0093",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "만나요",
+    "친구를",
+    "아침에"
+  ],
+  "answer": "아침에 친구를 만나요",
+  "translation": "In the morning, I meet a friend.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
