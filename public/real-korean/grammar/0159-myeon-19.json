@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0159",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "기회가 있다",
+  "example": "기회가 있으면 해 보고 싶어요.",
+  "translation": "If I get the chance, I want to try it.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 기회가 있다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
