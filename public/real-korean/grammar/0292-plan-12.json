@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0292",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "한국 음식을 만들다",
+  "example": "한국 음식을 만들려고 해요.",
+  "translation": "I plan to make Korean food.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 한국 음식을 만들다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
