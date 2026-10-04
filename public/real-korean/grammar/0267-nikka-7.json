@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0267",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "가격이 싸다",
+  "example": "가격이 싸니까 두 개 살게요.",
+  "translation": "Because it is cheap, I will buy two.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 가격이 싸다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
