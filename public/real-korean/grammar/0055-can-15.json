@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0055",
+  "pattern": "-(으)ㄹ 수 있어요",
+  "level": "Beginner",
+  "function": "Express ability or possibility",
+  "baseVerb": "찍다",
+  "example": "찍을 수 있어요",
+  "translation": "I can take a photo.",
+  "note": "Attach -(으)ㄹ 수 있어요 to a verb stem to express ability or possibility.",
+  "prompt": "Use 찍다 with -(으)ㄹ 수 있어요.",
+  "tags": [
+    "grammar",
+    "ability",
+    "beginner"
+  ]
+}
