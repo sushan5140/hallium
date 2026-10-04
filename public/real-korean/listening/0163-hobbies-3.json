@@ -1,0 +1,17 @@
+{
+  "id": "listening-0163",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "무슨 게임 해?",
+  "cloze": "무슨 _____ 해?",
+  "answer": "게임",
+  "translation": "What game are you playing?",
+  "hint": "Listen for game.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
