@@ -1,0 +1,17 @@
+{
+  "id": "listening-0247",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "모르는 단어를 찾아봐요.",
+  "cloze": "모르는 단어를 _____봐요.",
+  "answer": "찾아",
+  "translation": "I look up unknown words.",
+  "hint": "Listen for look up.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
