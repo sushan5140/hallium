@@ -19,6 +19,7 @@ import {
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
+import { practiceAttemptMistakeEvidence } from "../lib/practice-engine";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1528,6 +1529,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const [aiFeatureError, setAiFeatureError] = useState("");
   const [mistakeExplanation, setMistakeExplanation] = useState(null);
   const [mistakeLog, setMistakeLog] = useState([]);
+  const [practiceEvidence, setPracticeEvidence] = useState([]);
   const [mistakeReviewChoice, setMistakeReviewChoice] = useState(null);
   const [mistakeReviewChecked, setMistakeReviewChecked] = useState(false);
   const [selectedVocab, setSelectedVocab] = useState(null);
@@ -1570,6 +1572,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setLearningRouteRecord(savedIntelligence.learningRoute || null);
     setLearningPreferences(normalizeLearningPreferences(savedIntelligence.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(savedIntelligence.mistakeLog || []);
+    setPracticeEvidence(savedIntelligence.practiceEvidence || []);
     const savedVoicePreference = readLocalVoicePreference(scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, guestMode));
     setVoicePreference(savedVoicePreference);
     const savedProfile = readLearnerProfile(guestMode);
@@ -1802,6 +1805,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     learningRouteRecord,
     learningPreferences,
     mistakeLog,
+    practiceEvidence,
   ]);
 
   const adminCurriculumAudit = useMemo(() => curriculumAudit(units), []);
@@ -1992,6 +1996,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setLearningRouteRecord(intelligence?.learningRoute || null);
     setLearningPreferences(normalizeLearningPreferences(intelligence?.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(intelligence?.mistakeLog || []);
+    setPracticeEvidence(intelligence?.practiceEvidence || []);
 
     if (audit) {
       localStorage.setItem(scopedLearnerStorageKey(aiAuditKey, false), JSON.stringify(audit));
@@ -2598,6 +2603,64 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setMistakeLog(limited);
     saveIntelligenceState({ mistakeLog: limited });
     return limited;
+  }
+
+  function recordPracticeEvidence(attempt) {
+    if (!attempt) return;
+
+    const intelligence = readIntelligenceState(guestMode);
+    const previousEvidence = Array.isArray(intelligence.practiceEvidence)
+      ? intelligence.practiceEvidence
+      : practiceEvidence;
+    const nextEvidence = [attempt, ...(previousEvidence || [])]
+      .sort((a,b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0))
+      .slice(0, 40);
+
+    setPracticeEvidence(nextEvidence);
+    saveIntelligenceState({ practiceEvidence: nextEvidence });
+
+    const weak = practiceAttemptMistakeEvidence(attempt);
+    if (!weak || !Array.isArray(weak.options) || weak.options.length < 2) return;
+
+    const previousMistakes = Array.isArray(intelligence.mistakeLog)
+      ? intelligence.mistakeLog
+      : mistakeLog;
+    const reviewId = ["practice", attempt.source || "hallium_practice", attempt.sceneId || "scene", weak.skill].join("|");
+    const existing = (previousMistakes || []).find((item) => item.id === reviewId);
+    const now = attempt.createdAt || new Date().toISOString();
+    const misses = Number(existing?.misses || 0) + 1;
+    const schedule = adaptiveReviewSchedule({
+      correct: false,
+      successfulReviews: 0,
+      misses,
+      urgency: existing ? reviewUrgency(existing) : 0,
+      previousResult: existing?.lastResult || "wrong",
+    });
+
+    const nextEntry = {
+      ...existing,
+      ...weak,
+      id: reviewId,
+      source: attempt.source || "hallium_practice",
+      createdAt: existing?.createdAt || now,
+      lastSeenAt: now,
+      misses,
+      successfulReviews: 0,
+      intervalDays: schedule.intervalDays,
+      reviewStage: schedule.stage,
+      reviewStability: schedule.stability,
+      scheduleReason: schedule.reason,
+      nextReviewAt: now,
+    };
+
+    writeMistakeLog([nextEntry, ...(previousMistakes || []).filter((item) => item.id !== reviewId)]);
+    trackLearningEvent("practice_evidence_recorded", "practice:" + reviewId + ":" + now, {
+      source: nextEntry.source,
+      skill: nextEntry.skill,
+      score: attempt.score,
+      outcome: attempt.outcome,
+      register_match: attempt.registerMatch,
+    });
   }
 
   function recordQuestionOutcome(question, source, selectedIndex, correct, levelId = activeStudy.id) {
@@ -5942,7 +6005,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           {view === "testResult" && <StudyTestResult />}
           {view === "profile" && <Profile />}
           {view === "admin" && <AdminStudio />}
-          {view === "partner" && <PartnerKorean goBack={goBack} playKorean={playKorean} callIntelligence={callIntelligence} aiBusy={aiBusy} />}
+          {view === "partner" && <PartnerKorean goBack={goBack} playKorean={playKorean} callIntelligence={callIntelligence} aiBusy={aiBusy} onPracticeAttempt={recordPracticeEvidence} />}
         </section>
 
         {view === "admin"
