@@ -1,0 +1,17 @@
+{
+  "id": "listening-0258",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "예문을 하나 만들어 주세요.",
+  "cloze": "예문을 하나 _____ 주세요.",
+  "answer": "만들어",
+  "translation": "Please make one example sentence.",
+  "hint": "Listen for make.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
