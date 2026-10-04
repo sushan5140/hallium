@@ -1,0 +1,17 @@
+{
+  "id": "listening-0199",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "오른쪽으로 가세요.",
+  "cloze": "_____으로 가세요.",
+  "answer": "오른쪽",
+  "translation": "Go right.",
+  "hint": "Listen for right.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
