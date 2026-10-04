@@ -1,0 +1,17 @@
+{
+  "id": "listening-0152",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "저녁 먹었어?",
+  "cloze": "저녁 _____어?",
+  "answer": "먹었",
+  "translation": "Did you eat dinner?",
+  "hint": "Listen for ate.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
