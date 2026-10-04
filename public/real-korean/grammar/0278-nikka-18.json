@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0278",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "덥다",
+  "example": "더우니까 창문을 열어요.",
+  "translation": "Because it is hot, let's open the window.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 덥다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
