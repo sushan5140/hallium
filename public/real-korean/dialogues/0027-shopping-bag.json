@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0027",
+  "context": "shopping",
+  "level": "Beginner",
+  "situation": "Declining a bag",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "봉투 필요하세요?",
+      "romanization": "bongtu piryo haseyo?",
+      "meaning": "Do you need a bag?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "아니요, 괜찮아요.",
+      "romanization": "aniyo, gwaenchanayo.",
+      "meaning": "No, I'm okay."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Okay."
+    }
+  ],
+  "teachingPoint": "괜찮아요 can politely decline an offer.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
