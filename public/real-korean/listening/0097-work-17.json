@@ -1,0 +1,17 @@
+{
+  "id": "listening-0097",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "보고서 거의 다 썼어요.",
+  "cloze": "보고서 거의 다 _____어요.",
+  "answer": "썼",
+  "translation": "I almost finished writing the report.",
+  "hint": "Listen for wrote.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
