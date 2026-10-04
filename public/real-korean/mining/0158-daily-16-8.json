@@ -1,0 +1,16 @@
+{
+  "id": "mining-0158",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "일해요",
+  "gloss": "work",
+  "sentence": "가끔 일해요",
+  "translation": "Sometimes, I work.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you work using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
