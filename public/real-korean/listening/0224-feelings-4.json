@@ -1,0 +1,17 @@
+{
+  "id": "listening-0224",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "좀 걱정돼요.",
+  "cloze": "좀 _____돼요.",
+  "answer": "걱정",
+  "translation": "I am a bit worried.",
+  "hint": "Listen for worried.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
