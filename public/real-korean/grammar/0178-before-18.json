@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0178",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "문을 열다",
+  "example": "문을 열기 전에 노크해요.",
+  "translation": "I knock before opening the door.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 문을 열다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
