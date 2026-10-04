@@ -1,0 +1,16 @@
+{
+  "id": "mining-0245",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "쉬어요",
+  "gloss": "rest",
+  "sentence": "주말에 쉬어요",
+  "translation": "On the weekend, I rest.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you rest using 주말에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
