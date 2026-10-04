@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0143",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "배가 고프다",
+  "example": "배가 고프면 먼저 먹어요.",
+  "translation": "If you are hungry, eat first.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 배가 고프다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
