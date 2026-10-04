@@ -1,0 +1,17 @@
+{
+  "id": "reconstruction-0235",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "게임해요",
+    "주말에"
+  ],
+  "answer": "주말에 게임해요",
+  "translation": "On the weekend, I play games.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
