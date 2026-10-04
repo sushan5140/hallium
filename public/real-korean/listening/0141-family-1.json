@@ -1,0 +1,17 @@
+{
+  "id": "listening-0141",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "밥 다 됐어.",
+  "cloze": "밥 다 _____어.",
+  "answer": "됐",
+  "translation": "Dinner is ready.",
+  "hint": "Listen for ready/done.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
