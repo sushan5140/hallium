@@ -1,0 +1,17 @@
+{
+  "id": "listening-0102",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "지금 바빠?",
+  "cloze": "지금 _____?",
+  "answer": "바빠",
+  "translation": "Are you busy now?",
+  "hint": "Listen for busy.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
