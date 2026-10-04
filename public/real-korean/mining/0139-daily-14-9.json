@@ -1,0 +1,16 @@
+{
+  "id": "mining-0139",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "카페에 가요",
+  "gloss": "go to a cafe",
+  "sentence": "요즘 카페에 가요",
+  "translation": "These days, I go to a cafe.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you go to a cafe using 요즘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
