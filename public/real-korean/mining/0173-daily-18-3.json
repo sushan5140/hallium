@@ -1,0 +1,16 @@
+{
+  "id": "mining-0173",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "복습해요",
+  "gloss": "review",
+  "sentence": "아침에 복습해요",
+  "translation": "In the morning, I review.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you review using 아침에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
