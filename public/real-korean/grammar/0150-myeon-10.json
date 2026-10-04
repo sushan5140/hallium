@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0150",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "도착하다",
+  "example": "도착하면 전화해 주세요.",
+  "translation": "When you arrive, please call.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 도착하다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
