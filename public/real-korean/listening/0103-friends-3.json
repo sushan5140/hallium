@@ -1,0 +1,17 @@
+{
+  "id": "listening-0103",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "이따 통화할까?",
+  "cloze": "이따 _____할까?",
+  "answer": "통화",
+  "translation": "Shall we call later?",
+  "hint": "Listen for phone call.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
