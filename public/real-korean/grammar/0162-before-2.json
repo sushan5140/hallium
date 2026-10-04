@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0162",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "나가다",
+  "example": "나가기 전에 창문을 닫아요.",
+  "translation": "I close the window before going out.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 나가다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
