@@ -1,0 +1,16 @@
+{
+  "id": "mining-0020",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "책을 읽어요",
+  "gloss": "read a book",
+  "sentence": "시간이 있을 때 책을 읽어요",
+  "translation": "When I have time, I read a book.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you read a book using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
