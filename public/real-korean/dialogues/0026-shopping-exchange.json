@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0026",
+  "context": "shopping",
+  "level": "Intermediate",
+  "situation": "Exchanging an item",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "다른 사이즈로 교환하고 싶어요.",
+      "romanization": "dareun saijeuro gyohwanhago sipeoyo.",
+      "meaning": "I'd like to exchange it for another size."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "같은 제품으로 바꾸실 거예요?",
+      "romanization": "gateun jepumeuro bakkusil geoyeyo?",
+      "meaning": "Will you exchange it for the same product?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "네, 사이즈만 바꿀게요.",
+      "romanization": "ne, saijeuman bakkulgeyo.",
+      "meaning": "Yes, I'll only change the size."
+    }
+  ],
+  "teachingPoint": "N만 means only N.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
