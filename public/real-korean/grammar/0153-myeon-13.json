@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0153",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "싸다",
+  "example": "싸면 하나 살게요.",
+  "translation": "If it is cheap, I will buy one.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 싸다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
