@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0123",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "어렵다",
+  "example": "어렵지만 재미있어요.",
+  "translation": "It is difficult, but interesting.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 어렵다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
