@@ -1,0 +1,17 @@
+{
+  "id": "listening-0132",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "오늘 좀 쌀쌀해요.",
+  "cloze": "오늘 좀 _____해요.",
+  "answer": "쌀쌀",
+  "translation": "It is a little chilly today.",
+  "hint": "Listen for chilly.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
