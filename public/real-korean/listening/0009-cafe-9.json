@@ -1,0 +1,17 @@
+{
+  "id": "listening-0009",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "카드로 할게요.",
+  "cloze": "_____로 할게요.",
+  "answer": "카드",
+  "translation": "I will pay by card.",
+  "hint": "Listen for the payment method.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
