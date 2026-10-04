@@ -1,0 +1,17 @@
+{
+  "id": "listening-0106",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "사진 보내줘.",
+  "cloze": "사진 _____줘.",
+  "answer": "보내",
+  "translation": "Send me the photo.",
+  "hint": "Listen for send.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
