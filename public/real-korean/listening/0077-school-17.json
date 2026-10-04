@@ -1,0 +1,17 @@
+{
+  "id": "listening-0077",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "오늘 수업 재미있었어요.",
+  "cloze": "오늘 수업 _____었어요.",
+  "answer": "재미있",
+  "translation": "Today's class was interesting.",
+  "hint": "Listen for interesting.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
