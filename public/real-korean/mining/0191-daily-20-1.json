@@ -1,0 +1,16 @@
+{
+  "id": "mining-0191",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "이메일을 써요",
+  "gloss": "write an email",
+  "sentence": "오늘 이메일을 써요",
+  "translation": "Today, I write an email.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you write an email using 오늘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
