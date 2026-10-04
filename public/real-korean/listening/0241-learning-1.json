@@ -1,0 +1,17 @@
+{
+  "id": "listening-0241",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "한국어를 매일 공부해요.",
+  "cloze": "한국어를 매일 _____해요.",
+  "answer": "공부",
+  "translation": "I study Korean every day.",
+  "hint": "Listen for study.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
