@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0041",
+  "context": "work",
+  "level": "Low Intermediate",
+  "situation": "Confirming a meeting time",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "회의 몇 시에 시작해요?",
+      "romanization": "hoeui myeot sie sijakhaeyo?",
+      "meaning": "What time does the meeting start?"
+    },
+    {
+      "speaker": "B",
+      "korean": "두 시에 시작해요.",
+      "romanization": "du sie sijakhaeyo.",
+      "meaning": "It starts at 2."
+    },
+    {
+      "speaker": "A",
+      "korean": "네, 그때 뵐게요.",
+      "romanization": "ne, geuttae boelgeyo.",
+      "meaning": "Okay, see you then."
+    }
+  ],
+  "teachingPoint": "뵐게요 is a respectful form of 'I'll see you.'",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
