@@ -1,0 +1,20 @@
+{
+  "id": "pron-0128",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ae vs e",
+  "contrast": [
+    "ㅐ",
+    "ㅔ"
+  ],
+  "onset": "ㅇ",
+  "left": "애",
+  "right": "에",
+  "cue": "Practice the written contrast; many modern speakers pronounce these similarly.",
+  "prompt": "Say 애, then 에. Keep the onset ㅇ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
