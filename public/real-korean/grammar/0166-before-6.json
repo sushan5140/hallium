@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0166",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "전화하다",
+  "example": "전화하기 전에 메시지를 보내요.",
+  "translation": "I send a message before calling.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 전화하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
