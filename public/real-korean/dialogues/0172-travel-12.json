@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0172",
+  "context": "travel",
+  "level": "Beginner",
+  "situation": "Asking how to get to City Hall",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "시청에 어떻게 가요?",
+      "romanization": "sicheonge eotteoke gayo?",
+      "meaning": "How do I get to City Hall?"
+    },
+    {
+      "speaker": "Local",
+      "korean": "지하철로 가는 게 제일 편해요.",
+      "romanization": "jihacheollo ganeun ge jeil pyeonhaeyo.",
+      "meaning": "The subway is the easiest way."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "Place + 에 어떻게 가요? asks how to get somewhere.",
+  "tags": [
+    "travel",
+    "directions",
+    "real-korean",
+    "dialogue"
+  ]
+}
