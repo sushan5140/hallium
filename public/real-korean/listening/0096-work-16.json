@@ -1,0 +1,17 @@
+{
+  "id": "listening-0096",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "파일 이름 바꿨어요.",
+  "cloze": "파일 이름 _____어요.",
+  "answer": "바꿨",
+  "translation": "I changed the file name.",
+  "hint": "Listen for changed.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
