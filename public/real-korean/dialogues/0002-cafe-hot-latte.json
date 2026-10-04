@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0002",
+  "context": "cafe",
+  "level": "Beginner",
+  "situation": "Ordering a hot latte",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Staff",
+      "korean": "뭐 드릴까요?",
+      "romanization": "mwo deurilkkayo?",
+      "meaning": "What can I get you?"
+    },
+    {
+      "speaker": "Customer",
+      "korean": "따뜻한 라테 한 잔 주세요.",
+      "romanization": "ttatteuthan rate han jan juseyo.",
+      "meaning": "One hot latte, please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "네, 잠시만 기다려 주세요.",
+      "romanization": "ne, jamsiman gidaryeo juseyo.",
+      "meaning": "Sure, please wait a moment."
+    }
+  ],
+  "teachingPoint": "따뜻한 means warm/hot for drinks.",
+  "tags": [
+    "cafe",
+    "real-korean",
+    "dialogue"
+  ]
+}
