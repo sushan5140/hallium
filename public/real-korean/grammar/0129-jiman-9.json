@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0129",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "늦다",
+  "example": "늦었지만 아직 괜찮아요.",
+  "translation": "It is late, but it is still okay.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 늦다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
