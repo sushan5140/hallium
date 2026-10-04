@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0053",
+  "context": "friends",
+  "level": "Beginner",
+  "situation": "Suggesting a call later",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "이따 통화할까?",
+      "romanization": "itta tonghwahalkka?",
+      "meaning": "Shall we call later?"
+    },
+    {
+      "speaker": "B",
+      "korean": "좋아. 몇 시쯤?",
+      "romanization": "joa. myeot sijjeum?",
+      "meaning": "Sure. Around what time?"
+    },
+    {
+      "speaker": "A",
+      "korean": "아홉 시쯤 어때?",
+      "romanization": "ahop sijjeum eottae?",
+      "meaning": "How about around 9?"
+    }
+  ],
+  "teachingPoint": "쯤 means approximately/around.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
