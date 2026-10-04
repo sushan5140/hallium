@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0066",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "situation": "Talking about humidity",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 좀 답답하지 않아요?",
+      "romanization": "oneul jom dapdapaji anayo?",
+      "meaning": "Doesn't it feel a bit stuffy today?"
+    },
+    {
+      "speaker": "B",
+      "korean": "습도가 높아서 그런 것 같아요.",
+      "romanization": "seupdoga nopaseo geureon geot gatayo.",
+      "meaning": "I think it's because the humidity is high."
+    },
+    {
+      "speaker": "A",
+      "korean": "맞아요, 너무 습해요.",
+      "romanization": "majayo, neomu seuphaeyo.",
+      "meaning": "Right, it's so humid."
+    }
+  ],
+  "teachingPoint": "-아서/어서 그런 것 같아요 explains a likely cause.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
