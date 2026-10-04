@@ -1,0 +1,17 @@
+{
+  "id": "listening-0155",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "쓰레기 버렸어?",
+  "cloze": "쓰레기 _____어?",
+  "answer": "버렸",
+  "translation": "Did you take out the trash?",
+  "hint": "Listen for threw away.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
