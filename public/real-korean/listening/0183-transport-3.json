@@ -1,0 +1,17 @@
+{
+  "id": "listening-0183",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "여기 앉으세요.",
+  "cloze": "여기 _____으세요.",
+  "answer": "앉",
+  "translation": "Please sit here.",
+  "hint": "Listen for sit.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
