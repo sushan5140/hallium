@@ -1,0 +1,16 @@
+{
+  "id": "mining-0238",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "게임해요",
+  "gloss": "play games",
+  "sentence": "가끔 게임해요",
+  "translation": "Sometimes, I play games.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you play games using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
