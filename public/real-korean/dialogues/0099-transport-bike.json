@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0099",
+  "context": "transport",
+  "level": "Beginner",
+  "situation": "Renting a bike",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "자전거 빌릴 수 있어요?",
+      "romanization": "jajeongeo billil su isseoyo?",
+      "meaning": "Can I rent a bicycle?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 앱으로 대여하시면 돼요.",
+      "romanization": "ne, aebeuro daeyeohasimyeon dwaeyo.",
+      "meaning": "Yes, you can rent one through the app."
+    },
+    {
+      "speaker": "A",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "-(으)면 돼요 means you just need to / it's enough to.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
