@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0118",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "타요",
+    "지하철을",
+    "가끔"
+  ],
+  "answer": "가끔 지하철을 타요",
+  "translation": "Sometimes, I take the subway.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
