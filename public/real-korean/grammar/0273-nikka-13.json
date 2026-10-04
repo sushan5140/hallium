@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0273",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "어렵다",
+  "example": "어려우니까 같이 연습해요.",
+  "translation": "Because it is difficult, let's practice together.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 어렵다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
