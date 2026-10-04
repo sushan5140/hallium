@@ -1,0 +1,17 @@
+{
+  "id": "listening-0250",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "드라마로 표현을 배워요.",
+  "cloze": "드라마로 표현을 _____요.",
+  "answer": "배워",
+  "translation": "I learn expressions through dramas.",
+  "hint": "Listen for learn.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
