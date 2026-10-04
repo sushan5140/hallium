@@ -1,0 +1,17 @@
+{
+  "id": "listening-0174",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "베이킹 좋아해요.",
+  "cloze": "_____ 좋아해요.",
+  "answer": "베이킹",
+  "translation": "I like baking.",
+  "hint": "Listen for baking.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
