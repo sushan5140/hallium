@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0035",
+  "pattern": "-아/어야 해요",
+  "level": "Beginner",
+  "function": "Express obligation: have to / must",
+  "baseVerb": "찍다",
+  "example": "찍어야 해요",
+  "translation": "I have to take a photo.",
+  "note": "Attach -아/어야 해요 to a verb stem to say something is necessary.",
+  "prompt": "Use 찍다 with -아/어야 해요.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "beginner"
+  ]
+}
