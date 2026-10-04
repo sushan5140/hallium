@@ -1,0 +1,20 @@
+{
+  "id": "pron-0143",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eo vs o",
+  "contrast": [
+    "ㅓ",
+    "ㅗ"
+  ],
+  "onset": "ㄷ",
+  "left": "더",
+  "right": "도",
+  "cue": "Compare an unrounded/back-ish vowel with rounded ㅗ.",
+  "prompt": "Say 더, then 도. Keep the onset ㄷ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
