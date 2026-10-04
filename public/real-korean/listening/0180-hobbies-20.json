@@ -1,0 +1,17 @@
+{
+  "id": "listening-0180",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "드라마 보는 걸 좋아해요.",
+  "cloze": "드라마 _____ 걸 좋아해요.",
+  "answer": "보는",
+  "translation": "I like watching dramas.",
+  "hint": "Listen for the modifier of watch.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
