@@ -1,0 +1,20 @@
+{
+  "id": "pron-0165",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ya vs yeo",
+  "contrast": [
+    "ㅑ",
+    "ㅕ"
+  ],
+  "onset": "ㅁ",
+  "left": "먀",
+  "right": "며",
+  "cue": "Keep the y-glide and distinguish the vowel quality.",
+  "prompt": "Say 먀, then 며. Keep the onset ㅁ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
