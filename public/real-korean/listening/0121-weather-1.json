@@ -1,0 +1,17 @@
+{
+  "id": "listening-0121",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "오늘 비 와요?",
+  "cloze": "오늘 _____ 와요?",
+  "answer": "비",
+  "translation": "Is it raining today?",
+  "hint": "Listen for rain.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
