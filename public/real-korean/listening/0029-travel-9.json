@@ -1,0 +1,17 @@
+{
+  "id": "listening-0029",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "여기서 얼마나 걸려요?",
+  "cloze": "여기서 _____ 걸려요?",
+  "answer": "얼마나",
+  "translation": "How long does it take from here?",
+  "hint": "Listen for how much/how long.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
