@@ -1,0 +1,17 @@
+{
+  "id": "listening-0063",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "질문 하나 있어요.",
+  "cloze": "_____ 하나 있어요.",
+  "answer": "질문",
+  "translation": "I have one question.",
+  "hint": "Listen for question.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
