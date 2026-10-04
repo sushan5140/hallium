@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0126",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "덥다",
+  "example": "덥지만 바람이 불어요.",
+  "translation": "It is hot, but windy.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 덥다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
