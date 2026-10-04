@@ -1,0 +1,20 @@
+{
+  "id": "pron-0089",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅅ",
+    "ㅆ"
+  ],
+  "vowel": "ㅑ",
+  "left": "샤",
+  "right": "쌰",
+  "cue": "Notice the tenser hiss on ㅆ.",
+  "prompt": "Say 샤, then 쌰. Keep the vowel ㅑ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
