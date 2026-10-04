@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0052",
+  "pattern": "-(으)ㄹ 수 있어요",
+  "level": "Beginner",
+  "function": "Express ability or possibility",
+  "baseVerb": "만들다",
+  "example": "만들 수 있어요",
+  "translation": "I can make it.",
+  "note": "Attach -(으)ㄹ 수 있어요 to a verb stem to express ability or possibility.",
+  "prompt": "Use 만들다 with -(으)ㄹ 수 있어요.",
+  "tags": [
+    "grammar",
+    "ability",
+    "beginner"
+  ]
+}
