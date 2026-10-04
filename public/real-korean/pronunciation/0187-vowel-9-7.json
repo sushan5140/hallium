@@ -1,0 +1,20 @@
+{
+  "id": "pron-0187",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㅅ",
+  "left": "솨",
+  "right": "숴",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 솨, then 숴. Keep the onset ㅅ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
