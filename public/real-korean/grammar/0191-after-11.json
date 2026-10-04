@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0191",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "책을 읽다",
+  "example": "책을 읽고 나서 메모했어요.",
+  "translation": "After reading the book, I took notes.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 책을 읽다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
