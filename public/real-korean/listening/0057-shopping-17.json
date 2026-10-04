@@ -1,0 +1,17 @@
+{
+  "id": "listening-0057",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "이걸로 할게요.",
+  "cloze": "_____ 할게요.",
+  "answer": "이걸로",
+  "translation": "I will take this one.",
+  "hint": "Listen for this one.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
