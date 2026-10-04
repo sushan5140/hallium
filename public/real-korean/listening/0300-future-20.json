@@ -1,0 +1,17 @@
+{
+  "id": "listening-0300",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "곧 다시 올게요.",
+  "cloze": "곧 다시 _____게요.",
+  "answer": "올",
+  "translation": "I will come again soon.",
+  "hint": "Listen for come.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
