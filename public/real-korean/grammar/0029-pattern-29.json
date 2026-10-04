@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0029",
+  "pattern": "-아/어야 해요",
+  "level": "Beginner",
+  "function": "Express obligation: have to / must",
+  "baseVerb": "쉬다",
+  "example": "쉬어야 해요",
+  "translation": "I have to rest.",
+  "note": "Attach -아/어야 해요 to a verb stem to say something is necessary.",
+  "prompt": "Use 쉬다 with -아/어야 해요.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "beginner"
+  ]
+}
