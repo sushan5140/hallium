@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0095",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "situation": "Finding the right subway exit",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "박물관은 몇 번 출구로 나가야 해요?",
+      "romanization": "bangmulgwaneun myeot beon chulguro nagaya haeyo?",
+      "meaning": "Which exit should I take for the museum?"
+    },
+    {
+      "speaker": "B",
+      "korean": "삼 번 출구로 나가세요.",
+      "romanization": "sam beon chulguro nagaseyo.",
+      "meaning": "Go out through Exit 3."
+    },
+    {
+      "speaker": "A",
+      "korean": "네, 감사합니다.",
+      "romanization": "ne, gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "출구 means exit; N(으)로 marks direction/route.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
