@@ -1,0 +1,16 @@
+{
+  "id": "mining-0240",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "게임해요",
+  "gloss": "play games",
+  "sentence": "시간이 있을 때 게임해요",
+  "translation": "When I have time, I play games.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you play games using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
