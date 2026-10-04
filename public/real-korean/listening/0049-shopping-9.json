@@ -1,0 +1,17 @@
+{
+  "id": "listening-0049",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "카드 돼요?",
+  "cloze": "_____ 돼요?",
+  "answer": "카드",
+  "translation": "Can I pay by card?",
+  "hint": "Listen for payment method.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
