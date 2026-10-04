@@ -1,0 +1,17 @@
+{
+  "id": "listening-0145",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "이번 주말에 어디 갈까?",
+  "cloze": "이번 주말에 어디 _____까?",
+  "answer": "갈",
+  "translation": "Where should we go this weekend?",
+  "hint": "Listen for go.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
