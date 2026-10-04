@@ -1,0 +1,17 @@
+{
+  "id": "listening-0212",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "운동을 해요.",
+  "cloze": "_____을 해요.",
+  "answer": "운동",
+  "translation": "I exercise.",
+  "hint": "Listen for exercise.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
