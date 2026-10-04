@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0197",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "옷을 갈아입다",
+  "example": "옷을 갈아입고 나서 나갔어요.",
+  "translation": "After changing clothes, I went out.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 옷을 갈아입다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
