@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0138",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "가깝다",
+  "example": "가깝지만 길이 복잡해요.",
+  "translation": "It is close, but the route is complicated.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 가깝다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
