@@ -1,0 +1,20 @@
+{
+  "id": "pron-0167",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ya vs yeo",
+  "contrast": [
+    "ㅑ",
+    "ㅕ"
+  ],
+  "onset": "ㅅ",
+  "left": "샤",
+  "right": "셔",
+  "cue": "Keep the y-glide and distinguish the vowel quality.",
+  "prompt": "Say 샤, then 셔. Keep the onset ㅅ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
