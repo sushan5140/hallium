@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0097",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "situation": "Asking approximate taxi fare",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "여기서 공항까지 택시비가 얼마나 나와요?",
+      "romanization": "yeogiseo gonghangkkaji taeksibiga eolmana nawayo?",
+      "meaning": "About how much is a taxi from here to the airport?"
+    },
+    {
+      "speaker": "B",
+      "korean": "보통 오만 원 정도 나와요.",
+      "romanization": "botong oman won jeongdo nawayo.",
+      "meaning": "Usually around 50,000 won."
+    },
+    {
+      "speaker": "A",
+      "korean": "알겠습니다.",
+      "romanization": "algetseumnida.",
+      "meaning": "Got it."
+    }
+  ],
+  "teachingPoint": "비가 나오다 is used for a cost/charge coming to an amount.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
