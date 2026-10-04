@@ -1,0 +1,17 @@
+{
+  "id": "listening-0123",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "오늘 정말 덥네요.",
+  "cloze": "오늘 정말 _____네요.",
+  "answer": "덥",
+  "translation": "It is really hot today.",
+  "hint": "Listen for hot.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
