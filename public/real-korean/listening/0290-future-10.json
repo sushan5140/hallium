@@ -1,0 +1,17 @@
+{
+  "id": "listening-0290",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "주말에 방을 정리할게요.",
+  "cloze": "주말에 방을 _____할게요.",
+  "answer": "정리",
+  "translation": "I will organize my room this weekend.",
+  "hint": "Listen for organize.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
