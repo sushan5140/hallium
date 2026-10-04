@@ -1,0 +1,17 @@
+{
+  "id": "listening-0020",
+  "context": "cafe",
+  "level": "Low Intermediate",
+  "fullSentence": "추천 메뉴가 뭐예요?",
+  "cloze": "_____ 메뉴가 뭐예요?",
+  "answer": "추천",
+  "translation": "What is the recommended menu?",
+  "hint": "Listen for the word meaning recommendation.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
