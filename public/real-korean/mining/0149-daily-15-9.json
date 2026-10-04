@@ -1,0 +1,16 @@
+{
+  "id": "mining-0149",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "숙제를 해요",
+  "gloss": "do homework",
+  "sentence": "요즘 숙제를 해요",
+  "translation": "These days, I do homework.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you do homework using 요즘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
