@@ -1,0 +1,20 @@
+{
+  "id": "pron-0036",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㄷ",
+    "ㄸ"
+  ],
+  "vowel": "ㅣ",
+  "left": "디",
+  "right": "띠",
+  "cue": "Notice tighter articulation on ㄸ.",
+  "prompt": "Say 디, then 띠. Keep the vowel ㅣ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
