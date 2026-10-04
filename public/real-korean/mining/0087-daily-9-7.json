@@ -1,0 +1,16 @@
+{
+  "id": "mining-0087",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "커피를 마셔요",
+  "gloss": "drink coffee",
+  "sentence": "자주 커피를 마셔요",
+  "translation": "Often, I drink coffee.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you drink coffee using 자주.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
