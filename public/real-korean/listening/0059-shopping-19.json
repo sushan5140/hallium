@@ -1,0 +1,17 @@
+{
+  "id": "listening-0059",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "포인트 적립돼요?",
+  "cloze": "포인트 _____돼요?",
+  "answer": "적립",
+  "translation": "Can I collect points?",
+  "hint": "Listen for accumulation/points.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
