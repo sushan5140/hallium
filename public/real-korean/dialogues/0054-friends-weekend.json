@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0054",
+  "context": "friends",
+  "level": "Low Intermediate",
+  "situation": "Making weekend plans",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "주말에 뭐 해?",
+      "romanization": "jumare mwo hae?",
+      "meaning": "What are you doing this weekend?"
+    },
+    {
+      "speaker": "B",
+      "korean": "아직 별 계획 없어.",
+      "romanization": "ajik byeol gyehoek eopseo.",
+      "meaning": "I don't really have plans yet."
+    },
+    {
+      "speaker": "A",
+      "korean": "그럼 영화 보러 갈래?",
+      "romanization": "geureom yeonghwa boreo gallae?",
+      "meaning": "Then want to go see a movie?"
+    }
+  ],
+  "teachingPoint": "-러 가다 expresses going somewhere to do something.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
