@@ -1,0 +1,17 @@
+{
+  "id": "listening-0223",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "정말 기뻐요.",
+  "cloze": "정말 _____요.",
+  "answer": "기뻐",
+  "translation": "I am really happy.",
+  "hint": "Listen for happy.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
