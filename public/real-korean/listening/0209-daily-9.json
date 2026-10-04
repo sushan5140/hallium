@@ -1,0 +1,17 @@
+{
+  "id": "listening-0209",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "집에 와요.",
+  "cloze": "집에 _____요.",
+  "answer": "와",
+  "translation": "I come home.",
+  "hint": "Listen for come.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
