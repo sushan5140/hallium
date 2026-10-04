@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0279",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "춥다",
+  "example": "추우니까 따뜻하게 입으세요.",
+  "translation": "Because it is cold, dress warmly.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 춥다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
