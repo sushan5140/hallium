@@ -1,0 +1,17 @@
+{
+  "id": "listening-0227",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "신나요.",
+  "cloze": "_____요.",
+  "answer": "신나",
+  "translation": "I am excited.",
+  "hint": "Listen for excited.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
