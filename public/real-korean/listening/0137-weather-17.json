@@ -1,0 +1,17 @@
+{
+  "id": "listening-0137",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "오늘 바람이 세요.",
+  "cloze": "오늘 바람이 _____요.",
+  "answer": "세",
+  "translation": "The wind is strong today.",
+  "hint": "Listen for strong.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
