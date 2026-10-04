@@ -1,0 +1,17 @@
+{
+  "id": "listening-0062",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "연필 좀 빌려줄 수 있어요?",
+  "cloze": "연필 좀 _____줄 수 있어요?",
+  "answer": "빌려",
+  "translation": "Could you lend me a pencil?",
+  "hint": "Listen for lend.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
