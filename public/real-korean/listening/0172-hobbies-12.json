@@ -1,0 +1,17 @@
+{
+  "id": "listening-0172",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "기타를 칠 수 있어요.",
+  "cloze": "기타를 _____ 수 있어요.",
+  "answer": "칠",
+  "translation": "I can play guitar.",
+  "hint": "Listen for play an instrument.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
