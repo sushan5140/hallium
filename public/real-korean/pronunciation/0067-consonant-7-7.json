@@ -1,0 +1,20 @@
+{
+  "id": "pron-0067",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs aspirated",
+  "contrast": [
+    "ㅈ",
+    "ㅊ"
+  ],
+  "vowel": "ㅐ",
+  "left": "재",
+  "right": "채",
+  "cue": "Notice stronger airflow on ㅊ.",
+  "prompt": "Say 재, then 채. Keep the vowel ㅐ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
