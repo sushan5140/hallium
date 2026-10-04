@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0044",
+  "context": "work",
+  "level": "Beginner",
+  "situation": "Suggesting a short break",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "잠깐 쉴까요?",
+      "romanization": "jamkkan swilkkayo?",
+      "meaning": "Shall we take a short break?"
+    },
+    {
+      "speaker": "B",
+      "korean": "좋아요. 커피 마실래요?",
+      "romanization": "joayo. keopi masillaeyo?",
+      "meaning": "Sure. Want some coffee?"
+    },
+    {
+      "speaker": "A",
+      "korean": "네, 좋아요.",
+      "romanization": "ne, joayo.",
+      "meaning": "Yes, sounds good."
+    }
+  ],
+  "teachingPoint": "-(으)ㄹ까요? makes a collaborative suggestion.",
+  "tags": [
+    "work",
+    "real-korean",
+    "dialogue"
+  ]
+}
