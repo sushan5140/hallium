@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0268",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "사람이 많다",
+  "example": "사람이 많으니까 다른 곳에 가요.",
+  "translation": "Because it is crowded, let's go somewhere else.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 사람이 많다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
