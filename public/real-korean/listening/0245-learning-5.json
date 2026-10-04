@@ -1,0 +1,17 @@
+{
+  "id": "listening-0245",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "받아쓰기를 해요.",
+  "cloze": "_____를 해요.",
+  "answer": "받아쓰기",
+  "translation": "I do dictation.",
+  "hint": "Listen for dictation.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
