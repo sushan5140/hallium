@@ -1,0 +1,17 @@
+{
+  "id": "listening-0177",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "주말마다 자전거 타요.",
+  "cloze": "주말마다 자전거 _____요.",
+  "answer": "타",
+  "translation": "I ride a bike every weekend.",
+  "hint": "Listen for ride.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
