@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0072",
+  "context": "family",
+  "level": "Beginner",
+  "situation": "Asking when someone will be home",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 몇 시에 와?",
+      "romanization": "oneul myeot sie wa?",
+      "meaning": "What time are you coming home today?"
+    },
+    {
+      "speaker": "B",
+      "korean": "아마 여덟 시쯤.",
+      "romanization": "ama yeodeol sijjeum.",
+      "meaning": "Probably around 8."
+    },
+    {
+      "speaker": "A",
+      "korean": "알겠어.",
+      "romanization": "algesseo.",
+      "meaning": "Okay."
+    }
+  ],
+  "teachingPoint": "아마 means probably.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
