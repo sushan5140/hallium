@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0084",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "situation": "Talking about cooking",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "요리하는 거 좋아해요?",
+      "romanization": "yorihaneun geo joahaeyo?",
+      "meaning": "Do you like cooking?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 주말에 자주 해요.",
+      "romanization": "ne, jumare jaju haeyo.",
+      "meaning": "Yes, I often cook on weekends."
+    },
+    {
+      "speaker": "A",
+      "korean": "제일 잘하는 요리가 뭐예요?",
+      "romanization": "jeil jalhaneun yoriga mwoyeyo?",
+      "meaning": "What dish do you make best?"
+    }
+  ],
+  "teachingPoint": "V-는 거 nominalizes an action in everyday speech.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
