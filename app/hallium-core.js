@@ -1506,6 +1506,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const [dictationInput, setDictationInput] = useState("");
   const [dictationChecked, setDictationChecked] = useState(false);
   const [shadowDone, setShadowDone] = useState(false);
+  const [lessonRetryCount, setLessonRetryCount] = useState(0);
   const [notice, setNotice] = useState("");
   const [studyTestIndex, setStudyTestIndex] = useState(0);
   const [studyTestChoice, setStudyTestChoice] = useState(null);
@@ -3046,6 +3047,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setDictationInput("");
     setDictationChecked(false);
     setShadowDone(false);
+    setLessonRetryCount(0);
   }
   function openLesson(id) {
     const lesson = lessons.find((item) => item.id === id);
@@ -4153,6 +4155,81 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     return null;
   }
 
+  function recordCompanionStepAttempt(step) {
+    if (!currentLesson || !step) return;
+
+    const base = {
+      id: [currentLesson.id, stepIndex, step.kind, Date.now()].join(":"),
+      sceneId: currentLesson.id,
+      retries: lessonRetryCount,
+      source: "companion_lesson",
+    };
+
+    if (["choice", "listening", "reading"].includes(step.kind)) {
+      if (choiceIndex === null || choiceIndex === undefined) return;
+      const correct = choiceIndex === step.answer;
+      recordPracticeEvidence(buildPracticeAttempt({
+        ...base,
+        mode: "lesson_" + step.kind,
+        skill: step.kind === "listening" ? "Listening" : step.kind === "reading" ? "Reading" : "Grammar",
+        prompt: step.prompt || currentLesson.title,
+        response: step.options?.[choiceIndex] || "",
+        expected: step.options?.[step.answer] || "",
+        choices: step.options || [],
+        correct,
+      }));
+      setChecked(true);
+      return;
+    }
+
+    if (step.kind === "build") {
+      const response = buildPhrase(step);
+      recordPracticeEvidence(buildPracticeAttempt({
+        ...base,
+        mode: "lesson_build",
+        skill: "Sentence building",
+        prompt: step.prompt || currentLesson.title,
+        response,
+        expected: step.answer || "",
+        correct: response === step.answer,
+      }));
+      setChecked(true);
+      return;
+    }
+
+    if (step.kind === "dictation") {
+      const response = dictationInput.trim();
+      recordPracticeEvidence(buildPracticeAttempt({
+        ...base,
+        mode: "lesson_dictation",
+        skill: "Listening recall",
+        prompt: step.prompt || currentLesson.title,
+        response,
+        expected: step.answer || "",
+        correct: dictationCorrect(step),
+      }));
+      setDictationChecked(true);
+    }
+  }
+
+  function retryCompanionStep(kind) {
+    setLessonRetryCount((count) => count + 1);
+    if (kind === "choice") {
+      setChecked(false);
+      setChoiceIndex(null);
+      return;
+    }
+    if (kind === "build") {
+      setChecked(false);
+      setBuildTokens([]);
+      return;
+    }
+    if (kind === "dictation") {
+      setDictationChecked(false);
+      setDictationInput("");
+    }
+  }
+
   function Lesson() {
     if (!currentLesson || !currentStep) return null;
     const isChoice = ["choice", "listening", "reading"].includes(currentStep.kind);
@@ -4210,22 +4287,22 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <button className="quiet-button" onClick={goBack}>Leave lesson</button>
             <div style={{ display: "flex", gap: 8 }}>
               {isChoice && !checked && (
-                <button className="check-button" disabled={choiceIndex === null} onClick={() => setChecked(true)}>Check answer</button>
+                <button className="check-button" disabled={choiceIndex === null} onClick={() => recordCompanionStepAttempt(currentStep)}>Check answer</button>
               )}
               {isChoice && checked && choiceIndex !== currentStep.answer && (
-                <button className="quiet-button" onClick={() => { setChecked(false); setChoiceIndex(null); }}>Try again</button>
+                <button className="quiet-button" onClick={() => retryCompanionStep("choice")}>Try again</button>
               )}
               {isBuild && !checked && (
-                <button className="check-button" disabled={!buildTokens.length} onClick={() => setChecked(true)}>Check sentence</button>
+                <button className="check-button" disabled={!buildTokens.length} onClick={() => recordCompanionStepAttempt(currentStep)}>Check sentence</button>
               )}
               {isBuild && checked && !buildCorrect(currentStep) && (
-                <button className="quiet-button" onClick={() => { setChecked(false); setBuildTokens([]); }}>Try again</button>
+                <button className="quiet-button" onClick={() => retryCompanionStep("build")}>Try again</button>
               )}
               {isDictation && !dictationChecked && (
-                <button className="check-button" disabled={!dictationInput.trim()} onClick={() => setDictationChecked(true)}>Check dictation</button>
+                <button className="check-button" disabled={!dictationInput.trim()} onClick={() => recordCompanionStepAttempt(currentStep)}>Check dictation</button>
               )}
               {isDictation && dictationChecked && !dictationCorrect(currentStep) && (
-                <button className="quiet-button" onClick={() => setDictationChecked(false)}>Try again</button>
+                <button className="quiet-button" onClick={() => retryCompanionStep("dictation")}>Try again</button>
               )}
               {isShadowing && !shadowDone && (
                 <button className="check-button" onClick={() => setShadowDone(true)}>I repeated it aloud</button>
