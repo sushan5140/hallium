@@ -1,0 +1,20 @@
+{
+  "id": "pron-0161",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ya vs yeo",
+  "contrast": [
+    "ㅑ",
+    "ㅕ"
+  ],
+  "onset": "ㄱ",
+  "left": "갸",
+  "right": "겨",
+  "cue": "Keep the y-glide and distinguish the vowel quality.",
+  "prompt": "Say 갸, then 겨. Keep the onset ㄱ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
