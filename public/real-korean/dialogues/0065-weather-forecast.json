@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0065",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "situation": "Checking tomorrow's weather",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "내일 날씨 어때요?",
+      "romanization": "naeil nalssi eottaeyo?",
+      "meaning": "How's the weather tomorrow?"
+    },
+    {
+      "speaker": "B",
+      "korean": "맑고 따뜻할 거래요.",
+      "romanization": "malgo ttatteuthal georaeyo.",
+      "meaning": "They say it'll be clear and warm."
+    },
+    {
+      "speaker": "A",
+      "korean": "밖에 나가기 좋겠네요.",
+      "romanization": "bakke nagagi jotgenneyo.",
+      "meaning": "Sounds like good weather to go out."
+    }
+  ],
+  "teachingPoint": "-고 links descriptive verbs naturally.",
+  "tags": [
+    "weather",
+    "real-korean",
+    "dialogue"
+  ]
+}
