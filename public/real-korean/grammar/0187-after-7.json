@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0187",
+  "pattern": "-고 나서",
+  "level": "Low Intermediate",
+  "function": "Express after doing one action",
+  "baseForm": "회의하다",
+  "example": "회의하고 나서 메일을 보냈어요.",
+  "translation": "After the meeting, I sent an email.",
+  "note": "Use V-고 나서 to emphasize that one action happens after another is completed.",
+  "prompt": "Make an after-sentence with 회의하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
