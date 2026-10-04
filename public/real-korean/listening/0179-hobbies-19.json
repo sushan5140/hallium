@@ -1,0 +1,17 @@
+{
+  "id": "listening-0179",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "fullSentence": "뜨개질 배우고 있어요.",
+  "cloze": "_____ 배우고 있어요.",
+  "answer": "뜨개질",
+  "translation": "I am learning knitting.",
+  "hint": "Listen for knitting.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
