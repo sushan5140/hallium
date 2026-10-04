@@ -1,0 +1,17 @@
+{
+  "id": "listening-0067",
+  "context": "school",
+  "level": "Beginner",
+  "fullSentence": "이 책 어디에 있어요?",
+  "cloze": "이 책 _____에 있어요?",
+  "answer": "어디",
+  "translation": "Where is this book?",
+  "hint": "Listen for location question.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
