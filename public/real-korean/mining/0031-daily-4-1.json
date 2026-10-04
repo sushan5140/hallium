@@ -1,0 +1,16 @@
+{
+  "id": "mining-0031",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "드라마를 봐요",
+  "gloss": "watch a drama",
+  "sentence": "오늘 드라마를 봐요",
+  "translation": "Today, I watch a drama.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you watch a drama using 오늘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
