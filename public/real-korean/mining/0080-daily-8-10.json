@@ -1,0 +1,16 @@
+{
+  "id": "mining-0080",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "산책해요",
+  "gloss": "take a walk",
+  "sentence": "시간이 있을 때 산책해요",
+  "translation": "When I have time, I take a walk.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take a walk using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
