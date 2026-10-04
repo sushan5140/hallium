@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0037",
+  "context": "school",
+  "level": "Beginner",
+  "situation": "Finding a book in the library",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "이 책 어디에 있어요?",
+      "romanization": "i chaek eodie isseoyo?",
+      "meaning": "Where is this book?"
+    },
+    {
+      "speaker": "Librarian",
+      "korean": "이층 한국어 코너에 있어요.",
+      "romanization": "icheung hangugeo koneoe isseoyo.",
+      "meaning": "It's in the Korean section on the second floor."
+    },
+    {
+      "speaker": "Student",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "N에 있어요 locates something.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
