@@ -1,0 +1,17 @@
+{
+  "id": "listening-0225",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "괜찮아요.",
+  "cloze": "_____아요.",
+  "answer": "괜찮",
+  "translation": "I am okay.",
+  "hint": "Listen for okay.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
