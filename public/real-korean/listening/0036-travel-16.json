@@ -1,0 +1,17 @@
+{
+  "id": "listening-0036",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "이쪽으로 가면 돼요.",
+  "cloze": "_____으로 가면 돼요.",
+  "answer": "이쪽",
+  "translation": "You can go this way.",
+  "hint": "Listen for this direction.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
