@@ -1,0 +1,17 @@
+{
+  "id": "listening-0243",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "문법을 복습해요.",
+  "cloze": "문법을 _____해요.",
+  "answer": "복습",
+  "translation": "I review grammar.",
+  "hint": "Listen for review.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
