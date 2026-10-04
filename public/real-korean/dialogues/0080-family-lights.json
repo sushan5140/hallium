@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0080",
+  "context": "family",
+  "level": "Beginner",
+  "situation": "Reminding someone to turn off the lights",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "나갈 때 불 꺼 줘.",
+      "romanization": "nagal ttae bul kkeo jwo.",
+      "meaning": "Turn off the light when you leave."
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 알겠어.",
+      "romanization": "eung, algesseo.",
+      "meaning": "Yeah, got it."
+    },
+    {
+      "speaker": "A",
+      "korean": "문도 닫아 줘.",
+      "romanization": "mundo dada jwo.",
+      "meaning": "Close the door too."
+    }
+  ],
+  "teachingPoint": "-을 때 means when doing something.",
+  "tags": [
+    "family",
+    "real-korean",
+    "dialogue"
+  ]
+}
