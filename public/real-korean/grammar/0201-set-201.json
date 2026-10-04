@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0201",
+  "pattern": "-(으)면서",
+  "level": "Low Intermediate",
+  "function": "Express two actions happening at the same time",
+  "baseForm": "음악을 듣다",
+  "example": "음악을 들으면서 공부해요.",
+  "translation": "I study while listening to music.",
+  "note": "Use V-(으)면서 when one subject does two actions at the same time.",
+  "prompt": "Make a sentence with 음악을 듣다 using -(으)면서.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "low-intermediate"
+  ]
+}
