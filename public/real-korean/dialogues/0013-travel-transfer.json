@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0013",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "situation": "Asking where to transfer",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "어디에서 갈아타야 해요?",
+      "romanization": "eodieseo garataya haeyo?",
+      "meaning": "Where do I need to transfer?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "시청역에서 갈아타세요.",
+      "romanization": "sicheongyeogeseo garataseyo.",
+      "meaning": "Transfer at City Hall Station."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Okay, got it."
+    }
+  ],
+  "teachingPoint": "갈아타다 means to transfer between vehicles/lines.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
