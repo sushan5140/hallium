@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0088",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "situation": "Talking about dance practice",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "오늘 연습 있어?",
+      "romanization": "oneul yeonseup isseo?",
+      "meaning": "Do you have practice today?"
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 저녁에 두 시간 연습해.",
+      "romanization": "eung, jeonyeoge du sigan yeonseuphae.",
+      "meaning": "Yeah, I practice for two hours in the evening."
+    },
+    {
+      "speaker": "A",
+      "korean": "힘들겠다.",
+      "romanization": "himdeulgetda.",
+      "meaning": "That sounds tiring."
+    }
+  ],
+  "teachingPoint": "-겠다 can express an inference or reaction.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
