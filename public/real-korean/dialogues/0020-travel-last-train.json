@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0020",
+  "context": "travel",
+  "level": "Intermediate",
+  "situation": "Checking the last train",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "막차가 몇 시예요?",
+      "romanization": "makchaga myeot siyeyo?",
+      "meaning": "What time is the last train?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "열두 시 십 분이에요.",
+      "romanization": "yeoldu si sip bunieyo.",
+      "meaning": "It's at 12:10."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "아직 시간 있네요.",
+      "romanization": "ajik sigan inneyo.",
+      "meaning": "I still have time."
+    }
+  ],
+  "teachingPoint": "막차 means the last train/bus of the day.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
