@@ -19,7 +19,7 @@ import {
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
-import { buildPracticeAttempt, practiceAttemptMistakeEvidence, summarizePracticeEvidence } from "../lib/practice-engine";
+import { applyEvidenceAwarePracticeRoute, buildPracticeAttempt, practiceAttemptMistakeEvidence, recommendNextPractice, summarizePracticeEvidence } from "../lib/practice-engine";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1933,7 +1933,16 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   });
 
   const safeLearningRoute = enforceLearningPlanSafety(learningRouteRecord?.result || fallbackLearningRoute, fallbackLearningRoute);
-  const activeLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
+  const sessionLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
+  const evidencePracticeRecommendation = recommendNextPractice({
+    attempts: practiceEvidence,
+    dueCount: dueMistakes.length,
+  });
+  const activeLearningRoute = applyEvidenceAwarePracticeRoute(
+    sessionLearningRoute,
+    evidencePracticeRecommendation,
+    dueMistakes.length,
+  );
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
@@ -2434,6 +2443,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         current: lesson.current,
       })),
       aiPracticeHistory: readIntelligenceState(guestMode).practiceHistory || [],
+      practiceEvidence: {
+        summary: summarizePracticeEvidence(practiceEvidence),
+        nextPractice: evidencePracticeRecommendation,
+      },
       mistakeMemory: {
         dueCount: dueMistakes.length,
         topWeakSkills,
@@ -2895,6 +2908,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       navigate("review");
       return;
     }
+    if (kind === "real_korean") {
+      navigate("partner");
+      return;
+    }
     if (kind === "adaptive_review") {
       navigate("profile");
       await generateIntelligenceQuiz("review");
@@ -3352,7 +3369,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const routeLabels = {
       companion: "Continue lesson", vocab: "Open vocabulary", grammar: "Open grammar",
       test: "Start study check", review_queue: "Open review",
-      adaptive_review: "Adaptive practice", checkpoint: "Open checkpoint",
+      adaptive_review: "Adaptive practice", checkpoint: "Open checkpoint", real_korean: "Open Real Korean",
     };
     return (
       <aside className="lesson-rail home-rail" aria-label="Today's study plan and curriculum">
