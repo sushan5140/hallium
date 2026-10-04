@@ -1,0 +1,17 @@
+{
+  "id": "listening-0095",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "오늘 재택근무해요.",
+  "cloze": "오늘 _____근무해요.",
+  "answer": "재택",
+  "translation": "I am working from home today.",
+  "hint": "Listen for remote/home work.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
