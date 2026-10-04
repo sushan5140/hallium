@@ -1,0 +1,17 @@
+{
+  "id": "listening-0185",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "몇 번 출구로 나가야 해요?",
+  "cloze": "몇 번 _____로 나가야 해요?",
+  "answer": "출구",
+  "translation": "Which exit should I take?",
+  "hint": "Listen for exit.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
