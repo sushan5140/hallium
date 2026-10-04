@@ -1,0 +1,17 @@
+{
+  "id": "listening-0189",
+  "context": "transport",
+  "level": "Beginner",
+  "fullSentence": "자전거 빌릴 수 있어요?",
+  "cloze": "자전거 _____ 수 있어요?",
+  "answer": "빌릴",
+  "translation": "Can I rent a bicycle?",
+  "hint": "Listen for rent/borrow.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
