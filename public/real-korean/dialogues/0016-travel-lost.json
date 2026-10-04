@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0016",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "situation": "Saying you are lost",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "길을 잃었어요.",
+      "romanization": "gireul ireosseoyo.",
+      "meaning": "I'm lost."
+    },
+    {
+      "speaker": "Local",
+      "korean": "어디로 가세요?",
+      "romanization": "eodiro gaseyo?",
+      "meaning": "Where are you going?"
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "경복궁에 가려고 해요.",
+      "romanization": "gyeongbokgunge garyeogo haeyo.",
+      "meaning": "I'm trying to go to Gyeongbokgung."
+    }
+  ],
+  "teachingPoint": "-(으)려고 해요 expresses an intended action.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
