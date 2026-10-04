@@ -1,0 +1,20 @@
+{
+  "id": "pron-0134",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eu vs u",
+  "contrast": [
+    "ㅡ",
+    "ㅜ"
+  ],
+  "onset": "ㄹ",
+  "left": "르",
+  "right": "루",
+  "cue": "ㅡ is unrounded; ㅜ is rounded.",
+  "prompt": "Say 르, then 루. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
