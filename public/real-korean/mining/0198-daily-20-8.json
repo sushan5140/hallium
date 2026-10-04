@@ -1,0 +1,16 @@
+{
+  "id": "mining-0198",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "이메일을 써요",
+  "gloss": "write an email",
+  "sentence": "가끔 이메일을 써요",
+  "translation": "Sometimes, I write an email.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you write an email using 가끔.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
