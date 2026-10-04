@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0152",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "사람이 많다",
+  "example": "사람이 많으면 다른 데 가요.",
+  "translation": "If it is crowded, let's go elsewhere.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 사람이 많다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
