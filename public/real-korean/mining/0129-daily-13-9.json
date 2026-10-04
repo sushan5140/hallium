@@ -1,0 +1,16 @@
+{
+  "id": "mining-0129",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "시장에 가요",
+  "gloss": "go to the market",
+  "sentence": "요즘 시장에 가요",
+  "translation": "These days, I go to the market.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you go to the market using 요즘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
