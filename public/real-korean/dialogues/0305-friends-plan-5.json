@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0305",
+  "context": "friends",
+  "level": "Beginner",
+  "situation": "Making a plan to go shopping",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "이번 주말에 쇼핑하기 어때?",
+      "romanization": "ibeon jumare syopinghagi eottae?",
+      "meaning": "How about go shopping this weekend?"
+    },
+    {
+      "speaker": "B",
+      "korean": "좋아. 나 시간 돼.",
+      "romanization": "joa. na sigan dwae.",
+      "meaning": "Sounds good. I am free."
+    },
+    {
+      "speaker": "A",
+      "korean": "그럼 토요일에 보자.",
+      "romanization": "geureom toyoire boja.",
+      "meaning": "Then let us meet Saturday."
+    }
+  ],
+  "teachingPoint": "N 어때? is a natural casual suggestion.",
+  "tags": [
+    "friends",
+    "plans",
+    "real-korean",
+    "dialogue"
+  ]
+}
