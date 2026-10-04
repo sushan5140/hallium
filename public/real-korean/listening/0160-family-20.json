@@ -1,0 +1,17 @@
+{
+  "id": "listening-0160",
+  "context": "family",
+  "level": "Low Intermediate",
+  "fullSentence": "조심해서 다녀와.",
+  "cloze": "조심해서 _____와.",
+  "answer": "다녀",
+  "translation": "Take care and come back safely.",
+  "hint": "Listen for go-and-return expression.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
