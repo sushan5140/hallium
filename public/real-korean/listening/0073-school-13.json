@@ -1,0 +1,17 @@
+{
+  "id": "listening-0073",
+  "context": "school",
+  "level": "Low Intermediate",
+  "fullSentence": "이 문제 모르겠어요.",
+  "cloze": "이 _____ 모르겠어요.",
+  "answer": "문제",
+  "translation": "I do not understand this problem.",
+  "hint": "Listen for problem/question.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "school",
+    "real-korean"
+  ]
+}
