@@ -1,0 +1,17 @@
+{
+  "id": "listening-0004",
+  "context": "cafe",
+  "level": "Beginner",
+  "fullSentence": "시럽 빼 주세요.",
+  "cloze": "시럽 _____ 주세요.",
+  "answer": "빼",
+  "translation": "Please leave out the syrup.",
+  "hint": "Listen for the verb meaning leave out/remove.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "cafe",
+    "real-korean"
+  ]
+}
