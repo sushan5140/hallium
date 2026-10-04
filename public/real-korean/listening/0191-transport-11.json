@@ -1,0 +1,17 @@
+{
+  "id": "listening-0191",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "이 버스 어디까지 가요?",
+  "cloze": "이 버스 _____까지 가요?",
+  "answer": "어디",
+  "translation": "How far does this bus go?",
+  "hint": "Listen for where/how far.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
