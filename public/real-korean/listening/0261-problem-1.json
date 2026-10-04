@@ -1,0 +1,17 @@
+{
+  "id": "listening-0261",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "문제가 생겼어요.",
+  "cloze": "문제가 _____어요.",
+  "answer": "생겼",
+  "translation": "A problem came up.",
+  "hint": "Listen for occurred.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
