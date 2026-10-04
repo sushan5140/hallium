@@ -1,0 +1,17 @@
+{
+  "id": "listening-0021",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "지하철역이 어디예요?",
+  "cloze": "지하철역이 _____예요?",
+  "answer": "어디",
+  "translation": "Where is the subway station?",
+  "hint": "Listen for the location question word.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
