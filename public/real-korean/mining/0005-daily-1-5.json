@@ -1,0 +1,16 @@
+{
+  "id": "mining-0005",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "한국어를 공부해요",
+  "gloss": "study Korean",
+  "sentence": "주말에 한국어를 공부해요",
+  "translation": "On the weekend, I study Korean.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you study Korean using 주말에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
