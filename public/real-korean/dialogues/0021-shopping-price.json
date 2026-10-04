@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0021",
+  "context": "shopping",
+  "level": "Beginner",
+  "situation": "Asking the price",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "이거 얼마예요?",
+      "romanization": "igeo eolmayeyo?",
+      "meaning": "How much is this?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "만 이천 원이에요.",
+      "romanization": "man icheon wonieyo.",
+      "meaning": "It's 12,000 won."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Okay, got it."
+    }
+  ],
+  "teachingPoint": "이거 얼마예요? is the basic price question.",
+  "tags": [
+    "shopping",
+    "real-korean",
+    "dialogue"
+  ]
+}
