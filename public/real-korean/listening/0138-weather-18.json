@@ -1,0 +1,17 @@
+{
+  "id": "listening-0138",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "아침에는 추웠어요.",
+  "cloze": "_____에는 추웠어요.",
+  "answer": "아침",
+  "translation": "It was cold in the morning.",
+  "hint": "Listen for morning.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
