@@ -1,0 +1,17 @@
+{
+  "id": "listening-0025",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "몇 번 승강장이에요?",
+  "cloze": "몇 번 _____이에요?",
+  "answer": "승강장",
+  "translation": "Which platform is it?",
+  "hint": "Listen for the transport-location noun.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
