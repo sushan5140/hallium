@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0287",
+  "context": "work",
+  "level": "Low Intermediate",
+  "situation": "Checking progress on testing",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "테스트 어디까지 했어요?",
+      "romanization": "teseuteu eodikkaji haesseoyo?",
+      "meaning": "How far have you gotten with the testing?"
+    },
+    {
+      "speaker": "B",
+      "korean": "거의 끝났어요. 조금만 더 하면 돼요.",
+      "romanization": "geoui kkeunnasseoyo. jogeumman deo hamyeon dwaeyo.",
+      "meaning": "It's almost finished. I just need a little more."
+    },
+    {
+      "speaker": "A",
+      "korean": "좋아요. 끝나면 알려 주세요.",
+      "romanization": "joayo. kkeunnamyeon allyeo juseyo.",
+      "meaning": "Good. Let me know when it's done."
+    }
+  ],
+  "teachingPoint": "어디까지 했어요? asks how far someone has progressed.",
+  "tags": [
+    "work",
+    "progress",
+    "real-korean",
+    "dialogue"
+  ]
+}
