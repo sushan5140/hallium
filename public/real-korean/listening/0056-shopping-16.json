@@ -1,0 +1,17 @@
+{
+  "id": "listening-0056",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "영수증 있어요.",
+  "cloze": "_____ 있어요.",
+  "answer": "영수증",
+  "translation": "I have the receipt.",
+  "hint": "Listen for receipt.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
