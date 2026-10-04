@@ -1,0 +1,17 @@
+{
+  "id": "listening-0234",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "부끄러워요.",
+  "cloze": "_____워요.",
+  "answer": "부끄러",
+  "translation": "I am embarrassed/shy.",
+  "hint": "Listen for shy/embarrassed.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
