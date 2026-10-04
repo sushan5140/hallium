@@ -1,0 +1,20 @@
+{
+  "id": "pron-0140",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eu vs u",
+  "contrast": [
+    "ㅡ",
+    "ㅜ"
+  ],
+  "onset": "ㅎ",
+  "left": "흐",
+  "right": "후",
+  "cue": "ㅡ is unrounded; ㅜ is rounded.",
+  "prompt": "Say 흐, then 후. Keep the onset ㅎ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
