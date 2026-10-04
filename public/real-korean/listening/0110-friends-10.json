@@ -1,0 +1,17 @@
+{
+  "id": "listening-0110",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "집에 도착했어?",
+  "cloze": "집에 _____했어?",
+  "answer": "도착",
+  "translation": "Did you get home?",
+  "hint": "Listen for arrive.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
