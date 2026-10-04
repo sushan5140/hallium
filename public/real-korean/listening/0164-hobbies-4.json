@@ -1,0 +1,17 @@
+{
+  "id": "listening-0164",
+  "context": "hobbies",
+  "level": "Beginner",
+  "fullSentence": "요리하는 거 좋아해요?",
+  "cloze": "_____하는 거 좋아해요?",
+  "answer": "요리",
+  "translation": "Do you like cooking?",
+  "hint": "Listen for cooking.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "hobbies",
+    "real-korean"
+  ]
+}
