@@ -1,0 +1,17 @@
+{
+  "id": "listening-0281",
+  "context": "future-plans",
+  "level": "Beginner",
+  "fullSentence": "내일 아침 일찍 출발할 거예요.",
+  "cloze": "내일 아침 일찍 _____할 거예요.",
+  "answer": "출발",
+  "translation": "I will leave early tomorrow morning.",
+  "hint": "Listen for leave/depart.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
