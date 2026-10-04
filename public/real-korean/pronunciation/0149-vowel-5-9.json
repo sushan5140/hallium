@@ -1,0 +1,20 @@
+{
+  "id": "pron-0149",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eo vs o",
+  "contrast": [
+    "ㅓ",
+    "ㅗ"
+  ],
+  "onset": "ㅈ",
+  "left": "저",
+  "right": "조",
+  "cue": "Compare an unrounded/back-ish vowel with rounded ㅗ.",
+  "prompt": "Say 저, then 조. Keep the onset ㅈ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
