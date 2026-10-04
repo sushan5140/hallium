@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0046",
+  "pattern": "-(으)ㄹ 수 있어요",
+  "level": "Beginner",
+  "function": "Express ability or possibility",
+  "baseVerb": "배우다",
+  "example": "배울 수 있어요",
+  "translation": "I can learn it.",
+  "note": "Attach -(으)ㄹ 수 있어요 to a verb stem to express ability or possibility.",
+  "prompt": "Use 배우다 with -(으)ㄹ 수 있어요.",
+  "tags": [
+    "grammar",
+    "ability",
+    "beginner"
+  ]
+}
