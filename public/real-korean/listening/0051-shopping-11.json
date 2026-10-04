@@ -1,0 +1,17 @@
+{
+  "id": "listening-0051",
+  "context": "shopping",
+  "level": "Low Intermediate",
+  "fullSentence": "할인 중이에요?",
+  "cloze": "_____ 중이에요?",
+  "answer": "할인",
+  "translation": "Is it on sale?",
+  "hint": "Listen for discount.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
