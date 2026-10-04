@@ -1,0 +1,17 @@
+{
+  "id": "listening-0246",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "소리 내서 읽어요.",
+  "cloze": "소리 내서 _____요.",
+  "answer": "읽어",
+  "translation": "I read aloud.",
+  "hint": "Listen for read.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
