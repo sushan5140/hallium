@@ -1,0 +1,17 @@
+{
+  "id": "listening-0236",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "궁금해요.",
+  "cloze": "_____해요.",
+  "answer": "궁금",
+  "translation": "I am curious.",
+  "hint": "Listen for curious.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
