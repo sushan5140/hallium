@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0244",
+  "pattern": "-(으)ㄴ 적이 있어요",
+  "level": "Low Intermediate",
+  "function": "Express past experience",
+  "baseForm": "제주도에 가다",
+  "example": "제주도에 간 적이 있어요.",
+  "translation": "I have been to Jeju.",
+  "note": "Use V-(으)ㄴ 적이 있어요 to say you have experience doing something.",
+  "prompt": "Make a past-experience sentence with 제주도에 가다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
