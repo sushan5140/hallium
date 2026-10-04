@@ -1,0 +1,17 @@
+{
+  "id": "listening-0026",
+  "context": "travel",
+  "level": "Beginner",
+  "fullSentence": "길을 잃었어요.",
+  "cloze": "길을 _____어요.",
+  "answer": "잃었",
+  "translation": "I got lost.",
+  "hint": "Listen for the past form of lose.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
