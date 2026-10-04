@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0093",
+  "context": "transport",
+  "level": "Beginner",
+  "situation": "Offering a seat",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "여기 앉으세요.",
+      "romanization": "yeogi anjeuseyo.",
+      "meaning": "Please sit here."
+    },
+    {
+      "speaker": "B",
+      "korean": "아니에요, 괜찮아요.",
+      "romanization": "anieyo, gwaenchanayo.",
+      "meaning": "No, it's okay."
+    },
+    {
+      "speaker": "A",
+      "korean": "괜찮으니까 앉으세요.",
+      "romanization": "gwaenchaneunikka anjeuseyo.",
+      "meaning": "It's fine, please sit."
+    }
+  ],
+  "teachingPoint": "-(으)세요 is a polite suggestion/command.",
+  "tags": [
+    "transport",
+    "real-korean",
+    "dialogue"
+  ]
+}
