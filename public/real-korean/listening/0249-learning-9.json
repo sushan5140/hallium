@@ -1,0 +1,17 @@
+{
+  "id": "listening-0249",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "한국 친구와 이야기해요.",
+  "cloze": "한국 친구와 _____해요.",
+  "answer": "이야기",
+  "translation": "I talk with a Korean friend.",
+  "hint": "Listen for talk.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
