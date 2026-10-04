@@ -1,0 +1,17 @@
+{
+  "id": "listening-0272",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "어디에 문의하면 돼요?",
+  "cloze": "어디에 _____하면 돼요?",
+  "answer": "문의",
+  "translation": "Where should I inquire?",
+  "hint": "Listen for inquire.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
