@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0120",
+  "pattern": "-아/어서",
+  "level": "Low Intermediate",
+  "function": "Connect a cause or natural sequence",
+  "baseForm": "맛있다",
+  "example": "맛있어서 또 주문했어요.",
+  "translation": "It was delicious, so I ordered again.",
+  "note": "Use -아/어서 to connect a reason to a result or one action naturally to the next.",
+  "prompt": "Make a sentence with 맛있다 + -아/어서.",
+  "tags": [
+    "grammar",
+    "cause",
+    "low-intermediate"
+  ]
+}
