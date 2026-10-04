@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0155",
+  "pattern": "-(으)면",
+  "level": "Low Intermediate",
+  "function": "Express a condition or recurring when",
+  "baseForm": "시간이 되다",
+  "example": "시간이 되면 만나요.",
+  "translation": "If you are free, let's meet.",
+  "note": "Use -(으)면 for if/when conditions.",
+  "prompt": "Make a conditional sentence with 시간이 되다.",
+  "tags": [
+    "grammar",
+    "condition",
+    "low-intermediate"
+  ]
+}
