@@ -1,0 +1,17 @@
+{
+  "id": "listening-0219",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "카페에 가요.",
+  "cloze": "_____에 가요.",
+  "answer": "카페",
+  "translation": "I go to a cafe.",
+  "hint": "Listen for cafe.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
