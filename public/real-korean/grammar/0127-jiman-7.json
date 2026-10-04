@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0127",
+  "pattern": "-지만",
+  "level": "Low Intermediate",
+  "function": "Contrast two facts or qualities",
+  "baseForm": "바쁘다",
+  "example": "바쁘지만 도와줄게요.",
+  "translation": "I am busy, but I will help.",
+  "note": "Attach -지만 to a verb or adjective stem to mean but / although.",
+  "prompt": "Make a contrast sentence with 바쁘다 + -지만.",
+  "tags": [
+    "grammar",
+    "contrast",
+    "low-intermediate"
+  ]
+}
