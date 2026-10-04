@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0038",
+  "context": "school",
+  "level": "Intermediate",
+  "situation": "Checking the deadline",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "과제는 언제까지 내야 해요?",
+      "romanization": "gwajeneun eonjekkaji naeya haeyo?",
+      "meaning": "By when do we have to submit the assignment?"
+    },
+    {
+      "speaker": "Teacher",
+      "korean": "금요일 자정까지예요.",
+      "romanization": "geumyoil jajeongkkajiyeyo.",
+      "meaning": "By midnight Friday."
+    },
+    {
+      "speaker": "Student",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Okay, understood."
+    }
+  ],
+  "teachingPoint": "언제까지 asks by when; 내다 means submit/turn in.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
