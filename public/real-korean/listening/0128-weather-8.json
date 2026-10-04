@@ -1,0 +1,17 @@
+{
+  "id": "listening-0128",
+  "context": "weather",
+  "level": "Beginner",
+  "fullSentence": "우산 있어요?",
+  "cloze": "_____ 있어요?",
+  "answer": "우산",
+  "translation": "Do you have an umbrella?",
+  "hint": "Listen for umbrella.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
