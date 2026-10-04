@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0168",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "운동하다",
+  "example": "운동하기 전에 스트레칭해요.",
+  "translation": "I stretch before exercising.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 운동하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
