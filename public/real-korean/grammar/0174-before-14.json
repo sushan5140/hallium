@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0174",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "쇼핑하다",
+  "example": "쇼핑하기 전에 예산을 정해요.",
+  "translation": "I set a budget before shopping.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 쇼핑하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
