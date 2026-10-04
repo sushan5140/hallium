@@ -1,0 +1,17 @@
+{
+  "id": "grammar-0002",
+  "pattern": "-고 싶어요",
+  "level": "Beginner",
+  "function": "Express wanting to do something",
+  "baseVerb": "먹다",
+  "romanization": "meokda",
+  "example": "먹고 싶어요",
+  "translation": "I want to eat.",
+  "note": "Attach -고 싶어요 to a verb stem to express a personal desire.",
+  "prompt": "Use 먹다 with -고 싶어요.",
+  "tags": [
+    "grammar",
+    "desire",
+    "beginner"
+  ]
+}
