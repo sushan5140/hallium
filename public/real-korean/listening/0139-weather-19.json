@@ -1,0 +1,17 @@
+{
+  "id": "listening-0139",
+  "context": "weather",
+  "level": "Low Intermediate",
+  "fullSentence": "낮에는 따뜻해요.",
+  "cloze": "_____에는 따뜻해요.",
+  "answer": "낮",
+  "translation": "It is warm during the day.",
+  "hint": "Listen for daytime.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "weather",
+    "real-korean"
+  ]
+}
