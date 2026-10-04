@@ -1,0 +1,16 @@
+{
+  "id": "mining-0166",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "연습해요",
+  "gloss": "practice",
+  "sentence": "매일 연습해요",
+  "translation": "Every day, I practice.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you practice using 매일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
