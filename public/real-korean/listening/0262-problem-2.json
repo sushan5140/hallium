@@ -1,0 +1,17 @@
+{
+  "id": "listening-0262",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "다시 시도해 볼게요.",
+  "cloze": "다시 _____해 볼게요.",
+  "answer": "시도",
+  "translation": "I will try again.",
+  "hint": "Listen for attempt.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
