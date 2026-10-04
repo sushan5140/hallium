@@ -1,0 +1,17 @@
+{
+  "id": "listening-0144",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "방 좀 같이 치울래?",
+  "cloze": "방 좀 같이 _____래?",
+  "answer": "치울",
+  "translation": "Want to clean the room together?",
+  "hint": "Listen for clean/tidy.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
