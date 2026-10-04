@@ -1,0 +1,16 @@
+{
+  "id": "mining-0110",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "버스를 타요",
+  "gloss": "take the bus",
+  "sentence": "시간이 있을 때 버스를 타요",
+  "translation": "When I have time, I take the bus.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take the bus using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
