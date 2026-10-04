@@ -1,0 +1,16 @@
+{
+  "id": "mining-0079",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "산책해요",
+  "gloss": "take a walk",
+  "sentence": "요즘 산책해요",
+  "translation": "These days, I take a walk.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you take a walk using 요즘.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
