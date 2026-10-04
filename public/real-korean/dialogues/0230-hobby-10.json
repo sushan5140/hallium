@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0230",
+  "context": "hobbies",
+  "level": "Beginner",
+  "situation": "Inviting someone to try gaming",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "너 게임하기 좋아해?",
+      "romanization": "neo geimhagi joahae?",
+      "meaning": "Do you like gaming?"
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 꽤 좋아해.",
+      "romanization": "eung, kkwae joahae.",
+      "meaning": "Yeah, I like it quite a bit."
+    },
+    {
+      "speaker": "A",
+      "korean": "다음에 같이 하자.",
+      "romanization": "daeume gachi haja.",
+      "meaning": "Let's do it together next time."
+    }
+  ],
+  "teachingPoint": "같이 하자 is a natural casual invitation.",
+  "tags": [
+    "hobbies",
+    "invitation",
+    "real-korean",
+    "dialogue"
+  ]
+}
