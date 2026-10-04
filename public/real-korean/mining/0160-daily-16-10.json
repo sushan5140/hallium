@@ -1,0 +1,16 @@
+{
+  "id": "mining-0160",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "일해요",
+  "gloss": "work",
+  "sentence": "시간이 있을 때 일해요",
+  "translation": "When I have time, I work.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you work using 시간이 있을 때.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
