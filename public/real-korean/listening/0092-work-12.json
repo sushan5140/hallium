@@ -1,0 +1,17 @@
+{
+  "id": "listening-0092",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "회의실 예약했어요?",
+  "cloze": "회의실 _____했어요?",
+  "answer": "예약",
+  "translation": "Did you reserve the meeting room?",
+  "hint": "Listen for reservation.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
