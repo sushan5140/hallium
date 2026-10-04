@@ -2193,6 +2193,29 @@ button.toast{border:0;text-align:left}
 .featurePanelHead h2{margin:5px 0 0;font-size:24px;letter-spacing:-.035em}
 .featurePanelHead p{margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
 
+/* Batch 5 · Scenario practice */
+.scenarioPracticeSection{margin-top:34px}
+.scenarioLead{max-width:720px;margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
+.scenarioTabs{display:flex;gap:8px;overflow-x:auto;margin-top:16px;padding-bottom:4px}
+.scenarioTabs button{flex:0 0 auto;padding:9px 11px;border:1px solid #dfe5dc;border-radius:999px;background:#fff;color:#5e6c60;font-size:10px;font-weight:800;text-transform:capitalize}
+.scenarioTabs button.active{background:#edf7f0;border-color:#c8dfce;color:#27633b}
+.scenarioCard{margin-top:12px;padding:18px;border:1px solid #dce8df;border-radius:18px;background:#fbfefb}
+.scenarioCard>small{color:#37704a;font-size:8.5px!important;font-weight:850!important;letter-spacing:.055em!important}
+.scenarioCard>h3{margin:5px 0 0;font-size:20px;letter-spacing:-.03em}
+.scenarioCard>p{margin:6px 0 0;color:var(--muted);font-size:10.5px}
+.scenarioOptions{display:grid;gap:8px;margin-top:14px}
+.scenarioOptions button{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 13px;border:1px solid #dfe8df;border-radius:12px;background:#fff;color:var(--ink);text-align:left}
+.scenarioOptions button b{font-size:14px}
+.scenarioOptions button span{grid-column:1/2;color:var(--muted);font-size:9.5px}
+.scenarioOptions button small{grid-column:2/3;grid-row:1/3;align-self:center;color:#6e7f71;font-size:8.5px!important;font-weight:850!important;text-transform:uppercase}
+.scenarioOptions button.correct{border-color:#8fc7a0;background:#f0faf3}
+.scenarioOptions button.wrong{border-color:#e0aaaa;background:#fff5f5}
+.scenarioFeedback{margin-top:12px;padding:12px;border-radius:12px}
+.scenarioFeedback.correct{background:#eef8f1;color:#245c37}
+.scenarioFeedback.wrong{background:#fff0f0;color:#7b3f3f}
+.scenarioFeedback b{font-size:10.5px}
+.scenarioFeedback p{margin:4px 0 0;font-size:10px;line-height:1.5}
+.scenarioFeedback button{margin-top:8px;padding:8px 10px;border:0;border-radius:9px;background:#fff;color:inherit;font-size:9px;font-weight:850}
 /* Batch 5 · Casual Korean / texting */
 .casualTextingSection{margin-top:34px}
 .textingLead{max-width:720px;margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.6}
