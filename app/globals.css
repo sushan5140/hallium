@@ -4100,6 +4100,21 @@ button.toast{border:0;text-align:left}
   font-weight:900;
   cursor:pointer;
 }
+
+.home-interest-scene{
+  border-color:#eadfcf;
+  background:linear-gradient(135deg,#fffdf8 0%,#fff7ed 100%);
+}
+.home-interest-scene .home-interest-tags span{
+  border-color:rgba(141,110,71,.16);
+  background:#f6ede1;
+  color:#7b6042;
+}
+.home-interest-scene .home-interest-meta button{
+  border-color:rgba(141,110,71,.18);
+  background:#f6ede1;
+  color:#7b6042;
+}
 @media(max-width:760px){
   .learningPreferenceSummary{grid-template-columns:1fr}
   .home-interest-pick{grid-template-columns:1fr;padding:17px}

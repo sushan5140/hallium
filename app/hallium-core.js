@@ -17,8 +17,8 @@ import {
   writeLocalVoicePreference,
 } from "../lib/korean-voice";
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
-import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
-import { findRealKoreanPreset } from "../lib/real-korean";
+import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
+import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1850,6 +1850,12 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     3,
   );
   const interestLessonPick = interestLessonRecommendations[0] || null;
+  const realKoreanSceneRecommendations = rankRealKoreanScenes(
+    realKoreanScenes(),
+    learningPreferences,
+    2,
+  );
+  const realKoreanScenePick = realKoreanSceneRecommendations[0] || null;
   const latestStudyResult = activeStudyResults[0] || null;
   const bestStudyScore = activeStudyResults.length ? Math.max(...activeStudyResults.map((result) => result.score)) : null;
   const latestStudyPct = latestStudyResult ? Math.round((latestStudyResult.score / latestStudyResult.total) * 100) : null;
@@ -3545,6 +3551,24 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
               <button onClick={() => openLesson(interestLessonPick.id)}>
                 {interestLessonPick.completed ? "Revisit lesson" : "Open lesson"} ↗
               </button>
+            </div>
+          </section>
+        )}
+
+        {realKoreanScenePick && (
+          <section className="home-interest-pick home-interest-scene" aria-label="Interest-aware Real Korean recommendation">
+            <div className="home-interest-copy">
+              <span className="section-label">REAL KOREAN FOR YOUR INTERESTS</span>
+              <h3>{realKoreanScenePick.label}</h3>
+              <p>{realKoreanScenePick.description}</p>
+              <div className="home-interest-tags">
+                {realKoreanScenePick.matchedTopics.map((topic) => <span key={topic}>{topic.replaceAll("_"," ")}</span>)}
+              </div>
+            </div>
+            <div className="home-interest-meta">
+              <small>Real Korean scene</small>
+              <strong>{realKoreanScenePick.phrases.length} authored phrases · register-aware</strong>
+              <button onClick={() => navigate("partner")}>Open Real Korean ↗</button>
             </div>
           </section>
         )}
