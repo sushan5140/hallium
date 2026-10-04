@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0064",
+  "pattern": "-아/어도 돼요",
+  "level": "Beginner",
+  "function": "Ask or give permission",
+  "baseVerb": "읽다",
+  "example": "읽어도 돼요",
+  "translation": "You may read it.",
+  "note": "Use -아/어도 돼요 to ask or say that an action is allowed.",
+  "prompt": "Use 읽다 with -아/어도 돼요.",
+  "tags": [
+    "grammar",
+    "permission",
+    "beginner"
+  ]
+}
