@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0018",
+  "context": "travel",
+  "level": "Beginner",
+  "situation": "Telling a taxi driver the destination",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Passenger",
+      "korean": "홍대입구역으로 가 주세요.",
+      "romanization": "hongdaeipguyeogeuro ga juseyo.",
+      "meaning": "Please go to Hongik University Station."
+    },
+    {
+      "speaker": "Driver",
+      "korean": "네, 알겠습니다.",
+      "romanization": "ne, algetseumnida.",
+      "meaning": "Sure."
+    },
+    {
+      "speaker": "Passenger",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "Destination + (으)로 가 주세요 is natural in a taxi.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
