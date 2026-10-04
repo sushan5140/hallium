@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0294",
+  "pattern": "-(으)려고 해요",
+  "level": "Low Intermediate",
+  "function": "Express an intention or plan",
+  "baseForm": "저녁에 복습하다",
+  "example": "저녁에 복습하려고 해요.",
+  "translation": "I plan to review this evening.",
+  "note": "Use V-(으)려고 해요 to state an intention or plan.",
+  "prompt": "Make a plan sentence with 저녁에 복습하다.",
+  "tags": [
+    "grammar",
+    "intention",
+    "low-intermediate"
+  ]
+}
