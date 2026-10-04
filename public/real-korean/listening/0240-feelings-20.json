@@ -1,0 +1,17 @@
+{
+  "id": "listening-0240",
+  "context": "feelings",
+  "level": "Low Intermediate",
+  "fullSentence": "만족해요.",
+  "cloze": "_____해요.",
+  "answer": "만족",
+  "translation": "I am satisfied.",
+  "hint": "Listen for satisfied.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "feelings",
+    "real-korean"
+  ]
+}
