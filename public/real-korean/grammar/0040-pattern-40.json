@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0040",
+  "pattern": "-아/어야 해요",
+  "level": "Beginner",
+  "function": "Express obligation: have to / must",
+  "baseVerb": "기다리다",
+  "example": "기다려야 해요",
+  "translation": "I have to wait.",
+  "note": "Attach -아/어야 해요 to a verb stem to say something is necessary.",
+  "prompt": "Use 기다리다 with -아/어야 해요.",
+  "tags": [
+    "grammar",
+    "high-frequency",
+    "beginner"
+  ]
+}
