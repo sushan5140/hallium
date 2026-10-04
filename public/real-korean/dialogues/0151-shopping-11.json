@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0151",
+  "context": "shopping",
+  "level": "Beginner",
+  "situation": "Looking for a umbrella",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Customer",
+      "korean": "우산 어디에 있어요?",
+      "romanization": "usan eodie isseoyo?",
+      "meaning": "Where are the umbrellas?"
+    },
+    {
+      "speaker": "Staff",
+      "korean": "저쪽에 있어요.",
+      "romanization": "jeojjoge isseoyo.",
+      "meaning": "They're over there."
+    },
+    {
+      "speaker": "Customer",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "Item + 어디에 있어요? is a reusable shopping-location pattern.",
+  "tags": [
+    "shopping",
+    "location",
+    "real-korean",
+    "dialogue"
+  ]
+}
