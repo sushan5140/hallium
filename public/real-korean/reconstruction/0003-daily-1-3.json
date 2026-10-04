@@ -1,0 +1,18 @@
+{
+  "id": "reconstruction-0003",
+  "level": "Beginner",
+  "context": "daily-life",
+  "segments": [
+    "공부해요",
+    "한국어를",
+    "아침에"
+  ],
+  "answer": "아침에 한국어를 공부해요",
+  "translation": "In the morning, I study Korean.",
+  "hint": "Put the time/frequency phrase before the action.",
+  "tags": [
+    "reconstruction",
+    "word-order",
+    "daily-life"
+  ]
+}
