@@ -1,0 +1,17 @@
+{
+  "id": "listening-0046",
+  "context": "shopping",
+  "level": "Beginner",
+  "fullSentence": "환불할 수 있을까요?",
+  "cloze": "_____할 수 있을까요?",
+  "answer": "환불",
+  "translation": "Could I get a refund?",
+  "hint": "Listen for refund.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "shopping",
+    "real-korean"
+  ]
+}
