@@ -1,0 +1,16 @@
+{
+  "id": "mining-0144",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "숙제를 해요",
+  "gloss": "do homework",
+  "sentence": "저녁에 숙제를 해요",
+  "translation": "In the evening, I do homework.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you do homework using 저녁에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
