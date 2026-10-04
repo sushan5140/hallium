@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0180",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "결제하다",
+  "example": "결제하기 전에 금액을 확인해요.",
+  "translation": "I check the amount before paying.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 결제하다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
