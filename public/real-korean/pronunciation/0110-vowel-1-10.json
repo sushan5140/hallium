@@ -1,0 +1,20 @@
+{
+  "id": "pron-0110",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "a vs eo",
+  "contrast": [
+    "ㅏ",
+    "ㅓ"
+  ],
+  "onset": "ㅎ",
+  "left": "하",
+  "right": "허",
+  "cue": "Keep the onset the same and distinguish ㅏ from ㅓ.",
+  "prompt": "Say 하, then 허. Keep the onset ㅎ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
