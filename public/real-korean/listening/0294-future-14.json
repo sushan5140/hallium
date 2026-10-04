@@ -1,0 +1,17 @@
+{
+  "id": "listening-0294",
+  "context": "future-plans",
+  "level": "Low Intermediate",
+  "fullSentence": "새 책을 읽을 거예요.",
+  "cloze": "새 책을 _____ 거예요.",
+  "answer": "읽을",
+  "translation": "I will read a new book.",
+  "hint": "Listen for read.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "future-plans",
+    "real-korean"
+  ]
+}
