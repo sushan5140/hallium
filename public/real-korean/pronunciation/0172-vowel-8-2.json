@@ -1,0 +1,20 @@
+{
+  "id": "pron-0172",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "yo vs yu",
+  "contrast": [
+    "ㅛ",
+    "ㅠ"
+  ],
+  "onset": "ㄴ",
+  "left": "뇨",
+  "right": "뉴",
+  "cue": "Both are rounded y-glides; distinguish ㅗ vs ㅜ quality.",
+  "prompt": "Say 뇨, then 뉴. Keep the onset ㄴ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
