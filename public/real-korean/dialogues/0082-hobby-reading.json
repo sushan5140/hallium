@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0082",
+  "context": "hobbies",
+  "level": "Beginner",
+  "situation": "Talking about books",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "책 자주 읽어요?",
+      "romanization": "chaek jaju ilgeoyo?",
+      "meaning": "Do you read books often?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 자기 전에 읽어요.",
+      "romanization": "ne, jagi jeone ilgeoyo.",
+      "meaning": "Yes, I read before sleeping."
+    },
+    {
+      "speaker": "A",
+      "korean": "요즘 뭐 읽어요?",
+      "romanization": "yojeum mwo ilgeoyo?",
+      "meaning": "What are you reading these days?"
+    }
+  ],
+  "teachingPoint": "V-기 전에 means before doing V.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
