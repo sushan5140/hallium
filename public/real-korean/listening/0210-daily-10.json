@@ -1,0 +1,17 @@
+{
+  "id": "listening-0210",
+  "context": "daily-life",
+  "level": "Beginner",
+  "fullSentence": "숙제를 해요.",
+  "cloze": "_____를 해요.",
+  "answer": "숙제",
+  "translation": "I do homework.",
+  "hint": "Listen for homework.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "daily-life",
+    "real-korean"
+  ]
+}
