@@ -1,0 +1,17 @@
+{
+  "id": "listening-0149",
+  "context": "family",
+  "level": "Beginner",
+  "fullSentence": "내가 들어줄게.",
+  "cloze": "내가 _____줄게.",
+  "answer": "들어",
+  "translation": "I will carry it for you.",
+  "hint": "Listen for lift/carry.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "family",
+    "real-korean"
+  ]
+}
