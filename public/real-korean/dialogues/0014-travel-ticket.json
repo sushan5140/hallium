@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0014",
+  "context": "travel",
+  "level": "Beginner",
+  "situation": "Buying one ticket",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "서울역까지 한 장 주세요.",
+      "romanization": "seoullyeokkkaji han jang juseyo.",
+      "meaning": "One ticket to Seoul Station, please."
+    },
+    {
+      "speaker": "Staff",
+      "korean": "오천 원입니다.",
+      "romanization": "ocheon wonimnida.",
+      "meaning": "It's 5,000 won."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "여기요.",
+      "romanization": "yeogiyo.",
+      "meaning": "Here you go."
+    }
+  ],
+  "teachingPoint": "Destination + 까지 + 한 장 주세요 works for a simple ticket request.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
