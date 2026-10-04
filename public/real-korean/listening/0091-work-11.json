@@ -1,0 +1,17 @@
+{
+  "id": "listening-0091",
+  "context": "work",
+  "level": "Low Intermediate",
+  "fullSentence": "자료를 공유해 주세요.",
+  "cloze": "자료를 _____해 주세요.",
+  "answer": "공유",
+  "translation": "Please share the materials.",
+  "hint": "Listen for share.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
