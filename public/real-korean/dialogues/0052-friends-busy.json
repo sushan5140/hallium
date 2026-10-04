@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0052",
+  "context": "friends",
+  "level": "Beginner",
+  "situation": "Checking if a friend is busy",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "지금 바빠?",
+      "romanization": "jigeum bappa?",
+      "meaning": "Are you busy now?"
+    },
+    {
+      "speaker": "B",
+      "korean": "아니, 왜?",
+      "romanization": "ani, wae?",
+      "meaning": "No, why?"
+    },
+    {
+      "speaker": "A",
+      "korean": "잠깐 얘기하고 싶어서.",
+      "romanization": "jamkkan yaegihago sipeoseo.",
+      "meaning": "Because I wanted to talk for a bit."
+    }
+  ],
+  "teachingPoint": "-아서/어서 can give a natural reason.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
