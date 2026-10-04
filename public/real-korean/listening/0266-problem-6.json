@@ -1,0 +1,17 @@
+{
+  "id": "listening-0266",
+  "context": "problem-solving",
+  "level": "Low Intermediate",
+  "fullSentence": "비밀번호를 잊어버렸어요.",
+  "cloze": "비밀번호를 _____버렸어요.",
+  "answer": "잊어",
+  "translation": "I forgot the password.",
+  "hint": "Listen for forget.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "problem-solving",
+    "real-korean"
+  ]
+}
