@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0239",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "걷다",
+  "example": "날씨 좋으면 걸어 봐요.",
+  "translation": "Try walking if the weather is nice.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 걷다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
