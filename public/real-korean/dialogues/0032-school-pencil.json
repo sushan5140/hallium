@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0032",
+  "context": "school",
+  "level": "Beginner",
+  "situation": "Borrowing a pencil",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Student",
+      "korean": "연필 좀 빌려줄 수 있어요?",
+      "romanization": "yeonpil jom billyeojul su isseoyo?",
+      "meaning": "Could you lend me a pencil?"
+    },
+    {
+      "speaker": "Classmate",
+      "korean": "네, 여기요.",
+      "romanization": "ne, yeogiyo.",
+      "meaning": "Sure, here you go."
+    },
+    {
+      "speaker": "Student",
+      "korean": "고마워요.",
+      "romanization": "gomawoyo.",
+      "meaning": "Thanks."
+    }
+  ],
+  "teachingPoint": "빌려주다 means to lend.",
+  "tags": [
+    "school",
+    "real-korean",
+    "dialogue"
+  ]
+}
