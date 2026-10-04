@@ -1,0 +1,17 @@
+{
+  "id": "listening-0089",
+  "context": "work",
+  "level": "Beginner",
+  "fullSentence": "점심 뭐 드실래요?",
+  "cloze": "_____ 뭐 드실래요?",
+  "answer": "점심",
+  "translation": "What would you like for lunch?",
+  "hint": "Listen for lunch.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "work",
+    "real-korean"
+  ]
+}
