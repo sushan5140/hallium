@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0163",
+  "pattern": "-기 전에",
+  "level": "Low Intermediate",
+  "function": "Express before doing an action",
+  "baseForm": "먹다",
+  "example": "먹기 전에 손을 씻어요.",
+  "translation": "I wash my hands before eating.",
+  "note": "Use V-기 전에 to say before doing V.",
+  "prompt": "Make a before-sentence with 먹다.",
+  "tags": [
+    "grammar",
+    "sequence",
+    "low-intermediate"
+  ]
+}
