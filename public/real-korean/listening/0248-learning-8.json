@@ -1,0 +1,17 @@
+{
+  "id": "listening-0248",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "문장을 만들어 봐요.",
+  "cloze": "문장을 _____ 봐요.",
+  "answer": "만들어",
+  "translation": "I try making sentences.",
+  "hint": "Listen for make.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
