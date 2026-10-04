@@ -1,0 +1,17 @@
+{
+  "id": "listening-0253",
+  "context": "korean-learning",
+  "level": "Low Intermediate",
+  "fullSentence": "천천히 말해 주세요.",
+  "cloze": "_____ 말해 주세요.",
+  "answer": "천천히",
+  "translation": "Please speak slowly.",
+  "hint": "Listen for slowly.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "korean-learning",
+    "real-korean"
+  ]
+}
