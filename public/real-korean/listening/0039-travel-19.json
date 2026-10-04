@@ -1,0 +1,17 @@
+{
+  "id": "listening-0039",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "여기서 내려 주세요.",
+  "cloze": "여기서 _____ 주세요.",
+  "answer": "내려",
+  "translation": "Please let me off here.",
+  "hint": "Listen for get off.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
