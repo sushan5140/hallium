@@ -1,0 +1,17 @@
+{
+  "id": "listening-0109",
+  "context": "friends",
+  "level": "Beginner",
+  "fullSentence": "오늘 약속 미뤄도 될까?",
+  "cloze": "오늘 약속 _____도 될까?",
+  "answer": "미뤄",
+  "translation": "Can we postpone today's plan?",
+  "hint": "Listen for postpone.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "friends",
+    "real-korean"
+  ]
+}
