@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0261",
+  "pattern": "-(으)니까",
+  "level": "Low Intermediate",
+  "function": "Give a reason that supports a suggestion, command, or conclusion",
+  "baseForm": "비가 오다",
+  "example": "비가 오니까 우산을 가져가세요.",
+  "translation": "Because it is raining, take an umbrella.",
+  "note": "Use -(으)니까 to give a reason, especially before suggestions or requests.",
+  "prompt": "Make a reason sentence with 비가 오다 + -(으)니까.",
+  "tags": [
+    "grammar",
+    "reason",
+    "low-intermediate"
+  ]
+}
