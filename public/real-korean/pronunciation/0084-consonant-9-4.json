@@ -1,0 +1,20 @@
+{
+  "id": "pron-0084",
+  "type": "consonant-contrast",
+  "level": "Beginner",
+  "focus": "plain vs tense",
+  "contrast": [
+    "ㅅ",
+    "ㅆ"
+  ],
+  "vowel": "ㅜ",
+  "left": "수",
+  "right": "쑤",
+  "cue": "Notice the tenser hiss on ㅆ.",
+  "prompt": "Say 수, then 쑤. Keep the vowel ㅜ unchanged.",
+  "tags": [
+    "pronunciation",
+    "consonants",
+    "contrast"
+  ]
+}
