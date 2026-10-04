@@ -1,0 +1,20 @@
+{
+  "id": "pron-0130",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "ae vs e",
+  "contrast": [
+    "ㅐ",
+    "ㅔ"
+  ],
+  "onset": "ㅎ",
+  "left": "해",
+  "right": "헤",
+  "cue": "Practice the written contrast; many modern speakers pronounce these similarly.",
+  "prompt": "Say 해, then 헤. Keep the onset ㅎ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
