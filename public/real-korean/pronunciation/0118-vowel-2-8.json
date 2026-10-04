@@ -1,0 +1,20 @@
+{
+  "id": "pron-0118",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "o vs u",
+  "contrast": [
+    "ㅗ",
+    "ㅜ"
+  ],
+  "onset": "ㅇ",
+  "left": "오",
+  "right": "우",
+  "cue": "Keep the lips rounded but change tongue height.",
+  "prompt": "Say 오, then 우. Keep the onset ㅇ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
