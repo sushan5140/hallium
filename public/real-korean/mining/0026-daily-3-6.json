@@ -1,0 +1,16 @@
+{
+  "id": "mining-0026",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "음악을 들어요",
+  "gloss": "listen to music",
+  "sentence": "매일 음악을 들어요",
+  "translation": "Every day, I listen to music.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you listen to music using 매일.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
