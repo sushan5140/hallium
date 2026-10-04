@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0011",
+  "context": "travel",
+  "level": "Beginner",
+  "situation": "Asking where the subway station is",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "Traveler",
+      "korean": "지하철역이 어디예요?",
+      "romanization": "jihacheolyeogi eodiyeyo?",
+      "meaning": "Where is the subway station?"
+    },
+    {
+      "speaker": "Local",
+      "korean": "저기 앞에 있어요.",
+      "romanization": "jeogi ape isseoyo.",
+      "meaning": "It's up ahead over there."
+    },
+    {
+      "speaker": "Traveler",
+      "korean": "감사합니다.",
+      "romanization": "gamsahamnida.",
+      "meaning": "Thank you."
+    }
+  ],
+  "teachingPoint": "어디예요? is the core location question.",
+  "tags": [
+    "travel",
+    "real-korean",
+    "dialogue"
+  ]
+}
