@@ -1,0 +1,17 @@
+{
+  "id": "listening-0193",
+  "context": "transport",
+  "level": "Low Intermediate",
+  "fullSentence": "카드 찍어 주세요.",
+  "cloze": "카드 _____ 주세요.",
+  "answer": "찍어",
+  "translation": "Please tap your card.",
+  "hint": "Listen for tap.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "transport",
+    "real-korean"
+  ]
+}
