@@ -1,0 +1,20 @@
+{
+  "id": "pron-0144",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eo vs o",
+  "contrast": [
+    "ㅓ",
+    "ㅗ"
+  ],
+  "onset": "ㄹ",
+  "left": "러",
+  "right": "로",
+  "cue": "Compare an unrounded/back-ish vowel with rounded ㅗ.",
+  "prompt": "Say 러, then 로. Keep the onset ㄹ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
