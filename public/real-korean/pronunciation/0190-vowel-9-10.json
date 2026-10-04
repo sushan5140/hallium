@@ -1,0 +1,20 @@
+{
+  "id": "pron-0190",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "wa vs wo",
+  "contrast": [
+    "ㅘ",
+    "ㅝ"
+  ],
+  "onset": "ㅎ",
+  "left": "화",
+  "right": "훠",
+  "cue": "Distinguish the second vowel after the w-glide.",
+  "prompt": "Say 화, then 훠. Keep the onset ㅎ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
