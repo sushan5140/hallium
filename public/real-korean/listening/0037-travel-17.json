@@ -1,0 +1,17 @@
+{
+  "id": "listening-0037",
+  "context": "travel",
+  "level": "Low Intermediate",
+  "fullSentence": "택시 승강장이 어디예요?",
+  "cloze": "택시 _____이 어디예요?",
+  "answer": "승강장",
+  "translation": "Where is the taxi stand?",
+  "hint": "Listen for taxi stand noun.",
+  "mode": "guess-before-reveal",
+  "tags": [
+    "listening",
+    "cloze",
+    "travel",
+    "real-korean"
+  ]
+}
