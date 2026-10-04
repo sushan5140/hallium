@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0085",
+  "context": "hobbies",
+  "level": "Low Intermediate",
+  "situation": "Talking about photography",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "사진 찍는 거 좋아하세요?",
+      "romanization": "sajin jjingneun geo joahaseyo?",
+      "meaning": "Do you like taking photos?"
+    },
+    {
+      "speaker": "B",
+      "korean": "네, 특히 거리 사진을 좋아해요.",
+      "romanization": "ne, teukhi geori sajineul joahaeyo.",
+      "meaning": "Yes, I especially like street photography."
+    },
+    {
+      "speaker": "A",
+      "korean": "멋있네요.",
+      "romanization": "meositneyo.",
+      "meaning": "That's cool."
+    }
+  ],
+  "teachingPoint": "특히 means especially.",
+  "tags": [
+    "hobbies",
+    "real-korean",
+    "dialogue"
+  ]
+}
