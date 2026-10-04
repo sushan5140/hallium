@@ -1,0 +1,16 @@
+{
+  "id": "mining-0124",
+  "level": "Beginner",
+  "context": "daily-life",
+  "targetChunk": "시장에 가요",
+  "gloss": "go to the market",
+  "sentence": "저녁에 시장에 가요",
+  "translation": "In the evening, I go to the market.",
+  "focus": "time-frequency framing",
+  "prompt": "Say that you go to the market using 저녁에.",
+  "tags": [
+    "sentence-mining",
+    "daily-life",
+    "production"
+  ]
+}
