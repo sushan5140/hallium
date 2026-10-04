@@ -1,0 +1,33 @@
+{
+  "id": "dialogue-0056",
+  "context": "friends",
+  "level": "Beginner",
+  "situation": "Asking a friend to send a photo",
+  "register": "casual",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "아까 찍은 사진 보내줘.",
+      "romanization": "akka jjigeun sajin bonaejwo.",
+      "meaning": "Send me the photo we took earlier."
+    },
+    {
+      "speaker": "B",
+      "korean": "응, 지금 보낼게.",
+      "romanization": "eung, jigeum bonaelge.",
+      "meaning": "Yeah, I'll send it now."
+    },
+    {
+      "speaker": "A",
+      "korean": "고마워!",
+      "romanization": "gomawo!",
+      "meaning": "Thanks!"
+    }
+  ],
+  "teachingPoint": "보내줘 is a casual request to send something.",
+  "tags": [
+    "friends",
+    "real-korean",
+    "dialogue"
+  ]
+}
