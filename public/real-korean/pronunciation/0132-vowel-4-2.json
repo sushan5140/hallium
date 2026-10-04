@@ -1,0 +1,20 @@
+{
+  "id": "pron-0132",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "eu vs u",
+  "contrast": [
+    "ㅡ",
+    "ㅜ"
+  ],
+  "onset": "ㄴ",
+  "left": "느",
+  "right": "누",
+  "cue": "ㅡ is unrounded; ㅜ is rounded.",
+  "prompt": "Say 느, then 누. Keep the onset ㄴ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
