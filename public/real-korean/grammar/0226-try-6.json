@@ -1,0 +1,16 @@
+{
+  "id": "grammar-0226",
+  "pattern": "-아/어 보다",
+  "level": "Low Intermediate",
+  "function": "Express trying an action",
+  "baseForm": "만들다",
+  "example": "직접 만들어 보세요.",
+  "translation": "Try making it yourself.",
+  "note": "Use V-아/어 보다 to mean try doing something.",
+  "prompt": "Make a try-it sentence with 만들다.",
+  "tags": [
+    "grammar",
+    "experience",
+    "low-intermediate"
+  ]
+}
