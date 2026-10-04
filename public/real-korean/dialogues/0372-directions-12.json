@@ -1,0 +1,34 @@
+{
+  "id": "dialogue-0372",
+  "context": "directions",
+  "level": "Beginner",
+  "situation": "Finding the cafe",
+  "register": "polite",
+  "lines": [
+    {
+      "speaker": "A",
+      "korean": "카페이 어디예요?",
+      "romanization": "kapei eodiyeyo?",
+      "meaning": "Where is the cafe?"
+    },
+    {
+      "speaker": "B",
+      "korean": "이 길로 쭉 가다가 오른쪽으로 가세요.",
+      "romanization": "i gillo jjuk gadaga oreunjjogeuro gaseyo.",
+      "meaning": "Go straight down this road, then turn right."
+    },
+    {
+      "speaker": "A",
+      "korean": "네, 감사합니다.",
+      "romanization": "ne, gamsahamnida.",
+      "meaning": "Okay, thank you."
+    }
+  ],
+  "teachingPoint": "쭉 가다가 means continue straight and then...",
+  "tags": [
+    "directions",
+    "navigation",
+    "real-korean",
+    "dialogue"
+  ]
+}
