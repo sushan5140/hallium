@@ -1,0 +1,20 @@
+{
+  "id": "pron-0196",
+  "type": "vowel-contrast",
+  "level": "Beginner",
+  "focus": "oe vs wi",
+  "contrast": [
+    "ㅚ",
+    "ㅟ"
+  ],
+  "onset": "ㅂ",
+  "left": "뵈",
+  "right": "뷔",
+  "cue": "Practice the rounded front-vowel/glide contrast in careful speech.",
+  "prompt": "Say 뵈, then 뷔. Keep the onset ㅂ unchanged.",
+  "tags": [
+    "pronunciation",
+    "vowels",
+    "contrast"
+  ]
+}
