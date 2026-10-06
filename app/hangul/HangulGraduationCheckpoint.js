@@ -1,8 +1,46 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
+import { evaluateHangulProgress } from "../../lib/hangul-progression";
+import { evaluateHangulGraduation } from "../../lib/hangul-graduation";
 import styles from "./page.module.css";
 
-export default function HangulGraduationCheckpoint({ graduation }) {
+const STORAGE_KEY = "hallium-hangul-lab-preview-v1";
+
+function readState() {
+  if (typeof window === "undefined") return {};
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") || {};
+  } catch {
+    return {};
+  }
+}
+
+export default function HangulGraduationCheckpoint() {
+  const [state, setState] = useState({});
+
+  useEffect(() => {
+    const refresh = () => setState(readState());
+    refresh();
+    const timer = window.setInterval(refresh, 1200);
+    window.addEventListener("storage", refresh);
+    return () => {
+      window.clearInterval(timer);
+      window.removeEventListener("storage", refresh);
+    };
+  }, []);
+
+  const progress = useMemo(() => evaluateHangulProgress({
+    ...state,
+    syllableBuilds: Array.isArray(state.builtSyllables) ? state.builtSyllables.length : 0,
+    wordReads: Array.isArray(state.readWords) ? new Set(state.readWords.map(String)).size : 0,
+  }), [state]);
+
+  const graduation = useMemo(() => evaluateHangulGraduation({
+    progress,
+    decodedPatterns: state.decodedPatterns || [],
+  }), [progress, state]);
+
   return (
     <section className={styles.graduationBridge} aria-label="Hangul graduation checkpoint">
       <div className={styles.graduationHead}>
