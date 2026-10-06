@@ -20,6 +20,8 @@ import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearne
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
 import { applyEvidenceAwarePracticeRoute, buildPracticeAttempt, practiceAttemptMistakeEvidence, recommendNextPractice, summarizePracticeEvidence } from "../lib/practice-engine";
+import { lessonVocabularyCards } from "../lib/flashcard-collections";
+import { flashcardIntelligenceWithCatalog, mergeFlashcardIntelligence } from "../lib/flashcard-state";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
 import LandingPage from "./landing/LandingPage";
@@ -1467,6 +1469,7 @@ function mergeIntelligenceState(local = {}, remote = {}) {
     .sort((a, b) => new Date(b.completedAt || 0) - new Date(a.completedAt || 0))
     .slice(0, 24);
   merged.mistakeLog = mergeMistakeLogs(local?.mistakeLog || [], remote?.mistakeLog || []);
+  merged.flashcards = mergeFlashcardIntelligence(local?.flashcards || {}, remote?.flashcards || {});
   return merged;
 }
 
@@ -1574,6 +1577,12 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setLearningPreferences(normalizeLearningPreferences(savedIntelligence.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(savedIntelligence.mistakeLog || []);
     setPracticeEvidence(savedIntelligence.practiceEvidence || []);
+    const curriculumFlashcards = lessonVocabularyCards(units.flatMap((unit) => unit.lessons || []));
+    const nextFlashcards = flashcardIntelligenceWithCatalog(savedIntelligence.flashcards || {}, curriculumFlashcards);
+    localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode), JSON.stringify({
+      ...savedIntelligence,
+      flashcards: nextFlashcards,
+    }));
     const savedVoicePreference = readLocalVoicePreference(scopedLearnerStorageKey(KOREAN_VOICE_STORAGE_KEY, guestMode));
     setVoicePreference(savedVoicePreference);
     const savedProfile = readLearnerProfile(guestMode);
