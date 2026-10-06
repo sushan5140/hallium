@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import HangulLabBridge from "./HangulLabBridge";
+import HangulGraduationCheckpoint from "./HangulGraduationCheckpoint";
 
 export const metadata = {
   title: "Hangul Lab — Hallium",
@@ -19,6 +20,7 @@ export default function HangulLab() {
         </div>
         <a className={styles.lessons} href="/?view=companion">My lessons <span aria-hidden="true">↗</span></a>
       </nav>
+      <HangulGraduationCheckpoint />
       <HangulLabBridge />
     </main>
   );
