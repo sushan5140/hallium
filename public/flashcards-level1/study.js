@@ -43,7 +43,7 @@ function render(){const w=word(),c=record(),items=visible(),index=items.findInde
  message(chosen);
  $("position").textContent="Card "+(absolute+1)+" of "+WORDS.length;$("position-progress").setAttribute("aria-valuenow",String(absolute+1));$("position-meter").style.width=(absolute+1)/WORDS.length*100+"%";
  $("back").disabled=index===0;$("next").disabled=index>=items.length-1;
- const all=WORDS.map(item=>state.cards[item.id]||blank()),saved=all.filter(c=>c.saved).length,known=Number(evidenceSummary.strong||0),learning=Number(evidenceSummary.recovering||0)+Number(evidenceSummary.due||0);
+ const all=WORDS.map(item=>state.cards[item.id]||blank()),saved=all.filter(c=>c.saved).length,known=Number(evidenceSummary.strong||0),learning=WORDS.filter(item=>{const row=evidence(item.id);return row&&(["learning","recovering"].includes(row.stage)||dueNow(item.id))}).length;
  $("known-count").textContent=known;$("learning-count").textContent=learning;$("saved-count").textContent=saved;$("sidebar-count").textContent=Number(evidenceSummary.reviewed||0)+" / 12";$("sidebar-meter").style.width=Number(evidenceSummary.reviewed||0)/12*100+"%";
  $("review-only").disabled=learning===0;$("review-only").textContent=reviewMode?"Return to full deck ↗":"Review "+learning+" learning word"+(learning===1?"":"s")+" ↗";
  refreshList();refreshFilters();document.title=w.ko+" · Korean Flashcards — Hallium";
