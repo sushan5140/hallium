@@ -28,7 +28,8 @@ jobs:
           test -f public/flashcards-level1/index.html
           test -f public/flashcards-level1/styles.css
           grep -q 'href="/flashcards"' app/hallium-core.js
-          grep -q '/flashcards-level1/index.html' app/flashcards/page.js
+          grep -q 'FlashcardCollectionsBrowser' app/flashcards/page.js
+          grep -q '/flashcards-level1/index.html' app/flashcards/StarterFlashcardsBridge.js
           grep -q 'book-illustration-v2' public/flashcards-level1/art-book.js
       - name: Compile Hallium Next.js
         run: npm run build
