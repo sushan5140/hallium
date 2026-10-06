@@ -1,5 +1,5 @@
 import styles from "../hangul/page.module.css";
-import StarterFlashcardsBridge from "./StarterFlashcardsBridge";
+import FlashcardCollectionsBrowser from "./FlashcardCollectionsBrowser";
 
 export const metadata = {
   title: "Starter Flashcards — Hallium",
@@ -19,7 +19,7 @@ export default function StarterFlashcards() {
         </div>
         <a className={styles.lessons} href="/hangul">Hangul Lab <span aria-hidden="true">↗</span></a>
       </nav>
-      <StarterFlashcardsBridge />
+      <FlashcardCollectionsBrowser />
     </main>
   );
 }
