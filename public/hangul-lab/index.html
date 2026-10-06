@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
+  <script defer src="../flashcards-level1/data.js"></script>
   <script defer src="./app.js"></script>
   <script defer src="./writing.js"></script>
 </head>
@@ -134,6 +135,33 @@
           <div class="quiz-start quiz-panel" id="quiz-start"><div class="quiz-orbit">✦ <span>한</span> ✳</div><div class="quiz-label">YOUR NEXT LITTLE CHALLENGE</div><h2>10 questions.<br />A little more confidence.</h2><p>Your answers help you see which letters are becoming familiar. Choose a letter family to practise, or mix the whole alphabet.</p><label class="quiz-focus">PRACTISE WHICH LETTERS? <select id="quiz-family" aria-label="Practice letter family"><option value="all">Mix all 40 letters</option><option value="plain">Core consonants · 10</option><option value="aspirated">Aspirated consonants · 4</option><option value="tense">Tense consonants · 5</option><option value="simple">Core vowels · 6</option><option value="yvowels">Y-vowels (long-form) · 4</option><option value="compound">Compound vowels · 11</option></select></label><div class="quiz-meta"><span>◷ About 3 minutes</span><span>♫ Listening + recognition</span></div><button class="primary-button" id="start-quiz">Let's practice <span>↗</span></button></div>
           <div class="quiz-active quiz-panel" id="quiz-active" hidden><div class="quiz-progress-line"><span id="quiz-step">QUESTION 01 / 10</span><span id="quiz-score-running">0 correct</span></div><div class="quiz-meter"><span id="quiz-meter-fill"></span></div><div id="quiz-type" class="quiz-type">RECOGNIZE THE LETTER</div><h2 id="quiz-question">Which sound matches this letter?</h2><div class="quiz-prompt" id="quiz-prompt">가</div><button class="listen-again" id="quiz-replay" hidden>♫ Play sound again</button><div class="answer-grid" id="answer-grid"></div><div class="answer-feedback" id="answer-feedback" aria-live="polite"></div><button class="primary-button quiz-next" id="next-question" hidden>Next question <span>→</span></button></div>
           <div class="quiz-result quiz-panel" id="quiz-result" hidden><div class="result-confetti" aria-hidden="true">✦ ✳ ✦</div><div class="quiz-label">ROUND COMPLETE</div><h2>Look at you, learning.</h2><div class="result-score"><span id="quiz-final-score">0</span><small>/ 10 correct</small></div><p id="quiz-result-copy">Every answer is a step forward.</p><div class="result-breakdown" id="result-breakdown"></div><button class="primary-button" id="retry-quiz">Another round <span>↗</span></button><button class="text-button" data-view="learn">Back to letters →</button></div>
+
+          <section class="word-reading-lab" aria-labelledby="word-reading-title">
+            <div class="word-reading-head">
+              <div><span>05 / FIRST WORD READING</span><h2 id="word-reading-title">Read without romanization<span class="period">.</span></h2><p>These are real Starter words Hallium already teaches. Read the Hangul first, then choose the meaning. Romanization stays hidden.</p></div>
+              <strong id="word-reading-earned">0 / 8 words read</strong>
+            </div>
+            <div class="word-reading-card" id="word-reading-start">
+              <span>HANGUL → MEANING</span>
+              <h3>Ready for your first words?</h3>
+              <p>Eight short words. No English spelling hints. Correct reads count toward your Hangul → Beginner readiness.</p>
+              <button type="button" class="primary-button" id="start-word-reading">Start reading <span>↗</span></button>
+            </div>
+            <div class="word-reading-card" id="word-reading-active" hidden>
+              <div class="word-reading-progress"><span id="word-reading-step">WORD 01 / 08</span><span id="word-reading-score">0 correct</span></div>
+              <div class="word-reading-word" id="word-reading-word" lang="ko">물</div>
+              <p class="word-reading-prompt">What does this word mean?</p>
+              <div class="answer-grid" id="word-reading-answers"></div>
+              <div class="answer-feedback" id="word-reading-feedback" aria-live="polite"></div>
+              <button type="button" class="primary-button quiz-next" id="word-reading-next" hidden>Next word <span>→</span></button>
+            </div>
+            <div class="word-reading-card" id="word-reading-result" hidden>
+              <span>READING ROUND COMPLETE ✦</span>
+              <h3><strong id="word-reading-final">0</strong> / 8 correct</h3>
+              <p id="word-reading-result-copy">Each correctly read word becomes real progression evidence.</p>
+              <button type="button" class="primary-button" id="retry-word-reading">Read another set <span>↗</span></button>
+            </div>
+          </section>
         </section>
 
         <section class="view" id="view-cards" aria-labelledby="cards-title" hidden>
