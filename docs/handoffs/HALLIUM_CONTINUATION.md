@@ -4242,3 +4242,142 @@ Next phase:
 Start Batch 7 from the current `main` after this handoff update.
 
 MeloTTS and TwinMem remain parked and should continue to be excluded from the default roadmap.
+
+
+---
+
+# 49. Batch 7 / H-P9 — FLASHCARDS 2.0 COMPLETE ✅
+
+Batch 7 is complete on production-source `main`.
+
+MeloTTS and TwinMem/voice-memory remained parked throughout the batch.
+
+## H-P9.1 — flashcard evidence foundation
+Merged PR: #53
+
+Added deterministic card-learning evidence:
+- new / learning / recovering / strong states
+- attempts, misses, recoveries and streaks
+- stability
+- adaptive next-review dates
+- deck mastery / due summaries
+
+## H-P9.2 — recall-mode evidence
+Merged PR: #54
+
+Added distinct evidence for:
+- recognition
+- production
+- listening
+- sentence completion
+
+Rules:
+- production/listening/sentence recall contribute stronger evidence than recognition-only checks
+- reveals and hints reduce evidence strength
+- per-mode accuracy remains separately measurable
+- unknown modes fail closed to recognition
+
+Important architecture correction:
+Flashcards reuse Hallium's existing H-P6 `adaptiveReviewSchedule()`.
+There is no second flashcard-only SRS.
+
+## H-P9.3 — shared review-memory adapter
+Merged PR: #55
+
+Added adapters from flashcard outcomes into Hallium's existing mistake/review-memory shape.
+
+- failed cards can enter canonical review memory
+- recovered cards retain stable identity
+- adaptive review metadata is preserved
+- missing card IDs fail closed
+
+## H-P9.4 — Starter UI integration
+Merged PR: #56
+
+Connected the existing 12-card Starter visual deck to the H-P9 engine.
+
+Architecture:
+- static iframe remains presentation
+- iframe emits attempts
+- parent React bridge validates same-origin/source
+- parent applies flashcard evidence logic
+- mastery/due state is sent back
+- fixed 1-day / 3-day scheduling was removed
+- review-only mode now follows evidence
+
+## H-P9.5 — collection adapters
+Merged PR: #57
+
+Added source adapters for:
+- Starter
+- curriculum lesson vocabulary
+- Real Korean authored phrases
+- weak/due cards
+- saved cards
+
+Rules:
+- curriculum vocabulary is derived from real lesson `kind:"word"` steps
+- repeated vocabulary is deduplicated
+- Real Korean cards derive from the shared authored bank
+- weak cards derive from evidence
+- no second curriculum is maintained
+
+## H-P9.6 — visible collection browser
+Merged PR: #58
+
+Added visible Flashcards 2.0 collection switching:
+- Starter collection
+- Real Korean scene collections
+- accessible tabs
+- Korean, meaning, romanization, register and note context
+- existing Starter evidence bridge preserved
+
+## H-P9.7 — canonical account/core integration
+Merged PR: #59
+Merge: `0bd6f61ecc3efb155b64f64cc2f99d4f86cfd701`
+
+Closed the remaining state/sync gap:
+- flashcard evidence is stored inside existing Hallium `intelligence_state`
+- existing learner-state cloud sync therefore carries flashcard state without a new table
+- curriculum flashcard catalog is derived directly from Hallium Core lesson objects
+- local/cloud flashcard evidence merges per card using latest review timestamp
+- saved IDs merge without duplication
+- Starter legacy evidence migrates into canonical state
+- Starter bookmarks emit stable canonical IDs
+- visible Weak & due, Saved, Curriculum and Real Korean collections read shared learner state
+
+## Batch 7 capability matrix
+
+- deterministic flashcard evidence ✅
+- new / learning / recovering / strong mastery ✅
+- recognition / production / listening / sentence evidence ✅
+- hint/reveal evidence penalties ✅
+- H-P6 adaptive scheduler reused ✅
+- review-memory integration ✅
+- Starter visual deck integrated ✅
+- fixed local scheduling removed ✅
+- curriculum collection adapter ✅
+- Real Korean collection adapter ✅
+- weak/due collection ✅
+- saved collection ✅
+- visible collection browser ✅
+- canonical intelligence-state persistence ✅
+- signed-in cloud-sync path preserved ✅
+- local/cloud per-card merge ✅
+- MeloTTS/TwinMem excluded ✅
+
+## Batch 7 status
+
+**COMPLETE ✅**
+
+Do not reopen H-P9 by default unless a concrete flashcard regression or new product requirement appears.
+
+## Exact continuation point
+
+Next phase:
+**Batch 8 / H-P10 — Hangul → Beginner progression**
+
+Start Batch 8 from current `main`.
+
+Primary goal:
+turn the existing Hangul Lab into a measured bridge from letter/syllable reading into the real Beginner curriculum, rather than a disconnected alphabet surface.
