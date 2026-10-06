@@ -31,13 +31,13 @@ test("recovery after a miss is tracked separately from a clean streak", () => {
 
 test("repeated clean recall can promote a card to strong", () => {
   let state = normalizeFlashcardState({});
-  for (let i = 0; i < 5; i += 1) {
+  for (let i = 0; i < 7; i += 1) {
     state = applyFlashcardAttempt(state, {
       correct:true,
       now:new Date(NOW.getTime() + i * 3 * 86400000),
     });
   }
-  assert.ok([FLASHCARD_STAGES.learning, FLASHCARD_STAGES.strong].includes(state.stage));
+  assert.equal(state.stage, FLASHCARD_STAGES.strong);
   assert.ok(state.stability >= 70);
   assert.ok(state.intervalDays >= 2);
 });
