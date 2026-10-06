@@ -16,7 +16,7 @@ const query=new URLSearchParams(location.search).get("word");if(safe(query)){sta
 try{if(["natural","clear","slow"].includes(localStorage.getItem(PACE_KEY)))$("pace").value=localStorage.getItem(PACE_KEY)}catch{}
 const word=()=>WORDS.find(w=>w.id===state.selected)||WORDS[0];
 const record=()=>state.cards[state.selected]||(state.cards[state.selected]=blank());
-const evidence=id=>evidenceCards[id]||null;
+const evidence=id=>evidenceCards["starter:"+id]||evidenceCards[id]||null;
 const dueNow=id=>{const row=evidence(id);if(!row?.nextReviewAt)return false;const due=Date.parse(row.nextReviewAt);return Number.isFinite(due)&&due<=Date.now()};
 const visible=()=>reviewMode?WORDS.filter(w=>dueNow(w.id)||["learning","recovering"].includes(evidence(w.id)?.stage)):state.group==="All"?WORDS:WORDS.filter(w=>w.group===state.group);
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch{message("Browser storage is unavailable; this session may not save your choices.")}}
