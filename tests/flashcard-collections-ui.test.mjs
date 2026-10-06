@@ -12,7 +12,7 @@ test("Flashcards route renders the collection browser", () => {
 
 test("Starter collection remains available through the existing evidence bridge", () => {
   assert.match(browser, /StarterFlashcardsBridge/);
-  assert.match(browser, /id:\\s*"starter"/);
+  assert.match(browser, /id:\s*"starter"/);
 });
 
 test("Real Korean collections come from the shared collection adapter", () => {
