@@ -3,11 +3,12 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 const page = fs.readFileSync("app/flashcards/page.js", "utf8");
-const bridge = fs.readFileSync("app/flashcards/StarterFlashcardsBridge.js", "utf8");
+const browser = fs.readFileSync("app/flashcards/FlashcardCollectionsBrowser.js", "utf8");\nconst bridge = fs.readFileSync("app/flashcards/StarterFlashcardsBridge.js", "utf8");
 const study = fs.readFileSync("public/flashcards-level1/study.js", "utf8");
 
-test("Starter page routes the existing visual deck through the evidence bridge", () => {
-  assert.match(page, /StarterFlashcardsBridge/);
+test("Starter page routes the existing visual deck through the collection browser and evidence bridge", () => {
+  assert.match(page, /FlashcardCollectionsBrowser/);
+  assert.match(browser, /StarterFlashcardsBridge/);
   assert.doesNotMatch(page, /<iframe/);
 });
 
