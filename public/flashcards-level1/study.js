@@ -50,9 +50,9 @@ function render(){const w=word(),c=record(),items=visible(),index=items.findInde
  }
 function go(id){if(!safe(id))return;state.selected=id;if(!visible().some(w=>w.id===id)){reviewMode=false;state.group="All"}if("speechSynthesis" in window)speechSynthesis.cancel();render();persist();try{history.replaceState(null,"",location.pathname+"?word="+encodeURIComponent(id))}catch{}}
 function move(n){const arr=visible(),idx=arr.findIndex(w=>w.id===state.selected),dest=arr[idx+n];if(dest)go(dest.id)}
-function vote(kind){const w=word();window.parent.postMessage({type:"hallium:flashcards:attempt",deckId:"starter-unit-1",cardId:w.id,correct:kind==="know",mode:"recognition",revealedBeforeAnswer:false,hintsUsed:0},location.origin);message(kind==="know"?"✓ Recall recorded. Hallium is updating this card's strength.":"↻ Miss recorded. Hallium will schedule this word sooner.")}
+function vote(kind){const w=word();window.parent.postMessage({type:"hallium:flashcards:attempt",deckId:"starter-unit-1",cardId:"starter:"+w.id,correct:kind==="know",mode:"recognition",revealedBeforeAnswer:false,hintsUsed:0},location.origin);message(kind==="know"?"✓ Recall recorded. Hallium is updating this card's strength.":"↻ Miss recorded. Hallium will schedule this word sooner.")}
 $("know").addEventListener("click",()=>vote("know"));$("learn").addEventListener("click",()=>vote("learn"));
-$("bookmark").addEventListener("click",()=>{record().saved=!record().saved;persist();render();message(record().saved?"♥ Saved to your word collection.":"Removed from your word collection.")});
+$("bookmark").addEventListener("click",()=>{record().saved=!record().saved;persist();window.parent.postMessage({type:"hallium:flashcards:save",deckId:"starter-unit-1",cardId:"starter:"+word().id,saved:record().saved},location.origin);render();message(record().saved?"♥ Saved to your word collection.":"Removed from your word collection.")});
 $("play-word").addEventListener("click",()=>sound(word().ko));$("play-example").addEventListener("click",()=>sound(word().example));
 $("back").addEventListener("click",()=>move(-1));$("next").addEventListener("click",()=>move(1));
 $("choose").addEventListener("click",()=>{const menu=$("word-list");menu.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});menu.querySelector('[aria-current="true"]')?.focus({preventScroll:true})});
@@ -60,6 +60,6 @@ $("pace").addEventListener("change",()=>{try{localStorage.setItem(PACE_KEY,$("pa
 $("review-only").addEventListener("click",()=>{reviewMode=!reviewMode;if(reviewMode){const first=WORDS.find(w=>dueNow(w.id)||["learning","recovering"].includes(evidence(w.id)?.stage));if(first)state.selected=first.id}else state.group="All";render();persist()});
 window.addEventListener("message",event=>{if(event.origin!==location.origin||event.source!==window.parent)return;const payload=event.data;if(!payload||payload.type!=="hallium:flashcards:state"||payload.deckId!=="starter-unit-1")return;evidenceCards=payload.cards&&typeof payload.cards==="object"?payload.cards:{};evidenceSummary=payload.summary&&typeof payload.summary==="object"?payload.summary:evidenceSummary;render()});
 document.addEventListener("keydown",e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest("input,select,textarea,button,a,summary"))return;if(e.key==="ArrowRight"){e.preventDefault();move(1)}if(e.key==="ArrowLeft"){e.preventDefault();move(-1)}});
-window.parent.postMessage({type:"hallium:flashcards:ready",deckId:"starter-unit-1"},location.origin);
+window.parent.postMessage({type:"hallium:flashcards:ready",deckId:"starter-unit-1",catalog:WORDS.map(w=>({id:"starter:"+w.id,korean:w.ko,meaning:w.meaning,source:"starter",sourceId:w.id,collectionId:"starter",tags:[w.group,"starter"],meta:{romanization:w.latin,note:w.tip}}))},location.origin);
 render();persist();
 })();
