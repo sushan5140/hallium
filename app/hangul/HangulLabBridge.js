@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { evaluateHangulProgress } from "../../lib/hangul-progression";
+import { HANGUL_DECODING_ITEMS, decodingOptions } from "../../lib/hangul-decoding";
 import styles from "./page.module.css";
 
 const HANGUL_STORAGE_KEY = "hallium-hangul-lab-preview-v1";
@@ -36,6 +37,9 @@ export default function HangulLabBridge() {
   const [readingIndex, setReadingIndex] = useState(0);
   const [readingScore, setReadingScore] = useState(0);
   const [readingAnswered, setReadingAnswered] = useState(false);
+  const [decodedIds, setDecodedIds] = useState([]);
+  const [decodeIndex, setDecodeIndex] = useState(0);
+  const [decodeAnswered, setDecodeAnswered] = useState(false);
 
   const progress = useMemo(() => evaluateHangulProgress({
     ...evidence,
@@ -45,6 +49,7 @@ export default function HangulLabBridge() {
   useEffect(() => {
     const saved = readHangulState();
     setReadWordIds([...new Set((saved.readWords || []).map(String))]);
+    setDecodedIds([...new Set((saved.decodedPatterns || []).map(String))]);
   }, []);
 
   useEffect(() => {
@@ -122,7 +127,24 @@ export default function HangulLabBridge() {
   }[progress.stage] || "Letters";
 
   const activeReading = readingRound[readingIndex] || null;
+  const activeDecode = HANGUL_DECODING_ITEMS[decodeIndex] || null;
   const readingUnlocked = progress.stage === "words" || progress.stage === "beginner_ready";
+
+  function answerDecode(value) {
+    if (!activeDecode || decodeAnswered) return;
+    if (value === activeDecode.heard) {
+      const current = readHangulState();
+      const decodedPatterns = [...new Set([...(current.decodedPatterns || []).map(String), activeDecode.id])];
+      localStorage.setItem(HANGUL_STORAGE_KEY, JSON.stringify({ ...current, decodedPatterns }));
+      setDecodedIds(decodedPatterns);
+    }
+    setDecodeAnswered(true);
+  }
+
+  function nextDecode() {
+    setDecodeIndex((value) => (value + 1) % HANGUL_DECODING_ITEMS.length);
+    setDecodeAnswered(false);
+  }
 
   return (
     <>
@@ -183,6 +205,26 @@ export default function HangulLabBridge() {
             ) : null}
           </div>
         )}
+      </section>
+
+      <section className={styles.decodingBridge} aria-label="Common Korean pronunciation patterns">
+        <div>
+          <span>REAL-WORD DECODING</span>
+          <strong>Written Hangul does not always sound letter-by-letter.</strong>
+          <small>{decodedIds.length} / {HANGUL_DECODING_ITEMS.length} patterns decoded correctly</small>
+        </div>
+        {activeDecode ? (
+          <div className={styles.decodingCard}>
+            <header><span>{activeDecode.rule}</span><b lang="ko">{activeDecode.word}</b></header>
+            <p>Which form is closest to what you actually hear?</p>
+            <div className={styles.decodingAnswers}>
+              {decodingOptions(activeDecode).map((option) => (
+                <button key={option} type="button" disabled={decodeAnswered} onClick={() => answerDecode(option)} lang="ko">{option}</button>
+              ))}
+            </div>
+            {decodeAnswered ? <><small>{activeDecode.explanation}</small><button type="button" onClick={nextDecode}>Next pattern →</button></> : null}
+          </div>
+        ) : null}
       </section>
 
       <iframe
