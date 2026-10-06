@@ -4115,3 +4115,130 @@ Batch 6 should build on:
 - existing cloud-sync and security gates
 
 MeloTTS and TwinMem remain parked and are not part of the Batch 6 default continuation path.
+
+
+---
+
+# 48. Batch 6 / H-P8 — PRACTICE ENGINE 2.0 COMPLETE ✅
+
+Batch 6 is complete on production-source `main`.
+
+The implementation that remains authoritative is the practice-evidence architecture in `lib/practice-engine.js`. A superseded parallel adaptive-session PR (#41) was closed, and a later duplicate implementation was removed in cleanup PR #51 so Hallium has one practice-engine source of truth.
+
+MeloTTS and TwinMem/voice-memory work remain parked and were not touched by Batch 6.
+
+## H-P8.1 — Practice evidence foundation
+Merged PR: #42
+Merge: `72f941f963e226508f257d775ed7f09a96410b63`
+
+Established deterministic practice-attempt records with:
+- practice mode
+- scene / skill provenance
+- learner response and expected answer
+- register-match evidence
+- hint/retry counts
+- normalized score
+- strong / developing / relearn outcome
+
+## H-P8.2 — Persist practice evidence into review memory
+Merged PR: #43
+Merge: `51b7110dc07ffa02910cf3ee478df1ba6b135857`
+
+Connected non-strong practice outcomes to the existing learner mistake/review memory instead of keeping practice results isolated.
+
+## H-P8.3 — Practice retry and recovery loop
+Merged PR: #44
+Merge: `cb322fb6f74af6841c33899161f33fb2d1e0a2a7`
+
+Added retry/recovery evidence so Hallium can distinguish a first miss from later recovery rather than treating every attempt as a flat result.
+
+## H-P8.4 — Multi-mode practice evidence
+Merged PR: #45
+Merge: `5662c467495ecd014eeb8a48895e81728c880fdd`
+
+Generalized the evidence model beyond one exercise surface so multiple practice modes contribute comparable learning evidence.
+
+## H-P8.5 — Companion lesson evidence
+Merged PR: #46
+Merge: `6e7a81702175cd72c40fbdb6784521eb5d3a0d3e`
+
+Connected lesson/Companion work to the practice-evidence stream so structured study and free practice no longer live as separate learning histories.
+
+## H-P8.6 — Practice evidence summary
+Merged PR: #47
+Merge: `2ffebf96694d9fadbb055116c8d2febd7b5fbe00`
+
+Added deterministic evidence summaries including:
+- recent attempt count
+- average score
+- outcome counts
+- mode counts
+- per-skill evidence
+- highest current weak skill
+- early / growing / multi-mode evidence labels
+
+## H-P8.7 — Evidence-aware next-practice routing
+Merged PR: #48
+Merge: `d4d5a778945f7a5aca69be2a8745e46f217f567d`
+
+Connected practice evidence back into the H-P6 learning route.
+
+Routing can now recommend an appropriate next surface from the current weak skill, including:
+- Real Korean / register / conversation
+- listening / lesson context
+- grammar
+- vocabulary
+- reading/context
+- focused study check fallback
+
+Safety rule:
+scheduled due review remains authoritative and stays ahead of optional evidence-based routing.
+
+## H-P8.8 — Freshness-aware practice evidence
+Merged PR: #49
+Merge: `d4745a458eb58e06150f612ebe600751b625fd79`
+
+Added evidence freshness so stale attempts do not keep controlling the learner's next-practice recommendation indefinitely.
+
+The practice engine now filters routing evidence by a bounded age window while preserving the underlying stored history.
+
+## Batch 6 cleanup
+
+Superseded PR:
+- #41 — closed without merge after the evidence architecture became the accepted H-P8 path.
+
+Cleanup:
+- PR #51 removed the duplicate practice-session implementation that was briefly added after H-P8.1–H-P8.8 had already landed.
+- `lib/practice-engine.js` remains the single source of truth for Batch 6 practice evidence/routing.
+
+## Batch 6 capability matrix
+
+- normalized practice-attempt evidence ✅
+- register-aware scoring ✅
+- hints/retries reflected in evidence ✅
+- strong / developing / relearn outcomes ✅
+- non-strong outcomes feed review memory ✅
+- recovery/retry loop ✅
+- multi-mode evidence ✅
+- Companion lesson evidence ✅
+- per-skill evidence summaries ✅
+- evidence-aware next-practice routing ✅
+- due-review safety preserved ✅
+- freshness-aware routing ✅
+- Guest/cloud-sync/security architecture preserved ✅
+- MeloTTS/TwinMem excluded ✅
+
+## Batch 6 status
+
+**COMPLETE ✅**
+
+Do not reopen H-P8 by default unless a concrete practice regression or a new product requirement appears.
+
+## Exact continuation point
+
+Next phase:
+**Batch 7 / H-P9 — Flashcards 2.0**
+
+Start Batch 7 from the current `main` after this handoff update.
+
+MeloTTS and TwinMem remain parked and should continue to be excluded from the default roadmap.
