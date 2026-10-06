@@ -1,4 +1,5 @@
 import styles from "../hangul/page.module.css";
+import StarterFlashcardsBridge from "./StarterFlashcardsBridge";
 
 export const metadata = {
   title: "Starter Flashcards — Hallium",
@@ -18,13 +19,7 @@ export default function StarterFlashcards() {
         </div>
         <a className={styles.lessons} href="/hangul">Hangul Lab <span aria-hidden="true">↗</span></a>
       </nav>
-      <iframe
-        className={styles.frame}
-        title="Illustrated Starter Unit 1 Korean flashcards with twelve words, pronunciation and review"
-        src="/flashcards-level1/index.html"
-        loading="eager"
-        allow="autoplay"
-      />
+      <StarterFlashcardsBridge />
     </main>
   );
 }
