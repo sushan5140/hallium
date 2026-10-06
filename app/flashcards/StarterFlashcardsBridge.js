@@ -4,25 +4,54 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { applyFlashcardAttempt, flashcardIsDue, normalizeFlashcardState, summarizeFlashcardDeck } from "../../lib/flashcard-engine";
 import styles from "../hangul/page.module.css";
 
-const STORAGE_KEY = "hallium:flashcards:starter-unit-1:v2";
+const LEGACY_STORAGE_KEY = "hallium:flashcards:starter-unit-1:v2";
+const INTELLIGENCE_KEY = "hallim:intelligence:v1";
 const DECK_SIZE = 12;
 
-function readDeck() {
+function readIntelligence() {
   if (typeof window === "undefined") return {};
   try {
-    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    return parsed && typeof parsed === "object" ? parsed : {};
+    return JSON.parse(localStorage.getItem(INTELLIGENCE_KEY) || "{}") || {};
   } catch {
     return {};
   }
 }
 
-function writeDeck(cards) {
+function readDeck() {
+  const intelligence = readIntelligence();
+  const canonical = intelligence?.flashcards?.cards;
+  if (canonical && typeof canonical === "object" && Object.keys(canonical).length) return canonical;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+    const legacy = JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY) || "{}");
+    return legacy && typeof legacy === "object" ? legacy : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeFlashcards(partial) {
+  try {
+    const intelligence = readIntelligence();
+    const previous = intelligence?.flashcards && typeof intelligence.flashcards === "object"
+      ? intelligence.flashcards
+      : {};
+    const nextFlashcards = {
+      ...previous,
+      ...partial,
+      updatedAt: new Date().toISOString(),
+    };
+    localStorage.setItem(INTELLIGENCE_KEY, JSON.stringify({
+      ...intelligence,
+      flashcards: nextFlashcards,
+    }));
+    window.dispatchEvent(new CustomEvent("hallium:flashcards:changed"));
   } catch {
     // The visual deck remains usable even when browser persistence is blocked.
   }
+}
+
+function writeDeck(cards) {
+  writeFlashcards({ cards });
 }
 
 export default function StarterFlashcardsBridge() {
@@ -57,7 +86,28 @@ export default function StarterFlashcardsBridge() {
       if (!payload || typeof payload !== "object") return;
 
       if (payload.type === "hallium:flashcards:ready") {
+        if (Array.isArray(payload.catalog) && payload.catalog.length) {
+          const intelligence = readIntelligence();
+          const previous = intelligence?.flashcards || {};
+          const existing = Array.isArray(previous.catalog) ? previous.catalog : [];
+          const byId = new Map(existing.map((card) => [card.id, card]));
+          payload.catalog.forEach((card) => {
+            if (card?.id) byId.set(card.id, card);
+          });
+          writeFlashcards({ catalog: [...byId.values()] });
+        }
         sendState(event.source);
+        return;
+      }
+
+      if (payload.type === "hallium:flashcards:save") {
+        const intelligence = readIntelligence();
+        const previous = intelligence?.flashcards || {};
+        const saved = new Set(Array.isArray(previous.savedIds) ? previous.savedIds : []);
+        if (payload.saved === true) saved.add(String(payload.cardId || ""));
+        else saved.delete(String(payload.cardId || ""));
+        saved.delete("");
+        writeFlashcards({ savedIds: [...saved] });
         return;
       }
 
