@@ -64,6 +64,24 @@ The structured registry currently carries the 24 September 2026 audit for:
 
 Round 64 is also represented as a historical source-linked question set with its unresolved key/audio gates preserved.
 
+## Current audited newer TOPIK II rounds
+
+The structured registry carries the 6 October 2026 source audit for:
+- 83
+- 91
+- 96
+- 102
+
+All four mirror the TOPIK I catalog presentation: external question PDFs beside Hallium's local response sheet, with separate source links for listening / writing / reading where available.
+
+Safety gates remain fail-closed:
+- 96 TOPIK II audio is blocked because the published archive has a mismatch report.
+- 91 TOPIK II transcript is blocked because the current archive link returns 404.
+- 102 TOPIK II listening media remains blocked pending mismatch resolution and acoustic verification.
+- 83 TOPIK II keys are linked but are not promoted to verified scoring until the full key audit and reuse-rights check are complete.
+
+Hallium does not rehost the original examination files.
+
 No unreleased round is fabricated to increase the catalog count.
 
 ## Batch 2 handoff
