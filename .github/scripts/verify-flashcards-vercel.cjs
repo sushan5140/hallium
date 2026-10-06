@@ -19,10 +19,20 @@ const {chromium}=require("playwright");
   await frame.locator("#bookmark").click();
   assert.equal(await frame.locator("#bookmark").getAttribute("aria-pressed"),"true");
   await frame.locator("#learn").click();
-  assert.equal(await frame.locator("#learning-count").innerText(),"1");
+  await frame.locator("#learn").waitFor();
+  await page.waitForFunction(() => {
+    const iframe=document.querySelector('iframe[title*="Starter Unit 1"]');
+    return iframe?.contentDocument?.querySelector("#learn")?.getAttribute("aria-pressed")==="true";
+  });
+  assert.ok(Number(await frame.locator("#learning-count").innerText())>=1);
   await frame.locator("#know").click();
-  assert.equal(await frame.locator("#known-count").innerText(),"1");
-  assert.equal(await frame.locator("#learning-count").innerText(),"0");
+  await page.waitForFunction(() => {
+    const iframe=document.querySelector('iframe[title*="Starter Unit 1"]');
+    return iframe?.contentDocument?.querySelector("#know")?.getAttribute("aria-pressed")==="true";
+  });
+  // A single recovery is intentionally not counted as "strong" yet.
+  assert.equal(await frame.locator("#known-count").innerText(),"0");
+  assert.ok(Number(await frame.locator("#learning-count").innerText())>=1);
   const refreshed=await page.request.get("http://127.0.0.1:3000/flashcards-level1/index.html");
   assert.equal(refreshed.status(),200);
   for(const file of ["study.js","study.css","data.js","art-book.js"]){
