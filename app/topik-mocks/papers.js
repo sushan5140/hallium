@@ -152,6 +152,116 @@ const rawPapers=[
     "minutes": 100
   },
   {
+    "id": "102-II",
+    "round": 102,
+    "year": 2025,
+    "level": "II",
+    "title": "102nd TOPIK II",
+    "paper": "https://files.topikguide.com/test-papers/102nd-TOPIK-II-Listening-Test-Paper.pdf",
+    "writingPaper": "https://files.topikguide.com/test-papers/102nd-TOPIK-II-Writing-Test-Paper.pdf",
+    "readingPaper": "https://files.topikguide.com/test-papers/102nd-TOPIK-II-Reading-Test-Paper.pdf",
+    "resource": "https://www.topikguide.com/download-102nd-topik-test-papers/",
+    "audio": "https://files.topikguide.com/listening/102-TOPIK-II-Listening-Audio-File.mp3",
+    "transcript": "https://files.topikguide.com/test-papers/102nd-TOPIK-II-Listening-Transcript.pdf",
+    "answerKeys": {
+      "listening": "https://files.topikguide.com/test-papers/102nd-TOPIK-II-Listening-Answers.pdf",
+      "writing": "https://files.topikguide.com/test-papers/102nd-TOPIK-II-Writing-Answers.pdf",
+      "reading": "https://files.topikguide.com/test-papers/102nd-TOPIK-II-Reading-Answers.pdf"
+    },
+    "sourceStatus": "Released TOPIK II source set linked through published archive; reuse permission pending",
+    "provenance": "Hallium TOPIK II source audit, 2026-10-06",
+    "scoreStatus": "Objective keys and writing key not fully audited; automatic scoring disabled",
+    "audioStatus": "MP3 not acoustically matched to the linked transcript; embedded audio disabled",
+    "sections": [
+      {"id":"listening","name":"Listening","ko":"듣기","count":50,"minutes":60},
+      {"id":"writing","name":"Writing","ko":"쓰기","count":4,"minutes":50},
+      {"id":"reading","name":"Reading","ko":"읽기","count":50,"minutes":70}
+    ],
+    "minutes": 180
+  },
+  {
+    "id": "96-II",
+    "round": 96,
+    "year": 2024,
+    "level": "II",
+    "title": "96th TOPIK II",
+    "paper": "https://www.topikguide.com/TOPIK-Papers/96th-TOPIK-II-Listening-Test-Paper.pdf",
+    "writingPaper": "https://www.topikguide.com/TOPIK-Papers/96th-TOPIK-II-Writing-Test-Paper.pdf",
+    "readingPaper": "https://www.topikguide.com/TOPIK-Papers/96th-TOPIK-II-Reading-Test-Paper.pdf",
+    "resource": "https://www.topikguide.com/download-96th-topik-test-papers/",
+    "audio": "https://drive.google.com/file/d/1ebLFch7tPAjzZ59jJR_ndGcmWJCCEmby/view?usp=sharing",
+    "transcript": "https://www.topikguide.com/TOPIK-Papers/96th-TOPIK-II-Listening-Transcript.pdf",
+    "answerKeys": {
+      "combined": "https://www.topikguide.com/TOPIK-Papers/96th-TOPIK-II-Answers.pdf"
+    },
+    "sourceStatus": "TOPIK II booklets linked through published archive; reuse permission pending",
+    "provenance": "Hallium TOPIK II source audit, 2026-10-06",
+    "scoreStatus": "Combined key not fully audited; automatic scoring disabled",
+    "audioStatus": "Published archive comments report the linked audio is mismatched; embedded audio blocked",
+    "sections": [
+      {"id":"listening","name":"Listening","ko":"듣기","count":50,"minutes":60},
+      {"id":"writing","name":"Writing","ko":"쓰기","count":4,"minutes":50},
+      {"id":"reading","name":"Reading","ko":"읽기","count":50,"minutes":70}
+    ],
+    "minutes": 180
+  },
+  {
+    "id": "91-II",
+    "round": 91,
+    "year": 2023,
+    "level": "II",
+    "title": "91st TOPIK II",
+    "paper": "https://files.topikguide.com/test-papers/91st-TOPIK-II-Listening-Test-Paper.pdf",
+    "writingPaper": "https://files.topikguide.com/test-papers/91st-TOPIK-II-Writing-Test-Paper.pdf",
+    "readingPaper": "https://files.topikguide.com/test-papers/91st-TOPIK-II-Reading-Test-Paper.pdf",
+    "resource": "https://www.topikguide.com/download-91st-topik-test-papers/",
+    "audio": "https://files.topikguide.com/listening/91-TOPIK-II-Listening-Audio-File.mp3",
+    "transcript": null,
+    "answerKeys": {
+      "listening": "https://files.topikguide.com/test-papers/91st-TOPIK-II-Listening-Answers.pdf",
+      "writing": "https://files.topikguide.com/test-papers/91st-TOPIK-II-Writing-Answers.pdf",
+      "reading": "https://files.topikguide.com/test-papers/91st-TOPIK-II-Reading-Answers.pdf"
+    },
+    "sourceStatus": "TOPIK II booklets and keys linked through published archive; transcript link currently broken",
+    "provenance": "Hallium TOPIK II source audit, 2026-10-06",
+    "scoreStatus": "Keys not fully audited; automatic scoring disabled",
+    "audioStatus": "MP3 not acoustically verified; archive transcript link currently returns 404",
+    "sections": [
+      {"id":"listening","name":"Listening","ko":"듣기","count":50,"minutes":60},
+      {"id":"writing","name":"Writing","ko":"쓰기","count":4,"minutes":50},
+      {"id":"reading","name":"Reading","ko":"읽기","count":50,"minutes":70}
+    ],
+    "minutes": 180
+  },
+  {
+    "id": "83-II",
+    "round": 83,
+    "year": 2022,
+    "level": "II",
+    "title": "83rd TOPIK II",
+    "paper": "https://files.topikguide.com/test-papers/83rd-TOPIK-II-Listening-Test-Paper.pdf",
+    "writingPaper": "https://files.topikguide.com/test-papers/83rd-TOPIK-II-Writing-Test-Paper.pdf",
+    "readingPaper": "https://files.topikguide.com/test-papers/83rd-TOPIK-II-Reading-Test-Paper.pdf",
+    "resource": "https://www.topikguide.com/download-83rd-topik-test-papers/",
+    "audio": "https://files.topikguide.com/listening/83-TOPIK-II-Listening-Audio-File.mp3",
+    "transcript": "https://files.topikguide.com/test-papers/83rd-TOPIK-II-Listening-Transcript.pdf",
+    "answerKeys": {
+      "listening": "https://files.topikguide.com/test-papers/83rd-TOPIK-II-Listening-Answers.pdf",
+      "writing": "https://files.topikguide.com/test-papers/83rd-TOPIK-II-Writing-Answers.pdf",
+      "reading": "https://files.topikguide.com/test-papers/83rd-TOPIK-II-Reading-Answers.pdf"
+    },
+    "sourceStatus": "TOPIK II booklets and section keys linked through published archive; reuse permission pending",
+    "provenance": "Hallium TOPIK II source audit, 2026-10-06",
+    "scoreStatus": "Keys linked but not fully audited; automatic scoring disabled",
+    "audioStatus": "MP3 not acoustically matched to transcript; embedded audio disabled",
+    "sections": [
+      {"id":"listening","name":"Listening","ko":"듣기","count":50,"minutes":60},
+      {"id":"writing","name":"Writing","ko":"쓰기","count":4,"minutes":50},
+      {"id":"reading","name":"Reading","ko":"읽기","count":50,"minutes":70}
+    ],
+    "minutes": 180
+  },
+  {
     "id": "64-I",
     "round": 64,
     "year": 2019,
