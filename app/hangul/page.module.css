@@ -17,3 +17,10 @@
 @media(max-width:670px){.bar{height:59px;min-height:59px;grid-template-columns:1fr auto;padding-inline:12px}.back{padding:8px 10px;font-size:11px}.brand{justify-self:end}.brand small{font-size:8px}.lessons{display:none}}
 @media(max-width:370px){.brand strong{font-size:14px}.brand small{font-size:7px}.mark{width:31px;height:31px}}
 @media(prefers-reduced-motion:reduce){.back,.lessons{scroll-behavior:auto}}
+
+.progressBridge{display:grid;grid-template-columns:minmax(210px,.8fr) minmax(0,1.4fr) auto;gap:14px;align-items:center;padding:10px clamp(14px,3vw,42px);border-bottom:1px solid #dedfdc;background:#fff;color:#17191f;font:700 11px/1.35 system-ui,sans-serif}
+.progressBridge>div:first-child{display:grid;gap:2px}.progressBridge>div:first-child>span{color:#5147e8;font-size:8px;font-weight:900;letter-spacing:.09em}.progressBridge>div:first-child>strong{font-size:14px}.progressBridge>div:first-child>small{color:#676b75;font-size:9px}
+.progressMetrics{display:flex;gap:7px;flex-wrap:wrap}.progressMetrics span{padding:6px 8px;border-radius:999px;background:#f4f5f1;color:#676b75;font-size:8px}.progressMetrics b{color:#17191f}
+.progressBridge>button{min-height:34px;border:0;border-radius:10px;background:#5147e8;padding:0 12px;color:#fff;font-size:8px;font-weight:900;cursor:pointer}
+@media(max-width:800px){.progressBridge{grid-template-columns:1fr auto}.progressMetrics{grid-column:1/-1;order:3}.progressBridge>button{grid-column:2;grid-row:1}}
+@media(max-width:520px){.progressBridge{padding:9px 12px}.progressMetrics span{font-size:7px}.progressBridge>button{padding:0 9px}}

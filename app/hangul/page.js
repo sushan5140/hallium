@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import HangulLabBridge from "./HangulLabBridge";
 
 export const metadata = {
   title: "Hangul Lab — Hallium",
@@ -18,13 +19,7 @@ export default function HangulLab() {
         </div>
         <a className={styles.lessons} href="/?view=companion">My lessons <span aria-hidden="true">↗</span></a>
       </nav>
-      <iframe
-        className={styles.frame}
-        title="Hallium's interactive Hangul learning and handwriting studio"
-        src="/hangul-lab/index.html#learn"
-        loading="eager"
-        allow="autoplay"
-      />
+      <HangulLabBridge />
     </main>
   );
 }
