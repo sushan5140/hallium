@@ -4641,3 +4641,136 @@ Start Batch 10 from current `main`.
 
 Primary goal:
 turn Study Partners from a static social surface into a trustworthy learner-matching system using level, goals, language practice needs, activity and lightweight compatibility signals while preserving safety, privacy and low-pressure interaction.
+
+
+---
+
+# 52. Batch 10 / H-P12 — STUDY PARTNERS 2.0 COMPLETE ✅
+
+Batch 10 is complete on `main`.
+
+## H-P12.1 — matching foundation
+Merged PR: #78
+
+Study Partners discovery now uses transparent compatibility scoring from opted-in learner signals:
+- complementary learning focus
+- Korean level distance
+- availability compatibility
+- evidence-informed vs self-described focus
+
+Discovery remains opt-in and self-matches stay excluded.
+
+## H-P12.2 — goals + practice needs
+Merged PR: #79
+
+Added optional learner-selected study intent:
+- conversation
+- TOPIK
+- accountability
+- confidence
+- reading
+- writing
+
+Practice needs:
+- speaking
+- listening
+- reading
+- writing
+- vocabulary
+- grammar
+
+Stored in existing profile diagnostic JSON.
+No new table or schema migration.
+
+## H-P12.3 — safe activity + cadence
+Merged PR: #80
+
+Added:
+- light / regular / intensive study cadence preference
+- coarse profile freshness signal
+
+Guardrails:
+- no private-message inspection
+- no accept/decline reputation scoring
+- no public reliability label
+- only a small bounded compatibility bonus
+
+## H-P12.4 — discovery filters
+Merged PR: #81
+
+Learners can narrow opted-in suggestions by:
+- minimum compatibility
+- level distance
+- shared study goal
+- shared practice need
+- mutual complement only
+- availability match only
+
+Filters can only remove already-eligible suggestions and never reveal hidden learners.
+
+## H-P12.5 — request context + first-session intent
+Merged PR: #82
+
+Partner requests now carry sanitized structured study intent:
+- goal
+- practice need
+- cadence
+- availability
+- complementary learning areas
+- fit score
+
+No free-form pre-consent request messages.
+
+Migration:
+`20261008000100_partner_request_context.sql`
+
+Accepted requests seed a lightweight first-session plan inside the shared room.
+
+## H-P12.6 — partnership continuity
+Merged PR: #83
+Merge: `cfec7934370e094e03fa1195e80db8dc20bdc2f5`
+
+Adds neutral continuity from shared-room evidence only:
+- latest shared practice session
+- saved round responses
+- deliberately shared notes
+- joint notes
+- unfinished shared work
+- sensible next action
+
+Private conversation content is not read.
+No friendship, relationship-health, or popularity score is created.
+
+## Batch 10 capability matrix
+
+- transparent compatibility scoring ✅
+- learning-goal matching ✅
+- practice-need matching ✅
+- cadence compatibility ✅
+- safe activity freshness ✅
+- learner-controlled discovery filters ✅
+- structured request intent ✅
+- mutual-consent request flow preserved ✅
+- first-session starter plan ✅
+- shared-room continuity ✅
+- unfinished-work detection ✅
+- next shared action guidance ✅
+- block/report/privacy controls preserved ✅
+- no hidden-user discovery bypass ✅
+- no private-chat scoring ✅
+
+## Batch 10 status
+
+**COMPLETE ✅**
+
+Do not reopen H-P12 by default unless a concrete Study Partners regression appears.
+
+## Exact continuation point
+
+Next phase:
+**Batch 11 / H-P13 — AI Tutor 2.0**
+
+Start Batch 11 from current `main`.
+
+Primary goal:
+turn the existing Hallium tutor surfaces into one evidence-grounded tutoring loop that uses current learner state, practice history, mistakes, TOPIK evidence and explicit learner intent to choose the next intervention, explain it, observe the result and adapt without inventing mastery or duplicating the existing practice engine.
