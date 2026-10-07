@@ -1470,6 +1470,27 @@ function mergeIntelligenceState(local = {}, remote = {}) {
     .slice(0, 24);
   merged.mistakeLog = mergeMistakeLogs(local?.mistakeLog || [], remote?.mistakeLog || []);
   merged.flashcards = mergeFlashcardIntelligence(local?.flashcards || {}, remote?.flashcards || {});
+
+  const localHangul = local?.hangul || {};
+  const remoteHangul = remote?.hangul || {};
+  const hangul = { ...remoteHangul, ...localHangul };
+  ["explored","known","written","builtSyllables","readWords","decodedPatterns"].forEach((field) => {
+    hangul[field] = [...new Set([...(remoteHangul[field] || []), ...(localHangul[field] || [])].map(String))];
+  });
+  const quizMap = new Map();
+  [...(remoteHangul.quizHistory || []), ...(localHangul.quizHistory || [])].forEach((item) => {
+    if (!item) return;
+    quizMap.set([item.date || "", item.score ?? ""].join("|"), item);
+  });
+  hangul.quizHistory = [...quizMap.values()].slice(-20);
+  hangul.writingHistory = [...(remoteHangul.writingHistory || []), ...(localHangul.writingHistory || [])].slice(-80);
+  hangul.graduatedAt = localHangul.graduatedAt || remoteHangul.graduatedAt || "";
+  hangul.updatedAt = new Date(Math.max(
+    Date.parse(localHangul.updatedAt || 0) || 0,
+    Date.parse(remoteHangul.updatedAt || 0) || 0,
+    Date.now(),
+  )).toISOString();
+  merged.hangul = hangul;
   return merged;
 }
 

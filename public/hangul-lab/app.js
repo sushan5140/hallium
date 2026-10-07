@@ -126,7 +126,23 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 window.addEventListener('message',event=>{
   if(event.origin!==location.origin||event.source!==window.parent)return;
   const payload=event.data;
-  if(!payload||payload.type!=='hallium:hangul:navigate')return;
+  if(!payload)return;
+  if(payload.type==='hallium:hangul:hydrate'&&payload.state&&typeof payload.state==='object'){
+    const incoming=payload.state;
+    ['explored','known','written','builtSyllables','readWords','decodedPatterns'].forEach(key=>{
+      state[key]=[...new Set([...(state[key]||[]),...(incoming[key]||[])].map(String))];
+    });
+    if(Array.isArray(incoming.quizHistory)&&incoming.quizHistory.length)state.quizHistory=incoming.quizHistory.slice(-20);
+    if(Array.isArray(incoming.writingHistory)&&incoming.writingHistory.length)state.writingHistory=incoming.writingHistory.slice(-80);
+    if(typeof incoming.selectedFamily==='string')state.selectedFamily=incoming.selectedFamily;
+    persist();
+    renderFamilies();
+    renderGrid();
+    renderBuilder();
+    buildDeck();
+    return;
+  }
+  if(payload.type!=='hallium:hangul:navigate')return;
   if(['learn','build','write','practice','cards'].includes(payload.target))switchView(payload.target);
 });
 postProgress();
