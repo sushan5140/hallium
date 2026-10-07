@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { getHallimSupabase } from "../../lib/supabase/client";
-import { AREAS, CHECK, diagnosticResults, areasFor, fit, focusFromAiAudit } from "../../lib/study-partners/core.mjs";
+import { AREAS, CHECK, PARTNER_GOALS, PRACTICE_NEEDS, diagnosticResults, areasFor, fit, focusFromAiAudit } from "../../lib/study-partners/core.mjs";
 import "./studio.css";
 
 const T={profiles:"hallium_partner_profiles",connections:"hallium_partner_connections",notes:"hallium_partner_notes",shares:"hallium_partner_shares",joint:"hallium_partner_joint_notes",messages:"hallium_partner_messages",sessions:"hallium_partner_sessions",answers:"hallium_partner_answers",blocks:"hallium_partner_blocks",reports:"hallium_partner_reports"};
@@ -16,7 +16,7 @@ function Skill({label,score}){return <div className="spSkill"><div className="sp
 function Note({note,actions}){return <article className="spNote"><div className="spNoteTop"><Chip tone={note.kind}>{itemName(note.kind)}</Chip><span>{note.collection}</span></div><h3 lang="ko">{note.title}</h3><p>{note.meaning}</p>{note.example&&<div className="spNoteExample" lang="ko">{note.example}</div>}{actions&&<div className="spNoteActions">{actions}</div>}</article>}
 export default function PartnerStudio(){
  const [user,setUser]=useState(null),[ready,setReady]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(""),[toast,setToast]=useState("");
- const [tab,setTab]=useState("overview"),[profile,setProfile]=useState(null),[draftProfile,setDraftProfile]=useState({nickname:"",level:"beginner",availability:"Flexible",strength:"vocabulary",growth_area:"grammar",discoverable:false});
+ const [tab,setTab]=useState("overview"),[profile,setProfile]=useState(null),[draftProfile,setDraftProfile]=useState({nickname:"",level:"beginner",availability:"Flexible",strength:"vocabulary",growth_area:"grammar",goals:[],practiceNeeds:[],discoverable:false});
  const [people,setPeople]=useState([]),[connections,setConnections]=useState([]),[notes,setNotes]=useState([]),[room,setRoom]=useState(null);
  const [shares,setShares]=useState([]),[received,setReceived]=useState([]),[joint,setJoint]=useState([]),[messages,setMessages]=useState([]),[sessions,setSessions]=useState([]),[answers,setAnswers]=useState([]);
  const [noteForm,setNoteForm]=useState(emptyNote),[shareId,setShareId]=useState(""),[message,setMessage]=useState(""),[jointText,setJointText]=useState(""),[answer,setAnswer]=useState(""),[round,setRound]=useState(0),[hint,setHint]=useState(false),[diagnosing,setDiagnosing]=useState(false),[choices,setChoices]=useState({}),[report,setReport]=useState("");
@@ -31,7 +31,7 @@ export default function PartnerStudio(){
    sb.from(T.notes).select("*").eq("owner_id",uid).order("created_at",{ascending:false}).limit(150),
   ]);
   const failure=[p.error,all.error,c.error,n.error].find(Boolean);if(failure){setError("Study Partners could not load: "+failure.message);return}
-  setProfile(p.data);setDraftProfile(prev=>p.data?{nickname:p.data.nickname,level:p.data.level,availability:p.data.availability,strength:p.data.strength,growth_area:p.data.growth_area,discoverable:p.data.discoverable}:prev);
+  setProfile(p.data);setDraftProfile(prev=>p.data?{nickname:p.data.nickname,level:p.data.level,availability:p.data.availability,strength:p.data.strength,growth_area:p.data.growth_area,goals:p.data.diagnostic?.partner_preferences?.goals||[],practiceNeeds:p.data.diagnostic?.partner_preferences?.practiceNeeds||[],discoverable:p.data.discoverable}:prev);
   const partners=(c.data||[]).filter(x=>x.status==="accepted").map(x=>x.user_low===uid?x.user_high:x.user_low);
   let visible=all.data||[];
   if(partners.length){const extra=await sb.from(T.profiles).select("*").in("user_id",partners);if(extra.error){setError(extra.error.message);return}const map=new Map([...visible,...(extra.data||[])].map(p=>[p.user_id,p]));visible=[...map.values()]}
@@ -74,7 +74,8 @@ export default function PartnerStudio(){
  const saveProfile=async()=>run(async()=>{
   const nick=nice(draftProfile.nickname);if(nick.length<2||nick.length>35)throw new Error("Use a nickname of 2–35 characters.");
   if(draftProfile.strength===draftProfile.growth_area)throw new Error("Choose two different areas to give and receive help.");
-  const record={user_id:user.id,nickname:nick,level:draftProfile.level,availability:nice(draftProfile.availability)||"Flexible",strength:draftProfile.strength,growth_area:draftProfile.growth_area,discoverable:draftProfile.discoverable,diagnostic:profile?.diagnostic||{}};
+  const diagnostic={...(profile?.diagnostic||{}),partner_preferences:{goals:draftProfile.goals||[],practiceNeeds:draftProfile.practiceNeeds||[]}};
+  const record={user_id:user.id,nickname:nick,level:draftProfile.level,availability:nice(draftProfile.availability)||"Flexible",strength:draftProfile.strength,growth_area:draftProfile.growth_area,discoverable:draftProfile.discoverable,diagnostic};
   const {error:e}=await sb.from(T.profiles).upsert(record,{onConflict:"user_id"});if(e)throw e;await load(user.id,room);setTab("overview");
  },"Learning profile saved.");
  const submitDiagnostic=async()=>{
