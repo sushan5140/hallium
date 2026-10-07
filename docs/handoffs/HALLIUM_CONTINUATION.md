@@ -4496,3 +4496,148 @@ Start Batch 9 from current `main`.
 
 Primary goal:
 turn TOPIK from a paper viewer into an evidence-aware exam-prep system with real paper structure, skill diagnosis, targeted practice and measurable improvement.
+
+
+---
+
+# 51. Batch 9 / H-P11 — TOPIK STUDIO 2.0 COMPLETE ✅
+
+Batch 9 is complete on `main`.
+
+## H-P11.1 — TOPIK attempt evidence foundation
+Merged PR: #70
+
+Added normalized attempt evidence:
+- completion percentage
+- attempt duration
+- section completion
+- verified score enrichment when provenance allows scoring
+- verified average
+- weakest scored section
+- writing completion evidence without fake auto-grading
+
+## H-P11.2 — question-type intelligence
+Merged PR: #71
+
+Added Hallium diagnostic taxonomy for TOPIK I / II:
+- vocabulary / grammar
+- notices / practical information
+- ordering
+- context blank-fill
+- main idea
+- detail
+- inference
+- listening response/detail/main idea/inference
+- TOPIK II writing sentence/data/essay blocks
+
+Unverified papers keep completion evidence only and never invent correctness.
+
+## H-P11.3 — weakness diagnosis engine
+Merged PR: #72
+
+Weakness ranking combines:
+- verified accuracy
+- unanswered rate
+- repeat exposure
+- recency
+- evidence confidence
+
+Each weakness exposes:
+- weakness score
+- confidence
+- exposures
+- accuracy/unanswered signal
+- reason
+- actionable state
+
+## H-P11.4 — targeted practice router
+Merged PR: #73
+
+Diagnosis now routes into existing Hallium TOPIK Companion lessons where possible.
+Examples:
+- TOPIK I ordering → i11
+- TOPIK II reading flow/order → ii08
+- Writing 51–52 → ii09
+- essay/data writing → ii10
+
+Fallback:
+- focused mock practice when no dedicated Hallium lesson is a strong match
+
+No second TOPIK curriculum or planner was introduced.
+
+## H-P11.5 — score trajectory + improvement tracking
+Merged PR: #74
+
+Tracks:
+- verified overall mock score trajectory
+- per-skill accuracy trajectory
+- improving / stable / declining / insufficient
+- most improved skill
+- most declined skill
+
+Only verified scored evidence can create score or skill improvement claims.
+
+## H-P11.6 — targeted-practice impact loop
+Merged PR: #75
+
+Hallium stores recommendation snapshots:
+- exact target skill
+- baseline verified accuracy
+- weakness score
+- recommendation timestamp
+- route used
+
+Later verified evidence on the exact same skill evaluates:
+- helped
+- flat
+- worse
+- insufficient
+
+Unrelated skill gains are never credited to the intervention.
+
+## H-P11.7 — canonical TOPIK persistence + cloud sync
+Merged PR: #76
+Merge: `737729d67f5353a21361cd4bc236ba5c7de16b38`
+
+TOPIK state now participates in the existing canonical learner sync:
+- `hallim:intelligence:v1.topik`
+- existing `learner_state.intelligence_state` remains cloud source of truth
+- attempt evidence merges across devices
+- intervention history merges across devices
+- cloud-restored canonical state repopulates TOPIK Studio evidence/intervention stores
+- retain up to 80 attempts
+- retain up to 30 intervention snapshots
+- diagnosis / trajectory / impact remain derived from evidence rather than stale stored summaries
+- no new Supabase table
+- no second TOPIK sync architecture
+
+## Batch 9 capability matrix
+
+- mock attempt evidence ✅
+- verified scoring safeguards preserved ✅
+- question-type diagnosis ✅
+- weakness ranking ✅
+- targeted practice queue ✅
+- score trajectory ✅
+- per-skill trajectory ✅
+- targeted-practice impact measurement ✅
+- canonical learner-state persistence ✅
+- cross-device merge ✅
+- cloud restore into TOPIK Studio ✅
+- no duplicate TOPIK architecture ✅
+
+## Batch 9 status
+
+**COMPLETE ✅**
+
+Do not reopen H-P11 by default unless a concrete TOPIK Studio regression appears.
+
+## Exact continuation point
+
+Next phase:
+**Batch 10 / H-P12 — Study Partners 2.0**
+
+Start Batch 10 from current `main`.
+
+Primary goal:
+turn Study Partners from a static social surface into a trustworthy learner-matching system using level, goals, language practice needs, activity and lightweight compatibility signals while preserving safety, privacy and low-pressure interaction.
