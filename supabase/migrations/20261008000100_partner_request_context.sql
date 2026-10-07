@@ -2,6 +2,8 @@ alter table public.hallium_partner_connections
   add column if not exists request_context jsonb not null default '{}'::jsonb
   check (jsonb_typeof(request_context)='object');
 
+drop function if exists public.hallium_partner_request(uuid);
+
 create or replace function public.hallium_partner_request(
   p_other uuid,
   p_context jsonb default '{}'::jsonb
