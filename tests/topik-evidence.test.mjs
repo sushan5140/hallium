@@ -45,3 +45,31 @@ test("summary identifies the weakest verified section", () => {
   assert.equal(summary.weakestSection.section,"reading");
   assert.equal(summary.weakestSection.accuracy,55);
 });
+
+
+test("question-type summary identifies the weakest verified skill block", () => {
+  const summary=summarizeTopikEvidence([
+    {
+      paperId:"x",submitted:true,scored:true,verifiedPercent:72,
+      sections:[{section:"reading",answered:10,total:10,accuracy:72}],
+      skills:[
+        {skillId:"reading_blank",skillLabel:"Context blank-fill",section:"reading",answered:4,total:4,accuracy:75},
+        {skillId:"reading_inference",skillLabel:"Reading inference",section:"reading",answered:6,total:6,accuracy:50},
+      ],
+    },
+  ]);
+  assert.equal(summary.weakestSkill.skillId,"reading_inference");
+  assert.equal(summary.weakestSkill.accuracy,50);
+});
+
+test("unverified attempts keep skill completion but do not invent skill accuracy", () => {
+  const result=buildTopikAttemptEvidence(
+    {id:"demo-I",round:999,level:"I",sections:[{id:"reading",count:40}]},
+    {answers:{R1:"1",R2:"2"},submitted:true},
+    {status:"locked"},
+  );
+  const vocab=result.skills.find(row=>row.skillId==="reading_vocab_grammar");
+  assert.ok(vocab);
+  assert.equal(vocab.answered,2);
+  assert.equal(vocab.accuracy,null);
+});
