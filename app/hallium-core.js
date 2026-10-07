@@ -1491,6 +1491,36 @@ function mergeIntelligenceState(local = {}, remote = {}) {
     Date.now(),
   )).toISOString();
   merged.hangul = hangul;
+
+  const localTopik = local?.topik || {};
+  const remoteTopik = remote?.topik || {};
+  const mergeTopikRows = (left = [], right = [], limit = 80) => {
+    const map = new Map();
+    [...right, ...left].forEach((item) => {
+      if (!item) return;
+      const key = item.id || [
+        item.paperId || "",
+        item.completedAt || item.startedAt || item.recommendedAt || "",
+        item.skillId || "",
+      ].join("|");
+      const existing = map.get(key);
+      const itemTime = new Date(item.completedAt || item.startedAt || item.recommendedAt || 0).getTime();
+      const existingTime = new Date(existing?.completedAt || existing?.startedAt || existing?.recommendedAt || 0).getTime();
+      if (!existing || itemTime >= existingTime) map.set(key, item);
+    });
+    return [...map.values()].slice(-limit);
+  };
+  merged.topik = {
+    ...remoteTopik,
+    ...localTopik,
+    evidence: mergeTopikRows(localTopik.evidence || [], remoteTopik.evidence || [], 80),
+    interventions: mergeTopikRows(localTopik.interventions || [], remoteTopik.interventions || [], 30),
+    updatedAt: new Date(Math.max(
+      Date.parse(localTopik.updatedAt || 0) || 0,
+      Date.parse(remoteTopik.updatedAt || 0) || 0,
+      Date.now(),
+    )).toISOString(),
+  };
   return merged;
 }
 

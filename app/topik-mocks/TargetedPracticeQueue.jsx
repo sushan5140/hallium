@@ -15,14 +15,44 @@ export default function TargetedPracticeQueue(){
 
   useEffect(()=>{
     try{
-      const rows=JSON.parse(localStorage.getItem(STORE)||"[]");
-      if(Array.isArray(rows))setAttempts(rows);
-    }catch{}
-    try{
-      const rows=JSON.parse(localStorage.getItem(INTERVENTION_STORE)||"[]");
-      if(Array.isArray(rows))setInterventions(rows);
+      const key=["hallim","intelligence","v1"].join(":");
+      const intelligence=JSON.parse(localStorage.getItem(key)||"{}")||{};
+      const topik=intelligence.topik||{};
+
+      const localEvidence=JSON.parse(localStorage.getItem(STORE)||"[]");
+      const evidenceMap=new Map();
+      [...(topik.evidence||[]),...(Array.isArray(localEvidence)?localEvidence:[])].forEach(item=>{
+        if(!item)return;
+        const id=item.id||[item.paperId||"",item.completedAt||item.startedAt||""].join("|");
+        evidenceMap.set(id,item);
+      });
+      const mergedEvidence=[...evidenceMap.values()].slice(-80);
+      setAttempts(mergedEvidence);
+      localStorage.setItem(STORE,JSON.stringify(mergedEvidence));
+
+      const localImpact=JSON.parse(localStorage.getItem(INTERVENTION_STORE)||"[]");
+      const impactMap=new Map();
+      [...(topik.interventions||[]),...(Array.isArray(localImpact)?localImpact:[])].forEach(item=>{
+        if(!item)return;
+        const id=item.id||[item.skillId||"",item.recommendedAt||""].join("|");
+        impactMap.set(id,item);
+      });
+      const mergedImpact=[...impactMap.values()].slice(-30);
+      setInterventions(mergedImpact);
+      localStorage.setItem(INTERVENTION_STORE,JSON.stringify(mergedImpact));
     }catch{}
   },[]);
+
+  useEffect(()=>{
+    try{
+      const key=["hallim","intelligence","v1"].join(":");
+      const state=JSON.parse(localStorage.getItem(key)||"{}")||{};
+      localStorage.setItem(key,JSON.stringify({
+        ...state,
+        topik:{...(state.topik||{}),evidence:attempts,interventions,updatedAt:new Date().toISOString()},
+      }));
+    }catch{}
+  },[attempts,interventions]);
 
   const diagnosis=useMemo(()=>diagnoseTopikWeaknesses(attempts),[attempts]);
   const level=useMemo(()=>{
