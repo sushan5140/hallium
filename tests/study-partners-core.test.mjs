@@ -33,3 +33,34 @@ test("AI report focus is optional and requires unambiguous opposing categories",
  assert.equal(focusFromAiAudit({audit:{strengths:["Needs vocabulary and grammar"],weaknesses:["Grammar"]}}),null);
  assert.equal(areasFor({...a,diagnostic:{report_import:focus}}).basis,"Hallium AI learning report");
 });
+
+
+test("compatibility score rewards reciprocal learning needs, level and availability",()=>{
+ const m=fit(a,b);
+ assert.equal(m.mutual,true);
+ assert.equal(m.score,92);
+ assert.equal(m.levelMatch,true);
+ assert.equal(m.availabilityMatch,true);
+ assert.ok(m.reasons.includes("Your practice needs complement each other"));
+ assert.ok(m.reasons.includes("Same Korean level"));
+});
+
+test("nearby levels remain compatible without pretending to be exact matches",()=>{
+ const m=fit(a,{...b,level:"elementary"});
+ assert.equal(m.levelMatch,false);
+ assert.equal(m.levelDistance,1);
+ assert.equal(m.score,84);
+ assert.ok(m.reasons.includes("Nearby Korean level"));
+});
+
+test("flexible availability is treated as compatible without exposing extra schedule detail",()=>{
+ const m=fit({...a,availability:"Flexible"},{...b,availability:"Mornings"});
+ assert.equal(m.availabilityMatch,true);
+ assert.equal(m.availabilityLabel,"Flexible timing");
+});
+
+test("evidence-informed label appears when at least one profile uses measured focus",()=>{
+ const measured={...a,diagnostic:{vocabulary:{correct:4,total:4},grammar:{correct:2,total:4}}};
+ const m=fit(measured,b);
+ assert.equal(m.confidence,"evidence-informed");
+});
