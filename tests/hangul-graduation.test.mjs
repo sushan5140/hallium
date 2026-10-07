@@ -7,5 +7,5 @@ test("graduation requires all five checks", () => {
   assert.equal(locked.complete,false);
   const ready=evaluateHangulGraduation({progress:{counts:{recognized:35,syllableBuilds:12,wordReads:6},recentQuizAverage:8.4},decodedPatterns:["a","b","c"]});
   assert.equal(ready.complete,true);
-  assert.equal(ready.nextAction.target,"/?view=companion");
+  assert.equal(ready.nextAction.target,"/?view=lesson&lesson=unit-1-lesson-1&from=hangul");
 });
