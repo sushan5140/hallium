@@ -24,6 +24,17 @@ export default function TargetedPracticeQueue(){
     }catch{}
   },[]);
 
+  useEffect(()=>{
+    try{
+      const key=["hallim","intelligence","v1"].join(":");
+      const state=JSON.parse(localStorage.getItem(key)||"{}")||{};
+      localStorage.setItem(key,JSON.stringify({
+        ...state,
+        topik:{...(state.topik||{}),evidence:attempts,interventions,updatedAt:new Date().toISOString()},
+      }));
+    }catch{}
+  },[attempts,interventions]);
+
   const diagnosis=useMemo(()=>diagnoseTopikWeaknesses(attempts),[attempts]);
   const level=useMemo(()=>{
     const latest=[...attempts]
