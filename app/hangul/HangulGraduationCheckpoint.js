@@ -53,7 +53,20 @@ export default function HangulGraduationCheckpoint() {
           type="button"
           disabled={!graduation.complete}
           onClick={() => {
-            if (graduation.complete) window.location.href = graduation.nextAction.target;
+            if (!graduation.complete) return;
+            const intelligence = (() => {
+              try { return JSON.parse(localStorage.getItem("hallim:intelligence:v1") || "{}") || {}; } catch { return {}; }
+            })();
+            const hangul = intelligence.hangul && typeof intelligence.hangul === "object" ? intelligence.hangul : {};
+            localStorage.setItem("hallim:intelligence:v1", JSON.stringify({
+              ...intelligence,
+              hangul: {
+                ...hangul,
+                graduatedAt: hangul.graduatedAt || new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
+              },
+            }));
+            window.location.href = graduation.nextAction.target;
           }}
         >
           {graduation.complete ? "Start Beginner Lesson 1 ↗" : "Beginner locked"}
