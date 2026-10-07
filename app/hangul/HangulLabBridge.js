@@ -6,21 +6,48 @@ import { HANGUL_DECODING_ITEMS, decodingOptions } from "../../lib/hangul-decodin
 import styles from "./page.module.css";
 
 const HANGUL_STORAGE_KEY = "hallium-hangul-lab-preview-v1";
+const INTELLIGENCE_KEY = "hallim:intelligence:v1";
+const ARRAY_FIELDS = ["explored","known","written","builtSyllables","readWords","decodedPatterns"];
+
+function readJson(key) {
+  try { return JSON.parse(localStorage.getItem(key) || "{}") || {}; } catch { return {}; }
+}
+
+function mergeHangulState(local = {}, canonical = {}) {
+  const merged = { ...canonical, ...local };
+  for (const field of ARRAY_FIELDS) {
+    merged[field] = [...new Set([...(canonical[field] || []), ...(local[field] || [])].map(String))];
+  }
+  const quizMap = new Map();
+  [...(canonical.quizHistory || []), ...(local.quizHistory || [])].forEach((item) => {
+    if (!item) return;
+    quizMap.set([item.date || "", item.score ?? ""].join("|"), item);
+  });
+  merged.quizHistory = [...quizMap.values()].slice(-20);
+  return merged;
+}
 
 function readHangulState() {
   if (typeof window === "undefined") return {};
-  try {
-    return JSON.parse(localStorage.getItem(HANGUL_STORAGE_KEY) || "{}") || {};
-  } catch {
-    return {};
-  }
+  const legacy = readJson(HANGUL_STORAGE_KEY);
+  const intelligence = readJson(INTELLIGENCE_KEY);
+  return mergeHangulState(legacy, intelligence.hangul || {});
+}
+
+function persistHangulState(next = {}) {
+  const merged = mergeHangulState(next, readHangulState());
+  merged.updatedAt = new Date().toISOString();
+  localStorage.setItem(HANGUL_STORAGE_KEY, JSON.stringify(merged));
+  const intelligence = readJson(INTELLIGENCE_KEY);
+  localStorage.setItem(INTELLIGENCE_KEY, JSON.stringify({ ...intelligence, hangul: merged }));
+  window.dispatchEvent(new CustomEvent("hallium:hangul:changed"));
+  return merged;
 }
 
 function saveReadWord(wordId) {
   const current = readHangulState();
   const readWords = [...new Set([...(current.readWords || []).map(String), String(wordId)])].slice(-80);
-  localStorage.setItem(HANGUL_STORAGE_KEY, JSON.stringify({ ...current, readWords }));
-  return readWords;
+  return persistHangulState({ ...current, readWords }).readWords;
 }
 
 function readingOptions(words, target, count = 4) {
@@ -47,7 +74,7 @@ export default function HangulLabBridge() {
   }), [evidence, readWordIds]);
 
   useEffect(() => {
-    const saved = readHangulState();
+    const saved = persistHangulState(readHangulState());
     setReadWordIds([...new Set((saved.readWords || []).map(String))]);
     setDecodedIds([...new Set((saved.decodedPatterns || []).map(String))]);
   }, []);
@@ -59,6 +86,8 @@ export default function HangulLabBridge() {
       const payload = event.data;
       if (!payload || payload.type !== "hallium:hangul:progress") return;
       const next = payload.evidence && typeof payload.evidence === "object" ? payload.evidence : {};
+      const legacy = readJson(HANGUL_STORAGE_KEY);
+      persistHangulState({ ...legacy, ...next });
       setEvidence(next);
     }
     window.addEventListener("message", onMessage);
@@ -66,8 +95,10 @@ export default function HangulLabBridge() {
   }, []);
 
   function loadStarterWords() {
-    const words = frameRef.current?.contentWindow?.HALLIUM_STARTER_WORDS;
+    const frame = frameRef.current?.contentWindow;
+    const words = frame?.HALLIUM_STARTER_WORDS;
     setStarterWords(Array.isArray(words) ? words.filter((word) => word?.id && word?.ko && word?.meaning) : []);
+    frame?.postMessage({ type:"hallium:hangul:hydrate", state:readHangulState() }, window.location.origin);
   }
 
   function continueNext() {
@@ -135,8 +166,8 @@ export default function HangulLabBridge() {
     if (value === activeDecode.heard) {
       const current = readHangulState();
       const decodedPatterns = [...new Set([...(current.decodedPatterns || []).map(String), activeDecode.id])];
-      localStorage.setItem(HANGUL_STORAGE_KEY, JSON.stringify({ ...current, decodedPatterns }));
-      setDecodedIds(decodedPatterns);
+      const saved = persistHangulState({ ...current, decodedPatterns });
+      setDecodedIds(saved.decodedPatterns);
     }
     setDecodeAnswered(true);
   }
