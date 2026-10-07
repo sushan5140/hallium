@@ -4381,3 +4381,119 @@ Start Batch 8 from current `main`.
 
 Primary goal:
 turn the existing Hangul Lab into a measured bridge from letter/syllable reading into the real Beginner curriculum, rather than a disconnected alphabet surface.
+
+
+---
+
+# 50. Batch 8 / H-P10 — HANGUL → BEGINNER PROGRESSION COMPLETE ✅
+
+Batch 8 is complete on production-source `main`.
+
+## H-P10.1 — readiness foundation
+Merged PR: #61
+
+Added measured stages:
+- letters
+- syllables
+- first words
+- beginner ready
+
+Readiness uses real evidence:
+- recognized letters
+- recent sound-practice accuracy
+- unique syllable builds
+- no-romanization word reading
+- writing
+
+## H-P10.2 — syllable → first-word reading bridge
+Merged PR: #62
+
+Added a no-romanization reading drill that:
+- reuses Hallium's existing Starter vocabulary bank
+- shows Korean + meaning choices
+- grants evidence only on correct reads
+- deduplicates by stable word ID
+- feeds the same H-P10 readiness engine
+
+## H-P10.3 — pronunciation decoding micro-drills
+Merged PR: #63
+
+Added beginner decoding practice for:
+- final consonant neutralization
+- liaison
+- nasalization
+- aspiration
+- tensification
+
+Rules:
+- Korean sound forms only
+- explanations after answering
+- only correct decodes persist mastery evidence
+
+## H-P10.4 — final Hangul graduation checkpoint
+Merged PR: #64
+
+Beginner unlock requires all five:
+- at least 34/40 letters recognized
+- at least 8/10 recent sound-practice average
+- at least 12 unique syllables built
+- at least 6 Starter words read without romanization
+- at least 3 pronunciation patterns decoded correctly
+
+## H-P10.5 — Beginner handoff continuity
+Merged PR: #65
+
+Graduation now deep-links directly to:
+- `unit-1-lesson-1`
+- "Meeting someone new"
+
+Continuity behavior:
+- no Companion-home detour
+- existing lesson progress is restored
+- signed-in and Guest Mode both work
+- one-time Hangul-complete transition notice
+- no duplicate Beginner lesson/onboarding flow
+
+## H-P10.6 — canonical persistence + cloud sync
+Merged PR: #66
+Merge: `5948772478ec5b14a2ee07227d22d80131d5d9c2`
+
+Closed the final persistence gap:
+- Hangul evidence mirrors into `hallim:intelligence:v1.hangul`
+- existing `learner_state.intelligence_state` remains the cloud source of truth
+- letters, writing, quiz history, syllables, word reads and decoding evidence are preserved
+- local/cloud merges union Hangul evidence instead of one device overwriting another
+- restored canonical state hydrates the existing static Hangul Lab
+- graduation persists `graduatedAt`
+- no new Supabase table or parallel sync system
+
+## Batch 8 capability matrix
+
+- letter → syllable → word → Beginner progression ✅
+- evidence-based readiness ✅
+- no-romanization first-word reading ✅
+- pronunciation decoding basics ✅
+- final graduation gate ✅
+- direct Beginner Lesson 1 handoff ✅
+- Guest Mode continuity ✅
+- canonical learner-state persistence ✅
+- cross-device merge ✅
+- cloud restore into Hangul Lab ✅
+- graduation timestamp ✅
+- no duplicate curriculum/sync system ✅
+
+## Batch 8 status
+
+**COMPLETE ✅**
+
+Do not reopen H-P10 by default unless a concrete Hangul/Beginner transition regression appears.
+
+## Exact continuation point
+
+Next phase:
+**Batch 9 / H-P11 — TOPIK Studio 2.0**
+
+Start Batch 9 from current `main`.
+
+Primary goal:
+turn TOPIK from a paper viewer into an evidence-aware exam-prep system with real paper structure, skill diagnosis, targeted practice and measurable improvement.
