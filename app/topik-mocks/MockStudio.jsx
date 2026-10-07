@@ -8,8 +8,9 @@ import {
  questionAudioCue,
  scoreObjectiveAttempt,
 } from "../../lib/topik/exam-engine";
+import {buildTopikAttemptEvidence,summarizeTopikEvidence} from "../../lib/topik/evidence";
 import s from "./studio.module.css";
-const STORE="hallium:topik-pbt-mocks:v1",SIGNS=["①","②","③","④"];
+const STORE="hallium:topik-pbt-mocks:v1",EVIDENCE_STORE="hallium:topik-evidence:v1",SIGNS=["①","②","③","④"];
 const byId=id=>papers.find(p=>p.id===id);
 const blank=p=>({answers:{},writing:{},section:"listening",seconds:p.minutes*60,running:false,deadline:0,submitted:false,startedAt:null,finishedAt:null});
 const qid=(section,i)=>(section==="writing"?"W":section==="listening"?"L":"R")+i;
@@ -17,10 +18,11 @@ function count(p,e){return p.sections.reduce((total,section)=>total+Array.from({
 function preview(url){const m=url?.match(/drive\.google\.com\/file\/d\/([\w-]+)/);return m?"https://drive.google.com/file/d/"+m[1]+"/preview":url}
 function time(n){n=Math.max(0,Math.ceil(n));return String(Math.floor(n/60)).padStart(2,"0")+":"+String(n%60).padStart(2,"0")}
 export default function MockStudio(){
- const [level,setLevel]=useState("I"),[id,setId]=useState(null),[storage,setStorage]=useState({}),[loaded,setLoaded]=useState(false),[clientReady,setClientReady]=useState(false),[confirm,setConfirm]=useState("");
+ const [level,setLevel]=useState("I"),[id,setId]=useState(null),[storage,setStorage]=useState({}),[evidence,setEvidence]=useState([]),[loaded,setLoaded]=useState(false),[clientReady,setClientReady]=useState(false),[confirm,setConfirm]=useState("");
  const last=useRef(0);
- useEffect(()=>{try{const v=JSON.parse(localStorage.getItem(STORE)||"{}");if(v&&typeof v==="object"&&!Array.isArray(v))setStorage(v)}catch{}const requested=new URLSearchParams(location.search).get("paper");if(byId(requested)){setId(requested);setLevel(byId(requested).level)}setLoaded(true);setClientReady(true)},[]);
+ useEffect(()=>{try{const v=JSON.parse(localStorage.getItem(STORE)||"{}");if(v&&typeof v==="object"&&!Array.isArray(v))setStorage(v)}catch{}try{const rows=JSON.parse(localStorage.getItem(EVIDENCE_STORE)||"[]");if(Array.isArray(rows))setEvidence(rows)}catch{}const requested=new URLSearchParams(location.search).get("paper");if(byId(requested)){setId(requested);setLevel(byId(requested).level)}setLoaded(true);setClientReady(true)},[]);
  useEffect(()=>{if(loaded)try{localStorage.setItem(STORE,JSON.stringify(storage))}catch{}},[storage,loaded]);
+ useEffect(()=>{if(loaded)try{localStorage.setItem(EVIDENCE_STORE,JSON.stringify(evidence.slice(-80)))}catch{}},[evidence,loaded]);
  const paper=byId(id),entry=paper?(storage[paper.id]||blank(paper)):null;
  const questionManifest=paper?buildQuestionManifest(paper):[];
  const activation=paper?examActivationSummary(paper):null;
@@ -31,7 +33,15 @@ export default function MockStudio(){
  function close(){setId(null);setConfirm("");history.replaceState(null,"","/topik-mocks")}
  function start(){update(e=>({...e,running:true,deadline:Date.now()+e.seconds*1000,startedAt:e.startedAt||new Date().toISOString()}))}
  function pause(){update(e=>({...e,running:false,deadline:0}))}
- function submit(){update(e=>({...e,running:false,deadline:0,submitted:true,finishedAt:new Date().toISOString()}));setConfirm("")}
+ function submit(){
+  const finishedAt=new Date().toISOString();
+  const nextEntry={...entry,running:false,deadline:0,submitted:true,finishedAt};
+  const scored=scoreObjectiveAttempt(paper,nextEntry.answers);
+  const record=buildTopikAttemptEvidence(paper,nextEntry,scored);
+  update(()=>nextEntry);
+  setEvidence(old=>[...old.filter(item=>item.id!==record.id),record].slice(-80));
+  setConfirm("");
+ }
  function reset(){update(()=>blank(paper));setConfirm("")}
  function playVerifiedAudio(cue){
   if(!cue?.src||typeof window==="undefined")return;
@@ -48,6 +58,7 @@ export default function MockStudio(){
   }catch{}
  }
  const answered=paper?count(paper,entry):0,total=paper?paper.sections.reduce((n,v)=>n+v.count,0):0;
+ const evidenceSummary=summarizeTopikEvidence(evidence);
  const current=paper?.sections.find(v=>v.id===entry.section)||paper?.sections[0];
  const source=paper?(current.id==="reading"&&paper.readingPaper?paper.readingPaper:current.id==="writing"&&paper.writingPaper?paper.writingPaper:paper.paper):null;
  const gate=paper?.provenanceAudit||null;
