@@ -3,6 +3,7 @@
 import {useEffect,useMemo,useState} from "react";
 import {diagnoseTopikWeaknesses} from "../../lib/topik/diagnosis";
 import {buildTopikPracticeQueue} from "../../lib/topik/practice-router";
+import {buildTopikTrajectory} from "../../lib/topik/trajectory";
 import s from "./studio.module.css";
 
 const STORE="hallium:topik-evidence:v1";
@@ -25,6 +26,7 @@ export default function TargetedPracticeQueue(){
     return latest?.level||"I";
   },[attempts]);
   const queue=useMemo(()=>buildTopikPracticeQueue(diagnosis,level,3),[diagnosis,level]);
+  const trajectory=useMemo(()=>buildTopikTrajectory(attempts),[attempts]);
 
   if(!diagnosis.primary)return null;
 
@@ -32,6 +34,8 @@ export default function TargetedPracticeQueue(){
     <section className={s.featureNotice} aria-label="Targeted TOPIK practice">
       <strong>Targeted practice queue</strong>
       <span>{diagnosis.primary.reason}</span>
+      {trajectory.scoreTrend.status!=="insufficient"&&<span>Verified score trend · {trajectory.scoreTrend.status} · {trajectory.scoreTrend.delta>0?"+":""}{trajectory.scoreTrend.delta} pts</span>}
+      {trajectory.mostImprovedSkill&&<span>Improving skill · {trajectory.mostImprovedSkill.skillLabel} · {trajectory.mostImprovedSkill.delta>0?"+":""}{trajectory.mostImprovedSkill.delta} pts</span>}
       <div className={s.resources}>
         {queue.map(item=>(
           <a key={item.priority} className={s.link} href={item.route.href}>
