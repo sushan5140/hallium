@@ -1641,6 +1641,19 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       authUserRef.current = null;
       setSyncHydrated(false);
       setSyncStatus("local");
+      const guestParams = new URLSearchParams(window.location.search);
+      const requestedView = guestParams.get("view");
+      const requestedLesson = guestParams.get("lesson");
+      if (requestedView === "lesson" && requestedLesson && lessons.some((item) => item.id === requestedLesson)) {
+        const previousStep = readProgress(true)?.[requestedLesson]?.stepIndex || 0;
+        setActiveLesson(requestedLesson);
+        setStepIndex(previousStep);
+        setView("lesson");
+        if (guestParams.get("from") === "hangul") {
+          setNotice("Hangul complete ✦ Now use those sounds in your first real conversation.");
+        }
+        window.history.replaceState({}, "", window.location.pathname);
+      }
       setAuthReady(true);
       return;
     }
@@ -1667,6 +1680,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
         const authParams = new URLSearchParams(window.location.search);
         const requestedView = authParams.get("view");
         const requestedLesson = authParams.get("lesson");
+        const cameFromHangul = authParams.get("from") === "hangul";
         const allowedViews = new Set(["home","companion","review","vocab","grammar","test","profile"]);
         // The Beginner to TOPIK bridge links to existing lesson IDs. Reuse their
         // original lesson component and progress records, not a duplicate.
@@ -1675,6 +1689,9 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           setActiveLesson(requestedLesson);
           setStepIndex(previousStep);
           setView("lesson");
+          if (cameFromHangul) {
+            setNotice("Hangul complete ✦ Now use those sounds in your first real conversation.");
+          }
         } else if (requestedView && allowedViews.has(requestedView)) {
           setView(requestedView);
         }
