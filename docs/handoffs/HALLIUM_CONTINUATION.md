@@ -4913,3 +4913,27 @@ Start Batch 12 from current `main`.
 
 Primary goal:
 turn the learner profile and progress surfaces into one trustworthy progress model that explains current level context, measurable progress, skill evidence, recent gains, unresolved weaknesses, TOPIK evidence and tutor history without collapsing everything into a fake single mastery score.
+
+
+---
+
+# 54. Batch 12 / H-P14 — PROFILE & PROGRESS 2.0 COMPLETE
+
+Single PR with sequential commits per subphase; no deployment performed.
+
+- H-P14.1 (#92): separate progress evidence dimensions, no global mastery score.
+- H-P14.2 (#93): dated comparative gains and evidence timeline, unverified TOPIK excluded.
+- H-P14.3: source-aware per-skill evidence map; practice, verified TOPIK, mistake memory kept separate.
+- H-P14.4: cautious learning interpretation and next priorities, due review first.
+- H-P14.5: privacy-safe optional progress summary; public copy defaults to aggregate curriculum completion only.
+- H-P14.6: regression coverage, integration and Batch 12 closure.
+
+Guardrails:
+- no invented proficiency, learning gains, score or lesson-completion date;
+- unverified TOPIK scoring excluded from verified progress;
+- no user IDs, answers, private mistake text, chat, or tutor content in shared summary;
+- original canonical learner-state persistence unchanged;
+- zero new scoring engines, databases, or mastery numbers.
+
+Exact next phase: Batch 13 / H-P15 — Community / Creator.
+Do not reopen H-P14 except for a concrete regression.
