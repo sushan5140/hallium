@@ -5008,3 +5008,19 @@ Safety: no private user record, score, conversation, assessment, API response or
 
 Next: **Batch 17 / H-P19 — Accessibility & internationalization**.
 CI and deployment verification are independent from GitHub merge status.
+
+
+---
+
+# 59. Batch 17 / H-P19 — ACCESSIBILITY & INTERNATIONALIZATION FOUNDATION
+
+One consolidated PR with meaningful separate commits:
+- H-P19.1: bounded English/Korean public language dictionary with English fallback.
+- H-P19.2: visible focus indicators, keyboard skip navigation and reduced-motion behavior.
+- H-P19.3: bilingual interactive offline recovery screen with explicit locale selector.
+- H-P19.4: language and accessibility regression tests.
+- H-P19.5: documented limits and Batch 18 handoff.
+
+Scope limits: This is **not full app-wide internationalization**, a certified WCAG audit, or translation of user-authored/AI-generated content. The default app document remains English. Korean is exposed explicitly within the offline recovery screen with its own language context. Keyboard and motion styles are global but cannot replace real assistive-technology testing. No changes to learner persistence, private state or offline service-worker caching behavior.
+
+Next phase: **Batch 18 / H-P20 — Production Scale**. Before claiming production readiness, verify CI, deployment, runtime behavior and security independently.
