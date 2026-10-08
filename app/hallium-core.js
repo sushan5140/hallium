@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getHallimSupabase } from "../lib/supabase/client";
 import { curriculumAudit, teachingItemFromStep } from "../lib/curriculum/admin";
+import {buildAdminReviewQueue,safeQaTransition} from "../lib/curriculum/admin-review";
 import {
   DEFAULT_KOREAN_VOICE_PREFERENCE,
   KOREAN_VOICE_STORAGE_KEY,
@@ -5774,6 +5775,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       );
     }
 
+    const reviewQueue=buildAdminReviewQueue(adminCurriculumAudit,adminStudioState.qaFlags);
     const needle = adminStudioQuery.trim().toLowerCase();
     const filteredRows = adminCurriculumAudit.rows.filter((row) => {
       if (adminStudioScope === "gaps" && row.coverage.complete) return false;
@@ -5813,7 +5815,8 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           </span>
         </div>
 
-        <div className="admin-metric-grid">
+        <div className="admin-metric-grid"> 
+          {[[ "QA ready",reviewQueue.ready],[ "Needs review",reviewQueue.pending],[ "Blocked by gaps",reviewQueue.blocked]].map(([label,count])=><div key={label}><span>{label}</span><b>{count}</b></div>)}
           {[
             ["Units", adminCurriculumAudit.summary.units],
             ["Lessons", adminCurriculumAudit.summary.lessons],
