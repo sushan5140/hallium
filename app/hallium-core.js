@@ -3453,6 +3453,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <span className="rail-group-label">01 · TODAY'S PLAN</span>
             <h2 id="rail-plan-title">A clear route for today.</h2>
             <p>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min · fitted to your saved study preferences.</p>
+            <p><strong>Tutor decision · {tutorDecision.confidence} confidence.</strong> {tutorDecision.reason} <span>{tutorDecision.evidence[0]?.label}</span></p>
           </div>
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
