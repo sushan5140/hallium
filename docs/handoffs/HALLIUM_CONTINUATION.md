@@ -5024,3 +5024,16 @@ One consolidated PR with meaningful separate commits:
 Scope limits: This is **not full app-wide internationalization**, a certified WCAG audit, or translation of user-authored/AI-generated content. The default app document remains English. Korean is exposed explicitly within the offline recovery screen with its own language context. Keyboard and motion styles are global but cannot replace real assistive-technology testing. No changes to learner persistence, private state or offline service-worker caching behavior.
 
 Next phase: **Batch 18 / H-P20 — Production Scale**. Before claiming production readiness, verify CI, deployment, runtime behavior and security independently.
+
+
+---
+
+# 60. Batch 18 H-P20 + Batch 19 Reliability Verification
+
+Completed as two independent branches and regular-merge PRs, each with meaningful, separately attributable commits.
+
+**Batch 18 / H-P20:** minimal no-store public liveness endpoint, opt-in bounded HTTP smoke script, regression tests. Production scale *readiness foundation*, not measured capacity validation.
+
+**Batch 19 / Reliability Verification:** manually triggered, least-privilege public production smoke workflow; incident, rollback and end-to-end verification runbook; workflow-contract tests.
+
+No live production smoke result or CI pass should be inferred from PR merge status. Deployment and operational readiness remain independently verifiable gates. Next work should focus on checking failed/pending workflows, fixing concrete regressions and performing authorized deployment checks rather than inventing further roadmap phases.
