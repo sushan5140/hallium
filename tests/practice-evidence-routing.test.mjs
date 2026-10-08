@@ -84,9 +84,9 @@ test("strong-only evidence does not override the route", () => {
 });
 
 test("Hallium applies H-P8 routing only after H-P6 safety and session fitting", () => {
-  const safety = core.indexOf("enforceLearningPlanSafety");
-  const session = core.indexOf("fitPlanToSession",safety);
-  const evidence = core.indexOf("applyEvidenceAwarePracticeRoute",session);
+  const safety = core.indexOf("const tutorDecision = buildTutorDecision");
+  const session = core.indexOf("candidateRoute: learningRouteRecord",safety);
+  const evidence = core.indexOf("const activeLearningRoute = tutorDecision.route",session);
   assert.ok(safety >= 0 && session > safety && evidence > session);
 });
 
