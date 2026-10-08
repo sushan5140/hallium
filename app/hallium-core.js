@@ -3685,6 +3685,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             : <p>No dated learning evidence yet.</p>}
           <p className="spMuted">{progressModel.timelineNote}</p>
         </section>
+        <section className="tutorDecisionPreview" aria-label="Skill evidence map"><span className="rail-group-label">SKILL EVIDENCE MAP</span><h3>Skills, not a single score.</h3><ul>{progressModel.skillMap.map(item=><li key={item.skill}><strong>{item.skill}</strong> · {item.direction} · {item.evidenceStrength} · {item.unresolvedCount} unresolved <small>{item.provenance.join(" / ")||"No measured evidence yet"}</small></li>)}</ul></section>
         <p className="spMuted">{progressModel.disclaimer}</p>
         <button className="curriculum-button rail-destination" onClick={() => navigate("companion")}>
           <span>Browse lessons</span><strong aria-hidden="true">↗</strong>
