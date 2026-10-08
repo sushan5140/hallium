@@ -5962,10 +5962,14 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                               <span>QA state</span>
                               <select
                                 value={qa}
-                                onChange={(event) => setAdminStudioState((current) => ({
-                                  ...current,
-                                  qaFlags: { ...current.qaFlags, [lesson.id]: event.target.value },
-                                }))}
+                                onChange={(event) => {
+                                  const verdict=safeQaTransition(qa,event.target.value,{hasCoverageGaps:coverage.missing.length>0});
+                                  if(!verdict.allowed){setNotice(verdict.reason);return;}
+                                  setAdminStudioState((current) => ({
+                                    ...current,
+                                    qaFlags: { ...current.qaFlags, [lesson.id]: event.target.value },
+                                  }));
+                                }}
                               >
                                 <option value="review">Needs review</option>
                                 <option value="native-review">Native Korean review</option>
