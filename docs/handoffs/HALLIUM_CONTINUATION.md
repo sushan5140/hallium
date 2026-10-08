@@ -4774,3 +4774,142 @@ Start Batch 11 from current `main`.
 
 Primary goal:
 turn the existing Hallium tutor surfaces into one evidence-grounded tutoring loop that uses current learner state, practice history, mistakes, TOPIK evidence and explicit learner intent to choose the next intervention, explain it, observe the result and adapt without inventing mastery or duplicating the existing practice engine.
+
+
+---
+
+# 53. Batch 11 / H-P13 — AI TUTOR 2.0 COMPLETE ✅
+
+Batch 11 is complete on `main`.
+
+## H-P13.1 — canonical Tutor Decision foundation
+Merged PR: #85
+
+Formalized the existing Hallium learning planner + practice recommender into one canonical Tutor Decision object.
+
+Each decision carries:
+- primary intervention
+- confidence
+- reason
+- evidence provenance
+- practice recommendation
+
+Due-review safety remains mandatory.
+Empty evidence remains low-confidence and does not invent mastery.
+
+## H-P13.2 — TOPIK-aware tutor evidence
+Merged PR: #86
+
+Tutor Decision now consumes canonical TOPIK evidence from:
+`hallim:intelligence:v1.topik.evidence`
+
+Only verified TOPIK accuracy can create a targeted TOPIK intervention.
+Verified score trajectory can appear as evidence.
+Unverified completion cannot create mastery/weakness claims.
+Due review still outranks TOPIK routing.
+
+## H-P13.3 — intervention outcome memory
+Merged PR: #87
+
+Added bounded canonical tutor intervention memory:
+- snapshots only when the learner opens the primary recommended action
+- latest 20 interventions
+- cross-device merge by stable intervention ID
+- waits for at least 2 later relevant attempts
+
+Outcome states:
+- repeat
+- maintain
+- escalate
+- switch
+
+Unrelated evidence is ignored.
+Single attempts never trigger adaptation.
+
+## H-P13.4 — learner steering
+Merged PR: #88
+
+Added session-only steering:
+- conversation
+- listening
+- vocabulary
+- grammar
+- assessment
+- TOPIK
+- 5 / 10 / 15 / 20 / 30 minute session budget
+
+Priority:
+due review → explicit learner intent → intervention memory → ordinary evidence routing.
+
+Steering is not persisted into long-term learner preferences.
+
+## H-P13.5 — explanation + intervention preview
+Merged PR: #89
+
+Tutor Decision now explains:
+- what the intervention trains
+- why it was chosen
+- evidence used
+- what success would look like
+- alternatives considered
+- uncertainty
+
+The Learning Desk renders this canonical explanation directly.
+
+## H-P13.6 — tutor session closure loop
+Merged PR: #90
+Merge: `e4ac7263da4b6050c6ad5545578706483d97c013`
+
+Adds a post-intervention closure summary:
+- what evidence changed
+- what remains unresolved
+- next posture
+- causal caveat
+
+Possible postures:
+- wait
+- stay
+- escalate
+- repeat
+- move_on
+
+Hallium explicitly avoids causal claims from limited evidence.
+
+## Batch 11 capability matrix
+
+- canonical tutor decision ✅
+- evidence provenance ✅
+- confidence labels ✅
+- due-review safety ✅
+- recent practice evidence routing ✅
+- verified TOPIK evidence routing ✅
+- TOPIK trajectory evidence ✅
+- intervention memory ✅
+- cross-device intervention merge ✅
+- multi-attempt outcome evaluation ✅
+- explicit learner steering ✅
+- temporary session budget ✅
+- TOPIK mode ✅
+- intervention preview ✅
+- success criteria ✅
+- alternatives + uncertainty ✅
+- post-session closure ✅
+- causal caveats ✅
+- no duplicate practice engine ✅
+- no invented mastery ✅
+
+## Batch 11 status
+
+**COMPLETE ✅**
+
+Do not reopen H-P13 by default unless a concrete tutor regression appears.
+
+## Exact continuation point
+
+Next phase:
+**Batch 12 / H-P14 — Profile & Progress 2.0**
+
+Start Batch 12 from current `main`.
+
+Primary goal:
+turn the learner profile and progress surfaces into one trustworthy progress model that explains current level context, measurable progress, skill evidence, recent gains, unresolved weaknesses, TOPIK evidence and tutor history without collapsing everything into a fake single mastery score.
