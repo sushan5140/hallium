@@ -46,7 +46,10 @@ const {chromium}=require("playwright");
      assert.equal(await frame.locator("#pulse-explored").innerText(),"1","explored letters not reflected in mobile progress");
      await frame.locator("#close-dialog").click();
      await page.reload({waitUntil:"domcontentloaded"});
-     await frame.locator("#letter-grid .letter-card").first().waitFor();
+     // A reload can restore a different active tool; explicitly return to Learn.
+     await frame.locator(learnNav+' [data-view="learn"]').click();
+     await frame.locator("#view-learn").waitFor({state:"visible"});
+     await frame.locator("#letter-grid .letter-card").first().waitFor({state:"visible"});
      assert.equal(await frame.locator("#pulse-known").innerText(),"1","Hangul local progress not retained across reload");
    }
    const nav=width<=760?".mobile-nav":".desktop-nav";
