@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getHallimSupabase } from "../lib/supabase/client";
 import { curriculumAudit, teachingItemFromStep } from "../lib/curriculum/admin";
+import {buildAdminReviewQueue,safeQaTransition} from "../lib/curriculum/admin-review";
 import {
   DEFAULT_KOREAN_VOICE_PREFERENCE,
   KOREAN_VOICE_STORAGE_KEY,
@@ -5774,6 +5775,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
       );
     }
 
+    const reviewQueue=buildAdminReviewQueue(adminCurriculumAudit,adminStudioState.qaFlags);
     const needle = adminStudioQuery.trim().toLowerCase();
     const filteredRows = adminCurriculumAudit.rows.filter((row) => {
       if (adminStudioScope === "gaps" && row.coverage.complete) return false;
@@ -5813,7 +5815,8 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           </span>
         </div>
 
-        <div className="admin-metric-grid">
+        <div className="admin-metric-grid"> 
+          {[[ "QA ready",reviewQueue.ready],[ "Needs review",reviewQueue.pending],[ "Blocked by gaps",reviewQueue.blocked]].map(([label,count])=><div key={label}><span>{label}</span><b>{count}</b></div>)}
           {[
             ["Units", adminCurriculumAudit.summary.units],
             ["Lessons", adminCurriculumAudit.summary.lessons],
@@ -5959,10 +5962,14 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
                               <span>QA state</span>
                               <select
                                 value={qa}
-                                onChange={(event) => setAdminStudioState((current) => ({
-                                  ...current,
-                                  qaFlags: { ...current.qaFlags, [lesson.id]: event.target.value },
-                                }))}
+                                onChange={(event) => {
+                                  const verdict=safeQaTransition(qa,event.target.value,{hasCoverageGaps:coverage.missing.length>0});
+                                  if(!verdict.allowed){setNotice(verdict.reason);return;}
+                                  setAdminStudioState((current) => ({
+                                    ...current,
+                                    qaFlags: { ...current.qaFlags, [lesson.id]: event.target.value },
+                                  }));
+                                }}
                               >
                                 <option value="review">Needs review</option>
                                 <option value="native-review">Native Korean review</option>

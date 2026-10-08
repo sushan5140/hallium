@@ -4975,3 +4975,19 @@ Implemented on one feature branch as individually committed changes:
 Keep existing `is_hallim_admin` gate, `admin_approve_pilot`, `admin_pause_pilot`, one-time feedback links and existing Supabase RPC contract intact. No new database schema or automatic approval. The changes are not evidence of live deployment or of completed CI.
 
 Next: **Batch 15 / H-P17 — Admin Studio 2.0**.
+
+
+---
+
+# 57. Batch 15 / H-P17 — ADMIN STUDIO 2.0: QA SAFETY FOUNDATION
+
+Delivered as separate meaningful commits within one consolidated PR:
+- H-P17.1: source-grounded curriculum review queue with missing-stage blockers and approval readiness.
+- H-P17.2: protected Admin Studio summary of QA-ready, pending-review and blocked lessons.
+- H-P17.3: backward-compatible QA state handling and an approval gate that prevents missing curriculum stages from being marked approved.
+- H-P17.4: Node test regressions for QA state compatibility, blockers and protected admin integration.
+- H-P17.5: scope, guardrails and handoff.
+
+**Important scope:** This improves the existing private Admin Studio, not an unrestricted publishing system. Existing protected-admin membership checks, Supabase state writes, lesson previews and note persistence remain authoritative. No new database table, external publication, scoring engine or user-generated content feed.
+
+Next: **Batch 16 / H-P18 — Performance & Offline.** Run workflows and deployment checks independently before describing anything as verified or live.
