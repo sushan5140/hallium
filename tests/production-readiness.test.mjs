@@ -1,0 +1,3 @@
+import test from "node:test";import assert from "node:assert/strict";import fs from "node:fs";
+test("health response is minimal and uncacheable",()=>{const s=fs.readFileSync("app/api/health/route.js","utf8");assert.match(s,/ok:true,service:"hallium"/);assert.match(s,/no-store/);assert.doesNotMatch(s,/process\.env|supabase|user_id|email|secret/i);});
+test("production smoke check requires explicit target and timeout",()=>{const s=fs.readFileSync("scripts/check-production.mjs","utf8");assert.match(s,/HALLIUM_BASE_URL/);assert.match(s,/AbortSignal\.timeout\(8000\)/);assert.match(s,/origin\.protocol!=="https:"/);assert.match(s,/process\.exitCode=1/);});
