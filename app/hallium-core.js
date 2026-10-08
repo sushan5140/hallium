@@ -1586,6 +1586,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const [mistakeExplanation, setMistakeExplanation] = useState(null);
   const [mistakeLog, setMistakeLog] = useState([]);
   const [practiceEvidence, setPracticeEvidence] = useState([]);
+  const [topikEvidence, setTopikEvidence] = useState([]);
   const [mistakeReviewChoice, setMistakeReviewChoice] = useState(null);
   const [mistakeReviewChecked, setMistakeReviewChecked] = useState(false);
   const [selectedVocab, setSelectedVocab] = useState(null);
@@ -1629,6 +1630,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setLearningPreferences(normalizeLearningPreferences(savedIntelligence.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(savedIntelligence.mistakeLog || []);
     setPracticeEvidence(savedIntelligence.practiceEvidence || []);
+    setTopikEvidence(savedIntelligence.topik?.evidence || []);
     const curriculumFlashcards = lessonVocabularyCards(units.flatMap((unit) => unit.lessons || []));
     const nextFlashcards = flashcardIntelligenceWithCatalog(savedIntelligence.flashcards || {}, curriculumFlashcards);
     localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode), JSON.stringify({
@@ -2011,6 +2013,8 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     candidateRoute: learningRouteRecord?.result || null,
     practiceAttempts: practiceEvidence,
     dueCount: dueMistakes.length,
+    topikAttempts: topikEvidence,
+    topikLevel: currentLevel.rank >= 3 ? "II" : "I",
   });
   const activeLearningRoute = tutorDecision.route;
 
@@ -2077,6 +2081,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setLearningPreferences(normalizeLearningPreferences(intelligence?.preferences || DEFAULT_LEARNING_PREFERENCES));
     setMistakeLog(intelligence?.mistakeLog || []);
     setPracticeEvidence(intelligence?.practiceEvidence || []);
+    setTopikEvidence(intelligence?.topik?.evidence || []);
 
     if (audit) {
       localStorage.setItem(scopedLearnerStorageKey(aiAuditKey, false), JSON.stringify(audit));
