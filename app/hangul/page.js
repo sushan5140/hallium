@@ -20,8 +20,8 @@ export default function HangulLab() {
         </div>
         <a className={styles.lessons} href="/?view=companion">My lessons <span aria-hidden="true">↗</span></a>
       </nav>
-      <HangulGraduationCheckpoint />
       <HangulLabBridge />
+      <HangulGraduationCheckpoint />
     </main>
   );
 }

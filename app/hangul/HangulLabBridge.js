@@ -179,6 +179,15 @@ export default function HangulLabBridge() {
 
   return (
     <>
+      <iframe
+        ref={frameRef}
+        className={styles.frame}
+        title="Hallium's interactive Hangul learning and handwriting studio"
+        src="/hangul-lab/index.html#learn"
+        loading="eager"
+        allow="autoplay"
+        onLoad={loadStarterWords}
+      />
       <section className={styles.progressBridge} aria-label="Hangul to Beginner progress">
         <div>
           <span>HANGUL → BEGINNER</span>
@@ -258,15 +267,6 @@ export default function HangulLabBridge() {
         ) : null}
       </section>
 
-      <iframe
-        ref={frameRef}
-        className={styles.frame}
-        title="Hallium's interactive Hangul learning and handwriting studio"
-        src="/hangul-lab/index.html#learn"
-        loading="eager"
-        allow="autoplay"
-        onLoad={loadStarterWords}
-      />
     </>
   );
 }

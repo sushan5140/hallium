@@ -12,7 +12,11 @@ const {chromium}=require("playwright");
    let response=await page.goto("http://127.0.0.1:3000/hangul",{waitUntil:"domcontentloaded"});
    assert.equal(response.status(),200,"/hangul route at "+width);
    const frame=page.frameLocator('iframe[title*="Hangul learning"]');
-   await frame.locator("#letter-grid .letter-card").first().waitFor();
+   // Start from the documented Learn view, rather than assuming iframe view state.
+   const learnNav=width<=760?".mobile-nav":".desktop-nav";
+   await frame.locator(learnNav+' [data-view="learn"]').click();
+   await frame.locator("#view-learn").waitFor({state:"visible"});
+   await frame.locator("#letter-grid .letter-card").first().waitFor({state:"visible"});
    assert.equal(await frame.locator("#letter-grid .letter-card").count(),40,"original alphabet data missing");
    const metrics=await frame.locator("html").evaluate(el=>{
     const box=q=>{let e=document.querySelector(q),r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}};

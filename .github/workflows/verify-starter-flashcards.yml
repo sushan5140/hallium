@@ -1,6 +1,8 @@
 name: Verify integrated Starter flashcards
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [feature/starter-flashcards-vercel, main]
   workflow_dispatch:
