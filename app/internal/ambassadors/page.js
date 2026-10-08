@@ -19,6 +19,7 @@ export default function AmbassadorAdminPage() {
   const [contact,setContact] = useState("");
   const [codeDrafts,setCodeDrafts] = useState({});
   const [feedbackLinks,setFeedbackLinks] = useState({});
+  const [copyStatus,setCopyStatus] = useState("");
 
   const totals = dashboard?.totals || {};
   const pilots = dashboard?.pilots || [];
@@ -118,6 +119,13 @@ export default function AmbassadorAdminPage() {
     setBusy("");
   }
 
+  async function copyReferral(code){
+    if(!validReferralCode(code)){setCopyStatus("Invalid referral code; no link copied.");return;}
+    const url=new URL("/",window.location.origin);url.searchParams.set("ref",code);
+    try{await navigator.clipboard.writeText(url.toString());setCopyStatus("Approved referral link copied.");}
+    catch{setCopyStatus("Unable to copy referral link.");}
+  }
+
   if (loading) {
     return <main className="internalPage"><section className="internalGate"><span className="eyebrow">Hallim Internal</span><h1>Checking access…</h1></section></main>;
   }
@@ -157,6 +165,7 @@ export default function AmbassadorAdminPage() {
       </header>
 
       {error && <div className="internalError">{error}</div>}
+      {copyStatus && <p role="status">{copyStatus}</p>}
 
       <section className="internalMetrics">
         <article><small>Pilots</small><b>{totals.pilots || 0}</b></article>
@@ -224,6 +233,7 @@ export default function AmbassadorAdminPage() {
                 <div className="pilotActiveCode">
                   <small>Referral code</small>
                   <b>{pilot.ambassador_code}</b>
+                  {pilot.stage==="active"&&<button type="button" disabled={!!busy} onClick={()=>copyReferral(pilot.ambassador_code)}>Copy approved referral link</button>}
                   {pilot.stage === "paused"
                     ? <button disabled={!!busy} onClick={()=>setStage(pilot.id,"active")}>Reactivate</button>
                     : <button disabled={!!busy} onClick={()=>pausePilot(pilot.id)}>Pause code</button>}
