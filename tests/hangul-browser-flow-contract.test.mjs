@@ -49,3 +49,12 @@ test("primary Hangul studio renders before the graduation checkpoint",()=>{
  assert.ok(checkpoint>=0,"graduation checkpoint must render");
  assert.ok(studio<checkpoint,"checkpoint must not displace primary learning studio");
 });
+
+test("Hangul saved progress merge validates both stores before iterating arrays",()=>{
+ const bridge=readFileSync("app/hangul/HangulLabBridge.js","utf8");
+ assert.match(bridge,/const safeLocal = local && typeof local === "object" && !Array\.isArray\(local\)/);
+ assert.match(bridge,/const safeCanonical = canonical && typeof canonical === "object" && !Array\.isArray\(canonical\)/);
+ assert.match(bridge,/const asArray = \(value\) => Array\.isArray\(value\) \? value : \[\]/);
+ assert.match(bridge,/\.\.\.asArray\(safeCanonical\[field\]\), \.\.\.asArray\(safeLocal\[field\]\)/);
+ assert.match(bridge,/\.\.\.asArray\(safeCanonical\.quizHistory\), \.\.\.asArray\(safeLocal\.quizHistory\)/);
+});

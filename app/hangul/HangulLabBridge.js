@@ -14,12 +14,15 @@ function readJson(key) {
 }
 
 function mergeHangulState(local = {}, canonical = {}) {
-  const merged = { ...canonical, ...local };
+  const safeLocal = local && typeof local === "object" && !Array.isArray(local) ? local : {};
+  const safeCanonical = canonical && typeof canonical === "object" && !Array.isArray(canonical) ? canonical : {};
+  const asArray = (value) => Array.isArray(value) ? value : [];
+  const merged = { ...safeCanonical, ...safeLocal };
   for (const field of ARRAY_FIELDS) {
-    merged[field] = [...new Set([...(canonical[field] || []), ...(local[field] || [])].map(String))];
+    merged[field] = [...new Set([...asArray(safeCanonical[field]), ...asArray(safeLocal[field])].map(String))];
   }
   const quizMap = new Map();
-  [...(canonical.quizHistory || []), ...(local.quizHistory || [])].forEach((item) => {
+  [...asArray(safeCanonical.quizHistory), ...asArray(safeLocal.quizHistory)].forEach((item) => {
     if (!item) return;
     quizMap.set([item.date || "", item.score ?? ""].join("|"), item);
   });
