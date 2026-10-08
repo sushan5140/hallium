@@ -4937,3 +4937,23 @@ Guardrails:
 
 Exact next phase: Batch 13 / H-P15 — Community / Creator.
 Do not reopen H-P14 except for a concrete regression.
+
+
+---
+
+# 55. Batch 13 / H-P15 — COMMUNITY & CREATOR FOUNDATION
+
+One feature PR; individual commits retained. Scope deliberately limits community operations to public navigation, a local-only authoring draft, creator resources, review policy and regression coverage. **No production user-generated posting system or moderation backend is claimed.**
+
+- H-P15.1 — bounded contribution types, validation, rights confirmation, anonymous-credit preference and draft-only output.
+- H-P15.2 — publicly navigable Community Hub with purpose-specific contribution, creator, ambassador and invited-feedback paths.
+- H-P15.3 — local-only contribution studio with validation, copy-to-clipboard, consent and explicit non-submission copy.
+- H-P15.4 — editorial, rights, privacy, Korean accuracy, attribution and abuse-prevention review policy.
+- H-P15.5 — links from existing creator and ambassador surfaces, contribution tests.
+- H-P15.6 — integration regressions and handoff.
+
+**Not delivered and not implied:** open posting, storage, review queue, server moderation, published submissions, ratings, follows or private learner content sharing. Any future submission API needs auth/RLS, rate limits, consent revocation and editorial review before exposure.
+
+Next batch: **Batch 14 / H-P16 — Ambassador & Referral 2.0**, building on existing approved-code/referral infrastructure. Respect existing creator-feedback privacy and avoid commission claims.
+
+Verification and production deployment must be checked independently; a GitHub PR merge alone does not prove deployment or CI success.

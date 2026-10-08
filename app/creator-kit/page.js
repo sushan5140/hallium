@@ -35,7 +35,7 @@ export default function CreatorKitPage() {
     <main className="publicPage creatorKitPage">
       <header className="publicNav">
         <a className="publicBrand" href="/"><i>ㅎ</i><span><b>Hallim</b><small>한림</small></span></a>
-        <nav><a href="/demo">Demo</a><a href="/ambassadors">Ambassadors</a><a className="publicNavCta" href="/auth/google?next=%2F%3Fview%3Dhome">Open Hallim</a></nav>
+        <nav><a href="/demo">Demo</a><a href="/community">Community</a><a href="/ambassadors">Ambassadors</a><a className="publicNavCta" href="/auth/google?next=%2F%3Fview%3Dhome">Open Hallim</a></nav>
       </header>
 
       <section className="publicHero creatorKitHero">
