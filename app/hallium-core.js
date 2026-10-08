@@ -1596,6 +1596,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const [practiceEvidence, setPracticeEvidence] = useState([]);
   const [topikEvidence, setTopikEvidence] = useState([]);
   const [tutorInterventions, setTutorInterventions] = useState([]);
+  const [tutorIntent, setTutorIntent] = useState({focus:"",minutes:null,topikMode:false});
   const [mistakeReviewChoice, setMistakeReviewChoice] = useState(null);
   const [mistakeReviewChecked, setMistakeReviewChecked] = useState(false);
   const [selectedVocab, setSelectedVocab] = useState(null);
@@ -2030,6 +2031,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     topikAttempts: topikEvidence,
     topikLevel: currentLevel.rank >= 3 ? "II" : "I",
     interventionMemory: latestTutorIntervention ? {snapshot:latestTutorIntervention,outcome:latestTutorOutcome} : null,
+    intent: tutorIntent,
   });
   const activeLearningRoute = tutorDecision.route;
 
@@ -3488,6 +3490,21 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <p>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min · fitted to your saved study preferences.</p>
             <p><strong>Tutor decision · {tutorDecision.confidence} confidence.</strong> {tutorDecision.reason} <span>{tutorDecision.evidence[0]?.label}</span></p>
             {latestTutorIntervention&&<p><strong>Last intervention · {latestTutorOutcome?.status==="evaluated"?latestTutorOutcome.action:"waiting for more evidence"}.</strong> {latestTutorOutcome?.status==="evaluated"?(latestTutorOutcome.delta>=0?"+":"")+latestTutorOutcome.delta+" pts across "+latestTutorOutcome.samples+" later relevant attempts.":"Hallium waits for at least two later relevant attempts before adapting."}</p>}
+          </div>
+          <div className="learningChoiceRow" role="group" aria-label="Steer today's tutor session">
+            {[
+              ["conversation","Conversation"],
+              ["listening","Listening"],
+              ["vocabulary","Vocabulary"],
+              ["grammar","Grammar"],
+              ["assessment","Assessment"],
+              ["topik","TOPIK"],
+            ].map(([id,label])=><button type="button" key={id} className={tutorIntent.focus===id?"selected":""} aria-pressed={tutorIntent.focus===id} onClick={()=>setTutorIntent(current=>current.focus===id?{...current,focus:"",topikMode:false}:{...current,focus:id,topikMode:id==="topik"})}>{label}</button>)}
+          </div>
+          <div className="learningPreferenceSummary">
+            <span><b>Today only</b> learner steering</span>
+            <label>Available time <select value={tutorIntent.minutes||""} onChange={e=>setTutorIntent(current=>({...current,minutes:e.target.value?Number(e.target.value):null}))}><option value="">Use saved time</option>{[5,10,15,20,30].map(n=><option key={n} value={n}>{n} min</option>)}</select></label>
+            {(tutorIntent.focus||tutorIntent.minutes)&&<button type="button" onClick={()=>setTutorIntent({focus:"",minutes:null,topikMode:false})}>Clear today&apos;s steering</button>}
           </div>
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
