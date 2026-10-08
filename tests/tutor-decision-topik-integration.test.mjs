@@ -13,5 +13,5 @@ test("TOPIK tutor step opens the routed companion destination",()=>{
  const core=fs.readFileSync("app/hallium-core.js","utf8");
  assert.match(core,/kind === "topik"/);
  assert.match(core,/window\.location\.href = href \|\| "\/topik-mocks"/);
- assert.match(core,/launchLearningRouteStep\(step\.kind, step\.href\)/);
+ assert.match(core,/launchLearningRouteStep\(step\.kind, step\.href, step\)/);
 });
