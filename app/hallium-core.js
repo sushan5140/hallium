@@ -23,6 +23,7 @@ import { buildPracticeAttempt, practiceAttemptMistakeEvidence, summarizePractice
 import { buildTutorDecision, createTutorInterventionSnapshot, evaluateTutorIntervention, buildTutorSessionClosure } from "../lib/tutor-decision";
 import { lessonVocabularyCards } from "../lib/flashcard-collections";
 import { buildProgressModel } from "../lib/progress-model";
+import {buildPublicProgressSummary,progressSummaryText} from "../lib/progress-sharing";
 import { flashcardIntelligenceWithCatalog, mergeFlashcardIntelligence } from "../lib/flashcard-state";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
@@ -3685,6 +3686,9 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             : <p>No dated learning evidence yet.</p>}
           <p className="spMuted">{progressModel.timelineNote}</p>
         </section>
+        <section className="tutorDecisionPreview" aria-label="Skill evidence map"><span className="rail-group-label">SKILL EVIDENCE MAP</span><h3>Skills, not a single score.</h3><ul>{progressModel.skillMap.map(item=><li key={item.skill}><strong>{item.skill}</strong> · {item.direction} · {item.evidenceStrength} · {item.unresolvedCount} unresolved <small>{item.provenance.join(" / ")||"No measured evidence yet"}</small></li>)}</ul></section>
+        <section className="tutorDecisionPreview" aria-label="Evidence-backed next steps"><span className="rail-group-label">WHAT TO WORK ON NEXT</span><ul>{progressModel.insights.priorities.map(item=><li key={item.kind}><strong>{item.title}</strong> · {item.why}</li>)}</ul><p className="spMuted">{progressModel.insights.caveat}</p></section>
+        <section className="tutorDecisionPreview" aria-label="Private progress sharing"><span className="rail-group-label">SHARE YOUR PROGRESS</span><p>Share only course completion by default. Skill directions and TOPIK results stay private unless you deliberately include them.</p><button type="button" onClick={async()=>{const summary=buildPublicProgressSummary(progressModel);try{await navigator.clipboard.writeText(progressSummaryText(summary));setNotice("Privacy-safe progress summary copied.");}catch{setNotice("Could not copy the progress summary.");}}}>Copy basic progress summary</button></section>
         <p className="spMuted">{progressModel.disclaimer}</p>
         <button className="curriculum-button rail-destination" onClick={() => navigate("companion")}>
           <span>Browse lessons</span><strong aria-hidden="true">↗</strong>
