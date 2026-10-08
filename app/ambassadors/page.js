@@ -99,6 +99,11 @@ export default function AmbassadorsPage() {
         </div>
       </section>
 
+      <section className="publicSection" aria-labelledby="ambassador-privacy-heading">
+        <div className="publicSectionHead"><span className="eyebrow">Referral transparency</span><h2 id="ambassador-privacy-heading">Attribution is not a guarantee.</h2></div>
+        <p>Approved codes may attribute visits and signed-in learner activity in aggregate. A visit is not a signup, a signup is not a completed lesson, and none of those numbers proves a creator caused a learner outcome.</p>
+        <p>Only approved active codes can be used. Paused or declined creators must not be presented as active partners. Commercial arrangements are never implied by referral counts.</p>
+      </section>
       <section className="publicCta">
         <span className="eyebrow">Before you decide</span>
         <h2>Use Hallim like a learner first.</h2>
