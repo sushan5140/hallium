@@ -19,7 +19,8 @@ import {
 import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearnerStorageKey } from "../lib/learner-storage";
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
-import { applyEvidenceAwarePracticeRoute, buildPracticeAttempt, practiceAttemptMistakeEvidence, recommendNextPractice, summarizePracticeEvidence } from "../lib/practice-engine";
+import { buildPracticeAttempt, practiceAttemptMistakeEvidence, summarizePracticeEvidence } from "../lib/practice-engine";
+import { buildTutorDecision } from "../lib/tutor-decision";
 import { lessonVocabularyCards } from "../lib/flashcard-collections";
 import { flashcardIntelligenceWithCatalog, mergeFlashcardIntelligence } from "../lib/flashcard-state";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
@@ -1999,7 +2000,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     ? (activeStudy.vocabulary || []).filter((w) => w.group === activeWord.group && w.korean !== activeWord.korean).slice(0, 4)
     : [];
 
-  const fallbackLearningRoute = buildTodayLearningPlan({
+  const tutorDecision = buildTutorDecision({
     mistakes: relevantMistakes,
     latestStudyPct,
     completedPathCount,
@@ -2007,19 +2008,11 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     activeStudyLabel: activeStudy.label,
     nextLessonTitle: nextLesson.title,
     preferences: learningPreferences,
-  });
-
-  const safeLearningRoute = enforceLearningPlanSafety(learningRouteRecord?.result || fallbackLearningRoute, fallbackLearningRoute);
-  const sessionLearningRoute = fitPlanToSession(safeLearningRoute, learningPreferences);
-  const evidencePracticeRecommendation = recommendNextPractice({
-    attempts: practiceEvidence,
+    candidateRoute: learningRouteRecord?.result || null,
+    practiceAttempts: practiceEvidence,
     dueCount: dueMistakes.length,
   });
-  const activeLearningRoute = applyEvidenceAwarePracticeRoute(
-    sessionLearningRoute,
-    evidencePracticeRecommendation,
-    dueMistakes.length,
-  );
+  const activeLearningRoute = tutorDecision.route;
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
