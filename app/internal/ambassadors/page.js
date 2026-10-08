@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { getHallimSupabase } from "../../../lib/supabase/client";
+import {referralFunnel,pilotNextAction,validReferralCode} from "../../../lib/ambassador-insights.mjs";
 
 const movableStages = ["shortlisted","invited","testing","active","declined"];
 
@@ -18,6 +19,7 @@ export default function AmbassadorAdminPage() {
   const [contact,setContact] = useState("");
   const [codeDrafts,setCodeDrafts] = useState({});
   const [feedbackLinks,setFeedbackLinks] = useState({});
+  const [copyStatus,setCopyStatus] = useState("");
 
   const totals = dashboard?.totals || {};
   const pilots = dashboard?.pilots || [];
@@ -84,7 +86,7 @@ export default function AmbassadorAdminPage() {
 
   async function approvePilot(id) {
     const code = (codeDrafts[id] || "").trim();
-    if (!/^[A-Za-z0-9_-]{2,48}$/.test(code)) {
+    if (!validReferralCode(code)) {
       setError("Use a 2–48 character referral code with letters, numbers, _ or -.");
       return;
     }
@@ -115,6 +117,13 @@ export default function AmbassadorAdminPage() {
       try { await navigator.clipboard.writeText(url); } catch {}
     }
     setBusy("");
+  }
+
+  async function copyReferral(code){
+    if(!validReferralCode(code)){setCopyStatus("Invalid referral code; no link copied.");return;}
+    const url=new URL("/",window.location.origin);url.searchParams.set("ref",code);
+    try{await navigator.clipboard.writeText(url.toString());setCopyStatus("Approved referral link copied.");}
+    catch{setCopyStatus("Unable to copy referral link.");}
   }
 
   if (loading) {
@@ -156,6 +165,7 @@ export default function AmbassadorAdminPage() {
       </header>
 
       {error && <div className="internalError">{error}</div>}
+      {copyStatus && <p role="status">{copyStatus}</p>}
 
       <section className="internalMetrics">
         <article><small>Pilots</small><b>{totals.pilots || 0}</b></article>
@@ -202,6 +212,12 @@ export default function AmbassadorAdminPage() {
               <span><b>{pilot.returned_next_day || 0}</b><small>returned</small></span>
             </div>
 
+            <section className="pilotFeedbackSummary" aria-label="Referral performance interpretation">
+              <small>Next recommended operator step</small><b>{pilotNextAction(pilot).label}</b>
+              <p>{pilotNextAction(pilot).note}</p>
+              <p>Visit → signup: {referralFunnel(pilot).conversion.visitToSignup==null?"Not enough data":referralFunnel(pilot).conversion.visitToSignup+"%"}. Signup → activation: {referralFunnel(pilot).conversion.signupToActivated==null?"Not enough data":referralFunnel(pilot).conversion.signupToActivated+"%"}.</p>
+              <small>{referralFunnel(pilot).note}</small>
+            </section>
             <div className="pilotAdminActions">
               <select value="" disabled={!!busy} onChange={(e)=>{ if(e.target.value) setStage(pilot.id,e.target.value); }}>
                 <option value="">Move stage…</option>
@@ -217,6 +233,7 @@ export default function AmbassadorAdminPage() {
                 <div className="pilotActiveCode">
                   <small>Referral code</small>
                   <b>{pilot.ambassador_code}</b>
+                  {pilot.stage==="active"&&<button type="button" disabled={!!busy} onClick={()=>copyReferral(pilot.ambassador_code)}>Copy approved referral link</button>}
                   {pilot.stage === "paused"
                     ? <button disabled={!!busy} onClick={()=>setStage(pilot.id,"active")}>Reactivate</button>
                     : <button disabled={!!busy} onClick={()=>pausePilot(pilot.id)}>Pause code</button>}

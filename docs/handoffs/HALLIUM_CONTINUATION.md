@@ -4957,3 +4957,21 @@ One feature PR; individual commits retained. Scope deliberately limits community
 Next batch: **Batch 14 / H-P16 — Ambassador & Referral 2.0**, building on existing approved-code/referral infrastructure. Respect existing creator-feedback privacy and avoid commission claims.
 
 Verification and production deployment must be checked independently; a GitHub PR merge alone does not prove deployment or CI success.
+
+
+---
+
+# 56. Batch 14 / H-P16 — AMBASSADOR & REFERRAL 2.0
+
+Implemented on one feature branch as individually committed changes:
+
+- H-P16.1: bounded aggregate referral metrics and consent-conscious pilot next-action rules.
+- H-P16.2: explainable per-creator funnel indicators inside the existing admin console.
+- H-P16.3: copy-link action only for approved active codes, with success/failure feedback.
+- H-P16.4: node:test coverage for conversion denominators, codes, lifecycle and existing admin authorization.
+- H-P16.5: public attribution transparency and no invented commissions or creator causality.
+- H-P16.6: documentation, consolidation and next-phase handoff.
+
+Keep existing `is_hallim_admin` gate, `admin_approve_pilot`, `admin_pause_pilot`, one-time feedback links and existing Supabase RPC contract intact. No new database schema or automatic approval. The changes are not evidence of live deployment or of completed CI.
+
+Next: **Batch 15 / H-P17 — Admin Studio 2.0**.
