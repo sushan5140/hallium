@@ -42,6 +42,6 @@ test("switch outcome closes the old intervention and moves on",()=>{
 test("closure never claims causality",()=>{
  for(const action of ["maintain","escalate","repeat","switch"]){
   const c=buildTutorSessionClosure(snap,{status:"evaluated",action,samples:2,delta:5});
-  assert.doesNotMatch(c.causalCaveat,/caused the improvement\.$/i);
+  assert.match(c.causalCaveat,/does not (claim|prove)/i);
  }
 });
