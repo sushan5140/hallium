@@ -3506,6 +3506,18 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <label>Available time <select value={tutorIntent.minutes||""} onChange={e=>setTutorIntent(current=>({...current,minutes:e.target.value?Number(e.target.value):null}))}><option value="">Use saved time</option>{[5,10,15,20,30].map(n=><option key={n} value={n}>{n} min</option>)}</select></label>
             {(tutorIntent.focus||tutorIntent.minutes)&&<button type="button" onClick={()=>setTutorIntent({focus:"",minutes:null,topikMode:false})}>Clear today&apos;s steering</button>}
           </div>
+          {tutorDecision.primary&&<section className="tutorDecisionPreview" aria-label="Tutor intervention preview">
+            <span className="rail-group-label">WHY THIS NEXT</span>
+            <h3>{tutorDecision.primary.title}</h3>
+            <p><strong>Trains:</strong> {tutorDecision.explanation.trains}</p>
+            <p><strong>Chosen because:</strong> {tutorDecision.explanation.chosenBecause}</p>
+            <p><strong>Success looks like:</strong> {tutorDecision.explanation.success}</p>
+            <div className="learningPreferenceSummary">
+              {tutorDecision.explanation.evidence.map((row,index)=><span key={row.kind+index}><b>{row.kind.replaceAll("_"," ")}</b> {row.label}</span>)}
+            </div>
+            {tutorDecision.explanation.alternatives.length>0&&<p><strong>Alternatives considered:</strong> {tutorDecision.explanation.alternatives.map(item=>item.title).join(" · ")}</p>}
+            <p className="spMuted">{tutorDecision.explanation.uncertainty}</p>
+          </section>}
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
               <li key={step.kind + index} className={index === 0 ? "is-current" : ""}>
