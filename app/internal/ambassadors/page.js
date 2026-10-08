@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { getHallimSupabase } from "../../../lib/supabase/client";
+import {referralFunnel,pilotNextAction,validReferralCode} from "../../../lib/ambassador-insights.mjs";
 
 const movableStages = ["shortlisted","invited","testing","active","declined"];
 
@@ -84,7 +85,7 @@ export default function AmbassadorAdminPage() {
 
   async function approvePilot(id) {
     const code = (codeDrafts[id] || "").trim();
-    if (!/^[A-Za-z0-9_-]{2,48}$/.test(code)) {
+    if (!validReferralCode(code)) {
       setError("Use a 2–48 character referral code with letters, numbers, _ or -.");
       return;
     }
@@ -202,6 +203,12 @@ export default function AmbassadorAdminPage() {
               <span><b>{pilot.returned_next_day || 0}</b><small>returned</small></span>
             </div>
 
+            <section className="pilotFeedbackSummary" aria-label="Referral performance interpretation">
+              <small>Next recommended operator step</small><b>{pilotNextAction(pilot).label}</b>
+              <p>{pilotNextAction(pilot).note}</p>
+              <p>Visit → signup: {referralFunnel(pilot).conversion.visitToSignup==null?"Not enough data":referralFunnel(pilot).conversion.visitToSignup+"%"}. Signup → activation: {referralFunnel(pilot).conversion.signupToActivated==null?"Not enough data":referralFunnel(pilot).conversion.signupToActivated+"%"}.</p>
+              <small>{referralFunnel(pilot).note}</small>
+            </section>
             <div className="pilotAdminActions">
               <select value="" disabled={!!busy} onChange={(e)=>{ if(e.target.value) setStage(pilot.id,e.target.value); }}>
                 <option value="">Move stage…</option>
