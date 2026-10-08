@@ -22,7 +22,7 @@ export default function AmbassadorsPage() {
     <main className="publicPage ambassadorPage">
       <header className="publicNav">
         <a className="publicBrand" href="/"><i>ㅎ</i><span><b>Hallim</b><small>한림</small></span></a>
-        <nav><a href="/demo">Product demo</a><a href="/creator-kit">Creator kit</a><a className="publicNavCta" href="/auth/google?next=%2F%3Fview%3Dhome">Open Hallim</a></nav>
+        <nav><a href="/demo">Product demo</a><a href="/community">Community</a><a href="/creator-kit">Creator kit</a><a className="publicNavCta" href="/auth/google?next=%2F%3Fview%3Dhome">Open Hallim</a></nav>
       </header>
 
       <section className="publicHero">
