@@ -40,3 +40,12 @@ test("browser verification re-enters Learn after restoring saved progress",()=>{
  const saved=postReload.indexOf('Hangul local progress not retained across reload');
  assert.ok(learn>=0&&visible>learn&&saved>visible,"must return to visible Learn before checking saved state");
 });
+
+test("primary Hangul studio renders before the graduation checkpoint",()=>{
+ const page=readFileSync("app/hangul/page.js","utf8");
+ const studio=page.indexOf("<HangulLabBridge />");
+ const checkpoint=page.indexOf("<HangulGraduationCheckpoint />");
+ assert.ok(studio>=0,"primary Hangul studio must render");
+ assert.ok(checkpoint>=0,"graduation checkpoint must render");
+ assert.ok(studio<checkpoint,"checkpoint must not displace primary learning studio");
+});
