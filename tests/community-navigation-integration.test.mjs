@@ -18,7 +18,7 @@ test("public community forbids unmoderated publication and private information e
  const page=fs.readFileSync("app/community/page.js","utf8");
  assert.match(page,/No public comment wall/);
  assert.match(page,/private chat scraping/);
- assert.match(page,/not.*official TOPIK scores/);
+ assert.match(page,/never become official TOPIK scores/);
 });
 test("editorial policy explicitly requires review and future protections",()=>{
  const policy=fs.readFileSync("docs/community/REVIEW_POLICY.md","utf8");
