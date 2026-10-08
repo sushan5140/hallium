@@ -3670,6 +3670,21 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           <strong>{progressModel.tutor.interventions}</strong>
           <p>{!progressModel.tutor.latest?"No acted-on tutor intervention yet":latestTutor?.status==="evaluated"?latestTutor.action+" · "+(latestTutor.delta>=0?"+":"")+latestTutor.delta+" pts":"waiting for repeated evidence"}</p>
         </div>
+        <section className="tutorDecisionPreview" aria-label="Recent measurable gains">
+          <span className="rail-group-label">RECENT GAINS</span>
+          <h3>{progressModel.recentGains.length?"What actually improved lately":"No comparative gain confirmed yet"}</h3>
+          {progressModel.recentGains.length
+            ? <ul>{progressModel.recentGains.map((row,index)=><li key={row.kind+row.at+index}><strong>{row.label}</strong> · {row.detail} · {new Date(row.at).toLocaleDateString()}</li>)}</ul>
+            : <p>Hallium waits for comparable evidence before calling something an improvement.</p>}
+        </section>
+        <section className="tutorDecisionPreview" aria-label="Learning evidence timeline">
+          <span className="rail-group-label">EVIDENCE TIMELINE</span>
+          <h3>What changed, and when.</h3>
+          {progressModel.timeline.length
+            ? <ol>{progressModel.timeline.map(row=><li key={row.id}><strong>{row.label}</strong> · {row.detail}{row.change!=null?" · "+(row.change>=0?"+":"")+row.change+" pts":""}<br/><small>{row.source.replaceAll("_"," ")} · {new Date(row.at).toLocaleDateString()}</small></li>)}</ol>
+            : <p>No dated learning evidence yet.</p>}
+          <p className="spMuted">{progressModel.timelineNote}</p>
+        </section>
         <p className="spMuted">{progressModel.disclaimer}</p>
         <button className="curriculum-button rail-destination" onClick={() => navigate("companion")}>
           <span>Browse lessons</span><strong aria-hidden="true">↗</strong>
