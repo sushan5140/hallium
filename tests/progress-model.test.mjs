@@ -65,5 +65,6 @@ test("tutor follow-up remains distinct evidence",()=>{
  });
  assert.equal(model.tutor.interventions,1);
  assert.equal(model.tutor.latestOutcome.status,"evaluated");
- assert.ok(model.recentGains.some(x=>x.kind==="tutor"));
+ assert.ok(model.timeline.some(x=>x.source==="tutor" && x.evidenceOnly));
+ assert.ok(model.recentGains.every(x=>x.kind!=="tutor"));
 });

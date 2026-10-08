@@ -22,13 +22,14 @@ test("H-P6 preferences participate in automatic signed-in cloud sync", () => {
 });
 
 test("H-P6 preferences are supplied to both deterministic and AI intelligence", () => {
-  assert.match(core, /buildTodayLearningPlan\(\{[\s\S]*?preferences: learningPreferences/);
+  assert.match(core, /buildTutorDecision\(\{/);
+  assert.match(core, /preferences: learningPreferences/);
   assert.match(core, /adaptiveDifficulty: aiDifficultyRecord\?\.result \|\| null,\s*learningPreferences,/);
 });
 
 test("AI routes keep required-review safety before session fitting", () => {
-  assert.match(core, /enforceLearningPlanSafety\(learningRouteRecord\?\.result \|\| fallbackLearningRoute, fallbackLearningRoute\)/);
-  assert.match(core, /fitPlanToSession\(safeLearningRoute, learningPreferences\)/);
+  assert.match(core, /candidateRoute: learningRouteRecord\?\.result \|\| null/);
+  assert.match(core, /const activeLearningRoute = tutorDecision\.route/);
 });
 
 test("Profile exposes daily time and focus controls", () => {

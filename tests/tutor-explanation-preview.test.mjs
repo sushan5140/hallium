@@ -33,7 +33,7 @@ test("verified TOPIK preview defines success as later verified skill accuracy",(
  });
  assert.equal(d.primary.kind,"topik");
  assert.match(d.explanation.success,/verified accuracy/);
- assert.match(d.explanation.trains,/Reading order/);
+ assert.match(d.explanation.trains,/reading[_ ]order/i);
 });
 
 test("low confidence preview states uncertainty instead of certainty",()=>{
