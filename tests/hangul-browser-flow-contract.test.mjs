@@ -30,3 +30,13 @@ test("Hangul iframe keeps a usable height even with expanded progress panels",()
  assert.match(css,/\.frame\{[^}]*flex:1 0 auto/);
  assert.match(css,/\.frame\{[^}]*min-height:clamp\(420px,65dvh,740px\)/);
 });
+
+test("browser verification re-enters Learn after restoring saved progress",()=>{
+ const reload=script.indexOf('await page.reload({waitUntil:"domcontentloaded"})');
+ assert.ok(reload>=0,"saved progress reload must be tested");
+ const postReload=script.slice(reload);
+ const learn=postReload.indexOf('await frame.locator(learnNav+\' [data-view="learn"]\').click()');
+ const visible=postReload.indexOf('await frame.locator("#view-learn").waitFor({state:"visible"})');
+ const saved=postReload.indexOf('Hangul local progress not retained across reload');
+ assert.ok(learn>=0&&visible>learn&&saved>visible,"must return to visible Learn before checking saved state");
+});
