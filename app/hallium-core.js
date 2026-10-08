@@ -20,7 +20,7 @@ import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearne
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
 import { buildPracticeAttempt, practiceAttemptMistakeEvidence, summarizePracticeEvidence } from "../lib/practice-engine";
-import { buildTutorDecision, createTutorInterventionSnapshot, evaluateTutorIntervention } from "../lib/tutor-decision";
+import { buildTutorDecision, createTutorInterventionSnapshot, evaluateTutorIntervention, buildTutorSessionClosure } from "../lib/tutor-decision";
 import { lessonVocabularyCards } from "../lib/flashcard-collections";
 import { flashcardIntelligenceWithCatalog, mergeFlashcardIntelligence } from "../lib/flashcard-state";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
@@ -2017,6 +2017,9 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const latestTutorOutcome = latestTutorIntervention
     ? evaluateTutorIntervention(latestTutorIntervention,{practiceAttempts:practiceEvidence,topikAttempts:topikEvidence})
     : null;
+  const tutorSessionClosure = latestTutorIntervention
+    ? buildTutorSessionClosure(latestTutorIntervention,latestTutorOutcome)
+    : null;
   const tutorDecision = buildTutorDecision({
     mistakes: relevantMistakes,
     latestStudyPct,
@@ -3506,6 +3509,14 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <label>Available time <select value={tutorIntent.minutes||""} onChange={e=>setTutorIntent(current=>({...current,minutes:e.target.value?Number(e.target.value):null}))}><option value="">Use saved time</option>{[5,10,15,20,30].map(n=><option key={n} value={n}>{n} min</option>)}</select></label>
             {(tutorIntent.focus||tutorIntent.minutes)&&<button type="button" onClick={()=>setTutorIntent({focus:"",minutes:null,topikMode:false})}>Clear today&apos;s steering</button>}
           </div>
+          {tutorSessionClosure&&<section className="tutorDecisionPreview" aria-label="Tutor session outcome">
+            <span className="rail-group-label">SESSION OUTCOME</span>
+            <h3>{tutorSessionClosure.posture==="move_on"?"Ready to move on":tutorSessionClosure.posture==="escalate"?"Needs more support":tutorSessionClosure.posture==="stay"?"Keep this target":tutorSessionClosure.posture==="repeat"?"Repeat once more":"Waiting for evidence"}</h3>
+            <p><strong>What changed:</strong> {tutorSessionClosure.changed}</p>
+            <p><strong>Still unresolved:</strong> {tutorSessionClosure.unresolved}</p>
+            <p><strong>Next:</strong> {tutorSessionClosure.next}</p>
+            <p className="spMuted">{tutorSessionClosure.causalCaveat}</p>
+          </section>}
           {tutorDecision.primary&&<section className="tutorDecisionPreview" aria-label="Tutor intervention preview">
             <span className="rail-group-label">WHY THIS NEXT</span>
             <h3>{tutorDecision.primary.title}</h3>
