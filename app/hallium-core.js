@@ -22,6 +22,7 @@ import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
 import { buildPracticeAttempt, practiceAttemptMistakeEvidence, summarizePracticeEvidence } from "../lib/practice-engine";
 import { buildTutorDecision, createTutorInterventionSnapshot, evaluateTutorIntervention, buildTutorSessionClosure } from "../lib/tutor-decision";
 import { lessonVocabularyCards } from "../lib/flashcard-collections";
+import { buildProgressModel } from "../lib/progress-model";
 import { flashcardIntelligenceWithCatalog, mergeFlashcardIntelligence } from "../lib/flashcard-state";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
 
@@ -2037,6 +2038,17 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     intent: tutorIntent,
   });
   const activeLearningRoute = tutorDecision.route;
+  const progressModel = buildProgressModel({
+    currentLevel,
+    targetLevel,
+    completedPathCount,
+    totalPathLessons:pathLessons.length,
+    studyResults:activeStudyResults,
+    mistakes:relevantMistakes,
+    practiceAttempts:practiceEvidence,
+    topikAttempts:topikEvidence,
+    tutorInterventions,
+  });
 
   const audit = (() => {
     if (!latestStudyResult && completedCount === 0) {
@@ -3616,6 +3628,9 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   }
 
   function ProgressRail() {
+    const latestTopik=progressModel.topik.scoreTrend;
+    const latestTutor=progressModel.tutor.latestOutcome;
+
     return (
       <aside className="lesson-rail progress-rail" aria-label="Progress navigation">
         
@@ -3625,10 +3640,37 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           <p>Progress and test insights live here; start lessons from Practice or the catalog.</p>
         </header>
         <div className="rail-summary-card">
-          <span className="rail-group-label">COMPLETED LESSONS</span>
-          <strong>{completedPathCount}/{pathLessons.length}</strong><p>Your current learning path</p>
-          <i><em style={{ width: unitProgress + "%" }} /></i>
+          <span className="rail-group-label">LEARNING PATH</span>
+          <strong>{progressModel.path.completed}/{progressModel.path.total}</strong><p>{progressModel.path.percent}% curriculum complete</p>
+          <i><em style={{ width: progressModel.path.percent + "%" }} /></i>
         </div>
+        <div className="rail-summary-card">
+          <span className="rail-group-label">CURRENT LEVEL CONTEXT</span>
+          <strong>{progressModel.levelContext.currentLabel}</strong>
+          <p>{progressModel.levelContext.targetLabel?progressModel.levelContext.currentLabel+" → "+progressModel.levelContext.targetLabel:progressModel.levelContext.topikRange}</p>
+          <small>{progressModel.levelContext.note}</small>
+        </div>
+        <div className="rail-summary-card">
+          <span className="rail-group-label">STRUCTURED STUDY</span>
+          <strong>{progressModel.structuredStudy.latestPercent==null?"—":progressModel.structuredStudy.latestPercent+"%"}</strong>
+          <p>{progressModel.structuredStudy.attempts} recorded study test{progressModel.structuredStudy.attempts===1?"":"s"}</p>
+        </div>
+        <div className="rail-summary-card">
+          <span className="rail-group-label">UNRESOLVED</span>
+          <strong>{progressModel.weaknesses.dueCount}</strong>
+          <p>due review{progressModel.weaknesses.dueCount===1?"":"s"} · {progressModel.unresolved.length} visible priorities</p>
+        </div>
+        <div className="rail-summary-card">
+          <span className="rail-group-label">VERIFIED TOPIK</span>
+          <strong>{progressModel.topik.verifiedAttempts}</strong>
+          <p>{latestTopik.status==="insufficient"?"Not enough verified attempts yet":latestTopik.status+(latestTopik.delta==null?"":" · "+(latestTopik.delta>=0?"+":"")+latestTopik.delta+" pts")}</p>
+        </div>
+        <div className="rail-summary-card">
+          <span className="rail-group-label">TUTOR FOLLOW-UP</span>
+          <strong>{progressModel.tutor.interventions}</strong>
+          <p>{!progressModel.tutor.latest?"No acted-on tutor intervention yet":latestTutor?.status==="evaluated"?latestTutor.action+" · "+(latestTutor.delta>=0?"+":"")+latestTutor.delta+" pts":"waiting for repeated evidence"}</p>
+        </div>
+        <p className="spMuted">{progressModel.disclaimer}</p>
         <button className="curriculum-button rail-destination" onClick={() => navigate("companion")}>
           <span>Browse lessons</span><strong aria-hidden="true">↗</strong>
         </button>
