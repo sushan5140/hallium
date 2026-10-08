@@ -4991,3 +4991,20 @@ Delivered as separate meaningful commits within one consolidated PR:
 **Important scope:** This improves the existing private Admin Studio, not an unrestricted publishing system. Existing protected-admin membership checks, Supabase state writes, lesson previews and note persistence remain authoritative. No new database table, external publication, scoring engine or user-generated content feed.
 
 Next: **Batch 16 / H-P18 — Performance & Offline.** Run workflows and deployment checks independently before describing anything as verified or live.
+
+
+---
+
+# 58. Batch 16 / H-P18 — PERFORMANCE & OFFLINE SAFETY FOUNDATION
+
+One consolidated PR with separate commits for:
+- H-P18.1: safe public-only navigation offline fallback service worker.
+- H-P18.2: accessible recovery page and explicit learner-data privacy messaging.
+- H-P18.3: non-blocking browser registration after load on secure origins.
+- H-P18.4: privacy and runtime-boundary regression tests.
+- H-P18.5: handoff and closure.
+
+Safety: no private user record, score, conversation, assessment, API response or authenticated route is cached by this service worker; only `/offline` is pre-cached. No offline edits or sync queue are claimed. Existing partner dynamic import remains intact.
+
+Next: **Batch 17 / H-P19 — Accessibility & internationalization**.
+CI and deployment verification are independent from GitHub merge status.
