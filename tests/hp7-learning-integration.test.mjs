@@ -63,11 +63,11 @@ test("Hallium home uses the same saved interests for lesson and Real Korean rank
 
 test("interest routing remains optional and separate from due-review safety", () => {
   const realIndex = core.indexOf("const realKoreanSceneRecommendations");
-  const fallbackIndex = core.indexOf("const fallbackLearningRoute = buildTodayLearningPlan");
-  const safetyIndex = core.indexOf("const safeLearningRoute = enforceLearningPlanSafety");
+  const fallbackIndex = core.indexOf("const tutorDecision = buildTutorDecision");
+  const safetyIndex = core.indexOf("const activeLearningRoute = tutorDecision.route");
   assert.ok(realIndex >= 0);
   assert.ok(fallbackIndex >= 0);
   assert.ok(safetyIndex >= 0);
   assert.ok(safetyIndex > fallbackIndex);
-  assert.match(core, /enforceLearningPlanSafety\(learningRouteRecord\?\.result \|\| fallbackLearningRoute, fallbackLearningRoute\)/);
+  assert.match(core, /candidateRoute: learningRouteRecord\?\.result \|\| null/);
 });
