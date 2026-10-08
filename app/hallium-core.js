@@ -2962,7 +2962,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     navigate("test");
   }
 
-  async function launchLearningRouteStep(kind) {
+  async function launchLearningRouteStep(kind, href = "") {
     if (kind === "companion") {
       openLesson(nextLesson.id);
       return;
@@ -2985,6 +2985,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     }
     if (kind === "real_korean") {
       navigate("partner");
+      return;
+    }
+    if (kind === "topik") {
+      if (typeof window !== "undefined") window.location.href = href || "/topik-mocks";
       return;
     }
     if (kind === "adaptive_review") {
@@ -3444,7 +3448,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     const routeLabels = {
       companion: "Continue lesson", vocab: "Open vocabulary", grammar: "Open grammar",
       test: "Start study check", review_queue: "Open review",
-      adaptive_review: "Adaptive practice", checkpoint: "Open checkpoint", real_korean: "Open Real Korean",
+      adaptive_review: "Adaptive practice", checkpoint: "Open checkpoint", real_korean: "Open Real Korean", topik: "Open TOPIK practice",
     };
     return (
       <aside className="lesson-rail home-rail" aria-label="Today's study plan and curriculum">
@@ -3463,7 +3467,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
               <li key={step.kind + index} className={index === 0 ? "is-current" : ""}>
-                <button onClick={() => launchLearningRouteStep(step.kind)} aria-label={(routeLabels[step.kind] || "Open practice") + ": " + step.title}>
+                <button onClick={() => launchLearningRouteStep(step.kind, step.href)} aria-label={(routeLabels[step.kind] || "Open practice") + ": " + step.title}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div className="route-task-copy">
                     <strong>{step.title}</strong>
