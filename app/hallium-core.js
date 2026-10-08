@@ -20,7 +20,7 @@ import { clearScopedLearnerStorage, localLearnerStateBelongsToUser, scopedLearne
 import { DEFAULT_LEARNING_PREFERENCES, LEARNING_FOCUS_OPTIONS, LEARNING_TOPIC_OPTIONS, adaptiveReviewSchedule, buildDeterministicStudyPlan, buildTodayLearningPlan, enforceLearningPlanSafety, fitPlanToSession, normalizeLearningPreferences, rankInterestLessons, rankRealKoreanScenes, rankWeakSkills, reviewUrgency } from "../lib/learning-intelligence";
 import { findRealKoreanPreset, realKoreanScenes } from "../lib/real-korean";
 import { buildPracticeAttempt, practiceAttemptMistakeEvidence, summarizePracticeEvidence } from "../lib/practice-engine";
-import { buildTutorDecision } from "../lib/tutor-decision";
+import { buildTutorDecision, createTutorInterventionSnapshot, evaluateTutorIntervention } from "../lib/tutor-decision";
 import { lessonVocabularyCards } from "../lib/flashcard-collections";
 import { flashcardIntelligenceWithCatalog, mergeFlashcardIntelligence } from "../lib/flashcard-state";
 import { playServerKoreanTts } from "../lib/korean-tts-provider";
@@ -1469,6 +1469,14 @@ function mergeIntelligenceState(local = {}, remote = {}) {
   merged.practiceHistory = [...historyMap.values()]
     .sort((a, b) => new Date(b.completedAt || 0) - new Date(a.completedAt || 0))
     .slice(0, 24);
+  const interventionMap = new Map();
+  [...(remote?.tutorInterventions || []), ...(local?.tutorInterventions || [])].forEach((item) => {
+    if (!item?.id) return;
+    interventionMap.set(item.id, item);
+  });
+  merged.tutorInterventions = [...interventionMap.values()]
+    .sort((a,b)=>new Date(a.recommendedAt || 0)-new Date(b.recommendedAt || 0))
+    .slice(-20);
   merged.mistakeLog = mergeMistakeLogs(local?.mistakeLog || [], remote?.mistakeLog || []);
   merged.flashcards = mergeFlashcardIntelligence(local?.flashcards || {}, remote?.flashcards || {});
 
@@ -1587,6 +1595,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
   const [mistakeLog, setMistakeLog] = useState([]);
   const [practiceEvidence, setPracticeEvidence] = useState([]);
   const [topikEvidence, setTopikEvidence] = useState([]);
+  const [tutorInterventions, setTutorInterventions] = useState([]);
   const [mistakeReviewChoice, setMistakeReviewChoice] = useState(null);
   const [mistakeReviewChecked, setMistakeReviewChecked] = useState(false);
   const [selectedVocab, setSelectedVocab] = useState(null);
@@ -1631,6 +1640,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setMistakeLog(savedIntelligence.mistakeLog || []);
     setPracticeEvidence(savedIntelligence.practiceEvidence || []);
     setTopikEvidence(savedIntelligence.topik?.evidence || []);
+    setTutorInterventions(savedIntelligence.tutorInterventions || []);
     const curriculumFlashcards = lessonVocabularyCards(units.flatMap((unit) => unit.lessons || []));
     const nextFlashcards = flashcardIntelligenceWithCatalog(savedIntelligence.flashcards || {}, curriculumFlashcards);
     localStorage.setItem(scopedLearnerStorageKey(intelligenceStateKey, guestMode), JSON.stringify({
@@ -2002,6 +2012,10 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     ? (activeStudy.vocabulary || []).filter((w) => w.group === activeWord.group && w.korean !== activeWord.korean).slice(0, 4)
     : [];
 
+  const latestTutorIntervention = tutorInterventions.at(-1) || null;
+  const latestTutorOutcome = latestTutorIntervention
+    ? evaluateTutorIntervention(latestTutorIntervention,{practiceAttempts:practiceEvidence,topikAttempts:topikEvidence})
+    : null;
   const tutorDecision = buildTutorDecision({
     mistakes: relevantMistakes,
     latestStudyPct,
@@ -2015,6 +2029,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     dueCount: dueMistakes.length,
     topikAttempts: topikEvidence,
     topikLevel: currentLevel.rank >= 3 ? "II" : "I",
+    interventionMemory: latestTutorIntervention ? {snapshot:latestTutorIntervention,outcome:latestTutorOutcome} : null,
   });
   const activeLearningRoute = tutorDecision.route;
 
@@ -2082,6 +2097,7 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     setMistakeLog(intelligence?.mistakeLog || []);
     setPracticeEvidence(intelligence?.practiceEvidence || []);
     setTopikEvidence(intelligence?.topik?.evidence || []);
+    setTutorInterventions(intelligence?.tutorInterventions || []);
 
     if (audit) {
       localStorage.setItem(scopedLearnerStorageKey(aiAuditKey, false), JSON.stringify(audit));
@@ -2962,7 +2978,15 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
     navigate("test");
   }
 
-  async function launchLearningRouteStep(kind, href = "") {
+  async function launchLearningRouteStep(kind, href = "", step = null) {
+    if (step?.kind && tutorDecision?.primary?.kind===step.kind && tutorDecision?.primary?.title===step.title) {
+      const snapshot=createTutorInterventionSnapshot(tutorDecision);
+      if(snapshot){
+        const next=[...tutorInterventions,snapshot].slice(-20);
+        setTutorInterventions(next);
+        saveIntelligenceState({tutorInterventions:next});
+      }
+    }
     if (kind === "companion") {
       openLesson(nextLesson.id);
       return;
@@ -3463,11 +3487,12 @@ export default function Hallim({ guestMode = false, guestName = "Hallim Guest" }
             <h2 id="rail-plan-title">A clear route for today.</h2>
             <p>{activeLearningRoute.plannedMinutes || activeLearningRoute.sessionMinutes || learningPreferences.dailyMinutes} min · fitted to your saved study preferences.</p>
             <p><strong>Tutor decision · {tutorDecision.confidence} confidence.</strong> {tutorDecision.reason} <span>{tutorDecision.evidence[0]?.label}</span></p>
+            {latestTutorIntervention&&<p><strong>Last intervention · {latestTutorOutcome?.status==="evaluated"?latestTutorOutcome.action:"waiting for more evidence"}.</strong> {latestTutorOutcome?.status==="evaluated"?(latestTutorOutcome.delta>=0?"+":"")+latestTutorOutcome.delta+" pts across "+latestTutorOutcome.samples+" later relevant attempts.":"Hallium waits for at least two later relevant attempts before adapting."}</p>}
           </div>
           <ol className="today-route">
             {activeLearningRoute.steps.slice(0, 3).map((step, index) => (
               <li key={step.kind + index} className={index === 0 ? "is-current" : ""}>
-                <button onClick={() => launchLearningRouteStep(step.kind, step.href)} aria-label={(routeLabels[step.kind] || "Open practice") + ": " + step.title}>
+                <button onClick={() => launchLearningRouteStep(step.kind, step.href, step)} aria-label={(routeLabels[step.kind] || "Open practice") + ": " + step.title}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div className="route-task-copy">
                     <strong>{step.title}</strong>
