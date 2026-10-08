@@ -23,3 +23,10 @@ test("responsive regression still checks writing, building and saved learning st
  assert.match(script,/writing-canvas/);
  assert.match(script,/syllable-result/);
 });
+
+test("Hangul iframe keeps a usable height even with expanded progress panels",()=>{
+ const css=readFileSync("app/hangul/page.module.css","utf8");
+ assert.match(css,/\.shell\{[^}]*overflow-y:auto/);
+ assert.match(css,/\.frame\{[^}]*flex:1 0 auto/);
+ assert.match(css,/\.frame\{[^}]*min-height:clamp\(420px,65dvh,740px\)/);
+});
