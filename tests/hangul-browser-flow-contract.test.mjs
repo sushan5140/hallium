@@ -67,3 +67,13 @@ test("Hangul bridge controls offer accessible tap sizes and readable secondary l
  assert.match(final,/\.progressMetrics span,\.readingRound header,\.readingRound p,\.decodingCard header span,\.decodingCard p\{font-size:12px\}/);
  assert.match(final,/@media\(max-width:520px\)\{\.progressMetrics span\{font-size:12px\}/);
 });
+
+test("graduation checkpoint reacts to progress events without background polling",()=>{
+ const source=readFileSync("app/hangul/HangulGraduationCheckpoint.js","utf8");
+ const bridge=readFileSync("app/hangul/HangulLabBridge.js","utf8");
+ assert.match(bridge,/dispatchEvent\(new CustomEvent\("hallium:hangul:changed"\)\)/);
+ assert.match(source,/addEventListener\("hallium:hangul:changed", refresh\)/);
+ assert.match(source,/removeEventListener\("hallium:hangul:changed", refresh\)/);
+ assert.match(source,/addEventListener\("storage", refresh\)/);
+ assert.doesNotMatch(source,/setInterval\(/);
+});
