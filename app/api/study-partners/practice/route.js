@@ -50,8 +50,11 @@ export async function POST(request){
  try{
   const raw=await request.text();
   if(raw.length>500)return Response.json({error:"Request too large."},{status:413});
-  const id=JSON.parse(raw).connectionId;
-  if(typeof id!=="string"||!/^[a-f0-9-]{36}$/i.test(id))return Response.json({error:"Invalid partnership."},{status:400});
+  let payload;
+  try { payload=JSON.parse(raw); }
+  catch { return Response.json({error:"Invalid JSON request."},{status:400}); }
+  const id=payload && typeof payload==="object" && !Array.isArray(payload) ? payload.connectionId : null;
+  if(typeof id!=="string"||!/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(id))return Response.json({error:"Invalid partnership."},{status:400});
   const {data:connection,error:ce}=await supabase.from("hallium_partner_connections").select("*").eq("id",id).maybeSingle();
   if(ce||!connection||connection.status!=="accepted"||![connection.user_low,connection.user_high].includes(user.id))return Response.json({error:"An accepted partnership is required."},{status:403});
   const since=new Date(Date.now()-24*60*60*1000).toISOString();
