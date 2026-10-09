@@ -22,11 +22,11 @@ export default function HangulGraduationCheckpoint() {
   useEffect(() => {
     const refresh = () => setState(readState());
     refresh();
-    const timer = window.setInterval(refresh, 1200);
     window.addEventListener("storage", refresh);
+    window.addEventListener("hallium:hangul:changed", refresh);
     return () => {
-      window.clearInterval(timer);
       window.removeEventListener("storage", refresh);
+      window.removeEventListener("hallium:hangul:changed", refresh);
     };
   }, []);
 
