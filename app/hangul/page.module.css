@@ -34,3 +34,10 @@
 .decodingBridge>div:first-child{display:grid;gap:2px}.decodingBridge>div:first-child>span{color:#e76f51;font-size:8px;font-weight:900;letter-spacing:.08em}.decodingBridge>div:first-child>strong{font-size:13px}.decodingBridge>div:first-child>small{color:#676b75;font-size:8px}
 .decodingCard{border:1px solid #eadfd8;border-radius:13px;background:#fff;padding:10px}.decodingCard header{display:flex;align-items:center;justify-content:space-between;gap:10px}.decodingCard header span{font-size:8px;font-weight:900;color:#e76f51}.decodingCard header b{font:900 26px/1.1 'Noto Sans KR',system-ui,sans-serif}.decodingCard p{margin:7px 0;color:#676b75;font-size:8px}.decodingAnswers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.decodingAnswers button,.decodingCard>button{min-height:32px;border:1px solid #e6ddd6;border-radius:9px;background:#fff;font-size:13px;font-weight:850}.decodingCard>small{display:block;margin-top:8px;color:#676b75;font-size:8px}.decodingCard>button{margin-top:8px;padding:0 10px;background:#e76f51;color:#fff;border-color:#e76f51;font-size:8px}
 @media(max-width:720px){.decodingBridge{grid-template-columns:1fr}.decodingAnswers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Batch 26: keep secondary Hangul activities legible and touch-friendly. */
+.progressBridge>button,.readingBridge>button,.readingAnswers button,.readingNext,.decodingAnswers button,.decodingCard>button{min-height:44px;font-size:12px}
+.progressBridge>div:first-child>small,.readingBridge>div:first-child>small,.decodingBridge>div:first-child>small,.decodingCard>small{font-size:12px}
+.progressMetrics span,.readingRound header,.readingRound p,.decodingCard header span,.decodingCard p{font-size:12px}
+.readingBridge>div:first-child>span,.decodingBridge>div:first-child>span,.progressBridge>div:first-child>span{font-size:11px}
+@media(max-width:520px){.progressMetrics span{font-size:12px}.progressBridge>button{padding-inline:12px}}
