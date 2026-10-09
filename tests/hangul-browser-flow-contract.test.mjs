@@ -58,3 +58,12 @@ test("Hangul saved progress merge validates both stores before iterating arrays"
  assert.match(bridge,/\.\.\.asArray\(safeCanonical\[field\]\), \.\.\.asArray\(safeLocal\[field\]\)/);
  assert.match(bridge,/\.\.\.asArray\(safeCanonical\.quizHistory\), \.\.\.asArray\(safeLocal\.quizHistory\)/);
 });
+
+test("Hangul bridge controls offer accessible tap sizes and readable secondary labels",()=>{
+ const css=readFileSync("app/hangul/page.module.css","utf8");
+ const final=css.slice(css.indexOf("/* Batch 26: keep secondary Hangul activities"));
+ assert.ok(final.length>0,"accessibility overrides must be present");
+ assert.match(final,/\.readingAnswers button,\.readingNext,\.decodingAnswers button,\.decodingCard>button\{min-height:44px;font-size:12px\}/);
+ assert.match(final,/\.progressMetrics span,\.readingRound header,\.readingRound p,\.decodingCard header span,\.decodingCard p\{font-size:12px\}/);
+ assert.match(final,/@media\(max-width:520px\)\{\.progressMetrics span\{font-size:12px\}/);
+});
