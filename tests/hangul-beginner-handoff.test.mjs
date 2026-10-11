@@ -2,13 +2,14 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { evaluateHangulGraduation } from "../lib/hangul-graduation.js";
+import { HANGUL_DECODING_ITEMS } from "../lib/hangul-decoding.js";
 
 const core = fs.readFileSync("app/hallium-core.js","utf8");
 
 test("Hangul graduation deep-links directly into Beginner Lesson 1", () => {
   const ready = evaluateHangulGraduation({
     progress:{counts:{recognized:40,syllableBuilds:12,wordReads:8},recentQuizAverage:9},
-    decodedPatterns:["a","b","c"],
+    decodedPatterns:HANGUL_DECODING_ITEMS.slice(0,3).map(item => item.id),
   });
   assert.equal(ready.nextAction.target,"/?view=lesson&lesson=unit-1-lesson-1&from=hangul");
 });
